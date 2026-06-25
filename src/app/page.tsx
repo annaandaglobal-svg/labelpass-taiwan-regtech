@@ -400,6 +400,7 @@ export default function Home() {
   const [toast, setToast] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
+  const currentActionPlan = useMemo(() => result ? actionPlanForResult(result) : null, [result]);
 
   useEffect(() => {
     let cancelled = false;
@@ -540,6 +541,12 @@ export default function Home() {
     setToast(messages[kind]);
   }
 
+  function focusResultPanel() {
+    window.setTimeout(() => {
+      document.querySelector(".result-pane")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
+  }
+
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
     const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|compound food additive|food additive|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|식품첨가물|복방|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠|食品添加物|複方食品添加物/i.test(haystack);
@@ -560,6 +567,7 @@ export default function Home() {
       const review = makeSavedReview(nextInput, nextResult);
       const nextSaved = [review, ...savedReviews].slice(0, 8);
       setResult(nextResult);
+      focusResultPanel();
       setSavedReviews(nextSaved);
       writeSavedReviews(nextSaved);
       archiveReviewLater(review);
@@ -580,6 +588,7 @@ export default function Home() {
       const review = makeSavedReview(fixedInput, nextResult);
       const nextSaved = [review, ...savedReviews].slice(0, 8);
       setResult(nextResult);
+      focusResultPanel();
       setSavedReviews(nextSaved);
       writeSavedReviews(nextSaved);
       archiveReviewLater(review);
@@ -907,15 +916,24 @@ export default function Home() {
             <section className="result-pane">
               {!result && !isAnalyzing && <EmptyResult />}
               {isAnalyzing && <Analyzing />}
-              {result && visibleStatus && (
+              {result && visibleStatus && currentActionPlan && (
                 <>
                   <div className={`verdict ${visibleStatus.tone}`}>
-                    <div>
-                      <span className="stamp">{visibleStatus.stamp}</span>
+                    <div className="verdict-copy">
+                      <div className="report-meta">
+                        <span className="stamp">{visibleStatus.stamp}</span>
+                        <em>대만 {productFamilyLabel(input.productType)} 리포트</em>
+                        <em>{input.productName || "미지정 제품"}</em>
+                        <em>{formatReportDate(result.generatedAt)}</em>
+                      </div>
                       <h2>{result.summary.fail + result.summary.warn + result.summary.needsInfo}건만 확인하면 출고 판단에 가까워집니다</h2>
                       <p>자동 판정 점수 {result.score}점 · 룰셋 {result.ruleVersion}</p>
                     </div>
-                    <strong>{visibleStatus.label}</strong>
+                    <div className="verdict-status-card">
+                      <small>출고 판단</small>
+                      <strong>{visibleStatus.label}</strong>
+                      <span>{currentActionPlan.nextAction}</span>
+                    </div>
                   </div>
 
                   <div className="metric-grid">
@@ -925,6 +943,8 @@ export default function Home() {
                     <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
                   </div>
 
+                  <ReportVersionStrip result={result} actionPlan={currentActionPlan} input={input} />
+
                   <ExecutionConsole
                     findings={result.findings}
                     onSelect={(findingId) => {
@@ -933,18 +953,31 @@ export default function Home() {
                     }}
                   />
 
-                  <ActionPlanPanel actionPlan={actionPlanForResult(result)} />
+                  <ActionPlanPanel
+                    actionPlan={currentActionPlan}
+                    onSelect={(findingId) => {
+                      setFilter("all");
+                      setExpandedFinding(findingId);
+                    }}
+                    onExpert={() => setShowExpertModal(true)}
+                  />
 
                   <div className="report-toolbar">
-                    <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
-                      <Filter size={15} /> 전체
-                    </button>
-                    <button className="ghost-btn" onClick={downloadReport}>
-                      <Download size={16} /> PDF 내려받기
-                    </button>
-                    <button className="ghost-btn" onClick={() => void recheckAsFixed()}>
-                      <RefreshCw size={16} /> 수정본 재검토
-                    </button>
+                    <div className="toolbar-title">
+                      <b>검토 항목</b>
+                      <small>위험도순으로 펼쳐서 근거와 수정안을 확인</small>
+                    </div>
+                    <div className="toolbar-actions">
+                      <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
+                        <Filter size={15} /> 전체
+                      </button>
+                      <button className="ghost-btn" onClick={downloadReport}>
+                        <Download size={16} /> PDF
+                      </button>
+                      <button className="ghost-btn" onClick={() => void recheckAsFixed()}>
+                        <RefreshCw size={16} /> 재검토
+                      </button>
+                    </div>
                   </div>
 
                   <div className="findings">
@@ -981,6 +1014,30 @@ export default function Home() {
                         <small>서류 체크 후 파트너 비교</small>
                       </span>
                     </button>
+                  </div>
+
+                  <div className="report-footer">
+                    <div className="report-footer-head">
+                      <div>
+                        <b>리포트 처리 순서</b>
+                        <span>체크리스트와 근거 묶음을 같은 버전으로 보관</span>
+                      </div>
+                      <div className="report-footer-actions">
+                        <button onClick={() => void recheckAsFixed()}>
+                          <RefreshCw size={15} /> 수정본 재검토
+                        </button>
+                        <button onClick={downloadReport}>
+                          <Download size={15} /> PDF
+                        </button>
+                      </div>
+                    </div>
+                    <div className="report-footer-flow">
+                      <span><ClipboardCheck size={13} /> 체크리스트 확정</span>
+                      <span><RefreshCw size={13} /> 수정본 재검토</span>
+                      <span><UserRoundCheck size={13} /> 전문가 검수</span>
+                      <span><History size={13} /> PDF/버전 보관</span>
+                    </div>
+                    <p>이 리포트는 공식 소스와 룰셋 기반의 1차 검토 초안입니다. 실제 출고 전에는 조성표, 수입자 자료, 최종 라벨 파일을 같은 버전으로 맞춰 보관하세요.</p>
                   </div>
                 </>
               )}
@@ -1060,6 +1117,31 @@ function Metric({ value, label, tone, onClick }: { value: number; label: string;
       <b>{value}</b>
       <span>{label}</span>
     </button>
+  );
+}
+
+function ReportVersionStrip({ result, actionPlan, input }: { result: ReviewResult; actionPlan: ReviewActionPlan; input: ReviewInput }) {
+  const openItems = result.summary.fail + result.summary.needsInfo + result.summary.warn;
+  const requiredDocs = actionPlan.documentChecklist.filter((doc) => doc.status === "needed" || doc.status === "review").length;
+
+  return (
+    <div className="report-version-strip" aria-label="리포트 버전과 근거 상태">
+      <span>
+        <History size={15} />
+        <b>v1 검토 초안</b>
+        <small>{formatShortDate(result.generatedAt)} · {result.ruleVersion}</small>
+      </span>
+      <span>
+        <Database size={15} />
+        <b>공식 근거 {actionPlan.evidencePack.length}개</b>
+        <small>문서 확인 {requiredDocs}개 · 별칭/용어 인덱스 연결</small>
+      </span>
+      <span className={openItems > 0 ? "warn" : "pass"}>
+        <BadgeCheck size={15} />
+        <b>{openItems > 0 ? `${openItems}개 처리 후 출고` : "출고 가능"}</b>
+        <small>{input.origin || "원산지 미지정"} → 대만 · {productFamilyLabel(input.productType)}</small>
+      </span>
+    </div>
   );
 }
 
@@ -1179,8 +1261,10 @@ function ExecutionConsole({ findings, onSelect }: { findings: Finding[]; onSelec
   );
 }
 
-function ActionPlanPanel({ actionPlan }: { actionPlan: ReviewActionPlan }) {
+function ActionPlanPanel({ actionPlan, onSelect, onExpert }: { actionPlan: ReviewActionPlan; onSelect: (findingId: string) => void; onExpert: () => void }) {
   const documents = actionPlan.documentChecklist.slice(0, 6);
+  const actionItems = actionPlan.actionItems.slice(0, 3);
+  const evidencePack = actionPlan.evidencePack.slice(0, 2);
 
   return (
     <div className={`action-plan-panel ${actionPlan.priority}`}>
@@ -1209,6 +1293,26 @@ function ActionPlanPanel({ actionPlan }: { actionPlan: ReviewActionPlan }) {
         )}
       </div>
 
+      <div className="action-path" aria-label="우선순위 작업 흐름">
+        {actionItems.length > 0 ? (
+          actionItems.map((item) => (
+            <button key={item.id} className={`action-path-card ${statusTone(item.status)}`} onClick={() => onSelect(item.findingId)}>
+              <span>{item.priority}</span>
+              <div>
+                <b>{item.primaryFix}</b>
+                <small>{item.owner} · {item.eta} · {item.impact}</small>
+              </div>
+            </button>
+          ))
+        ) : (
+          <div className="action-path-empty">
+            <ShieldCheck size={16} />
+            <b>차단 항목 없음</b>
+            <small>공식 근거와 lot 문서만 보관하면 다음 출고에 재사용할 수 있습니다.</small>
+          </div>
+        )}
+      </div>
+
       <div className="document-strip" aria-label="문서 체크리스트">
         {documents.map((doc) => (
           <span key={doc.id} className={`doc-chip ${doc.tone}`}>
@@ -1217,6 +1321,30 @@ function ActionPlanPanel({ actionPlan }: { actionPlan: ReviewActionPlan }) {
             <em>{documentStatusLabel(doc.status)}</em>
           </span>
         ))}
+      </div>
+
+      {evidencePack.length > 0 && (
+        <div className="evidence-pack-strip" aria-label="공식 근거 묶음">
+          {evidencePack.map((source) => (
+            <a key={`${source.sourceUrl}-${source.status}`} href={source.sourceUrl} target="_blank" rel="noreferrer">
+              <span className={statusTone(source.status)}>{source.findingIds.length}</span>
+              <div>
+                <b>{source.title}</b>
+                <small>{source.evidence ?? source.source}</small>
+              </div>
+              <ExternalLink size={14} />
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div className="plan-cta-row">
+        <button className="primary-btn" onClick={onExpert}>
+          <UserRoundCheck size={15} /> 전문가 검수 요청
+        </button>
+        <a className="ghost-btn" href="/knowledge">
+          <Search size={15} /> 근거 더 찾기
+        </a>
       </div>
     </div>
   );
@@ -1229,6 +1357,23 @@ function productStageForReview(review: SavedReview): ProductFilter {
 
 function formatShortDate(value: string) {
   return new Date(value).toLocaleDateString("ko-KR", { month: "2-digit", day: "2-digit" }).replace(/\.\s?/g, ".").replace(/\.$/, "");
+}
+
+function formatReportDate(value: string) {
+  return new Date(value).toLocaleString("ko-KR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+}
+
+function productFamilyLabel(productType: string) {
+  const normalized = productType.toLowerCase();
+  if (normalized.includes("food") || normalized.includes("식품") || normalized.includes("snack") || normalized.includes("tea")) return "식품";
+  if (normalized.includes("cosmetic") || normalized.includes("화장") || normalized.includes("cream") || normalized.includes("toner")) return "화장품";
+  return "수출입";
 }
 
 function statusTone(status: ReviewStatus) {
