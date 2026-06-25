@@ -14,6 +14,7 @@
     "build:terms": "node scripts/build-term-index.mjs",
     "build:knowledge-seed": "pnpm build:terms && node scripts/generate-knowledge-seed.mjs",
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
+    "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
     "apply:supabase-knowledge": "node scripts/apply-supabase-knowledge.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",

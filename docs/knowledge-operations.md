@@ -18,9 +18,11 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 pnpm crawl:knowledge
 pnpm build:knowledge-seed
 pnpm validate:knowledge
+pnpm audit:knowledge
 ```
 
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
+Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
 
 ## Manual Browser Capture
 
@@ -84,8 +86,10 @@ Current generated counts:
 pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm validate:knowledge
+pnpm audit:knowledge
 pnpm build
 pnpm smoke:api
 ```
 
 The smoke test includes multilingual review aliases and `/api/knowledge/search` cases and must pass before deployment.
+The audit command is intentionally non-blocking in CI; its high and medium findings are treated as the next source-quality backlog.
