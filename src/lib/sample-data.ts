@@ -105,6 +105,30 @@ export const foodCleanSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const foodAdditiveSampleReview: ReviewInput = {
+  productName: "감칠맛 쌀과자 80g",
+  productType: "prepackaged food / snack / 식품",
+  origin: "대한민국",
+  manufacturer: "ANNAANDA Foods, Seoul / Taiwan Importer Co.",
+  invoiceValue: "720",
+  ingredientsText: [
+    "Rice",
+    "MSG",
+    "Sodium benzoate",
+    "Xanthan gum",
+    "Salt"
+  ].join(", "),
+  labelText: [
+    "品名：旨味米餅",
+    "內容量：80g",
+    "成分：米、味精、苯甲酸鈉、三仙膠、鹽",
+    "原產地：韓國",
+    "進口商：Taiwan Importer Co.",
+    "有效日期：2027.05.01",
+    "營養標示：每份熱量 120 kcal、蛋白質 2g、脂肪 1g、碳水化合物 25g、糖 1g、鈉 240mg"
+  ].join("\n")
+};
+
 export const sourceCards = [
   {
     title: "Cosmetic Hygiene and Safety Act",

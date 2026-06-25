@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
-import { cleanSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import { cleanSampleReview, foodAdditiveSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
@@ -153,12 +153,14 @@ export default function Home() {
     setInput((current) => ({ ...current, [key]: value }));
   }
 
-  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean") {
+  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-additive") {
     const next =
       kind === "risky"
         ? sampleReview
         : kind === "food-risky"
           ? foodRiskSampleReview
+          : kind === "food-additive"
+            ? foodAdditiveSampleReview
           : kind === "food-clean"
             ? foodCleanSampleReview
             : cleanSampleReview;
@@ -170,6 +172,8 @@ export default function Home() {
         ? "화장품 위반 예시 샘플을 채웠습니다."
         : kind === "food-risky"
           ? "식품 알레르겐 누락 예시 샘플을 채웠습니다."
+          : kind === "food-additive"
+            ? "식품첨가물 확인 예시 샘플을 채웠습니다."
           : kind === "food-clean"
             ? "식품 통과 예시 샘플을 채웠습니다."
             : "화장품 통과 예시 샘플을 채웠습니다."
@@ -178,12 +182,12 @@ export default function Home() {
 
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
-    const looksFood = /food|snack|tea|cookie|beverage|식품|과자|차|쿠키|食品|餅乾|茶|花生|小麥/i.test(haystack);
+    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|msg|sodium benzoate|xanthan|식품|과자|차|쿠키|쌀과자|食品|餅乾|茶|花生|小麥|味精|苯甲酸鈉|三仙膠/i.test(haystack);
 
     setInput((current) => ({
       ...current,
       productType: current.productType || (looksFood ? "prepackaged food / 식품" : "leave-on toner / 일반 화장품"),
-      ingredientsText: current.ingredientsText || (looksFood ? foodRiskSampleReview.ingredientsText : sampleReview.ingredientsText)
+      ingredientsText: current.ingredientsText || (looksFood ? foodAdditiveSampleReview.ingredientsText : sampleReview.ingredientsText)
     }));
     setToast(looksFood ? "AI 품목 추정: 대만 사전포장식품 기준으로 분류했습니다." : "AI 품목 추정: 일반 화장품, leave-on 제품으로 분류했습니다.");
   }
@@ -361,6 +365,7 @@ export default function Home() {
               <div className="action-row">
                 <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
+                <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
                 <button className="primary-btn wide" onClick={() => void runReview()} disabled={isAnalyzing}>
                   {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
