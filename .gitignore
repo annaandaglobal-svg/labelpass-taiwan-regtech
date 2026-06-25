@@ -1,0 +1,12 @@
+.next/
+node_modules/
+out/
+dist/
+.env
+.env.local
+.vercel/
+coverage/
+data/tfda/*.json
+data/tfda/*.csv
+이전 시안/
+*.tsbuildinfo

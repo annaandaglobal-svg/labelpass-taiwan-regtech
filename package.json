@@ -1,0 +1,33 @@
+{
+  "name": "labelpass-taiwan-regtech",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "fetch:tfda": "node scripts/fetch-tfda-data.mjs",
+    "build:rules": "node scripts/build-regulatory-rules.mjs",
+    "build:supabase-seed": "node scripts/generate-supabase-seed.mjs",
+    "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
+    "test:rules": "node scripts/verify-rules.mjs",
+    "smoke:api": "node scripts/smoke-review-api.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "lucide-react": "^0.468.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "typescript": "^5.5.3"
+  }
+}

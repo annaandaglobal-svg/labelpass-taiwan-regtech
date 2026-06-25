@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-25T07:47:54.729Z",
+  "rule_count": 1081,
+  "datasets": [
+    {
+      "info_id": 203,
+      "category": "prohibited",
+      "source_title": "TFDA cosmetics prohibited ingredients",
+      "source_url": "https://data.gov.tw/dataset/173684",
+      "rows": 659
+    },
+    {
+      "info_id": 199,
+      "category": "restricted",
+      "source_title": "TFDA cosmetics restricted ingredients",
+      "source_url": "https://data.gov.tw/dataset/173685",
+      "rows": 186
+    },
+    {
+      "info_id": 200,
+      "category": "colorant",
+      "source_title": "TFDA cosmetics colorants",
+      "source_url": "https://data.gov.tw/dataset/173686",
+      "rows": 152
+    },
+    {
+      "info_id": 201,
+      "category": "preservative",
+      "source_title": "TFDA cosmetics preservatives",
+      "source_url": "https://data.gov.tw/dataset/173682",
+      "rows": 57
+    },
+    {
+      "info_id": 202,
+      "category": "sunscreen",
+      "source_title": "TFDA cosmetics sunscreen ingredients",
+      "source_url": "https://data.gov.tw/dataset/173683",
+      "rows": 27
+    }
+  ]
+}
