@@ -7,20 +7,70 @@
       "canonical_name": "Salicylic Acid",
       "category": "cosmetic_ingredient",
       "identifiers": {
-        "cas": ["69-72-7"],
-        "inci": ["Salicylic Acid"],
+        "cas": [
+          "69-72-7"
+        ],
+        "inci": [
+          "Salicylic Acid"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Salicylic Acid", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "2-Hydroxybenzoic acid", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
-        { "value": "BHA", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.65, "note": "Ambiguous abbreviation; can also mean butylated hydroxyanisole." },
-        { "value": "水楊酸", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "水杨酸", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
-        { "value": "살리실산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "サリチル酸", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.95 }
+        {
+          "value": "Salicylic Acid",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "2-Hydroxybenzoic acid",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "BHA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Ambiguous abbreviation; can also mean butylated hydroxyanisole."
+        },
+        {
+          "value": "水楊酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "水杨酸",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "살리실산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "サリチル酸",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Common acne/keratolytic ingredient. Abbreviation BHA requires context check."
     },
     {
@@ -28,21 +78,76 @@
       "canonical_name": "Methylisothiazolinone",
       "category": "preservative",
       "identifiers": {
-        "cas": ["2682-20-4"],
-        "inci": ["Methylisothiazolinone"],
+        "cas": [
+          "2682-20-4"
+        ],
+        "inci": [
+          "Methylisothiazolinone"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Methylisothiazolinone", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "MIT", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "MI", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "2-Methyl-4-isothiazolin-3-one", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
-        { "value": "甲基異噻唑啉酮", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "甲基异噻唑啉酮", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
-        { "value": "메칠이소치아졸리논", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
-        { "value": "메틸이소치아졸리논", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+        {
+          "value": "Methylisothiazolinone",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "MIT",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "MI",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "2-Methyl-4-isothiazolin-3-one",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲基異噻唑啉酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "甲基异噻唑啉酮",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "메칠이소치아졸리논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "메틸이소치아졸리논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists."
     },
     {
@@ -50,21 +155,76 @@
       "canonical_name": "Methylchloroisothiazolinone",
       "category": "preservative",
       "identifiers": {
-        "cas": ["26172-55-4"],
-        "inci": ["Methylchloroisothiazolinone"],
+        "cas": [
+          "26172-55-4"
+        ],
+        "inci": [
+          "Methylchloroisothiazolinone"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Methylchloroisothiazolinone", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "MCI", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "CMIT", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "5-Chloro-2-methyl-4-isothiazolin-3-one", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
-        { "value": "甲基氯異噻唑啉酮", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
-        { "value": "甲基氯异噻唑啉酮", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
-        { "value": "메칠클로로이소치아졸리논", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
-        { "value": "메틸클로로이소치아졸리논", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+        {
+          "value": "Methylchloroisothiazolinone",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "MCI",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "CMIT",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "5-Chloro-2-methyl-4-isothiazolin-3-one",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲基氯異噻唑啉酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲基氯异噻唑啉酮",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "메칠클로로이소치아졸리논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "메틸클로로이소치아졸리논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Often appears with methylisothiazolinone as an MCI/MI mixture."
     },
     {
@@ -72,19 +232,62 @@
       "canonical_name": "Triclosan",
       "category": "preservative",
       "identifiers": {
-        "cas": ["3380-34-5"],
-        "inci": ["Triclosan"],
+        "cas": [
+          "3380-34-5"
+        ],
+        "inci": [
+          "Triclosan"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Triclosan", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Irgasan DP 300", "type": "trade_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
-        { "value": "三氯生", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "三氯生", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
-        { "value": "트리클로산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "トリクロサン", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.95 }
+        {
+          "value": "Triclosan",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Irgasan DP 300",
+          "type": "trade_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        },
+        {
+          "value": "三氯生",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "三氯生",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "트리클로산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "トリクロサン",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Used in some preservative/antimicrobial contexts; claims can affect product classification."
     },
     {
@@ -92,21 +295,75 @@
       "canonical_name": "Mercury",
       "category": "restricted_substance",
       "identifiers": {
-        "cas": ["7439-97-6"],
-        "inci": ["Mercury"],
+        "cas": [
+          "7439-97-6"
+        ],
+        "inci": [
+          "Mercury"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Mercury", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Mercuric", "type": "chemical_family", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
-        { "value": "Mercurous", "type": "chemical_family", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
-        { "value": "Hg", "type": "symbol", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.7 },
-        { "value": "汞", "type": "local_name", "language": "zh", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "水銀", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "수은", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "水銀", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.95 }
+        {
+          "value": "Mercury",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Mercuric",
+          "type": "chemical_family",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        },
+        {
+          "value": "Mercurous",
+          "type": "chemical_family",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        },
+        {
+          "value": "Hg",
+          "type": "symbol",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "汞",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "水銀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "수은",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "水銀",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-cas-registry"],
+      "source_keys": [
+        "global-cas-registry"
+      ],
       "notes": "Heavy-metal family matching should surface confirmation prompts for salts and compounds."
     },
     {
@@ -114,19 +371,62 @@
       "canonical_name": "Hydroquinone",
       "category": "restricted_substance",
       "identifiers": {
-        "cas": ["123-31-9"],
-        "inci": ["Hydroquinone"],
+        "cas": [
+          "123-31-9"
+        ],
+        "inci": [
+          "Hydroquinone"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Hydroquinone", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "1,4-Benzenediol", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
-        { "value": "Quinol", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
-        { "value": "對苯二酚", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "对苯二酚", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
-        { "value": "하이드로퀴논", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+        {
+          "value": "Hydroquinone",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "1,4-Benzenediol",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "Quinol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        },
+        {
+          "value": "對苯二酚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "对苯二酚",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "하이드로퀴논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Skin-lightening context often changes risk and claim review."
     },
     {
@@ -134,19 +434,62 @@
       "canonical_name": "Formaldehyde",
       "category": "restricted_substance",
       "identifiers": {
-        "cas": ["50-00-0"],
-        "inci": ["Formaldehyde"],
+        "cas": [
+          "50-00-0"
+        ],
+        "inci": [
+          "Formaldehyde"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Formaldehyde", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Methanal", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
-        { "value": "Formalin", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "甲醛", "type": "local_name", "language": "zh", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "포름알데히드", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "ホルムアルデヒド", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.95 }
+        {
+          "value": "Formaldehyde",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Methanal",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "Formalin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "甲醛",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "포름알데히드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "ホルムアルデヒド",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Also check formaldehyde releasers as related but distinct substances."
     },
     {
@@ -154,20 +497,71 @@
       "canonical_name": "Titanium Dioxide",
       "category": "colorant_uv_filter",
       "identifiers": {
-        "cas": ["13463-67-7"],
-        "inci": ["Titanium Dioxide"],
-        "color_index": ["CI 77891"]
+        "cas": [
+          "13463-67-7"
+        ],
+        "inci": [
+          "Titanium Dioxide"
+        ],
+        "color_index": [
+          "CI 77891"
+        ]
       },
       "aliases": [
-        { "value": "Titanium Dioxide", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "TiO2", "type": "formula", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "CI 77891", "type": "color_index", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "二氧化鈦", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "二氧化钛", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
-        { "value": "이산화티타늄", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "酸化チタン", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.9 }
+        {
+          "value": "Titanium Dioxide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "TiO2",
+          "type": "formula",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 77891",
+          "type": "color_index",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "二氧化鈦",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "二氧化钛",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "이산화티타늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "酸化チタン",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Can be colorant or UV filter depending on function and product context."
     },
     {
@@ -175,20 +569,71 @@
       "canonical_name": "Zinc Oxide",
       "category": "uv_filter",
       "identifiers": {
-        "cas": ["1314-13-2"],
-        "inci": ["Zinc Oxide"],
-        "color_index": ["CI 77947"]
+        "cas": [
+          "1314-13-2"
+        ],
+        "inci": [
+          "Zinc Oxide"
+        ],
+        "color_index": [
+          "CI 77947"
+        ]
       },
       "aliases": [
-        { "value": "Zinc Oxide", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "ZnO", "type": "formula", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
-        { "value": "CI 77947", "type": "color_index", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "氧化鋅", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "氧化锌", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
-        { "value": "징크옥사이드", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "산화아연", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+        {
+          "value": "Zinc Oxide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "ZnO",
+          "type": "formula",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 77947",
+          "type": "color_index",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "氧化鋅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "氧化锌",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "징크옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "산화아연",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Often used in sunscreen and soothing products."
     },
     {
@@ -196,19 +641,63 @@
       "canonical_name": "Benzophenone-3",
       "category": "uv_filter",
       "identifiers": {
-        "cas": ["131-57-7"],
-        "inci": ["Benzophenone-3", "Oxybenzone"],
+        "cas": [
+          "131-57-7"
+        ],
+        "inci": [
+          "Benzophenone-3",
+          "Oxybenzone"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Benzophenone-3", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Oxybenzone", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "BP-3", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
-        { "value": "二苯酮-3", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
-        { "value": "二苯甲酮-3", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
-        { "value": "옥시벤존", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+        {
+          "value": "Benzophenone-3",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Oxybenzone",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "BP-3",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "二苯酮-3",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "二苯甲酮-3",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "옥시벤존",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "UV filter with common INCI/common-name split."
     },
     {
@@ -216,18 +705,55 @@
       "canonical_name": "Phenoxyethanol",
       "category": "preservative",
       "identifiers": {
-        "cas": ["122-99-6"],
-        "inci": ["Phenoxyethanol"],
+        "cas": [
+          "122-99-6"
+        ],
+        "inci": [
+          "Phenoxyethanol"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Phenoxyethanol", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "2-Phenoxyethanol", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
-        { "value": "苯氧乙醇", "type": "local_name", "language": "zh", "jurisdiction": "TW", "confidence": 0.95 },
-        { "value": "페녹시에탄올", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
-        { "value": "フェノキシエタノール", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.95 }
+        {
+          "value": "Phenoxyethanol",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "2-Phenoxyethanol",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "苯氧乙醇",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "페녹시에탄올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "フェノキシエタノール",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "High-frequency preservative alias set."
     },
     {
@@ -235,19 +761,62 @@
       "canonical_name": "Retinol",
       "category": "cosmetic_ingredient",
       "identifiers": {
-        "cas": ["68-26-8"],
-        "inci": ["Retinol"],
+        "cas": [
+          "68-26-8"
+        ],
+        "inci": [
+          "Retinol"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Retinol", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Vitamin A", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
-        { "value": "All-trans-retinol", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
-        { "value": "視黃醇", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
-        { "value": "视黄醇", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
-        { "value": "레티놀", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+        {
+          "value": "Retinol",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Vitamin A",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        },
+        {
+          "value": "All-trans-retinol",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "視黃醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "视黄醇",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "레티놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Vitamin A family names need separate handling for esters and derivatives."
     },
     {
@@ -255,18 +824,55 @@
       "canonical_name": "Methylparaben",
       "category": "preservative",
       "identifiers": {
-        "cas": ["99-76-3"],
-        "inci": ["Methylparaben"],
+        "cas": [
+          "99-76-3"
+        ],
+        "inci": [
+          "Methylparaben"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Methylparaben", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Methyl 4-hydroxybenzoate", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
-        { "value": "羥苯甲酯", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
-        { "value": "羟苯甲酯", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
-        { "value": "메틸파라벤", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+        {
+          "value": "Methylparaben",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Methyl 4-hydroxybenzoate",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "羥苯甲酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "羟苯甲酯",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "메틸파라벤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Paraben family terms should not be collapsed without compound-level evidence."
     },
     {
@@ -274,19 +880,1208 @@
       "canonical_name": "Propylparaben",
       "category": "preservative",
       "identifiers": {
-        "cas": ["94-13-3"],
-        "inci": ["Propylparaben"],
+        "cas": [
+          "94-13-3"
+        ],
+        "inci": [
+          "Propylparaben"
+        ],
         "color_index": []
       },
       "aliases": [
-        { "value": "Propylparaben", "type": "INCI", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
-        { "value": "Propyl 4-hydroxybenzoate", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
-        { "value": "羥苯丙酯", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
-        { "value": "羟苯丙酯", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
-        { "value": "프로필파라벤", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+        {
+          "value": "Propylparaben",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Propyl 4-hydroxybenzoate",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "羥苯丙酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "羟苯丙酯",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "프로필파라벤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
       ],
-      "source_keys": ["global-pcpc-inci", "global-cas-registry"],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
       "notes": "Paraben family terms should not be collapsed without compound-level evidence."
+    },
+    {
+      "id": "hydrogen-peroxide",
+      "canonical_name": "Hydrogen Peroxide",
+      "category": "oxidizing_agent",
+      "identifiers": {
+        "cas": [
+          "7722-84-1"
+        ],
+        "inci": [
+          "Hydrogen Peroxide"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Hydrogen Peroxide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "H2O2",
+          "type": "formula",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Oxidizing ingredient used in hair and oral products; concentration and product type matter."
+    },
+    {
+      "id": "kojic-acid",
+      "canonical_name": "Kojic Acid",
+      "category": "skin_lightening_agent",
+      "identifiers": {
+        "cas": [
+          "501-30-4"
+        ],
+        "inci": [
+          "Kojic Acid",
+          "5-Hydroxy-2-hydroxymethyl-4-pyrone"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Kojic Acid",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "5-Hydroxy-2-hydroxymethyl-4-pyrone",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Common skin-lightening ingredient with cross-market naming variants."
+    },
+    {
+      "id": "alkali-hydroxides",
+      "canonical_name": "Potassium or Sodium Hydroxide",
+      "category": "ph_adjuster",
+      "identifiers": {
+        "cas": [
+          "1310-58-3",
+          "1310-73-2"
+        ],
+        "inci": [
+          "Potassium Hydroxide",
+          "Sodium Hydroxide"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Potassium Hydroxide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Sodium Hydroxide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "KOH",
+          "type": "formula",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "NaOH",
+          "type": "formula",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "???????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        },
+        {
+          "value": "????????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Grouped because the TFDA rule covers potassium or sodium hydroxide together."
+    },
+    {
+      "id": "ammonia-ammonium-hydroxide",
+      "canonical_name": "Ammonia / Ammonium Hydroxide",
+      "category": "alkalizing_agent",
+      "identifiers": {
+        "cas": [
+          "7664-41-7",
+          "1336-21-6"
+        ],
+        "inci": [
+          "Ammonia",
+          "Ammonium Hydroxide"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Ammonia",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Ammonium Hydroxide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "?",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Common in hair-color and pH-adjusting contexts."
+    },
+    {
+      "id": "resorcinol",
+      "canonical_name": "Resorcinol",
+      "category": "hair_dye_ingredient",
+      "identifiers": {
+        "cas": [
+          "108-46-3"
+        ],
+        "inci": [
+          "Resorcinol"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Resorcinol",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "1,3-Benzenediol",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Hair dye ingredient; do not merge with substituted resorcinols without CAS evidence."
+    },
+    {
+      "id": "toluene-2-5-diamine",
+      "canonical_name": "Toluene-2,5-diamine",
+      "category": "hair_dye_ingredient",
+      "identifiers": {
+        "cas": [
+          "95-70-5",
+          "615-50-9"
+        ],
+        "inci": [
+          "Toluene-2,5-diamine",
+          "Toluene-2,5-diamine sulfate"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Toluene-2,5-diamine",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "2,5-Diaminotoluene",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "??-2,5-??",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "???-2,5-???",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "????-2,5-????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Hair dye term; sulfate salt should remain linked but identifiable."
+    },
+    {
+      "id": "tretinoin-retinoic-acid",
+      "canonical_name": "Tretinoin / Retinoic Acid",
+      "category": "prohibited_substance",
+      "identifiers": {
+        "cas": [
+          "302-79-4"
+        ],
+        "inci": [
+          "Tretinoin",
+          "Retinoic Acid"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Tretinoin",
+          "type": "INN",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Retinoic Acid",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "All-trans retinoic acid",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Separate from cosmetic retinol and retinyl esters; regulatory risk differs."
+    },
+    {
+      "id": "boric-acid",
+      "canonical_name": "Boric Acid",
+      "category": "restricted_substance",
+      "identifiers": {
+        "cas": [
+          "10043-35-3",
+          "11113-50-1"
+        ],
+        "inci": [
+          "Boric Acid"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Boric Acid",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Also linked to borates/tetraborates in some rules."
+    },
+    {
+      "id": "benzalkonium-chloride-family",
+      "canonical_name": "Benzalkonium Chloride Family",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "8001-54-5",
+          "63449-41-2",
+          "68391-01-5",
+          "68424-85-1"
+        ],
+        "inci": [
+          "Benzalkonium Chloride",
+          "Benzalkonium Bromide",
+          "Benzalkonium Saccharinate"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Benzalkonium Chloride",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "BAK",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": "Ambiguous abbreviation; confirm context."
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "????????????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Family term for chloride, bromide, and saccharinate variants listed by TFDA."
+    },
+    {
+      "id": "chlorhexidine-family",
+      "canonical_name": "Chlorhexidine Family",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "55-56-1",
+          "18472-51-0",
+          "3697-42-5",
+          "56-95-1"
+        ],
+        "inci": [
+          "Chlorhexidine",
+          "Chlorhexidine Digluconate",
+          "Chlorhexidine Dihydrochloride",
+          "Chlorhexidine Diacetate"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Chlorhexidine",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Chlorhexidine Digluconate",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "???",
+          "type": "common_name",
+          "language": "zh",
+          "jurisdiction": "CN",
+          "confidence": 0.85
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "????????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Antimicrobial preservative family; salt form matters for limits."
+    },
+    {
+      "id": "chlorphenesin",
+      "canonical_name": "Chlorphenesin",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "104-29-0"
+        ],
+        "inci": [
+          "Chlorphenesin"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Chlorphenesin",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "????????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "High-frequency preservative."
+    },
+    {
+      "id": "chloroxylenol",
+      "canonical_name": "Chloroxylenol",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "88-04-0",
+          "1321-23-9"
+        ],
+        "inci": [
+          "Chloroxylenol"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Chloroxylenol",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "PCMX",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Preservative/antimicrobial term with PCMX abbreviation."
+    },
+    {
+      "id": "climbazole",
+      "canonical_name": "Climbazole",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "38083-17-9"
+        ],
+        "inci": [
+          "Climbazole"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Climbazole",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "???????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Often appears in anti-dandruff or scalp-care contexts."
+    },
+    {
+      "id": "dmdm-hydantoin",
+      "canonical_name": "DMDM Hydantoin",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "6440-58-0"
+        ],
+        "inci": [
+          "DMDM Hydantoin"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "DMDM Hydantoin",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "DMDM??",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "?????????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "DMDM??????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Formaldehyde-releasing preservative; keep linked but distinct from formaldehyde."
+    },
+    {
+      "id": "diazolidinyl-urea",
+      "canonical_name": "Diazolidinyl Urea",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "78491-02-8"
+        ],
+        "inci": [
+          "Diazolidinyl Urea"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Diazolidinyl Urea",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "??????",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9
+        },
+        {
+          "value": "?????????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Formaldehyde-releasing preservative family member."
+    },
+    {
+      "id": "imidazolidinyl-urea",
+      "canonical_name": "Imidazolidinyl Urea",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "39236-46-9"
+        ],
+        "inci": [
+          "Imidazolidinyl Urea"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Imidazolidinyl Urea",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "??????????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Formaldehyde-releasing preservative family member."
+    },
+    {
+      "id": "iodopropynyl-butylcarbamate",
+      "canonical_name": "Iodopropynyl Butylcarbamate",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [
+          "55406-53-6"
+        ],
+        "inci": [
+          "Iodopropynyl Butylcarbamate"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Iodopropynyl Butylcarbamate",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "IPBC",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "??????????",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "???????????????",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Short alias IPBC should be matched with context."
+    },
+    {
+      "id": "camphor",
+      "canonical_name": "Camphor",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [
+          "Camphor"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Camphor",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Common cooling/fragrance ingredient; rule matching may depend on product type."
+    },
+    {
+      "id": "menthol",
+      "canonical_name": "Menthol",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [
+          "Menthol"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Menthol",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "???",
+          "type": "local_name",
+          "language": "zh",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "??",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "?????",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "Common cooling ingredient with multilingual label variants."
     }
   ]
 }

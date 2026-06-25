@@ -57,9 +57,9 @@ Current generated counts:
 
 - `knowledge_sources`: 57
 - `knowledge_snapshots`: 57
-- `knowledge_terms`: 1,079
-- `term_aliases`: 2,769
-- `term_rule_links`: 1,082
+- `knowledge_terms`: 1,074
+- `term_aliases`: 2,706
+- `term_rule_links`: 1,099
 - `rules`: 1,081
 
 ## Alias Curation Rules
