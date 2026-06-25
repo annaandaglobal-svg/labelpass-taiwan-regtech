@@ -2231,7 +2231,7 @@
         { "value": "글루탐산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "MSG", "type": "abbreviation", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
       ],
-      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "source_keys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
       "notes": "Representative food additive alias set from Taiwan common-name material."
     },
     {
@@ -2255,7 +2255,7 @@
         { "value": "안식향산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
         { "value": "벤조산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
       ],
-      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "source_keys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
     },
     {
@@ -2277,7 +2277,7 @@
         { "value": "소르빈산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "소르빈산칼륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
       ],
-      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "source_keys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
     },
     {
@@ -2297,7 +2297,7 @@
         { "value": "탄산수소나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "베이킹소다", "type": "common_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
       ],
-      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "source_keys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
       "notes": "Common food additive and common-name alias."
     },
     {
@@ -2317,7 +2317,7 @@
         { "value": "잔탄검", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "산탄검", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
       ],
-      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "source_keys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
       "notes": "Food thickener/stabilizer alias set."
     },
     {

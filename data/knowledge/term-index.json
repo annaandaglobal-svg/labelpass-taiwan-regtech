@@ -2582,7 +2582,8 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names"
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Representative food additive alias set from Taiwan common-name material."
     },
@@ -2702,7 +2703,8 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names"
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
     },
@@ -2802,7 +2804,8 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names"
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
     },
@@ -2880,7 +2883,8 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names"
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Common food additive and common-name alias."
     },
@@ -2958,7 +2962,8 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names"
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Food thickener/stabilizer alias set."
     },

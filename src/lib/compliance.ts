@@ -59,6 +59,10 @@ const SOURCE_FOOD_NUTRITION = "TFDA Regulations on Nutrition Labeling for Prepac
 const SOURCE_FOOD_NUTRITION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633";
 const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
 const SOURCE_FOOD_ALLERGEN_URL = "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315";
+const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Application and Limitation of Food Additives";
+const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
+const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
+const SOURCE_FOOD_ADDITIVE_COMMON_NAMES_URL = "https://www.fda.gov.tw/TC/siteContent.aspx?sid=10159";
 const PIF_EFFECTIVE_AT = Date.parse("2026-07-01T00:00:00+08:00");
 
 type RegulatoryRule = {
@@ -99,9 +103,21 @@ type RuleAliasIndex = {
   aliases: IndexedAlias[];
 };
 
+type IndexedKnowledgeTerm = {
+  id: string;
+  canonical_name: string;
+  category?: string;
+  aliases?: IndexedAlias[];
+  source_keys?: string[];
+  notes?: string;
+};
+
 const officialRules = (rulesData.rules as RegulatoryRule[]).filter((rule) => rule.aliases.length > 0);
 const indexedAliasesByRule = new Map(
   ((termIndexData.rule_aliases ?? []) as RuleAliasIndex[]).map((entry) => [entry.rule_id, entry.aliases])
+);
+const foodAdditiveTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTerm[]).filter(
+  (term) => term.category === "food_additive"
 );
 
 const labelRequirements = [
@@ -182,6 +198,25 @@ function hasAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
   const value = normalizeForMatch(`${ingredient.raw} ${ingredient.name}`);
 
   return aliases.some((alias) => {
+    const normalizedAlias = alias.normalized ?? normalizeForMatch(alias.value);
+    if (!normalizedAlias) return false;
+
+    const isLatinShortAlias = /^[a-z0-9.+-]+$/i.test(normalizedAlias) && normalizedAlias.length <= 3;
+    const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
+
+    if (isLatinShortAlias || isLowConfidence) {
+      return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+    }
+
+    if (normalizedAlias.length < 2) return false;
+    return value.includes(normalizedAlias);
+  });
+}
+
+function matchedAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
+  const value = normalizeForMatch(`${ingredient.raw} ${ingredient.name}`);
+
+  return aliases.find((alias) => {
     const normalizedAlias = alias.normalized ?? normalizeForMatch(alias.value);
     if (!normalizedAlias) return false;
 
@@ -360,6 +395,40 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
       source: SOURCE_FOOD_ALLERGEN,
       sourceUrl: SOURCE_FOOD_ALLERGEN_URL
     });
+  }
+
+  const emittedAdditives = new Set<string>();
+  for (const ingredient of parseIngredients(input.ingredientsText)) {
+    for (const term of foodAdditiveTerms) {
+      if (emittedAdditives.has(term.id)) continue;
+      const alias = matchedAlias(ingredient, term.aliases ?? []);
+      if (!alias) continue;
+
+      emittedAdditives.add(term.id);
+      findings.push({
+        id: `food-additive-${term.id}`,
+        status: "needs_info",
+        area: "식품표시",
+        title: `대만 식품첨가물 기준 확인 필요: ${term.canonical_name}`,
+        severity: "medium",
+        why: "입력 원재료에서 대만 TFDA 식품첨가물 통용명 또는 동의어가 탐지되었습니다. 첨가물은 식품 유형, 사용 목적, 사용량, 표시명에 따라 허용 범위와 한도 확인이 필요합니다.",
+        fix: [
+          "대만 식품첨가물 사용범위 및 한도 기준에서 해당 식품 유형과 용도 확인",
+          "중국어 라벨의 첨가물 명칭이 TFDA 통용명 또는 허용 표시명과 맞는지 확인",
+          "제조사 배합표에서 실제 투입량과 기능을 받아 보관"
+        ],
+        source: term.source_keys?.includes("tw-tfda-food-additive-common-names-table")
+          ? SOURCE_FOOD_ADDITIVE_COMMON_NAMES
+          : SOURCE_FOOD_ADDITIVE,
+        sourceUrl: term.source_keys?.includes("tw-tfda-food-additive-common-names-table")
+          ? SOURCE_FOOD_ADDITIVE_COMMON_NAMES_URL
+          : SOURCE_FOOD_ADDITIVE_URL,
+        evidence: `${ingredient.raw} / ${alias.value}`
+      });
+
+      if (emittedAdditives.size >= 8) break;
+    }
+    if (emittedAdditives.size >= 8) break;
   }
 }
 

@@ -114,6 +114,33 @@ if (foodCleanResult.status === "fail") {
   throw new Error("Food clean review: expected non-fail status");
 }
 
+const foodAdditiveResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Umami Rice Cracker",
+    productType: "prepackaged food / snack / 식품",
+    ingredientsText: "Rice, MSG, sodium benzoate, xanthan gum, salt",
+    labelText: "品名：旨味米餅. 內容量：80g. 成分：米、味精、苯甲酸鈉、三仙膠、鹽. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-05-01. 營養標示：每份熱量 120 kcal, 蛋白質 2g, 脂肪 1g, 碳水化合物 25g, 糖 1g, 鈉 240mg.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!foodAdditiveResponse.ok) {
+  throw new Error(`Food additive review: Review API returned ${foodAdditiveResponse.status}`);
+}
+
+const foodAdditiveResult = await foodAdditiveResponse.json();
+
+if (!foodAdditiveResult.findings?.some((finding) => finding.id === "food-additive-monosodium-glutamate")) {
+  throw new Error("Food additive review: expected MSG additive finding");
+}
+
+if (!foodAdditiveResult.findings?.some((finding) => finding.id === "food-additive-benzoates-food-additives")) {
+  throw new Error("Food additive review: expected benzoate additive finding");
+}
+
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
@@ -145,4 +172,4 @@ for (const testCase of knowledgeCases) {
   }
 }
 
-console.log(`API smoke test passed: ${cases.length + 2} review cases, ${knowledgeCases.length} knowledge cases.`);
+console.log(`API smoke test passed: ${cases.length + 3} review cases, ${knowledgeCases.length} knowledge cases.`);
