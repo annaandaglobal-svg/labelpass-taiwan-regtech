@@ -254,7 +254,7 @@ for (const term of [...curatedTerms, ...generatedTerms.values()]) {
 }
 
 const index = {
-  generated_at: new Date().toISOString(),
+  generated_at: rulesPayload.generated_at,
   registry_version: termRegistry.version,
   rules_generated_at: rulesPayload.generated_at,
   curated_term_count: curatedTerms.length,
