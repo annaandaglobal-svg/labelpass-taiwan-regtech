@@ -1,6 +1,6 @@
 # Knowledge Quality Report
 
-Crawl index: 2026-06-25T13:32:20.957Z
+Crawl index: 2026-06-25T13:56:16.130Z
 
 This report flags source extracts that may be too thin, blocked, encoded incorrectly, or otherwise weak as reusable regulatory evidence. It is an operations backlog, not a legal conclusion.
 

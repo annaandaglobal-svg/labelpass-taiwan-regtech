@@ -8,7 +8,12 @@ domain: export_control
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T09:41:53.478Z
+fetched_url: https://www.meti.go.jp/english/policy/external_economy/trade_control/index.html
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T09:41:53.478Z
+cache_status: fresh
 content_hash: 78250ac818ee7b8b520684a384fb1b474b08b139916dbf992443973a843f095b
 from_cache: false
 manual_fallback: false

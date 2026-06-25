@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:09.530Z
+fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030097
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:09.530Z
+cache_status: fresh
 content_hash: 79579a506e998fcbd661187321e29f54a71eba9247735851ca16e582950b4455
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

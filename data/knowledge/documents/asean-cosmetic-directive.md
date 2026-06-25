@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: directive
 priority: high
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:15.236Z
+fetched_url: https://aseancosmetics.org/docdocs/directive.pdf
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:03:15.236Z
+cache_status: fresh
 content_hash: 0089f5bdba0d75d3a2eacb8064c636398c761dbcc2f32acff6e4386bed826dcf
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -7,12 +7,15 @@ jurisdiction: US
 domain: cosmetics
 source_type: regulation
 priority: high
-format: xml
-fetched_at: 2026-06-25T13:32:20.957Z
-fetched_url: https://www.ecfr.gov/api/versioner/v1/full/2026-06-22/title-21.xml?part=701
+format: html
+fetched_at: 2026-06-25T13:32:21.977Z
+fetched_url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-G/part-701
 extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:32:21.977Z
+cache_status: fresh
 content_hash: bce643a16d8b9ac7e42f3c6568ddccb8451fc2135e799071ce262a6bf32c9e27
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

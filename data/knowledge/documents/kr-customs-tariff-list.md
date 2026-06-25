@@ -8,9 +8,14 @@ domain: customs
 source_type: tariff_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:12.697Z
+fetched_url: https://www.customs.go.kr/english/ad/ct/CustomsTariffList.do
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:03:12.697Z
+cache_status: fresh
 content_hash: df1017a2bdaac290018e2ada588ee14e383fa94abacc5202668ed5beeb1a0dd3
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

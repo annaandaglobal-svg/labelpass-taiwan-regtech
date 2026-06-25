@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: guideline
 priority: high
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:15.400Z
+fetched_url: https://asean.org/wp-content/uploads/2012/05/Appendix-II-ASEAN-Cosmetic-Labeling-Requirements.pdf
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:03:15.400Z
+cache_status: fresh
 content_hash: d48fe6280f1fbd089f017a1ca1c2044fd1962c25bf34d6bfd6e0f5ecbdd0bc10
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

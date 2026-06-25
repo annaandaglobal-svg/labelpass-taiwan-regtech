@@ -263,6 +263,18 @@ async function isFresh(filePath, cacheDays) {
   }
 }
 
+async function fileMtime(filePath) {
+  try {
+    return new Date((await stat(filePath)).mtimeMs);
+  } catch {
+    return null;
+  }
+}
+
+function cacheExpiresAt(fetchedAt, cacheDays) {
+  return new Date(fetchedAt.getTime() + cacheDays * 24 * 60 * 60 * 1000);
+}
+
 async function fetchSource(source, cacheDays) {
   const rawPath = path.join(rawDir, `${source.id}.raw`);
   let body;
@@ -270,6 +282,7 @@ async function fetchSource(source, cacheDays) {
   let manualFallback = false;
   let browserCapture = false;
   let fetchedUrl = source.url;
+  let fetchedAt = now;
   let extraFetchedUrls = [];
   let contentType = source.content_type ?? "";
 
@@ -278,16 +291,20 @@ async function fetchSource(source, cacheDays) {
     contentType = "text/plain";
     manualFallback = true;
   } else if (source.format?.toLowerCase() === "browser_capture" && source.browser_capture_path) {
-    body = await readFile(path.join(root, source.browser_capture_path));
+    const capturePath = path.join(root, source.browser_capture_path);
+    body = await readFile(capturePath);
+    fetchedAt = (await fileMtime(capturePath)) ?? now;
     contentType = "text/plain";
     browserCapture = true;
   } else if (await isFresh(rawPath, cacheDays)) {
     body = await readFile(rawPath);
+    fetchedAt = (await fileMtime(rawPath)) ?? now;
     fromCache = true;
   } else {
     try {
       const fetched = source.ecfr ? await fetchEcfrSource(source) : await fetchUrl(source.url, source);
       fetchedUrl = fetched.url ?? source.url;
+      fetchedAt = now;
       const resolved = await resolvePublicationsOfficeDocument(source, fetched.body, fetched.contentType);
       const expanded = await appendExtraUrls(source, resolved.body, resolved.contentType || fetched.contentType || contentType);
       contentType = expanded.contentType;
@@ -297,10 +314,13 @@ async function fetchSource(source, cacheDays) {
     } catch (error) {
       try {
         body = await readFile(rawPath);
+        fetchedAt = (await fileMtime(rawPath)) ?? now;
         fromCache = true;
       } catch {
         if (source.browser_capture_path) {
-          body = await readFile(path.join(root, source.browser_capture_path));
+          const capturePath = path.join(root, source.browser_capture_path);
+          body = await readFile(capturePath);
+          fetchedAt = (await fileMtime(capturePath)) ?? now;
           contentType = "text/plain";
           browserCapture = true;
         } else if (source.manual_extract) {
@@ -318,6 +338,8 @@ async function fetchSource(source, cacheDays) {
   const text = parsed.text;
   const hash = sha256(body);
   const excerpt = text.slice(0, 8000);
+  const expiresAt = cacheExpiresAt(fetchedAt, cacheDays);
+  const cacheStatus = expiresAt <= now ? "stale" : "fresh";
 
   const doc = [
     "---",
@@ -330,9 +352,12 @@ async function fetchSource(source, cacheDays) {
     `source_type: ${source.source_type}`,
     `priority: ${source.priority}`,
     `format: ${parsed.format}`,
-    `fetched_at: ${now.toISOString()}`,
+    `fetched_at: ${fetchedAt.toISOString()}`,
     `fetched_url: ${fetchedUrl}`,
     `extra_fetched_urls:${extraFetchedUrls.length ? ` ${extraFetchedUrls.join(", ")}` : ""}`,
+    `cache_days: ${cacheDays}`,
+    `cache_expires_at: ${expiresAt.toISOString()}`,
+    `cache_status: ${cacheStatus}`,
     `content_hash: ${hash}`,
     `from_cache: ${fromCache}`,
     `manual_fallback: ${manualFallback}`,
@@ -367,10 +392,13 @@ async function fetchSource(source, cacheDays) {
     tags: source.tags,
     excerpt,
     format: parsed.format,
-    fetched_at: now.toISOString(),
+    fetched_at: fetchedAt.toISOString(),
     from_cache: fromCache,
     manual_fallback: manualFallback,
     browser_capture: browserCapture,
+    cache_days: cacheDays,
+    cache_expires_at: expiresAt.toISOString(),
+    cache_status: cacheStatus,
     content_hash: hash,
     bytes: body.length,
     text_chars: text.length,

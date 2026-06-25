@@ -8,9 +8,14 @@ domain: food_labeling
 source_type: regulation
 priority: high
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:11.232Z
+fetched_url: https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:11.232Z
+cache_status: fresh
 content_hash: 2829ab727c41cca224ab12823bf83dedcada5a9fa77c18269c5148e1907e015d
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

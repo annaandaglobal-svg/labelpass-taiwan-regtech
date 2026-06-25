@@ -8,9 +8,14 @@ domain: product_certification
 source_type: guidance
 priority: high
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:22.979Z
+fetched_url: https://www.bsmi.gov.tw/wSite/public/Data/f1768800988860.pdf
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:22.979Z
+cache_status: fresh
 content_hash: 3130c14566f63c31c3b095db60226934f49c656912f5183dac6c7bd98fc72cc8
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

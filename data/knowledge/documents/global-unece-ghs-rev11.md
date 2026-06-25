@@ -8,9 +8,12 @@ domain: chemical_labeling
 source_type: standard_index
 priority: high
 format: manual
-fetched_at: 2026-06-25T13:32:20.957Z
+fetched_at: 2026-06-25T13:56:16.130Z
 fetched_url: https://unece.org/transport/dangerous-goods/ghs-rev11-2025
 extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:56:16.130Z
+cache_status: fresh
 content_hash: d003b83f5a695efbc362bf8b65d814289c4fa04e74e877a92a31c6f747ab4762
 from_cache: false
 manual_fallback: true

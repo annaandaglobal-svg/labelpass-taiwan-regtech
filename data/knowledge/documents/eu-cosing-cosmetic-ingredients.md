@@ -8,9 +8,14 @@ domain: terminology
 source_type: database
 priority: medium
 format: html
-fetched_at: 2026-06-25T13:06:02.680Z
+fetched_at: 2026-06-25T13:06:03.322Z
+fetched_url: https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:06:03.322Z
+cache_status: fresh
 content_hash: a9c86b54634d008d7f7049263712aebfe29b8d6ac75096481e5f747133a6ec59
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

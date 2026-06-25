@@ -8,11 +8,14 @@ domain: export_control
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:32:20.957Z
+fetched_at: 2026-06-25T13:32:35.199Z
 fetched_url: https://exportcontrol.mofcom.gov.cn/
-extra_fetched_urls: https://exportcontrol.mofcom.gov.cn/zcfgList.shtml, https://exportcontrol.mofcom.gov.cn/ckgzqdsjk.shtml?columnID=8&num=1, https://exportcontrol.mofcom.gov.cn/article/zcfg/gnzcfg/gzjgfxwj/202410/1057.html, https://exportcontrol.mofcom.gov.cn/article/zcfg/gnzcfg/flfg/202111/226.html
+extra_fetched_urls:
+cache_days: 14
+cache_expires_at: 2026-07-09T13:32:35.199Z
+cache_status: fresh
 content_hash: 58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

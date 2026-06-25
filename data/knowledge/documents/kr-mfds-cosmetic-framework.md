@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: guidance
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:10.191Z
+fetched_url: https://www.mfds.go.kr/eng/brd/m_28/view.do?company_cd=&company_nm=&itm_seq_1=0&itm_seq_2=0&multi_itm_seq=0&page=1&seq=71481&srchFr=&srchTo=&srchTp=&srchWord=
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:03:10.191Z
+cache_status: fresh
 content_hash: ccdc41ea20b9bd74248ccfc774ce857e92406a9bfc0c271b422a0630f980122f
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

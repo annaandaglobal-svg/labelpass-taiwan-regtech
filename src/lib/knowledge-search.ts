@@ -48,6 +48,11 @@ type SourceResult = {
   tags?: string[];
   excerpt?: string;
   format?: string;
+  fetched_at?: string;
+  from_cache?: boolean;
+  cache_days?: number;
+  cache_expires_at?: string;
+  cache_status?: string;
   browser_capture?: boolean;
   manual_fallback?: boolean;
   document_path?: string;
@@ -115,7 +120,10 @@ export type KnowledgeOverview = {
     browserCaptures: number;
     manualFallbacks: number;
     highPrioritySources: number;
+    staleSources: number;
+    expiringSoonSources: number;
     latestFetchedAt: string | null;
+    nextRefreshAt: string | null;
   };
 };
 
@@ -275,11 +283,19 @@ function topCounts(values: string[], limit = 8) {
     .slice(0, limit);
 }
 
+function parseTime(value?: string | null) {
+  const time = Date.parse(String(value ?? ""));
+  return Number.isFinite(time) ? time : null;
+}
+
 export function getKnowledgeOverview(): KnowledgeOverview {
   const allAliases = terms.flatMap((term) => aliasesForTerm(term));
-  const fetchedDates = sources
-    .map((source) => Date.parse(String((source as SourceResult & { fetched_at?: string }).fetched_at ?? "")))
-    .filter((time) => Number.isFinite(time));
+  const now = Date.now();
+  const soonThreshold = now + 3 * 24 * 60 * 60 * 1000;
+  const fetchedDates = sources.map((source) => parseTime(source.fetched_at)).filter((time): time is number => time !== null);
+  const refreshDates = sources
+    .map((source) => parseTime(source.cache_expires_at))
+    .filter((time): time is number => time !== null);
 
   return {
     generatedAt: String((sourceIndexData as { generated_at?: string }).generated_at ?? ""),
@@ -292,11 +308,14 @@ export function getKnowledgeOverview(): KnowledgeOverview {
       languages: topCounts(allAliases.map((alias) => alias.language ?? "und"))
     },
     operations: {
-      fromCache: sources.filter((source) => Boolean((source as SourceResult & { from_cache?: boolean }).from_cache)).length,
+      fromCache: sources.filter((source) => Boolean(source.from_cache)).length,
       browserCaptures: sources.filter((source) => source.browser_capture).length,
       manualFallbacks: sources.filter((source) => source.manual_fallback).length,
       highPrioritySources: sources.filter((source) => source.priority === "high").length,
-      latestFetchedAt: fetchedDates.length ? new Date(Math.max(...fetchedDates)).toISOString() : null
+      staleSources: sources.filter((source) => source.cache_status === "stale").length,
+      expiringSoonSources: refreshDates.filter((time) => time > now && time <= soonThreshold).length,
+      latestFetchedAt: fetchedDates.length ? new Date(Math.max(...fetchedDates)).toISOString() : null,
+      nextRefreshAt: refreshDates.length ? new Date(Math.min(...refreshDates)).toISOString() : null
     }
   };
 }

@@ -8,9 +8,14 @@ domain: food_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:10.220Z
+fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:10.220Z
+cache_status: fresh
 content_hash: 315b80cc5c83722cc1b4fa38efd311fd49b3f0f74d25a5a0e1b67dc15af45a7c
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

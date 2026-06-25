@@ -4,7 +4,7 @@ import { BookOpen, ExternalLink, Loader2, Search, Tags } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 
-const examples = ["땅콩", "花生", "MSG", "味精", "벤조산나트륨", "살리실산", "水楊酸", "IPBC"];
+const examples = ["SDS", "HS코드", "원산지 표시", "INCI", "營養標示", "過敏原標示", "PIF", "化妆品备案"];
 
 export default function KnowledgeSearchClient() {
   const [query, setQuery] = useState("땅콩");

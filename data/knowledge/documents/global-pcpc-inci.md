@@ -8,9 +8,14 @@ domain: terminology
 source_type: reference
 priority: medium
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:30.272Z
+fetched_url: https://www.personalcarecouncil.org/resources/inci/
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:02:30.272Z
+cache_status: fresh
 content_hash: 248274249adc55106c31ecb816d5eae7e00e457556400da4ef52317108deb765
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,14 @@ domain: origin_labeling
 source_type: guidance
 priority: medium
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:17.756Z
+fetched_url: https://atr.asean.org/read/rules-of-origin/43
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:03:17.756Z
+cache_status: fresh
 content_hash: 704ab5e9a8ff64151e8079f4196bed303e8880be902e4e1a40e7b98258030389
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

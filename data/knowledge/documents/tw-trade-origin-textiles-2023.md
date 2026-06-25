@@ -8,9 +8,14 @@ domain: origin_labeling
 source_type: guideline
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:14.969Z
+fetched_url: https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=4655&pid=762248
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:14.969Z
+cache_status: fresh
 content_hash: 9e08777e6647383cf1b8dbd61097a25c76091d2d44e14d23feb4f3ef7fde250c
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: notice
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:13.018Z
+fetched_url: https://english.nmpa.gov.cn/2021-06/03/c_655128.htm
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:03:13.018Z
+cache_status: fresh
 content_hash: a103d8da73b270dac17dbd67bc8bf889efa755e3ae2ed07a22b76537e6d3a7f6
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

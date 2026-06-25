@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: guideline
 priority: medium
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:15.507Z
+fetched_url: https://asean.org/wp-content/uploads/2012/05/Appendix-III-ASEAN-Cosmetic-Claim-Guideline.pdf
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:03:15.507Z
+cache_status: fresh
 content_hash: 28ec4751225fef11208c3cc9166e71bf1ca5bcde58a14be680e2f448e6f4533b
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

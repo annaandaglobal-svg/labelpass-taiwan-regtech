@@ -8,9 +8,14 @@ domain: product_certification
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:22.641Z
+fetched_url: https://www.bsmi.gov.tw/wSite/ct?ctNode=3563&mp=2&xItem=20603
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:22.641Z
+cache_status: fresh
 content_hash: d28b24209e05998d739e8c1d220e01fcd0d42c6799a455308ba0528ccf6a903e
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

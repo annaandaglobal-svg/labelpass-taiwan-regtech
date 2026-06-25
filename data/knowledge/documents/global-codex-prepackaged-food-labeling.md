@@ -8,9 +8,14 @@ domain: food_labeling
 source_type: standard
 priority: high
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:29.956Z
+fetched_url: https://www.fao.org/input/download/standards/32/CXS_001e.pdf
+extra_fetched_urls:
+cache_days: 180
+cache_expires_at: 2026-12-22T13:02:29.956Z
+cache_status: fresh
 content_hash: d2d256b8a3c1ec397ae7736279a0f8f99174340cb20c15950b396a8444e201e0
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,11 +8,14 @@ domain: customs
 source_type: tariff_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:32:20.957Z
+fetched_at: 2026-06-25T13:32:32.472Z
 fetched_url: https://www.customs.go.jp/english/tariff/
-extra_fetched_urls: https://www.customs.go.jp/english/tariff/2026_04_01/index.htm
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:32:32.472Z
+cache_status: fresh
 content_hash: 92da51c64ba9942ba8e731a05be392ea25b5d0d39837a04afda7030977f0db70
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

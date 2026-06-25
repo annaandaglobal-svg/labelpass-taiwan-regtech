@@ -7,12 +7,15 @@ jurisdiction: US
 domain: food_labeling
 source_type: regulation
 priority: high
-format: xml
-fetched_at: 2026-06-25T13:32:20.957Z
-fetched_url: https://www.ecfr.gov/api/versioner/v1/full/2026-06-22/title-21.xml?part=101
+format: html
+fetched_at: 2026-06-25T13:32:27.395Z
+fetched_url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101
 extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:32:27.395Z
+cache_status: fresh
 content_hash: c59f29b637aae8ada55f205759bddb083ff14c10f4421ccbaec2af1e1fbdc607
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,14 @@ domain: export_control
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:20.835Z
+fetched_url: https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=298
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:20.835Z
+cache_status: fresh
 content_hash: 75ea1097c8b1be3ea698cce451434a9209270168ff5670452c57b5881140e961
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

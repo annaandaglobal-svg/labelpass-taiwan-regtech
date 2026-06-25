@@ -41,7 +41,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/source-registry.json`: source authority, URL, jurisdiction, tags, refresh cadence, and capture metadata.
 - `data/knowledge/raw/`: reproducible raw cache. This is git-ignored.
 - `data/knowledge/documents/*.md`: source extracts with metadata, content hash, and operational notes.
-- `data/knowledge/index.json`: crawl manifest with success/failure status and generated document paths.
+- `data/knowledge/index.json`: crawl manifest with success/failure status, generated document paths, cache expiry, and freshness status.
 - `data/knowledge/term-registry.json`: curated high-value ingredient aliases.
 - `data/knowledge/term-index.json`: generated search index linking aliases to TFDA rules.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
@@ -49,6 +49,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
 - `pnpm apply:supabase-knowledge`: applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set.
 - `pnpm verify:supabase-knowledge`: compares Supabase table counts and probe aliases with the generated local knowledge base after a seed apply.
+- `cache_days`, `cache_expires_at`, and `cache_status`: per-source freshness fields used to avoid unnecessary recrawls while surfacing stale official sources.
 
 ## App Retrieval Surface
 
@@ -69,10 +70,16 @@ Current generated counts:
 
 - `knowledge_sources`: 73
 - `knowledge_snapshots`: 73
-- `knowledge_terms`: 1,092
-- `term_aliases`: 2,838
+- `knowledge_terms`: 1,101
+- `term_aliases`: 2,908
 - `term_rule_links`: 1,099
 - `rules`: 1,081
+
+Current freshness status:
+
+- Stale sources: 0
+- Sources expiring within 3 days: 0
+- Next scheduled source refresh: 2026-07-02 22:02 KST
 
 ## Alias Curation Rules
 

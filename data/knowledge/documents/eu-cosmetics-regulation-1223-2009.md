@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:34.813Z
+fetched_url: https://publications.europa.eu/resource/celex/32009R1223.ENG
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:34.813Z
+cache_status: fresh
 content_hash: 858298b0649bd04c96565e92c5db593d8c88ed9b67f96f91189c2b194a1efec8
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

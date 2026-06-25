@@ -9,6 +9,9 @@ export default function KnowledgePage() {
   const latestFetched = overview.operations.latestFetchedAt
     ? new Intl.DateTimeFormat("ko-KR", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Seoul" }).format(new Date(overview.operations.latestFetchedAt))
     : "pending";
+  const nextRefresh = overview.operations.nextRefreshAt
+    ? new Intl.DateTimeFormat("ko-KR", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Seoul" }).format(new Date(overview.operations.nextRefreshAt))
+    : "pending";
 
   return (
     <main className="knowledge-shell">
@@ -43,9 +46,15 @@ export default function KnowledgePage() {
 
       <section className="knowledge-ops" aria-label="Knowledge operations overview">
         <div>
-          <span>최근 수집</span>
+          <span>출처 최신성</span>
           <strong>{latestFetched}</strong>
-          <small>캐시 재사용 {overview.operations.fromCache.toLocaleString()} · 브라우저 캡처 {overview.operations.browserCaptures.toLocaleString()} · 수동 보강 {overview.operations.manualFallbacks.toLocaleString()}</small>
+          <small>
+            다음 갱신 {nextRefresh} · 만료 {overview.operations.staleSources.toLocaleString()} · 3일 내 갱신{" "}
+            {overview.operations.expiringSoonSources.toLocaleString()} · 캐시 재사용{" "}
+            {overview.operations.fromCache.toLocaleString()} · 브라우저 캡처{" "}
+            {overview.operations.browserCaptures.toLocaleString()} · 수동 보강{" "}
+            {overview.operations.manualFallbacks.toLocaleString()}
+          </small>
         </div>
         <OverviewGroup title="국가" items={overview.coverage.jurisdictions} />
         <OverviewGroup title="영역" items={overview.coverage.domains} />

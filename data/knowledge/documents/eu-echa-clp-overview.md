@@ -8,9 +8,14 @@ domain: chemical_labeling
 source_type: guidance_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:37.079Z
+fetched_url: https://environment.ec.europa.eu/topics/chemicals/classification-labelling-and-packaging-chemicals_en
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:37.079Z
+cache_status: fresh
 content_hash: bef8215b2a407f9d0fbd94a1c877a975840237dde868c86ce23102e4f82fa259
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

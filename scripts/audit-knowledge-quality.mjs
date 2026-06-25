@@ -156,6 +156,18 @@ for (const result of index.results ?? []) {
       documentPath
     });
   }
+
+  if (result.cache_status === "stale") {
+    addFinding(findings, {
+      severity: isHighPriority(priority) ? "medium" : "low",
+      sourceId: result.id,
+      title: result.title,
+      reason: "Source cache is past its refresh window",
+      textChars,
+      priority,
+      documentPath
+    });
+  }
 }
 
 findings.sort((a, b) => {

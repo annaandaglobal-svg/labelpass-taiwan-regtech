@@ -8,9 +8,14 @@ domain: terminology
 source_type: treaty
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:25.203Z
+fetched_url: https://www.wto.org/english/docs_e/legal_e/17-tbt_e.htm
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:02:25.203Z
+cache_status: fresh
 content_hash: b5dbf5b535b06bf72d3c1dbeb0ded52b50103dabdcc7b0855f80e0b18c74b497
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

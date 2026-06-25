@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:13.066Z
+fetched_url: https://english.nmpa.gov.cn/2022-06/30/c_785637.htm
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:03:13.066Z
+cache_status: fresh
 content_hash: 72490df542a56ec53a5af52df4224c44b5db297cb7f1ec81ec558626487a8224
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,14 @@ domain: customs
 source_type: government_guide
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:13.957Z
+fetched_url: https://english.www.gov.cn/services/visitchina/202008/04/content_WS5f2905dec6d029c1c26372f0.html
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:03:13.957Z
+cache_status: fresh
 content_hash: 96559e7b15d8e78ba5037a5f8609618106fe263fe278fad892dc497dfcae8490
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

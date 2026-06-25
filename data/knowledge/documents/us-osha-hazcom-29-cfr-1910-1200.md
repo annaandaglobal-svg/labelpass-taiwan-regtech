@@ -7,12 +7,15 @@ jurisdiction: US
 domain: chemical_labeling
 source_type: regulation
 priority: high
-format: xml
-fetched_at: 2026-06-25T13:32:20.957Z
-fetched_url: https://www.ecfr.gov/api/versioner/v1/full/2026-06-23/title-29.xml?section=1910.1200
+format: html
+fetched_at: 2026-06-25T13:32:32.216Z
+fetched_url: https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-Z/section-1910.1200
 extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:32:32.216Z
+cache_status: fresh
 content_hash: d8e5957d3a3c1f41aa3f54d513178fc3a16fb995edd16e1eb660280d8e7c7e75
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

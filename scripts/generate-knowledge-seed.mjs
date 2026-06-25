@@ -77,7 +77,14 @@ for (const result of index.results) {
           tags: result.tags,
           format: result.format,
           page_count: result.page_count,
-          parse_error: result.parse_error
+          parse_error: result.parse_error,
+          fetched_url: result.fetched_url,
+          extra_fetched_urls: result.extra_fetched_urls ?? [],
+          cache_days: result.cache_days ?? source.cache_days ?? registry.default_cache_days ?? 14,
+          cache_expires_at: result.cache_expires_at ?? null,
+          cache_status: result.cache_status ?? null,
+          browser_capture_path: result.browser_capture_path ?? null,
+          screenshot_path: result.screenshot_path ?? null
         })
       ].join(", ") +
       `) on conflict (source_key, content_hash) do update set fetched_at = excluded.fetched_at, from_cache = excluded.from_cache, bytes = excluded.bytes, text_chars = excluded.text_chars, document_path = excluded.document_path, extract = excluded.extract, metadata = excluded.metadata;`

@@ -8,9 +8,14 @@ domain: export_control
 source_type: control_list_notice
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:21.869Z
+fetched_url: https://www.trade.gov.tw/english/Pages/Detail.aspx?Pageid=0&dl_DateRange=all&nodeID=298&pid=687872&txt_ED=&txt_Keyword=&txt_SD=
+extra_fetched_urls:
+cache_days: 14
+cache_expires_at: 2026-07-09T13:02:21.869Z
+cache_status: fresh
 content_hash: cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,14 @@ domain: general_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:08.512Z
+fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0080011
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:08.512Z
+cache_status: fresh
 content_hash: fb27dd0d5bea65b7a45ae297fa0695022df5ef11e6c43e05c4d22a036374024b
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

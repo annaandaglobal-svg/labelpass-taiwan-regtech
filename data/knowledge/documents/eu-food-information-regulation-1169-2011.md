@@ -8,9 +8,14 @@ domain: food_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:37.722Z
+fetched_url: https://publications.europa.eu/resource/celex/32011R1169.ENG
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:37.722Z
+cache_status: fresh
 content_hash: 2329a152b08275dce422a0546bfdfcbb84c5153b9c3d6135c5e4da2b686f7425
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

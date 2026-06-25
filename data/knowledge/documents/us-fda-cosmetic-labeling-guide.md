@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: guidance
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:40.961Z
+fetched_url: https://www.fda.gov/cosmetics/cosmetics-labeling-regulations/cosmetics-labeling-guide
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:40.961Z
+cache_status: fresh
 content_hash: eb14ffc029f59919451a5b029789312716ee3616b9f0d8389c7dcd4adf54cebf
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

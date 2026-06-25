@@ -8,9 +8,14 @@ domain: chemical_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:35.523Z
+fetched_url: https://publications.europa.eu/resource/celex/32008R1272.ENG
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:35.523Z
+cache_status: fresh
 content_hash: b350504db682ee827d8c1acfda0e5caafaac91af2bbd6b803e6722070cf5f4b2
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

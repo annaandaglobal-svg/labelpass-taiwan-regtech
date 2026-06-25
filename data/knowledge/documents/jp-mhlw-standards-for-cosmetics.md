@@ -8,9 +8,14 @@ domain: cosmetics
 source_type: standard
 priority: high
 format: pdf
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:03:08.795Z
+fetched_url: https://www.mhlw.go.jp/content/001257665.pdf
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:03:08.795Z
+cache_status: fresh
 content_hash: 117fc949a82789ca66017163f19041cf2fcf6b5902708077c8e4f56c482dc8e2
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

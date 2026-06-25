@@ -7,12 +7,15 @@ jurisdiction: US
 domain: origin_labeling
 source_type: regulation
 priority: high
-format: xml
-fetched_at: 2026-06-25T13:32:20.957Z
-fetched_url: https://www.ecfr.gov/api/versioner/v1/full/2026-05-13/title-19.xml?part=134
+format: html
+fetched_at: 2026-06-25T13:32:31.992Z
+fetched_url: https://www.ecfr.gov/current/title-19/chapter-I/part-134
 extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:32:31.992Z
+cache_status: fresh
 content_hash: 81d9739264a1964a084482e854d7c965f2a9c12b9761cf01eb695a7d9191b1a8
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

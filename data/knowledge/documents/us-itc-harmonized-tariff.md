@@ -8,9 +8,14 @@ domain: customs
 source_type: tariff_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:43.463Z
+fetched_url: https://www.usitc.gov/harmonized_tariff_information
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:43.463Z
+cache_status: fresh
 content_hash: b34ae2c67c5e5aba57bfbd772ae6346197897733b9c6860a1d4ec3428d9e0cfb
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

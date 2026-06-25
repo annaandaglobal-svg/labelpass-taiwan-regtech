@@ -8,9 +8,14 @@ domain: export_control
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:39.722Z
+fetched_url: https://publications.europa.eu/resource/celex/32021R0821.ENG
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T13:02:39.722Z
+cache_status: fresh
 content_hash: ad3e6c91e5dbdaeb3aaa56b0c7403f9817b76d5a1b55c6b29ef495a5c1858360
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

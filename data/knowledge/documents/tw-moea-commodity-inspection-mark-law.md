@@ -8,7 +8,12 @@ domain: product_certification
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T09:41:53.827Z
+fetched_url: https://law.moea.gov.tw/EngLawContent.aspx?id=10729&lan=E
+extra_fetched_urls:
+cache_days: 30
+cache_expires_at: 2026-07-25T09:41:53.827Z
+cache_status: fresh
 content_hash: d650d936ea9d1e016e479e0d2a98bdb6022ad4d6b355d65a4135bbb4d311b3df
 from_cache: false
 manual_fallback: false

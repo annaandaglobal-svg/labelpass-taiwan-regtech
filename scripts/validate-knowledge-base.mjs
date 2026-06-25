@@ -57,6 +57,10 @@ function countInserts(sql, tableName) {
   return sql.match(pattern)?.length ?? 0;
 }
 
+function isValidDate(value) {
+  return Number.isFinite(Date.parse(String(value ?? "")));
+}
+
 const [rulesData, registry, index, termIndex, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
@@ -100,6 +104,22 @@ for (const result of results) {
     fail(`crawl result has no matching source registry entry: ${result.id}`);
   }
 
+  if (!Number.isFinite(result.cache_days) || result.cache_days <= 0) {
+    fail(`crawl result has invalid cache_days for ${result.id}`);
+  }
+
+  if (!isValidDate(result.fetched_at)) {
+    fail(`crawl result has invalid fetched_at for ${result.id}`);
+  }
+
+  if (!isValidDate(result.cache_expires_at)) {
+    fail(`crawl result has invalid cache_expires_at for ${result.id}`);
+  }
+
+  if (!["fresh", "stale"].includes(result.cache_status)) {
+    fail(`crawl result has invalid cache_status for ${result.id}: ${result.cache_status}`);
+  }
+
   if (!result.document_path) {
     fail(`crawl result has no document path: ${result.id}`);
     continue;
@@ -119,6 +139,10 @@ for (const source of sources) {
     if (!source[field]) {
       fail(`source ${source.id} is missing ${field}`);
     }
+  }
+
+  if (source.cache_days !== undefined && (!Number.isFinite(source.cache_days) || source.cache_days <= 0)) {
+    fail(`source ${source.id} has invalid cache_days`);
   }
 
   for (const companionId of source.companion_source_ids ?? []) {

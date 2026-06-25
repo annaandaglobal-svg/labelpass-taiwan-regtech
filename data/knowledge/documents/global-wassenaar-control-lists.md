@@ -8,9 +8,14 @@ domain: export_control
 source_type: control_list_index
 priority: high
 format: html
-fetched_at: 2026-06-25T13:02:08.124Z
+fetched_at: 2026-06-25T13:02:32.041Z
+fetched_url: https://www.wassenaar.org/control-lists/
+extra_fetched_urls:
+cache_days: 90
+cache_expires_at: 2026-09-23T13:02:32.041Z
+cache_status: fresh
 content_hash: b048f56f6540042ed3326871b3d01ecaa5760db8580fbd133ffa9ccad0cacc6c
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 
