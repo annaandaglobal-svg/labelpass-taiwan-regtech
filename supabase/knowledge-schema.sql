@@ -447,7 +447,7 @@ as $$
     select
       left(public.normalize_knowledge_search_query(raw_query), 120) as query,
       public.escape_knowledge_like(left(public.normalize_knowledge_search_query(raw_query), 120)) as escaped_query,
-      greatest(4, least(coalesce(result_limit, 10), 30) / 2) as safe_limit
+      greatest(4, least(coalesce(result_limit, 10), 30)) as safe_limit
   ),
   flags as (
     select

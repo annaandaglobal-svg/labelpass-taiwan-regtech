@@ -324,7 +324,7 @@ async function readSourceRows(sql: DbClient, query: string, limit: number) {
     from source_scores
     where score > 0
     order by score desc, case priority when 'high' then 0 when 'medium' then 1 else 2 end, title asc
-    limit ${Math.max(4, Math.floor(limit / 2))}
+    limit ${Math.max(4, Math.min(limit, 30))}
   `;
 }
 
@@ -428,7 +428,7 @@ async function readRemoteRuleLinks(supabase: RemoteClient, termKeys: string[]) {
 async function readRemoteSourceRows(supabase: RemoteClient, query: string, limit: number) {
   const { data, error } = await asRpcClient(supabase).rpc("search_knowledge_sources_public", {
     raw_query: query,
-    result_limit: limit
+    result_limit: Math.min(limit * 2, 30)
   });
   if (error) throw new Error(error.message);
   return (data ?? []) as SourceRow[];

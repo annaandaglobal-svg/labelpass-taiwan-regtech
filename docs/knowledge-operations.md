@@ -68,6 +68,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
 - `supabase/migrations/202606260002_public_knowledge_search.sql`: read-only public policies and RPC functions for cloud knowledge search through a Supabase publishable key.
 - `supabase/migrations/202606260003_tokenized_public_source_search.sql`: token-based source search scoring so date and keyphrase queries still find official sources.
+- `supabase/migrations/202606260004_public_source_candidate_limit.sql`: direct source candidate limit alignment with the app's requested result count.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
 - `pnpm apply:supabase-knowledge`: applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set.
 - `pnpm verify:supabase-knowledge`: compares Supabase table counts and probe aliases with the generated local knowledge base after a seed apply.

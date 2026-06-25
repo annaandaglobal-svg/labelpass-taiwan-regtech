@@ -48,6 +48,7 @@ For deployed cloud knowledge search without a database password, also apply:
 ```bash
 supabase/migrations/202606260002_public_knowledge_search.sql
 supabase/migrations/202606260003_tokenized_public_source_search.sql
+supabase/migrations/202606260004_public_source_candidate_limit.sql
 ```
 
 This grants public read-only access to `knowledge_sources`, `knowledge_snapshots`, `knowledge_terms`, `term_aliases`, and `term_rule_links`, and exposes search RPCs for the app. It does not expose review archives, users, product records, or regulatory update triage rows.
