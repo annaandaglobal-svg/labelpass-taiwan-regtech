@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { searchKnowledge } from "@/lib/knowledge-search";
+import { searchKnowledgeRuntime } from "@/lib/knowledge-runtime";
 
 export const runtime = "nodejs";
 
@@ -9,5 +9,5 @@ export async function GET(request: Request) {
   const limit = Number(url.searchParams.get("limit") ?? 10);
   const safeLimit = Number.isFinite(limit) ? Math.min(Math.max(Math.floor(limit), 1), 24) : 10;
 
-  return NextResponse.json(searchKnowledge(query, safeLimit));
+  return NextResponse.json(await searchKnowledgeRuntime(query, safeLimit));
 }

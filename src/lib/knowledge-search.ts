@@ -136,7 +136,7 @@ for (const link of links) {
   linksByTerm.set(link.term_id, [...(linksByTerm.get(link.term_id) ?? []), link]);
 }
 
-function normalize(value: string) {
+export function normalizeKnowledgeQuery(value: string) {
   return String(value ?? "")
     .normalize("NFKC")
     .toLowerCase()
@@ -146,6 +146,8 @@ function normalize(value: string) {
     .replace(/\s+/g, " ")
     .trim();
 }
+
+const normalize = normalizeKnowledgeQuery;
 
 function characterLength(value: string) {
   return Array.from(value).length;
