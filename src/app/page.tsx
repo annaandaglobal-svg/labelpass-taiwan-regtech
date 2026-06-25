@@ -49,6 +49,9 @@ const emptyInput: ReviewInput = {
   labelText: "",
   origin: "",
   manufacturer: "",
+  hsCode: "",
+  incoterms: "",
+  shipmentPurpose: "",
   invoiceValue: ""
 };
 
@@ -360,6 +363,22 @@ export default function Home() {
                   <input value={input.manufacturer} onChange={(event) => updateInput("manufacturer", event.target.value)} placeholder="제조사, 대만 수입자" />
                 </label>
               </div>
+
+              <div className="two-col">
+                <label className="field">
+                  <span>HS/CCC 코드 (선택)</span>
+                  <input value={input.hsCode ?? ""} onChange={(event) => updateInput("hsCode", event.target.value)} placeholder="예: 3304.99 / 1905.90" />
+                </label>
+                <label className="field">
+                  <span>거래조건 Incoterms (선택)</span>
+                  <input value={input.incoterms ?? ""} onChange={(event) => updateInput("incoterms", event.target.value)} placeholder="예: DAP Taipei / CIF Keelung" />
+                </label>
+              </div>
+
+              <label className="field">
+                <span>출하 목적 (선택)</span>
+                <input value={input.shipmentPurpose ?? ""} onChange={(event) => updateInput("shipmentPurpose", event.target.value)} placeholder="상업 판매, 샘플, 데모, 시험용" />
+              </label>
 
               <label className="field">
                 <span>인보이스 가액 USD (관세 예상용 · 선택)</span>

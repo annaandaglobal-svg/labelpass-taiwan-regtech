@@ -11,6 +11,9 @@ const reviewInputSchema = z.object({
   labelText: z.string().default(""),
   origin: z.string().default(""),
   manufacturer: z.string().default(""),
+  hsCode: z.string().optional(),
+  incoterms: z.string().optional(),
+  shipmentPurpose: z.string().optional(),
   invoiceValue: z.string().optional()
 });
 

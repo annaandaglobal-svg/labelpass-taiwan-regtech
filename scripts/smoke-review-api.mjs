@@ -6,6 +6,9 @@ const baseInput = {
   labelText: "Made in Korea. Instantly treats eczema and removes acne permanently.",
   origin: "Korea",
   manufacturer: "Annaanda Lab",
+  hsCode: "3304.99",
+  incoterms: "DAP Taipei",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "1200"
 };
 
@@ -189,9 +192,9 @@ const tradeResponse = await fetch(`${baseUrl}/api/review`, {
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
     productName: "AI GPU Skin Analyzer",
-    productType: "AI hardware demo kit",
+    productType: "AI hardware device",
     ingredientsText: "GPU module, camera sensor, encrypted firmware",
-    labelText: "Made in Korea. Demo kit for AI skin analysis. Invoice sample only.",
+    labelText: "Made in Korea. Device for AI skin analysis. Invoice value blank.",
     origin: "Korea",
     manufacturer: "Annaanda Device Lab",
     invoiceValue: ""
@@ -204,9 +207,45 @@ if (!tradeResponse.ok) {
 
 const tradeResult = await tradeResponse.json();
 
-for (const findingId of ["trade-hs-needed", "trade-importer-needed", "trade-invoice-value-needed", "trade-shtc-review-needed"]) {
+for (const findingId of [
+  "trade-hs-needed",
+  "trade-importer-needed",
+  "trade-incoterms-needed",
+  "trade-shipment-purpose-needed",
+  "trade-invoice-value-needed",
+  "trade-shtc-review-needed"
+]) {
   if (!tradeResult.findings?.some((finding) => finding.id === findingId)) {
     throw new Error(`Trade review: expected ${findingId}`);
+  }
+}
+
+const tradeCompleteResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Cica Repair Cream Export Lot",
+    productType: "cosmetic / leave-on",
+    ingredientsText: "Water, Glycerin 5%, Panthenol 1%, Phenoxyethanol 0.7%",
+    labelText: "品名：積雪草修護霜. 容量：50ml. 全成分：Water, Glycerin, Panthenol, Phenoxyethanol. 原產地：韓國. 進口商：Taiwan Importer Co. 製造日期：2026-06-01. 有效日期：2029-06-01.",
+    origin: "Korea",
+    manufacturer: "Annaanda Beauty Lab / Taiwan Importer Co.",
+    hsCode: "3304.99",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1800"
+  })
+});
+
+if (!tradeCompleteResponse.ok) {
+  throw new Error(`Trade complete review: Review API returned ${tradeCompleteResponse.status}`);
+}
+
+const tradeCompleteResult = await tradeCompleteResponse.json();
+
+for (const findingId of ["trade-hs-present", "trade-incoterms-present", "trade-shipment-purpose-present"]) {
+  if (!tradeCompleteResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Trade complete review: expected ${findingId}`);
   }
 }
 
@@ -280,5 +319,5 @@ for (const testCase of sourceCases) {
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 5} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
+  `API smoke test passed: ${cases.length + 6} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
 );

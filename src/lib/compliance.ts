@@ -29,6 +29,9 @@ export type ReviewInput = {
   labelText: string;
   origin: string;
   manufacturer: string;
+  hsCode?: string;
+  incoterms?: string;
+  shipmentPurpose?: string;
   invoiceValue?: string;
 };
 
@@ -311,10 +314,11 @@ function isFoodProduct(input: ReviewInput) {
 }
 
 function reviewText(input: ReviewInput) {
-  return `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.origin} ${input.manufacturer}`;
+  return `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.origin} ${input.manufacturer} ${input.hsCode ?? ""} ${input.incoterms ?? ""} ${input.shipmentPurpose ?? ""}`;
 }
 
 function hasHsClassification(input: ReviewInput) {
+  if (input.hsCode?.trim()) return true;
   return /\b(?:HS|H\.S\.|CCC|tariff|customs code)\b\s*[:#-]?\s*\d{4,10}|HS코드|세번|稅則號列|稅號|商品編碼|商品编码|統計品目番号/i.test(reviewText(input));
 }
 
@@ -327,6 +331,14 @@ function hasTaiwanImporter(input: ReviewInput) {
 function hasInvoiceValue(input: ReviewInput) {
   const normalizedValue = String(input.invoiceValue ?? "").replace(/[,\s]/g, "");
   return Number.isFinite(Number(normalizedValue)) && Number(normalizedValue) > 0;
+}
+
+function hasIncoterms(input: ReviewInput) {
+  return Boolean(input.incoterms?.trim()) || /\b(EXW|FCA|FAS|FOB|CFR|CIF|CPT|CIP|DAP|DPU|DDP)\b|Incoterms|인코텀즈|貿易條件|贸易条件/i.test(reviewText(input));
+}
+
+function hasShipmentPurpose(input: ReviewInput) {
+  return Boolean(input.shipmentPurpose?.trim()) || /commercial|sale|sample|demo|return|repair|testing|gift|personal use|판매|상업|샘플|견본|데모|반품|수리|시험|개인사용|樣品|样品|銷售|销售|展示|測試|测试|維修|维修/i.test(reviewText(input));
 }
 
 function hasOriginSignal(input: ReviewInput) {
@@ -430,6 +442,60 @@ function addTradeFindings(input: ReviewInput, findings: Finding[]) {
       severity: "medium",
       why: "통관 검토에는 제품 수량, 거래조건, 인보이스 금액, 샘플/판매품 여부가 함께 필요합니다.",
       fix: ["상업송장 금액, 통화, Incoterms, 샘플 여부를 입력", "라벨 검토 결과와 출하 서류의 제품명이 일치하는지 확인"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL
+    });
+  }
+
+  if (hasIncoterms(input)) {
+    findings.push({
+      id: "trade-incoterms-present",
+      status: "pass",
+      area: "통관",
+      title: "거래조건(Incoterms)이 입력되어 있습니다",
+      severity: "low",
+      why: "운임, 보험, 통관 책임 범위는 서류 준비와 비용 산정에 직접 연결됩니다.",
+      fix: ["상업송장, 견적서, 물류 의뢰서의 Incoterms가 같은지 확인"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL,
+      evidence: input.incoterms || "Incoterms"
+    });
+  } else {
+    findings.push({
+      id: "trade-incoterms-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "거래조건(Incoterms) 확인 필요",
+      severity: "medium",
+      why: "수출입 비용, 보험, 운송 책임, 수입자 부담 범위를 판단하려면 EXW, FOB, CIF, DAP, DDP 같은 거래조건이 필요합니다.",
+      fix: ["상업송장 또는 견적서 기준 Incoterms와 도착지를 입력", "샘플 발송이라도 운임·보험·수입자 부담 범위를 명시"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL
+    });
+  }
+
+  if (hasShipmentPurpose(input)) {
+    findings.push({
+      id: "trade-shipment-purpose-present",
+      status: "pass",
+      area: "통관",
+      title: "출하 목적이 입력되어 있습니다",
+      severity: "low",
+      why: "판매품, 샘플, 데모, 시험용, 반품/수리품 여부는 신고 문구와 요구 서류를 바꿀 수 있습니다.",
+      fix: ["인보이스의 목적 문구와 실제 출하 목적이 일치하는지 확인"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL,
+      evidence: input.shipmentPurpose || "shipment purpose"
+    });
+  } else {
+    findings.push({
+      id: "trade-shipment-purpose-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "출하 목적 확인 필요",
+      severity: "medium",
+      why: "상업 판매, 샘플, 데모, 시험용, 반품/수리품 여부에 따라 인보이스 문구와 통관 서류가 달라질 수 있습니다.",
+      fix: ["판매품/샘플/데모/시험용/반품 중 하나로 목적을 입력", "무료 샘플도 합리적인 신고 금액과 용도를 문서화"],
       source: SOURCE_TW_TRADE,
       sourceUrl: SOURCE_TW_TRADE_URL
     });

@@ -5,6 +5,9 @@ export const sampleReview: ReviewInput = {
   productType: "leave-on toner / 일반 화장품",
   origin: "대한민국",
   manufacturer: "ANNAANDA Beauty Lab, Seoul",
+  hsCode: "3304.99",
+  incoterms: "DAP Taipei",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "4200",
   ingredientsText: [
     "Water",
@@ -34,6 +37,9 @@ export const cleanSampleReview: ReviewInput = {
   productType: "leave-on cream / 일반 화장품",
   origin: "대한민국",
   manufacturer: "ANNAANDA Beauty Lab, Seoul / Taiwan importer pending",
+  hsCode: "3304.99",
+  incoterms: "DDP Taipei",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "1800",
   ingredientsText: [
     "Water",
@@ -62,6 +68,9 @@ export const foodRiskSampleReview: ReviewInput = {
   productType: "prepackaged food / snack / 식품",
   origin: "대한민국",
   manufacturer: "ANNAANDA Foods, Seoul",
+  hsCode: "1905.31",
+  incoterms: "CIF Keelung",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "900",
   ingredientsText: [
     "Wheat flour",
@@ -86,6 +95,9 @@ export const foodCleanSampleReview: ReviewInput = {
   productType: "prepackaged food / tea / 식품",
   origin: "대한민국",
   manufacturer: "ANNAANDA Foods, Seoul / Taiwan importer pending",
+  hsCode: "0902.10",
+  incoterms: "DAP Taipei",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "650",
   ingredientsText: [
     "Citron peel",
@@ -110,6 +122,9 @@ export const foodAdditiveSampleReview: ReviewInput = {
   productType: "prepackaged food / snack / 식품",
   origin: "대한민국",
   manufacturer: "ANNAANDA Foods, Seoul / Taiwan Importer Co.",
+  hsCode: "1905.90",
+  incoterms: "CIF Keelung",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "720",
   ingredientsText: [
     "Rice",
@@ -134,6 +149,9 @@ export const foodClaimSampleReview: ReviewInput = {
   productType: "prepackaged food / snack / 식품",
   origin: "대한민국",
   manufacturer: "ANNAANDA Foods, Seoul / Taiwan Importer Co.",
+  hsCode: "1905.90",
+  incoterms: "DAP Taipei",
+  shipmentPurpose: "commercial sale",
   invoiceValue: "820",
   ingredientsText: [
     "Rice",
