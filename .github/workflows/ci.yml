@@ -43,5 +43,11 @@ jobs:
           pnpm build:knowledge-seed
           git diff --exit-code data/knowledge/term-index.json supabase/knowledge-seed.sql
 
+      - name: Validate knowledge base
+        run: pnpm validate:knowledge
+
+      - name: Dry-run Supabase SQL apply
+        run: SUPABASE_APPLY_DRY_RUN=1 pnpm apply:supabase-knowledge
+
       - name: Build
         run: pnpm build
