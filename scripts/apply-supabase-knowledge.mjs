@@ -4,15 +4,18 @@ import postgres from "postgres";
 
 const root = process.cwd();
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
+const dryRun = process.env.SUPABASE_APPLY_DRY_RUN === "1";
 
-if (!databaseUrl) {
+if (!databaseUrl && !dryRun) {
   throw new Error(
     "Set SUPABASE_DB_URL, POSTGRES_URL, or DATABASE_URL to the Supabase Postgres connection string before running this script."
   );
 }
 
-const schemaPath = path.join(root, "supabase", "knowledge-schema.sql");
-const seedPath = path.join(root, "supabase", "knowledge-seed.sql");
+const baseSchemaPath = path.join(root, "supabase", "schema.sql");
+const baseSeedPath = path.join(root, "supabase", "seed.sql");
+const knowledgeSchemaPath = path.join(root, "supabase", "knowledge-schema.sql");
+const knowledgeSeedPath = path.join(root, "supabase", "knowledge-seed.sql");
 const maxStatementsPerBatch = Number(process.env.SUPABASE_SQL_BATCH_SIZE ?? 250);
 
 function parseGeneratedSeed(source) {
@@ -31,24 +34,33 @@ function chunk(items, size) {
   return chunks;
 }
 
-const sql = postgres(databaseUrl, {
-  max: 1,
-  ssl: "require",
-  idle_timeout: 5,
-  connect_timeout: 20
-});
+const sql = dryRun
+  ? null
+  : postgres(databaseUrl, {
+      max: 1,
+      ssl: "require",
+      idle_timeout: 5,
+      connect_timeout: 20
+    });
 
-try {
-  const schemaSql = await readFile(schemaPath, "utf8");
-  const seedSql = await readFile(seedPath, "utf8");
-  const seedStatements = parseGeneratedSeed(seedSql);
-  const batches = chunk(seedStatements, maxStatementsPerBatch);
+async function applySqlFile(label, filePath) {
+  const source = await readFile(filePath, "utf8");
+  await sql.begin(async (tx) => {
+    await tx.unsafe(source);
+  });
+  console.log(`Applied ${label}`);
+}
+
+async function applyGeneratedSeed(label, filePath) {
+  const source = await readFile(filePath, "utf8");
+  const statements = parseGeneratedSeed(source);
+  const batches = chunk(statements, maxStatementsPerBatch);
 
   console.log(
     JSON.stringify(
       {
-        applying: "knowledge schema and seed",
-        seedStatements: seedStatements.length,
+        applying: label,
+        statements: statements.length,
         batches: batches.length,
         maxStatementsPerBatch
       },
@@ -57,22 +69,46 @@ try {
     )
   );
 
-  await sql.begin(async (tx) => {
-    await tx.unsafe(schemaSql);
-  });
-
-  for (const [index, statements] of batches.entries()) {
+  for (const [index, batch] of batches.entries()) {
     await sql.begin(async (tx) => {
-      for (const statement of statements) {
+      for (const statement of batch) {
         await tx.unsafe(statement);
       }
     });
-    console.log(`Applied knowledge seed batch ${index + 1}/${batches.length}`);
+    console.log(`Applied ${label} batch ${index + 1}/${batches.length}`);
   }
+}
+
+try {
+  if (dryRun) {
+    const [baseSeed, knowledgeSeed] = await Promise.all([
+      readFile(baseSeedPath, "utf8"),
+      readFile(knowledgeSeedPath, "utf8")
+    ]);
+
+    console.log(
+      JSON.stringify(
+        {
+          dryRun: true,
+          baseSeedStatements: parseGeneratedSeed(baseSeed).length,
+          knowledgeSeedStatements: parseGeneratedSeed(knowledgeSeed).length,
+          maxStatementsPerBatch
+        },
+        null,
+        2
+      )
+    );
+    process.exit(0);
+  }
+
+  await applySqlFile("base schema", baseSchemaPath);
+  await applyGeneratedSeed("TFDA rule seed", baseSeedPath);
+  await applySqlFile("knowledge schema", knowledgeSchemaPath);
+  await applyGeneratedSeed("knowledge seed", knowledgeSeedPath);
 
   const counts = await sql`
     select 'rules' as table_name, count(*)::integer as row_count from public.rules
-    union all select 'current_rule_versions', count(*)::integer from public.rule_versions where valid_to is null
+    union all select 'current_rule_versions', count(*)::integer from public.rule_versions where is_current = true
     union all select 'knowledge_sources', count(*)::integer from public.knowledge_sources
     union all select 'knowledge_snapshots', count(*)::integer from public.knowledge_snapshots
     union all select 'knowledge_terms', count(*)::integer from public.knowledge_terms
@@ -83,5 +119,5 @@ try {
 
   console.log(JSON.stringify({ counts }, null, 2));
 } finally {
-  await sql.end({ timeout: 5 });
+  await sql?.end({ timeout: 5 });
 }

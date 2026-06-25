@@ -458,16 +458,19 @@ as $$
 $$;
 
 -- Profiles
+drop policy if exists "profiles_select_own_or_admin" on public.profiles;
 create policy "profiles_select_own_or_admin"
 on public.profiles for select
 to authenticated
 using (id = auth.uid() or public.is_admin());
 
+drop policy if exists "profiles_insert_own" on public.profiles;
 create policy "profiles_insert_own"
 on public.profiles for insert
 to authenticated
 with check (id = auth.uid());
 
+drop policy if exists "profiles_update_own_or_admin" on public.profiles;
 create policy "profiles_update_own_or_admin"
 on public.profiles for update
 to authenticated
@@ -475,16 +478,19 @@ using (id = auth.uid() or public.is_admin())
 with check (id = auth.uid() or public.is_admin());
 
 -- Products
+drop policy if exists "products_owner_or_reviewer_select" on public.products;
 create policy "products_owner_or_reviewer_select"
 on public.products for select
 to authenticated
 using (owner_id = auth.uid() or public.is_reviewer_or_admin());
 
+drop policy if exists "products_owner_insert" on public.products;
 create policy "products_owner_insert"
 on public.products for insert
 to authenticated
 with check (owner_id = auth.uid());
 
+drop policy if exists "products_owner_or_reviewer_update" on public.products;
 create policy "products_owner_or_reviewer_update"
 on public.products for update
 to authenticated
@@ -492,22 +498,26 @@ using (owner_id = auth.uid() or public.is_reviewer_or_admin())
 with check (owner_id = auth.uid() or public.is_reviewer_or_admin());
 
 -- Official regulatory data: readable by signed-in users, writable only through service role/admin SQL.
+drop policy if exists "regulatory_sources_authenticated_read" on public.regulatory_sources;
 create policy "regulatory_sources_authenticated_read"
 on public.regulatory_sources for select
 to authenticated
 using (is_active = true or public.is_reviewer_or_admin());
 
+drop policy if exists "rules_authenticated_read" on public.rules;
 create policy "rules_authenticated_read"
 on public.rules for select
 to authenticated
 using (status = 'active' or public.is_reviewer_or_admin());
 
+drop policy if exists "rule_versions_authenticated_read" on public.rule_versions;
 create policy "rule_versions_authenticated_read"
 on public.rule_versions for select
 to authenticated
 using (is_current = true or public.is_reviewer_or_admin());
 
 -- Reviews and findings
+drop policy if exists "reviews_owner_or_reviewer_select" on public.reviews;
 create policy "reviews_owner_or_reviewer_select"
 on public.reviews for select
 to authenticated
@@ -520,12 +530,14 @@ using (
   )
 );
 
+drop policy if exists "reviews_reviewer_insert_update" on public.reviews;
 create policy "reviews_reviewer_insert_update"
 on public.reviews for all
 to authenticated
 using (public.is_reviewer_or_admin())
 with check (public.is_reviewer_or_admin());
 
+drop policy if exists "findings_owner_or_reviewer_select" on public.findings;
 create policy "findings_owner_or_reviewer_select"
 on public.findings for select
 to authenticated
@@ -538,6 +550,7 @@ using (
   )
 );
 
+drop policy if exists "findings_reviewer_insert_update" on public.findings;
 create policy "findings_reviewer_insert_update"
 on public.findings for all
 to authenticated
@@ -545,6 +558,7 @@ using (public.is_reviewer_or_admin())
 with check (public.is_reviewer_or_admin());
 
 -- Review queue
+drop policy if exists "review_queue_owner_or_reviewer_select" on public.review_queue;
 create policy "review_queue_owner_or_reviewer_select"
 on public.review_queue for select
 to authenticated
@@ -557,6 +571,7 @@ using (
   )
 );
 
+drop policy if exists "review_queue_reviewer_manage" on public.review_queue;
 create policy "review_queue_reviewer_manage"
 on public.review_queue for all
 to authenticated
@@ -564,17 +579,20 @@ using (public.is_reviewer_or_admin())
 with check (public.is_reviewer_or_admin());
 
 -- Audit logs are admin-readable only. Inserts should use trusted server code.
+drop policy if exists "audit_logs_admin_read" on public.audit_logs;
 create policy "audit_logs_admin_read"
 on public.audit_logs for select
 to authenticated
 using (public.is_admin());
 
 -- Knowledge registry is readable to signed-in users; writes stay in crawler/admin channels.
+drop policy if exists "knowledge_sources_authenticated_read" on public.knowledge_sources;
 create policy "knowledge_sources_authenticated_read"
 on public.knowledge_sources for select
 to authenticated
 using (is_active = true or public.is_reviewer_or_admin());
 
+drop policy if exists "knowledge_snapshots_authenticated_read" on public.knowledge_snapshots;
 create policy "knowledge_snapshots_authenticated_read"
 on public.knowledge_snapshots for select
 to authenticated
@@ -586,16 +604,19 @@ using (
   )
 );
 
+drop policy if exists "knowledge_terms_authenticated_read" on public.knowledge_terms;
 create policy "knowledge_terms_authenticated_read"
 on public.knowledge_terms for select
 to authenticated
 using (true);
 
+drop policy if exists "term_aliases_authenticated_read" on public.term_aliases;
 create policy "term_aliases_authenticated_read"
 on public.term_aliases for select
 to authenticated
 using (true);
 
+drop policy if exists "term_rule_links_authenticated_read" on public.term_rule_links;
 create policy "term_rule_links_authenticated_read"
 on public.term_rule_links for select
 to authenticated

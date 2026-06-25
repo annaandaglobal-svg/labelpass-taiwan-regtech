@@ -50,7 +50,13 @@ If a Supabase Postgres connection string is available, the browser SQL editor ca
 SUPABASE_DB_URL="postgresql://..." pnpm apply:supabase-knowledge
 ```
 
-The script applies `supabase/knowledge-schema.sql`, imports `supabase/knowledge-seed.sql` in safe batches, and prints the verification counts.
+The script applies the base schema, TFDA rule seed, knowledge schema, and knowledge seed in safe batches, then prints the verification counts.
+
+To validate the generated seed size before connecting to Supabase:
+
+```bash
+SUPABASE_APPLY_DRY_RUN=1 pnpm apply:supabase-knowledge
+```
 
 Expected counts after the current seed:
 
@@ -66,7 +72,7 @@ Recommended verification query:
 
 ```sql
 select 'rules' as table_name, count(*) from public.rules
-union all select 'current_rule_versions', count(*) from public.rule_versions where valid_to is null
+union all select 'current_rule_versions', count(*) from public.rule_versions where is_current = true
 union all select 'knowledge_sources', count(*) from public.knowledge_sources
 union all select 'knowledge_snapshots', count(*) from public.knowledge_snapshots
 union all select 'knowledge_terms', count(*) from public.knowledge_terms
