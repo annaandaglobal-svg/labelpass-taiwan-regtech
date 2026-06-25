@@ -695,18 +695,64 @@ function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; 
 function EmptyResult() {
   return (
     <div className="empty-result">
-      <div className="label-visual">
-        <div className="label-card">
-          <span>舒敏保濕化妝水</span>
-          <b>Label OCR</b>
-          <p>全成分 · 原產地 · 批號</p>
-          <div className="barcode" />
+      <div className="empty-head">
+        <span className="mini-seal">TW</span>
+        <div>
+          <b>대만 출고 게이트</b>
+          <p>성분·표시·통관 자료가 들어오면 공식 룰셋으로 즉시 분리 판정합니다.</p>
         </div>
-        <div className="pin pin-a">성분</div>
-        <div className="pin pin-b">라벨</div>
       </div>
-      <h2>전성분과 라벨 문구를 넣으면 바로 판정합니다</h2>
-      <p>금지·제한 성분, 농도 초과, 중문 필수 항목, 의료 효능 표현, PIF 준비도까지 한 번에 봅니다.</p>
+      <div className="empty-layout">
+        <div className="label-visual">
+          <div className="label-card">
+            <span>舒敏保濕化妝水</span>
+            <b>Label OCR</b>
+            <p>全成分 · 原產地 · 批號</p>
+            <div className="barcode" />
+          </div>
+          <div className="pin pin-a">성분</div>
+          <div className="pin pin-b">라벨</div>
+        </div>
+
+        <div className="gate-stack">
+          <div className="gate-score">
+            <small>검토 전</small>
+            <strong>4개 블록 대기</strong>
+            <span>입력 즉시 위반·자료부족·주의·통과로 나눕니다.</span>
+          </div>
+          <GateLine icon={<FlaskConical size={16} />} title="성분·농도" detail="금지/제한 성분, 농도 초과, 별칭 정규화" code="TW-COS" />
+          <GateLine icon={<FileText size={16} />} title="중문 라벨" detail="품명, 용도, 전성분, 원산지, 배치번호" code="LABEL" />
+          <GateLine icon={<PackageCheck size={16} />} title="식품 표시" detail="알레르겐, 첨가물, 영양·강조 문구" code="TW-FOOD" />
+          <GateLine icon={<Ship size={16} />} title="통관 자료" detail="HS/CCC, 출하 목적, 수입자·송장 정보" code="CUSTOMS" />
+        </div>
+      </div>
+
+      <div className="law-strip" aria-label="적용 근거">
+        <span>TFDA 화장품</span>
+        <span>식품 표시법</span>
+        <span>수입검사 면제</span>
+        <span>관세 사전심사</span>
+      </div>
+
+      <div className="decision-path">
+        <span>입력</span>
+        <span>정형 룰 대조</span>
+        <span>근거 링크</span>
+        <span>수정 지시</span>
+      </div>
+    </div>
+  );
+}
+
+function GateLine({ icon, title, detail, code }: { icon: React.ReactNode; title: string; detail: string; code: string }) {
+  return (
+    <div className="gate-line">
+      <span>{icon}</span>
+      <div>
+        <b>{title}</b>
+        <small>{detail}</small>
+      </div>
+      <em>{code}</em>
     </div>
   );
 }

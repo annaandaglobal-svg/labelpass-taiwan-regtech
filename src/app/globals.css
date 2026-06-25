@@ -715,7 +715,14 @@ h2 {
   border-color: var(--navy);
 }
 
-.empty-result,
+.empty-result {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  min-height: 640px;
+  text-align: left;
+}
+
 .analyzing {
   display: grid;
   place-items: center;
@@ -723,18 +730,60 @@ h2 {
   text-align: center;
 }
 
-.empty-result p,
 .analyzing p {
   max-width: 520px;
   color: var(--muted);
   line-height: 1.6;
 }
 
+.empty-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.empty-head b,
+.empty-head p {
+  display: block;
+}
+
+.empty-head b {
+  font-size: 17px;
+}
+
+.empty-head p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.mini-seal {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 2px solid var(--navy);
+  border-radius: 50%;
+  color: var(--navy);
+  font-weight: 900;
+  transform: rotate(-8deg);
+}
+
+.empty-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.95fr) minmax(220px, 1.05fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
 .label-visual {
   position: relative;
-  width: min(100%, 430px);
-  height: 270px;
-  margin-bottom: 20px;
+  width: 100%;
+  min-height: 246px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: linear-gradient(180deg, #eff5ee, #ffffff);
@@ -743,11 +792,11 @@ h2 {
 
 .label-card {
   position: absolute;
-  inset: 34px 74px 28px 58px;
+  inset: 30px 34px 26px;
   display: grid;
   align-content: center;
   gap: 12px;
-  padding: 24px;
+  padding: 20px;
   border: 1px solid #b9c7bd;
   border-radius: 6px;
   background: #fff;
@@ -760,7 +809,7 @@ h2 {
 }
 
 .label-card b {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .label-card p {
@@ -768,7 +817,7 @@ h2 {
 }
 
 .barcode {
-  width: 150px;
+  width: min(150px, 100%);
   height: 34px;
   background: repeating-linear-gradient(90deg, #1f2d23 0 3px, transparent 3px 7px);
 }
@@ -785,13 +834,120 @@ h2 {
 
 .pin-a {
   top: 74px;
-  right: 34px;
+  right: 18px;
 }
 
 .pin-b {
   bottom: 70px;
-  left: 28px;
+  left: 18px;
   background: var(--gold);
+}
+
+.gate-stack {
+  display: grid;
+  align-content: start;
+  border-top: 1px solid var(--line);
+}
+
+.gate-score {
+  display: grid;
+  gap: 3px;
+  padding: 0 0 12px;
+}
+
+.gate-score small,
+.gate-line small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.gate-score strong {
+  font-size: 21px;
+}
+
+.gate-score span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.gate-line {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 60px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.gate-line > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--navy-soft);
+  color: var(--navy);
+}
+
+.gate-line b,
+.gate-line small {
+  display: block;
+}
+
+.gate-line em {
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--panel-soft);
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.law-strip,
+.decision-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.law-strip {
+  padding-top: 2px;
+}
+
+.law-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--navy-soft);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.decision-path {
+  padding: 12px 0 0;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.decision-path span {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .analysis-steps {
@@ -1675,6 +1831,7 @@ h2 {
   .next-actions,
   .ops-strip,
   .intake-rail,
+  .empty-layout,
   .two-col,
   .upload-row,
   .doc-grid,
@@ -1699,8 +1856,16 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .empty-result {
+    min-height: auto;
+  }
+
+  .label-visual {
+    min-height: 232px;
+  }
+
   .label-card {
-    inset: 34px 34px 28px;
+    inset: 26px 28px 24px;
   }
 
   .knowledge-shell {
