@@ -167,6 +167,14 @@ export function normalizeKnowledgeQuery(value: string) {
 
 const normalize = normalizeKnowledgeQuery;
 
+export function foldKnowledgeSeparators(value: string) {
+  return String(value ?? "").replace(/[\s._-]+/g, "");
+}
+
+function spaceKnowledgeSeparators(value: string) {
+  return String(value ?? "").replace(/[._-]+/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function characterLength(value: string) {
   return Array.from(value).length;
 }
@@ -187,13 +195,26 @@ function isBroadOrAmbiguous(alias: Alias) {
 function tokenScore(target: string, query: string, exactOnly = false) {
   if (!target || !query) return 0;
   if (target === query) return 100;
+
+  const targetFolded = foldKnowledgeSeparators(target);
+  const queryFolded = foldKnowledgeSeparators(query);
+  const canUseFolded = targetFolded.length > 3 && queryFolded.length > 3;
+  if (canUseFolded && targetFolded === queryFolded) return 94;
+
   if (exactOnly) return 0;
   if (target.startsWith(query)) return 88;
   if (target.includes(query)) return 72;
 
+  const targetSpaced = spaceKnowledgeSeparators(target);
+  const querySpaced = spaceKnowledgeSeparators(query);
+  if (querySpaced !== query && targetSpaced.includes(querySpaced)) return 72;
+  if (canUseFolded && targetFolded.startsWith(queryFolded)) return 82;
+  if (canUseFolded && targetFolded.includes(queryFolded)) return 66;
+
   const queryTokens = query.split(" ").filter((token) => token.length > 1);
   if (queryTokens.length > 1 && queryTokens.every((token) => target.includes(token))) return 58;
   if (query.length > 4 && query.includes(target)) return 44;
+  if (canUseFolded && queryFolded.includes(targetFolded)) return 42;
   return 0;
 }
 

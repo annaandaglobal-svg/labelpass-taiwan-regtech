@@ -1,6 +1,6 @@
 import postgres from "postgres";
 import type { KnowledgeSearchResult } from "./knowledge-search";
-import { normalizeKnowledgeQuery } from "./knowledge-search";
+import { foldKnowledgeSeparators, normalizeKnowledgeQuery } from "./knowledge-search";
 
 type DbClient = ReturnType<typeof postgres>;
 
@@ -140,7 +140,9 @@ async function readTermRows(sql: DbClient, query: string, limit: number) {
   const escaped = escapeLike(query);
   const contains = `%${escaped}%`;
   const prefix = `${escaped}%`;
+  const foldedQuery = foldKnowledgeSeparators(query);
   const canUseContains = query.length > 2 || /[\p{Script=Han}\p{Script=Hangul}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(query);
+  const canUseFolded = foldedQuery.length > 3;
 
   return sql<TermRow[]>`
     with alias_scores as (
@@ -149,8 +151,11 @@ async function readTermRows(sql: DbClient, query: string, limit: number) {
         max(
           case
             when a.normalized_alias = ${query} then 130
+            when ${canUseFolded} and regexp_replace(a.normalized_alias, '[[:space:]_.-]+', '', 'g') = ${foldedQuery} then 122
             when ${canUseContains} and a.normalized_alias like ${prefix} escape '\\' then 108
             when ${canUseContains} and a.normalized_alias like ${contains} escape '\\' then 92
+            when ${canUseFolded} and regexp_replace(a.normalized_alias, '[[:space:]_.-]+', '', 'g') like (${foldedQuery} || '%') then 84
+            when ${canUseFolded} and regexp_replace(a.normalized_alias, '[[:space:]_.-]+', '', 'g') like ('%' || ${foldedQuery} || '%') then 70
             when length(a.normalized_alias) > 4 and ${query} like ('%' || a.normalized_alias || '%') then 68
             else 0
           end + round(a.confidence * 10)::integer
@@ -159,6 +164,7 @@ async function readTermRows(sql: DbClient, query: string, limit: number) {
       where
         a.normalized_alias = ${query}
         or (${canUseContains} and a.normalized_alias like ${contains} escape '\\')
+        or (${canUseFolded} and regexp_replace(a.normalized_alias, '[[:space:]_.-]+', '', 'g') like ('%' || ${foldedQuery} || '%'))
         or (length(a.normalized_alias) > 4 and ${query} like ('%' || a.normalized_alias || '%'))
       group by a.term_key
     ),
@@ -174,6 +180,7 @@ async function readTermRows(sql: DbClient, query: string, limit: number) {
           coalesce(a.score, 0),
           case
             when lower(t.canonical_name) = ${query} then 118
+            when ${canUseFolded} and regexp_replace(lower(t.canonical_name), '[[:space:]_.-]+', '', 'g') = ${foldedQuery} then 110
             when ${canUseContains} and lower(t.canonical_name) like ${contains} escape '\\' then 82
             else 0
           end

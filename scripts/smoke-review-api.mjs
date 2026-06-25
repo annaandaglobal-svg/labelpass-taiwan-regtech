@@ -19,6 +19,11 @@ const cases = [
     minimumFindings: 3
   },
   {
+    name: "Separator-folded restricted ingredients",
+    ingredientsText: "Water, Glycerin, Triclosan 0.4%, Methyl-isothiazolinone 0.002%, Mercury",
+    minimumFindings: 3
+  },
+  {
     name: "Korean and traditional Chinese aliases",
     ingredientsText: "Water, 살리실산 3%, 水楊酸 3%, MI 0.002%, 수은",
     minimumFindings: 2
@@ -474,6 +479,7 @@ const knowledgeCases = [
   { query: "輸入食品查驗", expectedTerm: "Imported Food Inspection" },
   { query: "수입식품 통관검사", expectedTerm: "Imported Food Inspection" },
   { query: "HS 0307 health certificate", expectedTerm: "Food Import Health Certificate" },
+  { query: "HS-0307 위생증명서", expectedTerm: "Food Import Health Certificate" },
   { query: "食品業者登錄", expectedTerm: "Food Business Registration for Importers" },
   { query: "產品資訊表", expectedTerm: "Product Information Sheet" },
   { query: "業務用食品標示", expectedTerm: "Business-use Food Intact Package Labeling" },
@@ -485,8 +491,12 @@ const knowledgeCases = [
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
   { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
   { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
+  { query: "sodium-benzoate", expectedTerm: "Benzoic Acid and Benzoates" },
   { query: "DHA", expectedTerm: "Dehydroacetic Acid" },
-  { query: "Gly", expectedTerm: "Glycine" }
+  { query: "Gly", expectedTerm: "Glycine" },
+  { query: "methyl-isothiazolinone", expectedTerm: "Methylisothiazolinone" },
+  { query: "CI-77891", expectedTerm: "Titanium Dioxide" },
+  { query: "CCC-code", expectedTerm: "HS Code Classification" }
 ];
 
 for (const testCase of knowledgeCases) {

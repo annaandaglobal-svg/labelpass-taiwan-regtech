@@ -205,6 +205,16 @@ function escapeRegex(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function foldMatchSeparators(value: string) {
+  return value.replace(/[\s._-]+/g, "");
+}
+
+function hasFoldedAlias(value: string, normalizedAlias: string) {
+  const foldedValue = foldMatchSeparators(value);
+  const foldedAlias = foldMatchSeparators(normalizedAlias);
+  return foldedAlias.length > 3 && foldedValue.includes(foldedAlias);
+}
+
 function aliasesForRule(rule: RegulatoryRule): IndexedAlias[] {
   const indexedAliases = indexedAliasesByRule.get(rule.id) ?? [];
   const officialAliases: IndexedAlias[] = [
@@ -245,7 +255,7 @@ function hasAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
     }
 
     if (normalizedAlias.length < 2) return false;
-    return value.includes(normalizedAlias);
+    return value.includes(normalizedAlias) || hasFoldedAlias(value, normalizedAlias);
   });
 }
 
@@ -264,7 +274,7 @@ function matchedAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
     }
 
     if (normalizedAlias.length < 2) return false;
-    return value.includes(normalizedAlias);
+    return value.includes(normalizedAlias) || hasFoldedAlias(value, normalizedAlias);
   });
 }
 
@@ -280,11 +290,12 @@ function matchedAliasInText(text: string, aliases: IndexedAlias[]) {
     const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
 
     if (isLatinAlias || isLatinShortAlias || isLowConfidence) {
-      return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+      const exactWord = new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+      return exactWord || (!isLatinShortAlias && !isLowConfidence && hasFoldedAlias(value, normalizedAlias));
     }
 
     if (normalizedAlias.length < 2) return false;
-    return value.includes(normalizedAlias);
+    return value.includes(normalizedAlias) || hasFoldedAlias(value, normalizedAlias);
   });
 }
 

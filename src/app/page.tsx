@@ -120,8 +120,8 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 const knowledgeStats = {
   sources: "94",
   aliases: "3,224",
-  reviewCases: "13",
-  knowledgeCases: "45",
+  reviewCases: "14",
+  knowledgeCases: "50",
   sourceCases: "16"
 };
 
