@@ -35,6 +35,8 @@ function normalizeWhitespace(text) {
 
 function decodeEntities(text) {
   return text
+    .replace(/&#x([0-9a-f]+);/gi, (_, codepoint) => String.fromCodePoint(Number.parseInt(codepoint, 16)))
+    .replace(/&#(\d+);/g, (_, codepoint) => String.fromCodePoint(Number.parseInt(codepoint, 10)))
     .replaceAll("&nbsp;", " ")
     .replaceAll("&amp;", "&")
     .replaceAll("&quot;", "\"")
@@ -64,6 +66,7 @@ function detectFormat(source, body, contentType = "") {
   const declaredFormat = source.format?.toLowerCase();
   if (declaredFormat) return declaredFormat;
   if (contentType.toLowerCase().includes("pdf")) return "pdf";
+  if (contentType.toLowerCase().includes("xml")) return "xml";
   if (body.subarray(0, 5).toString("ascii") === "%PDF-") return "pdf";
   return "html";
 }
@@ -124,12 +127,50 @@ async function fetchUrl(url, source) {
     }
 
     return {
+      url,
       body: Buffer.from(await response.arrayBuffer()),
       contentType: response.headers.get("content-type") ?? ""
     };
   } finally {
     clearTimeout(timeout);
   }
+}
+
+let ecfrTitlesPromise;
+
+async function getEcfrTitles() {
+  ecfrTitlesPromise ??= fetchUrl("https://www.ecfr.gov/api/versioner/v1/titles.json", {
+    id: "ecfr-titles",
+    timeout_ms: 25000
+  }).then(({ body }) => JSON.parse(body.toString("utf8")).titles ?? []);
+  return ecfrTitlesPromise;
+}
+
+async function buildEcfrApiUrl(source) {
+  const ecfr = source.ecfr;
+  if (!ecfr?.title) {
+    throw new Error(`${source.id}: ecfr.title is required`);
+  }
+
+  const titleNumber = Number(ecfr.title);
+  const date =
+    ecfr.date ??
+    (await getEcfrTitles()).find((title) => Number(title.number) === titleNumber)?.latest_issue_date;
+
+  if (!date) {
+    throw new Error(`${source.id}: could not resolve eCFR latest_issue_date for title ${ecfr.title}`);
+  }
+
+  const url = new URL(`https://www.ecfr.gov/api/versioner/v1/full/${date}/title-${titleNumber}.xml`);
+  for (const key of ["subtitle", "chapter", "subchapter", "part", "subpart", "section", "appendix"]) {
+    if (ecfr[key]) url.searchParams.set(key, String(ecfr[key]));
+  }
+  return url.toString();
+}
+
+async function fetchEcfrSource(source) {
+  const apiUrl = await buildEcfrApiUrl(source);
+  return fetchUrl(apiUrl, source);
 }
 
 function isPublicationsOfficeRdf(url, body, contentType) {
@@ -154,6 +195,34 @@ function extractPublicationsOfficeCandidates(rdf) {
   }
 
   return candidates;
+}
+
+async function appendExtraUrls(source, body, contentType) {
+  if (!source.extra_urls?.length) {
+    return { body, contentType, extraFetchedUrls: [] };
+  }
+
+  const chunks = [body];
+  const extraFetchedUrls = [];
+
+  for (const extraUrl of source.extra_urls) {
+    try {
+      const fetched = await fetchUrl(extraUrl, source);
+      extraFetchedUrls.push(fetched.url ?? extraUrl);
+      chunks.push(
+        Buffer.from(`\n\n<!-- LabelPass extra official source: ${extraUrl} -->\n\n`, "utf8"),
+        fetched.body
+      );
+    } catch {
+      // Keep the primary official source usable if a companion page is temporarily unavailable.
+    }
+  }
+
+  return {
+    body: Buffer.concat(chunks),
+    contentType,
+    extraFetchedUrls
+  };
 }
 
 async function resolvePublicationsOfficeDocument(source, body, contentType, depth = 0) {
@@ -200,6 +269,8 @@ async function fetchSource(source, cacheDays) {
   let fromCache = false;
   let manualFallback = false;
   let browserCapture = false;
+  let fetchedUrl = source.url;
+  let extraFetchedUrls = [];
   let contentType = source.content_type ?? "";
 
   if (source.format?.toLowerCase() === "manual") {
@@ -215,10 +286,13 @@ async function fetchSource(source, cacheDays) {
     fromCache = true;
   } else {
     try {
-      const fetched = await fetchUrl(source.url, source);
+      const fetched = source.ecfr ? await fetchEcfrSource(source) : await fetchUrl(source.url, source);
+      fetchedUrl = fetched.url ?? source.url;
       const resolved = await resolvePublicationsOfficeDocument(source, fetched.body, fetched.contentType);
-      contentType = resolved.contentType || fetched.contentType || contentType;
-      body = resolved.body;
+      const expanded = await appendExtraUrls(source, resolved.body, resolved.contentType || fetched.contentType || contentType);
+      contentType = expanded.contentType;
+      body = expanded.body;
+      extraFetchedUrls = expanded.extraFetchedUrls;
       await writeFile(rawPath, body);
     } catch (error) {
       try {
@@ -257,6 +331,8 @@ async function fetchSource(source, cacheDays) {
     `priority: ${source.priority}`,
     `format: ${parsed.format}`,
     `fetched_at: ${now.toISOString()}`,
+    `fetched_url: ${fetchedUrl}`,
+    `extra_fetched_urls:${extraFetchedUrls.length ? ` ${extraFetchedUrls.join(", ")}` : ""}`,
     `content_hash: ${hash}`,
     `from_cache: ${fromCache}`,
     `manual_fallback: ${manualFallback}`,
@@ -281,12 +357,15 @@ async function fetchSource(source, cacheDays) {
     id: source.id,
     title: source.title,
     url: source.url,
+    fetched_url: fetchedUrl,
+    extra_fetched_urls: extraFetchedUrls,
     authority: source.authority,
     jurisdiction: source.jurisdiction,
     domain: source.domain,
     source_type: source.source_type,
     priority: source.priority,
     tags: source.tags,
+    excerpt,
     format: parsed.format,
     fetched_at: now.toISOString(),
     from_cache: fromCache,

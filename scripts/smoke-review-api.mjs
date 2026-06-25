@@ -222,4 +222,29 @@ for (const testCase of knowledgeCases) {
   }
 }
 
-console.log(`API smoke test passed: ${cases.length + 4} review cases, ${knowledgeCases.length} knowledge cases.`);
+const sourceCases = [
+  { query: "simple asphyxiants", expectedSource: "global-unece-ghs-rev11-pdf" },
+  { query: "April 1 2026 tariff", expectedSource: "jp-customs-tariff-schedule" },
+  { query: "mofcom export control", expectedSource: "cn-mofcom-export-control-portal" }
+];
+
+for (const testCase of sourceCases) {
+  const response = await fetch(`${baseUrl}/api/knowledge/search?q=${encodeURIComponent(testCase.query)}`);
+
+  if (!response.ok) {
+    throw new Error(`${testCase.query}: Knowledge API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const matched = Array.isArray(result.sources)
+    ? result.sources.some((source) => source.id === testCase.expectedSource)
+    : false;
+
+  if (!matched) {
+    throw new Error(`${testCase.query}: expected source ${testCase.expectedSource}`);
+  }
+}
+
+console.log(
+  `API smoke test passed: ${cases.length + 4} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
+);

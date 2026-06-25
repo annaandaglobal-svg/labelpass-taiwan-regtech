@@ -444,7 +444,7 @@
       "priority": "high",
       "cache_days": 90,
       "format": "manual",
-      "manual_extract": "Official UNECE GHS Rev. 11 source page. Automated fetch is blocked by the UNECE site from this environment, so this record preserves the official URL for browser/manual refresh and retrieval routing. GHS is the global baseline for chemical hazard classification, label elements, pictograms, hazard statements, precautionary statements, and safety data sheet terminology.",
+      "manual_extract": "Official UNECE index for the Globally Harmonized System of Classification and Labelling of Chemicals, eleventh revised edition, 2025. The source page routes to the free electronic edition and to language downloads including the English PDF file GHS Rev11e.pdf. Official document citation: ST/SG/AC.10/30/Rev.11. The GHS, also known as the Purple Book, is the global baseline used by many jurisdictions for chemical hazard classification and hazard communication. It supports regulatory checks for substance and mixture classification, physical hazards, health hazards, environmental hazards, signal words, hazard pictograms, hazard statements, precautionary statements, product identifiers, supplier identification, label elements, and safety data sheet terminology. Rev. 11 takes account of amendments adopted by the UN Committee of Experts on the Transport of Dangerous Goods and on the Globally Harmonized System of Classification and Labelling of Chemicals in December 2024. Search anchors for this source include GHS, UN GHS, Purple Book, Globally Harmonized System, chemical classification, labelling of chemicals, SDS, safety data sheet, hazard communication, CLP alignment, OSHA HazCom alignment, pictograms, signal word, Danger, Warning, H statements, P statements, aerosols, chemicals under pressure, skin sensitization, non-animal methods, global warming potential, simple asphyxiants, Annex 11, precautionary statement rationalization, and ST/SG/AC.10/30/Rev.11. Additional retrieval anchors include classification criteria, flammable gases, flammable aerosols, flammable liquids, oxidizing gases, oxidizing liquids, oxidizing solids, explosives, self-reactive substances, pyrophoric liquids, pyrophoric solids, self-heating substances, water-reactive substances, organic peroxides, corrosive to metals, desensitized explosives, acute toxicity, skin corrosion, serious eye damage, respiratory sensitization, germ cell mutagenicity, carcinogenicity, reproductive toxicity, specific target organ toxicity single exposure, specific target organ toxicity repeated exposure, aspiration hazard, hazardous to the aquatic environment, hazardous to the ozone layer, and hazardous by contributing to global warming. This cached text is an official-source routing and retrieval note for environments where direct automated HTTP capture requires an interactive browser challenge; the legal reference remains the UNECE page and PDF.",
       "browser_capture_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-blocked.txt",
       "screenshot_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-blocked.png",
       "tags": ["ghs", "chemical-labeling", "sds", "hazard-communication", "rev11", "2025"]
@@ -460,7 +460,7 @@
       "priority": "high",
       "cache_days": 180,
       "format": "manual",
-      "manual_extract": "Official UNECE English PDF for GHS Rev. 11. Automated PDF fetch is blocked by UNECE from this environment. The source is retained as the authoritative document for future browser/manual download and extraction. Use it for global chemical classification and labelling terminology, SDS structure, hazard statements, precautionary statements, and pictogram references.",
+      "manual_extract": "Official UNECE English PDF for the Globally Harmonized System of Classification and Labelling of Chemicals, eleventh revised edition, 2025. File name: GHS Rev11e.pdf. Official document citation: ST/SG/AC.10/30/Rev.11. Publication metadata identifies it as a United Nations publication issued by the United Nations Economic Commission for Europe, with ISBN 978-92-1-003273-5 and PDF ISBN 978-92-1-003274-2. The English PDF is the authoritative source to retrieve when the system needs detailed evidence for GHS chemical classification and labelling rules. It should be used for chemical product review, hazard class identification, category terminology, signal word checks, pictogram checks, hazard statement checks, precautionary statement checks, supplier and product identifier checks, and safety data sheet terminology. Rev. 11 includes update anchors for aerosols and chemicals under pressure, skin sensitization classification using non-animal methods, substances and mixtures that are hazardous by contributing to global warming, rationalized precautionary statements, and Annex 11 guidance on simple asphyxiants. Operational aliases include UN GHS Rev.11, GHS 2025, Purple Book 2025, ST/SG/AC.10/30/Rev.11, hazard communication, chemical labelling, SDS, safety data sheet, pictogram, signal word, H statement, P statement, acute toxicity, skin corrosion, eye damage, carcinogenicity, reproductive toxicity, aquatic toxicity, ozone layer, global warming, aerosol, chemical under pressure, and simple asphyxiant. Detailed search anchors include label element, product identifier, supplier identification, supplemental information, hazard class, hazard category, mixture classification, bridging principle, cut-off value, concentration limit, precautionary pictogram, transport pictogram, skin sensitizer, respiratory sensitizer, mutagenicity, aspiration toxicity, metal corrosion, oxidizer, flammable solid, self-heating, pyrophoric, organic peroxide, desensitized explosive, combustible dust, and safety data sheet section terminology. This cached text is a retrieval note and search anchor for the official PDF in environments where direct automated PDF capture requires an interactive browser challenge; the legal reference remains the UNECE PDF URL.",
       "browser_capture_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-pdf-blocked.txt",
       "screenshot_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-pdf-blocked.png",
       "tags": ["ghs", "hazard-statements", "precautionary-statements", "pictograms", "rev11", "2025"]
@@ -610,6 +610,7 @@
       "source_type": "regulation",
       "priority": "high",
       "cache_days": 30,
+      "ecfr": { "title": 21, "part": "701" },
       "tags": ["cosmetics", "labeling", "ingredient-declaration", "warning"]
     },
     {
@@ -634,6 +635,7 @@
       "source_type": "regulation",
       "priority": "high",
       "cache_days": 30,
+      "ecfr": { "title": 21, "part": "101" },
       "tags": ["food-labeling", "nutrition-facts", "claims"]
     },
     {
@@ -646,6 +648,7 @@
       "source_type": "regulation",
       "priority": "high",
       "cache_days": 30,
+      "ecfr": { "title": 19, "part": "134" },
       "tags": ["country-of-origin", "customs", "marking", "imports"]
     },
     {
@@ -658,6 +661,7 @@
       "source_type": "regulation",
       "priority": "high",
       "cache_days": 30,
+      "ecfr": { "title": 29, "section": "1910.1200" },
       "tags": ["hazcom", "ghs", "workplace-labeling", "sds"]
     },
     {
@@ -694,6 +698,7 @@
       "source_type": "tariff_index",
       "priority": "high",
       "cache_days": 30,
+      "extra_urls": ["https://www.customs.go.jp/english/tariff/2026_04_01/index.htm"],
       "tags": ["hs-code", "tariff", "classification"]
     },
     {
@@ -843,6 +848,12 @@
       "source_type": "regulation_index",
       "priority": "high",
       "cache_days": 14,
+      "extra_urls": [
+        "https://exportcontrol.mofcom.gov.cn/zcfgList.shtml",
+        "https://exportcontrol.mofcom.gov.cn/ckgzqdsjk.shtml?columnID=8&num=1",
+        "https://exportcontrol.mofcom.gov.cn/article/zcfg/gnzcfg/gzjgfxwj/202410/1057.html",
+        "https://exportcontrol.mofcom.gov.cn/article/zcfg/gnzcfg/flfg/202111/226.html"
+      ],
       "tags": ["export-control", "dual-use", "mofcom", "china"]
     },
     {

@@ -44,6 +44,7 @@ type SourceResult = {
   source_type: string;
   priority: string;
   tags?: string[];
+  excerpt?: string;
   format?: string;
   browser_capture?: boolean;
   manual_fallback?: boolean;
@@ -249,6 +250,7 @@ function scoreSource(source: SourceResult, query: string) {
       source.domain,
       source.source_type,
       source.priority,
+      source.excerpt,
       ...(source.tags ?? [])
     ].join(" ")
   );
