@@ -521,8 +521,13 @@ function statusIcon(status: ReviewStatus) {
   return <AlertTriangle size={18} />;
 }
 
+function knowledgeQueryForFinding(finding: Finding) {
+  return (finding.evidence || finding.title || finding.source).replace(/\s+/g, " ").trim();
+}
+
 function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; expanded: boolean; onToggle: () => void; onAsk: () => void }) {
   const copy = statusCopy[finding.status];
+  const knowledgeHref = `/knowledge?q=${encodeURIComponent(knowledgeQueryForFinding(finding))}`;
   return (
     <article className={`finding ${copy.tone}`}>
       <button className="finding-head" onClick={onToggle}>
@@ -547,6 +552,9 @@ function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; 
           <div className="finding-foot">
             <a href={finding.sourceUrl} target="_blank" rel="noreferrer">
               <ExternalLink size={15} /> {finding.source}
+            </a>
+            <a href={knowledgeHref}>
+              <Search size={15} /> 지식검색에서 보기
             </a>
             <button onClick={onAsk}>
               <MessageSquare size={15} /> 이 항목 질문

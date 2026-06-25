@@ -7,12 +7,17 @@ import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 const examples = ["SDS", "HS코드", "원산지 표시", "INCI", "營養標示", "過敏原標示", "PIF", "化妆品备案"];
 
 export default function KnowledgeSearchClient() {
-  const [query, setQuery] = useState("땅콩");
+  const [query, setQuery] = useState("SDS");
   const [data, setData] = useState<KnowledgeSearchResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const trimmed = useMemo(() => query.trim(), [query]);
+
+  useEffect(() => {
+    const initialQuery = new URLSearchParams(window.location.search).get("q");
+    if (initialQuery?.trim()) setQuery(initialQuery.trim());
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
