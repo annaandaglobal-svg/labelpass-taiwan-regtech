@@ -70,6 +70,14 @@ const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Applicati
 const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES_URL = "https://www.fda.gov.tw/TC/siteContent.aspx?sid=10159";
+const SOURCE_FOOD_IMPORT_INSPECTION = "Regulations of Inspection of Imported Foods and Related Products, Articles 3, 4, 6, and 8";
+const SOURCE_FOOD_IMPORT_INSPECTION_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040017";
+const SOURCE_FOOD_BUSINESS_REGISTRATION = "TFDA food business registration for import business operators";
+const SOURCE_FOOD_BUSINESS_REGISTRATION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1681";
+const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE = "TFDA HS 0307 shellfish health certificate notice";
+const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE_URL = "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095";
+const SOURCE_FOOD_SYSTEMATIC_INSPECTION = "Regulations for Systematic Inspection of Imported Food";
+const SOURCE_FOOD_SYSTEMATIC_INSPECTION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607";
 const SOURCE_WCO_HS = "World Customs Organization Harmonized System reference";
 const SOURCE_WCO_HS_URL = "https://www.wcoomd.org/en/topics/nomenclature/overview/what-is-the-harmonized-system.aspx";
 const SOURCE_TW_TRADE = "Taiwan International Trade Administration import/export regulations";
@@ -308,13 +316,13 @@ function fixOptions(rule: RegulatoryRule, limit?: number) {
 }
 
 function isFoodProduct(input: ReviewInput) {
-  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|식품|음료|과자|소스|분말|차|커피|건강기능|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|魷魚|奇異果/i.test(
+  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|shellfish|mollusk|mollusc|clam|oyster|mussel|scallop|abalone|식품|음료|과자|소스|분말|차|커피|건강기능|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|조개|굴|홍합|가리비|전복|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|魷魚|奇異果|貝類|貝|牡蠣|蛤|扇貝|鮑魚/i.test(
     `${input.productName} ${input.productType} ${input.labelText}`
   );
 }
 
 function reviewText(input: ReviewInput) {
-  return `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.origin} ${input.manufacturer} ${input.hsCode ?? ""} ${input.incoterms ?? ""} ${input.shipmentPurpose ?? ""}`;
+  return `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.origin} ${input.manufacturer} ${input.hsCode ?? ""} ${input.incoterms ?? ""} ${input.shipmentPurpose ?? ""} ${input.invoiceValue ?? ""}`;
 }
 
 function hasHsClassification(input: ReviewInput) {
@@ -348,6 +356,98 @@ function hasOriginSignal(input: ReviewInput) {
 function hasStrategicGoodsSignal(input: ReviewInput) {
   return /ai accelerator|gpu|npu|semiconductor|server|encryption|cryptographic|sensor|drone|laser|shtc|dual-use|strategic high-tech|전략물자|이중용도|반도체|서버|암호화|센서|드론|레이저|半導體|半导体|伺服器|服务器|加密|感測器|传感器|無人機|无人机|雷射/i.test(
     reviewText(input)
+  );
+}
+
+function hsCodeText(input: ReviewInput) {
+  return `${input.hsCode ?? ""} ${reviewText(input)}`;
+}
+
+function hsCodeStartsWith(input: ReviewInput, prefixes: string[]) {
+  const compact = hsCodeText(input).replace(/[.\-\s]/g, "");
+  return prefixes.some((prefix) => new RegExp(`(?:^|\\D)${prefix}\\d*`, "i").test(compact));
+}
+
+function hasCommercialShipmentSignal(input: ReviewInput) {
+  return /commercial|sale|resale|retail|wholesale|business|B2B|판매|상업|도매|소매|유통|영업|銷售|销售|商業|商业|零售|批發|批发/i.test(
+    reviewText(input)
+  );
+}
+
+function isImportedFoodContext(input: ReviewInput) {
+  return (
+    hasCommercialShipmentSignal(input) ||
+    hasHsClassification(input) ||
+    hasTaiwanImporter(input) ||
+    hasInvoiceValue(input) ||
+    hasIncoterms(input)
+  );
+}
+
+function hasFoodInspectionApplication(input: ReviewInput) {
+  return /inspection application|application form for inspection|apply for inspection|查驗申請|查验申请|輸入食品查驗|输入食品查验|수입식품\s*검사\s*신청|검사신청서|수입검사\s*신청/i.test(
+    reviewText(input)
+  );
+}
+
+function hasProductInformationSheet(input: ReviewInput) {
+  return /product information sheet|product information declaration|declaration form of product information|產品資訊表|产品资讯表|產品資料表|产品资料表|產品資訊申報|제품정보표|제품\s*정보\s*신고|제품정보\s*선언/i.test(
+    reviewText(input)
+  );
+}
+
+function hasImportDeclarationCopy(input: ReviewInput) {
+  return /import declaration|application for import declaration|customs declaration|進口報單|进口报单|進口申報|进口申报|수입신고서|수입\s*신고\s*사본|통관신고/i.test(
+    reviewText(input)
+  );
+}
+
+function hasFoodBusinessRegistration(input: ReviewInput) {
+  return /food business registration|food business operator registration|食品業者登錄|食品業者登記|食品业者登记|食品業者登錄字號|輸入業者登錄|輸入業者登記|식품업자\s*등록|식품영업자\s*등록|수입식품\s*영업등록|영업등록번호/i.test(
+    reviewText(input)
+  );
+}
+
+function hasProductLiabilityInsurance(input: ReviewInput) {
+  return /product liability insurance|PL insurance|liability insurance|產品責任保險|产品责任保险|製造物責任|제조물책임보험|생산물배상책임|PL보험/i.test(
+    reviewText(input)
+  );
+}
+
+function hasImporterOperatingDetails(input: ReviewInput) {
+  return /imported product category|product category|storage place|warehouse|repackag(?:e|ing)|no repackaging|no re-packaging|輸入產品類別|輸入產品項目|貯存場所|儲存場所|倉儲|分裝|無分裝|无分装|수입\s*제품\s*범주|제품\s*카테고리|보관장소|창고|소분|재포장|소분\s*없음|재포장\s*없음/i.test(
+    reviewText(input)
+  );
+}
+
+function hasShellfishSignal(input: ReviewInput) {
+  return /shellfish|mollusk|mollusc|clam|oyster|mussel|scallop|abalone|cockle|aquatic invertebrate|squid|cuttlefish|octopus|패류|조개|굴|홍합|가리비|전복|오징어|문어|貝類|貝|牡蠣|蛤|蛤蜊|淡菜|扇貝|鮑魚|魷魚|烏賊|章魚/i.test(
+    reviewText(input)
+  );
+}
+
+function isHs0307Shellfish(input: ReviewInput) {
+  if (hsCodeStartsWith(input, ["0307"])) return true;
+  return hasShellfishSignal(input) && !hasHsClassification(input);
+}
+
+function hasHealthCertificate(input: ReviewInput) {
+  return /health certificate|sanitary certificate|official certificate|catching area|harvest area|competent authority|衛生證明|卫生证明|官方證明|官方证明|捕撈區域|捕捞区域|採收區域|采收区域|主管機關|主管机关|위생증명서|보건증명서|채취\s*해역|어획\s*해역|수출국\s*기관/i.test(
+    reviewText(input)
+  );
+}
+
+function hasSystematicInspectionClearance(input: ReviewInput) {
+  return /systematic inspection approval|market access approval|approved establishment|establishment approval|document review completed|systematic inspection exemption|bilateral agreement|系統性查核.*核准|系統性檢查.*核准|市場准入|核准輸入|合格名單|제도검사\s*승인|시스템\s*검사\s*승인|시장접근\s*승인|승인\s*작업장|면제/i.test(
+    reviewText(input)
+  );
+}
+
+function isPotentialSystematicInspectionFood(input: ReviewInput) {
+  const scopeText = `${input.productName} ${input.productType} ${input.hsCode ?? ""}`;
+  return (
+    hsCodeStartsWith(input, ["02", "03", "04"]) ||
+    /meat|beef|pork|poultry|livestock|seafood|fishery|aquatic|shellfish|mollusk|dairy product|egg product|육류|소고기|돼지고기|가금|축산|수산|해산물|패류|유제품|난제품|肉|牛肉|豬肉|禽|畜產|水產|海鮮|貝類|乳品|蛋品/i.test(scopeText)
   );
 }
 
@@ -512,6 +612,155 @@ function addTradeFindings(input: ReviewInput, findings: Finding[]) {
       fix: ["제품 사양서와 ECCN/전략물자 판정 이력을 확보", "대만 SHTC 및 수출국 통제 목록을 함께 대조", "최종 사용자와 최종 용도 확인서를 별도 보관"],
       source: SOURCE_TW_SHTC,
       sourceUrl: SOURCE_TW_SHTC_URL
+    });
+  }
+}
+
+function addFoodImportFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isImportedFoodContext(input)) return;
+
+  const missingInspectionDocs = [
+    !hasFoodInspectionApplication(input) ? "수입식품 검사 신청서" : null,
+    !hasProductInformationSheet(input) ? "제품정보표 또는 제품정보 신고서" : null,
+    !hasImportDeclarationCopy(input) ? "수입신고서 사본" : null
+  ].filter(Boolean) as string[];
+
+  if (missingInspectionDocs.length > 0) {
+    findings.push({
+      id: "food-import-inspection-docs-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "수입식품 검사 신청 서류 묶음 확인 필요",
+      severity: "medium",
+      why: "대만 수입식품 검사는 입항 전 신청과 함께 검사 신청서, 제품정보 신고서, 수입신고서 사본 및 TFDA가 요구하는 자료를 제출하는 구조입니다.",
+      fix: [
+        `${missingInspectionDocs.join(", ")} 준비 여부 확인`,
+        "입항 예정일 15일 전부터 신청 가능한 일정인지 수입자·관세사와 확인",
+        "전자파일 제출본의 제품명, 원산지, 제조자, HS/CCC 코드가 송장·라벨과 일치하는지 대조"
+      ],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL,
+      evidence: missingInspectionDocs.join(" / ")
+    });
+  } else {
+    findings.push({
+      id: "food-import-inspection-docs-present",
+      status: "pass",
+      area: "서류",
+      title: "수입식품 검사 신청 핵심 서류가 입력되어 있습니다",
+      severity: "low",
+      why: "검사 신청서, 제품정보 신고서, 수입신고서 사본 신호가 함께 확인되어 수입검사 신청 패킷의 기본 뼈대가 갖춰진 상태입니다.",
+      fix: ["TFDA 추가 요청 자료와 원본 서류 파일명을 출하 lot 기준으로 보관", "전자 제출본과 인보이스·라벨·포장 박스의 제품 식별값을 마지막으로 대조"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL,
+      evidence: "inspection application / product information / import declaration"
+    });
+  }
+
+  const missingRegistrationItems = [
+    !hasFoodBusinessRegistration(input) ? "식품업자 등록 또는 등록번호" : null,
+    !hasProductLiabilityInsurance(input) ? "제품책임보험" : null,
+    !hasImporterOperatingDetails(input) ? "수입 품목 범주·보관장소·소분/재포장 정보" : null
+  ].filter(Boolean) as string[];
+
+  if (missingRegistrationItems.length > 0) {
+    findings.push({
+      id: "food-importer-registration-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "대만 식품 수입업자 등록 정보 확인 필요",
+      severity: "medium",
+      why: "식품 수입업자는 일반 수입자 표시와 별개로 식품업자 등록, 제품책임보험, 수입 품목 범주, 보관·소분 활동 정보를 갖춰야 합니다.",
+      fix: [
+        `${missingRegistrationItems.join(", ")}를 대만 수입자에게 요청`,
+        "라벨의 수입자명과 식품업자 등록 주체가 같은지 확인",
+        "보관장소와 소분/재포장 여부가 실제 물류 흐름과 일치하는지 문서화"
+      ],
+      source: SOURCE_FOOD_BUSINESS_REGISTRATION,
+      sourceUrl: SOURCE_FOOD_BUSINESS_REGISTRATION_URL,
+      evidence: missingRegistrationItems.join(" / ")
+    });
+  } else {
+    findings.push({
+      id: "food-importer-registration-present",
+      status: "pass",
+      area: "통관",
+      title: "식품 수입업자 등록·보험·운영 정보가 입력되어 있습니다",
+      severity: "low",
+      why: "식품업자 등록, 제품책임보험, 수입 품목 범주와 보관 또는 소분 흐름이 함께 확인되어 수입자 측 운영 정보가 연결되어 있습니다.",
+      fix: ["등록번호, 보험 증권, 보관장소 자료를 출하 lot 문서철에 함께 보관", "변경 시 라벨 책임업자 정보와 신고 자료를 동시에 업데이트"],
+      source: SOURCE_FOOD_BUSINESS_REGISTRATION,
+      sourceUrl: SOURCE_FOOD_BUSINESS_REGISTRATION_URL,
+      evidence: "food business registration / liability insurance / operating details"
+    });
+  }
+
+  if (isHs0307Shellfish(input)) {
+    if (hasHealthCertificate(input)) {
+      findings.push({
+        id: "food-import-hs0307-health-certificate-present",
+        status: "pass",
+        area: "서류",
+        title: "HS 0307 패류 위생증명서 신호가 확인되었습니다",
+        severity: "low",
+        why: "HS 0307로 분류되는 식용 패류는 수출국 권한기관이 발급한 위생증명서와 채취 또는 어획 해역 정보가 요구됩니다.",
+        fix: ["증명서 발급기관, 채취/어획 해역, 제품명, lot 번호가 수입신고 자료와 맞는지 확인"],
+        source: SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE,
+        sourceUrl: SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE_URL,
+        evidence: "health certificate / harvest area"
+      });
+    } else {
+      findings.push({
+        id: "food-import-hs0307-health-certificate-needed",
+        status: "needs_info",
+        area: "서류",
+        title: "HS 0307 패류 위생증명서 필요 여부 확인",
+        severity: "high",
+        why: "식용으로 수입되는 HS 0307 패류는 수출국 공식 권한기관이 발급한 위생증명서와 채취 또는 어획 해역 정보를 동반해야 합니다.",
+        fix: [
+          "수출국 권한기관 발급 위생증명서 확보",
+          "채취/어획 해역, 제품명, lot 번호, 제조자 정보가 서류 전체에서 일치하는지 확인",
+          "HS/CCC 코드가 0307 계열인지 관세사와 재확인"
+        ],
+        source: SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE,
+        sourceUrl: SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE_URL,
+        evidence: input.hsCode || "shellfish or mollusk signal"
+      });
+    }
+  }
+
+  if (hasHsClassification(input)) {
+    findings.push({
+      id: "food-import-batch-consistency-review",
+      status: "needs_info",
+      area: "통관",
+      title: "동일 검사 신청 묶음의 CCC·제품 식별값 일치 확인",
+      severity: "low",
+      why: "대만 수입식품 검사 신청의 같은 선적 묶음은 수입신고, CCC 코드, 제품명, 성분, 브랜드, 생산자, 원산지가 일치해야 합니다.",
+      fix: ["인보이스·패킹리스트·라벨·제품정보표의 CCC 코드와 제품 식별값 비교", "혼재 선적이면 검사 신청을 나누어야 하는 품목이 있는지 확인"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL,
+      evidence: input.hsCode || "HS/CCC"
+    });
+  }
+
+  if (isPotentialSystematicInspectionFood(input)) {
+    findings.push({
+      id: hasSystematicInspectionClearance(input)
+        ? "food-systematic-inspection-approval-present"
+        : "food-systematic-inspection-approval-needed",
+      status: hasSystematicInspectionClearance(input) ? "pass" : "needs_info",
+      area: "통관",
+      title: hasSystematicInspectionClearance(input)
+        ? "제도검사 승인 또는 면제 신호가 확인되었습니다"
+        : "제도검사 대상 식품 여부 확인 필요",
+      severity: hasSystematicInspectionClearance(input) ? "low" : "medium",
+      why: "일부 축산물·수산물·유제품 등은 개별 선적의 수입검사 이전에 수출국 식품안전 관리체계에 대한 문서심사 또는 현장심사 승인 흐름이 연결될 수 있습니다.",
+      fix: hasSystematicInspectionClearance(input)
+        ? ["승인 작업장, 적용 품목, 유효 범위가 현재 제품과 같은지 확인"]
+        : ["HS/CCC와 제품 유형이 제도검사 범위에 들어가는지 확인", "수출국 또는 지정 작업장 승인·면제 이력을 수입자에게 요청"],
+      source: SOURCE_FOOD_SYSTEMATIC_INSPECTION,
+      sourceUrl: SOURCE_FOOD_SYSTEMATIC_INSPECTION_URL
     });
   }
 }
@@ -933,6 +1182,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   }
   } else {
     addFoodFindings(input, findings);
+    addFoodImportFindings(input, findings);
   }
 
   addTradeFindings(input, findings);

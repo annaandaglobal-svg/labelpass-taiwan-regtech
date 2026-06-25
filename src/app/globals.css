@@ -1191,6 +1191,86 @@ h2 {
   color: white;
 }
 
+.execution-console {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.pass-console {
+  background: var(--green-soft);
+  border-color: rgba(20, 84, 58, 0.22);
+}
+
+.console-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.console-head > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--navy);
+  color: white;
+}
+
+.console-head b,
+.console-head small {
+  display: block;
+}
+
+.console-head small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.console-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.console-actions button {
+  display: grid;
+  gap: 5px;
+  min-height: 112px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--ink);
+  text-align: left;
+}
+
+.console-actions span {
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.console-actions b {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.console-actions small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 .findings {
   display: grid;
   gap: 10px;
@@ -1252,13 +1332,33 @@ h2 {
   font-weight: 800;
 }
 
+.finding-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 10px;
+}
+
+.finding-meta span {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
 .fix-list {
   display: grid;
-  gap: 6px;
+  gap: 8px;
   margin: 10px 0;
 }
 
-.fix-list div,
+.fix-card,
 .finding-foot a,
 .finding-foot button {
   display: flex;
@@ -1266,9 +1366,53 @@ h2 {
   gap: 7px;
 }
 
-.fix-list div {
+.fix-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 6px 8px;
+  align-items: center;
+  min-height: 48px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
   color: var(--ink);
   font-size: 13px;
+}
+
+.fix-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fix-card > span {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  color: transparent;
+}
+
+.fix-card input:checked + span {
+  border-color: var(--green);
+  background: var(--green);
+  color: white;
+}
+
+.fix-card b {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.fix-card small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 .finding-foot {
@@ -2223,6 +2367,7 @@ h2 {
 
   .metric-grid,
   .next-actions,
+  .console-actions,
   .ops-strip,
   .intake-rail,
   .empty-layout,

@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
-import { cleanSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import { cleanSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
 type Screen = "review" | "products" | "updates" | "partners";
@@ -78,7 +78,7 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 const knowledgeStats = {
   sources: "87",
   aliases: "3,188",
-  reviewCases: "9",
+  reviewCases: "11",
   knowledgeCases: "40",
   sourceCases: "12"
 };
@@ -210,40 +210,35 @@ export default function Home() {
     setInput((current) => ({ ...current, [key]: value }));
   }
 
-  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-additive" | "food-claim") {
-    const next =
-      kind === "risky"
-        ? sampleReview
-        : kind === "food-risky"
-          ? foodRiskSampleReview
-          : kind === "food-additive"
-            ? foodAdditiveSampleReview
-          : kind === "food-claim"
-            ? foodClaimSampleReview
-          : kind === "food-clean"
-            ? foodCleanSampleReview
-            : cleanSampleReview;
+  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-import" | "food-additive" | "food-claim") {
+    const samples = {
+      risky: sampleReview,
+      clean: cleanSampleReview,
+      "food-risky": foodRiskSampleReview,
+      "food-clean": foodCleanSampleReview,
+      "food-import": foodImportShellfishSampleReview,
+      "food-additive": foodAdditiveSampleReview,
+      "food-claim": foodClaimSampleReview
+    };
+    const messages = {
+      risky: "화장품 위반 예시 샘플을 채웠습니다.",
+      clean: "화장품 통과 예시 샘플을 채웠습니다.",
+      "food-risky": "식품 알레르겐 누락 예시 샘플을 채웠습니다.",
+      "food-clean": "식품 통과 예시 샘플을 채웠습니다.",
+      "food-import": "식품 수입검사 서류 예시 샘플을 채웠습니다.",
+      "food-additive": "식품첨가물 확인 예시 샘플을 채웠습니다.",
+      "food-claim": "식품 권장 알레르겐·강조표시 예시 샘플을 채웠습니다."
+    };
+    const next = samples[kind];
     setInput(next);
     setResult(null);
     setExpandedFinding(null);
-    setToast(
-      kind === "risky"
-        ? "화장품 위반 예시 샘플을 채웠습니다."
-        : kind === "food-risky"
-          ? "식품 알레르겐 누락 예시 샘플을 채웠습니다."
-          : kind === "food-additive"
-            ? "식품첨가물 확인 예시 샘플을 채웠습니다."
-          : kind === "food-claim"
-            ? "식품 권장 알레르겐·강조표시 예시 샘플을 채웠습니다."
-          : kind === "food-clean"
-            ? "식품 통과 예시 샘플을 채웠습니다."
-            : "화장품 통과 예시 샘플을 채웠습니다."
-    );
+    setToast(messages[kind]);
   }
 
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
-    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|msg|sodium benzoate|xanthan|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|味精|苯甲酸鈉|三仙膠/i.test(haystack);
+    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠/i.test(haystack);
 
     setInput((current) => ({
       ...current,
@@ -531,6 +526,7 @@ export default function Home() {
               <div className="action-row">
                 <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
+                <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
@@ -561,6 +557,14 @@ export default function Home() {
                     <Metric tone="warn" value={result.summary.warn} label="주의" onClick={() => setFilter("warn")} />
                     <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
                   </div>
+
+                  <ExecutionConsole
+                    findings={result.findings}
+                    onSelect={(findingId) => {
+                      setFilter("all");
+                      setExpandedFinding(findingId);
+                    }}
+                  />
 
                   <div className="report-toolbar">
                     <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
@@ -713,28 +717,117 @@ function knowledgeQueryForFinding(finding: Finding) {
   return (finding.evidence || finding.title || finding.source).replace(/\s+/g, " ").trim();
 }
 
+function ownerForFinding(finding: Finding) {
+  if (finding.area === "성분" || finding.area === "알레르겐" || finding.area === "영양표시") return "제조사";
+  if (finding.area === "라벨" || finding.area === "식품표시" || finding.area === "효능표현") return "라벨 담당";
+  if (finding.area === "통관") return "수입자";
+  return "서류 담당";
+}
+
+function impactForFinding(finding: Finding) {
+  if (finding.status === "fail") return "출고 전 수정";
+  if (finding.severity === "high" || finding.severity === "높음") return "통관 일정 영향";
+  if (finding.status === "needs_info") return "자료 회수 필요";
+  if (finding.status === "warn") return "문구 보정";
+  return "기록 보관";
+}
+
+function etaForFinding(finding: Finding) {
+  if (finding.status === "fail") return "오늘";
+  if (finding.severity === "high" || finding.severity === "높음") return "24h";
+  if (finding.status === "needs_info") return "2-3일";
+  return "검수 전";
+}
+
+function fixMetaForFinding(finding: Finding, index: number) {
+  const owner = ownerForFinding(finding);
+  const eta = index === 0 ? etaForFinding(finding) : finding.status === "fail" ? "1-2일" : "검수 전";
+  return `${owner} · ${eta}`;
+}
+
+function prioritizedFindings(findings: Finding[]) {
+  const rank: Record<ReviewStatus, number> = { fail: 0, needs_info: 1, warn: 2, pass: 3 };
+  return [...findings]
+    .filter((finding) => finding.status !== "pass")
+    .sort((left, right) => rank[left.status] - rank[right.status])
+    .slice(0, 3);
+}
+
+function ExecutionConsole({ findings, onSelect }: { findings: Finding[]; onSelect: (findingId: string) => void }) {
+  const actions = prioritizedFindings(findings);
+  const ownerCounts = actions.reduce<Record<string, number>>((acc, finding) => {
+    const owner = ownerForFinding(finding);
+    acc[owner] = (acc[owner] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  if (actions.length === 0) {
+    return (
+      <div className="execution-console pass-console">
+        <div className="console-head">
+          <span><BadgeCheck size={17} /></span>
+          <div>
+            <b>즉시 처리할 차단 항목 없음</b>
+            <small>통과 항목은 근거 링크와 lot 문서철에 보관하면 됩니다.</small>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="execution-console">
+      <div className="console-head">
+        <span><ClipboardCheck size={17} /></span>
+        <div>
+          <b>지금 처리할 일 {actions.length}개</b>
+          <small>{Object.entries(ownerCounts).map(([owner, count]) => `${owner} ${count}`).join(" · ")}</small>
+        </div>
+      </div>
+      <div className="console-actions">
+        {actions.map((finding) => (
+          <button key={finding.id} onClick={() => onSelect(finding.id)}>
+            <span>{ownerForFinding(finding)}</span>
+            <b>{finding.title}</b>
+            <small>{impactForFinding(finding)} · {etaForFinding(finding)}</small>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; expanded: boolean; onToggle: () => void; onAsk: () => void }) {
   const copy = statusCopy[finding.status];
   const knowledgeHref = `/knowledge?q=${encodeURIComponent(knowledgeQueryForFinding(finding))}`;
+  const owner = ownerForFinding(finding);
   return (
     <article className={`finding ${copy.tone}`}>
       <button className="finding-head" onClick={onToggle}>
         <span className="finding-icon">{statusIcon(finding.status)}</span>
         <span>
           <b>{finding.title}</b>
-          <small>{finding.area} · 위험도 {finding.severity}</small>
+          <small>{finding.area} · {owner} · {impactForFinding(finding)}</small>
         </span>
         <ChevronDown className={expanded ? "rotate" : ""} size={18} />
       </button>
       {expanded && (
         <div className="finding-body">
           {finding.evidence && <p className="evidence">탐지 근거: {finding.evidence}</p>}
+          <div className="finding-meta">
+            <span>{owner}</span>
+            <span>{etaForFinding(finding)}</span>
+            <span>위험도 {finding.severity}</span>
+          </div>
           <p>{finding.why}</p>
           <div className="fix-list">
-            {finding.fix.map((fix) => (
-              <div key={fix}>
-                <Check size={15} /> {fix}
-              </div>
+            {finding.fix.map((fix, index) => (
+              <label className="fix-card" key={fix}>
+                <input type="checkbox" />
+                <span><Check size={14} /></span>
+                <b>{fix}</b>
+                <small>{fixMetaForFinding(finding, index)}</small>
+              </label>
             ))}
           </div>
           <div className="finding-foot">

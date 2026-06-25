@@ -1,12 +1,12 @@
 # LabelPass
 
-LabelPass is a Taiwan-first import, export, and product-labeling compliance assistant. The current product focuses on Taiwan cosmetics review and Taiwan food-label first-pass checks, with a reusable regulatory knowledge base for Taiwan, global terminology, and adjacent import/export labeling sources.
+LabelPass is a Taiwan-first import, export, and product-labeling compliance assistant. The current product focuses on Taiwan cosmetics review, Taiwan food-label first-pass checks, and food-import document triage, with a reusable regulatory knowledge base for Taiwan, global terminology, and adjacent import/export labeling sources.
 
 ## What It Does
 
 - Reviews cosmetic ingredient text against official Taiwan TFDA restriction data.
 - Screens Taiwan prepackaged food labels for core label items, nutrition labeling, and TFDA allergen warning risks.
-- Searches Taiwan food import inspection, CCC-code routing, inspection exemptions, systematic inspection, importer registration, and HS 0307 health-certificate concepts.
+- Reviews Taiwan food-import inspection packets for inspection application documents, product information sheets, import declarations, importer registration, product-liability insurance, CCC batch consistency, systematic-inspection signals, and HS 0307 health-certificate gaps.
 - Flags label claims that may imply drug or disease-treatment effects.
 - Keeps source-backed findings with TFDA identifiers and rule versions.
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
@@ -61,7 +61,7 @@ pnpm build
 pnpm smoke:api
 ```
 
-`pnpm smoke:api` expects the app to be running. It checks English, Korean, Traditional Chinese, Simplified Chinese, and INCI ingredient aliases through `/api/review`, a Taiwan food allergen warning case, plus multilingual term lookups through `/api/knowledge/search`.
+`pnpm smoke:api` expects the app to be running. It checks English, Korean, Traditional Chinese, Simplified Chinese, and INCI ingredient aliases through `/api/review`, Taiwan food allergen/additive/nutrition/import-document cases, plus multilingual term lookups through `/api/knowledge/search`.
 
 ## Deployment Files
 

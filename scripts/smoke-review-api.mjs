@@ -187,6 +187,90 @@ if (!foodClaimResult.findings?.some((finding) => finding.id === "food-nutrition-
   throw new Error("Food claim review: expected sugar nutrition claim finding");
 }
 
+const foodImportMissingResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Frozen Oyster Meat",
+    productType: "prepackaged food / frozen shellfish / seafood",
+    ingredientsText: "Frozen oyster meat, salt",
+    labelText: "品名：冷凍牡蠣肉. 內容量：1kg. 成分：牡蠣、鹽. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-02-01. 營養標示：每份熱量 80 kcal, 蛋白質 9g, 脂肪 2g, 碳水化合物 4g, 鈉 420mg. 本產品含貝類.",
+    origin: "Korea",
+    manufacturer: "Annaanda Seafood / Taiwan Importer Co.",
+    hsCode: "0307.12",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "2400"
+  })
+});
+
+if (!foodImportMissingResponse.ok) {
+  throw new Error(`Food import missing review: Review API returned ${foodImportMissingResponse.status}`);
+}
+
+const foodImportMissingResult = await foodImportMissingResponse.json();
+
+for (const findingId of [
+  "food-import-inspection-docs-needed",
+  "food-importer-registration-needed",
+  "food-import-hs0307-health-certificate-needed",
+  "food-import-batch-consistency-review",
+  "food-systematic-inspection-approval-needed"
+]) {
+  if (!foodImportMissingResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Food import missing review: expected ${findingId}`);
+  }
+}
+
+if (foodImportMissingResult.status === "fail") {
+  throw new Error("Food import missing review: expected non-fail status for document-only gaps");
+}
+
+const foodImportCompleteResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Frozen Oyster Meat",
+    productType: "prepackaged food / frozen shellfish / seafood",
+    ingredientsText: "Frozen oyster meat, salt",
+    labelText: [
+      "品名：冷凍牡蠣肉. 內容量：1kg. 成分：牡蠣、鹽. 原產地：韓國. 進口商：Taiwan Importer Co.",
+      "有效日期：2027-02-01. 營養標示：每份熱量 80 kcal, 蛋白質 9g, 脂肪 2g, 碳水化合物 4g, 鈉 420mg.",
+      "Inspection application form, product information sheet, import declaration copy.",
+      "食品業者登錄字號 F-123456789, 產品責任保險, 輸入產品類別 frozen seafood, 貯存場所 Keelung cold warehouse, 無分裝.",
+      "Official health certificate issued by exporting-country competent authority, harvest area KR-TY-01.",
+      "Systematic inspection market access approval and approved establishment list checked."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Seafood / Taiwan Importer Co.",
+    hsCode: "0307.12",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "2400"
+  })
+});
+
+if (!foodImportCompleteResponse.ok) {
+  throw new Error(`Food import complete review: Review API returned ${foodImportCompleteResponse.status}`);
+}
+
+const foodImportCompleteResult = await foodImportCompleteResponse.json();
+
+for (const findingId of [
+  "food-import-inspection-docs-present",
+  "food-importer-registration-present",
+  "food-import-hs0307-health-certificate-present",
+  "food-systematic-inspection-approval-present"
+]) {
+  if (!foodImportCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
+    throw new Error(`Food import complete review: expected pass finding ${findingId}`);
+  }
+}
+
+if (foodImportCompleteResult.findings?.some((finding) => finding.id === "food-import-hs0307-health-certificate-needed")) {
+  throw new Error("Food import complete review: did not expect missing health certificate finding");
+}
+
 const tradeResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -346,5 +430,5 @@ for (const testCase of sourceCases) {
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 6} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
+  `API smoke test passed: ${cases.length + 8} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
 );

@@ -117,6 +117,31 @@ export const foodCleanSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const foodImportShellfishSampleReview: ReviewInput = {
+  productName: "냉동 굴살 1kg",
+  productType: "prepackaged food / frozen shellfish / seafood / 식품",
+  origin: "대한민국",
+  manufacturer: "ANNAANDA Seafood, Tongyeong / Taiwan Importer Co.",
+  hsCode: "0307.12",
+  incoterms: "CIF Keelung",
+  shipmentPurpose: "commercial sale",
+  invoiceValue: "2400",
+  ingredientsText: [
+    "Frozen oyster meat",
+    "Salt"
+  ].join(", "),
+  labelText: [
+    "品名：冷凍牡蠣肉",
+    "內容量：1kg",
+    "成分：牡蠣、鹽",
+    "原產地：韓國",
+    "進口商：Taiwan Importer Co.",
+    "有效日期：2027.02.01",
+    "營養標示：每份熱量 80 kcal、蛋白質 9g、脂肪 2g、碳水化合物 4g、鈉 420mg",
+    "本產品含貝類"
+  ].join("\n")
+};
+
 export const foodAdditiveSampleReview: ReviewInput = {
   productName: "감칠맛 쌀과자 80g",
   productType: "prepackaged food / snack / 식품",

@@ -124,5 +124,6 @@ The current runtime review endpoint uses local generated rule JSON, so a Supabas
 1. Open the production URL.
 2. Run a review with English ingredients such as `Triclosan`, `Methylisothiazolinone`, and `Mercury`.
 3. Run a review with aliases such as `살리실산`, `水楊酸`, `水杨酸`, `Oxybenzone`, and `Phenoxyethanol`.
-4. Confirm findings include source identifiers and rule evidence.
-5. Open `/knowledge` and confirm searches such as `살리실산`, `水楊酸`, and `IPBC` return the expected canonical ingredient and Taiwan rule links.
+4. Run the food import sample with HS `0307.12` and confirm findings include `food-import-inspection-docs-needed`, `food-importer-registration-needed`, and `food-import-hs0307-health-certificate-needed`.
+5. Confirm findings include source identifiers and rule evidence.
+6. Open `/knowledge` and confirm searches such as `輸入食品查驗`, `HS 0307 health certificate`, and `食品業者登錄` return the expected Taiwan food-import concepts.
