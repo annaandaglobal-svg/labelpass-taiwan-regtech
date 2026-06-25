@@ -283,6 +283,32 @@ as $$
   select replace(replace(replace(raw_query, E'\\', E'\\\\'), '%', E'\\%'), '_', E'\\_');
 $$;
 
+create or replace function public.knowledge_all_query_tokens_match(raw_text text, raw_query text)
+returns boolean
+language sql
+immutable
+as $$
+  with normalized as (
+    select
+      public.normalize_knowledge_search_query(raw_text) as haystack,
+      public.normalize_knowledge_search_query(raw_query) as query
+  ),
+  tokens as (
+    select distinct split.token
+    from normalized,
+      regexp_split_to_table(normalized.query, '\s+') as split(token)
+    where char_length(split.token) > 1
+  )
+  select
+    (select count(*) from tokens) > 1
+    and not exists (
+      select 1
+      from tokens
+      cross join normalized
+      where normalized.haystack not like ('%' || public.escape_knowledge_like(tokens.token) || '%') escape '\'
+    );
+$$;
+
 create or replace function public.knowledge_search_totals_public()
 returns table (
   sources integer,
@@ -465,7 +491,23 @@ as $$
         case when flags.can_use_contains and lower(coalesce(s.authority, '')) like ('%' || flags.escaped_query || '%') escape '\' then 78 else 0 end,
         case when flags.can_use_contains and lower(s.domain || ' ' || s.source_type || ' ' || s.jurisdiction) like ('%' || flags.escaped_query || '%') escape '\' then 74 else 0 end,
         case when flags.can_use_contains and lower(s.tags::text) like ('%' || flags.escaped_query || '%') escape '\' then 72 else 0 end,
-        case when flags.can_use_contains and lower(coalesce(latest_snapshot.extract, '')) like ('%' || flags.escaped_query || '%') escape '\' then 58 else 0 end
+        case when flags.can_use_contains and lower(coalesce(latest_snapshot.extract, '')) like ('%' || flags.escaped_query || '%') escape '\' then 58 else 0 end,
+        case when public.knowledge_all_query_tokens_match(
+          concat_ws(
+            ' ',
+            s.title,
+            s.source_url,
+            s.authority,
+            s.jurisdiction,
+            s.domain,
+            s.source_type,
+            s.priority,
+            s.tags::text,
+            coalesce(latest_snapshot.extract, ''),
+            coalesce(latest_snapshot.metadata::text, '')
+          ),
+          flags.query
+        ) then 58 else 0 end
       )::integer as score
     from public.knowledge_sources s
     cross join flags
@@ -553,6 +595,7 @@ as $$
 $$;
 
 grant execute on function public.knowledge_search_totals_public() to anon, authenticated;
+grant execute on function public.knowledge_all_query_tokens_match(text, text) to anon, authenticated;
 grant execute on function public.search_knowledge_terms_public(text, integer) to anon, authenticated;
 grant execute on function public.search_knowledge_sources_public(text, integer) to anon, authenticated;
 grant execute on function public.list_knowledge_sources_public(text[]) to anon, authenticated;
