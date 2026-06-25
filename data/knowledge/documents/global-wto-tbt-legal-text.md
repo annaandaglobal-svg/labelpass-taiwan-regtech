@@ -8,9 +8,9 @@ domain: terminology
 source_type: treaty
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: 4f719626745f1d5ec6dfc8a4249b6c7f9bf95e15d3799dbfe4c0d1ed0610528f
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: b5dbf5b535b06bf72d3c1dbeb0ded52b50103dabdcc7b0855f80e0b18c74b497
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

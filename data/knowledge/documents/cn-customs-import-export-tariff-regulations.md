@@ -8,9 +8,9 @@ domain: customs
 source_type: government_guide
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 96559e7b15d8e78ba5037a5f8609618106fe263fe278fad892dc497dfcae8490
-from_cache: true
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

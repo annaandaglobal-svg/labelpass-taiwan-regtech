@@ -8,9 +8,9 @@ domain: customs
 source_type: tariff_index
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: c238e88037a2213a7983f36b243d37a18241df44568883fbfa7f2e895bc71e71
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: df1017a2bdaac290018e2ada588ee14e383fa94abacc5202668ed5beeb1a0dd3
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

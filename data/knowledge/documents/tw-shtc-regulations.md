@@ -8,9 +8,9 @@ domain: export_control
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 75ea1097c8b1be3ea698cce451434a9209270168ff5670452c57b5881140e961
-from_cache: true
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -529,7 +529,7 @@
     {
       "id": "eu-cosmetics-regulation-1223-2009",
       "title": "EU Cosmetic Products Regulation 1223/2009",
-      "url": "https://eur-lex.europa.eu/eli/reg/2009/1223/oj",
+      "url": "https://publications.europa.eu/resource/celex/32009R1223.ENG",
       "authority": "European Union / EUR-Lex",
       "jurisdiction": "EU",
       "domain": "cosmetics",
@@ -541,7 +541,7 @@
     {
       "id": "eu-clp-regulation-1272-2008",
       "title": "EU CLP Regulation 1272/2008",
-      "url": "https://eur-lex.europa.eu/eli/reg/2008/1272/oj",
+      "url": "https://publications.europa.eu/resource/celex/32008R1272.ENG",
       "authority": "European Union / EUR-Lex",
       "jurisdiction": "EU",
       "domain": "chemical_labeling",
@@ -567,7 +567,7 @@
     {
       "id": "eu-food-information-regulation-1169-2011",
       "title": "EU Food Information to Consumers Regulation 1169/2011",
-      "url": "https://eur-lex.europa.eu/eli/reg/2011/1169/oj",
+      "url": "https://publications.europa.eu/resource/celex/32011R1169.ENG",
       "authority": "European Union / EUR-Lex",
       "jurisdiction": "EU",
       "domain": "food_labeling",
@@ -579,7 +579,7 @@
     {
       "id": "eu-cosing-cosmetic-ingredients",
       "title": "European Commission CosIng Cosmetic Ingredient Database",
-      "url": "https://ec.europa.eu/growth/tools-databases/cosing/",
+      "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en",
       "authority": "European Commission",
       "jurisdiction": "EU",
       "domain": "terminology",
@@ -591,7 +591,7 @@
     {
       "id": "eu-dual-use-regulation-2021-821",
       "title": "EU Dual-Use Regulation 2021/821",
-      "url": "https://eur-lex.europa.eu/eli/reg/2021/821/oj",
+      "url": "https://publications.europa.eu/resource/celex/32021R0821.ENG",
       "authority": "European Union / EUR-Lex",
       "jurisdiction": "EU",
       "domain": "export_control",

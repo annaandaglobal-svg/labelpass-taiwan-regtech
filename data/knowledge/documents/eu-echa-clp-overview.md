@@ -8,9 +8,9 @@ domain: chemical_labeling
 source_type: guidance_index
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: 903ac51f4164613658576ce7b15b62fd0207f91834990f878774aaee960a02cb
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: bef8215b2a407f9d0fbd94a1c877a975840237dde868c86ce23102e4f82fa259
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

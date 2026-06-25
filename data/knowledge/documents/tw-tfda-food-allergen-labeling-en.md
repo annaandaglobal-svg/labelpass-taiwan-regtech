@@ -8,8 +8,8 @@ domain: food_labeling
 source_type: regulation_index
 priority: medium
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: 69cb4c1273a72932ced3b1d777be3d8410fa45d384481b849268fd0a91e04386
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: f27956a1d94efbf19f0be5f9a8c0147496cd9af8eb05dd0ad774a1a68b7ab868
 from_cache: false
 manual_fallback: false
 browser_capture: false

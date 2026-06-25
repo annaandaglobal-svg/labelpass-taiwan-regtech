@@ -8,9 +8,9 @@ domain: export_control
 source_type: control_list_index
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: 697b142f4a0ceabfa21bf3fb577b1009a46e4ab5ec40a4236156a22a335101cd
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: b048f56f6540042ed3326871b3d01ecaa5760db8580fbd133ffa9ccad0cacc6c
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

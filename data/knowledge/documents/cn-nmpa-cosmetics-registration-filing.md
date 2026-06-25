@@ -8,9 +8,9 @@ domain: cosmetics
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 72490df542a56ec53a5af52df4224c44b5db297cb7f1ec81ec558626487a8224
-from_cache: true
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

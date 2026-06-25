@@ -8,9 +8,9 @@ domain: product_certification
 source_type: guidance
 priority: high
 format: pdf
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 3130c14566f63c31c3b095db60226934f49c656912f5183dac6c7bd98fc72cc8
-from_cache: true
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

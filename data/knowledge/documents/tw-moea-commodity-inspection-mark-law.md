@@ -8,7 +8,7 @@ domain: product_certification
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: d650d936ea9d1e016e479e0d2a98bdb6022ad4d6b355d65a4135bbb4d311b3df
 from_cache: false
 manual_fallback: false

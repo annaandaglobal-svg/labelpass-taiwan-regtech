@@ -1,31 +1,22 @@
 # Knowledge Quality Report
 
-Crawl index: 2026-06-25T12:09:51.776Z
+Crawl index: 2026-06-25T13:06:02.680Z
 
 This report flags source extracts that may be too thin, blocked, encoded incorrectly, or otherwise weak as reusable regulatory evidence. It is an operations backlog, not a legal conclusion.
 
 ## Summary
 
 - Sources checked: 73
-- High findings: 7
-- Medium findings: 16
+- High findings: 2
+- Medium findings: 12
 - Low findings: 0
 
 ## Findings
 
 | Severity | Source | Reason | Text chars | Priority |
 | --- | --- | --- | ---: | --- |
-| high | [eu-cosmetics-regulation-1223-2009](../data/knowledge/documents/eu-cosmetics-regulation-1223-2009.md) | Extract is too short to be reliable evidence | 0 | high |
-| high | [eu-clp-regulation-1272-2008](../data/knowledge/documents/eu-clp-regulation-1272-2008.md) | Extract is too short to be reliable evidence | 0 | high |
-| high | [eu-food-information-regulation-1169-2011](../data/knowledge/documents/eu-food-information-regulation-1169-2011.md) | Extract is too short to be reliable evidence | 0 | high |
-| high | [eu-dual-use-regulation-2021-821](../data/knowledge/documents/eu-dual-use-regulation-2021-821.md) | Extract is too short to be reliable evidence | 0 | high |
-| high | [eu-cosing-cosmetic-ingredients](../data/knowledge/documents/eu-cosing-cosmetic-ingredients.md) | Extract is too short to be reliable evidence | 49 | medium |
 | high | [global-unece-ghs-rev11-pdf](../data/knowledge/documents/global-unece-ghs-rev11-pdf.md) | Extract is too short to be reliable evidence | 365 | high |
 | high | [global-unece-ghs-rev11](../data/knowledge/documents/global-unece-ghs-rev11.md) | Extract is too short to be reliable evidence | 370 | high |
-| medium | [eu-cosmetics-regulation-1223-2009](../data/knowledge/documents/eu-cosmetics-regulation-1223-2009.md) | Document contains blocked-page or unsupported-document language | 0 | high |
-| medium | [eu-clp-regulation-1272-2008](../data/knowledge/documents/eu-clp-regulation-1272-2008.md) | Document contains blocked-page or unsupported-document language | 0 | high |
-| medium | [eu-food-information-regulation-1169-2011](../data/knowledge/documents/eu-food-information-regulation-1169-2011.md) | Document contains blocked-page or unsupported-document language | 0 | high |
-| medium | [eu-dual-use-regulation-2021-821](../data/knowledge/documents/eu-dual-use-regulation-2021-821.md) | Document contains blocked-page or unsupported-document language | 0 | high |
 | medium | [global-unece-ghs-rev11-pdf](../data/knowledge/documents/global-unece-ghs-rev11-pdf.md) | Document contains blocked-page or unsupported-document language | 365 | high |
 | medium | [global-unece-ghs-rev11](../data/knowledge/documents/global-unece-ghs-rev11.md) | Document contains blocked-page or unsupported-document language | 370 | high |
 | medium | [us-ecfr-cosmetic-labeling-21-cfr-701](../data/knowledge/documents/us-ecfr-cosmetic-labeling-21-cfr-701.md) | High-priority source has a shallow extract | 1180 | high |

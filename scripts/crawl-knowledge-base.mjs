@@ -10,6 +10,16 @@ const docsDir = path.join(root, "data", "knowledge", "documents");
 const indexPath = path.join(root, "data", "knowledge", "index.json");
 
 const force = process.argv.includes("--force");
+const onlyArg = process.argv.find((arg) => arg.startsWith("--only="));
+const onlyIds = onlyArg
+  ? new Set(
+      onlyArg
+        .slice("--only=".length)
+        .split(",")
+        .map((id) => id.trim())
+        .filter(Boolean)
+    )
+  : null;
 const now = new Date();
 const userAgent = "LabelPassRegulatoryCrawler/0.1 (+https://github.com/annaandaglobal-svg/labelpass-taiwan-regtech)";
 const require = createRequire(import.meta.url);
@@ -97,6 +107,82 @@ async function extractText(source, body, contentType) {
   };
 }
 
+async function fetchUrl(url, source) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), source.timeout_ms ?? 25000);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        "user-agent": userAgent,
+        accept: "text/html,application/xhtml+xml,application/rdf+xml,application/xml,application/pdf,text/plain;q=0.9,*/*;q=0.8"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`${source.id}: ${response.status} ${response.statusText}`);
+    }
+
+    return {
+      body: Buffer.from(await response.arrayBuffer()),
+      contentType: response.headers.get("content-type") ?? ""
+    };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function isPublicationsOfficeRdf(url, body, contentType) {
+  if (!/publications\.europa\.eu/i.test(url)) return false;
+  const content = contentType.toLowerCase();
+  const prefix = body.subarray(0, 400).toString("utf8");
+  return content.includes("rdf") || prefix.includes("<rdf:RDF");
+}
+
+function extractPublicationsOfficeCandidates(rdf) {
+  const candidates = [];
+  const patterns = [
+    /rdf:(?:about|resource)="([^"]+\/DOC_\d+)"/g,
+    /rdf:(?:about|resource)="([^"]+\.pdf[^"]*)"/g
+  ];
+
+  for (const pattern of patterns) {
+    for (const match of rdf.matchAll(pattern)) {
+      const url = match[1].replace(/^http:/i, "https:");
+      if (!candidates.includes(url)) candidates.push(url);
+    }
+  }
+
+  return candidates;
+}
+
+async function resolvePublicationsOfficeDocument(source, body, contentType, depth = 0) {
+  if (depth > 3 || !isPublicationsOfficeRdf(source.url, body, contentType)) {
+    return { body, contentType };
+  }
+
+  const rdf = body.toString("utf8");
+  const candidates = extractPublicationsOfficeCandidates(rdf);
+  for (const url of candidates) {
+    try {
+      const fetched = await fetchUrl(url, source);
+      if (fetched.body.subarray(0, 5).toString("ascii") === "%PDF-") {
+        return fetched;
+      }
+      if (isPublicationsOfficeRdf(url, fetched.body, fetched.contentType)) {
+        const nested = await resolvePublicationsOfficeDocument({ ...source, url }, fetched.body, fetched.contentType, depth + 1);
+        if (nested.body.subarray(0, 5).toString("ascii") === "%PDF-") {
+          return nested;
+        }
+      }
+    } catch {
+      // Try the next manifestation. Publications Office records often expose multiple equivalent item URLs.
+    }
+  }
+
+  return { body, contentType };
+}
+
 async function isFresh(filePath, cacheDays) {
   if (force) return false;
   try {
@@ -129,23 +215,10 @@ async function fetchSource(source, cacheDays) {
     fromCache = true;
   } else {
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), source.timeout_ms ?? 25000);
-      const response = await fetch(source.url, {
-        signal: controller.signal,
-        headers: {
-          "user-agent": userAgent,
-          accept: "text/html,application/xhtml+xml,application/pdf,text/plain;q=0.9,*/*;q=0.8"
-        }
-      });
-      clearTimeout(timeout);
-
-      if (!response.ok) {
-        throw new Error(`${source.id}: ${response.status} ${response.statusText}`);
-      }
-
-      contentType = response.headers.get("content-type") ?? contentType;
-      body = Buffer.from(await response.arrayBuffer());
+      const fetched = await fetchUrl(source.url, source);
+      const resolved = await resolvePublicationsOfficeDocument(source, fetched.body, fetched.contentType);
+      contentType = resolved.contentType || fetched.contentType || contentType;
+      body = resolved.body;
       await writeFile(rawPath, body);
     } catch (error) {
       try {
@@ -234,14 +307,34 @@ await mkdir(rawDir, { recursive: true });
 await mkdir(docsDir, { recursive: true });
 
 const registry = JSON.parse(await readFile(registryPath, "utf8"));
-const results = [];
-const failures = [];
+const selectedSources = onlyIds
+  ? registry.sources.filter((source) => onlyIds.has(source.id))
+  : registry.sources;
 
-for (const source of registry.sources) {
+if (onlyIds && selectedSources.length !== onlyIds.size) {
+  const knownIds = new Set(registry.sources.map((source) => source.id));
+  const unknownIds = [...onlyIds].filter((id) => !knownIds.has(id));
+  throw new Error(`Unknown source id(s) for --only: ${unknownIds.join(", ")}`);
+}
+
+let existingIndex = null;
+if (onlyIds) {
+  try {
+    existingIndex = JSON.parse(await readFile(indexPath, "utf8"));
+  } catch {
+    existingIndex = null;
+  }
+}
+
+const resultsById = new Map((existingIndex?.results ?? []).map((result) => [result.id, result]));
+const failures = (existingIndex?.failures ?? []).filter((failure) => !onlyIds?.has(failure.id));
+
+for (const source of selectedSources) {
   const cacheDays = source.cache_days ?? registry.default_cache_days ?? 14;
   try {
-    results.push(await fetchSource(source, cacheDays));
+    resultsById.set(source.id, await fetchSource(source, cacheDays));
   } catch (error) {
+    resultsById.delete(source.id);
     failures.push({
       id: source.id,
       url: source.url,
@@ -249,6 +342,8 @@ for (const source of registry.sources) {
     });
   }
 }
+
+const results = registry.sources.map((source) => resultsById.get(source.id)).filter(Boolean);
 
 const index = {
   generated_at: now.toISOString(),
@@ -266,5 +361,15 @@ if (failures.length) {
   console.error(JSON.stringify({ output: "data/knowledge/index.json", failures }, null, 2));
   process.exitCode = 1;
 } else {
-  console.log(JSON.stringify({ output: "data/knowledge/index.json", sources: results.length }, null, 2));
+  console.log(
+    JSON.stringify(
+      {
+        output: "data/knowledge/index.json",
+        sources: results.length,
+        refreshed: selectedSources.map((source) => source.id)
+      },
+      null,
+      2
+    )
+  );
 }

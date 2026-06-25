@@ -8,9 +8,9 @@ domain: terminology
 source_type: reference
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 836f5036a4b1e89616a1fbf607abd4ae2b7e4c8a34c2b77cab4fda264166c848
-from_cache: true
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

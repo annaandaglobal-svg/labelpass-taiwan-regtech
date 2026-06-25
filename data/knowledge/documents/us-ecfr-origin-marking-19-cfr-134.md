@@ -8,9 +8,9 @@ domain: origin_labeling
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: 9d26ae5893ca365845ead7505050c3f2917765ed039ff712f30650aa7f635d79
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: 83f9a18b499085448b30531122535b854738941f4e8f21f9d406f50a28c10f0e
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,9 @@ domain: cosmetics
 source_type: guideline
 priority: medium
 format: pdf
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 28ec4751225fef11208c3cc9166e71bf1ca5bcde58a14be680e2f448e6f4533b
-from_cache: true
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,9 +8,9 @@ domain: general_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: d8d33bde03e4ad5ac06a7d859cadf229a12dde2749bbff145397227089c993e4
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: fb27dd0d5bea65b7a45ae297fa0695022df5ef11e6c43e05c4d22a036374024b
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

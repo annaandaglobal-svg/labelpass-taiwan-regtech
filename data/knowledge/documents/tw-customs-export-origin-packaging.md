@@ -8,9 +8,9 @@ domain: customs
 source_type: notice
 priority: medium
 format: html
-fetched_at: 2026-06-25T12:09:51.776Z
-content_hash: 25e1bf2fd5fd6e2a0e3e15378e40f43f4f81bfbb93fdc3cb68b03bb755680893
-from_cache: true
+fetched_at: 2026-06-25T13:02:08.124Z
+content_hash: ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error: 

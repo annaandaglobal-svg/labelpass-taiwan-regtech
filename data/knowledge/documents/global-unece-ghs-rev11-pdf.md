@@ -8,7 +8,7 @@ domain: chemical_labeling
 source_type: standard
 priority: high
 format: manual
-fetched_at: 2026-06-25T12:09:51.776Z
+fetched_at: 2026-06-25T13:02:08.124Z
 content_hash: 6999e769608b16522d8587b08da5f942ee25a4a78f8d862d8de61aa225ff83ef
 from_cache: false
 manual_fallback: true
