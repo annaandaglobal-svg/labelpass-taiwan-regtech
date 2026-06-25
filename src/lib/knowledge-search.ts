@@ -97,6 +97,25 @@ export type KnowledgeSearchResult = {
   }>;
 };
 
+export type KnowledgeOverview = {
+  generatedAt: string;
+  sourceRegistryVersion: string;
+  termRegistryVersion: string;
+  coverage: {
+    jurisdictions: Array<{ key: string; count: number }>;
+    domains: Array<{ key: string; count: number }>;
+    categories: Array<{ key: string; count: number }>;
+    languages: Array<{ key: string; count: number }>;
+  };
+  operations: {
+    fromCache: number;
+    browserCaptures: number;
+    manualFallbacks: number;
+    highPrioritySources: number;
+    latestFetchedAt: string | null;
+  };
+};
+
 const terms = (termIndexData.terms ?? []) as KnowledgeTerm[];
 const links = (termIndexData.term_rule_links ?? []) as TermRuleLink[];
 const sources = (sourceIndexData.results ?? []) as SourceResult[];
@@ -234,6 +253,45 @@ function scoreSource(source: SourceResult, query: string) {
     ].join(" ")
   );
   return tokenScore(haystack, query);
+}
+
+function topCounts(values: string[], limit = 8) {
+  const counts = new Map<string, number>();
+  for (const value of values) {
+    const key = value || "unknown";
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([key, count]) => ({ key, count }))
+    .sort((a, b) => b.count - a.count || a.key.localeCompare(b.key))
+    .slice(0, limit);
+}
+
+export function getKnowledgeOverview(): KnowledgeOverview {
+  const allAliases = terms.flatMap((term) => aliasesForTerm(term));
+  const fetchedDates = sources
+    .map((source) => Date.parse(String((source as SourceResult & { fetched_at?: string }).fetched_at ?? "")))
+    .filter((time) => Number.isFinite(time));
+
+  return {
+    generatedAt: String((sourceIndexData as { generated_at?: string }).generated_at ?? ""),
+    sourceRegistryVersion: String((sourceIndexData as { source_registry_version?: string }).source_registry_version ?? ""),
+    termRegistryVersion: String((termIndexData as { registry_version?: string }).registry_version ?? ""),
+    coverage: {
+      jurisdictions: topCounts(sources.map((source) => source.jurisdiction)),
+      domains: topCounts(sources.map((source) => source.domain)),
+      categories: topCounts(terms.map((term) => term.category ?? "term")),
+      languages: topCounts(allAliases.map((alias) => alias.language ?? "und"))
+    },
+    operations: {
+      fromCache: sources.filter((source) => Boolean((source as SourceResult & { from_cache?: boolean }).from_cache)).length,
+      browserCaptures: sources.filter((source) => source.browser_capture).length,
+      manualFallbacks: sources.filter((source) => source.manual_fallback).length,
+      highPrioritySources: sources.filter((source) => source.priority === "high").length,
+      latestFetchedAt: fetchedDates.length ? new Date(Math.max(...fetchedDates)).toISOString() : null
+    }
+  };
 }
 
 export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchResult {
