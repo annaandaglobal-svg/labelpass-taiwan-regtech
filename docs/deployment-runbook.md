@@ -65,7 +65,7 @@ After applying the seed, verify that Supabase matches the generated local knowle
 SUPABASE_DB_URL="postgresql://..." pnpm verify:supabase-knowledge
 ```
 
-This check compares table counts and probes high-value Taiwan food aliases such as `MSG`, `味精`, `카제인나트륨`, `魷魚`, and `奇異果`.
+This check compares table counts and probes high-value Taiwan food aliases such as `MSG`, `味精`, `카제인나트륨`, `魷魚`, `奇異果`, `輸入食品查驗`, `HS 0307 health certificate`, and `食品業者登錄`.
 
 To validate the generated seed size before connecting to Supabase:
 
@@ -78,10 +78,10 @@ Expected counts after the current seed:
 
 - `rules`: 1,081
 - current `rule_versions`: 1,081
-- `knowledge_sources`: 83
-- `knowledge_snapshots`: 83
-- `knowledge_terms`: 1,113
-- `term_aliases`: 3,116
+- `knowledge_sources`: 87
+- `knowledge_snapshots`: 87
+- `knowledge_terms`: 1,118
+- `term_aliases`: 3,188
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 13
 

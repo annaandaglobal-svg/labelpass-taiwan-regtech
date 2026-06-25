@@ -266,6 +266,30 @@ export const sourceCards = [
     tag: "검사면제"
   },
   {
+    title: "Imported food inspection regulations",
+    detail: "TFDA/MOJ source for imported-food inspection applications, product information sheets, import declarations, CCC-code batch grouping, sampling, and prior release.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1356",
+    tag: "수입식품검사"
+  },
+  {
+    title: "Systematic inspection of imported food",
+    detail: "TFDA source for exporting-country food safety management review, document review, and on-site inspection triggers.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607",
+    tag: "체계적검사"
+  },
+  {
+    title: "Shellfish HS 0307 health certificate",
+    detail: "TFDA notice requiring shellfish under HS 0307 for human consumption to carry an exporting-country official health certificate with harvest-area information.",
+    url: "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095",
+    tag: "위생증명"
+  },
+  {
+    title: "Food business registration for importers",
+    detail: "TFDA food-business registration rule for import operators, covering product-liability insurance, imported product categories, storage, and repackaging descriptions.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1681",
+    tag: "수입업자등록"
+  },
+  {
     title: "Business-use food intact package labeling",
     detail: "TFDA principles for imported foods and raw materials in intact packages, including repackaging and Chinese-label timing.",
     url: "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3411",

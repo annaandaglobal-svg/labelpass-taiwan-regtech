@@ -76,11 +76,11 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "83",
-  aliases: "3,116",
+  sources: "87",
+  aliases: "3,188",
   reviewCases: "9",
-  knowledgeCases: "35",
-  sourceCases: "8"
+  knowledgeCases: "40",
+  sourceCases: "12"
 };
 
 const flowSteps = [
@@ -103,6 +103,18 @@ const regulatoryUpdateQueue = updateQueueData as {
   };
   items: RegulatoryUpdateCandidate[];
 };
+
+const productImpactItems = [
+  { badge: "식품", title: "불닭 소스", detail: "수입식품 검사·영양 강조표시 재검토", status: "재검토", tone: "danger" },
+  { badge: "식품", title: "냉동 패류 샘플", detail: "HS 0307 위생증명서·채취 해역 확인", status: "서류", tone: "warn" },
+  { badge: "화장품", title: "수분 진정 토너", detail: "PIF 확대 시행 전 수입자 정보 보강", status: "D-5", tone: "info" }
+] as const;
+
+const updateWorkflowItems = [
+  { label: "자동 수집", detail: "TFDA·MOJ·CCC 소스 캐시" },
+  { label: "차이 탐지", detail: "해시·만료·우선순위 큐" },
+  { label: "사람 승인", detail: "룰셋 반영 전 검토 게이트" }
+] as const;
 
 function nowTime() {
   return "2026-06-26";
@@ -344,7 +356,7 @@ export default function Home() {
           <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
           <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
           <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
-          <StatusTile icon={<ShieldCheck />} label="배포 상태" value="Ready" detail="Vercel Production" />
+          <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
         </div>
 
         {screen === "review" && (
@@ -364,18 +376,42 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pipeline-card">
-              <div className="pipeline-top">
-                <span className="pipeline-badge">진행 중</span>
-                <div>
-                  <b>수분 진정 토너 300ml</b>
-                  <small>대만 · v3 · 라벨 수정 단계</small>
+            <div className="command-side-stack">
+              <div className="pipeline-card">
+                <div className="pipeline-top">
+                  <span className="pipeline-badge">진행 중</span>
+                  <div>
+                    <b>수분 진정 토너 300ml</b>
+                    <small>대만 · v3 · 라벨 수정 단계</small>
+                  </div>
+                </div>
+                <ProgressRail />
+                <div className="pipeline-foot">
+                  <span>다음 조치: 중문 주의사항·대만 수입자 정보 보강</span>
+                  <button onClick={() => fillSample("risky")}>샘플 불러오기</button>
                 </div>
               </div>
-              <ProgressRail />
-              <div className="pipeline-foot">
-                <span>다음 조치: 중문 주의사항·대만 수입자 정보 보강</span>
-                <button onClick={() => fillSample("risky")}>샘플 불러오기</button>
+
+              <div className="impact-card">
+                <div className="impact-card-head">
+                  <div>
+                    <span>내 제품 영향</span>
+                    <b>규제 업데이트 우선순위</b>
+                  </div>
+                  <button onClick={() => setScreen("updates")}>전체 보기</button>
+                </div>
+                <div className="impact-list">
+                  {productImpactItems.map((item) => (
+                    <div key={item.title} className={`impact-item ${item.tone}`}>
+                      <span>{item.badge}</span>
+                      <div>
+                        <b>{item.title}</b>
+                        <small>{item.detail}</small>
+                      </div>
+                      <em>{item.status}</em>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -842,21 +878,39 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
   const queueItems = regulatoryUpdateQueue.items.slice(0, 5);
   return (
     <div className="screen-grid updates-grid">
-      <section className="list-pane">
-        <h2>공식 자료 소스</h2>
-        <p className="muted">PDF보다 오픈데이터를 우선 ingest하고, 공지/법령은 변경분 리뷰 대상으로 둡니다.</p>
-        <div className="source-card-list">
-          {sourceCards.map((source) => (
-            <button key={source.title} className={selectedSource.title === source.title ? "source-card active" : "source-card"} onClick={() => onSelect(source)}>
-              <span>{source.tag}</span>
-              <b>{source.title}</b>
-              <small>{source.detail}</small>
-            </button>
+      <section className="detail-pane">
+        <div className="update-brief">
+          <div>
+            <span>대만 규제 업데이트</span>
+            <h2>내 제품에 영향 주는 변경만 먼저 봅니다</h2>
+            <p>자동 수집은 계속 돌리되, 실제 룰셋 반영은 사람 승인 게이트를 통과하도록 분리했습니다.</p>
+          </div>
+          <button onClick={() => onSelect(sourceCards.find((source) => source.title === "Imported food inspection regulations") || selectedSource)}>
+            <RefreshCw size={16} /> 식품 수입검사 보기
+          </button>
+        </div>
+
+        <div className="update-workflow">
+          {updateWorkflowItems.map((item, index) => (
+            <div key={item.label}>
+              <span>{index + 1}</span>
+              <b>{item.label}</b>
+              <small>{item.detail}</small>
+            </div>
           ))}
         </div>
-      </section>
 
-      <section className="detail-pane">
+        <div className="impact-matrix">
+          {productImpactItems.map((item) => (
+            <div key={item.title} className={`impact-tile ${item.tone}`}>
+              <span>{item.badge}</span>
+              <b>{item.title}</b>
+              <small>{item.detail}</small>
+              <em>{item.status}</em>
+            </div>
+          ))}
+        </div>
+
         <div className="update-queue">
           <div className="queue-head">
             <div>
@@ -897,6 +951,31 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
           <div><b>2026-07-01</b><span>일부 예외를 제외한 모든 화장품 PIF 의무화</span></div>
           <div><b>2025-11-06</b><span>화장품 성분 사용 제한표 개정 공고, 2027-10-01 시행</span></div>
           <div><b>상시</b><span>금지·제한·방부제·자외선차단·색소 데이터셋 증분 수집</span></div>
+        </div>
+      </section>
+
+      <section className="list-pane source-library">
+        <div className="source-library-head">
+          <div>
+            <h2>공식 자료 소스</h2>
+            <p className="muted">PDF보다 오픈데이터를 우선 ingest하고, 공지/법령은 변경분 리뷰 대상으로 둡니다.</p>
+          </div>
+          <span>{sourceCards.length}개</span>
+        </div>
+        <div className="source-filter-row" aria-label="소스 범위">
+          <span>식품</span>
+          <span>화장품</span>
+          <span>통관</span>
+          <span>글로벌</span>
+        </div>
+        <div className="source-card-list">
+          {sourceCards.map((source) => (
+            <button key={source.title} className={selectedSource.title === source.title ? "source-card active" : "source-card"} onClick={() => onSelect(source)}>
+              <span>{source.tag}</span>
+              <b>{source.title}</b>
+              <small>{source.detail}</small>
+            </button>
+          ))}
         </div>
       </section>
     </div>

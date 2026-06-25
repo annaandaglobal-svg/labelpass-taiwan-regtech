@@ -279,6 +279,11 @@ const knowledgeCases = [
   { query: "化妆品备案", expectedTerm: "Cosmetic Product Notification" },
   { query: "輸入化粧品檢驗", expectedTerm: "Imported Cosmetics Inspection" },
   { query: "免申請查驗", expectedTerm: "Food Import Inspection Exemption" },
+  { query: "輸入食品查驗", expectedTerm: "Imported Food Inspection" },
+  { query: "수입식품 통관검사", expectedTerm: "Imported Food Inspection" },
+  { query: "HS 0307 health certificate", expectedTerm: "Food Import Health Certificate" },
+  { query: "食品業者登錄", expectedTerm: "Food Business Registration for Importers" },
+  { query: "產品資訊表", expectedTerm: "Product Information Sheet" },
   { query: "業務用食品標示", expectedTerm: "Business-use Food Intact Package Labeling" },
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
   { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
@@ -316,6 +321,10 @@ const sourceCases = [
   { query: "CCC import export regulation", expectedSource: "tw-trade-ccc-import-export-regulations" },
   { query: "imported cosmetics inspection", expectedSource: "tw-tfda-imported-cosmetics-inspection" },
   { query: "免申請查驗 通關代碼", expectedSource: "tw-tfda-food-import-inspection-exemptions" },
+  { query: "Regulations of Inspection of Imported Foods and Related Products", expectedSource: "tw-tfda-imported-food-inspection-regulations" },
+  { query: "systematic inspection imported food document review", expectedSource: "tw-tfda-systematic-inspection-imported-food" },
+  { query: "shellfish HS 0307 health certificate harvest area", expectedSource: "tw-tfda-shellfish-hs0307-health-certificate" },
+  { query: "food business registration import business operators product liability insurance", expectedSource: "tw-tfda-food-business-registration-importers" },
   { query: "tariff query information", expectedSource: "tw-customs-tariff-system" }
 ];
 

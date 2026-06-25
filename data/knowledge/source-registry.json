@@ -336,6 +336,55 @@
       "tags": ["food", "import-inspection", "inspection-exemption", "custom-code", "personal-use"]
     },
     {
+      "id": "tw-tfda-imported-food-inspection-regulations",
+      "title": "Regulations of Inspection of Imported Foods and Related Products",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1356",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "extra_urls": ["https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040017"],
+      "tags": ["food", "import-inspection", "border-inspection", "documents", "ccc-code", "tfda", "import-declaration"]
+    },
+    {
+      "id": "tw-tfda-systematic-inspection-imported-food",
+      "title": "Regulations for Systematic Inspection of Imported Food",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "import-inspection", "systematic-inspection", "document-review", "onsite-inspection", "exporting-country"]
+    },
+    {
+      "id": "tw-tfda-shellfish-hs0307-health-certificate",
+      "title": "Shellfish HS 0307 health certificate requirement",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "notice",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "shellfish", "hs-0307", "health-certificate", "harvest-area", "border-inspection"]
+    },
+    {
+      "id": "tw-tfda-food-business-registration-importers",
+      "title": "Regulations Governing the Registration of Food Business",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1681",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "regulation",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "importer-registration", "food-business", "product-liability-insurance", "storage", "repackaging"]
+    },
+    {
       "id": "tw-trade-import-export-regulations",
       "title": "Taiwan import and export related laws and regulations",
       "url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",

@@ -7,7 +7,7 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 ## Current Coverage
 
 - Taiwan cosmetics: TFDA restriction data, Cosmetic Hygiene and Safety Act, product notification, PIF management, PIF notices and guidance.
-- Taiwan product labeling: Commodity Labeling Act, food safety law, allergen labeling, nutrition labeling, front-of-package nutrition guidance, small-package food rules, bulk-food labeling, food-additive common names, BSMI commodity inspection, origin/customs notices.
+- Taiwan product labeling and food import: Commodity Labeling Act, food safety law, allergen labeling, nutrition labeling, front-of-package nutrition guidance, small-package food rules, bulk-food labeling, food-additive common names, imported-food inspection, systematic inspection, shellfish HS 0307 health certificates, food importer registration, BSMI commodity inspection, origin/customs notices.
 - Taiwan import/export controls: International Trade Administration import/export rules, SHTC notices, dual-use/common military list references.
 - Global terminology: WTO TBT, WCO HS, UNECE GHS, Codex food labeling, INCI, CAS, Wassenaar.
 - Comparison markets: EU, United States, Japan, Korea, China, and ASEAN official or high-trust sources.
@@ -89,10 +89,10 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 Current generated counts:
 
-- `knowledge_sources`: 83
-- `knowledge_snapshots`: 83
-- `knowledge_terms`: 1,113
-- `term_aliases`: 3,116
+- `knowledge_sources`: 87
+- `knowledge_snapshots`: 87
+- `knowledge_terms`: 1,118
+- `term_aliases`: 3,188
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 13
 - `rules`: 1,081

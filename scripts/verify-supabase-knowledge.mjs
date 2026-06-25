@@ -65,6 +65,11 @@ const probeTermKeys = [
   "cosmetic-product-notification",
   "imported-cosmetics-inspection",
   "food-import-inspection-exemption",
+  "imported-food-inspection",
+  "systematic-imported-food-inspection",
+  "food-import-health-certificate",
+  "food-business-registration-importer",
+  "product-information-sheet",
   "business-use-food-intact-package-labeling",
   "advance-tariff-classification-ruling",
   "import-export-permit"
@@ -94,6 +99,11 @@ const probeAliases = [
   "化妆品备案",
   "輸入化粧品檢驗",
   "免申請查驗",
+  "輸入食品查驗",
+  "수입식품 통관검사",
+  "HS 0307 health certificate",
+  "食品業者登錄",
+  "產品資訊表",
   "業務用食品標示",
   "進口貨物稅則預先審核",
   "輸入許可證"

@@ -2966,6 +2966,148 @@
       "notes": "Taiwan food-import concept for exemption from inspection application, custom-code routing, and personal-use thresholds."
     },
     {
+      "id": "imported-food-inspection",
+      "canonical_name": "Imported Food Inspection",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "imported food inspection", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "food import inspection", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.98 },
+        { "value": "border inspection of imported food", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "obligatory inspection applicant", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "batch-by-batch inspection", "type": "inspection_method", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "randomly-selected batch inspection", "type": "inspection_method", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수입식품 검사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "수입식품 통관검사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품 수입검사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품검사 신청", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "輸入食品查驗", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "輸入食品及相關產品查驗", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "逐批查驗", "type": "inspection_method", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "抽批查驗", "type": "inspection_method", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "进口食品查验", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "进口食品检验", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "輸入食品検査", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-imported-food-inspection-regulations", "tw-tfda-food-import-inspection-exemptions"],
+      "notes": "Taiwan border-inspection concept for imported food and related products, including inspection application timing, required documents, CCC-code batch grouping, and sampling methods."
+    },
+    {
+      "id": "systematic-imported-food-inspection",
+      "canonical_name": "Systematic Inspection of Imported Food",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "systematic inspection of imported food", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "systematic inspection", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "document review", "type": "inspection_method", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "on-site inspection", "type": "inspection_method", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "exporting country food safety management system", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "수입식품 체계적 검사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수출국 식품안전관리체계 심사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "문서심사", "type": "inspection_method", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "현지실사", "type": "inspection_method", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "系統性查核", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "輸入食品系統性查核", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "文件審查", "type": "inspection_method", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "實地查核", "type": "inspection_method", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "系统性查核", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-systematic-inspection-imported-food"],
+      "notes": "Imported-food systematic inspection concept for exporting-country food safety management systems, document review, and on-site inspection."
+    },
+    {
+      "id": "food-import-health-certificate",
+      "canonical_name": "Food Import Health Certificate",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "health certificate", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "shellfish health certificate", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "HS 0307 health certificate", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.98 },
+        { "value": "catching or harvest area", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "official competent authority of the exporting country", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "위생증명서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "패류 위생증명서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "HS 0307 위생증명서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "채취 또는 수확 해역", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "衛生證明", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "貝類衛生證明", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "捕撈或採收區域", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "卫生证明", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "衛生証明書", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-shellfish-hs0307-health-certificate", "tw-tfda-imported-food-inspection-regulations"],
+      "notes": "Health-certificate concept for food import checks, including the Taiwan HS 0307 shellfish notice and harvest-area evidence."
+    },
+    {
+      "id": "food-business-registration-importer",
+      "canonical_name": "Food Business Registration for Importers",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "food business registration", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "import business operator registration", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "food importer registration", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "product liability insurance", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "category of products to be imported", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "식품업자 등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "식품 수입업자 등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수입 영업자 등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "제조물책임보험", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "食品業者登錄", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "輸入業者登錄", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "產品責任保險", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "食品业者登录", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "食品事業者登録", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-food-business-registration-importers"],
+      "notes": "Taiwan food-business registration concept for import operators, product-liability insurance, imported product categories, storage, and repackaging activity descriptions."
+    },
+    {
+      "id": "product-information-sheet",
+      "canonical_name": "Product Information Sheet",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "product information sheet", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "declaration form of product information", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "application form for inspection", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "photocopy of import declaration", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "제품정보표", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "제품정보 신고서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "검사신청서", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "수입신고서 사본", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "產品資訊表", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "產品資訊申報表", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "查驗申請書", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "進口報單影本", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "产品信息表", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-imported-food-inspection-regulations"],
+      "notes": "Document concept for imported-food inspection applications, linking inspection forms, product information, and import declarations."
+    },
+    {
       "id": "business-use-food-intact-package-labeling",
       "canonical_name": "Business-use Food Intact Package Labeling",
       "category": "regulatory_concept",

@@ -6,6 +6,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 
 - Reviews cosmetic ingredient text against official Taiwan TFDA restriction data.
 - Screens Taiwan prepackaged food labels for core label items, nutrition labeling, and TFDA allergen warning risks.
+- Searches Taiwan food import inspection, CCC-code routing, inspection exemptions, systematic inspection, importer registration, and HS 0307 health-certificate concepts.
 - Flags label claims that may imply drug or disease-treatment effects.
 - Keeps source-backed findings with TFDA identifiers and rule versions.
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
