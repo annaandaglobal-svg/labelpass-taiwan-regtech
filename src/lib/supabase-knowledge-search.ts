@@ -1,8 +1,13 @@
+import { createClient } from "@supabase/supabase-js";
 import postgres from "postgres";
 import type { KnowledgeSearchResult } from "./knowledge-search";
 import { foldKnowledgeSeparators, normalizeKnowledgeQuery } from "./knowledge-search";
 
 type DbClient = ReturnType<typeof postgres>;
+type RemoteClient = ReturnType<typeof createClient>;
+type RpcCapableClient = RemoteClient & {
+  rpc: (fn: string, args?: unknown) => Promise<{ data: unknown; error: { message: string } | null }>;
+};
 
 type TermRow = {
   term_key: string;
@@ -69,8 +74,16 @@ type TotalsRow = {
 };
 
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
+const supabasePublicKey =
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+  process.env.SUPABASE_PUBLISHABLE_KEY ??
+  process.env.SUPABASE_ANON_KEY;
 let client: DbClient | null = null;
+let remoteClient: RemoteClient | null = null;
 let totalsCache: { value: KnowledgeSearchResult["totals"]; expiresAt: number } | null = null;
+let remoteTotalsCache: { value: KnowledgeSearchResult["totals"]; expiresAt: number } | null = null;
 
 function getClient() {
   if (!databaseUrl) return null;
@@ -82,6 +95,21 @@ function getClient() {
     prepare: false
   });
   return client;
+}
+
+function getRemoteClient() {
+  if (!supabaseUrl || !supabasePublicKey) return null;
+  remoteClient ??= createClient(supabaseUrl, supabasePublicKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false
+    }
+  });
+  return remoteClient;
+}
+
+function asRpcClient(supabase: RemoteClient) {
+  return supabase as RpcCapableClient;
 }
 
 function escapeLike(value: string) {
@@ -117,6 +145,17 @@ function priorityRank(priority: string) {
   if (priority === "high") return 0;
   if (priority === "medium") return 1;
   return 2;
+}
+
+function sourceBoostsFor(termRows: TermRow[]) {
+  const sourceBoosts = new Map<string, number>();
+  for (const term of termRows.slice(0, 6)) {
+    jsonArray(term.source_keys).forEach((sourceKey, index) => {
+      const boost = Math.max(36, term.score - 8 - index * 2);
+      sourceBoosts.set(sourceKey, Math.max(sourceBoosts.get(sourceKey) ?? 0, boost));
+    });
+  }
+  return sourceBoosts;
 }
 
 async function readTotals(sql: DbClient): Promise<KnowledgeSearchResult["totals"]> {
@@ -328,33 +367,95 @@ async function readSourceRowsByKeys(sql: DbClient, sourceKeys: string[]) {
   `;
 }
 
-export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Promise<KnowledgeSearchResult | null> {
-  const sql = getClient();
-  if (!sql) return null;
+async function readRemoteTotals(supabase: RemoteClient): Promise<KnowledgeSearchResult["totals"]> {
+  const now = Date.now();
+  if (remoteTotalsCache && remoteTotalsCache.expiresAt > now) return remoteTotalsCache.value;
 
-  const query = normalizeKnowledgeQuery(rawQuery).slice(0, 120);
-  const totals = await readTotals(sql);
+  const { data, error } = await supabase.rpc("knowledge_search_totals_public");
+  if (error) throw new Error(error.message);
+  const row = (data as TotalsRow[] | null)?.[0];
 
-  if (!query) {
-    return { query: "", totals, terms: [], sources: [] };
-  }
+  const value = {
+    sources: row?.sources ?? 0,
+    terms: row?.terms ?? 0,
+    aliases: row?.aliases ?? 0,
+    ruleLinks: row?.rule_links ?? 0
+  };
 
-  const termRows = await readTermRows(sql, query, limit);
-  const termKeys = termRows.map((term) => term.term_key);
-  const sourceBoosts = new Map<string, number>();
-  for (const term of termRows.slice(0, 6)) {
-    jsonArray(term.source_keys).forEach((sourceKey, index) => {
-      const boost = Math.max(36, term.score - 8 - index * 2);
-      sourceBoosts.set(sourceKey, Math.max(sourceBoosts.get(sourceKey) ?? 0, boost));
-    });
-  }
+  remoteTotalsCache = { value, expiresAt: now + 60_000 };
+  return value;
+}
 
-  const [aliasRows, ruleRows, directSourceRows, boostedSourceRows] = await Promise.all([
-    readAliases(sql, termKeys),
-    readRuleLinks(sql, termKeys),
-    readSourceRows(sql, query, limit),
-    readSourceRowsByKeys(sql, [...sourceBoosts.keys()])
-  ]);
+async function readRemoteTermRows(supabase: RemoteClient, query: string, limit: number) {
+  const { data, error } = await asRpcClient(supabase).rpc("search_knowledge_terms_public", {
+    raw_query: query,
+    result_limit: limit
+  });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as TermRow[];
+}
+
+async function readRemoteAliases(supabase: RemoteClient, termKeys: string[]) {
+  if (!termKeys.length) return [];
+
+  const { data, error } = await supabase
+    .from("term_aliases")
+    .select("term_key, alias_value, normalized_alias, alias_type, language, jurisdiction, confidence, source, note")
+    .in("term_key", termKeys)
+    .order("confidence", { ascending: false })
+    .order("alias_value", { ascending: true })
+    .limit(600);
+
+  if (error) throw new Error(error.message);
+  return (data ?? []) as AliasRow[];
+}
+
+async function readRemoteRuleLinks(supabase: RemoteClient, termKeys: string[]) {
+  if (!termKeys.length) return [];
+
+  const { data, error } = await supabase
+    .from("term_rule_links")
+    .select("term_key, rule_code, jurisdiction, match_basis, confidence")
+    .in("term_key", termKeys)
+    .order("confidence", { ascending: false })
+    .order("rule_code", { ascending: true })
+    .limit(300);
+
+  if (error) throw new Error(error.message);
+  return (data ?? []) as RuleRow[];
+}
+
+async function readRemoteSourceRows(supabase: RemoteClient, query: string, limit: number) {
+  const { data, error } = await asRpcClient(supabase).rpc("search_knowledge_sources_public", {
+    raw_query: query,
+    result_limit: limit
+  });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as SourceRow[];
+}
+
+async function readRemoteSourceRowsByKeys(supabase: RemoteClient, sourceKeys: string[]) {
+  if (!sourceKeys.length) return [];
+
+  const { data, error } = await asRpcClient(supabase).rpc("list_knowledge_sources_public", {
+    source_keys: sourceKeys
+  });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as SourceRow[];
+}
+
+function buildKnowledgeSearchResult(params: {
+  query: string;
+  totals: KnowledgeSearchResult["totals"];
+  limit: number;
+  termRows: TermRow[];
+  aliasRows: AliasRow[];
+  ruleRows: RuleRow[];
+  directSourceRows: SourceRow[];
+  boostedSourceRows: SourceRow[];
+  sourceBoosts: Map<string, number>;
+}): KnowledgeSearchResult {
+  const { query, totals, limit, termRows, aliasRows, ruleRows, directSourceRows, boostedSourceRows, sourceBoosts } = params;
 
   const aliasesByTerm = new Map<string, AliasRow[]>();
   for (const alias of aliasRows) {
@@ -440,4 +541,78 @@ export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Pro
       };
     })
   };
+}
+
+async function searchDirectPostgresKnowledge(rawQuery: string, limit: number): Promise<KnowledgeSearchResult | null> {
+  const sql = getClient();
+  if (!sql) return null;
+
+  const query = normalizeKnowledgeQuery(rawQuery).slice(0, 120);
+  const totals = await readTotals(sql);
+
+  if (!query) {
+    return { query: "", totals, terms: [], sources: [] };
+  }
+
+  const termRows = await readTermRows(sql, query, limit);
+  const termKeys = termRows.map((term) => term.term_key);
+  const sourceBoosts = sourceBoostsFor(termRows);
+
+  const [aliasRows, ruleRows, directSourceRows, boostedSourceRows] = await Promise.all([
+    readAliases(sql, termKeys),
+    readRuleLinks(sql, termKeys),
+    readSourceRows(sql, query, limit),
+    readSourceRowsByKeys(sql, [...sourceBoosts.keys()])
+  ]);
+
+  return buildKnowledgeSearchResult({
+    query,
+    totals,
+    limit,
+    termRows,
+    aliasRows,
+    ruleRows,
+    directSourceRows,
+    boostedSourceRows,
+    sourceBoosts
+  });
+}
+
+async function searchRemoteSupabaseKnowledge(rawQuery: string, limit: number): Promise<KnowledgeSearchResult | null> {
+  const supabase = getRemoteClient();
+  if (!supabase) return null;
+
+  const query = normalizeKnowledgeQuery(rawQuery).slice(0, 120);
+  const totals = await readRemoteTotals(supabase);
+
+  if (!query) {
+    return { query: "", totals, terms: [], sources: [] };
+  }
+
+  const termRows = await readRemoteTermRows(supabase, query, limit);
+  const termKeys = termRows.map((term) => term.term_key);
+  const sourceBoosts = sourceBoostsFor(termRows);
+
+  const [aliasRows, ruleRows, directSourceRows, boostedSourceRows] = await Promise.all([
+    readRemoteAliases(supabase, termKeys),
+    readRemoteRuleLinks(supabase, termKeys),
+    readRemoteSourceRows(supabase, query, limit),
+    readRemoteSourceRowsByKeys(supabase, [...sourceBoosts.keys()])
+  ]);
+
+  return buildKnowledgeSearchResult({
+    query,
+    totals,
+    limit,
+    termRows,
+    aliasRows,
+    ruleRows,
+    directSourceRows,
+    boostedSourceRows,
+    sourceBoosts
+  });
+}
+
+export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Promise<KnowledgeSearchResult | null> {
+  return (await searchDirectPostgresKnowledge(rawQuery, limit)) ?? searchRemoteSupabaseKnowledge(rawQuery, limit);
 }

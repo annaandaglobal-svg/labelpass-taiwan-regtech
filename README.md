@@ -11,6 +11,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Keeps source-backed findings with TFDA identifiers and rule versions.
 - Returns a structured action plan with owner summary, document checklist, evidence pack, and next operational step for each review.
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
+- Uses Supabase public read-only knowledge RPCs when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are configured, with a bundled local cache fallback.
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Generates a regulatory update queue so source changes, stale caches, and high-priority Taiwan notices require human approval before rules are changed.
@@ -51,6 +52,13 @@ Reusable regulatory memory is managed through:
 - `data/knowledge/regulatory-update-queue.json`
 - `supabase/knowledge-schema.sql`
 - `supabase/knowledge-seed.sql`
+
+Runtime knowledge search can use Supabase without a database password when these public environment variables are set:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+```
 
 Browser-only or blocked sources are preserved with manual text captures and screenshots under `data/knowledge/browser-captures/`.
 

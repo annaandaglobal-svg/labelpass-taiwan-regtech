@@ -43,6 +43,14 @@ For an existing project that already has the base schema, the additive update-qu
 supabase/migrations/202606260001_regulatory_update_candidates.sql
 ```
 
+For deployed cloud knowledge search without a database password, also apply:
+
+```bash
+supabase/migrations/202606260002_public_knowledge_search.sql
+```
+
+This grants public read-only access to `knowledge_sources`, `knowledge_snapshots`, `knowledge_terms`, `term_aliases`, and `term_rule_links`, and exposes search RPCs for the app. It does not expose review archives, users, product records, or regulatory update triage rows.
+
 If the SQL editor rejects the full knowledge seed because of size, run:
 
 ```bash
@@ -115,6 +123,7 @@ git push
 
 ```text
 NEXT_PUBLIC_SUPABASE_URL=https://zqmpvveneqdkrojtqxhi.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 ```
 
 Recommended server-only environment variable for production review history:
@@ -123,7 +132,7 @@ Recommended server-only environment variable for production review history:
 SUPABASE_DB_URL=postgresql://...
 ```
 
-The runtime review engine still uses bundled generated rule JSON, so a Supabase anon key is not required for the MVP. `SUPABASE_DB_URL` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without it, the app falls back to the browser-side archive and the UI shows local storage status.
+The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without it, the app falls back to the browser-side archive and the UI shows local storage status.
 
 ## Post-Deployment Verification
 

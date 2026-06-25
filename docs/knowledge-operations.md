@@ -66,6 +66,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/regulatory-update-queue.json`: generated source-change and freshness candidates requiring human review before rule changes.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
+- `supabase/migrations/202606260002_public_knowledge_search.sql`: read-only public policies and RPC functions for cloud knowledge search through a Supabase publishable key.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
 - `pnpm apply:supabase-knowledge`: applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set.
 - `pnpm verify:supabase-knowledge`: compares Supabase table counts and probe aliases with the generated local knowledge base after a seed apply.
@@ -73,7 +74,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 ## App Retrieval Surface
 
-- `/api/knowledge/search?q=<term>` searches canonical terms, INCI names, CAS RN, color index numbers, local-language aliases, abbreviations, and source metadata.
+- `/api/knowledge/search?q=<term>` searches canonical terms, INCI names, CAS RN, color index numbers, local-language aliases, abbreviations, and source metadata. It uses Supabase public read-only RPCs when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are configured, then falls back to the bundled generated cache.
 - `/api/knowledge/evidence?q=<term>` packages the same reusable memory into an assistant-ready bundle with top terms, official sources, cache status, and suggested next actions.
 - `/knowledge` is the operator-facing search screen for ingredient synonyms, identifiers, and linked Taiwan TFDA rules.
 - Search aliases include stored `term_aliases` plus identifier aliases from CAS, INCI, and color index fields, so the UI count can be higher than the Supabase `term_aliases` row count.
