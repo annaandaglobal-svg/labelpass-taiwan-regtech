@@ -3897,6 +3897,14 @@ h2 {
 }
 
 @media (max-width: 1180px) {
+  .knowledge-ops {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .knowledge-ops > div:first-child {
+    grid-column: 1 / -1;
+  }
+
   .knowledge-results {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
   }
@@ -3940,9 +3948,10 @@ h2 {
   .screen-grid,
   .product-workspace,
   .partner-grid,
-  .command-center,
-  .knowledge-hero,
-  .knowledge-ops,
+  .command-center {
+    grid-template-columns: 1fr;
+  }
+
   .knowledge-control-room,
   .knowledge-results {
     grid-template-columns: 1fr;
@@ -4250,6 +4259,15 @@ h2 {
 
   .knowledge-shell {
     padding: 16px;
+  }
+
+  .knowledge-hero,
+  .knowledge-ops {
+    grid-template-columns: 1fr;
+  }
+
+  .knowledge-ops > div:first-child {
+    grid-column: auto;
   }
 
   .knowledge-workbench {
