@@ -44,6 +44,14 @@ pnpm split:knowledge-seed
 
 Then apply every file in `supabase/generated/knowledge-seed-chunks/` in filename order after `supabase/knowledge-schema.sql`.
 
+If a Supabase Postgres connection string is available, the browser SQL editor can be skipped:
+
+```bash
+SUPABASE_DB_URL="postgresql://..." pnpm apply:supabase-knowledge
+```
+
+The script applies `supabase/knowledge-schema.sql`, imports `supabase/knowledge-seed.sql` in safe batches, and prints the verification counts.
+
 Expected counts after the current seed:
 
 - `rules`: 1,081

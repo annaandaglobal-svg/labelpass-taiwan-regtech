@@ -45,6 +45,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
+- `pnpm apply:supabase-knowledge`: applies the knowledge schema and seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set.
 
 ## App Retrieval Surface
 

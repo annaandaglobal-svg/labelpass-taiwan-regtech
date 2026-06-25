@@ -15,6 +15,7 @@
     "build:knowledge-seed": "pnpm build:terms && node scripts/generate-knowledge-seed.mjs",
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
+    "apply:supabase-knowledge": "node scripts/apply-supabase-knowledge.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
     "test:rules": "node scripts/verify-rules.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs"
@@ -34,6 +35,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
     "pdf-parse": "1.1.1",
+    "postgres": "^3.4.9",
     "typescript": "^5.5.3"
   }
 }
