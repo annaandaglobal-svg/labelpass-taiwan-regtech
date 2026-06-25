@@ -67,6 +67,14 @@ const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Applicati
 const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES_URL = "https://www.fda.gov.tw/TC/siteContent.aspx?sid=10159";
+const SOURCE_WCO_HS = "World Customs Organization Harmonized System reference";
+const SOURCE_WCO_HS_URL = "https://www.wcoomd.org/en/topics/nomenclature/overview/what-is-the-harmonized-system.aspx";
+const SOURCE_TW_TRADE = "Taiwan International Trade Administration import/export regulations";
+const SOURCE_TW_TRADE_URL = "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476";
+const SOURCE_TW_ORIGIN = "Taiwan Customs origin labeling notices";
+const SOURCE_TW_ORIGIN_URL = "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=9d9cf376a43c481faef23b3f584f782c";
+const SOURCE_TW_SHTC = "Taiwan Strategic High-tech Commodities export control regulations";
+const SOURCE_TW_SHTC_URL = "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=298";
 const PIF_EFFECTIVE_AT = Date.parse("2026-07-01T00:00:00+08:00");
 
 type RegulatoryRule = {
@@ -300,6 +308,146 @@ function isFoodProduct(input: ReviewInput) {
   return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|식품|음료|과자|소스|분말|차|커피|건강기능|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|魷魚|奇異果/i.test(
     `${input.productName} ${input.productType} ${input.labelText}`
   );
+}
+
+function reviewText(input: ReviewInput) {
+  return `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.origin} ${input.manufacturer}`;
+}
+
+function hasHsClassification(input: ReviewInput) {
+  return /\b(?:HS|H\.S\.|CCC|tariff|customs code)\b\s*[:#-]?\s*\d{4,10}|HS코드|세번|稅則號列|稅號|商品編碼|商品编码|統計品目番号/i.test(reviewText(input));
+}
+
+function hasTaiwanImporter(input: ReviewInput) {
+  return /taiwan importer|importer co|進口商|輸入業者|輸入商|台灣.*進口|臺灣.*進口|대만\s*수입자|수입원/i.test(
+    `${input.manufacturer} ${input.labelText}`
+  );
+}
+
+function hasInvoiceValue(input: ReviewInput) {
+  const normalizedValue = String(input.invoiceValue ?? "").replace(/[,\s]/g, "");
+  return Number.isFinite(Number(normalizedValue)) && Number(normalizedValue) > 0;
+}
+
+function hasOriginSignal(input: ReviewInput) {
+  return Boolean(input.origin.trim()) || /country of origin|origin|made in|原產地|原产地|產地|원산지|제조국/i.test(input.labelText);
+}
+
+function hasStrategicGoodsSignal(input: ReviewInput) {
+  return /ai accelerator|gpu|npu|semiconductor|server|encryption|cryptographic|sensor|drone|laser|shtc|dual-use|strategic high-tech|전략물자|이중용도|반도체|서버|암호화|센서|드론|레이저|半導體|半导体|伺服器|服务器|加密|感測器|传感器|無人機|无人机|雷射/i.test(
+    reviewText(input)
+  );
+}
+
+function addTradeFindings(input: ReviewInput, findings: Finding[]) {
+  if (hasHsClassification(input)) {
+    findings.push({
+      id: "trade-hs-present",
+      status: "pass",
+      area: "통관",
+      title: "HS/CCC 분류 정보가 입력되어 있습니다",
+      severity: "low",
+      why: "수입 신고, 관세율, 식품·화장품 품목별 규제 연결은 HS 또는 대만 CCC 코드 확인에서 시작됩니다.",
+      fix: ["인보이스, 패킹리스트, 수입신고 초안의 HS/CCC 코드가 같은지 확인", "제품 용도와 성분 기준으로 관세사 또는 대만 수입자와 최종 분류 대조"],
+      source: SOURCE_WCO_HS,
+      sourceUrl: SOURCE_WCO_HS_URL,
+      evidence: "HS/CCC"
+    });
+  } else {
+    findings.push({
+      id: "trade-hs-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "HS/CCC 코드 분류 확인 필요",
+      severity: "medium",
+      why: "대만 수입 전에는 제품의 HS 또는 대만 CCC 분류를 확정해야 관세, 검사 대상, 식품·화장품 관련 수입 요건을 연결할 수 있습니다.",
+      fix: ["제품명, 용도, 전성분, 제조공정, 포장 형태를 기준으로 HS 후보를 1개 이상 입력", "대만 수입자 또는 관세사와 CCC 세번 및 검사 대상 여부 확인"],
+      source: SOURCE_WCO_HS,
+      sourceUrl: SOURCE_WCO_HS_URL
+    });
+  }
+
+  if (hasOriginSignal(input)) {
+    findings.push({
+      id: "trade-origin-present",
+      status: "pass",
+      area: "통관",
+      title: "원산지 정보가 입력되어 있습니다",
+      severity: "low",
+      why: "원산지는 라벨, 인보이스, 포장, 수입 신고 정보가 서로 다르면 통관 보류나 수정 요청으로 이어질 수 있습니다.",
+      fix: ["원산지 문구가 라벨, 인보이스, 포장 박스, 원산지 증명 자료에서 일치하는지 확인"],
+      source: SOURCE_TW_ORIGIN,
+      sourceUrl: SOURCE_TW_ORIGIN_URL,
+      evidence: input.origin || "label origin"
+    });
+  } else {
+    findings.push({
+      id: "trade-origin-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "원산지 표시와 증빙 확인 필요",
+      severity: "medium",
+      why: "대만 수입·판매 과정에서는 라벨 원산지와 통관 서류 원산지가 서로 맞아야 합니다.",
+      fix: ["제조국, 최종 실질변형 국가, 원산지 증명 가능 여부를 입력", "라벨의 Made in 문구와 인보이스 원산지를 일치시킴"],
+      source: SOURCE_TW_ORIGIN,
+      sourceUrl: SOURCE_TW_ORIGIN_URL
+    });
+  }
+
+  if (hasTaiwanImporter(input)) {
+    findings.push({
+      id: "trade-importer-present",
+      status: "pass",
+      area: "통관",
+      title: "대만 수입자/책임업자 정보가 입력되어 있습니다",
+      severity: "low",
+      why: "대만 시장 유통 전에는 수입자 또는 책임업자의 표시·신고·서류 보관 역할이 중요합니다.",
+      fix: ["수입자 상호, 주소, 연락처가 중국어 라벨과 신고 자료에서 일치하는지 확인"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL,
+      evidence: "Taiwan importer"
+    });
+  } else {
+    findings.push({
+      id: "trade-importer-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "대만 수입자/책임업자 정보 확인 필요",
+      severity: "medium",
+      why: "식품과 화장품 모두 실제 수입·판매 단계에서 대만 측 책임 주체와 연락처가 라벨, 신고, 서류 보관 흐름에 연결됩니다.",
+      fix: ["대만 수입자 상호, 주소, 연락처를 확보", "라벨 표시명과 신고 주체가 같은지 확인"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL
+    });
+  }
+
+  if (!hasInvoiceValue(input)) {
+    findings.push({
+      id: "trade-invoice-value-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "인보이스 금액 확인 필요",
+      severity: "medium",
+      why: "통관 검토에는 제품 수량, 거래조건, 인보이스 금액, 샘플/판매품 여부가 함께 필요합니다.",
+      fix: ["상업송장 금액, 통화, Incoterms, 샘플 여부를 입력", "라벨 검토 결과와 출하 서류의 제품명이 일치하는지 확인"],
+      source: SOURCE_TW_TRADE,
+      sourceUrl: SOURCE_TW_TRADE_URL
+    });
+  }
+
+  if (hasStrategicGoodsSignal(input)) {
+    findings.push({
+      id: "trade-shtc-review-needed",
+      status: "needs_info",
+      area: "통관",
+      title: "전략물자/SHTC 수출통제 검토 필요",
+      severity: "high",
+      why: "AI 가속기, 반도체, 암호화, 센서, 드론, 레이저 등은 식품·화장품과 별도로 전략물자 또는 이중용도 수출통제 검토가 필요할 수 있습니다.",
+      fix: ["제품 사양서와 ECCN/전략물자 판정 이력을 확보", "대만 SHTC 및 수출국 통제 목록을 함께 대조", "최종 사용자와 최종 용도 확인서를 별도 보관"],
+      source: SOURCE_TW_SHTC,
+      sourceUrl: SOURCE_TW_SHTC_URL
+    });
+  }
 }
 
 const foodLabelRequirements = [
@@ -720,6 +868,8 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   } else {
     addFoodFindings(input, findings);
   }
+
+  addTradeFindings(input, findings);
 
   if (findings.length === 0) {
     findings.push({

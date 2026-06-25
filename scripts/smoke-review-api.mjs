@@ -184,6 +184,32 @@ if (!foodClaimResult.findings?.some((finding) => finding.id === "food-nutrition-
   throw new Error("Food claim review: expected sugar nutrition claim finding");
 }
 
+const tradeResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "AI GPU Skin Analyzer",
+    productType: "AI hardware demo kit",
+    ingredientsText: "GPU module, camera sensor, encrypted firmware",
+    labelText: "Made in Korea. Demo kit for AI skin analysis. Invoice sample only.",
+    origin: "Korea",
+    manufacturer: "Annaanda Device Lab",
+    invoiceValue: ""
+  })
+});
+
+if (!tradeResponse.ok) {
+  throw new Error(`Trade review: Review API returned ${tradeResponse.status}`);
+}
+
+const tradeResult = await tradeResponse.json();
+
+for (const findingId of ["trade-hs-needed", "trade-importer-needed", "trade-invoice-value-needed", "trade-shtc-review-needed"]) {
+  if (!tradeResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Trade review: expected ${findingId}`);
+  }
+}
+
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
@@ -254,5 +280,5 @@ for (const testCase of sourceCases) {
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 4} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
+  `API smoke test passed: ${cases.length + 5} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
 );
