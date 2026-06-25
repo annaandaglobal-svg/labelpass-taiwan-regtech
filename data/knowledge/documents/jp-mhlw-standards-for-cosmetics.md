@@ -8,7 +8,7 @@ domain: cosmetics
 source_type: standard
 priority: high
 format: pdf
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: 117fc949a82789ca66017163f19041cf2fcf6b5902708077c8e4f56c482dc8e2
 from_cache: true
 manual_fallback: false

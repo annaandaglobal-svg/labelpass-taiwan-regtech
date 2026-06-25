@@ -8,7 +8,7 @@ domain: terminology
 source_type: treaty
 priority: high
 format: html
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: 4f719626745f1d5ec6dfc8a4249b6c7f9bf95e15d3799dbfe4c0d1ed0610528f
 from_cache: true
 manual_fallback: false

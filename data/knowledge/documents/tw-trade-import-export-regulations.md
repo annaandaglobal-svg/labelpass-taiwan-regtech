@@ -8,7 +8,7 @@ domain: trade
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: b48e2f55a3808e0259312cd4edfc4def791520a0b0b7c27c87993ddbe9b4eb61
 from_cache: true
 manual_fallback: false

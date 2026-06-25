@@ -51,6 +51,42 @@
       "tags": ["pif", "guidance", "checklist", "cosmetics"]
     },
     {
+      "id": "tw-moj-cosmetic-product-notification",
+      "title": "Regulations Governing Notification of Cosmetic Products",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030097",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "product-notification", "ingredients", "importers"]
+    },
+    {
+      "id": "tw-moj-cosmetic-pif-management",
+      "title": "Regulations for Cosmetic Product Information File Management",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030098",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "pif", "safety-assessment", "ingredient-content"]
+    },
+    {
+      "id": "tw-moj-food-safety-sanitation-act",
+      "title": "Act Governing Food Safety and Sanitation",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "law",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "labeling", "food-additives", "import"]
+    },
+    {
       "id": "tw-tfda-food-nutrition-labeling",
       "title": "Regulations on Nutrition Labeling for Prepackaged Food Products",
       "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633",
@@ -61,6 +97,45 @@
       "priority": "high",
       "cache_days": 30,
       "tags": ["food", "nutrition-label", "prepackaged-food"]
+    },
+    {
+      "id": "tw-tfda-food-allergen-labeling",
+      "title": "Regulation of Food Allergen Labeling",
+      "url": "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "format": "pdf",
+      "tags": ["food", "allergen", "prepackaged-food", "warning-label"]
+    },
+    {
+      "id": "tw-tfda-food-additive-common-names",
+      "title": "Common Names of Food Additives",
+      "url": "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637862488954749366",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "guidance",
+      "priority": "high",
+      "cache_days": 30,
+      "format": "pdf",
+      "tags": ["food", "food-additives", "common-names", "aliases"]
+    },
+    {
+      "id": "tw-tfda-front-of-package-nutrition-labeling",
+      "title": "Guidelines for Front of Package Nutrition Labeling of Food Products",
+      "url": "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637862485315287265",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "guideline",
+      "priority": "medium",
+      "cache_days": 30,
+      "format": "pdf",
+      "tags": ["food", "front-of-package", "nutrition-label", "prepackaged-food"]
     },
     {
       "id": "tw-tfda-small-prepackaged-food-labeling",

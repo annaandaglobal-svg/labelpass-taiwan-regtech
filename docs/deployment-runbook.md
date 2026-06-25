@@ -62,8 +62,8 @@ Expected counts after the current seed:
 
 - `rules`: 1,081
 - current `rule_versions`: 1,081
-- `knowledge_sources`: 57
-- `knowledge_snapshots`: 57
+- `knowledge_sources`: 63
+- `knowledge_snapshots`: 63
 - `knowledge_terms`: 1,074
 - `term_aliases`: 2,706
 - `term_rule_links`: 1,099

@@ -8,7 +8,7 @@ domain: origin_labeling
 source_type: guidance
 priority: medium
 format: html
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: 704ab5e9a8ff64151e8079f4196bed303e8880be902e4e1a40e7b98258030389
 from_cache: true
 manual_fallback: false

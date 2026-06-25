@@ -8,7 +8,7 @@ domain: chemical_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: ea8074f40d7ddc448f15ed962592f442d481a953e7d7f2683c6c627faf3ad20a
 from_cache: true
 manual_fallback: false

@@ -39,9 +39,23 @@ The raw datasets use Traditional Chinese field names. LabelPass should preserve 
 | Topic | Official source | Key points for LabelPass |
 | --- | --- | --- |
 | Cosmetic Hygiene and Safety Act | [MOJ Laws and Regulations Database](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030013); [TFDA English law page](https://www.fda.gov.tw/ENG/lawContent.aspx?cid=5062&id=600) | Article 6 provides the basis for prohibited and restricted ingredient announcements. Article 7 defines core labeling items. Article 10 controls deceptive, exaggerated, and medical efficacy claims. |
+| Cosmetic product notification | [Regulations Governing Notification of Cosmetic Products](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030097) | Requires platform notification by manufacturers/importers and records product names, category, usage, manufacturer/importer details, full components, restricted-component content, and notification validity. |
+| Cosmetic PIF management | [Regulations for Cosmetic Product Information File Management](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030098) | Defines the 16-file PIF evidence set, including full ingredient names/content, labels or leaflets, GMP evidence, stability/microbiology reports, functional support, and safety evaluation signatory requirements. |
 | PIF phased implementation | [TFDA PIF phased implementation notice](https://www.fda.gov.tw/TC/siteListContent.aspx?id=46948&sid=1894) | PIF applies in phases: 2024-07-01 for specific-purpose categories; 2025-07-01 for baby, lip, eye, non-medicated toothpaste, and mouthwash cosmetics; 2026-07-01 for other cosmetics except handmade solid soaps from manufacturing places exempt from factory registration. |
 | PIF guidance hub | [TFDA PIF regulations and guidance page](https://www.fda.gov.tw/TC/siteContent.aspx?sid=12524) | Official index for PIF management rules, guidance, checklists, and examples. |
 | English PIF summary | [TFDA English news: PIFs to be implemented in phases](https://www.fda.gov.tw/eng/newsContent.aspx?id=31164) | Useful English confirmation of phased dates and the 16-item PIF expectation, while the Chinese notice remains the primary implementation source. |
+
+## Taiwan Food Labeling Sources
+
+| Topic | Official source | Key points for LabelPass |
+| --- | --- | --- |
+| Food safety and sanitation law | [Act Governing Food Safety and Sanitation](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001) | Defines foods, food additives, labels, nutrition labels, food business operators, import/export scope, and the general basis for food labeling and advertising controls. |
+| Nutrition labeling | [Regulations on Nutrition Labeling for Prepackaged Food Products](https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633) | Core nutrition label structure, serving basis, daily reference values, nutrient declaration, tolerances, and label character-size constraints. |
+| Allergen labeling | [Regulation of Food Allergen Labeling](https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315) | Prepackaged foods must warn for specified allergen categories, including crustacea, mango, peanut, milk, egg, nuts, sesame, gluten cereals, soybean, fish, and sulphites above the stated threshold. |
+| Food additive common names | [Common Names of Food Additives](https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637862488954749366) | Alias source for additive names such as MSG, benzoates, sorbates, baking soda, glycine, amino acids, gums, and vitamins. The current PDF extract is flagged for manual quality cleanup. |
+| Front-of-package nutrition | [Guidelines for Front of Package Nutrition Labeling of Food Products](https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637862485315287265) | Voluntary FoP nutrition guidance for packaged foods, including calories, saturated fat, sugar, sodium, optional nutrients, serving basis, and display principles. |
+| Small prepackaged foods | [Regulations Governing the Labeling of Small Prepackaged Food](https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3408) | Small-package exceptions and alternative QR-code/electronic disclosure paths for constrained package surfaces. |
+| Bulk foods | [Regulations on Bulk Food Labeling](https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3398) | Labeling requirements for bulk foods where ordinary prepackaged labeling may not apply. |
 
 ## LabelPass Rule Modeling Notes
 

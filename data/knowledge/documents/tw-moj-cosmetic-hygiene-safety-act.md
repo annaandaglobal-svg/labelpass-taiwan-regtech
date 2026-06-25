@@ -8,7 +8,7 @@ domain: cosmetics
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: dbe77b0bc12cbdeb633498827702a1325482e2ff2fc149d21806342d79f255ad
 from_cache: true
 manual_fallback: false

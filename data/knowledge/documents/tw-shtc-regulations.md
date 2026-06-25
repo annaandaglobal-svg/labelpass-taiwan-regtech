@@ -8,7 +8,7 @@ domain: export_control
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-25T09:45:50.145Z
+fetched_at: 2026-06-25T11:21:48.925Z
 content_hash: 75ea1097c8b1be3ea698cce451434a9209270168ff5670452c57b5881140e961
 from_cache: true
 manual_fallback: false
