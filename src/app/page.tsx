@@ -678,13 +678,6 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="ops-strip" aria-label="LabelPass 운영 상태">
-          <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
-          <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
-          <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
-          <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
-        </div>
-
         {screen === "review" && (
           <>
           <section className="command-center" aria-label="LabelPass 검토 현황">
@@ -757,6 +750,13 @@ export default function Home() {
               </div>
             </div>
           </section>
+
+          <div className="ops-strip" aria-label="LabelPass 운영 상태">
+            <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
+            <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
+            <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
+            <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
+          </div>
 
           <div className="review-grid">
             <section className="input-pane">
