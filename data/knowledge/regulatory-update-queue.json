@@ -110,7 +110,7 @@
       "detected_at": "2026-06-25T17:40:27.672Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-02T17:40:27.672Z",
-      "previous_hash": null,
+      "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "current_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "affected_domains": [
         "cosmetics",
@@ -597,7 +597,7 @@
       "detected_at": "2026-06-25T17:40:27.672Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-02T17:40:27.672Z",
-      "previous_hash": null,
+      "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "current_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "affected_domains": [
         "cosmetics",
@@ -669,7 +669,7 @@
       "detected_at": "2026-06-25T17:40:27.672Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-09T17:40:27.672Z",
-      "previous_hash": null,
+      "previous_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
       "current_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
       "affected_domains": [
         "cosmetics",
@@ -734,7 +734,7 @@
       "detected_at": "2026-06-25T17:40:27.672Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-09T17:40:27.672Z",
-      "previous_hash": null,
+      "previous_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
       "current_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
       "affected_domains": [
         "food_additives",
@@ -807,7 +807,7 @@
       "detected_at": "2026-06-25T17:40:27.672Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-09T17:40:27.672Z",
-      "previous_hash": null,
+      "previous_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
       "current_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
       "affected_domains": [
         "food_additives",
