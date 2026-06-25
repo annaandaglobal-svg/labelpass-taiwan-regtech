@@ -54,6 +54,10 @@ const SOURCE_ACT = "Cosmetic Hygiene and Safety Act, Articles 6, 7, 10";
 const SOURCE_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030013";
 const SOURCE_PIF = "TFDA PIF phased implementation notice, 2025-08-14";
 const SOURCE_PIF_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164";
+const SOURCE_COSMETIC_PRODUCT_NOTIFICATION = "TFDA cosmetic product registration zone";
+const SOURCE_COSMETIC_PRODUCT_NOTIFICATION_URL = "https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435";
+const SOURCE_COSMETIC_GMP = "TFDA cosmetics announcements and GMP implementation information";
+const SOURCE_COSMETIC_GMP_URL = "https://www.fda.gov.tw/TC/sitelist.aspx?sid=1894";
 const SOURCE_OPEN_DATA = "TFDA cosmetics open datasets, InfoId 199-203";
 const SOURCE_OPEN_DATA_URL = "https://data.gov.tw/dataset/173684";
 const SOURCE_FOOD_ACT = "Act Governing Food Safety and Sanitation, Articles 3 and 22";
@@ -70,6 +74,10 @@ const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Applicati
 const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES_URL = "https://www.fda.gov.tw/TC/siteContent.aspx?sid=10159";
+const SOURCE_FOOD_ADDITIVE_REGISTRATION = "TFDA food additive inspection registration materials";
+const SOURCE_FOOD_ADDITIVE_REGISTRATION_URL = "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895";
+const SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS = "TFDA compound food additive import document notice";
+const SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS_URL = "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405";
 const SOURCE_FOOD_IMPORT_INSPECTION = "Regulations of Inspection of Imported Foods and Related Products, Articles 3, 4, 6, and 8";
 const SOURCE_FOOD_IMPORT_INSPECTION_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040017";
 const SOURCE_FOOD_BUSINESS_REGISTRATION = "TFDA food business registration for import business operators";
@@ -321,8 +329,71 @@ function isFoodProduct(input: ReviewInput) {
   );
 }
 
+function isCosmeticProduct(input: ReviewInput) {
+  return /cosmetic|cosmetics|skin care|skincare|toner|cream|lotion|serum|cleanser|sunscreen|spf|soap|shampoo|mouthwash|toothpaste|화장품|스킨케어|토너|크림|로션|세럼|클렌저|클렌징|자외선|비누|샴푸|치약|구강|化粧品|化妝品|護膚|护肤|化妝水|化粧水|精華|精华|乳液|面霜|防曬|防晒|洗面|洗髮|洗发|牙膏/i.test(
+    `${input.productName} ${input.productType} ${input.labelText}`
+  );
+}
+
 function reviewText(input: ReviewInput) {
   return `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.origin} ${input.manufacturer} ${input.hsCode ?? ""} ${input.incoterms ?? ""} ${input.shipmentPurpose ?? ""} ${input.invoiceValue ?? ""}`;
+}
+
+function matchedFoodAdditiveEntries(input: ReviewInput, limit = 12) {
+  const entries: Array<{ term: IndexedKnowledgeTerm; ingredient: ParsedIngredient; alias: IndexedAlias }> = [];
+  const emitted = new Set<string>();
+
+  for (const ingredient of parseIngredients(input.ingredientsText)) {
+    for (const term of foodAdditiveTerms) {
+      if (emitted.has(term.id)) continue;
+      const alias = matchedAlias(ingredient, term.aliases ?? []);
+      if (!alias) continue;
+      emitted.add(term.id);
+      entries.push({ term, ingredient, alias });
+      if (entries.length >= limit) return entries;
+    }
+  }
+
+  return entries;
+}
+
+function isFoodAdditiveProduct(input: ReviewInput) {
+  const identityText = `${input.productName} ${input.productType}`;
+  const labelUseText = `${input.labelText} ${input.productType}`;
+
+  return (
+    /food additive|additive product|additive raw material|additive premix|additive blend|processing aid|flavou?r enhancer|preservative powder|食品添加物|食品添加劑|食品添加剂|食添|식품\s*첨가물|식품\s*첨가제|첨가물\s*(원료|제품|혼합제|프리믹스)|單方食品添加物|单方食品添加剂|複方食品添加物|复配食品添加剂/i.test(identityText) ||
+    /(?:用途|用於|用于|purpose|intended use).{0,28}(?:food additive|食品添加物|食品添加劑|食品添加剂|식품\s*첨가물)|(?:food additive|食品添加物|食品添加劑|食品添加剂|식품\s*첨가물).{0,28}(?:用途|用於|用于|purpose|intended use)/i.test(labelUseText)
+  );
+}
+
+function isCompoundFoodAdditiveProduct(input: ReviewInput) {
+  const text = reviewText(input);
+  if (/compound food additive|compound additive|additive premix|additive blend|food additive blend|複方食品添加物|复配食品添加剂|複合食品添加物|复合食品添加剂|복방\s*식품\s*첨가물|복합\s*식품\s*첨가물|혼합\s*식품\s*첨가물|첨가물\s*프리믹스/i.test(text)) {
+    return true;
+  }
+
+  return isFoodAdditiveProduct(input) && matchedFoodAdditiveEntries(input, 3).length >= 2 && /blend|premix|compound|複方|复配|複合|复合|混合|配方|혼합|복합|복방|프리믹스/i.test(text);
+}
+
+function hasFoodAdditiveRegistrationEvidence(input: ReviewInput) {
+  return /inspection registration|registration permit|permit document|food additive permit|food additive license|查驗登記|查验登记|食品添加物查驗登記|食品添加剂查验登记|許可證|许可证|登記證|登记证|登錄字號|登录字号|許可字號|许可证号|permit no\.?|license no\.?|등록증|등록번호|허가서|허가번호|검사등록|사전\s*허가/i.test(reviewText(input));
+}
+
+function hasCompoundFoodAdditiveCompositionReport(input: ReviewInput) {
+  return /composition report|composition statement|product composition report|ingredient composition report|formula sheet|formulation sheet|成分報告|成分报告|產品成分報告|产品成分报告|產品成分表|产品成分表|成分比例|配方表|제품\s*성분\s*보고|제품\s*조성\s*보고|조성표|배합비|배합\s*비율/i.test(reviewText(input));
+}
+
+function hasCosmeticProductNotification(input: ReviewInput) {
+  return /product notification|cosmetic notification|cosmetic product registration|product registration|fadenbook|產品登錄|產品登記|产品登录|产品登记|化粧品產品登錄|化妝品產品登錄|化妆品产品登录|登錄編號|登錄字號|登录编号|notification no\.?|registration no\.?|제품\s*등록|제품\s*신고|화장품\s*제품\s*등록|화장품\s*등록|등록번호/i.test(reviewText(input));
+}
+
+function hasCosmeticPifEvidence(input: ReviewInput) {
+  return /\bPIF\b|product information file|產品資訊檔案|產品資訊檔|产品信息档案|产品资料档案|安全性評估|安全性评估|safety assessment|safety assessor|제품\s*정보\s*파일|제품정보파일|제품\s*정보\s*문서|안전성\s*평가/i.test(reviewText(input));
+}
+
+function hasCosmeticGmpEvidence(input: ReviewInput) {
+  return /\bGMP\b|good manufacturing practice|ISO\s*22716|化粧品GMP|化妝品GMP|化妆品GMP|優良製造準則|优良制造准则|화장품\s*GMP|우수\s*화장품\s*제조|제조\s*품질\s*관리/i.test(reviewText(input));
 }
 
 function hasHsClassification(input: ReviewInput) {
@@ -765,6 +836,171 @@ function addFoodImportFindings(input: ReviewInput, findings: Finding[]) {
   }
 }
 
+function addFoodAdditiveProductFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isFoodAdditiveProduct(input)) return;
+
+  const additiveEntries = matchedFoodAdditiveEntries(input, 6);
+  const additiveEvidence = additiveEntries
+    .map((entry) => `${entry.term.canonical_name} / ${entry.alias.value}`)
+    .join(" · ");
+
+  if (hasFoodAdditiveRegistrationEvidence(input)) {
+    findings.push({
+      id: "food-additive-inspection-registration-present",
+      status: "pass",
+      area: "서류",
+      title: "식품첨가물 查驗登記 또는 허가 신호가 확인되었습니다",
+      severity: "low",
+      why: "제품 자체가 식품첨가물 또는 식품첨가물 원료로 보이며, 입력 자료에서 대만 식품첨가물 검사등록·허가증·등록번호 신호가 확인되었습니다.",
+      fix: ["허가증의 품명, 성분명, 제조자, 수입자가 인보이스·라벨·제품정보표와 같은지 대조", "허가 유효기간과 적용 범위가 현재 lot와 맞는지 확인"],
+      source: SOURCE_FOOD_ADDITIVE_REGISTRATION,
+      sourceUrl: SOURCE_FOOD_ADDITIVE_REGISTRATION_URL,
+      evidence: additiveEvidence || "food additive registration signal"
+    });
+  } else {
+    findings.push({
+      id: "food-additive-inspection-registration-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "식품첨가물 제품의 查驗登記/허가 필요 여부 확인",
+      severity: "high",
+      why: "대만에서 식품첨가물 원료 또는 첨가물 제품으로 수입·판매되는 경우 일반 가공식품 라벨 검토와 별도로 식품첨가물 검사등록, 허가 문서, 품목별 적용 범위 확인이 필요합니다.",
+      fix: [
+        "대만 수입자에게 식품첨가물 查驗登記 또는 허가증 보유 여부 요청",
+        "단방/복방 여부, 사용 목적, 식품 유형, 성분 함량을 제품정보표와 조성표에 맞춰 정리",
+        "허가 대상이 아니라는 판단이면 예외 근거와 공식 회신을 lot 문서철에 보관"
+      ],
+      source: SOURCE_FOOD_ADDITIVE_REGISTRATION,
+      sourceUrl: SOURCE_FOOD_ADDITIVE_REGISTRATION_URL,
+      evidence: additiveEvidence || "food additive product identity"
+    });
+  }
+
+  if (!isCompoundFoodAdditiveProduct(input)) return;
+
+  const missingCompoundDocs = [
+    !hasCompoundFoodAdditiveCompositionReport(input) ? "제품 성분 보고서 또는 조성표" : null,
+    !hasHealthCertificate(input) ? "수출국 공식 위생증명서" : null
+  ].filter(Boolean) as string[];
+
+  if (missingCompoundDocs.length > 0) {
+    findings.push({
+      id: "compound-food-additive-import-docs-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "복방 식품첨가물 수입서류 확인 필요",
+      severity: "high",
+      why: "복방 식품첨가물은 일반 식품첨가물 등록 확인과 별도로 제품 성분 보고서, 공식 위생증명서 등 수입 단계에서 요구될 수 있는 자료를 묶어 확인해야 합니다.",
+      fix: [
+        `${missingCompoundDocs.join(", ")} 확보 여부를 대만 수입자와 확인`,
+        "성분별 함량, 기능, 식품첨가물 통용명, 제조국 발급기관 정보를 제품정보표와 일치시킴",
+        "복방 첨가물명과 개별 첨가물명이 중국어 라벨·송장·허가문서에서 같은 체계로 쓰였는지 대조"
+      ],
+      source: SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS,
+      sourceUrl: SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS_URL,
+      evidence: missingCompoundDocs.join(" / ")
+    });
+  } else {
+    findings.push({
+      id: "compound-food-additive-import-docs-present",
+      status: "pass",
+      area: "서류",
+      title: "복방 식품첨가물 핵심 수입서류 신호가 확인되었습니다",
+      severity: "low",
+      why: "복방 식품첨가물로 보이는 제품에 대해 성분 보고서와 공식 위생증명서 신호가 함께 확인되어 수입 서류 패킷의 핵심 축이 잡혀 있습니다.",
+      fix: ["발급기관, 제품명, 조성비, lot, 제조자가 모든 수입 서류에서 일치하는지 최종 대조", "대만 수입자가 요구하는 추가 TFDA 보완자료가 있는지 입항 전 확인"],
+      source: SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS,
+      sourceUrl: SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS_URL,
+      evidence: "composition report / official health certificate"
+    });
+  }
+}
+
+function addCosmeticMarketAccessFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isCosmeticProduct(input)) return;
+
+  if (hasCosmeticProductNotification(input)) {
+    findings.push({
+      id: "cosmetic-product-notification-present",
+      status: "pass",
+      area: "서류",
+      title: "화장품 제품등록/제품통보 신호가 확인되었습니다",
+      severity: "low",
+      why: "대만 화장품은 제품 공급 전 제품등록 또는 제품통보 흐름과 수입자 책임 정보를 맞춰야 합니다. 입력 자료에서 등록번호 또는 제품등록 플랫폼 신호가 확인되었습니다.",
+      fix: ["등록 제품명, 제조자, 수입자, 전성분명이 라벨과 PIF 자료에서 일치하는지 확인", "변경사항이 있으면 등록 자료와 라벨을 같은 버전으로 관리"],
+      source: SOURCE_COSMETIC_PRODUCT_NOTIFICATION,
+      sourceUrl: SOURCE_COSMETIC_PRODUCT_NOTIFICATION_URL,
+      evidence: "product notification / registration"
+    });
+  } else {
+    findings.push({
+      id: "cosmetic-product-notification-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "화장품 제품등록/제품통보 자료 확인 필요",
+      severity: "medium",
+      why: "대만 화장품 공급 전에는 제품등록 또는 제품통보 흐름, 수입자 책임자 정보, 제품명·제조자·전성분 자료의 일치 여부를 확인해야 합니다.",
+      fix: ["대만 수입자에게 化粧品產品登錄 번호 또는 등록 진행 상태 요청", "제품명, 제조자, 책임업자, 전성분명이 중문 라벨·PIF와 같은지 대조"],
+      source: SOURCE_COSMETIC_PRODUCT_NOTIFICATION,
+      sourceUrl: SOURCE_COSMETIC_PRODUCT_NOTIFICATION_URL
+    });
+  }
+
+  if (hasCosmeticPifEvidence(input)) {
+    findings.push({
+      id: "cosmetic-pif-readiness-present",
+      status: "pass",
+      area: "서류",
+      title: "PIF 또는 안전성 평가 자료 신호가 확인되었습니다",
+      severity: "low",
+      why: "입력 자료에서 제품정보파일(PIF), 안전성 평가 또는 관련 보유 자료 신호가 확인되었습니다.",
+      fix: ["전성분·함량, 제조공정, 품질규격, 안정성, 안전성 평가 서명 자료가 빠짐없이 묶였는지 확인", "PIF 보관 주체와 대만 수입자 연락 정보를 제품등록 자료와 맞춤"],
+      source: SOURCE_PIF,
+      sourceUrl: SOURCE_PIF_URL,
+      evidence: "PIF / safety assessment"
+    });
+  } else {
+    findings.push({
+      id: "cosmetic-pif-readiness-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "PIF 준비도 확인 필요",
+      severity: Date.now() >= PIF_EFFECTIVE_AT ? "high" : "medium",
+      why: "대만 PIF 확대 시행 일정에 맞춰 제품정보파일, 안전성 평가, 원료·제조·품질 자료 보유 여부를 판매 전 확인해야 합니다.",
+      fix: ["PIF 체크리스트로 전성분 함량, 제조공정, 안정성, 독성, 기능 근거, 안전성 평가 서명 자료를 회수", "수제 고형비누 등 예외 가능성이 있으면 예외 근거를 별도 문서로 보관"],
+      source: SOURCE_PIF,
+      sourceUrl: SOURCE_PIF_URL
+    });
+  }
+
+  if (hasCosmeticGmpEvidence(input)) {
+    findings.push({
+      id: "cosmetic-gmp-readiness-present",
+      status: "pass",
+      area: "서류",
+      title: "화장품 GMP 또는 ISO 22716 신호가 확인되었습니다",
+      severity: "low",
+      why: "입력 자료에서 화장품 GMP, 우수 제조관리 또는 ISO 22716 신호가 확인되어 제조 품질관리 증빙 축이 잡혀 있습니다.",
+      fix: ["GMP/ISO 22716 인증 범위가 현재 제조소와 제품군에 적용되는지 확인", "인증서 유효기간과 제조소 주소가 PIF·라벨의 제조자 정보와 같은지 대조"],
+      source: SOURCE_COSMETIC_GMP,
+      sourceUrl: SOURCE_COSMETIC_GMP_URL,
+      evidence: "GMP / ISO 22716"
+    });
+  } else {
+    findings.push({
+      id: "cosmetic-gmp-readiness-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "화장품 GMP/제조품질 증빙 확인 필요",
+      severity: "medium",
+      why: "대만 화장품 공급 준비에서는 제조소의 GMP 또는 제조품질관리 증빙과 PIF·제품등록 자료의 제조자 정보가 맞는지 확인해야 합니다.",
+      fix: ["제조사에 화장품 GMP, ISO 22716 또는 동등한 제조품질관리 증빙 요청", "인증 범위, 제조소 주소, 제품군, 유효기간을 PIF와 제품등록 자료에 연결"],
+      source: SOURCE_COSMETIC_GMP,
+      sourceUrl: SOURCE_COSMETIC_GMP_URL
+    });
+  }
+}
+
 const foodLabelRequirements = [
   {
     id: "food-name",
@@ -1167,7 +1403,9 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     });
   }
 
-  if (Date.now() >= PIF_EFFECTIVE_AT) {
+  addCosmeticMarketAccessFindings(input, findings);
+
+  if (isCosmeticProduct(input) && Date.now() >= PIF_EFFECTIVE_AT && !hasCosmeticPifEvidence(input)) {
     findings.push({
       id: "pif-2026",
       status: "needs_info",
@@ -1182,6 +1420,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   }
   } else {
     addFoodFindings(input, findings);
+    addFoodAdditiveProductFindings(input, findings);
     addFoodImportFindings(input, findings);
   }
 

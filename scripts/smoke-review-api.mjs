@@ -148,6 +148,79 @@ if (foodAdditiveResult.status === "fail") {
   throw new Error("Food additive review: expected non-fail status for additive-only review");
 }
 
+const compoundAdditiveMissingResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Compound Preservative Premix",
+    productType: "compound food additive / 複方食品添加物",
+    ingredientsText: "Sodium benzoate, potassium sorbate, citric acid, dextrose carrier",
+    labelText: "品名：複方食品添加物. 內容量：5kg. 成分：苯甲酸鈉、己二烯酸鉀、檸檬酸、葡萄糖. 用途：食品添加物.",
+    origin: "Korea",
+    manufacturer: "Annaanda Ingredients / Taiwan Importer Co.",
+    hsCode: "2106.90",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1500"
+  })
+});
+
+if (!compoundAdditiveMissingResponse.ok) {
+  throw new Error(`Compound additive missing review: Review API returned ${compoundAdditiveMissingResponse.status}`);
+}
+
+const compoundAdditiveMissingResult = await compoundAdditiveMissingResponse.json();
+
+for (const findingId of [
+  "food-additive-inspection-registration-needed",
+  "compound-food-additive-import-docs-needed"
+]) {
+  if (!compoundAdditiveMissingResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Compound additive missing review: expected ${findingId}`);
+  }
+}
+
+if (compoundAdditiveMissingResult.status === "fail") {
+  throw new Error("Compound additive missing review: expected non-fail status for document gaps");
+}
+
+const compoundAdditiveCompleteResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Compound Preservative Premix",
+    productType: "compound food additive / 複方食品添加物",
+    ingredientsText: "Sodium benzoate, potassium sorbate, citric acid, dextrose carrier",
+    labelText: [
+      "品名：複方食品添加物. 內容量：5kg. 成分：苯甲酸鈉、己二烯酸鉀、檸檬酸、葡萄糖. 用途：食品添加物.",
+      "食品添加物查驗登記許可證 TW-FA-2026-0099.",
+      "產品成分報告書 and composition report prepared.",
+      "Official health certificate issued by exporting-country competent authority."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Ingredients / Taiwan Importer Co.",
+    hsCode: "2106.90",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1500"
+  })
+});
+
+if (!compoundAdditiveCompleteResponse.ok) {
+  throw new Error(`Compound additive complete review: Review API returned ${compoundAdditiveCompleteResponse.status}`);
+}
+
+const compoundAdditiveCompleteResult = await compoundAdditiveCompleteResponse.json();
+
+for (const findingId of [
+  "food-additive-inspection-registration-present",
+  "compound-food-additive-import-docs-present"
+]) {
+  if (!compoundAdditiveCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
+    throw new Error(`Compound additive complete review: expected pass finding ${findingId}`);
+  }
+}
+
 const foodClaimResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -311,7 +384,12 @@ const tradeCompleteResponse = await fetch(`${baseUrl}/api/review`, {
     productName: "Cica Repair Cream Export Lot",
     productType: "cosmetic / leave-on",
     ingredientsText: "Water, Glycerin 5%, Panthenol 1%, Phenoxyethanol 0.7%",
-    labelText: "品名：積雪草修護霜. 容量：50ml. 全成分：Water, Glycerin, Panthenol, Phenoxyethanol. 原產地：韓國. 進口商：Taiwan Importer Co. 製造日期：2026-06-01. 有效日期：2029-06-01.",
+    labelText: [
+      "品名：積雪草修護霜. 容量：50ml. 全成分：Water, Glycerin, Panthenol, Phenoxyethanol.",
+      "原產地：韓國. 進口商：Taiwan Importer Co. 製造日期：2026-06-01. 有效日期：2029-06-01.",
+      "化粧品產品登錄字號 TW-COS-2026-00021. PIF product information file and safety assessment prepared.",
+      "化粧品GMP / ISO 22716 certificate for manufacturing site."
+    ].join(" "),
     origin: "Korea",
     manufacturer: "Annaanda Beauty Lab / Taiwan Importer Co.",
     hsCode: "3304.99",
@@ -330,6 +408,16 @@ const tradeCompleteResult = await tradeCompleteResponse.json();
 for (const findingId of ["trade-hs-present", "trade-incoterms-present", "trade-shipment-purpose-present"]) {
   if (!tradeCompleteResult.findings?.some((finding) => finding.id === findingId)) {
     throw new Error(`Trade complete review: expected ${findingId}`);
+  }
+}
+
+for (const findingId of [
+  "cosmetic-product-notification-present",
+  "cosmetic-pif-readiness-present",
+  "cosmetic-gmp-readiness-present"
+]) {
+  if (!tradeCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
+    throw new Error(`Trade complete review: expected cosmetic pass finding ${findingId}`);
   }
 }
 
@@ -439,5 +527,5 @@ for (const testCase of sourceCases) {
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 8} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
+  `API smoke test passed: ${cases.length + 10} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
 );

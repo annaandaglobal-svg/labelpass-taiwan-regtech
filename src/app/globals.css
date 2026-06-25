@@ -256,6 +256,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.85fr);
   gap: 14px;
+  align-items: start;
   margin-bottom: 16px;
 }
 
@@ -271,6 +272,7 @@ h2 {
   padding: 24px;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: white;
+  align-self: start;
 }
 
 .command-hero h2 {
@@ -323,9 +325,9 @@ h2 {
 
 .pipeline-card {
   display: grid;
-  gap: 14px;
+  gap: 10px;
   align-content: center;
-  padding: 18px;
+  padding: 14px;
 }
 
 .command-side-stack {
@@ -458,8 +460,8 @@ h2 {
 
 .impact-card {
   display: grid;
-  gap: 12px;
-  padding: 14px;
+  gap: 10px;
+  padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
@@ -508,16 +510,36 @@ h2 {
   gap: 8px;
 }
 
+.command-side-stack .impact-list {
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
 .impact-item {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) auto;
-  gap: 10px;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  gap: 8px;
   align-items: center;
-  min-height: 58px;
-  padding: 9px;
+  min-height: 50px;
+  padding: 8px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
+}
+
+.command-side-stack .impact-item {
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  align-content: center;
+  min-height: 50px;
+}
+
+.command-side-stack .impact-item > span,
+.command-side-stack .impact-item em {
+  width: fit-content;
+}
+
+.command-side-stack .impact-item em {
+  justify-self: end;
 }
 
 .impact-item > span,
@@ -547,8 +569,8 @@ h2 {
 .impact-item small {
   margin-top: 2px;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.35;
+  font-size: 11.5px;
+  line-height: 1.28;
 }
 
 .impact-item em {
@@ -3074,7 +3096,6 @@ h2 {
   .console-actions,
   .product-detail-grid,
   .product-kpis,
-  .ops-strip,
   .intake-rail,
   .empty-layout,
   .queue-metrics,
@@ -3087,6 +3108,33 @@ h2 {
 
   .command-hero {
     padding: 18px;
+  }
+
+  .ops-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .status-tile {
+    min-height: 64px;
+    padding: 10px;
+  }
+
+  .status-tile b {
+    font-size: 17px;
+  }
+
+  .status-tile em {
+    display: none;
+  }
+
+  .command-side-stack,
+  .hero-proof {
+    display: none;
+  }
+
+  .command-hero p {
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   .impact-item {

@@ -59,7 +59,9 @@ export const cleanSampleReview: ReviewInput = {
     "製造商：ANNAANDA Beauty Lab, Seoul, Korea / Tel +82-2-0000-0000",
     "原產地：韓國",
     "批號：C26TW02",
-    "製造日期：2026.06.01 / 有效日期：2029.06.01"
+    "製造日期：2026.06.01 / 有效日期：2029.06.01",
+    "化粧品產品登錄字號 TW-COS-2026-00021. PIF 產品資訊檔案與 safety assessment 已備妥.",
+    "化粧品GMP / ISO 22716 certificate for ANNAANDA Beauty Lab manufacturing site."
   ].join("\n")
 };
 
@@ -169,6 +171,34 @@ export const foodAdditiveSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const compoundFoodAdditiveSampleReview: ReviewInput = {
+  productName: "복방 보존료 프리믹스 5kg",
+  productType: "compound food additive / 複方食品添加物 / 식품첨가물",
+  origin: "대한민국",
+  manufacturer: "ANNAANDA Ingredients, Seoul / Taiwan Importer Co.",
+  hsCode: "2106.90",
+  incoterms: "CIF Keelung",
+  shipmentPurpose: "commercial sale",
+  invoiceValue: "1500",
+  ingredientsText: [
+    "Sodium benzoate",
+    "Potassium sorbate",
+    "Citric acid",
+    "Dextrose carrier"
+  ].join(", "),
+  labelText: [
+    "品名：複方食品添加物（防腐用途）",
+    "內容量：5kg",
+    "成分：苯甲酸鈉、己二烯酸鉀、檸檬酸、葡萄糖",
+    "用途：食品添加物，用於醬料及飲料產品",
+    "原產地：韓國",
+    "進口商：Taiwan Importer Co.",
+    "食品添加物查驗登記許可證 TW-FA-2026-0099",
+    "產品成分報告書與 composition report 已備妥",
+    "Official health certificate issued by exporting-country competent authority"
+  ].join("\n")
+};
+
 export const foodClaimSampleReview: ReviewInput = {
   productName: "고단백 저당 키위 오징어 스낵 50g",
   productType: "prepackaged food / snack / 식품",
@@ -273,6 +303,18 @@ export const sourceCards = [
     tag: "PIF"
   },
   {
+    title: "Cosmetic product registration zone",
+    detail: "TFDA cosmetic product registration and notification portal guidance, including platform routing and product-registration workflow context.",
+    url: "https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435",
+    tag: "제품등록"
+  },
+  {
+    title: "Cosmetic GMP announcements",
+    detail: "TFDA cosmetics announcements used to track GMP, PIF, product-notification, and implementation-stage changes for Taiwan cosmetic supply.",
+    url: "https://www.fda.gov.tw/TC/sitelist.aspx?sid=1894",
+    tag: "GMP"
+  },
+  {
     title: "Act Governing Food Safety and Sanitation",
     detail: "Article 22 is the backbone for Taiwan prepackaged food label checks, including name, ingredients, weight, expiry, origin, responsible firm, and other required consumer information.",
     url: "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001",
@@ -337,5 +379,17 @@ export const sourceCards = [
     detail: "Nutrition claim rules used when labels say low sugar, high protein, low sodium, high fiber, low calorie, or similar claim wording.",
     url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3522",
     tag: "강조표시"
+  },
+  {
+    title: "Food additive inspection registration materials",
+    detail: "TFDA food-additive inspection-registration materials used to separate additive-product permits from ordinary food labels that merely contain additives.",
+    url: "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895",
+    tag: "첨가물등록"
+  },
+  {
+    title: "Compound food additive import documents",
+    detail: "TFDA notice for compound food-additive import document review, including product composition reports and official health-certificate evidence.",
+    url: "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405",
+    tag: "복방첨가물"
   }
 ];

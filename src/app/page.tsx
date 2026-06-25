@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
-import { cleanSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
 type Screen = "review" | "products" | "updates" | "partners";
@@ -117,11 +117,11 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "87",
-  aliases: "3,188",
+  sources: "94",
+  aliases: "3,224",
   reviewCases: "11",
-  knowledgeCases: "40",
-  sourceCases: "12"
+  knowledgeCases: "45",
+  sourceCases: "16"
 };
 
 const flowSteps = [
@@ -147,8 +147,9 @@ const regulatoryUpdateQueue = updateQueueData as {
 
 const productImpactItems = [
   { badge: "식품", title: "불닭 소스", detail: "수입식품 검사·영양 강조표시 재검토", status: "재검토", tone: "danger" },
+  { badge: "첨가물", title: "복방 보존료 프리믹스", detail: "查驗登記·성분보고서·공식 위생증명서 확인", status: "서류", tone: "danger" },
   { badge: "식품", title: "냉동 패류 샘플", detail: "HS 0307 위생증명서·채취 해역 확인", status: "서류", tone: "warn" },
-  { badge: "화장품", title: "수분 진정 토너", detail: "PIF 확대 시행 전 수입자 정보 보강", status: "D-5", tone: "info" }
+  { badge: "화장품", title: "수분 진정 토너", detail: "제품등록·PIF·GMP 증빙 보강", status: "D-5", tone: "info" }
 ] as const;
 
 const updateWorkflowItems = [
@@ -389,7 +390,7 @@ export default function Home() {
     setInput((current) => ({ ...current, [key]: value }));
   }
 
-  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-import" | "food-additive" | "food-claim") {
+  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-import" | "food-additive" | "compound-additive" | "food-claim") {
     const samples = {
       risky: sampleReview,
       clean: cleanSampleReview,
@@ -397,6 +398,7 @@ export default function Home() {
       "food-clean": foodCleanSampleReview,
       "food-import": foodImportShellfishSampleReview,
       "food-additive": foodAdditiveSampleReview,
+      "compound-additive": compoundFoodAdditiveSampleReview,
       "food-claim": foodClaimSampleReview
     };
     const messages = {
@@ -406,6 +408,7 @@ export default function Home() {
       "food-clean": "식품 통과 예시 샘플을 채웠습니다.",
       "food-import": "식품 수입검사 서류 예시 샘플을 채웠습니다.",
       "food-additive": "식품첨가물 확인 예시 샘플을 채웠습니다.",
+      "compound-additive": "복방 식품첨가물 등록·수입서류 샘플을 채웠습니다.",
       "food-claim": "식품 권장 알레르겐·강조표시 예시 샘플을 채웠습니다."
     };
     const next = samples[kind];
@@ -417,7 +420,7 @@ export default function Home() {
 
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
-    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠/i.test(haystack);
+    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|compound food additive|food additive|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|식품첨가물|복방|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠|食品添加物|複方食品添加物/i.test(haystack);
 
     setInput((current) => ({
       ...current,
@@ -707,6 +710,7 @@ export default function Home() {
                 <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물 샘플</button>
+                <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
                 <button className="primary-btn wide" onClick={() => void runReview()} disabled={isAnalyzing}>
@@ -1012,6 +1016,24 @@ function docsForReview(review: SavedReview): WorkspaceDoc[] {
       documentStatus("수입신고서", findingIds.has("food-import-inspection-docs-present") ? "완료" : "필요", findingIds.has("food-import-inspection-docs-present") ? "pass" : "warn"),
       documentStatus("식품업자 등록", findingIds.has("food-importer-registration-present") ? "완료" : "확인", findingIds.has("food-importer-registration-present") ? "pass" : "info"),
       documentStatus(
+        "식품첨가물 등록",
+        findingIds.has("food-additive-inspection-registration-present")
+          ? "완료"
+          : findingIds.has("food-additive-inspection-registration-needed")
+            ? "필요"
+            : "해당 없음",
+        findingIds.has("food-additive-inspection-registration-needed") ? "danger" : findingIds.has("food-additive-inspection-registration-present") ? "pass" : "info"
+      ),
+      documentStatus(
+        "복방첨가물 서류",
+        findingIds.has("compound-food-additive-import-docs-present")
+          ? "완료"
+          : findingIds.has("compound-food-additive-import-docs-needed")
+            ? "필요"
+            : "해당 없음",
+        findingIds.has("compound-food-additive-import-docs-needed") ? "danger" : findingIds.has("compound-food-additive-import-docs-present") ? "pass" : "info"
+      ),
+      documentStatus(
         "HS 0307 위생증명서",
         findingIds.has("food-import-hs0307-health-certificate-present")
           ? "완료"
@@ -1025,10 +1047,11 @@ function docsForReview(review: SavedReview): WorkspaceDoc[] {
   }
 
   return [
-    documentStatus("PIF", findingIds.has("pif-2026") ? "준비" : "모니터링", findingIds.has("pif-2026") ? "warn" : "info"),
+    documentStatus("제품등록", findingIds.has("cosmetic-product-notification-present") ? "완료" : "확인", findingIds.has("cosmetic-product-notification-present") ? "pass" : "warn"),
+    documentStatus("PIF", findingIds.has("cosmetic-pif-readiness-present") ? "완료" : findingIds.has("pif-2026") || findingIds.has("cosmetic-pif-readiness-needed") ? "준비" : "모니터링", findingIds.has("cosmetic-pif-readiness-present") ? "pass" : findingIds.has("pif-2026") || findingIds.has("cosmetic-pif-readiness-needed") ? "warn" : "info"),
+    documentStatus("GMP / ISO 22716", findingIds.has("cosmetic-gmp-readiness-present") ? "완료" : "확인", findingIds.has("cosmetic-gmp-readiness-present") ? "pass" : "warn"),
     documentStatus("COA / 조성표", needsConcentration ? "필요" : "완료", needsConcentration ? "warn" : "pass"),
     documentStatus("중문 라벨", needsLabel ? "보완" : "완료", needsLabel ? "warn" : "pass"),
-    documentStatus("CFS / GMP", "보관", "info"),
     documentStatus("인보이스 / 패킹리스트", needsTrade ? "확인" : "완료", needsTrade ? "info" : "pass")
   ];
 }
