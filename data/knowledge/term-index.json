@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 98,
+  "curated_term_count": 99,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -4363,7 +4363,7 @@
     {
       "id": "hs-code-classification",
       "canonical_name": "HS Code Classification",
-      "category": "regulatory_concept",
+      "category": "customs_classification",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -4676,7 +4676,7 @@
     {
       "id": "country-of-origin-marking",
       "canonical_name": "Country of Origin Marking",
-      "category": "regulatory_concept",
+      "category": "origin_marking",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -4838,14 +4838,16 @@
         "us-ecfr-origin-marking-19-cfr-134",
         "tw-customs-origin-importers",
         "jp-customs-origin-verification",
-        "tw-trade-origin-textiles-2023"
+        "tw-trade-origin-textiles-2023",
+        "tw-moj-food-safety-sanitation-act",
+        "tw-us-ita-labeling-marking"
       ],
-      "notes": "Concept term for import labeling, origin statements, and customs origin evidence."
+      "notes": "Concept term for import labeling, food and product origin statements, made-in wording, and customs origin evidence."
     },
     {
       "id": "certificate-of-origin",
       "canonical_name": "Certificate of Origin",
-      "category": "regulatory_concept",
+      "category": "origin_marking",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -4943,7 +4945,7 @@
     {
       "id": "incoterms",
       "canonical_name": "Incoterms",
-      "category": "regulatory_concept",
+      "category": "trade_document",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -5150,7 +5152,7 @@
     {
       "id": "commercial-invoice",
       "canonical_name": "Commercial Invoice",
-      "category": "regulatory_concept",
+      "category": "customs_document",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -5267,7 +5269,7 @@
     {
       "id": "packing-list",
       "canonical_name": "Packing List",
-      "category": "regulatory_concept",
+      "category": "customs_document",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -5394,7 +5396,7 @@
     {
       "id": "shipment-purpose",
       "canonical_name": "Shipment Purpose",
-      "category": "regulatory_concept",
+      "category": "trade_document",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -5702,7 +5704,7 @@
     {
       "id": "taiwan-importer-responsible-firm",
       "canonical_name": "Taiwan Importer and Responsible Firm",
-      "category": "regulatory_concept",
+      "category": "trade_operator",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6039,7 +6041,7 @@
     {
       "id": "imported-cosmetics-inspection",
       "canonical_name": "Imported Cosmetics Inspection",
-      "category": "regulatory_concept",
+      "category": "cosmetic_compliance",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6186,7 +6188,7 @@
     {
       "id": "food-import-inspection-exemption",
       "canonical_name": "Food Import Inspection Exemption",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6342,7 +6344,7 @@
     {
       "id": "imported-food-inspection",
       "canonical_name": "Imported Food Inspection",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6529,7 +6531,7 @@
     {
       "id": "systematic-imported-food-inspection",
       "canonical_name": "Systematic Inspection of Imported Food",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6685,7 +6687,7 @@
     {
       "id": "food-import-health-certificate",
       "canonical_name": "Food Import Health Certificate",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6842,7 +6844,7 @@
     {
       "id": "food-business-registration-importer",
       "canonical_name": "Food Business Registration for Importers",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -6998,7 +7000,7 @@
     {
       "id": "product-information-sheet",
       "canonical_name": "Product Information Sheet",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7144,7 +7146,7 @@
     {
       "id": "business-use-food-intact-package-labeling",
       "canonical_name": "Business-use Food Intact Package Labeling",
-      "category": "regulatory_concept",
+      "category": "food_labeling",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7310,7 +7312,7 @@
     {
       "id": "food-pesticide-residue-limits",
       "canonical_name": "Food Pesticide Residue Limits",
-      "category": "regulatory_concept",
+      "category": "food_safety",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7436,7 +7438,7 @@
     {
       "id": "food-veterinary-drug-residue-limits",
       "canonical_name": "Food Veterinary Drug Residue Limits",
-      "category": "regulatory_concept",
+      "category": "food_safety",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7552,7 +7554,7 @@
     {
       "id": "food-contaminants-toxins-standards",
       "canonical_name": "Food Contaminants and Toxins Standards",
-      "category": "regulatory_concept",
+      "category": "food_safety",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7678,7 +7680,7 @@
     {
       "id": "food-microorganism-sanitation-standard",
       "canonical_name": "Food Microorganism Sanitation Standard",
-      "category": "regulatory_concept",
+      "category": "food_safety",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7794,7 +7796,7 @@
     {
       "id": "food-traceability",
       "canonical_name": "Food Traceability",
-      "category": "regulatory_concept",
+      "category": "food_safety",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -7911,7 +7913,7 @@
     {
       "id": "food-good-hygiene-practice",
       "canonical_name": "Food Good Hygiene Practice",
-      "category": "regulatory_concept",
+      "category": "food_safety",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8037,7 +8039,7 @@
     {
       "id": "advance-tariff-classification-ruling",
       "canonical_name": "Advance Tariff Classification Ruling",
-      "category": "regulatory_concept",
+      "category": "customs_classification",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8165,7 +8167,7 @@
     {
       "id": "import-export-permit",
       "canonical_name": "Import and Export Permit",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8383,7 +8385,7 @@
     {
       "id": "inci-ingredient-name",
       "canonical_name": "INCI Ingredient Name",
-      "category": "regulatory_concept",
+      "category": "cosmetic_compliance",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8471,7 +8473,7 @@
     {
       "id": "nutrition-labeling",
       "canonical_name": "Nutrition Labeling",
-      "category": "regulatory_concept",
+      "category": "food_labeling",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8570,7 +8572,7 @@
     {
       "id": "food-allergen-labeling",
       "canonical_name": "Food Allergen Labeling",
-      "category": "regulatory_concept",
+      "category": "food_labeling",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8669,7 +8671,7 @@
     {
       "id": "cosmetic-product-information-file",
       "canonical_name": "Cosmetic Product Information File",
-      "category": "regulatory_concept",
+      "category": "cosmetic_compliance",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8760,7 +8762,7 @@
     {
       "id": "cosmetic-product-notification",
       "canonical_name": "Cosmetic Product Notification",
-      "category": "regulatory_concept",
+      "category": "cosmetic_compliance",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8851,7 +8853,7 @@
     {
       "id": "cosmetic-gmp",
       "canonical_name": "Cosmetic Good Manufacturing Practice",
-      "category": "regulatory_concept",
+      "category": "cosmetic_compliance",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -8947,9 +8949,239 @@
       "notes": "Taiwan cosmetic GMP concept used with the post-2024 unified cosmetics management system and PIF implementation stages."
     },
     {
+      "id": "cosmetic-labeling-claims",
+      "canonical_name": "Cosmetic Labeling and Claims",
+      "category": "cosmetic_compliance",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "cosmetic labeling",
+          "normalized": "cosmetic labeling",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic label claims",
+          "normalized": "cosmetic label claims",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic advertising claims",
+          "normalized": "cosmetic advertising claims",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "medical efficacy claim",
+          "normalized": "medical efficacy claim",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "exaggerated cosmetic claim",
+          "normalized": "exaggerated cosmetic claim",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "product usage claim",
+          "normalized": "product usage claim",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 표시",
+          "normalized": "화장품 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 라벨 표시",
+          "normalized": "화장품 라벨 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 효능표현",
+          "normalized": "화장품 효능표현",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "의학적 효능 표현",
+          "normalized": "의학적 효능 표현",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "과장 광고",
+          "normalized": "과장 광고",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品標示",
+          "normalized": "化粧品標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品標籤",
+          "normalized": "化粧品標籤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品廣告",
+          "normalized": "化粧品廣告",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品宣稱",
+          "normalized": "化粧品宣稱",
+          "type": "claim_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "醫療效能",
+          "normalized": "醫療效能",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "誇大不實",
+          "normalized": "誇大不實",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品标签",
+          "normalized": "化妆品标签",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品宣称",
+          "normalized": "化妆品宣称",
+          "type": "claim_phrase",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品表示",
+          "normalized": "化粧品表示",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品広告表示",
+          "normalized": "化粧品広告表示",
+          "type": "claim_phrase",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-moj-cosmetic-product-notification",
+        "tw-tfda-cosmetic-announcements",
+        "tw-tfda-cosmetics-business-area",
+        "tw-us-ita-labeling-marking"
+      ],
+      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, and medical-efficacy claim screening."
+    },
+    {
       "id": "food-additive-inspection-registration",
       "canonical_name": "Food Additive Inspection Registration",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9088,7 +9320,7 @@
     {
       "id": "compound-food-additive-import-documents",
       "canonical_name": "Compound Food Additive Import Documents",
-      "category": "regulatory_concept",
+      "category": "food_import",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9266,7 +9498,7 @@
     {
       "id": "foreign-trade-act",
       "canonical_name": "Foreign Trade Act",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9383,7 +9615,7 @@
     {
       "id": "exporter-importer-registration",
       "canonical_name": "Exporter and Importer Registration",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9511,7 +9743,7 @@
     {
       "id": "customs-declaration",
       "canonical_name": "Customs Declaration",
-      "category": "regulatory_concept",
+      "category": "customs_document",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9699,7 +9931,7 @@
     {
       "id": "strategic-high-tech-commodities",
       "canonical_name": "Strategic High-Tech Commodities",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9829,7 +10061,7 @@
     {
       "id": "shtc-export-permit",
       "canonical_name": "SHTC Export Permit",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9958,7 +10190,7 @@
     {
       "id": "international-import-certificate",
       "canonical_name": "International Import Certificate",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -10105,7 +10337,7 @@
     {
       "id": "end-use-end-user",
       "canonical_name": "End Use and End User",
-      "category": "regulatory_concept",
+      "category": "import_export_control",
       "identifiers": {
         "cas": [],
         "inci": [],

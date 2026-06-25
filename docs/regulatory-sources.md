@@ -1,6 +1,6 @@
 # LabelPass Regulatory Sources
 
-Last verified: 2026-06-25
+Last verified: 2026-06-26
 
 This document records the official Taiwan TFDA and data.gov.tw sources that LabelPass should treat as the canonical basis for Taiwan cosmetics screening. It is a product and engineering reference, not legal advice.
 
@@ -61,6 +61,43 @@ The raw datasets use Traditional Chinese field names. LabelPass should preserve 
 | Fish species product names | [Labeling Requirements on Food Products that Use Specific Fish Species as Product Names](https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3414) | Product-name normalization source for foods sold under specific fish species names. |
 | Small prepackaged foods | [Regulations Governing the Labeling of Small Prepackaged Food](https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3408) | Small-package exceptions and alternative QR-code/electronic disclosure paths for constrained package surfaces. |
 | Bulk foods | [Regulations on Bulk Food Labeling](https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3398) | Labeling requirements for bulk foods where ordinary prepackaged labeling may not apply. |
+
+## Taiwan Food Import And Operational Sources
+
+| Topic | Official source | Key points for LabelPass |
+| --- | --- | --- |
+| Imported food inspection | [Regulations of Inspection of Imported Foods and Related Products](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040017) | Primary source for border inspection, inspection application timing, applicants, document review, batch grouping, sampling, and inspection outcomes. |
+| Food import inspection exemptions | [TFDA food import inspection exemption notices](https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3371) | Routes low-risk, personal-use, sample, and special-purpose imports where inspection application may be exempted or handled by specific customs codes. |
+| Systematic imported food inspection | [Regulations for Systematic Inspection of Imported Food](https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607) | Evidence source for exporting-country food safety system review, document review, and on-site inspection. |
+| Food business importer registration | [Food business registration for import business operators](https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1681) | Importers may need registration, product category details, insurance evidence, storage/repackaging activity information, and traceability records. |
+| HS 0307 shellfish certificate | [TFDA shellfish health certificate notice](https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095) | Health certificate and harvest-area evidence source for shellfish imports under HS 0307. |
+| Compound food additive import documents | [TFDA compound food additive import document notice](https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405) | Links compound additive imports with product composition reports, official health certificates, free-sale evidence, and related import-document checks. |
+
+## Taiwan Customs, Origin, And Import/Export Controls
+
+| Topic | Official source | Key points for LabelPass |
+| --- | --- | --- |
+| Customs declaration | [Customs Act](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=G0350001) | Core basis for import/export declaration, invoice, packing list, permits, online/CPT single-window filings, correction evidence, and post-clearance audit. |
+| HS/CCC classification | [GC453 Tariff Database Download](https://portal.sw.nat.gov.tw/APGQ/GC453), [Customs tariff system](https://web.customs.gov.tw/en/multiplehtml/3349), and [Import and Export Regulations by CCC Code](https://fbfh.trade.gov.tw/fh/indexE.jsp) | CCC code and tariff classification drive TFDA, customs, permit, duty, SHTC, and agency-routing checks. |
+| Advance tariff classification ruling | [Customs advance tariff classification ruling](https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138) | Use when mixed composition, kits, claims, or use cases make a product's CCC code uncertain before import. |
+| Origin marking and certificates | [Keelung Customs origin labeling notice](https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=9d9cf376a43c481faef23b3f584f782c) and [origin labeling guidance for imported textiles](https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=4655&pid=762248) | Search axis for made-in wording, country-of-origin marking, certificate-of-origin evidence, and misleading-origin risk. |
+| Import/export administration | [Foreign Trade Act](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0090004), [Regulations Governing Import of Commodities](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0090007), and [Regulations Governing Registration of Exporters and Importers](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0090006) | Operator registration, import/export restrictions, permit routing, negative-list checks, and trade-order obligations. |
+| Strategic high-tech commodities | [Regulations Governing the Export and Import of Strategic High-tech Commodities](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0090013) and [MOEA SHTC export-control index](https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=298) | SHTC export permits, dual-use screening, end-use/end-user evidence, import certificates, written assurances, delivery verification, and AI-hardware risk routing. |
+
+## Operational Search Categories
+
+| Term category | Use in LabelPass search and review |
+| --- | --- |
+| `cosmetic_compliance` | Cosmetic PIF, product notification, GMP, imported-cosmetics inspection, INCI naming, and cosmetic labeling/claims. |
+| `food_labeling` | Nutrition labeling, allergen labeling, business-use food labeling, and label-specific food statements. |
+| `food_import` | Imported-food inspection, exemptions, health certificates, product information sheets, importer registration, and compound additive import documents. |
+| `food_safety` | Pesticide/veterinary-drug residues, contaminants, microbiology, traceability, and food GHP evidence. |
+| `origin_marking` | Country-of-origin marking, made-in statements, and certificate-of-origin evidence. |
+| `customs_classification` | HS/CCC code classification, tariff lookup, and advance classification ruling. |
+| `customs_document` | Customs declarations, commercial invoices, packing lists, and single-window filing evidence. |
+| `trade_document` | Incoterms and shipment-purpose terms that determine responsibility and document routing. |
+| `trade_operator` | Taiwan importer, responsible firm, agent, consignee, and category-specific responsible business operator terms. |
+| `import_export_control` | Foreign trade law, operator registration, permits, SHTC controls, import certificates, and end-use/end-user screening. |
 
 ## LabelPass Rule Modeling Notes
 
