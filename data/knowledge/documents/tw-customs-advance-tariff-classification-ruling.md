@@ -1,0 +1,31 @@
+---
+id: tw-customs-advance-tariff-classification-ruling
+title: Advance Tariff Classification Ruling Helps Find Correct CCC Code
+url: https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4
+authority: Taiwan Customs Administration
+jurisdiction: TW
+domain: customs
+source_type: notice
+priority: medium
+format: html
+fetched_at: 2026-06-25T14:39:00.574Z
+fetched_url: https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4
+extra_fetched_urls:
+cache_days: 14
+cache_expires_at: 2026-07-09T14:39:00.574Z
+cache_status: fresh
+content_hash: 9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7
+from_cache: false
+manual_fallback: false
+browser_capture: false
+parse_error: 
+tags: customs, ccc-code, tariff-classification, advance-ruling
+---
+
+# Advance Tariff Classification Ruling Helps Find Correct CCC Code
+
+Source: https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4
+
+## Extract
+
+Advance Tariff Classification Ruling Helps Find Correct CCC Code-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments Clearance Free Trade Zone MCC Export Cargo Clearance Enforcement Laws and Regulations Non Intrusive Inspection Trader Sealing Trade Control Anti-smuggling Operations Container Inspection and Monitoring FAQ Import/Export Clearance Maritime Express Consignments Clearance Imported Used Vehicles Bonded Warehouse&Temporary Storage Facilities Intellectual Property Rights Protection Convenience Service Time Frames for Applications Processing Glossary of Customs Terms SOP for Auditing AEOGs Forms Download On - Line Application Services and Amenities Home > Other information > Hot news > Advance Tariff Classification Ruling Helps Find Co... ::: Other information Hot news Travelers Links Privacy Open Information Interactive Zone Information Security Statistics Graphs and Tables ::: X Forward friends 「*」Required field * Sender(Required) * Recipient(Required) * Content of email(Required) * Verification code(Required) Regenerate verification code Advance Tariff Classification Ruling Helps Find Correct CCC Code Keelung Customs (KLC) stated that according to Article 21 of Customs Act and the Regulations Governing the Implementation of Advance Tariff Classification Ruling on Imported Goods, if importers have doubts regarding the tariff number or CCC code, they can submit an advance tariff classification ruling application to Customs before the importation in order to expedite customs clearance and protect their rights. KLC further stated that recently, a company imported “SPICED CHICKPEA” from China, declaring the product under CCC code 2008.99.91.90-1, which refers to “fruit, and other edible parts of plants, otherwise prepared or preserved, whether or not containing added sugar or other sweetening matter” (tariff rate 20%). The company mistakenly assumed that this product was permitted for importation and therefore filled in the free-license code for customs clearance. However, according to the Harmonized System Explanatory Notes, chickpeas (also known as “chicken peas”) belong to “leguminous vegetables” in Chapter 7 rather than “fruits” in Chapter 8. Prepared chickpea products should be classified under CCC code 2005.99.90.99-6, which refers to “other vegetables, prepared or preserved otherwise than by vinegar or acetic acid, not frozen, other than products of heading No. 20.06” (tariff rate 25%). These products are not permitted for importation from China. Importers should apply to the International Trade Administration, Ministry of Economic Affairs for an import permit and pay the correct Customs duty so that Customs can release the goods. KLC emphasized that the result of an advance tariff classification ruling has legal effect on all Customs offices and applicants, and this service is free of charge. It helps reduce the possibility of tariff classification disputes and customs clearance delays. KLC encourages importers to make the best use of this service. Last updated：2024-11-29 Click times：1725 Open About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments Clearance Free Trade Zone MCC Export Cargo Clearance Enforcement Laws and Regulations Non Intrusive Inspection Trader Sealing Trade Control Anti-smuggling Operations Container Inspection and Monitoring FAQ Import/Export Clearance Maritime Express Consignments Clearance Imported Used Vehicles Bonded Warehouse&Temporary Storage Facilities Intellectual Property Rights Protection Convenience Service Time Frames for Applications Processing Glossary of Customs Terms SOP for Auditing AEOGs Forms Download On - Line Application Services and Amenities ::: Privacy Open Information Information Security Browsing peoplKeelung Customs Office of Customs Administration，Ministry of Finance Address：No. 6， Gangxi St， Keelung City， Taiwan ， ROC ( Location ) 🌏 Zip Code：20041 Domestic：TEL(02)-2420-2951 ；FAX (02)-2426-3324 Overseas：TEL 886-2-2420-2951；FAX 886-2-2426-3224 Office Hours：[H]UTC+8 AM 08:30 to PM 12:00 ; PM 01:00 to PM 05:00 on Monday to Friday Service Counter：AM 08:30 to PM 17:00 Non-Stop Service Through The Lunch Hour Best viewed at 1024 x 768 resolution. Last updated:2026-06-18

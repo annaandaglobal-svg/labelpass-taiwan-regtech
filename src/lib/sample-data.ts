@@ -176,6 +176,18 @@ export const foodClaimSampleReview: ReviewInput = {
 
 export const sourceCards = [
   {
+    title: "Taiwan CCC import/export regulations",
+    detail: "MOEA/TITA commodity regulation lookup for HS or Taiwan CCC codes, import/export regulation codes, permit signals, and commodity descriptions.",
+    url: "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+    tag: "CCC"
+  },
+  {
+    title: "GC453 tariff database download",
+    detail: "CPT Single Window customs source for Taiwan tariff schedules, CCC code descriptions, tariff numbers, and advance tariff ruling materials.",
+    url: "https://portal.sw.nat.gov.tw/APGQ/GC453",
+    tag: "관세"
+  },
+  {
     title: "Cosmetic Hygiene and Safety Act",
     detail: "Article 6 bans or restricts ingredients by public announcement; Article 7 defines required cosmetic label items; Article 10 controls deceptive, exaggerated, and medical efficacy claims.",
     url: "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030013",

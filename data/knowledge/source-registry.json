@@ -299,6 +299,46 @@
       "tags": ["import", "export", "shtc", "origin", "trade"]
     },
     {
+      "id": "tw-trade-ccc-import-export-regulations",
+      "title": "Import and Export Regulations by CCC Code",
+      "url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade_controls",
+      "source_type": "database",
+      "priority": "high",
+      "cache_days": 7,
+      "format": "manual",
+      "manual_extract": "Official Taiwan International Trade Administration/MOEA database page for Classification of Commodities and Regulations. The English interface is titled Import and Export Regulations and supports searching by commodity code, commodity code range, or imported file. It accepts HS code inputs from 2 to 6 digits and CCC code inputs under the Standard Classification of Commodities of the Republic of China up to 10 digits, with examples including 01, 2001, 740729, 0203120000, and 2207101010. The page also supports commodity-description keyword search, such as fish, bovine animals, or chemical, and regulation-code search for import or export regulation types. The form refers to Import Regulation codes and Export Regulation codes, with examples including numeric codes and alphanumeric codes such as 111, 401, 272, C01, and MW0. The page provides download areas for import/export regulation information and an Importation of Mainland China products section. It explains that where EX is appended after a CCC number, only goods conforming to the corresponding Chinese and English commodity description are opened for import. It also notes that where Mainland China product import special regulation codes such as MXX or NXX are listed, the goods must satisfy both general import regulations and those special provisions before import is allowed. The user workflow is to identify a commodity by HS or CCC number, confirm whether an import regulation code, export regulation code, permit, inspection, or agency restriction appears, and then map the result back to the responsible agency and shipment documents. This makes the page a primary routing source before preparing invoices, packing lists, origin evidence, TFDA documents, SHTC checks, or customs entries. This source is used by LabelPass for CCC-code based routing, import/export permit signals, trade-control screening, and search terms such as CCC code, HS code, import regulation code, export regulation code, regulation codes, commodity description, controlled goods, permit code, regulatory agency, and trade controls. It is a query database rather than a static legal text, so LabelPass stores this manual extract to preserve the official page semantics for search and review evidence while the live URL remains the authority.",
+      "tags": ["ccc-code", "import-regulation", "export-regulation", "permit", "trade-controls"]
+    },
+    {
+      "id": "tw-customs-tariff-database-download",
+      "title": "GC453 Tariff Database Download",
+      "url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
+      "authority": "Customs Administration / CPT Single Window",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "tariff_database",
+      "priority": "high",
+      "cache_days": 7,
+      "format": "manual",
+      "manual_extract": "Official CPT Single Window / Customs Administration page GC453 Tariff Database Download. The page is a browser-oriented official download page for Taiwan tariff and CCC-code reference data. It identifies the CCC CODE last modification date and presents official download options for tariff and commodity-code work. Listed resources include Tariff Schedule files in spreadsheet, PDF, and open-document formats; CCC Code and Description of Goods files in text and PDF formats; chapter-by-chapter tariff materials; Application for Import Goods Advance Tariff Rulings files in document, PDF, and open-document formats; and Tariff No. and Description of Goods files in text and PDF formats. The page is relevant when a product team needs to confirm the Taiwan customs statistical classification, compare HS candidates, download the current tariff schedule, or prepare an advance classification ruling before import. The tariff schedule and CCC goods-description files support screening for duty rate, import/export controls, TFDA routing, BSMI routing, SHTC routing, and other agency rules that depend on commodity classification. Advance tariff ruling materials are important when product composition, use, kit status, or mixed-material goods make the final CCC code uncertain. LabelPass uses this source to connect HS code and Taiwan CCC code searches with tariff classification, customs statistical code review, duty-rate routing, and import/export regulatory screening. Practical search terms mapped to this source include GC453, tariff database download, tariff schedule, CCC CODE, CCC code description of goods, tariff number, tariff no., customs tariff, HS code, Standard Classification of Commodities of the Republic of China, advance tariff ruling application, import goods advance tariff ruling, 관세율표, 대만 CCC 코드, 세번, 稅則號列, 貨品分類號列, 海關編碼, 進口貨物稅則預先審核, tariff no. and description of goods, and customs import tariff. Automated HTTP access may return a browser-only message, so LabelPass keeps this manual extract from the official page while retaining the live official URL for audit and refresh.",
+      "tags": ["hs-code", "ccc-code", "tariff", "customs", "import-export"]
+    },
+    {
+      "id": "tw-customs-advance-tariff-classification-ruling",
+      "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
+      "url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "notice",
+      "priority": "medium",
+      "cache_days": 14,
+      "tags": ["customs", "ccc-code", "tariff-classification", "advance-ruling"]
+    },
+    {
       "id": "tw-trade-origin-textiles-2023",
       "title": "Guidelines for Labeling the Origin of Specific Imported Textiles",
       "url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=4655&pid=762248",

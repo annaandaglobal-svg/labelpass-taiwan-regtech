@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-25",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 65,
+  "curated_term_count": 72,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -4381,6 +4381,16 @@
           "source": "curated"
         },
         {
+          "value": "CCC code",
+          "normalized": "ccc code",
+          "type": "local_code",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "Harmonized System",
           "normalized": "harmonized system",
           "type": "official_name",
@@ -4397,6 +4407,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "customs code",
+          "normalized": "customs code",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tariff code",
+          "normalized": "tariff code",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },
@@ -4431,6 +4461,46 @@
           "source": "curated"
         },
         {
+          "value": "관세 코드",
+          "normalized": "관세 코드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 CCC 코드",
+          "normalized": "대만 ccc 코드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HS碼",
+          "normalized": "hs碼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CCC碼",
+          "normalized": "ccc碼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "稅則號列",
           "normalized": "稅則號列",
           "type": "local_name",
@@ -4441,11 +4511,81 @@
           "source": "curated"
         },
         {
+          "value": "海關編碼",
+          "normalized": "海關編碼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貨品分類號列",
+          "normalized": "貨品分類號列",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HS编码",
+          "normalized": "hs编码",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CCC码",
+          "normalized": "ccc码",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "商品编码",
           "normalized": "商品编码",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "海关编码",
+          "normalized": "海关编码",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HSコード",
+          "normalized": "hsコード",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "関税番号",
+          "normalized": "関税番号",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -4463,6 +4603,9 @@
       ],
       "source_keys": [
         "global-wco-harmonized-system",
+        "tw-customs-tariff-database-download",
+        "tw-trade-ccc-import-export-regulations",
+        "tw-customs-advance-tariff-classification-ruling",
         "jp-customs-tariff-schedule",
         "us-itc-harmonized-tariff",
         "kr-customs-tariff-list"
@@ -4500,6 +4643,26 @@
           "source": "curated"
         },
         {
+          "value": "COO marking",
+          "normalized": "coo marking",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "made-in label",
+          "normalized": "made-in label",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Phrase can appear outside legal origin context; verify use.",
+          "source": "curated"
+        },
+        {
           "value": "made in",
           "normalized": "made in",
           "type": "label_phrase",
@@ -4516,6 +4679,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "제조국 표시",
+          "normalized": "제조국 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原產地標示",
+          "normalized": "原產地標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "製造國標示",
+          "normalized": "製造國標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },
@@ -4540,6 +4733,36 @@
           "source": "curated"
         },
         {
+          "value": "制造国标示",
+          "normalized": "制造国标示",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原産国表示",
+          "normalized": "原産国表示",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "製造国表示",
+          "normalized": "製造国表示",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "原産地表示",
           "normalized": "原産地表示",
           "type": "local_name",
@@ -4557,6 +4780,1069 @@
         "tw-trade-origin-textiles-2023"
       ],
       "notes": "Concept term for import labeling, origin statements, and customs origin evidence."
+    },
+    {
+      "id": "certificate-of-origin",
+      "canonical_name": "Certificate of Origin",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Certificate of Origin",
+          "normalized": "certificate of origin",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "COO",
+          "normalized": "coo",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Can be confused with country-of-origin marking; confirm document context.",
+          "source": "curated"
+        },
+        {
+          "value": "origin certificate",
+          "normalized": "origin certificate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "원산지증명서",
+          "normalized": "원산지증명서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原產地證明書",
+          "normalized": "原產地證明書",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產地證明書",
+          "normalized": "產地證明書",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原产地证书",
+          "normalized": "原产地证书",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原産地証明書",
+          "normalized": "原産地証明書",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-customs-origin-importers",
+        "jp-customs-origin-verification",
+        "asean-rules-of-origin-registry"
+      ],
+      "notes": "Trade document concept for origin evidence. Keep separate from COA, which usually means certificate of analysis."
+    },
+    {
+      "id": "incoterms",
+      "canonical_name": "Incoterms",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Incoterms",
+          "normalized": "incoterms",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "delivery terms",
+          "normalized": "delivery terms",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "trade terms",
+          "normalized": "trade terms",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "shipping terms",
+          "normalized": "shipping terms",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "EXW",
+          "normalized": "exw",
+          "type": "incoterm_code",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "FOB",
+          "normalized": "fob",
+          "type": "incoterm_code",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CIF",
+          "normalized": "cif",
+          "type": "incoterm_code",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DAP",
+          "normalized": "dap",
+          "type": "incoterm_code",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DDP",
+          "normalized": "ddp",
+          "type": "incoterm_code",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인코텀즈",
+          "normalized": "인코텀즈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "무역조건",
+          "normalized": "무역조건",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인도조건",
+          "normalized": "인도조건",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "國際貿易條件",
+          "normalized": "國際貿易條件",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "交貨條件",
+          "normalized": "交貨條件",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貿易條件",
+          "normalized": "貿易條件",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "国际贸易术语",
+          "normalized": "国际贸易术语",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "交货条件",
+          "normalized": "交货条件",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "インコタームズ",
+          "normalized": "インコタームズ",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貿易条件",
+          "normalized": "貿易条件",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-export-regulations",
+        "tw-trade-ccc-import-export-regulations"
+      ],
+      "notes": "Operational trade term for allocating freight, insurance, delivery, and import-clearance responsibilities."
+    },
+    {
+      "id": "commercial-invoice",
+      "canonical_name": "Commercial Invoice",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "commercial invoice",
+          "normalized": "commercial invoice",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "trade invoice",
+          "normalized": "trade invoice",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "invoice",
+          "normalized": "invoice",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": "Broad term; verify customs context.",
+          "source": "curated"
+        },
+        {
+          "value": "상업송장",
+          "normalized": "상업송장",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인보이스",
+          "normalized": "인보이스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商業發票",
+          "normalized": "商業發票",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "發票",
+          "normalized": "發票",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.75,
+          "note": "Broad term; verify trade-document context.",
+          "source": "curated"
+        },
+        {
+          "value": "商业发票",
+          "normalized": "商业发票",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商業インボイス",
+          "normalized": "商業インボイス",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商業送り状",
+          "normalized": "商業送り状",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-export-regulations",
+        "tw-customs-tariff-database-download"
+      ],
+      "notes": "Customs document concept for declared value, buyer/seller, shipment description, and trade terms."
+    },
+    {
+      "id": "packing-list",
+      "canonical_name": "Packing List",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "packing list",
+          "normalized": "packing list",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "packing slip",
+          "normalized": "packing slip",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "May be a logistics slip rather than customs document.",
+          "source": "curated"
+        },
+        {
+          "value": "shipment packing list",
+          "normalized": "shipment packing list",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "포장명세서",
+          "normalized": "포장명세서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "패킹리스트",
+          "normalized": "패킹리스트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "裝箱單",
+          "normalized": "裝箱單",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "包裝明細表",
+          "normalized": "包裝明細表",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "装箱单",
+          "normalized": "装箱单",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "包装明细表",
+          "normalized": "包装明细表",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "梱包明細書",
+          "normalized": "梱包明細書",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "パッキングリスト",
+          "normalized": "パッキングリスト",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-export-regulations",
+        "tw-customs-tariff-database-download"
+      ],
+      "notes": "Customs and logistics document concept for carton, quantity, weight, and package details."
+    },
+    {
+      "id": "shipment-purpose",
+      "canonical_name": "Shipment Purpose",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "shipment purpose",
+          "normalized": "shipment purpose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import purpose",
+          "normalized": "import purpose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "commercial sale",
+          "normalized": "commercial sale",
+          "type": "purpose",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sample shipment",
+          "normalized": "sample shipment",
+          "type": "purpose",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "demo shipment",
+          "normalized": "demo shipment",
+          "type": "purpose",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "출하 목적",
+          "normalized": "출하 목적",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수입 목적",
+          "normalized": "수입 목적",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "상업 판매",
+          "normalized": "상업 판매",
+          "type": "purpose",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "샘플",
+          "normalized": "샘플",
+          "type": "purpose",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貨物用途",
+          "normalized": "貨物用途",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "進口目的",
+          "normalized": "進口目的",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商業銷售",
+          "normalized": "商業銷售",
+          "type": "purpose",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "樣品",
+          "normalized": "樣品",
+          "type": "purpose",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "货物用途",
+          "normalized": "货物用途",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "进口目的",
+          "normalized": "进口目的",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入目的",
+          "normalized": "輸入目的",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-export-regulations",
+        "tw-trade-ccc-import-export-regulations"
+      ],
+      "notes": "Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments."
+    },
+    {
+      "id": "taiwan-importer-responsible-firm",
+      "canonical_name": "Taiwan Importer and Responsible Firm",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Taiwan importer",
+          "normalized": "taiwan importer",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "importer of record",
+          "normalized": "importer of record",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "responsible firm",
+          "normalized": "responsible firm",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "local responsible firm",
+          "normalized": "local responsible firm",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "authorized representative",
+          "normalized": "authorized representative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수입자",
+          "normalized": "수입자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 수입자",
+          "normalized": "대만 수입자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "책임업체",
+          "normalized": "책임업체",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "국내대리인",
+          "normalized": "국내대리인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "進口商",
+          "normalized": "進口商",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "責任業者",
+          "normalized": "責任業者",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "國內負責廠商",
+          "normalized": "國內負責廠商",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "代理商",
+          "normalized": "代理商",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "进口商",
+          "normalized": "进口商",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "责任企业",
+          "normalized": "责任企业",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入者",
+          "normalized": "輸入者",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "国内責任者",
+          "normalized": "国内責任者",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-moj-cosmetic-product-notification",
+        "tw-moj-food-safety-sanitation-act",
+        "tw-customs-origin-importers"
+      ],
+      "notes": "Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator."
+    },
+    {
+      "id": "certificate-of-analysis",
+      "canonical_name": "Certificate of Analysis",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Certificate of Analysis",
+          "normalized": "certificate of analysis",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "COA",
+          "normalized": "coa",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Usually certificate of analysis; do not confuse with certificate of origin.",
+          "source": "curated"
+        },
+        {
+          "value": "lab report",
+          "normalized": "lab report",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "test report",
+          "normalized": "test report",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시험성적서",
+          "normalized": "시험성적서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "성적서",
+          "normalized": "성적서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Broad term; verify test-report context.",
+          "source": "curated"
+        },
+        {
+          "value": "분석증명서",
+          "normalized": "분석증명서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "檢驗報告",
+          "normalized": "檢驗報告",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "分析證明書",
+          "normalized": "分析證明書",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "測試報告",
+          "normalized": "測試報告",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "检验报告",
+          "normalized": "检验报告",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "試験成績書",
+          "normalized": "試験成績書",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "分析証明書",
+          "normalized": "分析証明書",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-pif-management",
+        "tw-tfda-food-additive-standards",
+        "global-unece-ghs-rev11"
+      ],
+      "notes": "Evidence-document concept for analytical test reports, specifications, safety files, and supplier documentation."
     },
     {
       "id": "inci-ingredient-name",

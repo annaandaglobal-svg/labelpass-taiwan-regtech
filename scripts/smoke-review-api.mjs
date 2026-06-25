@@ -263,7 +263,15 @@ const knowledgeCases = [
   { query: "奇異果", expectedTerm: "Kiwifruit" },
   { query: "SDS", expectedTerm: "Safety Data Sheet", expectedFirst: "Safety Data Sheet" },
   { query: "HS코드", expectedTerm: "HS Code Classification" },
+  { query: "CCC碼", expectedTerm: "HS Code Classification" },
   { query: "원산지 표시", expectedTerm: "Country of Origin Marking" },
+  { query: "원산지증명서", expectedTerm: "Certificate of Origin" },
+  { query: "인코텀즈", expectedTerm: "Incoterms" },
+  { query: "商業發票", expectedTerm: "Commercial Invoice" },
+  { query: "패킹리스트", expectedTerm: "Packing List" },
+  { query: "進口目的", expectedTerm: "Shipment Purpose" },
+  { query: "대만 수입자", expectedTerm: "Taiwan Importer and Responsible Firm" },
+  { query: "COA", expectedTerm: "Certificate of Analysis", expectedFirst: "Certificate of Analysis" },
   { query: "INCI", expectedTerm: "INCI Ingredient Name", expectedFirst: "INCI Ingredient Name" },
   { query: "營養標示", expectedTerm: "Nutrition Labeling" },
   { query: "過敏原標示", expectedTerm: "Food Allergen Labeling" },
@@ -298,7 +306,9 @@ for (const testCase of knowledgeCases) {
 const sourceCases = [
   { query: "simple asphyxiants", expectedSource: "global-unece-ghs-rev11-pdf" },
   { query: "April 1 2026 tariff", expectedSource: "jp-customs-tariff-schedule" },
-  { query: "mofcom export control", expectedSource: "cn-mofcom-export-control-portal" }
+  { query: "mofcom export control", expectedSource: "cn-mofcom-export-control-portal" },
+  { query: "GC453 CCC CODE", expectedSource: "tw-customs-tariff-database-download" },
+  { query: "CCC import export regulation", expectedSource: "tw-trade-ccc-import-export-regulations" }
 ];
 
 for (const testCase of sourceCases) {

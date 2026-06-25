@@ -298,6 +298,13 @@ export default function Home() {
           </div>
         </header>
 
+        <div className="ops-strip" aria-label="LabelPass 운영 상태">
+          <StatusTile icon={<BookOpen />} label="공식 소스" value="76" detail="대만·글로벌 원문 캐시" />
+          <StatusTile icon={<Search />} label="검색 별칭" value="3,024" detail="다국어 성분·통관 용어" />
+          <StatusTile icon={<ClipboardCheck />} label="검토 케이스" value="9" detail="운영 API 스모크 통과" />
+          <StatusTile icon={<ShieldCheck />} label="배포 상태" value="Ready" detail="Vercel Production" />
+        </div>
+
         {screen === "review" && (
           <div className="review-grid">
             <section className="input-pane">
@@ -308,82 +315,102 @@ export default function Home() {
                   <p>AI가 품목을 추정하고, 사용자는 확인만 하도록 설계했습니다.</p>
                 </div>
               </div>
-              <div className="classifier">
-                <button onClick={classifyProduct}>
-                  <Search size={17} /> AI 품목 찾기
-                </button>
-                <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
-                <button onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
-                <button onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
-              </div>
 
-              <label className="field">
-                <span>제품명</span>
-                <input value={input.productName} onChange={(event) => updateInput("productName", event.target.value)} placeholder="예: 수분 진정 토너 300ml" />
-              </label>
+              <div className="form-section">
+                <div className="section-title">
+                  <BadgeCheck size={16} />
+                  <span>제품 분류</span>
+                </div>
+                <div className="classifier">
+                  <button onClick={classifyProduct}>
+                    <Search size={17} /> AI 품목 찾기
+                  </button>
+                  <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
+                  <button onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
+                  <button onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
+                </div>
 
-              <label className="field">
-                <span>제품 유형</span>
-                <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder="예: leave-on toner / 일반 화장품" />
-              </label>
-
-              <label className="field">
-                <span>전성분 텍스트</span>
-                <textarea
-                  value={input.ingredientsText}
-                  onChange={(event) => updateInput("ingredientsText", event.target.value)}
-                  placeholder="Water, Glycerin 4%, Triclosan 0.5% ..."
-                  rows={6}
-                />
-              </label>
-
-              <div className="upload-row">
-                <button className="upload-box" onClick={() => setToast("라벨 앞면 파일이 첨부된 것으로 표시했습니다.")}>
-                  <Upload size={19} />
-                  <span>라벨 앞면/PDF 업로드</span>
-                </button>
-                <button className="upload-box" onClick={() => setToast("라벨 뒷면 파일이 첨부된 것으로 표시했습니다.")}>
-                  <Upload size={19} />
-                  <span>라벨 뒷면/PDF 업로드</span>
-                </button>
-              </div>
-
-              <label className="field">
-                <span>라벨 문구 또는 OCR 결과</span>
-                <textarea value={input.labelText} onChange={(event) => updateInput("labelText", event.target.value)} placeholder="品名, 用途, 全成分, 原產地, 批號..." rows={7} />
-              </label>
-
-              <div className="two-col">
                 <label className="field">
-                  <span>원산지</span>
-                  <input value={input.origin} onChange={(event) => updateInput("origin", event.target.value)} placeholder="대한민국" />
+                  <span>제품명</span>
+                  <input value={input.productName} onChange={(event) => updateInput("productName", event.target.value)} placeholder="예: 수분 진정 토너 300ml" />
                 </label>
+
                 <label className="field">
-                  <span>제조사/수입자</span>
-                  <input value={input.manufacturer} onChange={(event) => updateInput("manufacturer", event.target.value)} placeholder="제조사, 대만 수입자" />
+                  <span>제품 유형</span>
+                  <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder="예: leave-on toner / 일반 화장품" />
                 </label>
               </div>
 
-              <div className="two-col">
+              <div className="form-section">
+                <div className="section-title">
+                  <FileText size={16} />
+                  <span>라벨·성분 자료</span>
+                </div>
                 <label className="field">
-                  <span>HS/CCC 코드 (선택)</span>
-                  <input value={input.hsCode ?? ""} onChange={(event) => updateInput("hsCode", event.target.value)} placeholder="예: 3304.99 / 1905.90" />
+                  <span>전성분 텍스트</span>
+                  <textarea
+                    value={input.ingredientsText}
+                    onChange={(event) => updateInput("ingredientsText", event.target.value)}
+                    placeholder="Water, Glycerin 4%, Triclosan 0.5% ..."
+                    rows={6}
+                  />
                 </label>
+
+                <div className="upload-row">
+                  <button className="upload-box" onClick={() => setToast("라벨 앞면 파일이 첨부된 것으로 표시했습니다.")}>
+                    <Upload size={19} />
+                    <span>라벨 앞면/PDF 업로드</span>
+                  </button>
+                  <button className="upload-box" onClick={() => setToast("라벨 뒷면 파일이 첨부된 것으로 표시했습니다.")}>
+                    <Upload size={19} />
+                    <span>라벨 뒷면/PDF 업로드</span>
+                  </button>
+                </div>
+
                 <label className="field">
-                  <span>거래조건 Incoterms (선택)</span>
-                  <input value={input.incoterms ?? ""} onChange={(event) => updateInput("incoterms", event.target.value)} placeholder="예: DAP Taipei / CIF Keelung" />
+                  <span>라벨 문구 또는 OCR 결과</span>
+                  <textarea value={input.labelText} onChange={(event) => updateInput("labelText", event.target.value)} placeholder="品名, 用途, 全成分, 原產地, 批號..." rows={7} />
                 </label>
               </div>
 
-              <label className="field">
-                <span>출하 목적 (선택)</span>
-                <input value={input.shipmentPurpose ?? ""} onChange={(event) => updateInput("shipmentPurpose", event.target.value)} placeholder="상업 판매, 샘플, 데모, 시험용" />
-              </label>
+              <div className="form-section">
+                <div className="section-title">
+                  <Ship size={16} />
+                  <span>수출입·통관 정보</span>
+                </div>
+                <div className="two-col">
+                  <label className="field">
+                    <span>원산지</span>
+                    <input value={input.origin} onChange={(event) => updateInput("origin", event.target.value)} placeholder="대한민국" />
+                  </label>
+                  <label className="field">
+                    <span>제조사/수입자</span>
+                    <input value={input.manufacturer} onChange={(event) => updateInput("manufacturer", event.target.value)} placeholder="제조사, 대만 수입자" />
+                  </label>
+                </div>
 
-              <label className="field">
-                <span>인보이스 가액 USD (관세 예상용 · 선택)</span>
-                <input value={input.invoiceValue} onChange={(event) => updateInput("invoiceValue", event.target.value)} placeholder="4200" />
-              </label>
+                <div className="two-col">
+                  <label className="field">
+                    <span>HS/CCC 코드 (선택)</span>
+                    <input value={input.hsCode ?? ""} onChange={(event) => updateInput("hsCode", event.target.value)} placeholder="예: 3304.99 / 1905.90" />
+                  </label>
+                  <label className="field">
+                    <span>거래조건 Incoterms (선택)</span>
+                    <input value={input.incoterms ?? ""} onChange={(event) => updateInput("incoterms", event.target.value)} placeholder="예: DAP Taipei / CIF Keelung" />
+                  </label>
+                </div>
+
+                <div className="two-col">
+                  <label className="field">
+                    <span>출하 목적 (선택)</span>
+                    <input value={input.shipmentPurpose ?? ""} onChange={(event) => updateInput("shipmentPurpose", event.target.value)} placeholder="상업 판매, 샘플, 데모, 시험용" />
+                  </label>
+                  <label className="field">
+                    <span>인보이스 가액 USD (선택)</span>
+                    <input value={input.invoiceValue} onChange={(event) => updateInput("invoiceValue", event.target.value)} placeholder="4200" />
+                  </label>
+                </div>
+              </div>
 
               <div className="action-row">
                 <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
@@ -530,6 +557,19 @@ function Metric({ value, label, tone, onClick }: { value: number; label: string;
       <b>{value}</b>
       <span>{label}</span>
     </button>
+  );
+}
+
+function StatusTile({ icon, label, value, detail }: { icon: React.ReactNode; label: string; value: string; detail: string }) {
+  return (
+    <div className="status-tile">
+      <span>{icon}</span>
+      <div>
+        <small>{label}</small>
+        <b>{value}</b>
+        <em>{detail}</em>
+      </div>
+    </div>
   );
 }
 
