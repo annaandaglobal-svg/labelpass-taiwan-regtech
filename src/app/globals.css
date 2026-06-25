@@ -2659,6 +2659,7 @@ h2 {
   background: var(--panel);
   color: var(--ink);
   line-height: 1.6;
+  white-space: pre-line;
 }
 
 .ask-row {
@@ -2674,6 +2675,41 @@ h2 {
   border-radius: 8px;
   background: var(--navy);
   color: white;
+}
+
+.ask-row button:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
+.assistant-evidence-pack {
+  display: grid;
+  gap: 4px;
+  padding: 11px 12px;
+  border: 1px solid #c8d8e9;
+  border-radius: 8px;
+  background: var(--blue-soft);
+}
+
+.assistant-evidence-pack span {
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.assistant-evidence-pack b,
+.assistant-evidence-pack small {
+  overflow-wrap: anywhere;
+}
+
+.assistant-evidence-pack small {
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 .source-list {

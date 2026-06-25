@@ -63,7 +63,7 @@ pnpm build
 pnpm smoke:api
 ```
 
-`pnpm smoke:api` expects the app to be running. It checks 14 review cases covering English, Korean, Traditional Chinese, Simplified Chinese, INCI, and separator-folded ingredient aliases through `/api/review`, Taiwan food allergen/additive/nutrition/import-document action plans, 64 multilingual term lookups and 33 source-retrieval probes through `/api/knowledge/search`, plus review archive list/save probes through `/api/reviews`.
+`pnpm smoke:api` expects the app to be running. It checks 14 review cases covering English, Korean, Traditional Chinese, Simplified Chinese, INCI, and separator-folded ingredient aliases through `/api/review`, Taiwan food allergen/additive/nutrition/import-document action plans, 64 multilingual term lookups and 33 source-retrieval probes through `/api/knowledge/search`, 3 reusable evidence-bundle probes through `/api/knowledge/evidence`, plus review archive list/save probes through `/api/reviews`.
 
 ## Deployment Files
 

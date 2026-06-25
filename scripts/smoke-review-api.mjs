@@ -587,6 +587,40 @@ for (const testCase of sourceCases) {
   }
 }
 
+const evidenceCases = [
+  { query: "進口報單", expectedTerm: "Customs Declaration", expectedSource: "tw-moj-customs-act" },
+  { query: "SHTC export permit", expectedTerm: "SHTC Export Permit", expectedSource: "tw-moj-shtc-export-import-regulations" },
+  { query: "國際進口證明書", expectedTerm: "International Import Certificate", expectedSource: "tw-moj-shtc-export-import-regulations" }
+];
+
+for (const testCase of evidenceCases) {
+  const response = await fetch(`${baseUrl}/api/knowledge/evidence?q=${encodeURIComponent(testCase.query)}`);
+
+  if (!response.ok) {
+    throw new Error(`${testCase.query}: Knowledge evidence API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const matchedTerm = Array.isArray(result.terms)
+    ? result.terms.some((term) => term.canonicalName === testCase.expectedTerm)
+    : false;
+  const matchedSource = Array.isArray(result.sources)
+    ? result.sources.some((source) => source.id === testCase.expectedSource)
+    : false;
+
+  if (!matchedTerm) {
+    throw new Error(`${testCase.query}: expected evidence term ${testCase.expectedTerm}`);
+  }
+
+  if (!matchedSource) {
+    throw new Error(`${testCase.query}: expected evidence source ${testCase.expectedSource}`);
+  }
+
+  if (!result.summary || !Array.isArray(result.suggestedActions)) {
+    throw new Error(`${testCase.query}: expected evidence summary and suggested actions`);
+  }
+}
+
 const archiveListResponse = await fetch(`${baseUrl}/api/reviews`);
 
 if (!archiveListResponse.ok) {
@@ -633,5 +667,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 10} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 10} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );

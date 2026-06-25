@@ -74,6 +74,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 ## App Retrieval Surface
 
 - `/api/knowledge/search?q=<term>` searches canonical terms, INCI names, CAS RN, color index numbers, local-language aliases, abbreviations, and source metadata.
+- `/api/knowledge/evidence?q=<term>` packages the same reusable memory into an assistant-ready bundle with top terms, official sources, cache status, and suggested next actions.
 - `/knowledge` is the operator-facing search screen for ingredient synonyms, identifiers, and linked Taiwan TFDA rules.
 - Search aliases include stored `term_aliases` plus identifier aliases from CAS, INCI, and color index fields, so the UI count can be higher than the Supabase `term_aliases` row count.
 

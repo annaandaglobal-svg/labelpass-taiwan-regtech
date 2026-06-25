@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
+import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { buildReviewActionPlan, type ReviewActionPlan } from "@/lib/review-action-plan";
 import type { ReviewArchiveResponse, ReviewArchiveStorage, SavedReview } from "@/lib/review-types";
 import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
@@ -356,6 +357,32 @@ async function persistArchivedReview(review: SavedReview): Promise<ReviewArchive
   return response.json();
 }
 
+async function requestKnowledgeEvidence(query: string): Promise<KnowledgeEvidenceBundle> {
+  const response = await fetch(`/api/knowledge/evidence?q=${encodeURIComponent(query)}&limit=12`, { cache: "no-store" });
+  if (!response.ok) throw new Error("knowledge_evidence_failed");
+  return response.json();
+}
+
+function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?: Finding) {
+  const fix = finding?.fix?.[0] ? `우선 조치: ${finding.fix[0]}` : "";
+  const terms = bundle.terms.length
+    ? `매칭 용어: ${bundle.terms.slice(0, 3).map((term) => term.canonicalName).join(", ")}`
+    : "매칭 용어: 아직 부족합니다. 별칭 후보를 term registry에 추가해야 합니다.";
+  const sources = bundle.sources.length
+    ? `공식 근거: ${bundle.sources.slice(0, 2).map((source) => source.title).join(" / ")}`
+    : "공식 근거: 연결된 소스가 부족합니다.";
+  const action = bundle.suggestedActions[0] ? `다음 작업: ${bundle.suggestedActions[0]}` : "";
+
+  return [
+    fix,
+    `지식베이스 요약: ${bundle.summary}`,
+    terms,
+    sources,
+    action,
+    `근거 신뢰도: ${bundle.confidence}. 이 답변은 캐시된 공식 소스와 용어 인덱스 기반의 1차 초안입니다.`
+  ].filter(Boolean).join("\n");
+}
+
 export default function Home() {
   const [screen, setScreen] = useState<Screen>("review");
   const [input, setInput] = useState<ReviewInput>(emptyInput);
@@ -368,6 +395,8 @@ export default function Home() {
   const [showLogisticsModal, setShowLogisticsModal] = useState(false);
   const [assistantQuestion, setAssistantQuestion] = useState("");
   const [assistantAnswer, setAssistantAnswer] = useState("위반 항목을 선택하거나 질문을 입력하면, 현재 리포트와 공식 근거 기준으로 답변 초안을 보여드립니다.");
+  const [assistantEvidence, setAssistantEvidence] = useState<KnowledgeEvidenceBundle | null>(null);
+  const [isAssistantThinking, setIsAssistantThinking] = useState(false);
   const [toast, setToast] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
@@ -430,9 +459,16 @@ export default function Home() {
 
     if (knowledgeEvidence) {
       setAssistantQuestion(`지식베이스 증거: ${knowledgeEvidence}`);
-      setAssistantAnswer(
-        `"${knowledgeEvidence}" 기준으로 현재 라벨, 원료명, HS코드, 공식 출처를 다시 대조할 수 있습니다. 관련 제품을 열어 최신 규정 기준으로 재검토하세요.`
-      );
+      setIsAssistantThinking(true);
+      requestKnowledgeEvidence(knowledgeEvidence)
+        .then((bundle) => {
+          setAssistantEvidence(bundle);
+          setAssistantAnswer(formatKnowledgeEvidenceAnswer(bundle));
+        })
+        .catch(() => {
+          setAssistantAnswer(`"${knowledgeEvidence}" 기준으로 현재 라벨, 원료명, HS코드, 공식 출처를 다시 대조할 수 있습니다. 관련 제품을 열어 최신 규정 기준으로 재검토하세요.`);
+        })
+        .finally(() => setIsAssistantThinking(false));
       setToast("지식베이스 증거를 검토 콘솔에 연결했습니다.");
     }
   }, []);
@@ -555,18 +591,32 @@ export default function Home() {
     }
   }
 
-  function askAssistant(seed?: Finding) {
+  async function loadAssistantEvidence(query: string, finding?: Finding) {
+    setIsAssistantThinking(true);
+    try {
+      const bundle = await requestKnowledgeEvidence(query);
+      setAssistantEvidence(bundle);
+      setAssistantAnswer(formatKnowledgeEvidenceAnswer(bundle, finding));
+    } catch {
+      setAssistantEvidence(null);
+      if (finding) {
+        setAssistantAnswer(
+          `${finding.title} 기준으로는 "${finding.fix[0]}"가 1순위입니다. 근거는 ${finding.source}이며, 현재는 지식베이스 근거 묶음을 불러오지 못했습니다.`
+        );
+      } else {
+        setAssistantAnswer("지식베이스 근거 묶음을 불러오지 못했습니다. 잠시 후 다시 검색하거나 /knowledge에서 직접 확인하세요.");
+      }
+    } finally {
+      setIsAssistantThinking(false);
+    }
+  }
+
+  async function askAssistant(seed?: Finding) {
     const question = seed ? `${seed.title} 어떻게 고치면 돼?` : assistantQuestion;
     if (!question.trim()) return;
     const base = seed ?? result?.findings.find((item) => item.status === "fail") ?? result?.findings[0];
-    if (!base) {
-      setAssistantAnswer("먼저 검토를 실행하면 제품 맥락에 맞춰 답변할 수 있습니다.");
-      return;
-    }
     setAssistantQuestion(question);
-    setAssistantAnswer(
-      `${base.title} 기준으로는 "${base.fix[0]}"가 1순위입니다. 근거는 ${base.source}이며, 이 답변은 1차 검토 초안이라 실제 출고 전에는 조성표와 대만 수입자 자료로 확인해야 합니다.`
-    );
+    await loadAssistantEvidence(seed ? knowledgeQueryForFinding(seed) : question, base);
   }
 
   function downloadReport() {
@@ -904,7 +954,7 @@ export default function Home() {
                         finding={finding}
                         expanded={expandedFinding === finding.id}
                         onToggle={() => setExpandedFinding(expandedFinding === finding.id ? null : finding.id)}
-                        onAsk={() => askAssistant(finding)}
+                        onAsk={() => void askAssistant(finding)}
                       />
                     ))}
                   </div>
@@ -959,10 +1009,17 @@ export default function Home() {
           </div>
         </div>
         <div className="answer">{assistantAnswer}</div>
+        {assistantEvidence && (
+          <div className="assistant-evidence-pack" aria-label="연결된 지식베이스 근거">
+            <span>{assistantEvidence.confidence}</span>
+            <b>{assistantEvidence.terms[0]?.canonicalName ?? assistantEvidence.query}</b>
+            <small>{assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}</small>
+          </div>
+        )}
         <div className="ask-row">
           <input value={assistantQuestion} onChange={(event) => setAssistantQuestion(event.target.value)} placeholder="예: Triclosan 대체안은?" />
-          <button onClick={() => askAssistant()} aria-label="질문 보내기">
-            <Send size={16} />
+          <button onClick={() => void askAssistant()} aria-label="질문 보내기" disabled={isAssistantThinking}>
+            {isAssistantThinking ? <RefreshCw className="spin" size={16} /> : <Send size={16} />}
           </button>
         </div>
         <div className="source-list">
