@@ -40,7 +40,8 @@ const sql = dryRun
       max: 1,
       ssl: "require",
       idle_timeout: 5,
-      connect_timeout: 20
+      connect_timeout: 20,
+      prepare: false
     });
 
 async function applySqlFile(label, filePath) {
