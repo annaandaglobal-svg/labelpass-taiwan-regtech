@@ -119,7 +119,7 @@ const knowledgeStats = {
   terms: "1,134",
   reviewCases: "14",
   knowledgeCases: "64",
-  sourceCases: "30"
+  sourceCases: "33"
 };
 
 const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {

@@ -113,6 +113,12 @@ function cacheStatus(cacheExpiresAt: string | null) {
   return Date.parse(cacheExpiresAt) < Date.now() ? "stale" : "fresh";
 }
 
+function priorityRank(priority: string) {
+  if (priority === "high") return 0;
+  if (priority === "medium") return 1;
+  return 2;
+}
+
 async function readTotals(sql: DbClient): Promise<KnowledgeSearchResult["totals"]> {
   const now = Date.now();
   if (totalsCache && totalsCache.expiresAt > now) return totalsCache.value;
@@ -283,6 +289,45 @@ async function readSourceRows(sql: DbClient, query: string, limit: number) {
   `;
 }
 
+async function readSourceRowsByKeys(sql: DbClient, sourceKeys: string[]) {
+  if (!sourceKeys.length) return [];
+
+  return sql<SourceRow[]>`
+    with latest_snapshot as (
+      select distinct on (source_key)
+        source_key,
+        document_path,
+        fetched_at,
+        from_cache,
+        metadata,
+        extract
+      from public.knowledge_snapshots
+      order by source_key, fetched_at desc
+    )
+    select
+      s.source_key,
+      s.title,
+      s.source_url,
+      s.authority,
+      s.jurisdiction,
+      s.domain,
+      s.source_type,
+      s.priority,
+      s.tags,
+      s.cache_days,
+      latest_snapshot.document_path,
+      latest_snapshot.fetched_at,
+      latest_snapshot.from_cache,
+      latest_snapshot.extract,
+      latest_snapshot.metadata,
+      0::integer as score
+    from public.knowledge_sources s
+    left join latest_snapshot on latest_snapshot.source_key = s.source_key
+    where s.is_active = true
+      and s.source_key in ${sql(sourceKeys)}
+  `;
+}
+
 export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Promise<KnowledgeSearchResult | null> {
   const sql = getClient();
   if (!sql) return null;
@@ -296,10 +341,19 @@ export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Pro
 
   const termRows = await readTermRows(sql, query, limit);
   const termKeys = termRows.map((term) => term.term_key);
-  const [aliasRows, ruleRows, sourceRows] = await Promise.all([
+  const sourceBoosts = new Map<string, number>();
+  for (const term of termRows.slice(0, 6)) {
+    jsonArray(term.source_keys).forEach((sourceKey, index) => {
+      const boost = Math.max(36, term.score - 8 - index * 2);
+      sourceBoosts.set(sourceKey, Math.max(sourceBoosts.get(sourceKey) ?? 0, boost));
+    });
+  }
+
+  const [aliasRows, ruleRows, directSourceRows, boostedSourceRows] = await Promise.all([
     readAliases(sql, termKeys),
     readRuleLinks(sql, termKeys),
-    readSourceRows(sql, query, limit)
+    readSourceRows(sql, query, limit),
+    readSourceRowsByKeys(sql, [...sourceBoosts.keys()])
   ]);
 
   const aliasesByTerm = new Map<string, AliasRow[]>();
@@ -311,6 +365,20 @@ export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Pro
   for (const rule of ruleRows) {
     rulesByTerm.set(rule.term_key, [...(rulesByTerm.get(rule.term_key) ?? []), rule]);
   }
+
+  const sourceRowsByKey = new Map<string, SourceRow>();
+  for (const source of [...directSourceRows, ...boostedSourceRows]) {
+    const boost = sourceBoosts.get(source.source_key) ?? 0;
+    const score = Math.max(source.score, boost);
+    const existing = sourceRowsByKey.get(source.source_key);
+    if (!existing || score > existing.score) {
+      sourceRowsByKey.set(source.source_key, { ...source, score });
+    }
+  }
+
+  const sourceRows = [...sourceRowsByKey.values()]
+    .sort((a, b) => b.score - a.score || priorityRank(a.priority) - priorityRank(b.priority) || a.title.localeCompare(b.title))
+    .slice(0, Math.max(4, Math.floor(limit / 2)));
 
   return {
     query,

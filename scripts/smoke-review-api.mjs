@@ -564,7 +564,10 @@ const sourceCases = [
   { query: "commodity classification import export regulation guide negative list SHTC", expectedSource: "tw-trade-commodity-classification-guide" },
   { query: "Customs Act import declaration invoice packing list single window", expectedSource: "tw-moj-customs-act" },
   { query: "Strategic High-tech Commodities International Import Certificate end user", expectedSource: "tw-moj-shtc-export-import-regulations" },
-  { query: "戰略性高科技貨品 國際進口證明書 最終用途", expectedSource: "tw-trade-shtc-bilingual-glossary" }
+  { query: "戰略性高科技貨品 國際進口證明書 最終用途", expectedSource: "tw-trade-shtc-bilingual-glossary" },
+  { query: "進口報單", expectedSource: "tw-moj-customs-act" },
+  { query: "SHTC export permit", expectedSource: "tw-moj-shtc-export-import-regulations" },
+  { query: "國際進口證明書", expectedSource: "tw-moj-shtc-export-import-regulations" }
 ];
 
 for (const testCase of sourceCases) {
