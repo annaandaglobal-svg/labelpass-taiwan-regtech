@@ -38,6 +38,8 @@ type SourceResult = {
   id: string;
   title: string;
   url: string;
+  fetched_url?: string;
+  extra_fetched_urls?: string[];
   authority: string;
   jurisdiction: string;
   domain: string;
@@ -245,6 +247,9 @@ function scoreSource(source: SourceResult, query: string) {
   const haystack = normalize(
     [
       source.title,
+      source.url,
+      source.fetched_url,
+      ...(source.extra_fetched_urls ?? []),
       source.authority,
       source.jurisdiction,
       source.domain,
