@@ -186,7 +186,7 @@ export default function Home() {
 
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
-    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|msg|sodium benzoate|xanthan|식품|과자|차|쿠키|쌀과자|食品|餅乾|茶|花生|小麥|味精|苯甲酸鈉|三仙膠/i.test(haystack);
+    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|msg|sodium benzoate|xanthan|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|味精|苯甲酸鈉|三仙膠/i.test(haystack);
 
     setInput((current) => ({
       ...current,

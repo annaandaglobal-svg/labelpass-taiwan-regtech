@@ -150,7 +150,7 @@ const foodClaimResponse = await fetch(`${baseUrl}/api/review`, {
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
     productName: "High Protein Low Sugar Kiwi Squid Snack",
-    productType: "prepackaged food / snack / 식품",
+    productType: "",
     ingredientsText: "Rice, pea protein, squid powder, kiwifruit powder, sunflower seed oil, erythritol, salt",
     labelText: "品名：高蛋白低糖奇異果魷魚脆片. 內容量：50g. 成分：米、豌豆蛋白、魷魚粉、奇異果粉、葵花籽油、赤藻糖醇、鹽. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-08-01. 營養標示：每份熱量 110 kcal, 蛋白質 12g, 脂肪 2g, 碳水化合物 10g, 糖 1g, 鈉 180mg. 本產品含魷魚、奇異果；高蛋白、低糖標示需依檢驗值確認.",
     origin: "Korea",

@@ -297,7 +297,7 @@ function fixOptions(rule: RegulatoryRule, limit?: number) {
 }
 
 function isFoodProduct(input: ReviewInput) {
-  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|식품|음료|과자|소스|분말|차|커피|건강기능|食品|飲料|餅乾|糖果|茶|咖啡/i.test(
+  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|식품|음료|과자|소스|분말|차|커피|건강기능|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|魷魚|奇異果/i.test(
     `${input.productName} ${input.productType} ${input.labelText}`
   );
 }
