@@ -9,5 +9,6 @@ coverage/
 data/tfda/*.json
 data/tfda/*.csv
 data/knowledge/raw/
+supabase/generated/
 이전 시안/
 *.tsbuildinfo

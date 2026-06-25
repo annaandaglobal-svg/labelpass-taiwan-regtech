@@ -17,6 +17,7 @@ pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm crawl:knowledge
 pnpm build:knowledge-seed
+pnpm validate:knowledge
 pnpm build
 ```
 
@@ -34,6 +35,14 @@ Apply the SQL files in this order:
 2. `supabase/seed.sql`
 3. `supabase/knowledge-schema.sql`
 4. `supabase/knowledge-seed.sql`
+
+If the SQL editor rejects the full knowledge seed because of size, run:
+
+```bash
+pnpm split:knowledge-seed
+```
+
+Then apply every file in `supabase/generated/knowledge-seed-chunks/` in filename order after `supabase/knowledge-schema.sql`.
 
 Expected counts after the current seed:
 

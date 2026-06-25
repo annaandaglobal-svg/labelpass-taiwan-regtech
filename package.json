@@ -13,6 +13,8 @@
     "crawl:knowledge": "node scripts/crawl-knowledge-base.mjs",
     "build:terms": "node scripts/build-term-index.mjs",
     "build:knowledge-seed": "pnpm build:terms && node scripts/generate-knowledge-seed.mjs",
+    "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
+    "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
     "test:rules": "node scripts/verify-rules.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs"

@@ -17,6 +17,7 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 ```bash
 pnpm crawl:knowledge
 pnpm build:knowledge-seed
+pnpm validate:knowledge
 ```
 
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
@@ -43,6 +44,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/term-index.json`: generated search index linking aliases to TFDA rules.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
+- `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
 
 ## App Retrieval Surface
 
@@ -80,6 +82,7 @@ Current generated counts:
 ```bash
 pnpm exec tsc --noEmit
 pnpm test:rules
+pnpm validate:knowledge
 pnpm build
 pnpm smoke:api
 ```
