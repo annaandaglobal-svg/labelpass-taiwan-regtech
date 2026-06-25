@@ -1293,6 +1293,121 @@ h2 {
   line-height: 1.35;
 }
 
+.action-plan-panel {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.action-plan-panel.blocked {
+  border-color: rgba(179, 68, 61, 0.28);
+  background: linear-gradient(180deg, #fff, var(--red-soft));
+}
+
+.action-plan-panel.collect_documents {
+  border-color: rgba(49, 95, 147, 0.28);
+  background: linear-gradient(180deg, #fff, var(--blue-soft));
+}
+
+.action-plan-panel.revise_label {
+  border-color: rgba(165, 108, 21, 0.28);
+  background: linear-gradient(180deg, #fff, var(--gold-soft));
+}
+
+.action-plan-head {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.action-plan-head > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--navy);
+  color: white;
+}
+
+.action-plan-head b,
+.action-plan-head small {
+  display: block;
+}
+
+.action-plan-head small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.owner-summary,
+.document-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.owner-summary span,
+.doc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  min-width: 0;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.owner-summary span {
+  color: var(--ink);
+}
+
+.doc-chip b {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.doc-chip em {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.doc-chip.pass {
+  border-color: rgba(20, 84, 58, 0.22);
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.doc-chip.warn {
+  border-color: rgba(165, 108, 21, 0.24);
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.doc-chip.danger {
+  border-color: rgba(179, 68, 61, 0.24);
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.doc-chip.info {
+  border-color: rgba(49, 95, 147, 0.22);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
 .findings {
   display: grid;
   gap: 10px;
@@ -3135,6 +3250,20 @@ h2 {
   .command-hero p {
     font-size: 13px;
     line-height: 1.5;
+  }
+
+  .action-plan-panel {
+    padding: 11px;
+  }
+
+  .document-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .doc-chip {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .impact-item {

@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
+import { buildReviewActionPlan, type ReviewActionPlan } from "@/lib/review-action-plan";
 import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
@@ -119,7 +120,7 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 const knowledgeStats = {
   sources: "94",
   aliases: "3,224",
-  reviewCases: "11",
+  reviewCases: "13",
   knowledgeCases: "45",
   sourceCases: "16"
 };
@@ -749,6 +750,8 @@ export default function Home() {
                     }}
                   />
 
+                  <ActionPlanPanel actionPlan={actionPlanForResult(result)} />
+
                   <div className="report-toolbar">
                     <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
                       <Filter size={15} /> 전체
@@ -986,6 +989,49 @@ function ExecutionConsole({ findings, onSelect }: { findings: Finding[]; onSelec
   );
 }
 
+function ActionPlanPanel({ actionPlan }: { actionPlan: ReviewActionPlan }) {
+  const documents = actionPlan.documentChecklist.slice(0, 6);
+
+  return (
+    <div className={`action-plan-panel ${actionPlan.priority}`}>
+      <div className="action-plan-head">
+        <span><ClipboardCheck size={17} /></span>
+        <div>
+          <b>실행계획</b>
+          <small>{actionPlan.nextAction}</small>
+        </div>
+      </div>
+
+      <div className="owner-summary" aria-label="담당자별 처리 항목">
+        {actionPlan.ownerSummary.length > 0 ? (
+          actionPlan.ownerSummary.map((item) => (
+            <span key={item.owner}>
+              <UserRoundCheck size={13} />
+              {item.owner} {item.count}
+              {item.urgentCount > 0 ? ` · 긴급 ${item.urgentCount}` : ""}
+            </span>
+          ))
+        ) : (
+          <span>
+            <ShieldCheck size={13} />
+            즉시 회수할 자료 없음
+          </span>
+        )}
+      </div>
+
+      <div className="document-strip" aria-label="문서 체크리스트">
+        {documents.map((doc) => (
+          <span key={doc.id} className={`doc-chip ${doc.tone}`}>
+            <FileText size={13} />
+            <b>{doc.name}</b>
+            <em>{documentStatusLabel(doc.status)}</em>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function productStageForReview(review: SavedReview): ProductFilter {
   if (review.result.summary.fail > 0 || review.result.summary.needsInfo > 0 || review.result.summary.warn > 0) return "act";
   return "done";
@@ -999,69 +1045,33 @@ function statusTone(status: ReviewStatus) {
   return statusCopy[status].tone;
 }
 
+function actionPlanForResult(result: ReviewResult) {
+  return result.actionPlan ?? buildReviewActionPlan(result.findings, result.ruleVersion);
+}
+
+function documentStatusLabel(status: "ready" | "needed" | "review" | "not_applicable") {
+  if (status === "ready") return "완료";
+  if (status === "needed") return "필요";
+  if (status === "review") return "확인";
+  return "해당 없음";
+}
+
 function documentStatus(name: string, status: string, tone: string): WorkspaceDoc {
   return { name, status, tone };
 }
 
 function docsForReview(review: SavedReview): WorkspaceDoc[] {
-  const findingIds = new Set(review.result.findings.map((finding) => finding.id));
-  const hasFoodRule = review.result.ruleVersion.includes("FOOD");
-  const needsLabel = review.result.findings.some((finding) => finding.area === "라벨" || finding.area === "식품표시");
-  const needsTrade = review.result.findings.some((finding) => finding.area === "통관" && finding.status !== "pass");
-  const needsConcentration = review.result.findings.some((finding) => finding.id.includes("missing-concentration"));
-
-  if (hasFoodRule) {
-    return [
-      documentStatus("제품정보표", findingIds.has("food-import-inspection-docs-present") ? "완료" : "필요", findingIds.has("food-import-inspection-docs-present") ? "pass" : "warn"),
-      documentStatus("수입신고서", findingIds.has("food-import-inspection-docs-present") ? "완료" : "필요", findingIds.has("food-import-inspection-docs-present") ? "pass" : "warn"),
-      documentStatus("식품업자 등록", findingIds.has("food-importer-registration-present") ? "완료" : "확인", findingIds.has("food-importer-registration-present") ? "pass" : "info"),
-      documentStatus(
-        "식품첨가물 등록",
-        findingIds.has("food-additive-inspection-registration-present")
-          ? "완료"
-          : findingIds.has("food-additive-inspection-registration-needed")
-            ? "필요"
-            : "해당 없음",
-        findingIds.has("food-additive-inspection-registration-needed") ? "danger" : findingIds.has("food-additive-inspection-registration-present") ? "pass" : "info"
-      ),
-      documentStatus(
-        "복방첨가물 서류",
-        findingIds.has("compound-food-additive-import-docs-present")
-          ? "완료"
-          : findingIds.has("compound-food-additive-import-docs-needed")
-            ? "필요"
-            : "해당 없음",
-        findingIds.has("compound-food-additive-import-docs-needed") ? "danger" : findingIds.has("compound-food-additive-import-docs-present") ? "pass" : "info"
-      ),
-      documentStatus(
-        "HS 0307 위생증명서",
-        findingIds.has("food-import-hs0307-health-certificate-present")
-          ? "완료"
-          : findingIds.has("food-import-hs0307-health-certificate-needed")
-            ? "필요"
-            : "해당 없음",
-        findingIds.has("food-import-hs0307-health-certificate-needed") ? "danger" : "pass"
-      ),
-      documentStatus("중문 라벨", needsLabel ? "보완" : "완료", needsLabel ? "warn" : "pass")
-    ];
-  }
-
-  return [
-    documentStatus("제품등록", findingIds.has("cosmetic-product-notification-present") ? "완료" : "확인", findingIds.has("cosmetic-product-notification-present") ? "pass" : "warn"),
-    documentStatus("PIF", findingIds.has("cosmetic-pif-readiness-present") ? "완료" : findingIds.has("pif-2026") || findingIds.has("cosmetic-pif-readiness-needed") ? "준비" : "모니터링", findingIds.has("cosmetic-pif-readiness-present") ? "pass" : findingIds.has("pif-2026") || findingIds.has("cosmetic-pif-readiness-needed") ? "warn" : "info"),
-    documentStatus("GMP / ISO 22716", findingIds.has("cosmetic-gmp-readiness-present") ? "완료" : "확인", findingIds.has("cosmetic-gmp-readiness-present") ? "pass" : "warn"),
-    documentStatus("COA / 조성표", needsConcentration ? "필요" : "완료", needsConcentration ? "warn" : "pass"),
-    documentStatus("중문 라벨", needsLabel ? "보완" : "완료", needsLabel ? "warn" : "pass"),
-    documentStatus("인보이스 / 패킹리스트", needsTrade ? "확인" : "완료", needsTrade ? "info" : "pass")
-  ];
+  return actionPlanForResult(review.result).documentChecklist.map((doc) =>
+    documentStatus(doc.name, documentStatusLabel(doc.status), doc.tone)
+  );
 }
 
 function productTasksForReview(review: SavedReview): WorkspaceTask[] {
-  const tasks = prioritizedFindings(review.result.findings).map((finding) => ({
-    owner: ownerForFinding(finding),
-    title: finding.fix[0] || finding.title,
-    detail: `${impactForFinding(finding)} · ${etaForFinding(finding)}`,
-    tone: statusTone(finding.status)
+  const tasks = actionPlanForResult(review.result).actionItems.slice(0, 3).map((item) => ({
+    owner: item.owner,
+    title: item.primaryFix,
+    detail: `${item.impact} · ${item.eta}`,
+    tone: statusTone(item.status)
   }));
 
   if (tasks.length > 0) return tasks;
@@ -1085,7 +1095,8 @@ function buildWorkspaceProducts(savedReviews: SavedReview[]): WorkspaceProduct[]
 
   const savedProducts = Array.from(groups.entries()).map(([name, reviews]) => {
     const latest = reviews[0];
-    const topFinding = prioritizedFindings(latest.result.findings)[0];
+    const plan = actionPlanForResult(latest.result);
+    const topAction = plan.actionItems[0];
     const stage = productStageForReview(latest);
     const passCount = latest.result.summary.pass;
     const totalCount = Math.max(latest.result.findings.length, 1);
@@ -1106,11 +1117,11 @@ function buildWorkspaceProducts(savedReviews: SavedReview[]): WorkspaceProduct[]
       stage,
       status: status.label,
       tone: status.tone,
-      nextAction: topFinding?.fix[0] || "규제 변경 감시 유지",
-      due: topFinding ? etaForFinding(topFinding) : "상시",
+      nextAction: plan.nextAction,
+      due: topAction?.eta || "상시",
       meta: `${versions[0]?.label ?? "v1"} · 룰셋 ${latest.result.ruleVersion} · ${formatShortDate(latest.result.generatedAt)}`,
       progress,
-      owner: topFinding ? ownerForFinding(topFinding) : "운영",
+      owner: topAction?.owner || "운영",
       review: latest,
       documents: docsForReview(latest),
       tasks: productTasksForReview(latest),

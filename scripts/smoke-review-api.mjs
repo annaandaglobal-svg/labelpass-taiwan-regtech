@@ -184,6 +184,14 @@ if (compoundAdditiveMissingResult.status === "fail") {
   throw new Error("Compound additive missing review: expected non-fail status for document gaps");
 }
 
+if (!compoundAdditiveMissingResult.actionPlan?.actionItems?.some((item) => item.findingId === "compound-food-additive-import-docs-needed")) {
+  throw new Error("Compound additive missing review: expected action plan item for compound additive import documents");
+}
+
+if (!compoundAdditiveMissingResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "compound-food-additive-import-docs" && doc.status === "needed")) {
+  throw new Error("Compound additive missing review: expected needed compound additive document checklist item");
+}
+
 const compoundAdditiveCompleteResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -219,6 +227,10 @@ for (const findingId of [
   if (!compoundAdditiveCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
     throw new Error(`Compound additive complete review: expected pass finding ${findingId}`);
   }
+}
+
+if (!compoundAdditiveCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "compound-food-additive-import-docs" && doc.status === "ready")) {
+  throw new Error("Compound additive complete review: expected ready compound additive document checklist item");
 }
 
 const foodClaimResponse = await fetch(`${baseUrl}/api/review`, {
@@ -419,6 +431,14 @@ for (const findingId of [
   if (!tradeCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
     throw new Error(`Trade complete review: expected cosmetic pass finding ${findingId}`);
   }
+}
+
+if (!tradeCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "cosmetic-pif" && doc.status === "ready")) {
+  throw new Error("Trade complete review: expected ready cosmetic PIF checklist item");
+}
+
+if (!Array.isArray(tradeCompleteResult.actionPlan?.ownerSummary)) {
+  throw new Error("Trade complete review: expected action plan owner summary");
 }
 
 const knowledgeCases = [

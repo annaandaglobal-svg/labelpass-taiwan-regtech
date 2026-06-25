@@ -9,6 +9,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Reviews Taiwan food-import inspection packets for inspection application documents, product information sheets, import declarations, importer registration, product-liability insurance, CCC batch consistency, systematic-inspection signals, and HS 0307 health-certificate gaps.
 - Flags label claims that may imply drug or disease-treatment effects.
 - Keeps source-backed findings with TFDA identifiers and rule versions.
+- Returns a structured action plan with owner summary, document checklist, evidence pack, and next operational step for each review.
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
@@ -61,7 +62,7 @@ pnpm build
 pnpm smoke:api
 ```
 
-`pnpm smoke:api` expects the app to be running. It checks English, Korean, Traditional Chinese, Simplified Chinese, and INCI ingredient aliases through `/api/review`, Taiwan food allergen/additive/nutrition/import-document cases, plus multilingual term lookups through `/api/knowledge/search`.
+`pnpm smoke:api` expects the app to be running. It checks 13 review cases covering English, Korean, Traditional Chinese, Simplified Chinese, and INCI ingredient aliases through `/api/review`, Taiwan food allergen/additive/nutrition/import-document action plans, plus multilingual term lookups through `/api/knowledge/search`.
 
 ## Deployment Files
 

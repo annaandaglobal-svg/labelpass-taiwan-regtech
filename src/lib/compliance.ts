@@ -1,5 +1,6 @@
 import rulesData from "../../data/rules/tw-cosmetics-rules.json";
 import termIndexData from "../../data/knowledge/term-index.json";
+import { buildReviewActionPlan, type ReviewActionPlan } from "./review-action-plan";
 
 export type ReviewStatus = "pass" | "warn" | "fail" | "needs_info";
 
@@ -42,6 +43,7 @@ export type ReviewResult = {
   ruleVersion: string;
   parsedIngredients: ParsedIngredient[];
   findings: Finding[];
+  actionPlan: ReviewActionPlan;
   summary: {
     fail: number;
     warn: number;
@@ -1453,14 +1455,16 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
 
   const status: ReviewStatus = summary.fail > 0 ? "fail" : summary.needsInfo > 0 ? "needs_info" : summary.warn > 0 ? "warn" : "pass";
   const score = Math.max(0, 100 - summary.fail * 24 - summary.warn * 8 - summary.needsInfo * 10);
+  const ruleVersion = foodProduct ? "TW-FOOD-2026.06-draft" : "TW-COS-2026.06-draft";
 
   return {
     status,
     score,
     generatedAt: new Date().toISOString(),
-    ruleVersion: foodProduct ? "TW-FOOD-2026.06-draft" : "TW-COS-2026.06-draft",
+    ruleVersion,
     parsedIngredients,
     findings,
+    actionPlan: buildReviewActionPlan(findings, ruleVersion),
     summary
   };
 }
