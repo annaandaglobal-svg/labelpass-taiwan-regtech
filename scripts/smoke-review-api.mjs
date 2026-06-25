@@ -141,6 +141,10 @@ if (!foodAdditiveResult.findings?.some((finding) => finding.id === "food-additiv
   throw new Error("Food additive review: expected benzoate additive finding");
 }
 
+if (foodAdditiveResult.status === "fail") {
+  throw new Error("Food additive review: expected non-fail status for additive-only review");
+}
+
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },

@@ -336,7 +336,7 @@ const taiwanFoodAllergens = [
   { id: "egg", label: "egg", pattern: /egg|albumin|난류|계란|달걀|雞蛋|蛋類|蛋黃|蛋白(?!質)|卵白|(?:^|[、,，;；\s])蛋(?:$|[、,，;；\s])/i },
   { id: "nuts", label: "tree nuts", pattern: /almond|walnut|cashew|hazelnut|pistachio|macadamia|견과|아몬드|호두|캐슈|堅果|杏仁|核桃|腰果/i },
   { id: "sesame", label: "sesame", pattern: /sesame|참깨|芝麻/i },
-  { id: "gluten", label: "gluten cereals", pattern: /wheat|barley|rye|oat|gluten|밀|보리|호밀|귀리|글루텐|小麥|大麥|黑麥|燕麥|麩質/i },
+  { id: "gluten", label: "gluten cereals", pattern: /\b(?:wheat|barley|rye|oats?|gluten)\b|밀|보리|호밀|귀리|글루텐|小麥|大麥|黑麥|燕麥|麩質/i },
   { id: "soy", label: "soybean", pattern: /soy|soybean|soya|대두|콩|大豆|黃豆/i },
   { id: "fish", label: "fish", pattern: /fish|gelatine|gelatin|생선|어류|魚|明膠/i },
   { id: "sulphites", label: "sulphites", pattern: /sulphite|sulfite|so2|sulfur dioxide|아황산|이산화황|亞硫酸|二氧化硫/i }
