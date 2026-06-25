@@ -8,7 +8,7 @@ domain: export_control
 source_type: control_list_index
 priority: high
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 697b142f4a0ceabfa21bf3fb577b1009a46e4ab5ec40a4236156a22a335101cd
 from_cache: true
 manual_fallback: false

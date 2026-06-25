@@ -1,14 +1,14 @@
 # Knowledge Quality Report
 
-Crawl index: 2026-06-25T11:21:48.925Z
+Crawl index: 2026-06-25T12:09:51.776Z
 
 This report flags source extracts that may be too thin, blocked, encoded incorrectly, or otherwise weak as reusable regulatory evidence. It is an operations backlog, not a legal conclusion.
 
 ## Summary
 
-- Sources checked: 63
+- Sources checked: 73
 - High findings: 7
-- Medium findings: 18
+- Medium findings: 16
 - Low findings: 0
 
 ## Findings
@@ -28,7 +28,6 @@ This report flags source extracts that may be too thin, blocked, encoded incorre
 | medium | [eu-dual-use-regulation-2021-821](../data/knowledge/documents/eu-dual-use-regulation-2021-821.md) | Document contains blocked-page or unsupported-document language | 0 | high |
 | medium | [global-unece-ghs-rev11-pdf](../data/knowledge/documents/global-unece-ghs-rev11-pdf.md) | Document contains blocked-page or unsupported-document language | 365 | high |
 | medium | [global-unece-ghs-rev11](../data/knowledge/documents/global-unece-ghs-rev11.md) | Document contains blocked-page or unsupported-document language | 370 | high |
-| medium | [tw-tfda-food-additive-common-names](../data/knowledge/documents/tw-tfda-food-additive-common-names.md) | High-priority source has a shallow extract | 1155 | high |
 | medium | [us-ecfr-cosmetic-labeling-21-cfr-701](../data/knowledge/documents/us-ecfr-cosmetic-labeling-21-cfr-701.md) | High-priority source has a shallow extract | 1180 | high |
 | medium | [us-ecfr-cosmetic-labeling-21-cfr-701](../data/knowledge/documents/us-ecfr-cosmetic-labeling-21-cfr-701.md) | Document contains blocked-page or unsupported-document language | 1180 | high |
 | medium | [us-ecfr-food-labeling-21-cfr-101](../data/knowledge/documents/us-ecfr-food-labeling-21-cfr-101.md) | High-priority source has a shallow extract | 1180 | high |
@@ -38,7 +37,6 @@ This report flags source extracts that may be too thin, blocked, encoded incorre
 | medium | [us-osha-hazcom-29-cfr-1910-1200](../data/knowledge/documents/us-osha-hazcom-29-cfr-1910-1200.md) | High-priority source has a shallow extract | 1180 | high |
 | medium | [us-osha-hazcom-29-cfr-1910-1200](../data/knowledge/documents/us-osha-hazcom-29-cfr-1910-1200.md) | Document contains blocked-page or unsupported-document language | 1180 | high |
 | medium | [jp-customs-tariff-schedule](../data/knowledge/documents/jp-customs-tariff-schedule.md) | High-priority source has a shallow extract | 1431 | high |
-| medium | [tw-tfda-food-allergen-labeling](../data/knowledge/documents/tw-tfda-food-allergen-labeling.md) | High-priority source has a shallow extract | 1644 | high |
 | medium | [cn-mofcom-export-control-portal](../data/knowledge/documents/cn-mofcom-export-control-portal.md) | High-priority source has a shallow extract | 1798 | high |
 
 

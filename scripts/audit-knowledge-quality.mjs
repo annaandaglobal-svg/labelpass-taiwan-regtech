@@ -58,7 +58,15 @@ function markdownTable(rows) {
 
 const [registry, index] = await Promise.all([readJson(paths.registry), readJson(paths.index)]);
 const sourcesById = new Map((registry.sources ?? []).map((source) => [source.id, source]));
+const resultsById = new Map((index.results ?? []).map((result) => [result.id, result]));
 const findings = [];
+
+function hasStrongCompanion(source) {
+  return (source?.companion_source_ids ?? []).some((companionId) => {
+    const companion = resultsById.get(companionId);
+    return companion && !companion.parse_error && (companion.text_chars ?? 0) >= 2000;
+  });
+}
 
 for (const result of index.results ?? []) {
   const source = sourcesById.get(result.id);
@@ -89,7 +97,7 @@ for (const result of index.results ?? []) {
       priority,
       documentPath
     });
-  } else if (isHighPriority(priority) && textChars < 2000) {
+  } else if (isHighPriority(priority) && textChars < 2000 && !hasStrongCompanion(source)) {
     addFinding(findings, {
       severity: "medium",
       sourceId: result.id,

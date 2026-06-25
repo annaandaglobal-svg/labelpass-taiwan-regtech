@@ -66,10 +66,10 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 Current generated counts:
 
-- `knowledge_sources`: 63
-- `knowledge_snapshots`: 63
-- `knowledge_terms`: 1,082
-- `term_aliases`: 2,749
+- `knowledge_sources`: 73
+- `knowledge_snapshots`: 73
+- `knowledge_terms`: 1,092
+- `term_aliases`: 2,838
 - `term_rule_links`: 1,099
 - `rules`: 1,081
 

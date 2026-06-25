@@ -8,7 +8,7 @@ domain: market_guide
 source_type: secondary_government_guide
 priority: medium
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 956e4d59701ebe9e1a9bdc168d9dd72141bca44b2500ef443a5f78caad918887
 from_cache: true
 manual_fallback: false

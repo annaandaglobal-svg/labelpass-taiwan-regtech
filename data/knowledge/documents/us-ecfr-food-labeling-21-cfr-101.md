@@ -8,7 +8,7 @@ domain: food_labeling
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: bbc249039a052a55a4ffbb421580969a850b9c405c810154677c17e87b0c1a95
 from_cache: true
 manual_fallback: false

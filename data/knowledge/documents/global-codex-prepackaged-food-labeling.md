@@ -8,7 +8,7 @@ domain: food_labeling
 source_type: standard
 priority: high
 format: pdf
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: d2d256b8a3c1ec397ae7736279a0f8f99174340cb20c15950b396a8444e201e0
 from_cache: true
 manual_fallback: false

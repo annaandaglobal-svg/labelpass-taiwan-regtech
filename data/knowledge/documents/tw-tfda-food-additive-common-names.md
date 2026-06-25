@@ -8,9 +8,9 @@ domain: food_labeling
 source_type: guidance
 priority: high
 format: pdf
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 9b409d24747c5c28c7117b5d8f0be1e384c0a084a57bbfaf5d9a8c5b847767dd
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

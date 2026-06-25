@@ -8,7 +8,7 @@ domain: cosmetics
 source_type: regulation_index
 priority: medium
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 4e2cf1728f363de0b69af0440f40c3251db930bb63ff50f17ecbb2e89d300df4
 from_cache: true
 manual_fallback: false

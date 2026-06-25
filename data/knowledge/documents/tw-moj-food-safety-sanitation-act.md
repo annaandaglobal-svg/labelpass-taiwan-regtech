@@ -8,9 +8,9 @@ domain: food_labeling
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 1434a1f0c98947993ba3ad7add6ffca396b8e2e9c8494b0ee70a1ade89661b20
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

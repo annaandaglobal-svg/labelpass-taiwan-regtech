@@ -120,6 +120,12 @@ for (const source of sources) {
       fail(`source ${source.id} is missing ${field}`);
     }
   }
+
+  for (const companionId of source.companion_source_ids ?? []) {
+    if (!sourceIds.has(companionId)) {
+      fail(`source ${source.id} references missing companion_source_id: ${companionId}`);
+    }
+  }
 }
 
 for (const term of terms) {

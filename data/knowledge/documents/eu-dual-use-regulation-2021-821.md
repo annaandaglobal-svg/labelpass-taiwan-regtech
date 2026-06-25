@@ -8,7 +8,7 @@ domain: export_control
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 17d916e85cb71a2d46e539fa3b859527b15149cdd9065b1be36bbdefa2ec8b02
 from_cache: true
 manual_fallback: false

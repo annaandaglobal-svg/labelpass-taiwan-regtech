@@ -8,7 +8,7 @@ domain: customs
 source_type: notice
 priority: medium
 format: html
-fetched_at: 2026-06-25T11:21:48.925Z
+fetched_at: 2026-06-25T12:09:51.776Z
 content_hash: 25e1bf2fd5fd6e2a0e3e15378e40f43f4f81bfbb93fdc3cb68b03bb755680893
 from_cache: true
 manual_fallback: false

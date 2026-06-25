@@ -121,7 +121,11 @@ const knowledgeCases = [
   { query: "땅콩", expectedTerm: "Peanut" },
   { query: "花生", expectedTerm: "Peanut" },
   { query: "味精", expectedTerm: "Monosodium Glutamate" },
-  { query: "벤조산나트륨", expectedTerm: "Benzoic Acid and Benzoates" }
+  { query: "벤조산나트륨", expectedTerm: "Benzoic Acid and Benzoates" },
+  { query: "카제인나트륨", expectedTerm: "Casein and Caseinates" },
+  { query: "스테비아", expectedTerm: "Steviol Glycosides" },
+  { query: "魷魚", expectedTerm: "Cephalopods" },
+  { query: "奇異果", expectedTerm: "Kiwifruit" }
 ];
 
 for (const testCase of knowledgeCases) {

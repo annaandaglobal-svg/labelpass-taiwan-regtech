@@ -99,6 +99,66 @@
       "tags": ["food", "nutrition-label", "prepackaged-food"]
     },
     {
+      "id": "tw-tfda-food-enforcement-rules",
+      "title": "Enforcement Rules of the Act Governing Food Safety and Sanitation",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=136",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "enforcement-rules", "labeling", "product-name"]
+    },
+    {
+      "id": "tw-tfda-food-additive-standards",
+      "title": "Standards for Specification, Scope, Application and Limitation of Food Additives",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "standard",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "food-additives", "scope", "limits", "standards"]
+    },
+    {
+      "id": "tw-tfda-nutrition-claim-prepackaged-food",
+      "title": "Revised Regulations on Nutrition Claim for Prepackaged Food Products",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3522",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "nutrition-claim", "prepackaged-food", "claims"]
+    },
+    {
+      "id": "tw-tfda-nutrition-labeling-exemptions",
+      "title": "Regulations on Prepackaged Food Products Exempted from the Nutrition Labeling",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3393",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "nutrition-label", "exemptions", "prepackaged-food"]
+    },
+    {
+      "id": "tw-tfda-specific-fish-species-name-labeling",
+      "title": "Labeling Requirements on Food Products that Use Specific Fish Species as Product Names",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3414",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "fish", "product-name", "species-name", "labeling"]
+    },
+    {
       "id": "tw-tfda-food-allergen-labeling",
       "title": "Regulation of Food Allergen Labeling",
       "url": "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315",
@@ -109,7 +169,34 @@
       "priority": "high",
       "cache_days": 30,
       "format": "pdf",
+      "companion_source_ids": ["tw-tfda-food-allergen-labeling-consumer-notice"],
       "tags": ["food", "allergen", "prepackaged-food", "warning-label"]
+    },
+    {
+      "id": "tw-tfda-food-allergen-labeling-en",
+      "title": "Regulation of Food Allergen Labeling English Page",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3113",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation_index",
+      "priority": "medium",
+      "cache_days": 30,
+      "companion_source_ids": ["tw-tfda-food-allergen-labeling"],
+      "tags": ["food", "allergen", "prepackaged-food", "english"]
+    },
+    {
+      "id": "tw-tfda-recommended-allergen-labeling",
+      "title": "Regulations Governing Food Allergen Labeling on the Recommended Labeling Allergens",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3407",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "companion_source_ids": ["tw-tfda-food-allergen-labeling-consumer-notice"],
+      "tags": ["food", "allergen", "recommended-allergen", "cross-contamination", "prepackaged-food"]
     },
     {
       "id": "tw-tfda-food-additive-common-names",
@@ -122,7 +209,45 @@
       "priority": "high",
       "cache_days": 30,
       "format": "pdf",
+      "companion_source_ids": ["tw-tfda-food-additive-common-names-table"],
       "tags": ["food", "food-additives", "common-names", "aliases"]
+    },
+    {
+      "id": "tw-tfda-food-additive-common-names-en",
+      "title": "Common Names of Food Additives English Page",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3418",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "guidance_index",
+      "priority": "medium",
+      "cache_days": 30,
+      "companion_source_ids": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
+      "tags": ["food", "food-additives", "common-names", "english"]
+    },
+    {
+      "id": "tw-tfda-food-additive-common-names-table",
+      "title": "Food Additive Common Names Table",
+      "url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=10159",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "guidance_table",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "food-additives", "common-names", "aliases", "traditional-chinese"]
+    },
+    {
+      "id": "tw-tfda-food-allergen-labeling-consumer-notice",
+      "title": "Prepackaged Food Allergen Labeling Notice",
+      "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=28867",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "notice",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "allergen", "prepackaged-food", "warning-label", "traditional-chinese"]
     },
     {
       "id": "tw-tfda-front-of-package-nutrition-labeling",

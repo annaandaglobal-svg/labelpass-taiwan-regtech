@@ -2,8 +2,8 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-25",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 44,
-  "generated_term_count": 1039,
+  "curated_term_count": 56,
+  "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
   "terms": [
@@ -2961,6 +2961,1192 @@
         "tw-tfda-food-additive-common-names"
       ],
       "notes": "Food thickener/stabilizer alias set."
+    },
+    {
+      "id": "glycine-food-additive",
+      "canonical_name": "Glycine",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "56-40-6"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Glycine",
+          "normalized": "glycine",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Gly",
+          "normalized": "gly",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Short abbreviation; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "胺基乙酸",
+          "normalized": "胺基乙酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甘胺酸",
+          "normalized": "甘胺酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "글리신",
+          "normalized": "글리신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps 胺基乙酸 to 甘胺酸."
+    },
+    {
+      "id": "alanine-food-additive",
+      "canonical_name": "Alanine",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "56-41-7"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Alanine",
+          "normalized": "alanine",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Ala",
+          "normalized": "ala",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Short abbreviation; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "胺基丙酸",
+          "normalized": "胺基丙酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "丙胺酸",
+          "normalized": "丙胺酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "알라닌",
+          "normalized": "알라닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps 胺基丙酸 to 丙胺酸."
+    },
+    {
+      "id": "lysine-food-additive",
+      "canonical_name": "Lysine",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "56-87-1"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Lysine",
+          "normalized": "lysine",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "二胺基己酸",
+          "normalized": "二胺基己酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "離胺酸",
+          "normalized": "離胺酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "라이신",
+          "normalized": "라이신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "리신",
+          "normalized": "리신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps 二胺基己酸 to 離胺酸."
+    },
+    {
+      "id": "dehydroacetic-acid-food-additive",
+      "canonical_name": "Dehydroacetic Acid",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "520-45-6"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Dehydroacetic acid",
+          "normalized": "dehydroacetic acid",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DHA",
+          "normalized": "dha",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Ambiguous abbreviation; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "去水醋酸",
+          "normalized": "去水醋酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "脫氫乙酸",
+          "normalized": "脫氫乙酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "데하이드로초산",
+          "normalized": "데하이드로초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "탈수초산",
+          "normalized": "탈수초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸."
+    },
+    {
+      "id": "calcium-lime-food-additives",
+      "canonical_name": "Calcium Hydroxide and Calcium Oxide",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "1305-62-0",
+          "1305-78-8"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Calcium hydroxide",
+          "normalized": "calcium hydroxide",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Hydrated lime",
+          "normalized": "hydrated lime",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Calcium oxide",
+          "normalized": "calcium oxide",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Quicklime",
+          "normalized": "quicklime",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "氫氧化鈣",
+          "normalized": "氫氧化鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "熟石灰",
+          "normalized": "熟石灰",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "氧化鈣",
+          "normalized": "氧化鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "生石灰",
+          "normalized": "生石灰",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "石灰",
+          "normalized": "石灰",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Broad alias; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "수산화칼슘",
+          "normalized": "수산화칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산화칼슘",
+          "normalized": "산화칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "석회",
+          "normalized": "석회",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Broad alias; verify context.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰."
+    },
+    {
+      "id": "caseinates-food-additives",
+      "canonical_name": "Casein and Caseinates",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "9000-71-9"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Casein",
+          "normalized": "casein",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium caseinate",
+          "normalized": "sodium caseinate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Calcium caseinate",
+          "normalized": "calcium caseinate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乾酪素",
+          "normalized": "乾酪素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酪蛋白",
+          "normalized": "酪蛋白",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乾酪素鈉",
+          "normalized": "乾酪素鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酪蛋白鈉",
+          "normalized": "酪蛋白鈉",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乾酪素鈣",
+          "normalized": "乾酪素鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酪蛋白鈣",
+          "normalized": "酪蛋白鈣",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카제인",
+          "normalized": "카제인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카제인나트륨",
+          "normalized": "카제인나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카제인칼슘",
+          "normalized": "카제인칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table",
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "notes": "Food additive common-name set that also overlaps with milk allergen review."
+    },
+    {
+      "id": "steviol-glycosides-food-additive",
+      "canonical_name": "Steviol Glycosides",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Steviol glycosides",
+          "normalized": "steviol glycosides",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Stevia",
+          "normalized": "stevia",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Broad plant/common name; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "甜菊醣苷",
+          "normalized": "甜菊醣苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甜菊糖",
+          "normalized": "甜菊糖",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "스테비올배당체",
+          "normalized": "스테비올배당체",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "스테비아",
+          "normalized": "스테비아",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Broad plant/common name; verify context.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖."
+    },
+    {
+      "id": "sorbitol-food-additive",
+      "canonical_name": "Sorbitol",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "50-70-4"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Sorbitol",
+          "normalized": "sorbitol",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "D-Sorbitol",
+          "normalized": "d-sorbitol",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "D-山梨醇",
+          "normalized": "d-山梨醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山梨糖醇",
+          "normalized": "山梨糖醇",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르비톨",
+          "normalized": "소르비톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "솔비톨",
+          "normalized": "솔비톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇."
+    },
+    {
+      "id": "cephalopods-advisory-allergen",
+      "canonical_name": "Cephalopods",
+      "category": "food_allergen_advisory",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Cephalopods",
+          "normalized": "cephalopods",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Squid",
+          "normalized": "squid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Octopus",
+          "normalized": "octopus",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "烏賊",
+          "normalized": "烏賊",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "花枝",
+          "normalized": "花枝",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "鎖管",
+          "normalized": "鎖管",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "小卷",
+          "normalized": "小卷",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "透抽",
+          "normalized": "透抽",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "章魚",
+          "normalized": "章魚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "魷魚",
+          "normalized": "魷魚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "오징어",
+          "normalized": "오징어",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "문어",
+          "normalized": "문어",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "TFDA consumer notice recommends allergen advisory labeling for cephalopods and products."
+    },
+    {
+      "id": "mollusks-advisory-allergen",
+      "canonical_name": "Mollusks and Shellfish",
+      "category": "food_allergen_advisory",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Mollusks",
+          "normalized": "mollusks",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Shellfish",
+          "normalized": "shellfish",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Broad shellfish term; crustacea are regulated separately.",
+          "source": "curated"
+        },
+        {
+          "value": "田螺",
+          "normalized": "田螺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蚌",
+          "normalized": "蚌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蜆",
+          "normalized": "蜆",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "牡蠣",
+          "normalized": "牡蠣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "扇貝",
+          "normalized": "扇貝",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貽貝",
+          "normalized": "貽貝",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "文蛤",
+          "normalized": "文蛤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "鮑魚",
+          "normalized": "鮑魚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "조개",
+          "normalized": "조개",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Broad Korean alias; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "굴",
+          "normalized": "굴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "전복",
+          "normalized": "전복",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "TFDA consumer notice recommends allergen advisory labeling for mollusks/shellfish-like materials and products."
+    },
+    {
+      "id": "seeds-advisory-allergen",
+      "canonical_name": "Seeds",
+      "category": "food_allergen_advisory",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Seeds",
+          "normalized": "seeds",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Broad category; verify seed type.",
+          "source": "curated"
+        },
+        {
+          "value": "Pine nuts",
+          "normalized": "pine nuts",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sunflower seeds",
+          "normalized": "sunflower seeds",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Melon seeds",
+          "normalized": "melon seeds",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "松子仁",
+          "normalized": "松子仁",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "葵花籽",
+          "normalized": "葵花籽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "瓜子",
+          "normalized": "瓜子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "잣",
+          "normalized": "잣",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "해바라기씨",
+          "normalized": "해바라기씨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "씨앗류",
+          "normalized": "씨앗류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": "Broad Korean alias; verify context.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "TFDA consumer notice recommends advisory labeling for seed ingredients and products, excluding highly refined/purified sunflower oil context."
+    },
+    {
+      "id": "kiwifruit-advisory-allergen",
+      "canonical_name": "Kiwifruit",
+      "category": "food_allergen_advisory",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Kiwifruit",
+          "normalized": "kiwifruit",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Kiwi",
+          "normalized": "kiwi",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "奇異果",
+          "normalized": "奇異果",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "키위",
+          "normalized": "키위",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "참다래",
+          "normalized": "참다래",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "TFDA consumer notice recommends allergen advisory labeling for kiwifruit and products."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -31697,46 +32883,6 @@
       "notes": "Generated from TFDA rule tw-cos-199-35"
     },
     {
-      "id": "tfda-calcium-hydroxide",
-      "canonical_name": "Calcium hydroxide",
-      "category": "restricted",
-      "identifiers": {
-        "cas": [
-          "1305-62-0"
-        ],
-        "inci": [
-          "Calcium hydroxide"
-        ],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "Calcium hydroxide",
-          "normalized": "calcium hydroxide",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "1305-62-0",
-          "normalized": "1305-62-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        }
-      ],
-      "source_keys": [
-        "tfda-info-199"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-199-36"
-    },
-    {
       "id": "tfda-water-soluble-zinc-salts-with-the-exception-of-zinc-4-hydroxy-benzene-sulphonate",
       "canonical_name": "Water-soluble zinc salts with the exception of zinc 4-hydroxy-benzene sulphonate and zinc pyrithione",
       "category": "restricted",
@@ -45746,90 +46892,6 @@
       "notes": "Generated from TFDA rule tw-cos-201-13"
     },
     {
-      "id": "tfda-3-acetyl-6-methylpyran-2-4-3h-dione-and-its-salts",
-      "canonical_name": "3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts",
-      "category": "preservative",
-      "identifiers": {
-        "cas": [
-          "520-45-6",
-          "16807-48-0",
-          "4418-26-2"
-        ],
-        "inci": [
-          "3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts",
-          "Dehydroacetic acid",
-          "Sodium dehydroacetate"
-        ],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts",
-          "normalized": "3-acetyl-6-methylpyran-2 4 3h -dione and its salts",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Dehydroacetic acid",
-          "normalized": "dehydroacetic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Sodium dehydroacetate",
-          "normalized": "sodium dehydroacetate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "520-45-6",
-          "normalized": "520-45-6",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "16807-48-0",
-          "normalized": "16807-48-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "4418-26-2",
-          "normalized": "4418-26-2",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        }
-      ],
-      "source_keys": [
-        "tfda-info-201"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-15"
-    },
-    {
       "id": "tfda-4-4-dimethyl-1-3-oxazolidine",
       "canonical_name": "4,4-Dimethyl-1,3-oxazolidine",
       "category": "preservative",
@@ -54971,12 +56033,12 @@
       "confidence": 0.8
     },
     {
-      "term_id": "tfda-calcium-hydroxide",
+      "term_id": "calcium-lime-food-additives",
       "rule_id": "tw-cos-199-36",
       "rule_code": "tw-cos-199-36",
-      "match_basis": "generated_tfda_rule",
+      "match_basis": "cas",
       "jurisdiction": "TW",
-      "confidence": 0.8
+      "confidence": 1
     },
     {
       "term_id": "resorcinol",
@@ -57643,12 +58705,12 @@
       "confidence": 1
     },
     {
-      "term_id": "tfda-3-acetyl-6-methylpyran-2-4-3h-dione-and-its-salts",
+      "term_id": "dehydroacetic-acid-food-additive",
       "rule_id": "tw-cos-201-15",
       "rule_code": "tw-cos-201-15",
-      "match_basis": "generated_tfda_rule",
+      "match_basis": "cas",
       "jurisdiction": "TW",
-      "confidence": 0.8
+      "confidence": 1
     },
     {
       "term_id": "tfda-4-4-dimethyl-1-3-oxazolidine",
@@ -79277,28 +80339,148 @@
     {
       "rule_id": "tw-cos-199-36",
       "term_ids": [
-        "tfda-calcium-hydroxide"
+        "calcium-lime-food-additives"
       ],
       "aliases": [
         {
           "value": "Calcium hydroxide",
           "normalized": "calcium hydroxide",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Hydrated lime",
+          "normalized": "hydrated lime",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.95,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
+        },
+        {
+          "value": "Calcium oxide",
+          "normalized": "calcium oxide",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Quicklime",
+          "normalized": "quicklime",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "氫氧化鈣",
+          "normalized": "氫氧化鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "熟石灰",
+          "normalized": "熟石灰",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "氧化鈣",
+          "normalized": "氧化鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "生石灰",
+          "normalized": "生石灰",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "石灰",
+          "normalized": "石灰",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Broad alias; verify context.",
+          "source": "cas"
+        },
+        {
+          "value": "수산화칼슘",
+          "normalized": "수산화칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "산화칼슘",
+          "normalized": "산화칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "석회",
+          "normalized": "석회",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Broad alias; verify context.",
+          "source": "cas"
         },
         {
           "value": "1305-62-0",
           "normalized": "1305-62-0",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
+        },
+        {
+          "value": "1305-78-8",
+          "normalized": "1305-78-8",
+          "type": "cas",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
         }
       ]
     },
@@ -91290,68 +92472,78 @@
     {
       "rule_id": "tw-cos-201-15",
       "term_ids": [
-        "tfda-3-acetyl-6-methylpyran-2-4-3h-dione-and-its-salts"
+        "dehydroacetic-acid-food-additive"
       ],
       "aliases": [
         {
-          "value": "3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts",
-          "normalized": "3-acetyl-6-methylpyran-2 4 3h -dione and its salts",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
           "value": "Dehydroacetic acid",
           "normalized": "dehydroacetic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
-          "value": "Sodium dehydroacetate",
-          "normalized": "sodium dehydroacetate",
-          "type": "official_rule_name",
-          "language": "und",
+          "value": "DHA",
+          "normalized": "dha",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Ambiguous abbreviation; verify context.",
+          "source": "cas"
+        },
+        {
+          "value": "去水醋酸",
+          "normalized": "去水醋酸",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "脫氫乙酸",
+          "normalized": "脫氫乙酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "데하이드로초산",
+          "normalized": "데하이드로초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.95,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
+        },
+        {
+          "value": "탈수초산",
+          "normalized": "탈수초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
         },
         {
           "value": "520-45-6",
           "normalized": "520-45-6",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "16807-48-0",
-          "normalized": "16807-48-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "4418-26-2",
-          "normalized": "4418-26-2",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         }
       ]
     },
