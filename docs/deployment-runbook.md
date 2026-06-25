@@ -117,7 +117,13 @@ git push
 NEXT_PUBLIC_SUPABASE_URL=https://zqmpvveneqdkrojtqxhi.supabase.co
 ```
 
-The current runtime review endpoint uses local generated rule JSON, so a Supabase anon key is not required for the MVP. Add Supabase runtime credentials later when user accounts, saved reviews, or server-side synchronization are enabled.
+Recommended server-only environment variable for production review history:
+
+```text
+SUPABASE_DB_URL=postgresql://...
+```
+
+The runtime review engine still uses bundled generated rule JSON, so a Supabase anon key is not required for the MVP. `SUPABASE_DB_URL` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without it, the app falls back to the browser-side archive and the UI shows local storage status.
 
 ## Post-Deployment Verification
 

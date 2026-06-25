@@ -10,6 +10,7 @@ import {
   Check,
   ChevronDown,
   ClipboardCheck,
+  Database,
   Download,
   ExternalLink,
   FileText,
@@ -32,18 +33,13 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import { buildReviewActionPlan, type ReviewActionPlan } from "@/lib/review-action-plan";
+import type { ReviewArchiveResponse, ReviewArchiveStorage, SavedReview } from "@/lib/review-types";
 import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
 type ProductFilter = "all" | "act" | "wait" | "done";
-
-type SavedReview = {
-  id: string;
-  input: ReviewInput;
-  result: ReviewResult;
-};
 
 type WorkspaceDoc = {
   name: string;
@@ -124,6 +120,13 @@ const knowledgeStats = {
   reviewCases: "14",
   knowledgeCases: "57",
   sourceCases: "22"
+};
+
+const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {
+  database: { label: "클라우드 보관", detail: "Supabase에 검토 이력 저장", tone: "pass" },
+  browser: { label: "브라우저 보관", detail: "이 기기에서 즉시 사용", tone: "info" },
+  disabled: { label: "로컬 보관", detail: "DB 연결 전까지 브라우저 저장", tone: "warn" },
+  unavailable: { label: "보관 대기", detail: "서버 저장 재시도 필요", tone: "warn" }
 };
 
 const flowSteps = [
@@ -286,10 +289,14 @@ function nowTime() {
 
 function makeSavedReview(input: ReviewInput, result: ReviewResult): SavedReview {
   return {
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     input,
     result
   };
+}
+
+function writeSavedReviews(reviews: SavedReview[]) {
+  window.localStorage.setItem("labelpass-reviews", JSON.stringify(reviews));
 }
 
 function readSavedReviews(): SavedReview[] | null {
@@ -303,6 +310,19 @@ function readSavedReviews(): SavedReview[] | null {
     window.localStorage.removeItem("labelpass-reviews");
     return null;
   }
+}
+
+function mergeSavedReviews(...groups: SavedReview[][]) {
+  const seen = new Set<string>();
+  const merged: SavedReview[] = [];
+
+  for (const review of groups.flat()) {
+    if (seen.has(review.id)) continue;
+    seen.add(review.id);
+    merged.push(review);
+  }
+
+  return merged;
 }
 
 async function requestReview(reviewInput: ReviewInput): Promise<ReviewResult> {
@@ -319,11 +339,29 @@ async function requestReview(reviewInput: ReviewInput): Promise<ReviewResult> {
   return response.json();
 }
 
+async function requestArchivedReviews(): Promise<ReviewArchiveResponse> {
+  const response = await fetch("/api/reviews?limit=12", { cache: "no-store" });
+  if (!response.ok) throw new Error("archive_failed");
+  return response.json();
+}
+
+async function persistArchivedReview(review: SavedReview): Promise<ReviewArchiveResponse> {
+  const response = await fetch("/api/reviews", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review)
+  });
+
+  if (!response.ok) throw new Error("archive_failed");
+  return response.json();
+}
+
 export default function Home() {
   const [screen, setScreen] = useState<Screen>("review");
   const [input, setInput] = useState<ReviewInput>(emptyInput);
   const [result, setResult] = useState<ReviewResult | null>(null);
   const [savedReviews, setSavedReviews] = useState<SavedReview[]>([]);
+  const [archiveState, setArchiveState] = useState<ReviewArchiveStorage>("browser");
   const [filter, setFilter] = useState<FilterStatus>("all");
   const [expandedFinding, setExpandedFinding] = useState<string | null>(null);
   const [showExpertModal, setShowExpertModal] = useState(false);
@@ -336,21 +374,45 @@ export default function Home() {
 
   useEffect(() => {
     let cancelled = false;
-    const storedReviews = readSavedReviews();
-    if (storedReviews) {
-      setSavedReviews(storedReviews);
-    } else {
+
+    async function hydrateReviews() {
+      const localReviews = readSavedReviews() ?? [];
+      if (localReviews.length > 0) {
+        setSavedReviews(localReviews);
+      }
+
+      const archived = await requestArchivedReviews().catch(() => null);
+      if (cancelled) return;
+
+      if (archived?.storage) {
+        setArchiveState(archived.storage);
+      }
+
+      const remoteReviews = archived?.reviews ?? [];
+      const mergedReviews = mergeSavedReviews(remoteReviews, localReviews).slice(0, 8);
+
+      if (mergedReviews.length > 0) {
+        setSavedReviews(mergedReviews);
+        writeSavedReviews(mergedReviews);
+        return;
+      }
+
       requestReview(cleanSampleReview)
         .then((seedResult) => {
           if (cancelled) return;
           const seeded = makeSavedReview(cleanSampleReview, seedResult);
           setSavedReviews([seeded]);
-          window.localStorage.setItem("labelpass-reviews", JSON.stringify([seeded]));
+          writeSavedReviews([seeded]);
+          void persistArchivedReview(seeded).then((archive) => {
+            if (archive.storage) setArchiveState(archive.storage);
+          }).catch(() => setArchiveState("unavailable"));
         })
         .catch(() => {
           if (!cancelled) setToast("초기 샘플 검토를 불러오지 못했습니다.");
         });
     }
+
+    void hydrateReviews();
 
     return () => {
       cancelled = true;
@@ -397,6 +459,21 @@ export default function Home() {
 
   function updateInput<K extends keyof ReviewInput>(key: K, value: ReviewInput[K]) {
     setInput((current) => ({ ...current, [key]: value }));
+  }
+
+  function archiveReviewLater(review: SavedReview) {
+    void persistArchivedReview(review)
+      .then((archive) => {
+        if (archive.storage) setArchiveState(archive.storage);
+        if (archive.storage === "database" && archive.review) {
+          setSavedReviews((current) => {
+            const merged = mergeSavedReviews([archive.review!], current).slice(0, 8);
+            writeSavedReviews(merged);
+            return merged;
+          });
+        }
+      })
+      .catch(() => setArchiveState("unavailable"));
   }
 
   function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-import" | "food-additive" | "compound-additive" | "food-claim") {
@@ -448,7 +525,8 @@ export default function Home() {
       const nextSaved = [review, ...savedReviews].slice(0, 8);
       setResult(nextResult);
       setSavedReviews(nextSaved);
-      window.localStorage.setItem("labelpass-reviews", JSON.stringify(nextSaved));
+      writeSavedReviews(nextSaved);
+      archiveReviewLater(review);
       setToast("1차 검토가 완료되었습니다. 리포트와 보관함에 저장했습니다.");
     } catch {
       setToast("검토 서버 응답을 받지 못했습니다. 잠시 후 다시 실행해주세요.");
@@ -467,7 +545,8 @@ export default function Home() {
       const nextSaved = [review, ...savedReviews].slice(0, 8);
       setResult(nextResult);
       setSavedReviews(nextSaved);
-      window.localStorage.setItem("labelpass-reviews", JSON.stringify(nextSaved));
+      writeSavedReviews(nextSaved);
+      archiveReviewLater(review);
       setToast("수정본 v4 재검토 완료: 주요 위반이 해결된 상태로 전환했습니다.");
     } catch {
       setToast("수정본 재검토를 완료하지 못했습니다.");
@@ -493,6 +572,8 @@ export default function Home() {
   function downloadReport() {
     window.print();
   }
+
+  const archiveStatus = archiveCopy[archiveState];
 
   return (
     <main className="shell">
@@ -627,7 +708,19 @@ export default function Home() {
                   {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
                   AI 1차 검토 시작
                 </button>
-                <span>TW-COS · TW-FOOD · CUSTOMS</span>
+                <div className={`archive-status ${archiveStatus.tone}`} aria-live="polite">
+                  <Database size={15} />
+                  <div>
+                    <b>{archiveStatus.label}</b>
+                    <small>{archiveStatus.detail}</small>
+                  </div>
+                </div>
+              </div>
+
+              <div className="review-scope-strip" aria-label="검토 범위">
+                <span><ShieldCheck size={14} /><b>대만 룰</b><small>화장품·식품</small></span>
+                <span><Search size={14} /><b>용어 정규화</b><small>INCI·CAS·현지명</small></span>
+                <span><Ship size={14} /><b>통관 자료</b><small>HS/CCC·송장</small></span>
               </div>
 
               <div className="form-section">

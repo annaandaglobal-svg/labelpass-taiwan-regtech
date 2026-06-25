@@ -812,7 +812,7 @@ h2 {
 
 .quick-review-bar {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) auto;
+  grid-template-columns: minmax(180px, 1fr) minmax(170px, 0.72fr);
   gap: 10px;
   align-items: center;
   margin: 0 0 12px;
@@ -826,12 +826,84 @@ h2 {
   min-height: 40px;
 }
 
-.quick-review-bar span {
+.archive-status {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.archive-status svg {
+  width: 15px;
+  height: 15px;
+  justify-self: center;
+}
+
+.archive-status b,
+.archive-status small {
+  display: block;
+}
+
+.archive-status b {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.archive-status small {
+  margin-top: 2px;
   color: var(--muted);
-  font-family: var(--mono);
   font-size: 11px;
-  font-weight: 900;
-  white-space: nowrap;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.review-scope-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+}
+
+.review-scope-strip span {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 7px;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+.review-scope-strip svg {
+  grid-row: 1 / 3;
+  color: var(--navy);
+}
+
+.review-scope-strip b,
+.review-scope-strip small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.review-scope-strip b {
+  font-size: 12px;
+}
+
+.review-scope-strip small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .classifier {
@@ -3363,6 +3435,7 @@ h2 {
   .metric-grid,
   .next-actions,
   .console-actions,
+  .review-scope-strip,
   .product-detail-grid,
   .product-kpis,
   .intake-rail,
@@ -3401,6 +3474,10 @@ h2 {
     display: none;
   }
 
+  .command-center {
+    display: none;
+  }
+
   .command-side-stack,
   .hero-proof {
     display: none;
@@ -3423,8 +3500,25 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .quick-review-bar span {
+  .archive-status {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .review-scope-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .review-scope-strip span {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    min-height: 38px;
+    padding: 7px 5px;
     text-align: center;
+  }
+
+  .review-scope-strip svg,
+  .review-scope-strip small {
+    display: none;
   }
 
   .review-start,

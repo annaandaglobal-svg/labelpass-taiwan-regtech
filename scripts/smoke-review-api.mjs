@@ -569,6 +569,51 @@ for (const testCase of sourceCases) {
   }
 }
 
+const archiveListResponse = await fetch(`${baseUrl}/api/reviews`);
+
+if (!archiveListResponse.ok) {
+  throw new Error(`Review archive list: API returned ${archiveListResponse.status}`);
+}
+
+const archiveList = await archiveListResponse.json();
+const validArchiveStates = new Set(["database", "disabled", "unavailable"]);
+
+if (!validArchiveStates.has(archiveList.storage) || !Array.isArray(archiveList.reviews)) {
+  throw new Error("Review archive list: expected storage state and reviews array");
+}
+
+const archiveSmokeId = `smoke-${Date.now()}`;
+const archiveSaveResponse = await fetch(`${baseUrl}/api/reviews?dryRun=1`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    id: archiveSmokeId,
+    input: {
+      productName: "Peanut Milk Cookie",
+      productType: "prepackaged food / snack",
+      ingredientsText: "Wheat flour, peanut, milk powder, sugar",
+      labelText: "Product name: Peanut Milk Cookie. Made in Korea.",
+      origin: "Korea",
+      manufacturer: "Annaanda Foods"
+    },
+    result: foodResult
+  })
+});
+
+if (!archiveSaveResponse.ok) {
+  throw new Error(`Review archive save: API returned ${archiveSaveResponse.status}`);
+}
+
+const archiveSave = await archiveSaveResponse.json();
+
+if (!validArchiveStates.has(archiveSave.storage)) {
+  throw new Error(`Review archive save: unexpected storage state ${archiveSave.storage}`);
+}
+
+if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmokeId) {
+  throw new Error("Review archive save: database response did not preserve app review id");
+}
+
 console.log(
-  `API smoke test passed: ${cases.length + 10} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases.`
+  `API smoke test passed: ${cases.length + 10} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, 2 archive cases.`
 );
