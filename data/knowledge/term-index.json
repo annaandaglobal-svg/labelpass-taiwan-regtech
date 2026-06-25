@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 91,
+  "curated_term_count": 98,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -9262,6 +9262,1015 @@
         "tw-tfda-food-additive-registration-announcements"
       ],
       "notes": "Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates."
+    },
+    {
+      "id": "foreign-trade-act",
+      "canonical_name": "Foreign Trade Act",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Foreign Trade Act",
+          "normalized": "foreign trade act",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Taiwan Foreign Trade Act",
+          "normalized": "taiwan foreign trade act",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "foreign trade law",
+          "normalized": "foreign trade law",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "export import business registration",
+          "normalized": "export import business registration",
+          "type": "related_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "trade control legal basis",
+          "normalized": "trade control legal basis",
+          "type": "related_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 무역법",
+          "normalized": "대만 무역법",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수출입 관리 법적 근거",
+          "normalized": "수출입 관리 법적 근거",
+          "type": "related_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貿易法",
+          "normalized": "貿易法",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "對外貿易法",
+          "normalized": "對外貿易法",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "贸易法",
+          "normalized": "贸易法",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-foreign-trade-act",
+        "tw-trade-import-export-regulations"
+      ],
+      "notes": "Umbrella legal concept for Taiwan import/export administration, exporter-importer registration, trade controls, restrictions, and trade-order obligations."
+    },
+    {
+      "id": "exporter-importer-registration",
+      "canonical_name": "Exporter and Importer Registration",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "exporter and importer registration",
+          "normalized": "exporter and importer registration",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "registration of exporters and importers",
+          "normalized": "registration of exporters and importers",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "importer exporter registration",
+          "normalized": "importer exporter registration",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "TITA exporter importer registration",
+          "normalized": "tita exporter importer registration",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "English name availability review",
+          "normalized": "english name availability review",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "export/import qualifications",
+          "normalized": "export import qualifications",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수출입업자 등록",
+          "normalized": "수출입업자 등록",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수출자 수입자 등록",
+          "normalized": "수출자 수입자 등록",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "出進口廠商登記",
+          "normalized": "出進口廠商登記",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "出進口資格",
+          "normalized": "出進口資格",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "出进口厂商登记",
+          "normalized": "出进口厂商登记",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-exporter-importer-registration",
+        "tw-moj-foreign-trade-act",
+        "tw-trade-import-export-administration"
+      ],
+      "notes": "Taiwan operator-registration concept for companies or firms engaging in import/export business, including English-name review and qualification lookup."
+    },
+    {
+      "id": "customs-declaration",
+      "canonical_name": "Customs Declaration",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "customs declaration",
+          "normalized": "customs declaration",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import declaration",
+          "normalized": "import declaration",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "export declaration",
+          "normalized": "export declaration",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import declaration form",
+          "normalized": "import declaration form",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "export declaration form",
+          "normalized": "export declaration form",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "bill of invoice",
+          "normalized": "bill of invoice",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CPT Single Window",
+          "normalized": "cpt single window",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수입신고",
+          "normalized": "수입신고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수출신고",
+          "normalized": "수출신고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수입신고서",
+          "normalized": "수입신고서",
+          "type": "official_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수출신고서",
+          "normalized": "수출신고서",
+          "type": "official_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "進口報單",
+          "normalized": "進口報單",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "出口報單",
+          "normalized": "出口報單",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "報關",
+          "normalized": "報關",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "關港貿單一窗口",
+          "normalized": "關港貿單一窗口",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "进口报单",
+          "normalized": "进口报单",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "出口报单",
+          "normalized": "出口报单",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-customs-act",
+        "tw-customs-tariff-database-download",
+        "tw-trade-ccc-import-export-regulations"
+      ],
+      "notes": "Customs-entry concept for import/export declaration forms, invoice, packing list, permits, single-window transmission, and post-clearance evidence."
+    },
+    {
+      "id": "strategic-high-tech-commodities",
+      "canonical_name": "Strategic High-Tech Commodities",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Strategic High-Tech Commodities",
+          "normalized": "strategic high-tech commodities",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SHTC",
+          "normalized": "shtc",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "strategic high tech goods",
+          "normalized": "strategic high tech goods",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "dual-use controlled items",
+          "normalized": "dual-use controlled items",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "common military list",
+          "normalized": "common military list",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "전략성 고기술 화물",
+          "normalized": "전략성 고기술 화물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "전략성 하이테크 화물",
+          "normalized": "전략성 하이테크 화물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "전략물자",
+          "normalized": "전략물자",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "戰略性高科技貨品",
+          "normalized": "戰略性高科技貨品",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "高科技貨品",
+          "normalized": "高科技貨品",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "战略性高科技货品",
+          "normalized": "战略性高科技货品",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-shtc-export-import-regulations",
+        "tw-shtc-regulations",
+        "tw-shtc-dual-use-list",
+        "tw-trade-shtc-bilingual-glossary",
+        "global-wassenaar-control-lists"
+      ],
+      "notes": "Taiwan export-control concept for strategic high-tech commodities, dual-use items, common military list items, transit/transshipment, and AI hardware risk routing."
+    },
+    {
+      "id": "shtc-export-permit",
+      "canonical_name": "SHTC Export Permit",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Export Permit of Strategic High-Tech Commodities",
+          "normalized": "export permit of strategic high-tech commodities",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SHTC export permit",
+          "normalized": "shtc export permit",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "strategic high-tech commodities export license",
+          "normalized": "strategic high-tech commodities export license",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "export permit license",
+          "normalized": "export permit license",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ICP Exporter",
+          "normalized": "icp exporter",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Internal Compliance Program",
+          "normalized": "internal compliance program",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SHTC 수출허가",
+          "normalized": "shtc 수출허가",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "전략성 고기술 화물 수출허가증",
+          "normalized": "전략성 고기술 화물 수출허가증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "戰略性高科技貨品輸出許可證",
+          "normalized": "戰略性高科技貨品輸出許可證",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸出許可證",
+          "normalized": "輸出許可證",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "內部出口管控制度",
+          "normalized": "內部出口管控制度",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-shtc-export-import-regulations",
+        "tw-shtc-regulations",
+        "tw-trade-shtc-bilingual-glossary",
+        "tw-trade-ccc-import-export-regulations"
+      ],
+      "notes": "Permit concept for Taiwan SHTC export control, including ordinary permits, ICP exporter programs, validity periods, and case-closing evidence after export."
+    },
+    {
+      "id": "international-import-certificate",
+      "canonical_name": "International Import Certificate",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "International Import Certificate",
+          "normalized": "international import certificate",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "IC certificate",
+          "normalized": "ic certificate",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Written Assurance Certificate",
+          "normalized": "written assurance certificate",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "WA certificate",
+          "normalized": "wa certificate",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Delivery Verification Certificate",
+          "normalized": "delivery verification certificate",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DV certificate",
+          "normalized": "dv certificate",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "국제수입증명서",
+          "normalized": "국제수입증명서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수입보증서",
+          "normalized": "수입보증서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "도착증명서",
+          "normalized": "도착증명서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "國際進口證明書",
+          "normalized": "國際進口證明書",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "進口保證書",
+          "normalized": "進口保證書",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抵達證明書",
+          "normalized": "抵達證明書",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "国际进口证明书",
+          "normalized": "国际进口证明书",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-shtc-export-import-regulations",
+        "tw-trade-shtc-bilingual-glossary"
+      ],
+      "notes": "SHTC import-control evidence concept, covering IC, WA, and DV documents used to verify intended use, customs clearance, and arrival/transfer obligations."
+    },
+    {
+      "id": "end-use-end-user",
+      "canonical_name": "End Use and End User",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "end use",
+          "normalized": "end use",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "end-use",
+          "normalized": "end-use",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "end user",
+          "normalized": "end user",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "end-user",
+          "normalized": "end-user",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Certificate of End Uses",
+          "normalized": "certificate of end uses",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Written Assurance of End Uses",
+          "normalized": "written assurance of end uses",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ultimate consignee",
+          "normalized": "ultimate consignee",
+          "type": "related_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "최종용도",
+          "normalized": "최종용도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "최종사용자",
+          "normalized": "최종사용자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "최종수하인",
+          "normalized": "최종수하인",
+          "type": "related_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "最終用途",
+          "normalized": "最終用途",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "最終使用者",
+          "normalized": "最終使用者",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "最終用途保證書",
+          "normalized": "最終用途保證書",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "最终用途",
+          "normalized": "最终用途",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "最终用户",
+          "normalized": "最终用户",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-shtc-export-import-regulations",
+        "tw-trade-shtc-bilingual-glossary",
+        "global-wassenaar-control-lists",
+        "us-bis-ear-overview",
+        "jp-meti-security-export-control"
+      ],
+      "notes": "Export-control screening concept for intended use, final user, ultimate consignee, certificates of end use, written assurances, and restricted-area routing."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",

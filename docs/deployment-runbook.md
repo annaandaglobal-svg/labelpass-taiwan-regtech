@@ -78,12 +78,12 @@ Expected counts after the current seed:
 
 - `rules`: 1,081
 - current `rule_versions`: 1,081
-- `knowledge_sources`: 100
-- `knowledge_snapshots`: 100
-- `knowledge_terms`: 1,127
-- `term_aliases`: 3,287
+- `knowledge_sources`: 108
+- `knowledge_snapshots`: 108
+- `knowledge_terms`: 1,134
+- `term_aliases`: 3,375
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 19
+- `regulatory_update_candidates`: 20
 
 Recommended verification query:
 

@@ -503,7 +503,14 @@ const knowledgeCases = [
   { query: "食品中污染物質及毒素", expectedTerm: "Food Contaminants and Toxins Standards" },
   { query: "식품 미생물 기준", expectedTerm: "Food Microorganism Sanitation Standard" },
   { query: "食品追溯追蹤", expectedTerm: "Food Traceability" },
-  { query: "식품 GHP", expectedTerm: "Food Good Hygiene Practice" }
+  { query: "식품 GHP", expectedTerm: "Food Good Hygiene Practice" },
+  { query: "Foreign Trade Act", expectedTerm: "Foreign Trade Act" },
+  { query: "수출입업자 등록", expectedTerm: "Exporter and Importer Registration" },
+  { query: "進口報單", expectedTerm: "Customs Declaration" },
+  { query: "戰略性高科技貨品", expectedTerm: "Strategic High-Tech Commodities" },
+  { query: "SHTC export permit", expectedTerm: "SHTC Export Permit" },
+  { query: "國際進口證明書", expectedTerm: "International Import Certificate" },
+  { query: "最終使用者", expectedTerm: "End Use and End User" }
 ];
 
 for (const testCase of knowledgeCases) {
@@ -549,7 +556,15 @@ const sourceCases = [
   { query: "contaminants and toxins mycotoxins metals foods", expectedSource: "tw-moj-food-contaminants-toxins" },
   { query: "microorganisms in foods sanitation standard pathogens", expectedSource: "tw-tfda-food-microorganisms-standard" },
   { query: "food traceability source track flow records", expectedSource: "tw-tfda-food-traceability" },
-  { query: "good hygiene practice food manufacturing storage transportation", expectedSource: "tw-tfda-food-ghp-regulations" }
+  { query: "good hygiene practice food manufacturing storage transportation", expectedSource: "tw-tfda-food-ghp-regulations" },
+  { query: "Foreign Trade Act exporter importer registration", expectedSource: "tw-moj-foreign-trade-act" },
+  { query: "Regulations Governing Import of Commodities import permit negative list", expectedSource: "tw-moj-import-commodities-regulations" },
+  { query: "Regulations Governing Export of Commodities origin marking export permit", expectedSource: "tw-moj-export-commodities-regulations" },
+  { query: "Registration of Exporters and Importers English name availability", expectedSource: "tw-moj-exporter-importer-registration" },
+  { query: "commodity classification import export regulation guide negative list SHTC", expectedSource: "tw-trade-commodity-classification-guide" },
+  { query: "Customs Act import declaration invoice packing list single window", expectedSource: "tw-moj-customs-act" },
+  { query: "Strategic High-tech Commodities International Import Certificate end user", expectedSource: "tw-moj-shtc-export-import-regulations" },
+  { query: "戰略性高科技貨品 國際進口證明書 最終用途", expectedSource: "tw-trade-shtc-bilingual-glossary" }
 ];
 
 for (const testCase of sourceCases) {

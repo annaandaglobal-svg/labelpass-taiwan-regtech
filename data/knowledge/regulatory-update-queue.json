@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-25T19:16:55.427Z",
+  "generated_at": "2026-06-25T19:47:35.493Z",
   "source_registry_version": "2026-06-26",
-  "crawl_generated_at": "2026-06-25T19:16:55.427Z",
+  "crawl_generated_at": "2026-06-25T19:47:35.493Z",
   "expiring_soon_days": 7,
   "summary": {
-    "total": 19,
+    "total": 20,
     "detected": 0,
     "pending_refresh": 5,
-    "watching": 14,
+    "watching": 15,
     "approved": 0,
     "high": 0,
-    "medium": 18,
+    "medium": 19,
     "low": 1
   },
   "items": [
@@ -27,7 +27,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T14:44:25.986Z",
       "cache_expires_at": "2026-07-02T14:44:25.986Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
@@ -59,6 +59,11 @@
         {
           "term_key": "advance-tariff-classification-ruling",
           "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "customs-declaration",
+          "canonical_name": "Customs Declaration",
           "category": "regulatory_concept"
         }
       ],
@@ -107,7 +112,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-02T17:40:27.672Z",
       "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
@@ -179,7 +184,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T13:02:09.360Z",
       "cache_expires_at": "2026-07-02T13:02:09.360Z",
       "previous_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
@@ -247,7 +252,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T14:44:25.986Z",
       "cache_expires_at": "2026-07-02T14:44:25.986Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
@@ -279,6 +284,16 @@
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "customs-declaration",
+          "canonical_name": "Customs Declaration",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "shtc-export-permit",
+          "canonical_name": "SHTC Export Permit",
           "category": "regulatory_concept"
         }
       ],
@@ -327,7 +342,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T15:09:13.960Z",
       "cache_expires_at": "2026-07-09T15:09:13.960Z",
       "previous_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
@@ -392,7 +407,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T14:44:25.986Z",
       "cache_expires_at": "2026-07-02T14:44:25.986Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
@@ -424,6 +439,11 @@
         {
           "term_key": "advance-tariff-classification-ruling",
           "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "customs-declaration",
+          "canonical_name": "Customs Declaration",
           "category": "regulatory_concept"
         }
       ],
@@ -472,7 +492,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T15:09:13.960Z",
       "cache_expires_at": "2026-07-09T15:09:13.960Z",
       "previous_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
@@ -537,7 +557,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T19:02:19.917Z",
       "cache_expires_at": "2026-07-09T19:02:19.917Z",
       "previous_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
@@ -605,7 +625,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T13:02:21.869Z",
       "cache_expires_at": "2026-07-09T13:02:21.869Z",
       "previous_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
@@ -617,7 +637,13 @@
         "export-control",
         "ai-hardware"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "strategic-high-tech-commodities",
+          "canonical_name": "Strategic High-Tech Commodities",
+          "category": "regulatory_concept"
+        }
+      ],
       "affected_products": [
         "import_export"
       ],
@@ -662,7 +688,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-02T17:40:27.672Z",
       "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
@@ -734,7 +760,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-09T17:40:27.672Z",
       "previous_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
@@ -799,7 +825,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-09T17:40:27.672Z",
       "previous_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
@@ -872,7 +898,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T17:40:27.672Z",
       "cache_expires_at": "2026-07-09T17:40:27.672Z",
       "previous_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
@@ -938,7 +964,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T13:02:09.360Z",
       "cache_expires_at": "2026-07-02T13:02:09.360Z",
       "previous_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
@@ -1006,7 +1032,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T13:02:08.995Z",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
       "previous_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
@@ -1067,7 +1093,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T14:44:25.986Z",
       "cache_expires_at": "2026-07-02T14:44:25.986Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
@@ -1099,6 +1125,16 @@
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "customs-declaration",
+          "canonical_name": "Customs Declaration",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "shtc-export-permit",
+          "canonical_name": "SHTC Export Permit",
           "category": "regulatory_concept"
         }
       ],
@@ -1135,6 +1171,67 @@
       }
     },
     {
+      "candidate_key": "tw-trade-commodity-classification-guide:baseline_watch",
+      "source_key": "tw-trade-commodity-classification-guide",
+      "title": "Commodity Classification and Import/Export Regulation Guide",
+      "source_url": "https://fbfh.trade.gov.tw/fh/ap/listIEGuidef.do",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade_controls",
+      "source_type": "database_guide",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-09T19:47:35.493Z",
+      "previous_hash": null,
+      "current_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
+      "affected_domains": [
+        "trade_controls",
+        "ccc-code",
+        "import-regulation",
+        "export-regulation",
+        "negative-list",
+        "shtc",
+        "mainland-china"
+      ],
+      "affected_terms": [],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-trade-commodity-classification-guide.md",
+        "fetched_url": "https://fbfh.trade.gov.tw/fh/ap/listIEGuidef.do",
+        "extra_fetched_urls": [],
+        "text_chars": 16496,
+        "format": "html",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "貨品分類管理系統 跳至主內容 menu 首 頁 申 請 最新公告異動通知申請 查 詢 公告異動資料查詢 貨品輸出入規定查詢 進口大陸物品查詢 2~11碼貨名查詢 貨品增修歷程查詢 清 單 ECFA早收清單兩岸稅則8位碼對照表 權責單位 規定與各主管機關對應 系統公告 下 載 貨品資料表下載 大陸物品下載 貨品與規定轉出 網站導覽 E English guideTitle 編號 中文 英文 實施日期 1 輸出貨品，應依貿易法、貿易法施行細則、貨品輸出管理辦法、限制輸出貨品表及海關協助查核輸出貨品表之規定辦理。輸出大陸地區貨品，應另依臺灣地區與大陸地區貿易許可辦法之規定辦理。輸出戰略性高科技貨品，應另依戰略性高科技貨品輸出入管理辦法之規定辦理。 The exportation of commodities shall be made in accordance with the Foreign Trade Act, the Enforcement Rules of the Foreign Trade Act, the Regulations Governing Export of Commodities, the “List of Commodities Subject to Export Restriction” and the “List of Commodities Assisted by Customs for Export Examination”. For commodities exported to Mainland China, the exportation s"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "ccc-code",
+          "import-regulation",
+          "export-regulation",
+          "negative-list",
+          "shtc",
+          "mainland-china"
+        ],
+        "compact_title": "commodity-classification-and-import-export-regulation-guide"
+      }
+    },
+    {
       "candidate_key": "tw-trade-import-export-administration:baseline_watch",
       "source_key": "tw-trade-import-export-administration",
       "title": "Import and Export Administration",
@@ -1147,7 +1244,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T15:09:13.960Z",
       "cache_expires_at": "2026-07-09T15:09:13.960Z",
       "previous_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
@@ -1164,6 +1261,11 @@
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "exporter-importer-registration",
+          "canonical_name": "Exporter and Importer Registration",
           "category": "regulatory_concept"
         }
       ],
@@ -1212,7 +1314,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T13:02:14.387Z",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
       "previous_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
@@ -1249,6 +1351,11 @@
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "foreign-trade-act",
+          "canonical_name": "Foreign Trade Act",
           "category": "regulatory_concept"
         }
       ],
@@ -1297,7 +1404,7 @@
       "change_type": "source_expiring_soon",
       "severity": "low",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:16:55.427Z",
+      "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T13:02:19.641Z",
       "cache_expires_at": "2026-07-02T13:02:19.641Z",
       "previous_hash": "ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2",
@@ -1748,6 +1855,42 @@
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md"
     },
+    "tw-moj-foreign-trade-act": {
+      "title": "Foreign Trade Act",
+      "content_hash": "9b7c88dc98ca7a225a90ed74dc1169d6cf3a523fb5521f702d9fe513437638b8",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-foreign-trade-act.md"
+    },
+    "tw-moj-import-commodities-regulations": {
+      "title": "Regulations Governing Import of Commodities",
+      "content_hash": "6918e1222400ac6d83d58a327d0469a8cdaa28208f5e4b6242d911df825c6a53",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-import-commodities-regulations.md"
+    },
+    "tw-moj-export-commodities-regulations": {
+      "title": "Regulations Governing Export of Commodities",
+      "content_hash": "a971a72efdd02f3167be64dede150f62e0107a9730400f35876ddbf40b18f9d7",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-export-commodities-regulations.md"
+    },
+    "tw-moj-exporter-importer-registration": {
+      "title": "Regulations Governing Registration of Exporters and Importers",
+      "content_hash": "55a6f4167c09fff2c7ec920ea470d91ea1adf4c055d6d7afdc0b2075bee051dc",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-exporter-importer-registration.md"
+    },
     "tw-trade-import-export-administration": {
       "title": "Import and Export Administration",
       "content_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
@@ -1765,6 +1908,15 @@
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md"
+    },
+    "tw-trade-commodity-classification-guide": {
+      "title": "Commodity Classification and Import/Export Regulation Guide",
+      "content_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-09T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-trade-commodity-classification-guide.md"
     },
     "tw-customs-tariff-database-download": {
       "title": "GC453 Tariff Database Download",
@@ -1829,6 +1981,15 @@
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
     },
+    "tw-moj-customs-act": {
+      "title": "Customs Act",
+      "content_hash": "bdf6eac48a0ab066a21a5605463cfe010b7e79f6f4299b9e0c58ea121ed7a39e",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-customs-act.md"
+    },
     "tw-shtc-regulations": {
       "title": "Export Control Laws for Strategic High-tech Commodities",
       "content_hash": "75ea1097c8b1be3ea698cce451434a9209270168ff5670452c57b5881140e961",
@@ -1838,6 +1999,15 @@
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-shtc-regulations.md"
     },
+    "tw-moj-shtc-export-import-regulations": {
+      "title": "Regulations Governing the Export and Import of Strategic High-tech Commodities",
+      "content_hash": "b376bf9815cb9b92f2c3da41a4df90e279eb49564b2fec8b0a7adef685f0eecf",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-shtc-export-import-regulations.md"
+    },
     "tw-shtc-dual-use-list": {
       "title": "Export Control List for Dual Use Items and Technology and Common Military List",
       "content_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
@@ -1846,6 +2016,15 @@
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-shtc-dual-use-list.md"
+    },
+    "tw-trade-shtc-bilingual-glossary": {
+      "title": "Strategic High-Tech Commodities Bilingual Glossary",
+      "content_hash": "74c9680517d02b2f13e2d8c4a79f20e84205dc18b5b2fef5e53d54371de19c5a",
+      "fetched_at": "2026-06-25T19:47:35.493Z",
+      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-trade-shtc-bilingual-glossary.md"
     },
     "tw-bsmi-commodity-inspection-mark": {
       "title": "BSMI commodity inspection legal documents hub",

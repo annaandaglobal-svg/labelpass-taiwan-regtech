@@ -3526,6 +3526,192 @@
       ],
       "source_keys": ["tw-tfda-compound-food-additive-import-documents", "tw-tfda-imported-food-inspection-regulations", "tw-tfda-food-additive-registration-announcements"],
       "notes": "Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates."
+    },
+    {
+      "id": "foreign-trade-act",
+      "canonical_name": "Foreign Trade Act",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Foreign Trade Act", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "Taiwan Foreign Trade Act", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "foreign trade law", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "export import business registration", "type": "related_term", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "trade control legal basis", "type": "related_term", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "대만 무역법", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수출입 관리 법적 근거", "type": "related_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "貿易法", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "對外貿易法", "type": "variant", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.8 },
+        { "value": "贸易法", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-foreign-trade-act", "tw-trade-import-export-regulations"],
+      "notes": "Umbrella legal concept for Taiwan import/export administration, exporter-importer registration, trade controls, restrictions, and trade-order obligations."
+    },
+    {
+      "id": "exporter-importer-registration",
+      "canonical_name": "Exporter and Importer Registration",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "exporter and importer registration", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "registration of exporters and importers", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "importer exporter registration", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "TITA exporter importer registration", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "English name availability review", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "export/import qualifications", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "수출입업자 등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "수출자 수입자 등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "出進口廠商登記", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "出進口資格", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "出进口厂商登记", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-exporter-importer-registration", "tw-moj-foreign-trade-act", "tw-trade-import-export-administration"],
+      "notes": "Taiwan operator-registration concept for companies or firms engaging in import/export business, including English-name review and qualification lookup."
+    },
+    {
+      "id": "customs-declaration",
+      "canonical_name": "Customs Declaration",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "customs declaration", "type": "official_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "import declaration", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "export declaration", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "import declaration form", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "export declaration form", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "bill of invoice", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "CPT Single Window", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "수입신고", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "수출신고", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "수입신고서", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수출신고서", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "進口報單", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "出口報單", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "報關", "type": "common_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "關港貿單一窗口", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "进口报单", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "出口报单", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-customs-act", "tw-customs-tariff-database-download", "tw-trade-ccc-import-export-regulations"],
+      "notes": "Customs-entry concept for import/export declaration forms, invoice, packing list, permits, single-window transmission, and post-clearance evidence."
+    },
+    {
+      "id": "strategic-high-tech-commodities",
+      "canonical_name": "Strategic High-Tech Commodities",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Strategic High-Tech Commodities", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "SHTC", "type": "abbreviation", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "strategic high tech goods", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "dual-use controlled items", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "common military list", "type": "official_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "전략성 고기술 화물", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "전략성 하이테크 화물", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "전략물자", "type": "common_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "戰略性高科技貨品", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "高科技貨品", "type": "common_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "战略性高科技货品", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-shtc-export-import-regulations", "tw-shtc-regulations", "tw-shtc-dual-use-list", "tw-trade-shtc-bilingual-glossary", "global-wassenaar-control-lists"],
+      "notes": "Taiwan export-control concept for strategic high-tech commodities, dual-use items, common military list items, transit/transshipment, and AI hardware risk routing."
+    },
+    {
+      "id": "shtc-export-permit",
+      "canonical_name": "SHTC Export Permit",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Export Permit of Strategic High-Tech Commodities", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "SHTC export permit", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "strategic high-tech commodities export license", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "export permit license", "type": "variant", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "ICP Exporter", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "Internal Compliance Program", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "SHTC 수출허가", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "전략성 고기술 화물 수출허가증", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "戰略性高科技貨品輸出許可證", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "輸出許可證", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "內部出口管控制度", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-shtc-export-import-regulations", "tw-shtc-regulations", "tw-trade-shtc-bilingual-glossary", "tw-trade-ccc-import-export-regulations"],
+      "notes": "Permit concept for Taiwan SHTC export control, including ordinary permits, ICP exporter programs, validity periods, and case-closing evidence after export."
+    },
+    {
+      "id": "international-import-certificate",
+      "canonical_name": "International Import Certificate",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "International Import Certificate", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "IC certificate", "type": "abbreviation", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "Written Assurance Certificate", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "WA certificate", "type": "abbreviation", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "Delivery Verification Certificate", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "DV certificate", "type": "abbreviation", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "국제수입증명서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수입보증서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "도착증명서", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "國際進口證明書", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "進口保證書", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "抵達證明書", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "国际进口证明书", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-shtc-export-import-regulations", "tw-trade-shtc-bilingual-glossary"],
+      "notes": "SHTC import-control evidence concept, covering IC, WA, and DV documents used to verify intended use, customs clearance, and arrival/transfer obligations."
+    },
+    {
+      "id": "end-use-end-user",
+      "canonical_name": "End Use and End User",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "end use", "type": "official_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "end-use", "type": "variant", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "end user", "type": "official_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "end-user", "type": "variant", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Certificate of End Uses", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "Written Assurance of End Uses", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "ultimate consignee", "type": "related_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "최종용도", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "최종사용자", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "최종수하인", "type": "related_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "最終用途", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "最終使用者", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "最終用途保證書", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "最终用途", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "最终用户", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-shtc-export-import-regulations", "tw-trade-shtc-bilingual-glossary", "global-wassenaar-control-lists", "us-bis-ear-overview", "jp-meti-security-export-control"],
+      "notes": "Export-control screening concept for intended use, final user, ultimate consignee, certificates of end use, written assurances, and restricted-area routing."
     }
   ]
 }

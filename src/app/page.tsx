@@ -114,12 +114,12 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "100",
-  aliases: "3,287",
-  terms: "1,127",
+  sources: "108",
+  aliases: "3,375",
+  terms: "1,134",
   reviewCases: "14",
-  knowledgeCases: "57",
-  sourceCases: "22"
+  knowledgeCases: "64",
+  sourceCases: "30"
 };
 
 const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {
@@ -637,8 +637,20 @@ export default function Home() {
                 </span>
                 <div>
                   <h2>오늘 출고 판단에 필요한 항목만 먼저 확인합니다</h2>
-                  <p>라벨·성분·HS/CCC·수입자 자료를 공식 소스 100개와 다국어 용어 {knowledgeStats.terms}개 기준으로 대조합니다.</p>
+                  <p>라벨·성분·HS/CCC·수입자 자료를 공식 소스 {knowledgeStats.sources}개와 다국어 용어 {knowledgeStats.terms}개 기준으로 대조합니다.</p>
                 </div>
+              </div>
+              <div className="hero-actions">
+                <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing}>
+                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
+                  현재 입력 검토
+                </button>
+                <button className="ghost-btn" onClick={() => fillSample("food-import")}>
+                  <Ship size={16} /> 식품 통관 샘플
+                </button>
+                <a className="ghost-btn" href="/knowledge">
+                  <Search size={16} /> 용어·소스 검색
+                </a>
               </div>
               <div className="hero-proof">
                 <span><ShieldCheck size={15} /> 정형 룰 우선</span>
@@ -729,8 +741,8 @@ export default function Home() {
                   <span>제품 분류</span>
                 </div>
                 <div className="classifier">
-                  <button className="classifier-ai" onClick={classifyProduct}>
-                    <Search size={17} /> AI 품목 찾기
+                  <button className="classifier-ai" onClick={classifyProduct} title="AI가 입력값으로 품목을 추정합니다">
+                    <Search size={17} /> AI 찾기
                   </button>
                   <button className={selectedProductType === "cosmetic" ? "active" : ""} onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
                   <button className={selectedProductType === "food" ? "active" : ""} onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
@@ -824,14 +836,21 @@ export default function Home() {
                   {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
                   AI 1차 검토 시작
                 </button>
-                <span className="sample-label">샘플</span>
-                <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
-                <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
-                <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사 샘플</button>
-                <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물 샘플</button>
-                <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물 샘플</button>
-                <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조 샘플</button>
-                <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
+                <details className="sample-drawer">
+                  <summary>
+                    <Sparkles size={15} />
+                    샘플 불러오기
+                  </summary>
+                  <div className="sample-grid">
+                    <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물</button>
+                    <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과</button>
+                  </div>
+                </details>
               </div>
             </section>
 

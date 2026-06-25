@@ -212,12 +212,14 @@ h2 {
 }
 
 .action-row {
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
   padding-top: 4px;
 }
 
 .review-start {
-  flex: 1 0 100%;
   min-height: 46px;
   font-size: 15px;
 }
@@ -239,6 +241,52 @@ h2 {
   padding: 6px 9px;
   font-size: 12px;
   line-height: 1.2;
+}
+
+.sample-drawer {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.sample-drawer summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 46px;
+  padding: 0 12px;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 900;
+  list-style: none;
+  cursor: pointer;
+}
+
+.sample-drawer summary::-webkit-details-marker {
+  display: none;
+}
+
+.sample-drawer summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-left: auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.16s ease;
+}
+
+.sample-drawer[open] summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  padding: 0 10px 10px;
 }
 
 .primary-btn,
@@ -348,6 +396,19 @@ h2 {
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-actions .primary-btn,
+.hero-actions .ghost-btn {
+  min-height: 34px;
+  padding: 7px 11px;
+  font-size: 12px;
 }
 
 .hero-proof span {
@@ -3344,6 +3405,21 @@ h2 {
 }
 
 @media (max-width: 1180px) {
+  .command-center {
+    grid-template-columns: 1fr;
+  }
+
+  .command-side-stack {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .command-center .pipeline-card,
+  .command-center .impact-card {
+    min-height: 0;
+  }
+
   .knowledge-results {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
   }
@@ -3494,6 +3570,7 @@ h2 {
 
   .action-row {
     display: grid;
+    grid-template-columns: 1fr;
   }
 
   .quick-review-bar {
@@ -3525,6 +3602,10 @@ h2 {
   .action-row .ghost-btn,
   .sample-label {
     width: 100%;
+  }
+
+  .sample-grid {
+    grid-template-columns: 1fr;
   }
 
   .sample-label {
