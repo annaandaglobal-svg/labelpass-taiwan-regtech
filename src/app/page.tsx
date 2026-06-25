@@ -36,11 +36,52 @@ import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
+type ProductFilter = "all" | "act" | "wait" | "done";
 
 type SavedReview = {
   id: string;
   input: ReviewInput;
   result: ReviewResult;
+};
+
+type WorkspaceDoc = {
+  name: string;
+  status: string;
+  tone: string;
+};
+
+type WorkspaceTask = {
+  owner: string;
+  title: string;
+  detail: string;
+  tone: string;
+};
+
+type WorkspaceVersion = {
+  label: string;
+  date: string;
+  status: string;
+  tone: string;
+};
+
+type WorkspaceProduct = {
+  id: string;
+  name: string;
+  category: string;
+  market: string;
+  stage: ProductFilter;
+  status: string;
+  tone: string;
+  nextAction: string;
+  due: string;
+  meta: string;
+  progress: number;
+  owner: string;
+  review?: SavedReview;
+  documents: WorkspaceDoc[];
+  tasks: WorkspaceTask[];
+  versions: WorkspaceVersion[];
+  timeline: string[];
 };
 
 type RegulatoryUpdateCandidate = {
@@ -115,6 +156,126 @@ const updateWorkflowItems = [
   { label: "차이 탐지", detail: "해시·만료·우선순위 큐" },
   { label: "사람 승인", detail: "룰셋 반영 전 검토 게이트" }
 ] as const;
+
+const demoWorkspaceProducts: WorkspaceProduct[] = [
+  {
+    id: "demo-toner",
+    name: "수분 진정 토너 300ml",
+    category: "화장품",
+    market: "대만",
+    stage: "act",
+    status: "수정 필요 3건",
+    tone: "danger",
+    nextAction: "Triclosan 처방 변경 체크리스트를 제조사에 전달",
+    due: "오늘 착수",
+    meta: "v3 검토 · 할 일 4건 중 0건 완료 · PIF 작성 중",
+    progress: 35,
+    owner: "제조사",
+    documents: [
+      { name: "PIF", status: "작성 중", tone: "warn" },
+      { name: "COA / 조성표", status: "요청", tone: "info" },
+      { name: "GMP", status: "완료", tone: "pass" },
+      { name: "중문 라벨 v4", status: "대기", tone: "warn" }
+    ],
+    tasks: [
+      { owner: "제조사", title: "Triclosan 대체 처방 또는 함량 조정", detail: "병목 · 4-8주", tone: "danger" },
+      { owner: "라벨 담당", title: "효능 문구를 보습·피부결 표현으로 완화", detail: "라벨 v4", tone: "warn" },
+      { owner: "서류 담당", title: "제조원·수입자명을 PIF와 라벨에서 통일", detail: "검수 전", tone: "info" }
+    ],
+    versions: [
+      { label: "v3", date: "06.10", status: "위반 3", tone: "danger" },
+      { label: "v2", date: "05.30", status: "위반 5", tone: "danger" },
+      { label: "v1", date: "05.21", status: "위반 8", tone: "danger" }
+    ],
+    timeline: ["v3 검토 완료 · 수정 체크리스트 생성", "v2 라벨 일부 수정", "제품 등록 · 기초 화장품 분류 확정"]
+  },
+  {
+    id: "demo-shellfish",
+    name: "냉동 굴살 1kg",
+    category: "식품",
+    market: "대만",
+    stage: "act",
+    status: "서류 필요",
+    tone: "warn",
+    nextAction: "HS 0307 위생증명서와 채취 해역 자료 확보",
+    due: "24h",
+    meta: "수입검사 서류 · 식품업자 등록 · 제도검사 확인 필요",
+    progress: 28,
+    owner: "수입자",
+    documents: [
+      { name: "제품정보표", status: "필요", tone: "warn" },
+      { name: "수입신고서", status: "필요", tone: "warn" },
+      { name: "위생증명서", status: "필요", tone: "danger" },
+      { name: "식품업자 등록", status: "확인", tone: "info" }
+    ],
+    tasks: [
+      { owner: "수입자", title: "수출국 공식 위생증명서와 harvest area 확보", detail: "통관 일정 영향", tone: "danger" },
+      { owner: "서류 담당", title: "제품정보표·수입신고서 사본 준비", detail: "입항 전", tone: "warn" },
+      { owner: "수입자", title: "식품업자 등록·제품책임보험 확인", detail: "검사 신청 전", tone: "info" }
+    ],
+    versions: [
+      { label: "v1", date: "06.26", status: "자료 필요", tone: "warn" }
+    ],
+    timeline: ["HS 0307 패류 수입검사 규칙 연결", "제품정보표·위생증명서 체크리스트 생성"]
+  },
+  {
+    id: "demo-cica",
+    name: "시카 리페어 크림 50ml",
+    category: "화장품",
+    market: "대만",
+    stage: "wait",
+    status: "회신 대기",
+    tone: "info",
+    nextAction: "대만 수입사 주소 확인 회신 대기",
+    due: "D+1",
+    meta: "v2 통과 · 부산에서 지룽 선적 준비 중",
+    progress: 76,
+    owner: "수입자",
+    documents: [
+      { name: "중문 라벨", status: "완료", tone: "pass" },
+      { name: "인보이스", status: "완료", tone: "pass" },
+      { name: "패킹리스트", status: "완료", tone: "pass" },
+      { name: "수입자 주소", status: "회신 대기", tone: "info" }
+    ],
+    tasks: [
+      { owner: "수입자", title: "수입자 주소와 연락처 최종 회신", detail: "선적 전", tone: "info" },
+      { owner: "물류", title: "포장 박스 원산지와 인보이스 원산지 대조", detail: "출고 전", tone: "pass" }
+    ],
+    versions: [
+      { label: "v2", date: "06.18", status: "통과", tone: "pass" },
+      { label: "v1", date: "06.01", status: "보완", tone: "warn" }
+    ],
+    timeline: ["v2 통과 리포트 생성", "통관·물류 견적 요청", "수입자 주소 회신 대기"]
+  },
+  {
+    id: "demo-cleanser",
+    name: "그린티 클렌징폼 150ml",
+    category: "화장품",
+    market: "대만",
+    stage: "done",
+    status: "통과 · 모니터링",
+    tone: "pass",
+    nextAction: "규제 변경 영향 발생 시 자동 재검토",
+    due: "상시",
+    meta: "v2 통과 · 판매 중 · 룰셋 변경 감시",
+    progress: 100,
+    owner: "운영",
+    documents: [
+      { name: "통과 리포트", status: "완료", tone: "pass" },
+      { name: "COA", status: "완료", tone: "pass" },
+      { name: "중문 라벨", status: "완료", tone: "pass" },
+      { name: "규제 감시", status: "활성", tone: "pass" }
+    ],
+    tasks: [
+      { owner: "운영", title: "규제 업데이트 큐 감시 유지", detail: "월간", tone: "pass" }
+    ],
+    versions: [
+      { label: "v2", date: "04.22", status: "통과", tone: "pass" },
+      { label: "v1", date: "04.08", status: "보완", tone: "warn" }
+    ],
+    timeline: ["판매 중 모니터링 전환", "v2 통과 리포트 생성", "v1 보완 항목 해결"]
+  }
+];
 
 function nowTime() {
   return "2026-06-26";
@@ -620,7 +781,13 @@ export default function Home() {
           </>
         )}
 
-        {screen === "products" && <ProductsScreen savedReviews={savedReviews} onOpen={(review) => { setInput(review.input); setResult(review.result); setScreen("review"); }} />}
+        {screen === "products" && (
+          <ProductsScreen
+            savedReviews={savedReviews}
+            onOpen={(review) => { setInput(review.input); setResult(review.result); setScreen("review"); }}
+            onRecheck={(review) => void runReview(review.input)}
+          />
+        )}
         {screen === "updates" && <UpdatesScreen onSelect={setSelectedSource} selectedSource={selectedSource} />}
         {screen === "partners" && <PartnersScreen onExpert={() => setShowExpertModal(true)} onLogistics={() => setShowLogisticsModal(true)} />}
       </section>
@@ -797,6 +964,127 @@ function ExecutionConsole({ findings, onSelect }: { findings: Finding[]; onSelec
   );
 }
 
+function productStageForReview(review: SavedReview): ProductFilter {
+  if (review.result.summary.fail > 0 || review.result.summary.needsInfo > 0 || review.result.summary.warn > 0) return "act";
+  return "done";
+}
+
+function formatShortDate(value: string) {
+  return new Date(value).toLocaleDateString("ko-KR", { month: "2-digit", day: "2-digit" }).replace(/\.\s?/g, ".").replace(/\.$/, "");
+}
+
+function statusTone(status: ReviewStatus) {
+  return statusCopy[status].tone;
+}
+
+function documentStatus(name: string, status: string, tone: string): WorkspaceDoc {
+  return { name, status, tone };
+}
+
+function docsForReview(review: SavedReview): WorkspaceDoc[] {
+  const findingIds = new Set(review.result.findings.map((finding) => finding.id));
+  const hasFoodRule = review.result.ruleVersion.includes("FOOD");
+  const needsLabel = review.result.findings.some((finding) => finding.area === "라벨" || finding.area === "식품표시");
+  const needsTrade = review.result.findings.some((finding) => finding.area === "통관" && finding.status !== "pass");
+  const needsConcentration = review.result.findings.some((finding) => finding.id.includes("missing-concentration"));
+
+  if (hasFoodRule) {
+    return [
+      documentStatus("제품정보표", findingIds.has("food-import-inspection-docs-present") ? "완료" : "필요", findingIds.has("food-import-inspection-docs-present") ? "pass" : "warn"),
+      documentStatus("수입신고서", findingIds.has("food-import-inspection-docs-present") ? "완료" : "필요", findingIds.has("food-import-inspection-docs-present") ? "pass" : "warn"),
+      documentStatus("식품업자 등록", findingIds.has("food-importer-registration-present") ? "완료" : "확인", findingIds.has("food-importer-registration-present") ? "pass" : "info"),
+      documentStatus(
+        "HS 0307 위생증명서",
+        findingIds.has("food-import-hs0307-health-certificate-present")
+          ? "완료"
+          : findingIds.has("food-import-hs0307-health-certificate-needed")
+            ? "필요"
+            : "해당 없음",
+        findingIds.has("food-import-hs0307-health-certificate-needed") ? "danger" : "pass"
+      ),
+      documentStatus("중문 라벨", needsLabel ? "보완" : "완료", needsLabel ? "warn" : "pass")
+    ];
+  }
+
+  return [
+    documentStatus("PIF", findingIds.has("pif-2026") ? "준비" : "모니터링", findingIds.has("pif-2026") ? "warn" : "info"),
+    documentStatus("COA / 조성표", needsConcentration ? "필요" : "완료", needsConcentration ? "warn" : "pass"),
+    documentStatus("중문 라벨", needsLabel ? "보완" : "완료", needsLabel ? "warn" : "pass"),
+    documentStatus("CFS / GMP", "보관", "info"),
+    documentStatus("인보이스 / 패킹리스트", needsTrade ? "확인" : "완료", needsTrade ? "info" : "pass")
+  ];
+}
+
+function productTasksForReview(review: SavedReview): WorkspaceTask[] {
+  const tasks = prioritizedFindings(review.result.findings).map((finding) => ({
+    owner: ownerForFinding(finding),
+    title: finding.fix[0] || finding.title,
+    detail: `${impactForFinding(finding)} · ${etaForFinding(finding)}`,
+    tone: statusTone(finding.status)
+  }));
+
+  if (tasks.length > 0) return tasks;
+
+  return [
+    {
+      owner: "운영",
+      title: "룰셋 변경 감시 유지",
+      detail: "통과 리포트 보관",
+      tone: "pass"
+    }
+  ];
+}
+
+function buildWorkspaceProducts(savedReviews: SavedReview[]): WorkspaceProduct[] {
+  const groups = new Map<string, SavedReview[]>();
+  for (const review of savedReviews) {
+    const key = review.input.productName.trim() || "이름 없는 제품";
+    groups.set(key, [...(groups.get(key) ?? []), review]);
+  }
+
+  const savedProducts = Array.from(groups.entries()).map(([name, reviews]) => {
+    const latest = reviews[0];
+    const topFinding = prioritizedFindings(latest.result.findings)[0];
+    const stage = productStageForReview(latest);
+    const passCount = latest.result.summary.pass;
+    const totalCount = Math.max(latest.result.findings.length, 1);
+    const progress = stage === "done" ? 100 : Math.max(12, Math.round((passCount / totalCount) * 100));
+    const status = statusCopy[latest.result.status];
+    const versions = reviews.map((review, index) => ({
+      label: `v${reviews.length - index}`,
+      date: formatShortDate(review.result.generatedAt),
+      status: `${statusCopy[review.result.status].label} · ${review.result.score}점`,
+      tone: statusTone(review.result.status)
+    }));
+
+    return {
+      id: `saved-${latest.id}`,
+      name,
+      category: latest.result.ruleVersion.includes("FOOD") ? "식품" : "화장품",
+      market: "대만",
+      stage,
+      status: status.label,
+      tone: status.tone,
+      nextAction: topFinding?.fix[0] || "규제 변경 감시 유지",
+      due: topFinding ? etaForFinding(topFinding) : "상시",
+      meta: `${versions[0]?.label ?? "v1"} · 룰셋 ${latest.result.ruleVersion} · ${formatShortDate(latest.result.generatedAt)}`,
+      progress,
+      owner: topFinding ? ownerForFinding(topFinding) : "운영",
+      review: latest,
+      documents: docsForReview(latest),
+      tasks: productTasksForReview(latest),
+      versions,
+      timeline: versions.map((version) => `${version.label} 검토 · ${version.status}`)
+    } satisfies WorkspaceProduct;
+  });
+
+  const savedNames = new Set(savedProducts.map((product) => product.name));
+  return [
+    ...savedProducts,
+    ...demoWorkspaceProducts.filter((product) => !savedNames.has(product.name))
+  ];
+}
+
 function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; expanded: boolean; onToggle: () => void; onAsk: () => void }) {
   const copy = statusCopy[finding.status];
   const knowledgeHref = `/knowledge?q=${encodeURIComponent(knowledgeQueryForFinding(finding))}`;
@@ -927,40 +1215,183 @@ function Analyzing() {
   );
 }
 
-function ProductsScreen({ savedReviews, onOpen }: { savedReviews: SavedReview[]; onOpen: (review: SavedReview) => void }) {
+function ProductsScreen({ savedReviews, onOpen, onRecheck }: { savedReviews: SavedReview[]; onOpen: (review: SavedReview) => void; onRecheck: (review: SavedReview) => void }) {
+  const [query, setQuery] = useState("");
+  const [productFilter, setProductFilter] = useState<ProductFilter>("all");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [checkedTasks, setCheckedTasks] = useState<Record<string, boolean>>({});
+  const products = useMemo(() => buildWorkspaceProducts(savedReviews), [savedReviews]);
+  const counts = {
+    all: products.length,
+    act: products.filter((product) => product.stage === "act").length,
+    wait: products.filter((product) => product.stage === "wait").length,
+    done: products.filter((product) => product.stage === "done").length
+  };
+  const visibleProducts = products.filter((product) => {
+    const matchesFilter = productFilter === "all" || product.stage === productFilter;
+    const matchesQuery = !query.trim() || `${product.name} ${product.category} ${product.nextAction}`.toLowerCase().includes(query.trim().toLowerCase());
+    return matchesFilter && matchesQuery;
+  });
+  const selectedProduct = products.find((product) => product.id === selectedId) || visibleProducts[0] || products[0];
+  const readyDocs = selectedProduct.documents.filter((doc) => doc.tone === "pass").length;
+  const taskKeys = selectedProduct.tasks.map((_, index) => `${selectedProduct.id}-${index}`);
+  const doneTasks = taskKeys.filter((key) => checkedTasks[key]).length;
+
+  function toggleTask(key: string) {
+    setCheckedTasks((current) => ({ ...current, [key]: !current[key] }));
+  }
+
   return (
-    <div className="screen-grid">
-      <section className="list-pane">
-        <h2>검토 이력</h2>
-        <p className="muted">고객이 다시 들어왔을 때 가장 먼저 확인하는 보관함입니다.</p>
-        <div className="saved-list">
-          {savedReviews.map((review, index) => (
-            <button key={review.id} className="saved-item" onClick={() => onOpen(review)}>
-              <span className={`dot ${statusCopy[review.result.status].tone}`} />
+    <div className="product-workspace">
+      <section className="product-library">
+        <div className="product-toolbar">
+          <div>
+            <span>제품 보관함</span>
+            <h2>내 제품 {products.length}개</h2>
+          </div>
+          <button className="ghost-btn" onClick={() => setProductFilter("act")}>
+            <RefreshCw size={15} /> 재검토 대상
+          </button>
+        </div>
+
+        <label className="product-search">
+          <Search size={16} />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="제품명, 품목, 다음 할 일 검색" />
+        </label>
+
+        <div className="product-filters" aria-label="제품 상태 필터">
+          <button className={productFilter === "all" ? "active" : ""} onClick={() => setProductFilter("all")}>전체 {counts.all}</button>
+          <button className={productFilter === "act" ? "active" : ""} onClick={() => setProductFilter("act")}>조치 {counts.act}</button>
+          <button className={productFilter === "wait" ? "active" : ""} onClick={() => setProductFilter("wait")}>대기 {counts.wait}</button>
+          <button className={productFilter === "done" ? "active" : ""} onClick={() => setProductFilter("done")}>통과 {counts.done}</button>
+        </div>
+
+        <div className="product-card-list">
+          {visibleProducts.map((product) => (
+            <button key={product.id} className={selectedProduct.id === product.id ? "product-card active" : "product-card"} onClick={() => setSelectedId(product.id)}>
+              <span className={`product-status ${product.tone}`}>{product.status}</span>
               <div>
-                <b>{review.input.productName || "이름 없는 제품"}</b>
-                <small>v{savedReviews.length - index} · {statusCopy[review.result.status].label} · {new Date(review.result.generatedAt).toLocaleString("ko-KR")}</small>
+                <b>{product.name}</b>
+                <small>{product.category} · {product.market} · 담당 {product.owner}</small>
               </div>
-              <ArrowRight size={17} />
+              <p>{product.nextAction}</p>
+              <div className="product-card-foot">
+                <em>{product.due}</em>
+                <span>{product.progress}%</span>
+              </div>
             </button>
           ))}
+          {visibleProducts.length === 0 && (
+            <div className="empty-product-state">
+              <Search size={18} />
+              <b>검색 결과 없음</b>
+              <small>다른 제품명이나 상태 필터를 선택하세요.</small>
+            </div>
+          )}
         </div>
       </section>
 
-      <section className="detail-pane">
-        <h2>지금 할 일</h2>
-        <div className="task-list">
-          <label><input type="checkbox" /> 제조사에서 Triclosan 함량 또는 대체 처방 확인</label>
-          <label><input type="checkbox" /> 디자이너에게 중문 주의사항과 수입자 정보 추가 요청</label>
-          <label><input type="checkbox" /> PIF 준비도 체크리스트 작성</label>
-          <label><input type="checkbox" /> 수정본 라벨 업로드 후 재검토</label>
+      <section className="product-detail">
+        <div className="product-detail-head">
+          <div>
+            <span>{selectedProduct.category} · {selectedProduct.market}</span>
+            <h2>{selectedProduct.name}</h2>
+            <p>{selectedProduct.meta}</p>
+          </div>
+          <strong className={`product-status ${selectedProduct.tone}`}>{selectedProduct.status}</strong>
         </div>
-        <h2>수출 서류함</h2>
-        <div className="doc-grid">
-          <span><FileText size={18} /> PIF 준비도</span>
-          <span><FileText size={18} /> COA / 조성표</span>
-          <span><FileText size={18} /> CFS / GMP</span>
-          <span><FileText size={18} /> 인보이스 / 패킹리스트</span>
+
+        <div className="product-progress">
+          <div>
+            <b>{selectedProduct.progress}%</b>
+            <span>{selectedProduct.nextAction}</span>
+          </div>
+          <i style={{ width: `${selectedProduct.progress}%` }} />
+        </div>
+
+        <div className="product-actions">
+          {selectedProduct.review && <button className="primary-btn" onClick={() => onOpen(selectedProduct.review!)}><FileText size={16} /> 최신 리포트 열기</button>}
+          {selectedProduct.review && <button className="ghost-btn" onClick={() => onRecheck(selectedProduct.review!)}><RefreshCw size={16} /> 최신본 재검토</button>}
+          <button className="ghost-btn" onClick={() => window.print()}><Download size={16} /> 체크리스트 내보내기</button>
+        </div>
+
+        <div className="product-kpis">
+          <span><b>{selectedProduct.versions.length}</b>버전</span>
+          <span><b>{readyDocs}/{selectedProduct.documents.length}</b>문서 준비</span>
+          <span><b>{doneTasks}/{selectedProduct.tasks.length}</b>할 일 완료</span>
+          <span><b>{selectedProduct.due}</b>다음 기한</span>
+        </div>
+
+        <div className="product-detail-grid">
+          <section className="product-panel">
+            <div className="panel-row-head">
+              <h3>지금 할 일</h3>
+              <span>{doneTasks}/{selectedProduct.tasks.length}</span>
+            </div>
+            <div className="todo-list">
+              {selectedProduct.tasks.map((task, index) => {
+                const key = `${selectedProduct.id}-${index}`;
+                return (
+                  <label key={key} className={checkedTasks[key] ? "todo-row done" : "todo-row"}>
+                    <input checked={Boolean(checkedTasks[key])} onChange={() => toggleTask(key)} type="checkbox" />
+                    <span className={`owner-chip ${task.tone}`}>{task.owner}</span>
+                    <b>{task.title}</b>
+                    <small>{task.detail}</small>
+                  </label>
+                );
+              })}
+            </div>
+          </section>
+
+          <section className="product-panel">
+            <div className="panel-row-head">
+              <h3>수출 서류</h3>
+              <span>{readyDocs}/{selectedProduct.documents.length}</span>
+            </div>
+            <div className="doc-list">
+              {selectedProduct.documents.map((doc) => (
+                <div key={doc.name} className="doc-row">
+                  <FileText size={16} />
+                  <b>{doc.name}</b>
+                  <span className={`product-status ${doc.tone}`}>{doc.status}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <div className="product-detail-grid">
+          <section className="product-panel">
+            <div className="panel-row-head">
+              <h3>검토 이력</h3>
+              <span>{selectedProduct.versions[0]?.label}</span>
+            </div>
+            <div className="version-list">
+              {selectedProduct.versions.map((version) => (
+                <div key={`${version.label}-${version.date}`} className="version-row">
+                  <b>{version.label}</b>
+                  <span>{version.date}</span>
+                  <em className={`product-status ${version.tone}`}>{version.status}</em>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="product-panel">
+            <div className="panel-row-head">
+              <h3>활동 타임라인</h3>
+              <span>최근순</span>
+            </div>
+            <div className="product-timeline">
+              {selectedProduct.timeline.map((item, index) => (
+                <div key={`${item}-${index}`} className={index === 0 ? "now" : ""}>
+                  <span />
+                  <b>{item}</b>
+                  <small>{index === 0 ? "현재" : `${index + 1}단계 전`}</small>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </div>
