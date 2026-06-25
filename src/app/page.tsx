@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
-import { cleanSampleReview, foodAdditiveSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import { cleanSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
@@ -153,7 +153,7 @@ export default function Home() {
     setInput((current) => ({ ...current, [key]: value }));
   }
 
-  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-additive") {
+  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-additive" | "food-claim") {
     const next =
       kind === "risky"
         ? sampleReview
@@ -161,6 +161,8 @@ export default function Home() {
           ? foodRiskSampleReview
           : kind === "food-additive"
             ? foodAdditiveSampleReview
+          : kind === "food-claim"
+            ? foodClaimSampleReview
           : kind === "food-clean"
             ? foodCleanSampleReview
             : cleanSampleReview;
@@ -174,6 +176,8 @@ export default function Home() {
           ? "식품 알레르겐 누락 예시 샘플을 채웠습니다."
           : kind === "food-additive"
             ? "식품첨가물 확인 예시 샘플을 채웠습니다."
+          : kind === "food-claim"
+            ? "식품 권장 알레르겐·강조표시 예시 샘플을 채웠습니다."
           : kind === "food-clean"
             ? "식품 통과 예시 샘플을 채웠습니다."
             : "화장품 통과 예시 샘플을 채웠습니다."
@@ -366,6 +370,7 @@ export default function Home() {
                 <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물 샘플</button>
+                <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
                 <button className="primary-btn wide" onClick={() => void runReview()} disabled={isAnalyzing}>
                   {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}

@@ -57,8 +57,12 @@ const SOURCE_FOOD_ACT = "Act Governing Food Safety and Sanitation, Articles 3 an
 const SOURCE_FOOD_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001";
 const SOURCE_FOOD_NUTRITION = "TFDA Regulations on Nutrition Labeling for Prepackaged Food Products";
 const SOURCE_FOOD_NUTRITION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633";
+const SOURCE_FOOD_NUTRITION_CLAIM = "TFDA Revised Regulations on Nutrition Claim for Prepackaged Food Products";
+const SOURCE_FOOD_NUTRITION_CLAIM_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3522";
 const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
 const SOURCE_FOOD_ALLERGEN_URL = "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315";
+const SOURCE_FOOD_RECOMMENDED_ALLERGEN = "TFDA Regulations Governing Food Allergen Labeling on the Recommended Labeling Allergens";
+const SOURCE_FOOD_RECOMMENDED_ALLERGEN_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3407";
 const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Application and Limitation of Food Additives";
 const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
@@ -118,6 +122,9 @@ const indexedAliasesByRule = new Map(
 );
 const foodAdditiveTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTerm[]).filter(
   (term) => term.category === "food_additive"
+);
+const foodAdvisoryAllergenTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTerm[]).filter(
+  (term) => term.category === "food_allergen_advisory"
 );
 
 const labelRequirements = [
@@ -224,6 +231,26 @@ function matchedAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
     const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
 
     if (isLatinShortAlias || isLowConfidence) {
+      return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+    }
+
+    if (normalizedAlias.length < 2) return false;
+    return value.includes(normalizedAlias);
+  });
+}
+
+function matchedAliasInText(text: string, aliases: IndexedAlias[]) {
+  const value = normalizeForMatch(text);
+
+  return aliases.find((alias) => {
+    const normalizedAlias = alias.normalized ?? normalizeForMatch(alias.value);
+    if (!normalizedAlias) return false;
+
+    const isLatinAlias = /^[a-z0-9.+-]+$/i.test(normalizedAlias);
+    const isLatinShortAlias = isLatinAlias && normalizedAlias.length <= 3;
+    const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
+
+    if (isLatinAlias || isLatinShortAlias || isLowConfidence) {
       return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
     }
 
@@ -342,6 +369,39 @@ const taiwanFoodAllergens = [
   { id: "sulphites", label: "sulphites", pattern: /sulphite|sulfite|so2|sulfur dioxide|아황산|이산화황|亞硫酸|二氧化硫/i }
 ];
 
+const nutritionClaimPatterns = [
+  {
+    id: "sugar",
+    label: "sugar claim",
+    pattern: /\b(?:low|no|zero|reduced|less)\s+sugar\b|\bsugar[-\s]?free\b|低糖|無糖|减糖|減糖|無添加糖|무당|무가당|저당|당류\s*(?:제로|0|무첨가|낮춤)/i
+  },
+  {
+    id: "fat",
+    label: "fat claim",
+    pattern: /\b(?:low|no|zero|reduced|less)\s+fat\b|\bfat[-\s]?free\b|低脂|無脂|減脂|저지방|무지방|지방\s*(?:제로|0|낮춤)/i
+  },
+  {
+    id: "protein",
+    label: "protein claim",
+    pattern: /\b(?:high|rich in|source of)\s+protein\b|高蛋白|蛋白質來源|고단백|단백질\s*(?:강화|풍부|함유|보충|소스)/i
+  },
+  {
+    id: "fiber",
+    label: "fiber claim",
+    pattern: /\b(?:high|rich in|source of)\s+fib(?:er|re)\b|高纖|膳食纖維來源|고식이섬유|식이섬유\s*(?:강화|풍부|함유)/i
+  },
+  {
+    id: "sodium",
+    label: "sodium claim",
+    pattern: /\b(?:low|no|zero|reduced|less)\s+sodium\b|\bsodium[-\s]?free\b|低鈉|減鈉|無鈉|저나트륨|나트륨\s*(?:제로|0|낮춤)/i
+  },
+  {
+    id: "calorie",
+    label: "calorie claim",
+    pattern: /\b(?:low|reduced|less)\s+(?:calorie|calories|kcal)\b|\blight\b|低熱量|低卡|減熱量|저칼로리|라이트/i
+  }
+];
+
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   for (const requirement of foodLabelRequirements) {
     if (!requirement.present(input)) {
@@ -394,6 +454,54 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
       fix: ["원료명, 향료, 복합원료, 가공보조제, 교차오염 정보를 공급사 문서와 대조"],
       source: SOURCE_FOOD_ALLERGEN,
       sourceUrl: SOURCE_FOOD_ALLERGEN_URL
+    });
+  }
+
+  const matchedAdvisoryAllergens = foodAdvisoryAllergenTerms
+    .map((term) => ({
+      term,
+      alias: matchedAliasInText(combinedText, term.aliases ?? [])
+    }))
+    .filter((entry) => entry.alias);
+
+  for (const { term, alias } of matchedAdvisoryAllergens) {
+    findings.push({
+      id: `food-recommended-allergen-${term.id}`,
+      status: "needs_info",
+      area: "알레르겐",
+      title: `대만 권장 알레르겐 표시 검토 필요: ${term.canonical_name}`,
+      severity: "medium",
+      why: "대만 TFDA는 일부 원료에 대해 의무 알레르겐과 별도로 권장 알레르겐 표시 또는 교차오염 advisory 검토를 안내합니다. 자동 판정은 차단이 아니라 라벨 문구와 공급사 자료 확인 대상으로 분류합니다.",
+      fix: [
+        "원료 규격서에서 해당 권장 알레르겐 유래 여부와 정제/가공 상태 확인",
+        "중국어 라벨에 권장 알레르겐 또는 교차오염 advisory 문구가 필요한지 대만 수입자와 검토",
+        "의무 알레르겐과 혼동되지 않도록 라벨 문구를 분리해서 관리"
+      ],
+      source: SOURCE_FOOD_RECOMMENDED_ALLERGEN,
+      sourceUrl: SOURCE_FOOD_RECOMMENDED_ALLERGEN_URL,
+      evidence: alias ? `${term.canonical_name} / ${alias.value}` : term.canonical_name
+    });
+  }
+
+  const claimText = `${input.productName} ${input.labelText}`;
+  const matchedNutritionClaims = nutritionClaimPatterns.filter((claim) => claim.pattern.test(claimText));
+
+  for (const claim of matchedNutritionClaims) {
+    findings.push({
+      id: `food-nutrition-claim-${claim.id}`,
+      status: "needs_info",
+      area: "영양표시",
+      title: `대만 영양 강조표시 기준 확인 필요: ${claim.label}`,
+      severity: "medium",
+      why: "제품명 또는 라벨 문구에서 영양 강조표시가 탐지되었습니다. 대만 사전포장식품 영양 강조표시는 영양성분 함량, 1회 제공량 기준, 비교 표현, 중국어 문구가 기준에 맞는지 확인해야 합니다.",
+      fix: [
+        "시험성적서 또는 배합 기준으로 강조한 영양성분 수치와 제공량 기준 확인",
+        "대만 영양 강조표시 기준의 claim threshold와 비교표시 요건 대조",
+        "중국어 라벨의 강조 문구가 수치·영양표시와 충돌하지 않는지 최종 검수"
+      ],
+      source: SOURCE_FOOD_NUTRITION_CLAIM,
+      sourceUrl: SOURCE_FOOD_NUTRITION_CLAIM_URL,
+      evidence: claim.label
     });
   }
 

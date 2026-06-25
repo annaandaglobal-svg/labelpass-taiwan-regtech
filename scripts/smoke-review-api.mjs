@@ -145,6 +145,45 @@ if (foodAdditiveResult.status === "fail") {
   throw new Error("Food additive review: expected non-fail status for additive-only review");
 }
 
+const foodClaimResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "High Protein Low Sugar Kiwi Squid Snack",
+    productType: "prepackaged food / snack / 식품",
+    ingredientsText: "Rice, pea protein, squid powder, kiwifruit powder, sunflower seed oil, erythritol, salt",
+    labelText: "品名：高蛋白低糖奇異果魷魚脆片. 內容量：50g. 成分：米、豌豆蛋白、魷魚粉、奇異果粉、葵花籽油、赤藻糖醇、鹽. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-08-01. 營養標示：每份熱量 110 kcal, 蛋白質 12g, 脂肪 2g, 碳水化合物 10g, 糖 1g, 鈉 180mg. 本產品含魷魚、奇異果；高蛋白、低糖標示需依檢驗值確認.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!foodClaimResponse.ok) {
+  throw new Error(`Food claim review: Review API returned ${foodClaimResponse.status}`);
+}
+
+const foodClaimResult = await foodClaimResponse.json();
+
+if (foodClaimResult.status === "fail") {
+  throw new Error("Food claim review: expected non-fail status for recommended allergen and nutrition claim review");
+}
+
+if (!foodClaimResult.findings?.some((finding) => finding.id === "food-recommended-allergen-cephalopods-advisory-allergen")) {
+  throw new Error("Food claim review: expected cephalopods recommended allergen finding");
+}
+
+if (!foodClaimResult.findings?.some((finding) => finding.id === "food-recommended-allergen-kiwifruit-advisory-allergen")) {
+  throw new Error("Food claim review: expected kiwifruit recommended allergen finding");
+}
+
+if (!foodClaimResult.findings?.some((finding) => finding.id === "food-nutrition-claim-protein")) {
+  throw new Error("Food claim review: expected protein nutrition claim finding");
+}
+
+if (!foodClaimResult.findings?.some((finding) => finding.id === "food-nutrition-claim-sugar")) {
+  throw new Error("Food claim review: expected sugar nutrition claim finding");
+}
+
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
@@ -183,4 +222,4 @@ for (const testCase of knowledgeCases) {
   }
 }
 
-console.log(`API smoke test passed: ${cases.length + 3} review cases, ${knowledgeCases.length} knowledge cases.`);
+console.log(`API smoke test passed: ${cases.length + 4} review cases, ${knowledgeCases.length} knowledge cases.`);

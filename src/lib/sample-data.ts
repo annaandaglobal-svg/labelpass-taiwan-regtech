@@ -129,6 +129,33 @@ export const foodAdditiveSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const foodClaimSampleReview: ReviewInput = {
+  productName: "고단백 저당 키위 오징어 스낵 50g",
+  productType: "prepackaged food / snack / 식품",
+  origin: "대한민국",
+  manufacturer: "ANNAANDA Foods, Seoul / Taiwan Importer Co.",
+  invoiceValue: "820",
+  ingredientsText: [
+    "Rice",
+    "Pea protein",
+    "Squid powder",
+    "Kiwifruit powder",
+    "Sunflower seed oil",
+    "Erythritol",
+    "Salt"
+  ].join(", "),
+  labelText: [
+    "品名：高蛋白低糖奇異果魷魚脆片",
+    "內容量：50g",
+    "成分：米、豌豆蛋白、魷魚粉、奇異果粉、葵花籽油、赤藻糖醇、鹽",
+    "原產地：韓國",
+    "進口商：Taiwan Importer Co.",
+    "有效日期：2027.08.01",
+    "營養標示：每份熱量 110 kcal、蛋白質 12g、脂肪 2g、碳水化合物 10g、糖 1g、鈉 180mg",
+    "本產品含魷魚、奇異果；高蛋白、低糖標示需依檢驗值確認"
+  ].join("\n")
+};
+
 export const sourceCards = [
   {
     title: "Cosmetic Hygiene and Safety Act",
@@ -183,5 +210,17 @@ export const sourceCards = [
     detail: "Nutrition labeling requirements for prepackaged food products, used as the baseline for calories, protein, fat, carbohydrate, sugar, sodium, and serving information checks.",
     url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633",
     tag: "영양표시"
+  },
+  {
+    title: "TFDA recommended allergen labeling",
+    detail: "Recommended allergen-labeling source used for advisory checks on cephalopods, mollusks, seeds, and kiwifruit without treating them as automatic failures.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3407",
+    tag: "권장 알레르겐"
+  },
+  {
+    title: "TFDA nutrition claims",
+    detail: "Nutrition claim rules used when labels say low sugar, high protein, low sodium, high fiber, low calorie, or similar claim wording.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3522",
+    tag: "강조표시"
   }
 ];
