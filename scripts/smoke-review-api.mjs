@@ -87,6 +87,33 @@ if (!foodResult.findings?.some((finding) => finding.id === "food-allergen-peanut
   throw new Error("Food review: expected peanut allergen failure");
 }
 
+const foodCleanResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Citron Herbal Tea",
+    productType: "prepackaged food / tea / 식품",
+    ingredientsText: "Citron peel, rooibos, peppermint, dried apple",
+    labelText: "品名：柚子草本茶. 內容量：40g. 成分：柚子皮、南非國寶茶、薄荷、乾燥蘋果. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-03-01. 營養標示：每份熱量 5 kcal, 蛋白質 0g, 脂肪 0g, 碳水化合物 1g, 糖 0g, 鈉 0mg.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!foodCleanResponse.ok) {
+  throw new Error(`Food clean review: Review API returned ${foodCleanResponse.status}`);
+}
+
+const foodCleanResult = await foodCleanResponse.json();
+
+if (foodCleanResult.ruleVersion !== "TW-FOOD-2026.06-draft") {
+  throw new Error(`Food clean review: expected TW food rule version, got ${foodCleanResult.ruleVersion}`);
+}
+
+if (foodCleanResult.status === "fail") {
+  throw new Error("Food clean review: expected non-fail status");
+}
+
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
@@ -114,4 +141,4 @@ for (const testCase of knowledgeCases) {
   }
 }
 
-console.log(`API smoke test passed: ${cases.length + 1} review cases, ${knowledgeCases.length} knowledge cases.`);
+console.log(`API smoke test passed: ${cases.length + 2} review cases, ${knowledgeCases.length} knowledge cases.`);

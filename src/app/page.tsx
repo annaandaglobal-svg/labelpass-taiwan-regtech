@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
-import { cleanSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import { cleanSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
@@ -153,21 +153,39 @@ export default function Home() {
     setInput((current) => ({ ...current, [key]: value }));
   }
 
-  function fillSample(kind: "risky" | "clean") {
-    const next = kind === "risky" ? sampleReview : cleanSampleReview;
+  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean") {
+    const next =
+      kind === "risky"
+        ? sampleReview
+        : kind === "food-risky"
+          ? foodRiskSampleReview
+          : kind === "food-clean"
+            ? foodCleanSampleReview
+            : cleanSampleReview;
     setInput(next);
     setResult(null);
     setExpandedFinding(null);
-    setToast(kind === "risky" ? "위반 예시 샘플을 채웠습니다." : "통과 예시 샘플을 채웠습니다.");
+    setToast(
+      kind === "risky"
+        ? "화장품 위반 예시 샘플을 채웠습니다."
+        : kind === "food-risky"
+          ? "식품 알레르겐 누락 예시 샘플을 채웠습니다."
+          : kind === "food-clean"
+            ? "식품 통과 예시 샘플을 채웠습니다."
+            : "화장품 통과 예시 샘플을 채웠습니다."
+    );
   }
 
   function classifyProduct() {
+    const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
+    const looksFood = /food|snack|tea|cookie|beverage|식품|과자|차|쿠키|食品|餅乾|茶|花生|小麥/i.test(haystack);
+
     setInput((current) => ({
       ...current,
-      productType: current.productType || "leave-on toner / 일반 화장품",
-      ingredientsText: current.ingredientsText || sampleReview.ingredientsText
+      productType: current.productType || (looksFood ? "prepackaged food / 식품" : "leave-on toner / 일반 화장품"),
+      ingredientsText: current.ingredientsText || (looksFood ? foodRiskSampleReview.ingredientsText : sampleReview.ingredientsText)
     }));
-    setToast("AI 품목 추정: 일반 화장품, leave-on 제품으로 분류했습니다.");
+    setToast(looksFood ? "AI 품목 추정: 대만 사전포장식품 기준으로 분류했습니다." : "AI 품목 추정: 일반 화장품, leave-on 제품으로 분류했습니다.");
   }
 
   async function runReview(nextInput = input) {
@@ -245,8 +263,8 @@ export default function Home() {
 
         <div className="side-panel">
           <div className="panel-kicker">룰셋</div>
-          <b>TW-COS-2026.06</b>
-          <p>공식 오픈데이터 우선, 애매 판정은 전문가 확인으로 분리합니다.</p>
+          <b>TW-COS / TW-FOOD 2026.06</b>
+          <p>화장품 성분 제한과 식품 표시·알레르겐을 분리해서 판정합니다.</p>
         </div>
       </aside>
 
@@ -284,7 +302,7 @@ export default function Home() {
                   <Search size={17} /> AI 품목 찾기
                 </button>
                 <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
-                <button onClick={() => updateInput("productType", "food / later")}>식품</button>
+                <button onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
                 <button onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
               </div>
 
@@ -341,8 +359,9 @@ export default function Home() {
               </label>
 
               <div className="action-row">
-                <button className="ghost-btn" onClick={() => fillSample("risky")}>위반 샘플 채우기</button>
-                <button className="ghost-btn" onClick={() => fillSample("clean")}>통과 샘플 채우기</button>
+                <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
+                <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
+                <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
                 <button className="primary-btn wide" onClick={() => void runReview()} disabled={isAnalyzing}>
                   {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
                   AI 1차 검토 시작

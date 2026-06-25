@@ -4,10 +4,10 @@ import { BookOpen, ExternalLink, Loader2, Search, Tags } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 
-const examples = ["살리실산", "水楊酸", "Kojic Acid", "IPBC", "氫氧化鈉", "CI 77891"];
+const examples = ["땅콩", "花生", "MSG", "味精", "벤조산나트륨", "살리실산", "水楊酸", "IPBC"];
 
 export default function KnowledgeSearchClient() {
-  const [query, setQuery] = useState("살리실산");
+  const [query, setQuery] = useState("땅콩");
   const [data, setData] = useState<KnowledgeSearchResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

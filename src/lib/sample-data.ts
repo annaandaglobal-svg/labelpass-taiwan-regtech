@@ -57,6 +57,54 @@ export const cleanSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const foodRiskSampleReview: ReviewInput = {
+  productName: "피넛 밀크 쿠키 120g",
+  productType: "prepackaged food / snack / 식품",
+  origin: "대한민국",
+  manufacturer: "ANNAANDA Foods, Seoul",
+  invoiceValue: "900",
+  ingredientsText: [
+    "Wheat flour",
+    "Peanut",
+    "Milk powder",
+    "Butter",
+    "Sugar",
+    "Salt"
+  ].join(", "),
+  labelText: [
+    "品名：花生牛奶餅乾",
+    "內容量：120g",
+    "成分：小麥粉、花生、奶粉、奶油、糖、鹽",
+    "原產地：韓國",
+    "有效日期：2027.01.01",
+    "營養標示：每份熱量 500 kcal、蛋白質 5g、脂肪 20g、碳水化合物 60g、鈉 300mg"
+  ].join("\n")
+};
+
+export const foodCleanSampleReview: ReviewInput = {
+  productName: "유자 허브티 20입",
+  productType: "prepackaged food / tea / 식품",
+  origin: "대한민국",
+  manufacturer: "ANNAANDA Foods, Seoul / Taiwan importer pending",
+  invoiceValue: "650",
+  ingredientsText: [
+    "Citron peel",
+    "Rooibos",
+    "Peppermint",
+    "Dried apple"
+  ].join(", "),
+  labelText: [
+    "品名：柚子草本茶",
+    "內容量：40g（2g x 20包）",
+    "成分：柚子皮、南非國寶茶、薄荷、乾燥蘋果",
+    "原產地：韓國",
+    "進口商：待確認",
+    "有效日期：2027.03.01",
+    "營養標示：每份熱量 5 kcal、蛋白質 0g、脂肪 0g、碳水化合物 1g、糖 0g、鈉 0mg",
+    "本產品不含公告指定過敏原；如有交叉污染疑慮請依供應商文件確認"
+  ].join("\n")
+};
+
 export const sourceCards = [
   {
     title: "Cosmetic Hygiene and Safety Act",
@@ -93,5 +141,23 @@ export const sourceCards = [
     detail: "TFDA states that from July 1, 2026, all cosmetic products except certain handmade solid soaps must have a PIF before marketing, sale, or consumer use.",
     url: "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",
     tag: "PIF"
+  },
+  {
+    title: "Act Governing Food Safety and Sanitation",
+    detail: "Article 22 is the backbone for Taiwan prepackaged food label checks, including name, ingredients, weight, expiry, origin, responsible firm, and other required consumer information.",
+    url: "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001",
+    tag: "식품"
+  },
+  {
+    title: "TFDA food allergen labeling",
+    detail: "Official Taiwan allergen-labeling rule used for peanut, milk, egg, gluten cereals, soy, sesame, fish, crustacea, sulphites, mango, and tree nut screening.",
+    url: "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315",
+    tag: "알레르겐"
+  },
+  {
+    title: "TFDA nutrition labeling",
+    detail: "Nutrition labeling requirements for prepackaged food products, used as the baseline for calories, protein, fat, carbohydrate, sugar, sodium, and serving information checks.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633",
+    tag: "영양표시"
   }
 ];
