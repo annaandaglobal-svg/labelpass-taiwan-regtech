@@ -277,6 +277,11 @@ const knowledgeCases = [
   { query: "過敏原標示", expectedTerm: "Food Allergen Labeling" },
   { query: "PIF", expectedTerm: "Cosmetic Product Information File", expectedFirst: "Cosmetic Product Information File" },
   { query: "化妆品备案", expectedTerm: "Cosmetic Product Notification" },
+  { query: "輸入化粧品檢驗", expectedTerm: "Imported Cosmetics Inspection" },
+  { query: "免申請查驗", expectedTerm: "Food Import Inspection Exemption" },
+  { query: "業務用食品標示", expectedTerm: "Business-use Food Intact Package Labeling" },
+  { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
+  { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
   { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
   { query: "DHA", expectedTerm: "Dehydroacetic Acid" },
   { query: "Gly", expectedTerm: "Glycine" }
@@ -308,7 +313,10 @@ const sourceCases = [
   { query: "April 1 2026 tariff", expectedSource: "jp-customs-tariff-schedule" },
   { query: "mofcom export control", expectedSource: "cn-mofcom-export-control-portal" },
   { query: "GC453 CCC CODE", expectedSource: "tw-customs-tariff-database-download" },
-  { query: "CCC import export regulation", expectedSource: "tw-trade-ccc-import-export-regulations" }
+  { query: "CCC import export regulation", expectedSource: "tw-trade-ccc-import-export-regulations" },
+  { query: "imported cosmetics inspection", expectedSource: "tw-tfda-imported-cosmetics-inspection" },
+  { query: "免申請查驗 通關代碼", expectedSource: "tw-tfda-food-import-inspection-exemptions" },
+  { query: "tariff query information", expectedSource: "tw-customs-tariff-system" }
 ];
 
 for (const testCase of sourceCases) {

@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-25",
+  "version": "2026-06-26",
   "default_cache_days": 14,
   "sources": [
     {
@@ -49,6 +49,31 @@
       "priority": "high",
       "cache_days": 7,
       "tags": ["pif", "guidance", "checklist", "cosmetics"]
+    },
+    {
+      "id": "tw-tfda-imported-cosmetics-inspection",
+      "title": "Regulations for the Inspection and Examination of Imported Cosmetics",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=5062&id=3191",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics_import",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "extra_urls": ["https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030102"],
+      "tags": ["cosmetics", "import-inspection", "sampling", "release", "nonconforming-goods"]
+    },
+    {
+      "id": "tw-tfda-cosmetics-management-transition-2021",
+      "title": "New Cosmetics Management System to Be Enforced from July 2021",
+      "url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=26899",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "notice",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["cosmetics", "notification", "labeling", "transition", "general-cosmetics"]
     },
     {
       "id": "tw-moj-cosmetic-product-notification",
@@ -287,6 +312,30 @@
       "tags": ["food", "bulk-food", "chinese-label"]
     },
     {
+      "id": "tw-tfda-food-business-use-intact-package-labeling",
+      "title": "Principles for Managing the Labeling of Foods (including Raw Materials) with Intact Package for Business Use",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3411",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "principle",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "business-use", "raw-materials", "intact-package", "repackaging", "chinese-label"]
+    },
+    {
+      "id": "tw-tfda-food-import-inspection-exemptions",
+      "title": "Requirements for Exemption from Inspection Application for Import of Food and Related Products and the Applicable Custom Code",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3371",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "import-inspection", "inspection-exemption", "custom-code", "personal-use"]
+    },
+    {
       "id": "tw-trade-import-export-regulations",
       "title": "Taiwan import and export related laws and regulations",
       "url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",
@@ -297,6 +346,18 @@
       "priority": "high",
       "cache_days": 14,
       "tags": ["import", "export", "shtc", "origin", "trade"]
+    },
+    {
+      "id": "tw-trade-import-export-administration",
+      "title": "Import and Export Administration",
+      "url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade",
+      "source_type": "guidance_index",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["import", "export", "permit", "licensing", "controlled-commodities"]
     },
     {
       "id": "tw-trade-ccc-import-export-regulations",
@@ -327,6 +388,18 @@
       "tags": ["hs-code", "ccc-code", "tariff", "customs", "import-export"]
     },
     {
+      "id": "tw-customs-tariff-system",
+      "title": "Tariff System - Customs Administration",
+      "url": "https://web.customs.gov.tw/en/multiplehtml/3349",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "tariff_index",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["customs", "tariff", "ccc-code", "hs-code", "tariff-query"]
+    },
+    {
       "id": "tw-customs-advance-tariff-classification-ruling",
       "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
       "url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4",
@@ -337,6 +410,18 @@
       "priority": "medium",
       "cache_days": 14,
       "tags": ["customs", "ccc-code", "tariff-classification", "advance-ruling"]
+    },
+    {
+      "id": "tw-customs-imported-goods-advance-tariff-classification-ruling",
+      "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
+      "url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "notice",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["customs", "ccc-code", "tariff-classification", "advance-ruling", "imported-goods"]
     },
     {
       "id": "tw-trade-origin-textiles-2023",

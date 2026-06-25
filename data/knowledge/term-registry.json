@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-25",
+  "version": "2026-06-26",
   "notes": "Curated aliases are merged with official TFDA ingredient aliases by scripts/build-term-index.mjs. Keep ambiguous trade/common names, but mark them in notes so review UI can ask for confirmation.",
   "terms": [
     {
@@ -2646,14 +2646,20 @@
         { "value": "tariff classification", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
         { "value": "customs code", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
         { "value": "tariff code", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "tariff query information", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "customs import tariff", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "tariff query", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "statistical code", "type": "common_name", "language": "en", "jurisdiction": "JP", "confidence": 0.9 },
         { "value": "세번", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
         { "value": "HS코드", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "관세 코드", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
         { "value": "대만 CCC 코드", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "대만 관세율 조회", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "HS碼", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
         { "value": "CCC碼", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
         { "value": "稅則號列", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "海關進口稅則", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "進口稅則", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "海關編碼", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "貨品分類號列", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "HS编码", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
@@ -2664,7 +2670,7 @@
         { "value": "関税番号", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.9 },
         { "value": "統計品目番号", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.95 }
       ],
-      "source_keys": ["global-wco-harmonized-system", "tw-customs-tariff-database-download", "tw-trade-ccc-import-export-regulations", "tw-customs-advance-tariff-classification-ruling", "jp-customs-tariff-schedule", "us-itc-harmonized-tariff", "kr-customs-tariff-list"],
+      "source_keys": ["global-wco-harmonized-system", "tw-customs-tariff-database-download", "tw-customs-tariff-system", "tw-trade-ccc-import-export-regulations", "tw-customs-advance-tariff-classification-ruling", "jp-customs-tariff-schedule", "us-itc-harmonized-tariff", "kr-customs-tariff-list"],
       "notes": "Concept term for tariff classification, customs statistical codes, and HS-code based routing."
     },
     {
@@ -2816,20 +2822,34 @@
         { "value": "commercial sale", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
         { "value": "sample shipment", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
         { "value": "demo shipment", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "personal use", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "testing", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "repair", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "return", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
         { "value": "출하 목적", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "수입 목적", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
         { "value": "상업 판매", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
         { "value": "샘플", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "자가사용", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "시험용", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "수리품", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "반품", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
         { "value": "貨物用途", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "進口目的", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
         { "value": "商業銷售", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "樣品", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "自用", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "檢測用", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "維修", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "退運", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
         { "value": "货物用途", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
         { "value": "进口目的", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "自用", "type": "purpose", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "测试用", "type": "purpose", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
         { "value": "貨物用途", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 },
         { "value": "輸入目的", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.9 }
       ],
-      "source_keys": ["tw-trade-import-export-regulations", "tw-trade-ccc-import-export-regulations"],
+      "source_keys": ["tw-trade-import-export-regulations", "tw-trade-ccc-import-export-regulations", "tw-tfda-food-import-inspection-exemptions"],
       "notes": "Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments."
     },
     {
@@ -2889,6 +2909,149 @@
       ],
       "source_keys": ["tw-moj-cosmetic-pif-management", "tw-tfda-food-additive-standards", "global-unece-ghs-rev11"],
       "notes": "Evidence-document concept for analytical test reports, specifications, safety files, and supplier documentation."
+    },
+    {
+      "id": "imported-cosmetics-inspection",
+      "canonical_name": "Imported Cosmetics Inspection",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "imported cosmetics inspection", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "cosmetics import inspection", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "sampling inspection", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "release permit", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "nonconforming goods", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "수입 화장품 검사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "수입 화장품 검험", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "輸入化粧品檢驗", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "輸入化粧品查驗", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "輸入許可", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "不合格品", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "进口化妆品检验", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "輸入化粧品検査", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-imported-cosmetics-inspection", "tw-moj-cosmetic-hygiene-safety-act"],
+      "notes": "Border inspection concept for imported cosmetics, including sampling, release, and nonconforming goods workflows."
+    },
+    {
+      "id": "food-import-inspection-exemption",
+      "canonical_name": "Food Import Inspection Exemption",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "food import inspection exemption", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "inspection exemption", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "custom code", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "personal use", "type": "purpose", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "수입식품 검사 면제", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "검사 면제", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "통관 코드", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "자가사용", "type": "purpose", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "免申請查驗", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "通關代碼", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "自用", "type": "purpose", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "进口食品检验豁免", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "通关代码", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "食品輸入検査免除", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-food-import-inspection-exemptions"],
+      "notes": "Taiwan food-import concept for exemption from inspection application, custom-code routing, and personal-use thresholds."
+    },
+    {
+      "id": "business-use-food-intact-package-labeling",
+      "canonical_name": "Business-use Food Intact Package Labeling",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "business-use food labeling", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "intact package", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "foods for business use", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "raw materials with intact package", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "B2B food labeling", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "업무용 식품 표시", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "완전포장 식품", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "식품 원료 표시", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "業務用食品標示", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "完整包裝", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "食品原料", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "分裝", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.8 },
+        { "value": "业务用食品标识", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "完整包装", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "業務用食品表示", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-food-business-use-intact-package-labeling"],
+      "notes": "Concept for B2B foods and raw materials in intact packages, especially imported goods that will be repackaged, sub-packaged, or further processed."
+    },
+    {
+      "id": "advance-tariff-classification-ruling",
+      "canonical_name": "Advance Tariff Classification Ruling",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "advance tariff classification ruling", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "advance classification ruling", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "pre-import classification ruling", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "import goods advance tariff ruling", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "사전 품목분류 심사", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "수입물품 사전세번심사", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "稅則預先審核", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "進口貨物稅則預先審核", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "貨品分類預先審核", "type": "common_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "税则预先审核", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "事前教示", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.8, "note": "Japanese customs term with similar workflow; verify jurisdiction." }
+      ],
+      "source_keys": ["tw-customs-imported-goods-advance-tariff-classification-ruling", "tw-customs-advance-tariff-classification-ruling", "tw-customs-tariff-database-download"],
+      "notes": "Customs workflow for obtaining a binding CCC-code classification ruling before import when product classification is uncertain."
+    },
+    {
+      "id": "import-export-permit",
+      "canonical_name": "Import and Export Permit",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "import permit", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "export permit", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "import license", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "export license", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "electronic licensing", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "negative list", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "controlled import", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "수입허가증", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "수출허가증", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "전자허가", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "수입통제", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "輸入許可證", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "輸出許可證", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "電子簽證", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "管制輸入", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "輸出入許可", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "进口许可证", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "出口许可证", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "輸入許可", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 },
+        { "value": "輸出許可", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-trade-import-export-administration", "tw-trade-import-export-regulations", "tw-trade-ccc-import-export-regulations"],
+      "notes": "Trade-control concept for import/export permits, electronic licensing, and commodity restrictions that may appear by CCC code."
     },
     {
       "id": "inci-ingredient-name",

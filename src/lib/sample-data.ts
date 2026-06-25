@@ -182,16 +182,40 @@ export const sourceCards = [
     tag: "CCC"
   },
   {
+    title: "Import and Export Administration",
+    detail: "TITA workflow for export/import permits, electronic licensing, permit applications, and import/export administration routing.",
+    url: "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+    tag: "허가"
+  },
+  {
     title: "GC453 tariff database download",
     detail: "CPT Single Window customs source for Taiwan tariff schedules, CCC code descriptions, tariff numbers, and advance tariff ruling materials.",
     url: "https://portal.sw.nat.gov.tw/APGQ/GC453",
     tag: "관세"
   },
   {
+    title: "Customs tariff system",
+    detail: "Taiwan Customs tariff-system index for tariff query information, HS revision materials, and import-tariff schedule context.",
+    url: "https://web.customs.gov.tw/en/multiplehtml/3349",
+    tag: "세번"
+  },
+  {
+    title: "Advance tariff classification ruling",
+    detail: "Keelung Customs guidance for binding CCC-code rulings before import when classification is uncertain.",
+    url: "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+    tag: "사전심사"
+  },
+  {
     title: "Cosmetic Hygiene and Safety Act",
     detail: "Article 6 bans or restricts ingredients by public announcement; Article 7 defines required cosmetic label items; Article 10 controls deceptive, exaggerated, and medical efficacy claims.",
     url: "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030013",
     tag: "법령"
+  },
+  {
+    title: "Imported cosmetics inspection",
+    detail: "TFDA imported-cosmetics inspection and examination source for border sampling, release, and nonconforming-goods workflows.",
+    url: "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=5062&id=3191",
+    tag: "수입검사"
   },
   {
     title: "TFDA prohibited ingredients",
@@ -234,6 +258,18 @@ export const sourceCards = [
     detail: "Official Taiwan allergen-labeling rule used for peanut, milk, egg, gluten cereals, soy, sesame, fish, crustacea, sulphites, mango, and tree nut screening.",
     url: "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315",
     tag: "알레르겐"
+  },
+  {
+    title: "TFDA food import inspection exemptions",
+    detail: "Import-inspection exemption and custom-code requirements for food and related products, including personal-use thresholds.",
+    url: "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3371",
+    tag: "검사면제"
+  },
+  {
+    title: "Business-use food intact package labeling",
+    detail: "TFDA principles for imported foods and raw materials in intact packages, including repackaging and Chinese-label timing.",
+    url: "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3411",
+    tag: "업무용식품"
   },
   {
     title: "TFDA nutrition labeling",

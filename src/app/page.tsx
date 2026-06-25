@@ -62,8 +62,24 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
   pass: { label: "통과 가능", tone: "pass", stamp: "合格" }
 };
 
+const knowledgeStats = {
+  sources: "83",
+  aliases: "3,116",
+  reviewCases: "9",
+  knowledgeCases: "35",
+  sourceCases: "8"
+};
+
+const flowSteps = [
+  { label: "라벨 검토", state: "done" },
+  { label: "수정 반영", state: "now" },
+  { label: "전문가 검수", state: "next" },
+  { label: "TFDA 등록", state: "next" },
+  { label: "통관·선적", state: "next" }
+] as const;
+
 function nowTime() {
-  return "2026-06-25";
+  return "2026-06-26";
 }
 
 function makeSavedReview(input: ReviewInput, result: ReviewResult): SavedReview {
@@ -258,7 +274,7 @@ export default function Home() {
     <main className="shell">
       <aside className="sidebar" aria-label="LabelPass navigation">
         <div className="brand">
-          <div className="brand-mark">LP</div>
+          <div className="brand-mark">合格</div>
           <div>
             <strong>LabelPass</strong>
             <span>대만 수출 규제검토</span>
@@ -283,7 +299,7 @@ export default function Home() {
         <header className="topbar">
           <div>
             <p className="eyebrow">1차 스크리닝 · 법률 자문 아님 · 기준일 {nowTime()}</p>
-            <h1>{screen === "review" ? "보내기 전에, 판정받으세요" : screenTitle(screen)}</h1>
+            <h1>{screen === "review" ? "대만 수출 라벨·통관 검토" : screenTitle(screen)}</h1>
           </div>
           <div className="top-actions">
             <a className="ghost-btn" href="/knowledge">
@@ -299,15 +315,53 @@ export default function Home() {
         </header>
 
         <div className="ops-strip" aria-label="LabelPass 운영 상태">
-          <StatusTile icon={<BookOpen />} label="공식 소스" value="76" detail="대만·글로벌 원문 캐시" />
-          <StatusTile icon={<Search />} label="검색 별칭" value="3,024" detail="다국어 성분·통관 용어" />
-          <StatusTile icon={<ClipboardCheck />} label="검토 케이스" value="9" detail="운영 API 스모크 통과" />
+          <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
+          <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
+          <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
           <StatusTile icon={<ShieldCheck />} label="배포 상태" value="Ready" detail="Vercel Production" />
         </div>
 
         {screen === "review" && (
+          <>
+          <section className="command-center" aria-label="LabelPass 검토 현황">
+            <div className="command-hero">
+              <span className="dday-chip">
+                <History size={15} />
+                D-5 · 2026.07.01 화장품 PIF 확대
+              </span>
+              <h2>라벨, 성분, 통관 자료를 한 번에 좁혀서 출고 판단까지 가져갑니다</h2>
+              <p>확정 가능한 성분·표시·통관 항목은 정형 룰로 대조하고, 경계 품목과 서류 부족은 전문가 검수로 넘길 수 있게 분리합니다.</p>
+              <div className="hero-proof">
+                <span><ShieldCheck size={15} /> 정형 룰 우선</span>
+                <span><BookOpen size={15} /> 공식 원문 링크</span>
+                <span><UserRoundCheck size={15} /> 전문가 전달용 리포트</span>
+              </div>
+            </div>
+
+            <div className="pipeline-card">
+              <div className="pipeline-top">
+                <span className="pipeline-badge">진행 중</span>
+                <div>
+                  <b>수분 진정 토너 300ml</b>
+                  <small>대만 · v3 · 라벨 수정 단계</small>
+                </div>
+              </div>
+              <ProgressRail />
+              <div className="pipeline-foot">
+                <span>다음 조치: 중문 주의사항·대만 수입자 정보 보강</span>
+                <button onClick={() => fillSample("risky")}>샘플 불러오기</button>
+              </div>
+            </div>
+          </section>
+
           <div className="review-grid">
             <section className="input-pane">
+              <div className="intake-rail" aria-label="검토 입력 단계">
+                <span className="done">1 품목</span>
+                <span className="now">2 라벨·성분</span>
+                <span>3 통관</span>
+                <span>4 판정</span>
+              </div>
               <div className="step-row">
                 <span>1</span>
                 <div>
@@ -497,6 +551,7 @@ export default function Home() {
               )}
             </section>
           </div>
+          </>
         )}
 
         {screen === "products" && <ProductsScreen savedReviews={savedReviews} onOpen={(review) => { setInput(review.input); setResult(review.result); setScreen("review"); }} />}
@@ -569,6 +624,18 @@ function StatusTile({ icon, label, value, detail }: { icon: React.ReactNode; lab
         <b>{value}</b>
         <em>{detail}</em>
       </div>
+    </div>
+  );
+}
+
+function ProgressRail() {
+  return (
+    <div className="progress-rail">
+      {flowSteps.map((step) => (
+        <span key={step.label} className={step.state}>
+          {step.label}
+        </span>
+      ))}
     </div>
   );
 }

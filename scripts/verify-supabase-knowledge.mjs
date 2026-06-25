@@ -58,7 +58,12 @@ const probeTermKeys = [
   "nutrition-labeling",
   "food-allergen-labeling",
   "cosmetic-product-information-file",
-  "cosmetic-product-notification"
+  "cosmetic-product-notification",
+  "imported-cosmetics-inspection",
+  "food-import-inspection-exemption",
+  "business-use-food-intact-package-labeling",
+  "advance-tariff-classification-ruling",
+  "import-export-permit"
 ];
 
 const probeAliases = [
@@ -82,7 +87,12 @@ const probeAliases = [
   "營養標示",
   "過敏原標示",
   "pif",
-  "化妆品备案"
+  "化妆品备案",
+  "輸入化粧品檢驗",
+  "免申請查驗",
+  "業務用食品標示",
+  "進口貨物稅則預先審核",
+  "輸入許可證"
 ];
 
 if (dryRun || !databaseUrl) {
