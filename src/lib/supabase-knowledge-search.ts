@@ -48,7 +48,11 @@ type SourceRow = {
   source_type: string;
   priority: string;
   tags: string[] | null;
+  cache_days: number | null;
   document_path: string | null;
+  fetched_at: Date | string | null;
+  from_cache: boolean | null;
+  extract: string | null;
   metadata: {
     format?: string;
     browser_capture?: boolean;
@@ -91,6 +95,22 @@ function numeric(value: string | number | null | undefined, fallback = 0.85) {
 
 function jsonArray(value: unknown): string[] {
   return Array.isArray(value) ? value.map(String) : [];
+}
+
+function timestamp(value: Date | string | null | undefined) {
+  if (!value) return null;
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+}
+
+function cacheExpiry(fetchedAt: string | null, cacheDays: number | null | undefined) {
+  if (!fetchedAt || !cacheDays) return null;
+  return new Date(Date.parse(fetchedAt) + cacheDays * 24 * 60 * 60 * 1000).toISOString();
+}
+
+function cacheStatus(cacheExpiresAt: string | null) {
+  if (!cacheExpiresAt) return "unknown";
+  return Date.parse(cacheExpiresAt) < Date.now() ? "stale" : "fresh";
 }
 
 async function readTotals(sql: DbClient): Promise<KnowledgeSearchResult["totals"]> {
@@ -212,6 +232,8 @@ async function readSourceRows(sql: DbClient, query: string, limit: number) {
       select distinct on (source_key)
         source_key,
         document_path,
+        fetched_at,
+        from_cache,
         metadata,
         extract
       from public.knowledge_snapshots
@@ -228,7 +250,11 @@ async function readSourceRows(sql: DbClient, query: string, limit: number) {
         s.source_type,
         s.priority,
         s.tags,
+        s.cache_days,
         latest_snapshot.document_path,
+        latest_snapshot.fetched_at,
+        latest_snapshot.from_cache,
+        latest_snapshot.extract,
         latest_snapshot.metadata,
         greatest(
           case when lower(s.title) like ${contains} escape '\\' then 94 else 0 end,
@@ -312,21 +338,31 @@ export async function searchSupabaseKnowledge(rawQuery: string, limit = 10): Pro
         confidence: numeric(rule.confidence)
       }))
     })),
-    sources: sourceRows.map((source) => ({
-      id: source.source_key,
-      title: source.title,
-      url: source.source_url,
-      authority: source.authority ?? "",
-      jurisdiction: source.jurisdiction,
-      domain: source.domain,
-      sourceType: source.source_type,
-      priority: source.priority,
-      tags: jsonArray(source.tags),
-      format: source.metadata?.format ?? "html",
-      browserCapture: Boolean(source.metadata?.browser_capture),
-      manualFallback: Boolean(source.metadata?.manual_fallback),
-      documentPath: source.document_path,
-      score: source.score
-    }))
+    sources: sourceRows.map((source) => {
+      const fetchedAt = timestamp(source.fetched_at);
+      const cacheExpiresAt = cacheExpiry(fetchedAt, source.cache_days);
+      return {
+        id: source.source_key,
+        title: source.title,
+        url: source.source_url,
+        authority: source.authority ?? "",
+        jurisdiction: source.jurisdiction,
+        domain: source.domain,
+        sourceType: source.source_type,
+        priority: source.priority,
+        tags: jsonArray(source.tags),
+        format: source.metadata?.format ?? "html",
+        fetchedAt,
+        fromCache: Boolean(source.from_cache),
+        cacheDays: source.cache_days ?? null,
+        cacheExpiresAt,
+        cacheStatus: cacheStatus(cacheExpiresAt),
+        excerpt: source.extract ?? "",
+        browserCapture: Boolean(source.metadata?.browser_capture),
+        manualFallback: Boolean(source.metadata?.manual_fallback),
+        documentPath: source.document_path,
+        score: source.score
+      };
+    })
   };
 }

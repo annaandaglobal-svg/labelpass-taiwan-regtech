@@ -355,6 +355,24 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const targetScreen = params.get("screen");
+    const knowledgeEvidence = params.get("knowledge")?.trim();
+
+    if (targetScreen === "review" || targetScreen === "products" || targetScreen === "updates" || targetScreen === "partners") {
+      setScreen(targetScreen);
+    }
+
+    if (knowledgeEvidence) {
+      setAssistantQuestion(`지식베이스 증거: ${knowledgeEvidence}`);
+      setAssistantAnswer(
+        `"${knowledgeEvidence}" 기준으로 현재 라벨, 원료명, HS코드, 공식 출처를 다시 대조할 수 있습니다. 관련 제품을 열어 최신 규정 기준으로 재검토하세요.`
+      );
+      setToast("지식베이스 증거를 검토 콘솔에 연결했습니다.");
+    }
+  }, []);
+
+  useEffect(() => {
     if (!toast) return;
     const id = window.setTimeout(() => setToast(""), 2600);
     return () => window.clearTimeout(id);

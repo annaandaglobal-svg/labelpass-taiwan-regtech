@@ -105,6 +105,12 @@ export type KnowledgeSearchResult = {
     priority: string;
     tags: string[];
     format: string;
+    fetchedAt: string | null;
+    fromCache: boolean;
+    cacheDays: number | null;
+    cacheExpiresAt: string | null;
+    cacheStatus: string;
+    excerpt: string;
     browserCapture: boolean;
     manualFallback: boolean;
     documentPath: string | null;
@@ -414,6 +420,12 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
       priority: source.priority,
       tags: source.tags ?? [],
       format: source.format ?? "html",
+      fetchedAt: source.fetched_at ?? null,
+      fromCache: Boolean(source.from_cache),
+      cacheDays: source.cache_days ?? null,
+      cacheExpiresAt: source.cache_expires_at ?? null,
+      cacheStatus: source.cache_status ?? "unknown",
+      excerpt: source.excerpt ?? "",
       browserCapture: Boolean(source.browser_capture),
       manualFallback: Boolean(source.manual_fallback),
       documentPath: source.document_path ?? null,
