@@ -369,6 +369,11 @@ const knowledgeCases = [
   { query: "食品業者登錄", expectedTerm: "Food Business Registration for Importers" },
   { query: "產品資訊表", expectedTerm: "Product Information Sheet" },
   { query: "業務用食品標示", expectedTerm: "Business-use Food Intact Package Labeling" },
+  { query: "查驗登記", expectedTerm: "Food Additive Inspection Registration", expectedFirst: "Food Additive Inspection Registration" },
+  { query: "複方食品添加物", expectedTerm: "Compound Food Additive Import Documents", expectedFirst: "Compound Food Additive Import Documents" },
+  { query: "官方衛生證明", expectedTerm: "Compound Food Additive Import Documents" },
+  { query: "化粧品GMP", expectedTerm: "Cosmetic Good Manufacturing Practice", expectedFirst: "Cosmetic Good Manufacturing Practice" },
+  { query: "化粧品產品登錄", expectedTerm: "Cosmetic Product Notification", expectedFirst: "Cosmetic Product Notification" },
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
   { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
   { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
@@ -409,6 +414,10 @@ const sourceCases = [
   { query: "systematic inspection imported food document review", expectedSource: "tw-tfda-systematic-inspection-imported-food" },
   { query: "shellfish HS 0307 health certificate harvest area", expectedSource: "tw-tfda-shellfish-hs0307-health-certificate" },
   { query: "food business registration import business operators product liability insurance", expectedSource: "tw-tfda-food-business-registration-importers" },
+  { query: "compound food additive composition report official health certificate", expectedSource: "tw-tfda-compound-food-additive-import-documents" },
+  { query: "food additive inspection registration permit document", expectedSource: "tw-tfda-food-additive-registration-materials" },
+  { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
+  { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
   { query: "tariff query information", expectedSource: "tw-customs-tariff-system" }
 ];
 

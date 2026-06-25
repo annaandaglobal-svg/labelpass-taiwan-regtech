@@ -51,6 +51,42 @@
       "tags": ["pif", "guidance", "checklist", "cosmetics"]
     },
     {
+      "id": "tw-tfda-cosmetic-announcements",
+      "title": "TFDA Cosmetic Latest Announcements",
+      "url": "https://www.fda.gov.tw/TC/sitelist.aspx?sid=1894",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "notice_index",
+      "priority": "high",
+      "cache_days": 7,
+      "tags": ["cosmetics", "announcements", "pif", "gmp", "ingredient-restrictions", "product-registration"]
+    },
+    {
+      "id": "tw-tfda-cosmetic-product-registration-zone",
+      "title": "Cosmetic Product Registration Zone",
+      "url": "https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance_index",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["cosmetics", "product-registration", "product-notification", "fadenbook", "platform"]
+    },
+    {
+      "id": "tw-tfda-cosmetics-business-area",
+      "title": "TFDA Cosmetics Business Area",
+      "url": "https://www.fda.gov.tw/TC/site.aspx?sid=40",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance_index",
+      "priority": "medium",
+      "cache_days": 14,
+      "tags": ["cosmetics", "pif", "product-registration", "gmp", "forms", "faq"]
+    },
+    {
       "id": "tw-tfda-imported-cosmetics-inspection",
       "title": "Regulations for the Inspection and Examination of Imported Cosmetics",
       "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=5062&id=3191",
@@ -146,6 +182,42 @@
       "priority": "high",
       "cache_days": 30,
       "tags": ["food", "food-additives", "scope", "limits", "standards"]
+    },
+    {
+      "id": "tw-tfda-food-additive-registration-materials",
+      "title": "Food Additive Inspection Registration Materials",
+      "url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "guidance_index",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["food", "food-additives", "inspection-registration", "permit", "application-materials"]
+    },
+    {
+      "id": "tw-tfda-food-additive-registration-announcements",
+      "title": "Food Additive Registration Legal Announcements",
+      "url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3894",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "notice_index",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["food", "food-additives", "inspection-registration", "single-additive", "compound-additive", "permit-number"]
+    },
+    {
+      "id": "tw-tfda-food-registration-permit-management-rule",
+      "title": "Food and Related Products Registration and Permit Document Management Rule Notice",
+      "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=30862",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "notice",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "food-additives", "registration", "permit-documents", "rule-update"]
     },
     {
       "id": "tw-tfda-nutrition-claim-prepackaged-food",
@@ -334,6 +406,18 @@
       "priority": "high",
       "cache_days": 30,
       "tags": ["food", "import-inspection", "inspection-exemption", "custom-code", "personal-use"]
+    },
+    {
+      "id": "tw-tfda-compound-food-additive-import-documents",
+      "title": "Compound Food Additives Import Composition Report and Official Health Certificate",
+      "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "notice",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "food-additives", "compound-food-additive", "composition-report", "official-health-certificate", "import-documents"]
     },
     {
       "id": "tw-tfda-imported-food-inspection-regulations",

@@ -396,9 +396,10 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
 
   const sourceBoosts = new Map<string, number>();
   for (const term of termResults.slice(0, 6)) {
-    for (const sourceKey of term.sourceKeys) {
-      sourceBoosts.set(sourceKey, Math.max(sourceBoosts.get(sourceKey) ?? 0, Math.max(36, term.score - 8)));
-    }
+    term.sourceKeys.forEach((sourceKey, index) => {
+      const orderedBoost = Math.max(36, term.score - 8 - index * 2);
+      sourceBoosts.set(sourceKey, Math.max(sourceBoosts.get(sourceKey) ?? 0, orderedBoost));
+    });
   }
 
   const sourceResults = sources

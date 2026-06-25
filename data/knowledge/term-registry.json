@@ -3278,8 +3278,8 @@
         { "value": "產品資訊檔案", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
         { "value": "产品信息档案", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 }
       ],
-      "source_keys": ["tw-moj-cosmetic-pif-management", "tw-tfda-pif-hub-zh", "tw-tfda-pif-implementation", "eu-cosmetics-regulation-1223-2009"],
-      "notes": "Concept term for cosmetic product information file and safety documentation obligations."
+      "source_keys": ["tw-moj-cosmetic-pif-management", "tw-tfda-pif-hub-zh", "tw-tfda-pif-implementation", "tw-tfda-cosmetic-announcements", "tw-tfda-cosmetics-business-area", "eu-cosmetics-regulation-1223-2009"],
+      "notes": "Concept term for cosmetic product information file and safety documentation obligations, including Taiwan PIF implementation stages and TFDA PIF management principles."
     },
     {
       "id": "cosmetic-product-notification",
@@ -3299,8 +3299,86 @@
         { "value": "化粧品產品登錄", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
         { "value": "化妆品备案", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 }
       ],
-      "source_keys": ["tw-moj-cosmetic-product-notification", "tw-tfda-pif-hub-zh", "cn-nmpa-cosmetics-registration-filing", "eu-cosmetics-regulation-1223-2009"],
+      "source_keys": ["tw-moj-cosmetic-product-notification", "tw-tfda-pif-hub-zh", "tw-tfda-cosmetic-product-registration-zone", "tw-tfda-cosmetics-business-area", "cn-nmpa-cosmetics-registration-filing", "eu-cosmetics-regulation-1223-2009"],
       "notes": "Concept term for product notification, filing, and registration workflows before or around market entry."
+    },
+    {
+      "id": "cosmetic-gmp",
+      "canonical_name": "Cosmetic Good Manufacturing Practice",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "cosmetic GMP", "type": "abbreviation", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "Good Manufacturing Practice for cosmetics", "type": "official_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "cosmetic good manufacturing practice", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "화장품 GMP", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "화장품 우수제조관리기준", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "化粧品優良製造準則", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品GMP", "type": "abbreviation", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "化妆品良好生产规范", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-cosmetic-announcements", "tw-tfda-cosmetics-business-area", "tw-moj-cosmetic-hygiene-safety-act"],
+      "notes": "Taiwan cosmetic GMP concept used with the post-2024 unified cosmetics management system and PIF implementation stages."
+    },
+    {
+      "id": "food-additive-inspection-registration",
+      "canonical_name": "Food Additive Inspection Registration",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "food additive inspection registration", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "food additive registration", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "food additive permit", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "single food additive registration", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "permit document", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "식품첨가물 등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품첨가물 검사등록", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품첨가물 허가증", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "食品添加物查驗登記", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "查驗登記", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9, "note": "Broad term; verify food-additive context." },
+        { "value": "食品添加物許可證", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "食品添加物许可证", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-food-additive-registration-materials", "tw-tfda-food-additive-registration-announcements", "tw-tfda-food-registration-permit-management-rule", "tw-tfda-food-additive-standards"],
+      "notes": "Taiwan food-additive inspection registration concept, especially single food additives under TFDA registration and permit-document management."
+    },
+    {
+      "id": "compound-food-additive-import-documents",
+      "canonical_name": "Compound Food Additive Import Documents",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "compound food additive", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "compound food additive import documents", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "product composition report", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "official health certificate", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "free sale certificate", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "복방 식품첨가물", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "복합 식품첨가물", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "제품성분보고서", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "공식 위생증명서", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "제품 자유판매증명서", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "複方食品添加物", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "產品成分報告", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "官方衛生證明", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "自由銷售證明", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "复方食品添加剂", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "产品成分报告", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-compound-food-additive-import-documents", "tw-tfda-imported-food-inspection-regulations", "tw-tfda-food-additive-registration-announcements"],
+      "notes": "Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates."
     }
   ]
 }
