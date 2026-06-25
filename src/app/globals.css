@@ -249,7 +249,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .command-center {
@@ -257,7 +257,7 @@ h2 {
   grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.85fr);
   gap: 14px;
   align-items: start;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .command-hero,
@@ -269,7 +269,7 @@ h2 {
 }
 
 .command-hero {
-  padding: 24px;
+  padding: 20px;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: white;
   align-self: start;
@@ -277,9 +277,9 @@ h2 {
 
 .command-hero h2 {
   max-width: 760px;
-  margin: 12px 0 8px;
+  margin: 10px 0 7px;
   color: white;
-  font-size: 23px;
+  font-size: 22px;
   line-height: 1.25;
 }
 
@@ -287,7 +287,7 @@ h2 {
   max-width: 780px;
   margin-bottom: 0;
   color: rgba(255, 255, 255, 0.82);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .dday-chip {
@@ -307,7 +307,7 @@ h2 {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .hero-proof span {
@@ -511,7 +511,7 @@ h2 {
 }
 
 .command-side-stack .impact-list {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
 }
 
@@ -528,9 +528,10 @@ h2 {
 }
 
 .command-side-stack .impact-item {
-  grid-template-columns: 38px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-content: center;
-  min-height: 50px;
+  min-height: 42px;
+  padding: 8px 9px;
 }
 
 .command-side-stack .impact-item > span,
@@ -538,8 +539,15 @@ h2 {
   width: fit-content;
 }
 
+.command-side-stack .impact-item > span,
+.command-side-stack .impact-item small {
+  display: none;
+}
+
 .command-side-stack .impact-item em {
   justify-self: end;
+  min-width: 38px;
+  text-align: center;
 }
 
 .impact-item > span,
