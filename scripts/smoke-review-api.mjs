@@ -156,7 +156,10 @@ const knowledgeCases = [
   { query: "카제인나트륨", expectedTerm: "Casein and Caseinates" },
   { query: "스테비아", expectedTerm: "Steviol Glycosides" },
   { query: "魷魚", expectedTerm: "Cephalopods" },
-  { query: "奇異果", expectedTerm: "Kiwifruit" }
+  { query: "奇異果", expectedTerm: "Kiwifruit" },
+  { query: "BA", expectedTerm: "Benzoic Acid and Benzoates", expectedFirst: "Benzoic Acid and Benzoates" },
+  { query: "DHA", expectedTerm: "Dehydroacetic Acid", expectedFirst: "Dehydroacetic Acid" },
+  { query: "Gly", expectedTerm: "Glycine", expectedFirst: "Glycine" }
 ];
 
 for (const testCase of knowledgeCases) {
@@ -173,6 +176,10 @@ for (const testCase of knowledgeCases) {
 
   if (!matched) {
     throw new Error(`${testCase.query}: expected term ${testCase.expectedTerm}`);
+  }
+
+  if (testCase.expectedFirst && result.terms?.[0]?.canonicalName !== testCase.expectedFirst) {
+    throw new Error(`${testCase.query}: expected first term ${testCase.expectedFirst}, got ${result.terms?.[0]?.canonicalName ?? "none"}`);
   }
 }
 

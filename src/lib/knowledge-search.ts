@@ -117,9 +117,27 @@ function normalize(value: string) {
     .trim();
 }
 
-function tokenScore(target: string, query: string) {
+function characterLength(value: string) {
+  return Array.from(value).length;
+}
+
+function hasCjkOrHangul(value: string) {
+  return /[\p{Script=Han}\p{Script=Hangul}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(value);
+}
+
+function isShortLatin(value: string) {
+  return /^[a-z0-9.+-]+$/i.test(value) && value.length <= 3;
+}
+
+function isBroadOrAmbiguous(alias: Alias) {
+  const confidence = typeof alias.confidence === "number" ? alias.confidence : 0.85;
+  return confidence < 0.75 || /ambiguous|broad|short/i.test(alias.note ?? "");
+}
+
+function tokenScore(target: string, query: string, exactOnly = false) {
   if (!target || !query) return 0;
   if (target === query) return 100;
+  if (exactOnly) return 0;
   if (target.startsWith(query)) return 88;
   if (target.includes(query)) return 72;
 
@@ -131,13 +149,22 @@ function tokenScore(target: string, query: string) {
 
 function scoreAlias(alias: Alias, query: string) {
   const normalized = alias.normalized ?? normalize(alias.value);
-  const base = tokenScore(normalized, query);
+  const exactOnly = isShortLatin(normalized) || isBroadOrAmbiguous(alias);
+  const base = tokenScore(normalized, query, exactOnly);
   if (!base) return 0;
 
   const confidence = typeof alias.confidence === "number" ? alias.confidence : 0.85;
   const confidenceBoost = Math.round(confidence * 10);
   const typeBoost = alias.type === "cas" || alias.type === "color_index" || alias.type === "INCI" ? 8 : 0;
-  return base + confidenceBoost + typeBoost;
+  const exactBoost = normalized === query ? 18 : 0;
+  const localLanguageBoost =
+    hasCjkOrHangul(query) && ["zh", "zh-Hant", "zh-Hans", "ko", "ja"].includes(alias.language ?? "")
+      ? 7
+      : 0;
+  const taiwanBoost = alias.jurisdiction === "TW" && hasCjkOrHangul(query) ? 5 : 0;
+  const ambiguityPenalty = isBroadOrAmbiguous(alias) ? 6 : 0;
+
+  return base + confidenceBoost + typeBoost + exactBoost + localLanguageBoost + taiwanBoost - ambiguityPenalty;
 }
 
 function aliasesForTerm(term: KnowledgeTerm): Alias[] {
@@ -183,12 +210,18 @@ function scoreTerm(term: KnowledgeTerm, query: string) {
     .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  const canonicalScore = tokenScore(normalize(term.canonical_name), query) + (aliasScores.length ? 6 : 0);
+  const normalizedCanonical = normalize(term.canonical_name);
+  const canonicalBase = tokenScore(normalizedCanonical, query);
+  const canonicalScore = canonicalBase
+    ? canonicalBase + (normalizedCanonical === query ? 16 : 0) + (aliasScores.length ? 6 : 0)
+    : 0;
   const score = Math.max(canonicalScore, aliasScores[0]?.score ?? 0);
   return { score, aliasScores };
 }
 
 function scoreSource(source: SourceResult, query: string) {
+  if (characterLength(query) <= 2 && !hasCjkOrHangul(query)) return 0;
+
   const haystack = normalize(
     [
       source.title,
