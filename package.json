@@ -17,6 +17,7 @@
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
     "apply:supabase-knowledge": "node scripts/apply-supabase-knowledge.mjs",
+    "verify:supabase-knowledge": "node scripts/verify-supabase-knowledge.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
     "test:rules": "node scripts/verify-rules.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs"

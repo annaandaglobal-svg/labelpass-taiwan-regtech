@@ -52,10 +52,19 @@ SUPABASE_DB_URL="postgresql://..." pnpm apply:supabase-knowledge
 
 The script applies the base schema, TFDA rule seed, knowledge schema, and knowledge seed in safe batches, then prints the verification counts.
 
+After applying the seed, verify that Supabase matches the generated local knowledge base:
+
+```bash
+SUPABASE_DB_URL="postgresql://..." pnpm verify:supabase-knowledge
+```
+
+This check compares table counts and probes high-value Taiwan food aliases such as `MSG`, `味精`, `카제인나트륨`, `魷魚`, and `奇異果`.
+
 To validate the generated seed size before connecting to Supabase:
 
 ```bash
 SUPABASE_APPLY_DRY_RUN=1 pnpm apply:supabase-knowledge
+SUPABASE_VERIFY_DRY_RUN=1 pnpm verify:supabase-knowledge
 ```
 
 Expected counts after the current seed:
