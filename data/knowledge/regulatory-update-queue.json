@@ -1186,7 +1186,7 @@
       "detected_at": "2026-06-25T19:47:35.493Z",
       "fetched_at": "2026-06-25T19:47:35.493Z",
       "cache_expires_at": "2026-07-09T19:47:35.493Z",
-      "previous_hash": null,
+      "previous_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
       "current_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
       "affected_domains": [
         "trade_controls",
