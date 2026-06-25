@@ -44,6 +44,12 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
 
+## App Retrieval Surface
+
+- `/api/knowledge/search?q=<term>` searches canonical terms, INCI names, CAS RN, color index numbers, local-language aliases, abbreviations, and source metadata.
+- `/knowledge` is the operator-facing search screen for ingredient synonyms, identifiers, and linked Taiwan TFDA rules.
+- Search aliases include stored `term_aliases` plus identifier aliases from CAS, INCI, and color index fields, so the UI count can be higher than the Supabase `term_aliases` row count.
+
 ## Supabase Tables
 
 - `knowledge_sources`: canonical source registry.
@@ -78,4 +84,4 @@ pnpm build
 pnpm smoke:api
 ```
 
-The smoke test includes multilingual alias cases and must pass before deployment.
+The smoke test includes multilingual review aliases and `/api/knowledge/search` cases and must pass before deployment.

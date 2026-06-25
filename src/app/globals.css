@@ -970,6 +970,218 @@ h2 {
   z-index: 30;
 }
 
+.knowledge-shell {
+  min-height: 100vh;
+  padding: 28px;
+  background: var(--bg);
+}
+
+.knowledge-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: end;
+  max-width: 1280px;
+  margin: 0 auto 18px;
+}
+
+.knowledge-hero h1 {
+  margin: 4px 0 10px;
+  max-width: 760px;
+}
+
+.knowledge-hero p {
+  max-width: 820px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.knowledge-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.knowledge-stats {
+  display: grid;
+  gap: 8px;
+}
+
+.knowledge-stats span,
+.knowledge-summary span,
+.knowledge-examples button,
+.knowledge-identifiers span,
+.knowledge-rules span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.knowledge-workbench {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.knowledge-searchbar {
+  display: grid;
+  grid-template-columns: 22px 1fr 22px;
+  gap: 10px;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.knowledge-searchbar input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.knowledge-examples,
+.knowledge-summary,
+.knowledge-identifiers,
+.knowledge-rules,
+.knowledge-aliases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.knowledge-examples,
+.knowledge-summary {
+  margin-top: 12px;
+}
+
+.knowledge-examples button {
+  cursor: pointer;
+}
+
+.knowledge-alert,
+.knowledge-empty {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--red-soft);
+  color: var(--red);
+  font-weight: 800;
+}
+
+.knowledge-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 16px;
+  margin-top: 18px;
+  align-items: start;
+}
+
+.knowledge-result-list {
+  display: grid;
+  gap: 12px;
+}
+
+.knowledge-term,
+.knowledge-source {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.knowledge-term-head {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.knowledge-term-head h3 {
+  margin: 0 0 3px;
+  font-size: 16px;
+}
+
+.knowledge-term-head span,
+.knowledge-term p,
+.knowledge-source a {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.knowledge-term-head > b {
+  display: grid;
+  width: 38px;
+  height: 32px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--green-dark);
+  color: white;
+  font-size: 13px;
+}
+
+.knowledge-aliases span {
+  display: grid;
+  gap: 3px;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.knowledge-aliases small,
+.knowledge-rules small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.knowledge-rules span {
+  display: grid;
+  gap: 1px;
+  align-items: start;
+}
+
+.knowledge-source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  color: var(--green-dark);
+  font-weight: 900;
+  text-decoration: none;
+}
+
 @media (max-width: 1280px) {
   .shell {
     grid-template-columns: 230px minmax(0, 1fr);
@@ -1009,7 +1221,9 @@ h2 {
 
   .review-grid,
   .screen-grid,
-  .partner-grid {
+  .partner-grid,
+  .knowledge-hero,
+  .knowledge-results {
     grid-template-columns: 1fr;
   }
 }
@@ -1043,6 +1257,14 @@ h2 {
 
   .label-card {
     inset: 34px 34px 28px;
+  }
+
+  .knowledge-shell {
+    padding: 16px;
+  }
+
+  .knowledge-workbench {
+    padding: 14px;
   }
 }
 

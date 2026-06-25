@@ -9,6 +9,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Keeps source-backed findings with TFDA identifiers and rule versions.
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
+- Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 
 ## Local Setup
 
@@ -18,6 +19,8 @@ pnpm dev
 ```
 
 Open `http://127.0.0.1:3000`.
+
+Use `http://127.0.0.1:3000/knowledge` to search the reusable term/source memory directly.
 
 ## Data Refresh
 
@@ -53,7 +56,7 @@ pnpm build
 pnpm smoke:api
 ```
 
-`pnpm smoke:api` expects the app to be running. It checks English, Korean, Traditional Chinese, Simplified Chinese, and INCI ingredient aliases through `/api/review`.
+`pnpm smoke:api` expects the app to be running. It checks English, Korean, Traditional Chinese, Simplified Chinese, and INCI ingredient aliases through `/api/review`, plus multilingual term lookups through `/api/knowledge/search`.
 
 ## Deployment Files
 

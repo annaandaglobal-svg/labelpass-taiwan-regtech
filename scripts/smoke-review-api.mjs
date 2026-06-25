@@ -56,4 +56,27 @@ for (const testCase of cases) {
   }
 }
 
-console.log(`Review API smoke test passed: ${cases.length} cases.`);
+const knowledgeCases = [
+  { query: "살리실산", expectedTerm: "Salicylic Acid" },
+  { query: "水楊酸", expectedTerm: "Salicylic Acid" },
+  { query: "IPBC", expectedTerm: "Iodopropynyl Butylcarbamate" }
+];
+
+for (const testCase of knowledgeCases) {
+  const response = await fetch(`${baseUrl}/api/knowledge/search?q=${encodeURIComponent(testCase.query)}`);
+
+  if (!response.ok) {
+    throw new Error(`${testCase.query}: Knowledge API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const matched = Array.isArray(result.terms)
+    ? result.terms.some((term) => term.canonicalName === testCase.expectedTerm)
+    : false;
+
+  if (!matched) {
+    throw new Error(`${testCase.query}: expected term ${testCase.expectedTerm}`);
+  }
+}
+
+console.log(`API smoke test passed: ${cases.length} review cases, ${knowledgeCases.length} knowledge cases.`);

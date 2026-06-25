@@ -1,0 +1,287 @@
+import sourceIndexData from "../../data/knowledge/index.json";
+import termIndexData from "../../data/knowledge/term-index.json";
+
+type Alias = {
+  value: string;
+  normalized?: string;
+  type?: string;
+  language?: string;
+  jurisdiction?: string;
+  confidence?: number;
+  note?: string | null;
+  source?: string;
+};
+
+type KnowledgeTerm = {
+  id: string;
+  canonical_name: string;
+  category?: string;
+  identifiers?: {
+    cas?: string[];
+    inci?: string[];
+    color_index?: string[];
+  };
+  aliases?: Alias[];
+  source_keys?: string[];
+  notes?: string;
+};
+
+type TermRuleLink = {
+  term_id: string;
+  rule_code: string;
+  jurisdiction?: string;
+  match_basis?: string;
+  confidence?: number;
+};
+
+type SourceResult = {
+  id: string;
+  title: string;
+  url: string;
+  authority: string;
+  jurisdiction: string;
+  domain: string;
+  source_type: string;
+  priority: string;
+  tags?: string[];
+  format?: string;
+  browser_capture?: boolean;
+  manual_fallback?: boolean;
+  document_path?: string;
+};
+
+export type KnowledgeSearchResult = {
+  query: string;
+  totals: {
+    sources: number;
+    terms: number;
+    aliases: number;
+    ruleLinks: number;
+  };
+  terms: Array<{
+    id: string;
+    canonicalName: string;
+    category: string;
+    score: number;
+    identifiers: {
+      cas: string[];
+      inci: string[];
+      colorIndex: string[];
+    };
+    aliases: Alias[];
+    aliasCount: number;
+    sourceKeys: string[];
+    notes: string;
+    rules: Array<{
+      ruleCode: string;
+      jurisdiction: string;
+      basis: string;
+      confidence: number;
+    }>;
+  }>;
+  sources: Array<{
+    id: string;
+    title: string;
+    url: string;
+    authority: string;
+    jurisdiction: string;
+    domain: string;
+    sourceType: string;
+    priority: string;
+    tags: string[];
+    format: string;
+    browserCapture: boolean;
+    manualFallback: boolean;
+    documentPath: string | null;
+    score: number;
+  }>;
+};
+
+const terms = (termIndexData.terms ?? []) as KnowledgeTerm[];
+const links = (termIndexData.term_rule_links ?? []) as TermRuleLink[];
+const sources = (sourceIndexData.results ?? []) as SourceResult[];
+
+const linksByTerm = new Map<string, TermRuleLink[]>();
+for (const link of links) {
+  linksByTerm.set(link.term_id, [...(linksByTerm.get(link.term_id) ?? []), link]);
+}
+
+function normalize(value: string) {
+  return String(value ?? "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[‐‑‒–—―]/g, "-")
+    .replace(/[()[\]{}]/g, " ")
+    .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function tokenScore(target: string, query: string) {
+  if (!target || !query) return 0;
+  if (target === query) return 100;
+  if (target.startsWith(query)) return 88;
+  if (target.includes(query)) return 72;
+
+  const queryTokens = query.split(" ").filter((token) => token.length > 1);
+  if (queryTokens.length > 1 && queryTokens.every((token) => target.includes(token))) return 58;
+  if (query.length > 4 && query.includes(target)) return 44;
+  return 0;
+}
+
+function scoreAlias(alias: Alias, query: string) {
+  const normalized = alias.normalized ?? normalize(alias.value);
+  const base = tokenScore(normalized, query);
+  if (!base) return 0;
+
+  const confidence = typeof alias.confidence === "number" ? alias.confidence : 0.85;
+  const confidenceBoost = Math.round(confidence * 10);
+  const typeBoost = alias.type === "cas" || alias.type === "color_index" || alias.type === "INCI" ? 8 : 0;
+  return base + confidenceBoost + typeBoost;
+}
+
+function aliasesForTerm(term: KnowledgeTerm): Alias[] {
+  const identifierAliases: Alias[] = [
+    ...(term.identifiers?.cas ?? []).map((value) => ({
+      value,
+      normalized: normalize(value),
+      type: "cas",
+      language: "und",
+      jurisdiction: "GLOBAL",
+      confidence: 1
+    })),
+    ...(term.identifiers?.inci ?? []).map((value) => ({
+      value,
+      normalized: normalize(value),
+      type: "INCI",
+      language: "en",
+      jurisdiction: "GLOBAL",
+      confidence: 1
+    })),
+    ...(term.identifiers?.color_index ?? []).map((value) => ({
+      value,
+      normalized: normalize(value),
+      type: "color_index",
+      language: "en",
+      jurisdiction: "GLOBAL",
+      confidence: 1
+    }))
+  ];
+
+  const seen = new Set<string>();
+  return [...(term.aliases ?? []), ...identifierAliases].filter((alias) => {
+    const key = `${alias.normalized ?? normalize(alias.value)}:${alias.language ?? ""}:${alias.jurisdiction ?? ""}:${alias.type ?? ""}`;
+    if (!alias.value || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function scoreTerm(term: KnowledgeTerm, query: string) {
+  const aliasScores = aliasesForTerm(term)
+    .map((alias) => ({ alias, score: scoreAlias(alias, query) }))
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  const canonicalScore = tokenScore(normalize(term.canonical_name), query) + (aliasScores.length ? 6 : 0);
+  const score = Math.max(canonicalScore, aliasScores[0]?.score ?? 0);
+  return { score, aliasScores };
+}
+
+function scoreSource(source: SourceResult, query: string) {
+  const haystack = normalize(
+    [
+      source.title,
+      source.authority,
+      source.jurisdiction,
+      source.domain,
+      source.source_type,
+      source.priority,
+      ...(source.tags ?? [])
+    ].join(" ")
+  );
+  return tokenScore(haystack, query);
+}
+
+export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchResult {
+  const query = normalize(rawQuery).slice(0, 120);
+  const aliasTotal = terms.reduce((count, term) => count + aliasesForTerm(term).length, 0);
+  const totals = {
+    sources: sources.length,
+    terms: terms.length,
+    aliases: aliasTotal,
+    ruleLinks: links.length
+  };
+
+  if (!query) {
+    return { query: "", totals, terms: [], sources: [] };
+  }
+
+  const termResults = terms
+    .map((term) => {
+      const aliases = aliasesForTerm(term);
+      const scored = scoreTerm(term, query);
+      if (!scored.score) return null;
+
+      const matchedAliases = scored.aliasScores.length
+        ? scored.aliasScores.slice(0, 8).map((entry) => entry.alias)
+        : aliases.slice(0, 8);
+
+      return {
+        id: term.id,
+        canonicalName: term.canonical_name,
+        category: term.category ?? "term",
+        score: scored.score,
+        identifiers: {
+          cas: term.identifiers?.cas ?? [],
+          inci: term.identifiers?.inci ?? [],
+          colorIndex: term.identifiers?.color_index ?? []
+        },
+        aliases: matchedAliases,
+        aliasCount: aliases.length,
+        sourceKeys: term.source_keys ?? [],
+        notes: term.notes ?? "",
+        rules: (linksByTerm.get(term.id) ?? []).slice(0, 12).map((link) => ({
+          ruleCode: link.rule_code,
+          jurisdiction: link.jurisdiction ?? "TW",
+          basis: link.match_basis ?? "term",
+          confidence: link.confidence ?? 0.85
+        }))
+      };
+    })
+    .filter((result): result is NonNullable<typeof result> => result !== null)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit) as KnowledgeSearchResult["terms"];
+
+  const sourceResults = sources
+    .map((source) => ({
+      source,
+      score: scoreSource(source, query)
+    }))
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, Math.max(4, Math.floor(limit / 2)))
+    .map(({ source, score }) => ({
+      id: source.id,
+      title: source.title,
+      url: source.url,
+      authority: source.authority,
+      jurisdiction: source.jurisdiction,
+      domain: source.domain,
+      sourceType: source.source_type,
+      priority: source.priority,
+      tags: source.tags ?? [],
+      format: source.format ?? "html",
+      browserCapture: Boolean(source.browser_capture),
+      manualFallback: Boolean(source.manual_fallback),
+      documentPath: source.document_path ?? null,
+      score
+    }));
+
+  return {
+    query,
+    totals,
+    terms: termResults,
+    sources: sourceResults
+  };
+}

@@ -84,3 +84,4 @@ The current runtime review endpoint uses local generated rule JSON, so a Supabas
 2. Run a review with English ingredients such as `Triclosan`, `Methylisothiazolinone`, and `Mercury`.
 3. Run a review with aliases such as `살리실산`, `水楊酸`, `水杨酸`, `Oxybenzone`, and `Phenoxyethanol`.
 4. Confirm findings include source identifiers and rule evidence.
+5. Open `/knowledge` and confirm searches such as `살리실산`, `水楊酸`, and `IPBC` return the expected canonical ingredient and Taiwan rule links.

@@ -257,6 +257,9 @@ export default function Home() {
             <h1>{screen === "review" ? "보내기 전에, 판정받으세요" : screenTitle(screen)}</h1>
           </div>
           <div className="top-actions">
+            <a className="ghost-btn" href="/knowledge">
+              <Search size={17} /> Term Search
+            </a>
             <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
               <UserRoundCheck size={17} /> 전문가 검수
             </button>
