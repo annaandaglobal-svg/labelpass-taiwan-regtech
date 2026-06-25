@@ -1,6 +1,6 @@
 # LabelPass Deployment Runbook
 
-Updated: 2026-06-25
+Updated: 2026-06-26
 
 ## Current Assets
 
@@ -16,6 +16,7 @@ pnpm install
 pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm crawl:knowledge
+pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm validate:knowledge
 pnpm build
@@ -35,6 +36,12 @@ Apply the SQL files in this order:
 2. `supabase/seed.sql`
 3. `supabase/knowledge-schema.sql`
 4. `supabase/knowledge-seed.sql`
+
+For an existing project that already has the base schema, the additive update-queue migration can also be applied directly:
+
+```bash
+supabase/migrations/202606260001_regulatory_update_candidates.sql
+```
 
 If the SQL editor rejects the full knowledge seed because of size, run:
 
@@ -71,11 +78,12 @@ Expected counts after the current seed:
 
 - `rules`: 1,081
 - current `rule_versions`: 1,081
-- `knowledge_sources`: 73
-- `knowledge_snapshots`: 73
-- `knowledge_terms`: 1,092
-- `term_aliases`: 2,838
+- `knowledge_sources`: 83
+- `knowledge_snapshots`: 83
+- `knowledge_terms`: 1,113
+- `term_aliases`: 3,116
 - `term_rule_links`: 1,099
+- `regulatory_update_candidates`: 13
 
 Recommended verification query:
 
@@ -85,6 +93,7 @@ union all select 'current_rule_versions', count(*) from public.rule_versions whe
 union all select 'knowledge_sources', count(*) from public.knowledge_sources
 union all select 'knowledge_snapshots', count(*) from public.knowledge_snapshots
 union all select 'knowledge_terms', count(*) from public.knowledge_terms
+union all select 'regulatory_update_candidates', count(*) from public.regulatory_update_candidates
 union all select 'term_aliases', count(*) from public.term_aliases
 union all select 'term_rule_links', count(*) from public.term_rule_links;
 ```

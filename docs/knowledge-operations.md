@@ -1,6 +1,6 @@
 # Knowledge Operations
 
-Updated: 2026-06-25
+Updated: 2026-06-26
 
 LabelPass treats regulatory information as reusable memory, not disposable search results. Every source should be captured once, hashed, summarized into an LLM/Obsidian-friendly document, and then reused through Supabase and local JSON indexes.
 
@@ -16,13 +16,32 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 
 ```bash
 pnpm crawl:knowledge
+pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm validate:knowledge
 pnpm audit:knowledge
 ```
 
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
+Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` automatically.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
+
+## Regulatory Update Queue
+
+LabelPass does not automatically mutate rules just because a crawler sees a new page hash. The operating loop is:
+
+1. `pnpm crawl:knowledge` captures source content, hashes it, and preserves freshness metadata.
+2. `pnpm detect:updates` writes `data/knowledge/regulatory-update-queue.json`.
+3. Operators review candidates with statuses such as `detected`, `pending_refresh`, and `watching`.
+4. A reviewer approves or rejects the candidate.
+5. Only approved changes should be converted into rule/term edits, Supabase seed updates, and affected product re-review tasks.
+
+Current queue baseline:
+
+- Update candidates: 13
+- Newly detected content changes: 0
+- Sources pending refresh: 4
+- Watched high-priority Taiwan sources: 9
 
 ## Manual Browser Capture
 
@@ -44,6 +63,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/index.json`: crawl manifest with success/failure status, generated document paths, cache expiry, and freshness status.
 - `data/knowledge/term-registry.json`: curated high-value ingredient aliases.
 - `data/knowledge/term-index.json`: generated search index linking aliases to TFDA rules.
+- `data/knowledge/regulatory-update-queue.json`: generated source-change and freshness candidates requiring human review before rule changes.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
@@ -64,21 +84,24 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `knowledge_terms`: canonical ingredient or regulatory terms.
 - `term_aliases`: multilingual and identifier aliases for search.
 - `term_rule_links`: links from normalized terms to official TFDA rule codes.
+- `regulatory_update_candidates`: source freshness/content-change candidates awaiting reviewer triage or approval.
 - `regulatory_sources`, `rules`, `rule_versions`: official Taiwan TFDA rule evidence used by the app.
 
 Current generated counts:
 
-- `knowledge_sources`: 73
-- `knowledge_snapshots`: 73
-- `knowledge_terms`: 1,101
-- `term_aliases`: 2,908
+- `knowledge_sources`: 83
+- `knowledge_snapshots`: 83
+- `knowledge_terms`: 1,113
+- `term_aliases`: 3,116
 - `term_rule_links`: 1,099
+- `regulatory_update_candidates`: 13
 - `rules`: 1,081
 
 Current freshness status:
 
 - Stale sources: 0
 - Sources expiring within 3 days: 0
+- Sources pending refresh within 7 days: 4
 - Next scheduled source refresh: 2026-07-02 22:02 KST
 
 ## Alias Curation Rules
@@ -95,6 +118,7 @@ pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm validate:knowledge
 pnpm audit:knowledge
+pnpm detect:updates
 pnpm build
 pnpm smoke:api
 ```

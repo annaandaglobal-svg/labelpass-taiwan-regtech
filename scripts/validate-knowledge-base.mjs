@@ -8,6 +8,7 @@ const paths = {
   registry: path.join(root, "data", "knowledge", "source-registry.json"),
   index: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
+  updateQueue: path.join(root, "data", "knowledge", "regulatory-update-queue.json"),
   schema: path.join(root, "supabase", "knowledge-schema.sql"),
   seed: path.join(root, "supabase", "knowledge-seed.sql")
 };
@@ -61,11 +62,12 @@ function isValidDate(value) {
   return Number.isFinite(Date.parse(String(value ?? "")));
 }
 
-const [rulesData, registry, index, termIndex, schemaSql, seedSql] = await Promise.all([
+const [rulesData, registry, index, termIndex, updateQueue, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
   readJson(paths.index),
   readJson(paths.termIndex),
+  readJson(paths.updateQueue),
   readFile(paths.schema, "utf8"),
   readFile(paths.seed, "utf8")
 ]);
@@ -75,6 +77,7 @@ const sources = registry.sources ?? [];
 const results = index.results ?? [];
 const terms = termIndex.terms ?? [];
 const links = termIndex.term_rule_links ?? [];
+const updateCandidates = updateQueue.items ?? [];
 
 const ruleIds = uniqueBy(rules, (rule) => rule.id, "rules");
 const ruleSourceIds = new Set(rules.map((rule) => `tfda-info-${rule.source_info_id}`).filter(Boolean));
@@ -82,6 +85,7 @@ const sourceIds = uniqueBy(sources, (source) => source.id, "source-registry sour
 uniqueBy(sources, (source) => source.url, "source-registry source URLs");
 const resultIds = uniqueBy(results, (result) => result.id, "knowledge crawl results");
 const termIds = uniqueBy(terms, (term) => term.id, "knowledge terms");
+uniqueBy(updateCandidates, (candidate) => candidate.candidate_key, "regulatory update candidates");
 
 if (rulesData.rule_count !== rules.length) {
   fail(`rules.rule_count is ${rulesData.rule_count}, but rules array has ${rules.length}`);
@@ -152,6 +156,38 @@ for (const source of sources) {
   }
 }
 
+if (updateQueue.source_registry_version !== index.source_registry_version) {
+  fail(
+    `regulatory update queue source_registry_version is ${updateQueue.source_registry_version}, but crawl index is ${index.source_registry_version}`
+  );
+}
+
+if (updateQueue.crawl_generated_at !== index.generated_at) {
+  fail(`regulatory update queue crawl_generated_at is ${updateQueue.crawl_generated_at}, but crawl index generated_at is ${index.generated_at}`);
+}
+
+for (const candidate of updateCandidates) {
+  if (!candidate.source_key || !sourceIds.has(candidate.source_key)) {
+    fail(`regulatory update candidate references missing source_key: ${candidate.candidate_key}`);
+  }
+
+  for (const field of ["title", "source_url", "domain", "change_type", "severity", "status", "detected_at", "next_action"]) {
+    if (!candidate[field]) {
+      fail(`regulatory update candidate ${candidate.candidate_key} is missing ${field}`);
+    }
+  }
+
+  if (!isValidDate(candidate.detected_at)) {
+    fail(`regulatory update candidate has invalid detected_at: ${candidate.candidate_key}`);
+  }
+
+  for (const term of candidate.affected_terms ?? []) {
+    if (term.term_key && !termIds.has(term.term_key)) {
+      fail(`regulatory update candidate ${candidate.candidate_key} references missing affected term: ${term.term_key}`);
+    }
+  }
+}
+
 for (const term of terms) {
   if (!term.canonical_name) {
     fail(`term ${term.id} is missing canonical_name`);
@@ -202,7 +238,8 @@ for (const tableName of [
   "knowledge_snapshots",
   "knowledge_terms",
   "term_aliases",
-  "term_rule_links"
+  "term_rule_links",
+  "regulatory_update_candidates"
 ]) {
   if (!schemaSql.includes(`public.${tableName}`)) {
     fail(`knowledge schema does not define public.${tableName}`);
@@ -215,7 +252,8 @@ const expectedSeedInserts = {
   knowledge_snapshots: results.length,
   knowledge_terms: terms.length,
   term_aliases: aliasCount,
-  term_rule_links: links.length
+  term_rule_links: links.length,
+  regulatory_update_candidates: updateCandidates.length
 };
 
 for (const [tableName, expected] of Object.entries(expectedSeedInserts)) {
@@ -236,6 +274,7 @@ const summary = {
   knowledge_terms: terms.length,
   term_aliases: aliasCount,
   term_rule_links: links.length,
+  regulatory_update_candidates: updateCandidates.length,
   warnings: warnings.length,
   errors: errors.length
 };

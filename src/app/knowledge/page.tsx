@@ -53,7 +53,10 @@ export default function KnowledgePage() {
             {overview.operations.expiringSoonSources.toLocaleString()} · 캐시 재사용{" "}
             {overview.operations.fromCache.toLocaleString()} · 브라우저 캡처{" "}
             {overview.operations.browserCaptures.toLocaleString()} · 수동 보강{" "}
-            {overview.operations.manualFallbacks.toLocaleString()}
+            {overview.operations.manualFallbacks.toLocaleString()} · 변경 큐{" "}
+            {overview.operations.updateCandidates.toLocaleString()} · 갱신 대기{" "}
+            {overview.operations.pendingUpdateCandidates.toLocaleString()} · 감시{" "}
+            {overview.operations.watchedUpdateSources.toLocaleString()}
           </small>
         </div>
         <OverviewGroup title="국가" items={overview.coverage.jurisdictions} />

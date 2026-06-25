@@ -1,4 +1,5 @@
 import sourceIndexData from "../../data/knowledge/index.json";
+import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 import termIndexData from "../../data/knowledge/term-index.json";
 
 type Alias = {
@@ -56,6 +57,12 @@ type SourceResult = {
   browser_capture?: boolean;
   manual_fallback?: boolean;
   document_path?: string;
+};
+
+type UpdateQueueItem = {
+  candidate_key: string;
+  severity: "low" | "medium" | "high";
+  status: string;
 };
 
 export type KnowledgeSearchResult = {
@@ -122,6 +129,10 @@ export type KnowledgeOverview = {
     highPrioritySources: number;
     staleSources: number;
     expiringSoonSources: number;
+    updateCandidates: number;
+    pendingUpdateCandidates: number;
+    detectedUpdateCandidates: number;
+    watchedUpdateSources: number;
     latestFetchedAt: string | null;
     nextRefreshAt: string | null;
   };
@@ -130,6 +141,7 @@ export type KnowledgeOverview = {
 const terms = (termIndexData.terms ?? []) as KnowledgeTerm[];
 const links = (termIndexData.term_rule_links ?? []) as TermRuleLink[];
 const sources = (sourceIndexData.results ?? []) as SourceResult[];
+const updateCandidates = (updateQueueData.items ?? []) as UpdateQueueItem[];
 
 const linksByTerm = new Map<string, TermRuleLink[]>();
 for (const link of links) {
@@ -316,6 +328,10 @@ export function getKnowledgeOverview(): KnowledgeOverview {
       highPrioritySources: sources.filter((source) => source.priority === "high").length,
       staleSources: sources.filter((source) => source.cache_status === "stale").length,
       expiringSoonSources: refreshDates.filter((time) => time > now && time <= soonThreshold).length,
+      updateCandidates: updateCandidates.length,
+      pendingUpdateCandidates: updateCandidates.filter((item) => item.status === "pending_refresh").length,
+      detectedUpdateCandidates: updateCandidates.filter((item) => item.status === "detected").length,
+      watchedUpdateSources: updateCandidates.filter((item) => item.status === "watching").length,
       latestFetchedAt: fetchedDates.length ? new Date(Math.max(...fetchedDates)).toISOString() : null,
       nextRefreshAt: refreshDates.length ? new Date(Math.min(...refreshDates)).toISOString() : null
     }

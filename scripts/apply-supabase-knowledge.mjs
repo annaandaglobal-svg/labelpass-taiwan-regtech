@@ -113,6 +113,7 @@ try {
     union all select 'knowledge_sources', count(*)::integer from public.knowledge_sources
     union all select 'knowledge_snapshots', count(*)::integer from public.knowledge_snapshots
     union all select 'knowledge_terms', count(*)::integer from public.knowledge_terms
+    union all select 'regulatory_update_candidates', count(*)::integer from public.regulatory_update_candidates
     union all select 'term_aliases', count(*)::integer from public.term_aliases
     union all select 'term_rule_links', count(*)::integer from public.term_rule_links
     order by table_name

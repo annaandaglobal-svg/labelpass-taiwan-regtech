@@ -1,0 +1,1678 @@
+{
+  "generated_at": "2026-06-25T15:42:50.393Z",
+  "source_registry_version": "2026-06-26",
+  "crawl_generated_at": "2026-06-25T15:13:34.048Z",
+  "expiring_soon_days": 7,
+  "summary": {
+    "total": 13,
+    "detected": 0,
+    "pending_refresh": 4,
+    "watching": 9,
+    "approved": 0,
+    "high": 0,
+    "medium": 12,
+    "low": 1
+  },
+  "items": [
+    {
+      "candidate_key": "tw-customs-tariff-database-download:source_expiring_soon:2026-07-02",
+      "source_key": "tw-customs-tariff-database-download",
+      "title": "GC453 Tariff Database Download",
+      "source_url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
+      "authority": "Customs Administration / CPT Single Window",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "tariff_database",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T14:44:25.986Z",
+      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "previous_hash": null,
+      "current_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
+      "affected_domains": [
+        "customs",
+        "hs-code",
+        "ccc-code",
+        "tariff",
+        "customs",
+        "import-export"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "commercial-invoice",
+          "canonical_name": "Commercial Invoice",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "packing-list",
+          "canonical_name": "Packing List",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md",
+        "fetched_url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
+        "extra_fetched_urls": [],
+        "text_chars": 2097,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official CPT Single Window / Customs Administration page GC453 Tariff Database Download. The page is a browser-oriented official download page for Taiwan tariff and CCC-code reference data. It identifies the CCC CODE last modification date and presents official download options for tariff and commodity-code work. Listed resources include Tariff Schedule files in spreadsheet, PDF, and open-document formats; CCC Code and Description of Goods files in text and PDF formats; chapter-by-chapter tariff materials; Application for Import Goods Advance Tariff Rulings files in document, PDF, and open-document formats; and Tariff No. and Description of Goods files in text and PDF formats. The page is re"
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "hs-code",
+          "ccc-code",
+          "tariff",
+          "customs",
+          "import-export"
+        ],
+        "compact_title": "gc453-tariff-database-download"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-pif-hub-zh:source_expiring_soon:2026-07-02",
+      "source_key": "tw-tfda-pif-hub-zh",
+      "title": "TFDA PIF laws and guidance hub",
+      "source_url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=12524",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance_index",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T13:02:09.360Z",
+      "cache_expires_at": "2026-07-02T13:02:09.360Z",
+      "previous_hash": null,
+      "current_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
+      "affected_domains": [
+        "cosmetics",
+        "pif",
+        "guidance",
+        "checklist",
+        "cosmetics"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "cosmetic-product-notification",
+          "canonical_name": "Cosmetic Product Notification",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-pif-hub-zh.md",
+        "fetched_url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=12524",
+        "extra_fetched_urls": [],
+        "text_chars": 2859,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "法規與指引 - 化粧品產品資訊檔案(PIF)專區 - 化粧品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資"
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "pif",
+          "guidance",
+          "checklist",
+          "cosmetics"
+        ],
+        "compact_title": "tfda-pif-laws-and-guidance-hub"
+      }
+    },
+    {
+      "candidate_key": "tw-trade-ccc-import-export-regulations:source_expiring_soon:2026-07-02",
+      "source_key": "tw-trade-ccc-import-export-regulations",
+      "title": "Import and Export Regulations by CCC Code",
+      "source_url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade_controls",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T14:44:25.986Z",
+      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "previous_hash": null,
+      "current_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
+      "affected_domains": [
+        "trade_controls",
+        "ccc-code",
+        "import-regulation",
+        "export-regulation",
+        "permit",
+        "trade-controls"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "incoterms",
+          "canonical_name": "Incoterms",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "shipment-purpose",
+          "canonical_name": "Shipment Purpose",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "import-export-permit",
+          "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md",
+        "fetched_url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+        "extra_fetched_urls": [],
+        "text_chars": 2290,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official Taiwan International Trade Administration/MOEA database page for Classification of Commodities and Regulations. The English interface is titled Import and Export Regulations and supports searching by commodity code, commodity code range, or imported file. It accepts HS code inputs from 2 to 6 digits and CCC code inputs under the Standard Classification of Commodities of the Republic of China up to 10 digits, with examples including 01, 2001, 740729, 0203120000, and 2207101010. The page also supports commodity-description keyword search, such as fish, bovine animals, or chemical, and regulation-code search for import or export regulation types. The form refers to Import Regulation co"
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "ccc-code",
+          "import-regulation",
+          "export-regulation",
+          "permit",
+          "trade-controls"
+        ],
+        "compact_title": "import-and-export-regulations-by-ccc-code"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:baseline_watch",
+      "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
+      "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
+      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "notice",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "previous_hash": null,
+      "current_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
+      "affected_domains": [
+        "customs",
+        "customs",
+        "ccc-code",
+        "tariff-classification",
+        "advance-ruling",
+        "imported-goods"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md",
+        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+        "extra_fetched_urls": [],
+        "text_chars": 7455,
+        "format": "html",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Advance Tariff Classification Rulings-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments Clearance Free Trade Zone M"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "customs",
+          "ccc-code",
+          "tariff-classification",
+          "advance-ruling",
+          "imported-goods"
+        ],
+        "compact_title": "introduction-to-advance-tariff-classification-ruling-on-imported-goods"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-tariff-database-download:baseline_watch",
+      "source_key": "tw-customs-tariff-database-download",
+      "title": "GC453 Tariff Database Download",
+      "source_url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
+      "authority": "Customs Administration / CPT Single Window",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "tariff_database",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T14:44:25.986Z",
+      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "previous_hash": null,
+      "current_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
+      "affected_domains": [
+        "customs",
+        "hs-code",
+        "ccc-code",
+        "tariff",
+        "customs",
+        "import-export"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "commercial-invoice",
+          "canonical_name": "Commercial Invoice",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "packing-list",
+          "canonical_name": "Packing List",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md",
+        "fetched_url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
+        "extra_fetched_urls": [],
+        "text_chars": 2097,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official CPT Single Window / Customs Administration page GC453 Tariff Database Download. The page is a browser-oriented official download page for Taiwan tariff and CCC-code reference data. It identifies the CCC CODE last modification date and presents official download options for tariff and commodity-code work. Listed resources include Tariff Schedule files in spreadsheet, PDF, and open-document formats; CCC Code and Description of Goods files in text and PDF formats; chapter-by-chapter tariff materials; Application for Import Goods Advance Tariff Rulings files in document, PDF, and open-document formats; and Tariff No. and Description of Goods files in text and PDF formats. The page is re"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "hs-code",
+          "ccc-code",
+          "tariff",
+          "customs",
+          "import-export"
+        ],
+        "compact_title": "gc453-tariff-database-download"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-tariff-system:baseline_watch",
+      "source_key": "tw-customs-tariff-system",
+      "title": "Tariff System - Customs Administration",
+      "source_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "tariff_index",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "previous_hash": null,
+      "current_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
+      "affected_domains": [
+        "customs",
+        "customs",
+        "tariff",
+        "ccc-code",
+        "hs-code",
+        "tariff-query"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-tariff-system.md",
+        "fetched_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
+        "extra_fetched_urls": [],
+        "text_chars": 3931,
+        "format": "html",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Tariff System-Customs administration X message close ::: Skip to main content Home Site Map FAQs Epaper Contact Us 中文版 font size A A A ::: Popular search： x About Us Organization Structure About the Director General Tariff System Customs Museum Contact Us Cargo Clearance Non-intrusive Inspection, Self-prepared Seals and Electronic Seals ECA/FTA Rules of Origin Anti-dumping and Countervailing Duties Special Safeguards The Customs Value Determination of One-Time Transfer Pricing Manual of Advance Cargo Clearance System Travelers Arrival Departure VAT Refund for Foreigners FAQs for Arrival and Departure Convenient Services for Outbound and Inbound Passenger Anti-Money Laundering Laws & Regulati"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "customs",
+          "tariff",
+          "ccc-code",
+          "hs-code",
+          "tariff-query"
+        ],
+        "compact_title": "tariff-system-customs-administration"
+      }
+    },
+    {
+      "candidate_key": "tw-shtc-dual-use-list:baseline_watch",
+      "source_key": "tw-shtc-dual-use-list",
+      "title": "Export Control List for Dual Use Items and Technology and Common Military List",
+      "source_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?Pageid=0&dl_DateRange=all&nodeID=298&pid=687872&txt_ED=&txt_Keyword=&txt_SD=",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "export_control",
+      "source_type": "control_list_notice",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T13:02:21.869Z",
+      "cache_expires_at": "2026-07-09T13:02:21.869Z",
+      "previous_hash": null,
+      "current_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
+      "affected_domains": [
+        "export_control",
+        "dual-use",
+        "common-military-list",
+        "export-control",
+        "ai-hardware"
+      ],
+      "affected_terms": [],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-shtc-dual-use-list.md",
+        "fetched_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?Pageid=0&dl_DateRange=all&nodeID=298&pid=687872&txt_ED=&txt_Keyword=&txt_SD=",
+        "extra_fetched_urls": [],
+        "text_chars": 3536,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Export Control Laws(SHTC) Close To recommend this article to a friend Subject： Export Control List for Dual U... Content： Friend E-Mail Sender For Share Friend Reason Verification code Voice Cancel Send Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Administration Trade Law Registration of Exporters and Importers Im"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "dual-use",
+          "common-military-list",
+          "export-control",
+          "ai-hardware"
+        ],
+        "compact_title": "export-control-list-for-dual-use-items-and-technology-and-common-military-list"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-pif-hub-zh:baseline_watch",
+      "source_key": "tw-tfda-pif-hub-zh",
+      "title": "TFDA PIF laws and guidance hub",
+      "source_url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=12524",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance_index",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T13:02:09.360Z",
+      "cache_expires_at": "2026-07-02T13:02:09.360Z",
+      "previous_hash": null,
+      "current_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
+      "affected_domains": [
+        "cosmetics",
+        "pif",
+        "guidance",
+        "checklist",
+        "cosmetics"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "cosmetic-product-notification",
+          "canonical_name": "Cosmetic Product Notification",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-pif-hub-zh.md",
+        "fetched_url": "https://www.fda.gov.tw/TC/siteContent.aspx?sid=12524",
+        "extra_fetched_urls": [],
+        "text_chars": 2859,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "法規與指引 - 化粧品產品資訊檔案(PIF)專區 - 化粧品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "pif",
+          "guidance",
+          "checklist",
+          "cosmetics"
+        ],
+        "compact_title": "tfda-pif-laws-and-guidance-hub"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-pif-implementation:baseline_watch",
+      "source_key": "tw-tfda-pif-implementation",
+      "title": "Cosmetic Product Information Files to Be Implemented in Phases",
+      "source_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "notice",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T13:02:08.995Z",
+      "cache_expires_at": "2026-07-09T13:02:08.995Z",
+      "previous_hash": null,
+      "current_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
+      "affected_domains": [
+        "cosmetics",
+        "pif",
+        "safety-assessment",
+        "2026"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md",
+        "fetched_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",
+        "extra_fetched_urls": [],
+        "text_chars": 3215,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: you are in： Home News &amp; Events News & Events Cosmetic Product Information Files (PIF) to Be Implemented in Phases Annually 【Update Date： 2025-08-14 】 unit：醫療器材及化粧品組 To enhance the safety of cosmetic use, the Ministry of Health and Welfare has been implementing the Product Information File (PIF) system in phases since 2019. Starting July 1, 2024, PIFs have been required for sunscreens, hair dyes, perm agents, antiperspirants, and home-use too"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "pif",
+          "safety-assessment",
+          "2026"
+        ],
+        "compact_title": "cosmetic-product-information-files-to-be-implemented-in-phases"
+      }
+    },
+    {
+      "candidate_key": "tw-trade-ccc-import-export-regulations:baseline_watch",
+      "source_key": "tw-trade-ccc-import-export-regulations",
+      "title": "Import and Export Regulations by CCC Code",
+      "source_url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade_controls",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T14:44:25.986Z",
+      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "previous_hash": null,
+      "current_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
+      "affected_domains": [
+        "trade_controls",
+        "ccc-code",
+        "import-regulation",
+        "export-regulation",
+        "permit",
+        "trade-controls"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "incoterms",
+          "canonical_name": "Incoterms",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "shipment-purpose",
+          "canonical_name": "Shipment Purpose",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "import-export-permit",
+          "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md",
+        "fetched_url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+        "extra_fetched_urls": [],
+        "text_chars": 2290,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official Taiwan International Trade Administration/MOEA database page for Classification of Commodities and Regulations. The English interface is titled Import and Export Regulations and supports searching by commodity code, commodity code range, or imported file. It accepts HS code inputs from 2 to 6 digits and CCC code inputs under the Standard Classification of Commodities of the Republic of China up to 10 digits, with examples including 01, 2001, 740729, 0203120000, and 2207101010. The page also supports commodity-description keyword search, such as fish, bovine animals, or chemical, and regulation-code search for import or export regulation types. The form refers to Import Regulation co"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "ccc-code",
+          "import-regulation",
+          "export-regulation",
+          "permit",
+          "trade-controls"
+        ],
+        "compact_title": "import-and-export-regulations-by-ccc-code"
+      }
+    },
+    {
+      "candidate_key": "tw-trade-import-export-administration:baseline_watch",
+      "source_key": "tw-trade-import-export-administration",
+      "title": "Import and Export Administration",
+      "source_url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade",
+      "source_type": "guidance_index",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "previous_hash": null,
+      "current_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
+      "affected_domains": [
+        "trade",
+        "import",
+        "export",
+        "permit",
+        "licensing",
+        "controlled-commodities"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "import-export-permit",
+          "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md",
+        "fetched_url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+        "extra_fetched_urls": [],
+        "text_chars": 3822,
+        "format": "html",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Import & Export Administration Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Administration Trade Law Registration of Exporters and Importers Import & Export Administration CITES Certificates of Origin Export Control(SHTC) Information & Trade Statistics Forecast Trade Statistics About Us Organization Location & Map"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "import",
+          "export",
+          "permit",
+          "licensing",
+          "controlled-commodities"
+        ],
+        "compact_title": "import-and-export-administration"
+      }
+    },
+    {
+      "candidate_key": "tw-trade-import-export-regulations:baseline_watch",
+      "source_key": "tw-trade-import-export-regulations",
+      "title": "Taiwan import and export related laws and regulations",
+      "source_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade",
+      "source_type": "regulation_index",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T13:02:14.387Z",
+      "cache_expires_at": "2026-07-09T13:02:14.387Z",
+      "previous_hash": null,
+      "current_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
+      "affected_domains": [
+        "trade",
+        "import",
+        "export",
+        "shtc",
+        "origin",
+        "trade"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "incoterms",
+          "canonical_name": "Incoterms",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "commercial-invoice",
+          "canonical_name": "Commercial Invoice",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "packing-list",
+          "canonical_name": "Packing List",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "shipment-purpose",
+          "canonical_name": "Shipment Purpose",
+          "category": "regulatory_concept"
+        },
+        {
+          "term_key": "import-export-permit",
+          "canonical_name": "Import and Export Permit",
+          "category": "regulatory_concept"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md",
+        "fetched_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",
+        "extra_fetched_urls": [],
+        "text_chars": 4771,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Trade Law Close To recommend this article to a friend Subject： Regulation Content： ItemTitleRevise Date1Regulations Governing Registration of Exporters and Importers2025/4/82Regulatio... Friend E-Mail Sender For Share Friend Reason Verification code Voice Cancel Send Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Ad"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "import",
+          "export",
+          "shtc",
+          "origin",
+          "trade"
+        ],
+        "compact_title": "taiwan-import-and-export-related-laws-and-regulations"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-export-origin-packaging:source_expiring_soon:2026-07-02",
+      "source_key": "tw-customs-export-origin-packaging",
+      "title": "Kaohsiung Customs origin packaging notice",
+      "source_url": "https://web.customs.gov.tw/ekaohsiung/singlehtml/3071?cntId=9efc8e5829ff4cbe9c1ded1a6c22302e",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "notice",
+      "source_priority": "medium",
+      "change_type": "source_expiring_soon",
+      "severity": "low",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-25T15:42:50.393Z",
+      "fetched_at": "2026-06-25T13:02:19.641Z",
+      "cache_expires_at": "2026-07-02T13:02:19.641Z",
+      "previous_hash": null,
+      "current_hash": "ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2",
+      "affected_domains": [
+        "customs",
+        "customs",
+        "export",
+        "origin",
+        "packaging"
+      ],
+      "affected_terms": [],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md",
+        "fetched_url": "https://web.customs.gov.tw/ekaohsiung/singlehtml/3071?cntId=9efc8e5829ff4cbe9c1ded1a6c22302e",
+        "extra_fetched_urls": [],
+        "text_chars": 4759,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Exporters Must Label Country of Origin on Inner and Outer Packaging to Avoid Clearance Delays and Penalties-Kaohsiung Customs X message close ::: Skip to main content Sitemap Contact us 中文版 :: Popular search： x About KHC Director Organization & Functions Jurisdiction History of KHC Characteristics Location & Transportation Travelers Must Know Departure Arrival VAT Refund for Foreigners Contact Information Leaflet Import/Export Import Sea / Air Cargo Clearance Export Sea / Air Cargo Declaration International Parcel Clearance Maritime Express Consignments Clearance Radiation Detection Procedure Exchange Rate Tariff Database Search System Laws & Regulations Site Links Anti-corruption Platform P"
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "customs",
+          "export",
+          "origin",
+          "packaging"
+        ],
+        "compact_title": "kaohsiung-customs-origin-packaging-notice"
+      }
+    }
+  ],
+  "source_states": {
+    "tw-moj-commodity-labeling-act": {
+      "title": "Taiwan Commodity Labeling Act",
+      "content_hash": "fb27dd0d5bea65b7a45ae297fa0695022df5ef11e6c43e05c4d22a036374024b",
+      "fetched_at": "2026-06-25T13:02:08.512Z",
+      "cache_expires_at": "2026-07-25T13:02:08.512Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-commodity-labeling-act.md"
+    },
+    "tw-moj-cosmetic-hygiene-safety-act": {
+      "title": "Taiwan Cosmetic Hygiene and Safety Act",
+      "content_hash": "c958c9de25763782d96e195cf38d990d05b50bf1c6bcba4bb858a46775dcd339",
+      "fetched_at": "2026-06-25T13:02:08.728Z",
+      "cache_expires_at": "2026-07-25T13:02:08.728Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-cosmetic-hygiene-safety-act.md"
+    },
+    "tw-tfda-pif-implementation": {
+      "title": "Cosmetic Product Information Files to Be Implemented in Phases",
+      "content_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
+      "fetched_at": "2026-06-25T13:02:08.995Z",
+      "cache_expires_at": "2026-07-09T13:02:08.995Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md"
+    },
+    "tw-tfda-pif-hub-zh": {
+      "title": "TFDA PIF laws and guidance hub",
+      "content_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
+      "fetched_at": "2026-06-25T13:02:09.360Z",
+      "cache_expires_at": "2026-07-02T13:02:09.360Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-pif-hub-zh.md"
+    },
+    "tw-tfda-imported-cosmetics-inspection": {
+      "title": "Regulations for the Inspection and Examination of Imported Cosmetics",
+      "content_hash": "d3587c735a7707aa00496e7b674b63daec1831b43dee2abec55a4769b9c9cc0e",
+      "fetched_at": "2026-06-25T15:13:34.048Z",
+      "cache_expires_at": "2026-07-25T15:13:34.048Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-imported-cosmetics-inspection.md"
+    },
+    "tw-tfda-cosmetics-management-transition-2021": {
+      "title": "New Cosmetics Management System to Be Enforced from July 2021",
+      "content_hash": "26a0bc8ca1366f52cdc5033f594f10aad1f01203002039a05c2952d112777cb8",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-25T15:09:13.960Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-cosmetics-management-transition-2021.md"
+    },
+    "tw-moj-cosmetic-product-notification": {
+      "title": "Regulations Governing Notification of Cosmetic Products",
+      "content_hash": "79579a506e998fcbd661187321e29f54a71eba9247735851ca16e582950b4455",
+      "fetched_at": "2026-06-25T13:02:09.530Z",
+      "cache_expires_at": "2026-07-25T13:02:09.530Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-cosmetic-product-notification.md"
+    },
+    "tw-moj-cosmetic-pif-management": {
+      "title": "Regulations for Cosmetic Product Information File Management",
+      "content_hash": "44df9f416b5f7dbdcc46200f5b8431d6f3b972200321aec2173f98259895922a",
+      "fetched_at": "2026-06-25T13:02:09.708Z",
+      "cache_expires_at": "2026-07-25T13:02:09.708Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-cosmetic-pif-management.md"
+    },
+    "tw-moj-food-safety-sanitation-act": {
+      "title": "Act Governing Food Safety and Sanitation",
+      "content_hash": "315b80cc5c83722cc1b4fa38efd311fd49b3f0f74d25a5a0e1b67dc15af45a7c",
+      "fetched_at": "2026-06-25T13:02:10.220Z",
+      "cache_expires_at": "2026-07-25T13:02:10.220Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moj-food-safety-sanitation-act.md"
+    },
+    "tw-tfda-food-nutrition-labeling": {
+      "title": "Regulations on Nutrition Labeling for Prepackaged Food Products",
+      "content_hash": "211fc12e80c091bedca113cf0ff3e61ae246312578c9a82e2b15459e43eedac6",
+      "fetched_at": "2026-06-25T13:02:10.412Z",
+      "cache_expires_at": "2026-07-25T13:02:10.412Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-nutrition-labeling.md"
+    },
+    "tw-tfda-food-enforcement-rules": {
+      "title": "Enforcement Rules of the Act Governing Food Safety and Sanitation",
+      "content_hash": "6672ea2c4c719e50fc35ec86f8d647d0624330a2a10a20e94e9c2dbdfd0aee98",
+      "fetched_at": "2026-06-25T13:02:10.529Z",
+      "cache_expires_at": "2026-07-25T13:02:10.529Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-enforcement-rules.md"
+    },
+    "tw-tfda-food-additive-standards": {
+      "title": "Standards for Specification, Scope, Application and Limitation of Food Additives",
+      "content_hash": "b54192dff90ac13216c3aba96391da6b917fe26005b27bf96c7f0b62e983c36d",
+      "fetched_at": "2026-06-25T13:02:10.646Z",
+      "cache_expires_at": "2026-07-25T13:02:10.646Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-additive-standards.md"
+    },
+    "tw-tfda-nutrition-claim-prepackaged-food": {
+      "title": "Revised Regulations on Nutrition Claim for Prepackaged Food Products",
+      "content_hash": "dd3b0916095629ea35d9590cdfb29e5c9a1133fcd446e826105725fa57e96b0f",
+      "fetched_at": "2026-06-25T13:02:10.759Z",
+      "cache_expires_at": "2026-07-25T13:02:10.759Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-nutrition-claim-prepackaged-food.md"
+    },
+    "tw-tfda-nutrition-labeling-exemptions": {
+      "title": "Regulations on Prepackaged Food Products Exempted from the Nutrition Labeling",
+      "content_hash": "353a84e88e5f3dbe1795b400b0bfecd16f1b04c4b273fe182b3a301574685102",
+      "fetched_at": "2026-06-25T13:02:10.871Z",
+      "cache_expires_at": "2026-07-25T13:02:10.871Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-nutrition-labeling-exemptions.md"
+    },
+    "tw-tfda-specific-fish-species-name-labeling": {
+      "title": "Labeling Requirements on Food Products that Use Specific Fish Species as Product Names",
+      "content_hash": "631983f9f1ad7219c3fd19f2124b3e1f52dd5cde943200bee52aa7ea6193fb40",
+      "fetched_at": "2026-06-25T13:02:10.991Z",
+      "cache_expires_at": "2026-07-25T13:02:10.991Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-specific-fish-species-name-labeling.md"
+    },
+    "tw-tfda-food-allergen-labeling": {
+      "title": "Regulation of Food Allergen Labeling",
+      "content_hash": "2829ab727c41cca224ab12823bf83dedcada5a9fa77c18269c5148e1907e015d",
+      "fetched_at": "2026-06-25T13:02:11.232Z",
+      "cache_expires_at": "2026-07-25T13:02:11.232Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling.md"
+    },
+    "tw-tfda-food-allergen-labeling-en": {
+      "title": "Regulation of Food Allergen Labeling English Page",
+      "content_hash": "f27956a1d94efbf19f0be5f9a8c0147496cd9af8eb05dd0ad774a1a68b7ab868",
+      "fetched_at": "2026-06-25T13:02:11.452Z",
+      "cache_expires_at": "2026-07-25T13:02:11.452Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-en.md"
+    },
+    "tw-tfda-recommended-allergen-labeling": {
+      "title": "Regulations Governing Food Allergen Labeling on the Recommended Labeling Allergens",
+      "content_hash": "d07d3b35f521dbef23978e30e157dedfbbde3a897704bfe8440d0a5fdf552898",
+      "fetched_at": "2026-06-25T13:02:11.561Z",
+      "cache_expires_at": "2026-07-25T13:02:11.561Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-recommended-allergen-labeling.md"
+    },
+    "tw-tfda-food-additive-common-names": {
+      "title": "Common Names of Food Additives",
+      "content_hash": "9b409d24747c5c28c7117b5d8f0be1e384c0a084a57bbfaf5d9a8c5b847767dd",
+      "fetched_at": "2026-06-25T13:02:11.707Z",
+      "cache_expires_at": "2026-07-25T13:02:11.707Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-additive-common-names.md"
+    },
+    "tw-tfda-food-additive-common-names-en": {
+      "title": "Common Names of Food Additives English Page",
+      "content_hash": "8ed9758392a6cffa0fb4d9cbc5a0f8c4c5fa2ffdfa42084e0ad704b315336d21",
+      "fetched_at": "2026-06-25T13:02:11.837Z",
+      "cache_expires_at": "2026-07-25T13:02:11.837Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-additive-common-names-en.md"
+    },
+    "tw-tfda-food-additive-common-names-table": {
+      "title": "Food Additive Common Names Table",
+      "content_hash": "ecb7660dc2bd982a0ce8b921bb718430809f37777983f16aee0bdc91e1f19dd2",
+      "fetched_at": "2026-06-25T13:02:12.107Z",
+      "cache_expires_at": "2026-07-25T13:02:12.107Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-additive-common-names-table.md"
+    },
+    "tw-tfda-food-allergen-labeling-consumer-notice": {
+      "title": "Prepackaged Food Allergen Labeling Notice",
+      "content_hash": "48867cfc5502f5521bd4bf4f5cb933e483d07e289e1a6b63e47c187cbb995da7",
+      "fetched_at": "2026-06-25T13:02:12.432Z",
+      "cache_expires_at": "2026-07-25T13:02:12.432Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-consumer-notice.md"
+    },
+    "tw-tfda-front-of-package-nutrition-labeling": {
+      "title": "Guidelines for Front of Package Nutrition Labeling of Food Products",
+      "content_hash": "33fbdc6597f03dde24617761eb24e15bf96ad48a6126efb33f46402400e46d2f",
+      "fetched_at": "2026-06-25T13:02:12.636Z",
+      "cache_expires_at": "2026-07-25T13:02:12.636Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-front-of-package-nutrition-labeling.md"
+    },
+    "tw-tfda-small-prepackaged-food-labeling": {
+      "title": "Regulations Governing the Labeling of Small Prepackaged Food",
+      "content_hash": "72dc295120e86a6226746dbf5e5ad736a4e978f76c5b002ef338890286ac3612",
+      "fetched_at": "2026-06-25T13:02:12.787Z",
+      "cache_expires_at": "2026-07-25T13:02:12.787Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-small-prepackaged-food-labeling.md"
+    },
+    "tw-tfda-bulk-food-labeling": {
+      "title": "Regulations on Bulk Food Labeling",
+      "content_hash": "7e404b721df626f77dfaaad29bc74def0a3d806158fd4254cc528a19a2405baa",
+      "fetched_at": "2026-06-25T13:02:12.895Z",
+      "cache_expires_at": "2026-07-25T13:02:12.895Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-bulk-food-labeling.md"
+    },
+    "tw-tfda-food-business-use-intact-package-labeling": {
+      "title": "Principles for Managing the Labeling of Foods (including Raw Materials) with Intact Package for Business Use",
+      "content_hash": "a68cd4757ebbd4481e76150220e663b21ea7a2cc53fcce335aedda0a005dc066",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-25T15:09:13.960Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-business-use-intact-package-labeling.md"
+    },
+    "tw-tfda-food-import-inspection-exemptions": {
+      "title": "Requirements for Exemption from Inspection Application for Import of Food and Related Products and the Applicable Custom Code",
+      "content_hash": "309074a3e09e8ff900a50ab8a060474d7cdc3dcd3602a77e3d1b082ab07f54c3",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-25T15:09:13.960Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-import-inspection-exemptions.md"
+    },
+    "tw-trade-import-export-regulations": {
+      "title": "Taiwan import and export related laws and regulations",
+      "content_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
+      "fetched_at": "2026-06-25T13:02:14.387Z",
+      "cache_expires_at": "2026-07-09T13:02:14.387Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md"
+    },
+    "tw-trade-import-export-administration": {
+      "title": "Import and Export Administration",
+      "content_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md"
+    },
+    "tw-trade-ccc-import-export-regulations": {
+      "title": "Import and Export Regulations by CCC Code",
+      "content_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
+      "fetched_at": "2026-06-25T14:44:25.986Z",
+      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md"
+    },
+    "tw-customs-tariff-database-download": {
+      "title": "GC453 Tariff Database Download",
+      "content_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
+      "fetched_at": "2026-06-25T14:44:25.986Z",
+      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md"
+    },
+    "tw-customs-tariff-system": {
+      "title": "Tariff System - Customs Administration",
+      "content_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-customs-tariff-system.md"
+    },
+    "tw-customs-advance-tariff-classification-ruling": {
+      "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
+      "content_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
+      "fetched_at": "2026-06-25T14:39:00.574Z",
+      "cache_expires_at": "2026-07-09T14:39:00.574Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-customs-advance-tariff-classification-ruling.md"
+    },
+    "tw-customs-imported-goods-advance-tariff-classification-ruling": {
+      "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
+      "content_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
+      "fetched_at": "2026-06-25T15:09:13.960Z",
+      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md"
+    },
+    "tw-trade-origin-textiles-2023": {
+      "title": "Guidelines for Labeling the Origin of Specific Imported Textiles",
+      "content_hash": "9e08777e6647383cf1b8dbd61097a25c76091d2d44e14d23feb4f3ef7fde250c",
+      "fetched_at": "2026-06-25T13:02:14.969Z",
+      "cache_expires_at": "2026-07-25T13:02:14.969Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-trade-origin-textiles-2023.md"
+    },
+    "tw-customs-origin-importers": {
+      "title": "Keelung Customs origin labeling notice",
+      "content_hash": "0da863dde7ec359160adca40ebc2470a66fff2854adc699e8f83b880ebd6ca15",
+      "fetched_at": "2026-06-25T13:02:17.038Z",
+      "cache_expires_at": "2026-07-09T13:02:17.038Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-customs-origin-importers.md"
+    },
+    "tw-customs-export-origin-packaging": {
+      "title": "Kaohsiung Customs origin packaging notice",
+      "content_hash": "ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2",
+      "fetched_at": "2026-06-25T13:02:19.641Z",
+      "cache_expires_at": "2026-07-02T13:02:19.641Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
+    },
+    "tw-shtc-regulations": {
+      "title": "Export Control Laws for Strategic High-tech Commodities",
+      "content_hash": "75ea1097c8b1be3ea698cce451434a9209270168ff5670452c57b5881140e961",
+      "fetched_at": "2026-06-25T13:02:20.835Z",
+      "cache_expires_at": "2026-07-25T13:02:20.835Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-shtc-regulations.md"
+    },
+    "tw-shtc-dual-use-list": {
+      "title": "Export Control List for Dual Use Items and Technology and Common Military List",
+      "content_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
+      "fetched_at": "2026-06-25T13:02:21.869Z",
+      "cache_expires_at": "2026-07-09T13:02:21.869Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-shtc-dual-use-list.md"
+    },
+    "tw-bsmi-commodity-inspection-mark": {
+      "title": "BSMI commodity inspection legal documents hub",
+      "content_hash": "d28b24209e05998d739e8c1d220e01fcd0d42c6799a455308ba0528ccf6a903e",
+      "fetched_at": "2026-06-25T13:02:22.641Z",
+      "cache_expires_at": "2026-07-25T13:02:22.641Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-bsmi-commodity-inspection-mark.md"
+    },
+    "tw-moea-commodity-inspection-mark-law": {
+      "title": "Regulations Governing the Use of Commodity Inspection Mark",
+      "content_hash": "d650d936ea9d1e016e479e0d2a98bdb6022ad4d6b355d65a4135bbb4d311b3df",
+      "fetched_at": "2026-06-25T09:41:53.827Z",
+      "cache_expires_at": "2026-07-25T09:41:53.827Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-moea-commodity-inspection-mark-law.md"
+    },
+    "tw-bsmi-commodity-inspection-schemes": {
+      "title": "Taiwan Commodity Inspection Schemes Information Booklet",
+      "content_hash": "3130c14566f63c31c3b095db60226934f49c656912f5183dac6c7bd98fc72cc8",
+      "fetched_at": "2026-06-25T13:02:22.979Z",
+      "cache_expires_at": "2026-07-25T13:02:22.979Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-bsmi-commodity-inspection-schemes.md"
+    },
+    "tw-us-ita-labeling-marking": {
+      "title": "Taiwan labeling and marking requirements",
+      "content_hash": "956e4d59701ebe9e1a9bdc168d9dd72141bca44b2500ef443a5f78caad918887",
+      "fetched_at": "2026-06-25T13:02:24.876Z",
+      "cache_expires_at": "2026-07-25T13:02:24.876Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-us-ita-labeling-marking.md"
+    },
+    "global-wto-tbt-legal-text": {
+      "title": "WTO Agreement on Technical Barriers to Trade",
+      "content_hash": "b5dbf5b535b06bf72d3c1dbeb0ded52b50103dabdcc7b0855f80e0b18c74b497",
+      "fetched_at": "2026-06-25T13:02:25.203Z",
+      "cache_expires_at": "2026-09-23T13:02:25.203Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-wto-tbt-legal-text.md"
+    },
+    "global-wco-harmonized-system": {
+      "title": "What is the Harmonized System",
+      "content_hash": "836f5036a4b1e89616a1fbf607abd4ae2b7e4c8a34c2b77cab4fda264166c848",
+      "fetched_at": "2026-06-25T13:02:29.009Z",
+      "cache_expires_at": "2026-09-23T13:02:29.009Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-wco-harmonized-system.md"
+    },
+    "global-unece-ghs-rev11": {
+      "title": "Globally Harmonized System of Classification and Labelling of Chemicals Rev. 11",
+      "content_hash": "d003b83f5a695efbc362bf8b65d814289c4fa04e74e877a92a31c6f747ab4762",
+      "fetched_at": "2026-06-25T13:56:16.130Z",
+      "cache_expires_at": "2026-09-23T13:56:16.130Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-unece-ghs-rev11.md"
+    },
+    "global-unece-ghs-rev11-pdf": {
+      "title": "GHS Rev. 11 English PDF",
+      "content_hash": "486b2ad4eff864354c0090c77729393da3fbcae2c56b06b7661517067c8dabd5",
+      "fetched_at": "2026-06-25T13:56:16.130Z",
+      "cache_expires_at": "2026-12-22T13:56:16.130Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-unece-ghs-rev11-pdf.md"
+    },
+    "global-codex-nutrition-labeling": {
+      "title": "Codex Nutrition and Labelling Standards Hub",
+      "content_hash": "888c073dc098619aa640e4c2eca04a560b27cecf9e4ea6a32eebd340b1fcfdee",
+      "fetched_at": "2026-06-25T13:02:29.436Z",
+      "cache_expires_at": "2026-09-23T13:02:29.436Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-codex-nutrition-labeling.md"
+    },
+    "global-codex-prepackaged-food-labeling": {
+      "title": "Codex General Standard for the Labelling of Prepackaged Foods CXS 1-1985",
+      "content_hash": "d2d256b8a3c1ec397ae7736279a0f8f99174340cb20c15950b396a8444e201e0",
+      "fetched_at": "2026-06-25T13:02:29.956Z",
+      "cache_expires_at": "2026-12-22T13:02:29.956Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-codex-prepackaged-food-labeling.md"
+    },
+    "global-pcpc-inci": {
+      "title": "INCI names reference",
+      "content_hash": "248274249adc55106c31ecb816d5eae7e00e457556400da4ef52317108deb765",
+      "fetched_at": "2026-06-25T13:02:30.272Z",
+      "cache_expires_at": "2026-09-23T13:02:30.272Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-pcpc-inci.md"
+    },
+    "global-cas-registry": {
+      "title": "CAS Registry reference",
+      "content_hash": "b4b7040c5943a00cdc35670ef3a5987cd8713f260553c605f6401dc12a34e983",
+      "fetched_at": "2026-06-25T13:02:30.377Z",
+      "cache_expires_at": "2026-09-23T13:02:30.377Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-cas-registry.md"
+    },
+    "global-wassenaar-control-lists": {
+      "title": "Wassenaar Arrangement Control Lists",
+      "content_hash": "b048f56f6540042ed3326871b3d01ecaa5760db8580fbd133ffa9ccad0cacc6c",
+      "fetched_at": "2026-06-25T13:02:32.041Z",
+      "cache_expires_at": "2026-09-23T13:02:32.041Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/global-wassenaar-control-lists.md"
+    },
+    "eu-cosmetics-regulation-1223-2009": {
+      "title": "EU Cosmetic Products Regulation 1223/2009",
+      "content_hash": "858298b0649bd04c96565e92c5db593d8c88ed9b67f96f91189c2b194a1efec8",
+      "fetched_at": "2026-06-25T13:02:34.813Z",
+      "cache_expires_at": "2026-07-25T13:02:34.813Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/eu-cosmetics-regulation-1223-2009.md"
+    },
+    "eu-clp-regulation-1272-2008": {
+      "title": "EU CLP Regulation 1272/2008",
+      "content_hash": "b350504db682ee827d8c1acfda0e5caafaac91af2bbd6b803e6722070cf5f4b2",
+      "fetched_at": "2026-06-25T13:02:35.523Z",
+      "cache_expires_at": "2026-07-25T13:02:35.523Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/eu-clp-regulation-1272-2008.md"
+    },
+    "eu-echa-clp-overview": {
+      "title": "EU classification, labelling and packaging of chemicals",
+      "content_hash": "bef8215b2a407f9d0fbd94a1c877a975840237dde868c86ce23102e4f82fa259",
+      "fetched_at": "2026-06-25T13:02:37.079Z",
+      "cache_expires_at": "2026-07-25T13:02:37.079Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/eu-echa-clp-overview.md"
+    },
+    "eu-food-information-regulation-1169-2011": {
+      "title": "EU Food Information to Consumers Regulation 1169/2011",
+      "content_hash": "2329a152b08275dce422a0546bfdfcbb84c5153b9c3d6135c5e4da2b686f7425",
+      "fetched_at": "2026-06-25T13:02:37.722Z",
+      "cache_expires_at": "2026-07-25T13:02:37.722Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/eu-food-information-regulation-1169-2011.md"
+    },
+    "eu-cosing-cosmetic-ingredients": {
+      "title": "European Commission CosIng Cosmetic Ingredient Database",
+      "content_hash": "a9c86b54634d008d7f7049263712aebfe29b8d6ac75096481e5f747133a6ec59",
+      "fetched_at": "2026-06-25T13:06:03.322Z",
+      "cache_expires_at": "2026-07-25T13:06:03.322Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/eu-cosing-cosmetic-ingredients.md"
+    },
+    "eu-dual-use-regulation-2021-821": {
+      "title": "EU Dual-Use Regulation 2021/821",
+      "content_hash": "ad3e6c91e5dbdaeb3aaa56b0c7403f9817b76d5a1b55c6b29ef495a5c1858360",
+      "fetched_at": "2026-06-25T13:02:39.722Z",
+      "cache_expires_at": "2026-07-25T13:02:39.722Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/eu-dual-use-regulation-2021-821.md"
+    },
+    "us-ecfr-cosmetic-labeling-21-cfr-701": {
+      "title": "21 CFR Part 701 Cosmetic Labeling",
+      "content_hash": "bce643a16d8b9ac7e42f3c6568ddccb8451fc2135e799071ce262a6bf32c9e27",
+      "fetched_at": "2026-06-25T13:32:21.977Z",
+      "cache_expires_at": "2026-07-25T13:32:21.977Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-ecfr-cosmetic-labeling-21-cfr-701.md"
+    },
+    "us-fda-cosmetic-labeling-guide": {
+      "title": "FDA Cosmetics Labeling Guide",
+      "content_hash": "eb14ffc029f59919451a5b029789312716ee3616b9f0d8389c7dcd4adf54cebf",
+      "fetched_at": "2026-06-25T13:02:40.961Z",
+      "cache_expires_at": "2026-07-25T13:02:40.961Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-fda-cosmetic-labeling-guide.md"
+    },
+    "us-ecfr-food-labeling-21-cfr-101": {
+      "title": "21 CFR Part 101 Food Labeling",
+      "content_hash": "c59f29b637aae8ada55f205759bddb083ff14c10f4421ccbaec2af1e1fbdc607",
+      "fetched_at": "2026-06-25T13:32:27.395Z",
+      "cache_expires_at": "2026-07-25T13:32:27.395Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-ecfr-food-labeling-21-cfr-101.md"
+    },
+    "us-ecfr-origin-marking-19-cfr-134": {
+      "title": "19 CFR Part 134 Country of Origin Marking",
+      "content_hash": "81d9739264a1964a084482e854d7c965f2a9c12b9761cf01eb695a7d9191b1a8",
+      "fetched_at": "2026-06-25T13:32:31.992Z",
+      "cache_expires_at": "2026-07-25T13:32:31.992Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-ecfr-origin-marking-19-cfr-134.md"
+    },
+    "us-osha-hazcom-29-cfr-1910-1200": {
+      "title": "29 CFR 1910.1200 Hazard Communication",
+      "content_hash": "d8e5957d3a3c1f41aa3f54d513178fc3a16fb995edd16e1eb660280d8e7c7e75",
+      "fetched_at": "2026-06-25T13:32:32.216Z",
+      "cache_expires_at": "2026-07-25T13:32:32.216Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-osha-hazcom-29-cfr-1910-1200.md"
+    },
+    "us-bis-ear-overview": {
+      "title": "Export Administration Regulations",
+      "content_hash": "9273592e24ef60ee5cf5ca165fe5ec9e329baf5760876b57bd1b8a37c2a0ff63",
+      "fetched_at": "2026-06-25T13:02:42.942Z",
+      "cache_expires_at": "2026-07-25T13:02:42.942Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-bis-ear-overview.md"
+    },
+    "us-itc-harmonized-tariff": {
+      "title": "Harmonized Tariff Schedule of the United States",
+      "content_hash": "b34ae2c67c5e5aba57bfbd772ae6346197897733b9c6860a1d4ec3428d9e0cfb",
+      "fetched_at": "2026-06-25T13:02:43.463Z",
+      "cache_expires_at": "2026-07-25T13:02:43.463Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/us-itc-harmonized-tariff.md"
+    },
+    "jp-customs-tariff-schedule": {
+      "title": "Japan Customs Tariff Schedule",
+      "content_hash": "92da51c64ba9942ba8e731a05be392ea25b5d0d39837a04afda7030977f0db70",
+      "fetched_at": "2026-06-25T13:32:32.472Z",
+      "cache_expires_at": "2026-07-25T13:32:32.472Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/jp-customs-tariff-schedule.md"
+    },
+    "jp-customs-origin-verification": {
+      "title": "Japan Customs Origin Verification",
+      "content_hash": "f71d5cb09fa4ed1dd99dfbc76372570dd98336c45a56e754d48de040f9110d4c",
+      "fetched_at": "2026-06-25T13:02:43.679Z",
+      "cache_expires_at": "2026-07-25T13:02:43.679Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/jp-customs-origin-verification.md"
+    },
+    "jp-meti-security-export-control": {
+      "title": "Japan Security Export Control",
+      "content_hash": "78250ac818ee7b8b520684a384fb1b474b08b139916dbf992443973a843f095b",
+      "fetched_at": "2026-06-25T09:41:53.478Z",
+      "cache_expires_at": "2026-07-25T09:41:53.478Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/jp-meti-security-export-control.md"
+    },
+    "jp-mhlw-standards-for-cosmetics": {
+      "title": "Japan Standards for Cosmetics",
+      "content_hash": "117fc949a82789ca66017163f19041cf2fcf6b5902708077c8e4f56c482dc8e2",
+      "fetched_at": "2026-06-25T13:03:08.795Z",
+      "cache_expires_at": "2026-09-23T13:03:08.795Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/jp-mhlw-standards-for-cosmetics.md"
+    },
+    "kr-mfds-cosmetic-framework": {
+      "title": "Cosmetic Regulatory Framework in Korea",
+      "content_hash": "ccdc41ea20b9bd74248ccfc774ce857e92406a9bfc0c271b422a0630f980122f",
+      "fetched_at": "2026-06-25T13:03:10.191Z",
+      "cache_expires_at": "2026-07-25T13:03:10.191Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/kr-mfds-cosmetic-framework.md"
+    },
+    "kr-mfds-cosmetic-labeling-advertisement": {
+      "title": "Regulations on the Demonstration of Labeling and Advertisement for Cosmetic Products",
+      "content_hash": "8c19d707f8598ba58b53b610db5334fada753dcb8cb79102b451ee648b2fc6c7",
+      "fetched_at": "2026-06-25T13:03:11.406Z",
+      "cache_expires_at": "2026-07-25T13:03:11.406Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/kr-mfds-cosmetic-labeling-advertisement.md"
+    },
+    "kr-mfds-cosmetic-precautions-labeling": {
+      "title": "Regulations on the Labeling of Precautions for Use for Cosmetic Products",
+      "content_hash": "e833223d6a7f625072ac3a923f849ea8d5eb354843ca15cea77bf83aaf75a2e5",
+      "fetched_at": "2026-06-25T13:03:12.543Z",
+      "cache_expires_at": "2026-07-25T13:03:12.543Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/kr-mfds-cosmetic-precautions-labeling.md"
+    },
+    "kr-customs-tariff-list": {
+      "title": "Korea Customs Tariff List",
+      "content_hash": "df1017a2bdaac290018e2ada588ee14e383fa94abacc5202668ed5beeb1a0dd3",
+      "fetched_at": "2026-06-25T13:03:12.697Z",
+      "cache_expires_at": "2026-07-25T13:03:12.697Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/kr-customs-tariff-list.md"
+    },
+    "cn-nmpa-cosmetics-hub": {
+      "title": "NMPA Cosmetics Hub",
+      "content_hash": "86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647",
+      "fetched_at": "2026-06-25T13:03:12.859Z",
+      "cache_expires_at": "2026-07-09T13:03:12.859Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/cn-nmpa-cosmetics-hub.md"
+    },
+    "cn-nmpa-cosmetics-labeling-measures": {
+      "title": "Measures for the Administration of Cosmetics Labels Announcement",
+      "content_hash": "a103d8da73b270dac17dbd67bc8bf889efa755e3ae2ed07a22b76537e6d3a7f6",
+      "fetched_at": "2026-06-25T13:03:13.018Z",
+      "cache_expires_at": "2026-07-25T13:03:13.018Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/cn-nmpa-cosmetics-labeling-measures.md"
+    },
+    "cn-nmpa-cosmetics-registration-filing": {
+      "title": "The Provisions for Registration and Filing of Cosmetics",
+      "content_hash": "72490df542a56ec53a5af52df4224c44b5db297cb7f1ec81ec558626487a8224",
+      "fetched_at": "2026-06-25T13:03:13.066Z",
+      "cache_expires_at": "2026-07-25T13:03:13.066Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/cn-nmpa-cosmetics-registration-filing.md"
+    },
+    "cn-customs-import-export-tariff-regulations": {
+      "title": "China customs duties and declaration service guide",
+      "content_hash": "96559e7b15d8e78ba5037a5f8609618106fe263fe278fad892dc497dfcae8490",
+      "fetched_at": "2026-06-25T13:03:13.957Z",
+      "cache_expires_at": "2026-07-25T13:03:13.957Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/cn-customs-import-export-tariff-regulations.md"
+    },
+    "cn-mofcom-export-control-portal": {
+      "title": "China Export Control Information Portal",
+      "content_hash": "58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d",
+      "fetched_at": "2026-06-25T13:32:35.199Z",
+      "cache_expires_at": "2026-07-09T13:32:35.199Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/cn-mofcom-export-control-portal.md"
+    },
+    "asean-cosmetic-directive": {
+      "title": "ASEAN Cosmetic Directive",
+      "content_hash": "0089f5bdba0d75d3a2eacb8064c636398c761dbcc2f32acff6e4386bed826dcf",
+      "fetched_at": "2026-06-25T13:03:15.236Z",
+      "cache_expires_at": "2026-09-23T13:03:15.236Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/asean-cosmetic-directive.md"
+    },
+    "asean-cosmetic-labeling-requirements": {
+      "title": "Appendix II ASEAN Cosmetic Labeling Requirements",
+      "content_hash": "d48fe6280f1fbd089f017a1ca1c2044fd1962c25bf34d6bfd6e0f5ecbdd0bc10",
+      "fetched_at": "2026-06-25T13:03:15.400Z",
+      "cache_expires_at": "2026-09-23T13:03:15.400Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/asean-cosmetic-labeling-requirements.md"
+    },
+    "asean-cosmetic-claims-guideline": {
+      "title": "Appendix III ASEAN Cosmetic Claim Guideline",
+      "content_hash": "28ec4751225fef11208c3cc9166e71bf1ca5bcde58a14be680e2f448e6f4533b",
+      "fetched_at": "2026-06-25T13:03:15.507Z",
+      "cache_expires_at": "2026-09-23T13:03:15.507Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/asean-cosmetic-claims-guideline.md"
+    },
+    "asean-cosmetic-technical-documents": {
+      "title": "ASEAN Cosmetic Directive Technical Documents",
+      "content_hash": "56356f46ae2e848861a264442639660325003493e2125e43692bb58b25b784bc",
+      "fetched_at": "2026-06-25T13:03:17.406Z",
+      "cache_expires_at": "2026-07-25T13:03:17.406Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/asean-cosmetic-technical-documents.md"
+    },
+    "asean-rules-of-origin-registry": {
+      "title": "ASEAN Rules of Origin",
+      "content_hash": "704ab5e9a8ff64151e8079f4196bed303e8880be902e4e1a40e7b98258030389",
+      "fetched_at": "2026-06-25T13:03:17.756Z",
+      "cache_expires_at": "2026-07-25T13:03:17.756Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/asean-rules-of-origin-registry.md"
+    }
+  }
+}

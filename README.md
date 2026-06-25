@@ -11,6 +11,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
+- Generates a regulatory update queue so source changes, stale caches, and high-priority Taiwan notices require human approval before rules are changed.
 
 ## Local Setup
 
@@ -31,6 +32,7 @@ pnpm build:rules
 pnpm test:rules
 pnpm build:supabase-seed
 pnpm crawl:knowledge
+pnpm detect:updates
 pnpm build:knowledge-seed
 ```
 
@@ -43,6 +45,7 @@ Reusable regulatory memory is managed through:
 - `data/knowledge/index.json`
 - `data/knowledge/term-registry.json`
 - `data/knowledge/term-index.json`
+- `data/knowledge/regulatory-update-queue.json`
 - `supabase/knowledge-schema.sql`
 - `supabase/knowledge-seed.sql`
 

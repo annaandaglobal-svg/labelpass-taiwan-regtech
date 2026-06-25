@@ -5,6 +5,7 @@ const root = process.cwd();
 const registryPath = path.join(root, "data", "knowledge", "source-registry.json");
 const indexPath = path.join(root, "data", "knowledge", "index.json");
 const termIndexPath = path.join(root, "data", "knowledge", "term-index.json");
+const updateQueuePath = path.join(root, "data", "knowledge", "regulatory-update-queue.json");
 const outPath = path.join(root, "supabase", "knowledge-seed.sql");
 
 function sql(value) {
@@ -19,6 +20,7 @@ function jsonSql(value) {
 const registry = JSON.parse(await readFile(registryPath, "utf8"));
 const index = JSON.parse(await readFile(indexPath, "utf8"));
 const termIndex = JSON.parse(await readFile(termIndexPath, "utf8"));
+const updateQueue = JSON.parse(await readFile(updateQueuePath, "utf8"));
 const sources = new Map(registry.sources.map((source) => [source.id, source]));
 
 const lines = [
@@ -28,6 +30,7 @@ const lines = [
   "delete from public.term_rule_links;",
   "delete from public.term_aliases;",
   "delete from public.knowledge_terms;",
+  "delete from public.regulatory_update_candidates;",
   "delete from public.knowledge_snapshots;",
   "delete from public.knowledge_sources;",
   ""
@@ -88,6 +91,77 @@ for (const result of index.results) {
         })
       ].join(", ") +
       `) on conflict (source_key, content_hash) do update set fetched_at = excluded.fetched_at, from_cache = excluded.from_cache, bytes = excluded.bytes, text_chars = excluded.text_chars, document_path = excluded.document_path, extract = excluded.extract, metadata = excluded.metadata;`
+  );
+}
+
+lines.push("");
+lines.push("-- Regulatory source update candidates");
+
+for (const item of updateQueue.items ?? []) {
+  lines.push(
+    `insert into public.regulatory_update_candidates (` +
+      [
+        "candidate_key",
+        "source_key",
+        "title",
+        "source_url",
+        "authority",
+        "jurisdiction",
+        "domain",
+        "source_type",
+        "source_priority",
+        "change_type",
+        "severity",
+        "status",
+        "detected_at",
+        "fetched_at",
+        "cache_expires_at",
+        "previous_hash",
+        "current_hash",
+        "affected_domains",
+        "affected_terms",
+        "affected_products",
+        "evidence",
+        "next_action",
+        "reviewer_notes",
+        "decision",
+        "decided_at",
+        "metadata"
+      ].join(", ") +
+      `) values (` +
+      [
+        sql(item.candidate_key),
+        sql(item.source_key),
+        sql(item.title),
+        sql(item.source_url),
+        sql(item.authority),
+        sql(item.jurisdiction),
+        sql(item.domain),
+        sql(item.source_type),
+        sql(item.source_priority),
+        sql(item.change_type),
+        sql(item.severity),
+        sql(item.status),
+        sql(item.detected_at),
+        sql(item.fetched_at),
+        sql(item.cache_expires_at),
+        sql(item.previous_hash),
+        sql(item.current_hash),
+        jsonSql(item.affected_domains ?? []),
+        jsonSql(item.affected_terms ?? []),
+        jsonSql(item.affected_products ?? []),
+        jsonSql(item.evidence ?? {}),
+        sql(item.next_action),
+        sql(item.reviewer_notes),
+        sql(item.decision),
+        sql(item.decided_at),
+        jsonSql({
+          ...(item.metadata ?? {}),
+          update_queue_generated_at: updateQueue.generated_at,
+          crawl_generated_at: updateQueue.crawl_generated_at
+        })
+      ].join(", ") +
+      `) on conflict (candidate_key) do update set source_key = excluded.source_key, title = excluded.title, source_url = excluded.source_url, authority = excluded.authority, jurisdiction = excluded.jurisdiction, domain = excluded.domain, source_type = excluded.source_type, source_priority = excluded.source_priority, change_type = excluded.change_type, severity = excluded.severity, status = excluded.status, detected_at = excluded.detected_at, fetched_at = excluded.fetched_at, cache_expires_at = excluded.cache_expires_at, previous_hash = excluded.previous_hash, current_hash = excluded.current_hash, affected_domains = excluded.affected_domains, affected_terms = excluded.affected_terms, affected_products = excluded.affected_products, evidence = excluded.evidence, next_action = excluded.next_action, reviewer_notes = excluded.reviewer_notes, decision = excluded.decision, decided_at = excluded.decided_at, metadata = excluded.metadata;`
   );
 }
 
@@ -153,7 +227,8 @@ console.log(
       sources: index.results.length,
       terms: termIndex.terms?.length ?? 0,
       aliases: (termIndex.terms ?? []).reduce((count, term) => count + (term.aliases?.length ?? 0), 0),
-      ruleLinks: termIndex.term_rule_links?.length ?? 0
+      ruleLinks: termIndex.term_rule_links?.length ?? 0,
+      updateCandidates: updateQueue.items?.length ?? 0
     },
     null,
     2

@@ -32,6 +32,7 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import { cleanSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
@@ -40,6 +41,18 @@ type SavedReview = {
   id: string;
   input: ReviewInput;
   result: ReviewResult;
+};
+
+type RegulatoryUpdateCandidate = {
+  candidate_key: string;
+  source_key: string;
+  title: string;
+  change_type: string;
+  severity: string;
+  status: string;
+  cache_expires_at?: string | null;
+  affected_products?: string[];
+  next_action?: string | null;
 };
 
 const emptyInput: ReviewInput = {
@@ -77,6 +90,19 @@ const flowSteps = [
   { label: "TFDA 등록", state: "next" },
   { label: "통관·선적", state: "next" }
 ] as const;
+
+const regulatoryUpdateQueue = updateQueueData as {
+  summary: {
+    total: number;
+    detected: number;
+    pending_refresh: number;
+    watching: number;
+    high: number;
+    medium: number;
+    low: number;
+  };
+  items: RegulatoryUpdateCandidate[];
+};
 
 function nowTime() {
   return "2026-06-26";
@@ -813,8 +839,9 @@ function ProductsScreen({ savedReviews, onOpen }: { savedReviews: SavedReview[];
 }
 
 function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof sourceCards)[number]; onSelect: (source: (typeof sourceCards)[number]) => void }) {
+  const queueItems = regulatoryUpdateQueue.items.slice(0, 5);
   return (
-    <div className="screen-grid">
+    <div className="screen-grid updates-grid">
       <section className="list-pane">
         <h2>공식 자료 소스</h2>
         <p className="muted">PDF보다 오픈데이터를 우선 ingest하고, 공지/법령은 변경분 리뷰 대상으로 둡니다.</p>
@@ -830,6 +857,33 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
       </section>
 
       <section className="detail-pane">
+        <div className="update-queue">
+          <div className="queue-head">
+            <div>
+              <span>변경 감시 큐</span>
+              <h2>{regulatoryUpdateQueue.summary.total}개 후보 관리 중</h2>
+            </div>
+            <ShieldCheck size={23} />
+          </div>
+          <div className="queue-metrics">
+            <span><b>{regulatoryUpdateQueue.summary.detected}</b>변경 탐지</span>
+            <span><b>{regulatoryUpdateQueue.summary.pending_refresh}</b>갱신 대기</span>
+            <span><b>{regulatoryUpdateQueue.summary.watching}</b>핵심 감시</span>
+          </div>
+          <div className="queue-list">
+            {queueItems.map((item) => (
+              <div key={item.candidate_key} className={`queue-item ${item.severity}`}>
+                <span>{updateStatusLabel(item.status)}</span>
+                <div>
+                  <b>{item.title}</b>
+                  <small>{item.source_key} · {updateChangeLabel(item.change_type)}</small>
+                  {item.next_action && <p>{item.next_action}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="update-feature">
           <BookOpen size={24} />
           <span>{selectedSource.tag}</span>
@@ -847,6 +901,25 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
       </section>
     </div>
   );
+}
+
+function updateStatusLabel(status: string) {
+  if (status === "pending_refresh") return "갱신";
+  if (status === "watching") return "감시";
+  if (status === "detected") return "탐지";
+  if (status === "approved") return "승인";
+  if (status === "rejected") return "보류";
+  return status;
+}
+
+function updateChangeLabel(changeType: string) {
+  if (changeType === "source_expiring_soon") return "캐시 만료 예정";
+  if (changeType === "baseline_watch") return "핵심 소스 상시 감시";
+  if (changeType === "content_changed") return "원문 해시 변경";
+  if (changeType === "fetch_or_parse_regressed") return "수집 품질 저하";
+  if (changeType === "source_stale") return "소스 만료";
+  if (changeType === "fetch_failed") return "수집 실패";
+  return changeType;
 }
 
 function PartnersScreen({ onExpert, onLogistics }: { onExpert: () => void; onLogistics: () => void }) {

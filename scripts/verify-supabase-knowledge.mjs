@@ -9,17 +9,19 @@ const dryRun = process.env.SUPABASE_VERIFY_DRY_RUN === "1";
 const paths = {
   rules: path.join(root, "data", "rules", "tw-cosmetics-rules.json"),
   index: path.join(root, "data", "knowledge", "index.json"),
-  termIndex: path.join(root, "data", "knowledge", "term-index.json")
+  termIndex: path.join(root, "data", "knowledge", "term-index.json"),
+  updateQueue: path.join(root, "data", "knowledge", "regulatory-update-queue.json")
 };
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
 
-const [rulesData, sourceIndex, termIndex] = await Promise.all([
+const [rulesData, sourceIndex, termIndex, updateQueue] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.index),
-  readJson(paths.termIndex)
+  readJson(paths.termIndex),
+  readJson(paths.updateQueue)
 ]);
 
 const rules = rulesData.rules ?? [];
@@ -27,6 +29,7 @@ const sources = sourceIndex.results ?? [];
 const terms = termIndex.terms ?? [];
 const aliases = terms.flatMap((term) => term.aliases ?? []);
 const links = termIndex.term_rule_links ?? [];
+const updateCandidates = updateQueue.items ?? [];
 
 const expectedCounts = {
   rules: rules.length,
@@ -34,6 +37,7 @@ const expectedCounts = {
   knowledge_sources: sources.length,
   knowledge_snapshots: sources.length,
   knowledge_terms: terms.length,
+  regulatory_update_candidates: updateCandidates.length,
   term_aliases: aliases.length,
   term_rule_links: links.length
 };
@@ -131,6 +135,7 @@ try {
     union all select 'knowledge_sources', count(*)::integer from public.knowledge_sources
     union all select 'knowledge_snapshots', count(*)::integer from public.knowledge_snapshots
     union all select 'knowledge_terms', count(*)::integer from public.knowledge_terms
+    union all select 'regulatory_update_candidates', count(*)::integer from public.regulatory_update_candidates
     union all select 'term_aliases', count(*)::integer from public.term_aliases
     union all select 'term_rule_links', count(*)::integer from public.term_rule_links
     order by table_name

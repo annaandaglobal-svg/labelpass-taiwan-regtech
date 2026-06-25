@@ -1271,6 +1271,112 @@ h2 {
   line-height: 1.45;
 }
 
+.update-queue {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.queue-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.queue-head span,
+.queue-item > span {
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.queue-head h2 {
+  margin: 3px 0 0;
+}
+
+.queue-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.queue-metrics span {
+  display: grid;
+  gap: 2px;
+  min-height: 58px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.queue-metrics b {
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.queue-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.queue-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.queue-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.queue-item > span {
+  display: grid;
+  min-height: 26px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--navy-soft);
+}
+
+.queue-item.high > span {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.queue-item.low > span {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.queue-item b,
+.queue-item small {
+  display: block;
+}
+
+.queue-item small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.queue-item p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .update-feature {
   display: grid;
   gap: 10px;
@@ -1832,6 +1938,7 @@ h2 {
   .ops-strip,
   .intake-rail,
   .empty-layout,
+  .queue-metrics,
   .two-col,
   .upload-row,
   .doc-grid,
@@ -1854,6 +1961,10 @@ h2 {
 
   .nav-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .updates-grid .detail-pane {
+    order: -1;
   }
 
   .empty-result {
