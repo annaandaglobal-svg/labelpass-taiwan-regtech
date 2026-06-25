@@ -41,7 +41,7 @@ jobs:
       - name: Check knowledge seed drift
         run: |
           pnpm build:knowledge-seed
-          git diff --exit-code data/knowledge/term-index.json supabase/knowledge-seed.sql
+          git diff --exit-code data/knowledge/term-index.json data/knowledge/regulatory-update-queue.json supabase/knowledge-seed.sql
 
       - name: Validate knowledge base
         run: pnpm validate:knowledge

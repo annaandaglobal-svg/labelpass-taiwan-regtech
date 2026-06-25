@@ -9,9 +9,7 @@ const paths = {
   queue: path.join(root, "data", "knowledge", "regulatory-update-queue.json")
 };
 
-const now = new Date();
 const expiringSoonDays = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_DAYS ?? 7);
-const expiringSoonAt = new Date(now.getTime() + expiringSoonDays * 24 * 60 * 60 * 1000);
 
 async function readJson(filePath, fallback = null) {
   try {
@@ -128,6 +126,8 @@ const [registry, index, termIndex, previousQueue] = await Promise.all([
 const sourcesById = new Map((registry.sources ?? []).map((source) => [source.id, source]));
 const previousByKey = new Map((previousQueue.items ?? []).map((item) => [item.candidate_key, item]));
 const previousStates = previousQueue.source_states ?? {};
+const detectionTime = toDate(process.env.LABELPASS_UPDATE_NOW) ?? toDate(index.generated_at) ?? new Date();
+const expiringSoonAt = new Date(detectionTime.getTime() + expiringSoonDays * 24 * 60 * 60 * 1000);
 const items = [];
 
 for (const result of index.results ?? []) {
@@ -150,11 +150,11 @@ for (const result of index.results ?? []) {
 
   if (result.cache_status === "stale") {
     changeTypes.push("source_stale");
-  } else if (expiresAt && expiresAt > now && expiresAt <= expiringSoonAt) {
+  } else if (expiresAt && expiresAt > detectionTime && expiresAt <= expiringSoonAt) {
     changeTypes.push("source_expiring_soon");
   }
 
-  if (!previous && source.jurisdiction === "TW" && source.priority === "high" && (source.cache_days ?? registry.default_cache_days ?? 14) <= 14) {
+  if (source.jurisdiction === "TW" && source.priority === "high" && (source.cache_days ?? registry.default_cache_days ?? 14) <= 14) {
     changeTypes.push("baseline_watch");
   }
 
@@ -173,7 +173,7 @@ for (const result of index.results ?? []) {
       change_type: changeType,
       severity: severityFor(source, changeType),
       status: statusFor(changeType),
-      detected_at: now.toISOString(),
+      detected_at: detectionTime.toISOString(),
       fetched_at: result.fetched_at ?? null,
       cache_expires_at: result.cache_expires_at ?? null,
       previous_hash: previousHash,
@@ -225,7 +225,7 @@ for (const failure of index.failures ?? []) {
     change_type: "fetch_failed",
     severity: source.priority === "high" ? "high" : "medium",
     status: "detected",
-    detected_at: now.toISOString(),
+    detected_at: detectionTime.toISOString(),
     fetched_at: null,
     cache_expires_at: null,
     previous_hash: previousStates[failure.id]?.content_hash ?? null,
@@ -278,7 +278,7 @@ const sourceStates = Object.fromEntries(
 );
 
 const queue = {
-  generated_at: now.toISOString(),
+  generated_at: detectionTime.toISOString(),
   source_registry_version: index.source_registry_version ?? registry.version ?? null,
   crawl_generated_at: index.generated_at ?? null,
   expiring_soon_days: expiringSoonDays,
