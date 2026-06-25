@@ -52,5 +52,23 @@ jobs:
       - name: Dry-run Supabase SQL apply
         run: SUPABASE_APPLY_DRY_RUN=1 pnpm apply:supabase-knowledge
 
+      - name: Dry-run Supabase knowledge verification
+        run: SUPABASE_VERIFY_DRY_RUN=1 pnpm verify:supabase-knowledge
+
       - name: Build
         run: pnpm build
+
+      - name: Smoke test production server
+        run: |
+          pnpm exec next start -p 3000 > /tmp/labelpass-next.log 2>&1 &
+          app_pid=$!
+          trap 'kill "$app_pid" || true' EXIT
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000 >/dev/null; then
+              LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:api
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/labelpass-next.log
+          exit 1
