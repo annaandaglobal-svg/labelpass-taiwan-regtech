@@ -8,14 +8,14 @@ domain: food_safety
 source_type: standard
 priority: high
 format: html
-fetched_at: 2026-06-25T19:16:55.427Z
+fetched_at: 2026-06-25T19:16:56.200Z
 fetched_url: https://www.fda.gov.tw/ENG/lawContent.aspx?cid=513&id=3292
-extra_fetched_urls: https://consumer.fda.gov.tw/Law/Detail.aspx?nodeID=518&lang=1&lawid=776
+extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T19:16:55.427Z
+cache_expires_at: 2026-07-25T19:16:56.200Z
 cache_status: fresh
 content_hash: 8f76e480ff192fb3b2993e57c6073d18ac34b10cbfe9fa5e0d282bf7602cd1ae
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

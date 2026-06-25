@@ -12,3 +12,4 @@ data/knowledge/raw/
 supabase/generated/
 이전 시안/
 *.tsbuildinfo
+dev-server.*.log

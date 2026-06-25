@@ -8,14 +8,14 @@ domain: food_additives
 source_type: guidance_index
 priority: high
 format: html
-fetched_at: 2026-06-25T17:40:27.672Z
+fetched_at: 2026-06-25T17:40:29.382Z
 fetched_url: https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-09T17:40:27.672Z
+cache_expires_at: 2026-07-09T17:40:29.382Z
 cache_status: fresh
 content_hash: 6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

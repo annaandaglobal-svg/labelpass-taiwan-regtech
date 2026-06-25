@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 99,
+  "curated_term_count": 105,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -8471,6 +8471,566 @@
       "notes": "Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping."
     },
     {
+      "id": "cosmetic-prohibited-ingredients",
+      "canonical_name": "Cosmetic Prohibited Ingredients",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "prohibited ingredient",
+          "normalized": "prohibited ingredient",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic prohibited ingredients",
+          "normalized": "cosmetic prohibited ingredients",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "banned cosmetic ingredient",
+          "normalized": "banned cosmetic ingredient",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "금지성분",
+          "normalized": "금지성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 금지성분",
+          "normalized": "화장품 금지성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "禁用成分",
+          "normalized": "禁用成分",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品禁止使用成分",
+          "normalized": "化粧品禁止使用成分",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "禁止成分",
+          "normalized": "禁止成分",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "使用禁止成分",
+          "normalized": "使用禁止成分",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-prohibited-ingredients",
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetic-announcements"
+      ],
+      "notes": "Taiwan cosmetic prohibited-ingredient dataset concept, including CAS-based hard-block screening."
+    },
+    {
+      "id": "cosmetic-restricted-ingredients",
+      "canonical_name": "Cosmetic Restricted Ingredients",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "restricted ingredient",
+          "normalized": "restricted ingredient",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic restricted ingredients",
+          "normalized": "cosmetic restricted ingredients",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "use restriction",
+          "normalized": "use restriction",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "제한성분",
+          "normalized": "제한성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 제한성분",
+          "normalized": "화장품 제한성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "限用成分",
+          "normalized": "限用成分",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品成分使用限制",
+          "normalized": "化粧品成分使用限制",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "限制成分",
+          "normalized": "限制成分",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "使用制限成分",
+          "normalized": "使用制限成分",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetic-announcements"
+      ],
+      "notes": "Taiwan cosmetic restricted-ingredient dataset concept for concentration limits, use scope, and label cautions."
+    },
+    {
+      "id": "cosmetic-colorants",
+      "canonical_name": "Cosmetic Colorants",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "colorant",
+          "normalized": "colorant",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic colorants",
+          "normalized": "cosmetic colorants",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "color index",
+          "normalized": "color index",
+          "type": "identifier_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "색소",
+          "normalized": "색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 색소",
+          "normalized": "화장품 색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "色素",
+          "normalized": "色素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品色素",
+          "normalized": "化粧品色素",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "著色料",
+          "normalized": "著色料",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "着色剂",
+          "normalized": "着色剂",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-colorants",
+        "tw-tfda-cosmetic-announcements",
+        "eu-cosing-cosmetic-ingredients"
+      ],
+      "notes": "Taiwan cosmetic colorant dataset concept, including CI number aliases and eye-area, mucous-membrane, and rinse-off restrictions."
+    },
+    {
+      "id": "cosmetic-preservatives",
+      "canonical_name": "Cosmetic Preservatives",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "preservative",
+          "normalized": "preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic preservatives",
+          "normalized": "cosmetic preservatives",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "antimicrobial preservative",
+          "normalized": "antimicrobial preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "보존제",
+          "normalized": "보존제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "방부제",
+          "normalized": "방부제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 보존제",
+          "normalized": "화장품 보존제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防腐劑",
+          "normalized": "防腐劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品防腐劑",
+          "normalized": "化粧品防腐劑",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防腐剂",
+          "normalized": "防腐剂",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防腐剤",
+          "normalized": "防腐剤",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-preservatives",
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-announcements"
+      ],
+      "notes": "Taiwan cosmetic preservative dataset concept, including INCI/CAS aliases, limit text, use scope, and required cautions."
+    },
+    {
+      "id": "cosmetic-sunscreen-ingredients",
+      "canonical_name": "Cosmetic Sunscreen Ingredients",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "sunscreen ingredient",
+          "normalized": "sunscreen ingredient",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "UV filter",
+          "normalized": "uv filter",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic sunscreen ingredients",
+          "normalized": "cosmetic sunscreen ingredients",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "자외선차단제 성분",
+          "normalized": "자외선차단제 성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "선스크린 성분",
+          "normalized": "선스크린 성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防曬劑",
+          "normalized": "防曬劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防曬成分",
+          "normalized": "防曬成分",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品防曬劑",
+          "normalized": "化粧品防曬劑",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防晒成分",
+          "normalized": "防晒成分",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "日焼け止め成分",
+          "normalized": "日焼け止め成分",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-sunscreen-ingredients",
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-pif-hub-zh"
+      ],
+      "notes": "Taiwan sunscreen-ingredient dataset concept for UV filter limits, sunscreen factor evidence, and PIF functional substantiation."
+    },
+    {
       "id": "nutrition-labeling",
       "canonical_name": "Nutrition Labeling",
       "category": "food_labeling",
@@ -8564,10 +9124,201 @@
       "source_keys": [
         "tw-tfda-food-nutrition-labeling",
         "tw-tfda-nutrition-claim-prepackaged-food",
+        "tw-tfda-sweetness-claim-prepackaged-food",
         "global-codex-nutrition-labeling",
         "us-ecfr-food-labeling-21-cfr-101"
       ],
       "notes": "Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence."
+    },
+    {
+      "id": "food-labeling-claims",
+      "canonical_name": "Food Labeling and Claims",
+      "category": "food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "food claims",
+          "normalized": "food claims",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food labeling claims",
+          "normalized": "food labeling claims",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "false exaggerated misleading food claim",
+          "normalized": "false exaggerated misleading food claim",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "medical efficacy food claim",
+          "normalized": "medical efficacy food claim",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sweetness claim",
+          "normalized": "sweetness claim",
+          "type": "claim_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 표시광고",
+          "normalized": "식품 표시광고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 표시 광고",
+          "normalized": "식품 표시 광고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 효능표현",
+          "normalized": "식품 효능표현",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 과장광고",
+          "normalized": "식품 과장광고",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "의학적 효능 표시",
+          "normalized": "의학적 효능 표시",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品標示廣告",
+          "normalized": "食品標示廣告",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品宣稱",
+          "normalized": "食品宣稱",
+          "type": "claim_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "誇大不實",
+          "normalized": "誇大不實",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "醫療效能",
+          "normalized": "醫療效能",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甜味宣稱",
+          "normalized": "甜味宣稱",
+          "type": "claim_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品标签宣称",
+          "normalized": "食品标签宣称",
+          "type": "claim_phrase",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品表示広告",
+          "normalized": "食品表示広告",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-food-safety-sanitation-act",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+        "tw-tfda-sweetness-claim-prepackaged-food",
+        "tw-tfda-nutrition-claim-prepackaged-food",
+        "global-codex-prepackaged-food-labeling"
+      ],
+      "notes": "Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims."
     },
     {
       "id": "food-allergen-labeling",

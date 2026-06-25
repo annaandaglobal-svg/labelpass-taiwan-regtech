@@ -115,12 +115,12 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "108",
-  aliases: "3,396",
-  terms: "1,135",
+  sources: "115",
+  aliases: "3,460",
+  terms: "1,141",
   reviewCases: "14",
-  knowledgeCases: "64",
-  sourceCases: "33"
+  knowledgeCases: "71",
+  sourceCases: "40"
 };
 
 const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {

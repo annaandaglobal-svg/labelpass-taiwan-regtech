@@ -8,14 +8,14 @@ domain: trade
 source_type: guidance_index
 priority: high
 format: html
-fetched_at: 2026-06-25T15:09:13.960Z
+fetched_at: 2026-06-25T15:09:16.612Z
 fetched_url: https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-09T15:09:13.960Z
+cache_expires_at: 2026-07-09T15:09:16.612Z
 cache_status: fresh
 content_hash: d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

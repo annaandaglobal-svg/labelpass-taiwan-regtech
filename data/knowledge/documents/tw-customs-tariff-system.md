@@ -8,14 +8,14 @@ domain: customs
 source_type: tariff_index
 priority: high
 format: html
-fetched_at: 2026-06-25T15:09:13.960Z
+fetched_at: 2026-06-25T15:09:18.698Z
 fetched_url: https://web.customs.gov.tw/en/multiplehtml/3349
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-09T15:09:13.960Z
+cache_expires_at: 2026-07-09T15:09:18.698Z
 cache_status: fresh
 content_hash: 797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -8,14 +8,14 @@ domain: food_import
 source_type: notice
 priority: high
 format: html
-fetched_at: 2026-06-25T17:40:27.672Z
+fetched_at: 2026-06-25T17:40:30.439Z
 fetched_url: https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T17:40:27.672Z
+cache_expires_at: 2026-07-25T17:40:30.439Z
 cache_status: fresh
 content_hash: 1d96d566eed0b19172264c455cd07c9ae61114e8959f54b95d8ed412ec104feb
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

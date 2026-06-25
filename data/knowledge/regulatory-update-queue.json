@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-25T19:47:35.493Z",
+  "generated_at": "2026-06-25T22:28:07.369Z",
   "source_registry_version": "2026-06-26",
-  "crawl_generated_at": "2026-06-25T19:47:35.493Z",
+  "crawl_generated_at": "2026-06-25T22:28:07.369Z",
   "expiring_soon_days": 7,
   "summary": {
-    "total": 20,
+    "total": 25,
     "detected": 0,
     "pending_refresh": 5,
-    "watching": 15,
+    "watching": 20,
     "approved": 0,
     "high": 0,
-    "medium": 19,
+    "medium": 24,
     "low": 1
   },
   "items": [
@@ -27,9 +27,9 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T14:44:25.986Z",
-      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-02T22:28:07.369Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "current_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "affected_domains": [
@@ -112,9 +112,9 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-02T17:40:27.672Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T17:40:28.203Z",
+      "cache_expires_at": "2026-07-02T17:40:28.203Z",
       "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "current_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "affected_domains": [
@@ -127,6 +127,26 @@
         "product-registration"
       ],
       "affected_terms": [
+        {
+          "term_key": "cosmetic-prohibited-ingredients",
+          "canonical_name": "Cosmetic Prohibited Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-restricted-ingredients",
+          "canonical_name": "Cosmetic Restricted Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-colorants",
+          "canonical_name": "Cosmetic Colorants",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-preservatives",
+          "canonical_name": "Cosmetic Preservatives",
+          "category": "cosmetic_ingredient_restriction"
+        },
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
@@ -152,7 +172,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2750,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -189,7 +209,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
       "fetched_at": "2026-06-25T13:02:09.360Z",
       "cache_expires_at": "2026-07-02T13:02:09.360Z",
       "previous_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
@@ -202,6 +222,11 @@
         "cosmetics"
       ],
       "affected_terms": [
+        {
+          "term_key": "cosmetic-sunscreen-ingredients",
+          "canonical_name": "Cosmetic Sunscreen Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
@@ -257,9 +282,9 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T14:44:25.986Z",
-      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-02T22:28:07.369Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "current_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "affected_domains": [
@@ -347,9 +372,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T15:09:22.209Z",
+      "cache_expires_at": "2026-07-09T15:09:22.209Z",
       "previous_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
       "current_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
       "affected_domains": [
@@ -376,7 +401,7 @@
         "extra_fetched_urls": [],
         "text_chars": 7455,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -412,9 +437,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T14:44:25.986Z",
-      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-02T22:28:07.369Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "current_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "affected_domains": [
@@ -497,9 +522,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T15:09:18.698Z",
+      "cache_expires_at": "2026-07-09T15:09:18.698Z",
       "previous_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
       "current_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
       "affected_domains": [
@@ -526,7 +551,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3931,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -562,9 +587,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T19:02:19.917Z",
-      "cache_expires_at": "2026-07-09T19:02:19.917Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T19:02:20.296Z",
+      "cache_expires_at": "2026-07-09T19:02:20.296Z",
       "previous_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
       "current_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
       "affected_domains": [
@@ -593,7 +618,7 @@
         "extra_fetched_urls": [],
         "text_chars": 4021,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -630,7 +655,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
       "fetched_at": "2026-06-25T13:02:21.869Z",
       "cache_expires_at": "2026-07-09T13:02:21.869Z",
       "previous_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
@@ -693,9 +718,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-02T17:40:27.672Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T17:40:28.203Z",
+      "cache_expires_at": "2026-07-02T17:40:28.203Z",
       "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "current_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
       "affected_domains": [
@@ -708,6 +733,26 @@
         "product-registration"
       ],
       "affected_terms": [
+        {
+          "term_key": "cosmetic-prohibited-ingredients",
+          "canonical_name": "Cosmetic Prohibited Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-restricted-ingredients",
+          "canonical_name": "Cosmetic Restricted Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-colorants",
+          "canonical_name": "Cosmetic Colorants",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-preservatives",
+          "canonical_name": "Cosmetic Preservatives",
+          "category": "cosmetic_ingredient_restriction"
+        },
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
@@ -733,7 +778,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2750,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -758,6 +803,148 @@
       }
     },
     {
+      "candidate_key": "tw-tfda-cosmetic-colorants:baseline_watch",
+      "source_key": "tw-tfda-cosmetic-colorants",
+      "title": "Cosmetics Colorants Use Restrictions Open Data",
+      "source_url": "https://data.gov.tw/dataset/173686",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "dataset",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "previous_hash": null,
+      "current_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "colorants",
+        "color-index",
+        "ingredient-restrictions",
+        "opendata",
+        "infoid-200"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-colorants",
+          "canonical_name": "Cosmetic Colorants",
+          "category": "cosmetic_ingredient_restriction"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md",
+        "fetched_url": "https://data.gov.tw/dataset/173686",
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/200/json"
+        ],
+        "text_chars": 21737,
+        "format": "json",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "化粧品色素成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品色素成分使用限制資料集 / ::: 化粧品色素成分使用限制資料集 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1342 下載次數： 56 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 Color_Index_Number／成分名、 別名、 使用範圍、 限制規定、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "colorants",
+          "color-index",
+          "ingredient-restrictions",
+          "opendata",
+          "infoid-200"
+        ],
+        "compact_title": "cosmetics-colorants-use-restrictions-open-data"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-cosmetic-preservatives:baseline_watch",
+      "source_key": "tw-tfda-cosmetic-preservatives",
+      "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
+      "source_url": "https://data.gov.tw/dataset/173682",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "dataset",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "previous_hash": null,
+      "current_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "preservatives",
+        "ingredient-restrictions",
+        "inci",
+        "cas",
+        "label-cautions",
+        "opendata",
+        "infoid-201"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-preservatives",
+          "canonical_name": "Cosmetic Preservatives",
+          "category": "cosmetic_ingredient_restriction"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md",
+        "fetched_url": "https://data.gov.tw/dataset/173682",
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/201/json"
+        ],
+        "text_chars": 17307,
+        "format": "json",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "化粧品防腐劑成分名稱及使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防腐劑成分名稱及使用限制資料集 / ::: 化粧品防腐劑成分名稱及使用限制資料集 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1861 下載次數： 79 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "preservatives",
+          "ingredient-restrictions",
+          "inci",
+          "cas",
+          "label-cautions",
+          "opendata",
+          "infoid-201"
+        ],
+        "compact_title": "cosmetics-preservatives-names-and-use-restrictions-open-data"
+      }
+    },
+    {
       "candidate_key": "tw-tfda-cosmetic-product-registration-zone:baseline_watch",
       "source_key": "tw-tfda-cosmetic-product-registration-zone",
       "title": "Cosmetic Product Registration Zone",
@@ -770,9 +957,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T17:40:28.519Z",
+      "cache_expires_at": "2026-07-09T17:40:28.519Z",
       "previous_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
       "current_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
       "affected_domains": [
@@ -799,7 +986,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2840,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -823,6 +1010,231 @@
       }
     },
     {
+      "candidate_key": "tw-tfda-cosmetic-prohibited-ingredients:baseline_watch",
+      "source_key": "tw-tfda-cosmetic-prohibited-ingredients",
+      "title": "Cosmetics Prohibited Ingredients Open Data",
+      "source_url": "https://data.gov.tw/dataset/173684",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "dataset",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "previous_hash": null,
+      "current_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "prohibited-ingredients",
+        "ingredient-restrictions",
+        "cas",
+        "opendata",
+        "infoid-203"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-prohibited-ingredients",
+          "canonical_name": "Cosmetic Prohibited Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md",
+        "fetched_url": "https://data.gov.tw/dataset/173684",
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/203/json"
+        ],
+        "text_chars": 70334,
+        "format": "json",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "化粧品禁止使用成分資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品禁止使用成分資料集 / ::: 化粧品禁止使用成分資料集 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 2645 下載次數： 255 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名稱、 CAS_Number、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 提供機關 衛生福利部食品藥物管理署 提供機關聯絡人姓名 簡 先生/小姐 (2787-82"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "prohibited-ingredients",
+          "ingredient-restrictions",
+          "cas",
+          "opendata",
+          "infoid-203"
+        ],
+        "compact_title": "cosmetics-prohibited-ingredients-open-data"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-cosmetic-restricted-ingredients:baseline_watch",
+      "source_key": "tw-tfda-cosmetic-restricted-ingredients",
+      "title": "Cosmetics Restricted Ingredients Open Data",
+      "source_url": "https://data.gov.tw/dataset/173685",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "dataset",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "previous_hash": null,
+      "current_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "restricted-ingredients",
+        "ingredient-restrictions",
+        "inci",
+        "cas",
+        "label-cautions",
+        "opendata",
+        "infoid-199"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-restricted-ingredients",
+          "canonical_name": "Cosmetic Restricted Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-preservatives",
+          "canonical_name": "Cosmetic Preservatives",
+          "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "cosmetic-sunscreen-ingredients",
+          "canonical_name": "Cosmetic Sunscreen Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md",
+        "fetched_url": "https://data.gov.tw/dataset/173685",
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/199/json"
+        ],
+        "text_chars": 47885,
+        "format": "json",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "化粧品成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品成分使用限制資料集 / ::: 化粧品成分使用限制資料集 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1965 下載次數： 148 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_NO.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利部食品"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "restricted-ingredients",
+          "ingredient-restrictions",
+          "inci",
+          "cas",
+          "label-cautions",
+          "opendata",
+          "infoid-199"
+        ],
+        "compact_title": "cosmetics-restricted-ingredients-open-data"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-cosmetic-sunscreen-ingredients:baseline_watch",
+      "source_key": "tw-tfda-cosmetic-sunscreen-ingredients",
+      "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
+      "source_url": "https://data.gov.tw/dataset/173683",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "dataset",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "previous_hash": null,
+      "current_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "sunscreen",
+        "uv-filter",
+        "ingredient-restrictions",
+        "spf",
+        "pif",
+        "opendata",
+        "infoid-202"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-sunscreen-ingredients",
+          "canonical_name": "Cosmetic Sunscreen Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md",
+        "fetched_url": "https://data.gov.tw/dataset/173683",
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/202/json"
+        ],
+        "text_chars": 7232,
+        "format": "json",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "化粧品防曬劑成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防曬劑成分使用限制資料集 / ::: 化粧品防曬劑成分使用限制資料集 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 590 下載次數： 37 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "sunscreen",
+          "uv-filter",
+          "ingredient-restrictions",
+          "spf",
+          "pif",
+          "opendata",
+          "infoid-202"
+        ],
+        "compact_title": "cosmetics-sunscreen-ingredients-use-restrictions-open-data"
+      }
+    },
+    {
       "candidate_key": "tw-tfda-food-additive-registration-announcements:baseline_watch",
       "source_key": "tw-tfda-food-additive-registration-announcements",
       "title": "Food Additive Registration Legal Announcements",
@@ -835,9 +1247,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T17:40:29.677Z",
+      "cache_expires_at": "2026-07-09T17:40:29.677Z",
       "previous_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
       "current_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
       "affected_domains": [
@@ -871,7 +1283,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2780,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -908,9 +1320,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T17:40:29.382Z",
+      "cache_expires_at": "2026-07-09T17:40:29.382Z",
       "previous_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
       "current_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
       "affected_domains": [
@@ -938,7 +1350,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2682,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -974,7 +1386,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
       "fetched_at": "2026-06-25T13:02:09.360Z",
       "cache_expires_at": "2026-07-02T13:02:09.360Z",
       "previous_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
@@ -987,6 +1399,11 @@
         "cosmetics"
       ],
       "affected_terms": [
+        {
+          "term_key": "cosmetic-sunscreen-ingredients",
+          "canonical_name": "Cosmetic Sunscreen Ingredients",
+          "category": "cosmetic_ingredient_restriction"
+        },
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
@@ -1042,7 +1459,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
       "fetched_at": "2026-06-25T13:02:08.995Z",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
       "previous_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
@@ -1103,9 +1520,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T14:44:25.986Z",
-      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-02T22:28:07.369Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "current_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "affected_domains": [
@@ -1193,9 +1610,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-09T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T19:47:37.922Z",
+      "cache_expires_at": "2026-07-09T19:47:37.922Z",
       "previous_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
       "current_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
       "affected_domains": [
@@ -1217,7 +1634,7 @@
         "extra_fetched_urls": [],
         "text_chars": 16496,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1254,9 +1671,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T15:09:16.612Z",
+      "cache_expires_at": "2026-07-09T15:09:16.612Z",
       "previous_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
       "current_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
       "affected_domains": [
@@ -1288,7 +1705,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3822,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1324,7 +1741,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-25T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
       "fetched_at": "2026-06-25T13:02:14.387Z",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
       "previous_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
@@ -1414,7 +1831,7 @@
       "change_type": "source_expiring_soon",
       "severity": "low",
       "status": "pending_refresh",
-      "detected_at": "2026-06-25T19:47:35.493Z",
+      "detected_at": "2026-06-25T22:28:07.369Z",
       "fetched_at": "2026-06-25T13:02:19.641Z",
       "cache_expires_at": "2026-07-02T13:02:19.641Z",
       "previous_hash": "ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2",
@@ -1499,17 +1916,62 @@
     "tw-tfda-cosmetic-announcements": {
       "title": "TFDA Cosmetic Latest Announcements",
       "content_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-02T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:28.203Z",
+      "cache_expires_at": "2026-07-02T17:40:28.203Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-announcements.md"
     },
+    "tw-tfda-cosmetic-prohibited-ingredients": {
+      "title": "Cosmetics Prohibited Ingredients Open Data",
+      "content_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md"
+    },
+    "tw-tfda-cosmetic-restricted-ingredients": {
+      "title": "Cosmetics Restricted Ingredients Open Data",
+      "content_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md"
+    },
+    "tw-tfda-cosmetic-colorants": {
+      "title": "Cosmetics Colorants Use Restrictions Open Data",
+      "content_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md"
+    },
+    "tw-tfda-cosmetic-preservatives": {
+      "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
+      "content_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md"
+    },
+    "tw-tfda-cosmetic-sunscreen-ingredients": {
+      "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
+      "content_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md"
+    },
     "tw-tfda-cosmetic-product-registration-zone": {
       "title": "Cosmetic Product Registration Zone",
       "content_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:28.519Z",
+      "cache_expires_at": "2026-07-09T17:40:28.519Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-zone.md"
@@ -1517,8 +1979,8 @@
     "tw-tfda-cosmetics-business-area": {
       "title": "TFDA Cosmetics Business Area",
       "content_hash": "90411a2685b04769e93bd82bded509a9add26e055c243db625fc15525e32b09f",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:29.034Z",
+      "cache_expires_at": "2026-07-09T17:40:29.034Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetics-business-area.md"
@@ -1526,8 +1988,8 @@
     "tw-tfda-imported-cosmetics-inspection": {
       "title": "Regulations for the Inspection and Examination of Imported Cosmetics",
       "content_hash": "d3587c735a7707aa00496e7b674b63daec1831b43dee2abec55a4769b9c9cc0e",
-      "fetched_at": "2026-06-25T15:13:34.048Z",
-      "cache_expires_at": "2026-07-25T15:13:34.048Z",
+      "fetched_at": "2026-06-25T15:13:34.781Z",
+      "cache_expires_at": "2026-07-25T15:13:34.781Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-imported-cosmetics-inspection.md"
@@ -1535,8 +1997,8 @@
     "tw-tfda-cosmetics-management-transition-2021": {
       "title": "New Cosmetics Management System to Be Enforced from July 2021",
       "content_hash": "26a0bc8ca1366f52cdc5033f594f10aad1f01203002039a05c2952d112777cb8",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-25T15:09:13.960Z",
+      "fetched_at": "2026-06-25T15:09:14.372Z",
+      "cache_expires_at": "2026-07-25T15:09:14.372Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetics-management-transition-2021.md"
@@ -1598,8 +2060,8 @@
     "tw-tfda-food-additive-registration-materials": {
       "title": "Food Additive Inspection Registration Materials",
       "content_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:29.382Z",
+      "cache_expires_at": "2026-07-09T17:40:29.382Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-materials.md"
@@ -1607,8 +2069,8 @@
     "tw-tfda-food-additive-registration-announcements": {
       "title": "Food Additive Registration Legal Announcements",
       "content_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-09T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:29.677Z",
+      "cache_expires_at": "2026-07-09T17:40:29.677Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-announcements.md"
@@ -1616,8 +2078,8 @@
     "tw-tfda-food-registration-permit-management-rule": {
       "title": "Food and Related Products Registration and Permit Document Management Rule Notice",
       "content_hash": "01d661cba2d8d6bb9eb9d67b30d1a6ed0b3221552514f0693286c4fafd73716d",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-25T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:30.042Z",
+      "cache_expires_at": "2026-07-25T17:40:30.042Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-registration-permit-management-rule.md"
@@ -1630,6 +2092,24 @@
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-nutrition-claim-prepackaged-food.md"
+    },
+    "tw-tfda-food-false-exaggerated-medical-efficacy-claims": {
+      "title": "Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy",
+      "content_hash": "e6161a6bd8217b10cb0060168d7f91dfbbbbfd3a0a329b1851d4d0987a2e0434",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-25T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-false-exaggerated-medical-efficacy-claims.md"
+    },
+    "tw-tfda-sweetness-claim-prepackaged-food": {
+      "title": "Regulation for the Labeling of Slightly Sweet, Not Sweet or Other Sweetness Claim on Prepackaged Food",
+      "content_hash": "07dbc6e0ffd3252efb0a1da8c2134b7f8f6e1ee4c5cf8b56241077924a9376c1",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-25T22:28:07.369Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-sweetness-claim-prepackaged-food.md"
     },
     "tw-tfda-nutrition-labeling-exemptions": {
       "title": "Regulations on Prepackaged Food Products Exempted from the Nutrition Labeling",
@@ -1742,8 +2222,8 @@
     "tw-tfda-food-business-use-intact-package-labeling": {
       "title": "Principles for Managing the Labeling of Foods (including Raw Materials) with Intact Package for Business Use",
       "content_hash": "a68cd4757ebbd4481e76150220e663b21ea7a2cc53fcce335aedda0a005dc066",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-25T15:09:13.960Z",
+      "fetched_at": "2026-06-25T15:09:14.478Z",
+      "cache_expires_at": "2026-07-25T15:09:14.478Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-business-use-intact-package-labeling.md"
@@ -1751,8 +2231,8 @@
     "tw-tfda-food-import-inspection-exemptions": {
       "title": "Requirements for Exemption from Inspection Application for Import of Food and Related Products and the Applicable Custom Code",
       "content_hash": "309074a3e09e8ff900a50ab8a060474d7cdc3dcd3602a77e3d1b082ab07f54c3",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-25T15:09:13.960Z",
+      "fetched_at": "2026-06-25T15:09:14.583Z",
+      "cache_expires_at": "2026-07-25T15:09:14.583Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-import-inspection-exemptions.md"
@@ -1760,8 +2240,8 @@
     "tw-tfda-compound-food-additive-import-documents": {
       "title": "Compound Food Additives Import Composition Report and Official Health Certificate",
       "content_hash": "1d96d566eed0b19172264c455cd07c9ae61114e8959f54b95d8ed412ec104feb",
-      "fetched_at": "2026-06-25T17:40:27.672Z",
-      "cache_expires_at": "2026-07-25T17:40:27.672Z",
+      "fetched_at": "2026-06-25T17:40:30.439Z",
+      "cache_expires_at": "2026-07-25T17:40:30.439Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-compound-food-additive-import-documents.md"
@@ -1769,8 +2249,8 @@
     "tw-tfda-imported-food-inspection-regulations": {
       "title": "Regulations of Inspection of Imported Foods and Related Products",
       "content_hash": "9744a763fa7a46539146447f69239be907ed08f9468e9b122794cc200b0d1dc7",
-      "fetched_at": "2026-06-25T16:17:17.358Z",
-      "cache_expires_at": "2026-07-25T16:17:17.358Z",
+      "fetched_at": "2026-06-25T16:17:18.420Z",
+      "cache_expires_at": "2026-07-25T16:17:18.420Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-regulations.md"
@@ -1778,8 +2258,8 @@
     "tw-tfda-systematic-inspection-imported-food": {
       "title": "Regulations for Systematic Inspection of Imported Food",
       "content_hash": "a1f6fed5bd8bb3cb184345e5f0d7f5e23f7cfbfbe120c9aa3f7823377af35bbf",
-      "fetched_at": "2026-06-25T16:17:17.358Z",
-      "cache_expires_at": "2026-07-25T16:17:17.358Z",
+      "fetched_at": "2026-06-25T16:17:18.607Z",
+      "cache_expires_at": "2026-07-25T16:17:18.607Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md"
@@ -1787,8 +2267,8 @@
     "tw-tfda-shellfish-hs0307-health-certificate": {
       "title": "Shellfish HS 0307 health certificate requirement",
       "content_hash": "5c4c4f5125e1f08f8188aa63ad7f2837be0a4cc36021362f5c1176444b3d294a",
-      "fetched_at": "2026-06-25T16:17:17.358Z",
-      "cache_expires_at": "2026-07-25T16:17:17.358Z",
+      "fetched_at": "2026-06-25T16:17:18.720Z",
+      "cache_expires_at": "2026-07-25T16:17:18.720Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-shellfish-hs0307-health-certificate.md"
@@ -1796,8 +2276,8 @@
     "tw-tfda-food-business-registration-importers": {
       "title": "Regulations Governing the Registration of Food Business",
       "content_hash": "4798f195285036a7bde243cf853aee940400f846db3d616a1c2f712b158df4d5",
-      "fetched_at": "2026-06-25T16:17:17.358Z",
-      "cache_expires_at": "2026-07-25T16:17:17.358Z",
+      "fetched_at": "2026-06-25T16:17:18.834Z",
+      "cache_expires_at": "2026-07-25T16:17:18.834Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-business-registration-importers.md"
@@ -1805,8 +2285,8 @@
     "tw-moj-food-pesticide-residue-limits": {
       "title": "Standards for Pesticide Residue Limits in Foods",
       "content_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
-      "fetched_at": "2026-06-25T19:02:19.917Z",
-      "cache_expires_at": "2026-07-09T19:02:19.917Z",
+      "fetched_at": "2026-06-25T19:02:20.296Z",
+      "cache_expires_at": "2026-07-09T19:02:20.296Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-food-pesticide-residue-limits.md"
@@ -1814,8 +2294,8 @@
     "tw-moj-food-veterinary-drug-residue-limits": {
       "title": "Standards for Veterinary Drug Residue Limits in Foods",
       "content_hash": "b6dda2f4630cffa0c53910cc6cfc8a29b827c2653227df804d081fc533d5ab28",
-      "fetched_at": "2026-06-25T19:02:19.917Z",
-      "cache_expires_at": "2026-07-25T19:02:19.917Z",
+      "fetched_at": "2026-06-25T19:02:20.425Z",
+      "cache_expires_at": "2026-07-25T19:02:20.425Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-food-veterinary-drug-residue-limits.md"
@@ -1823,8 +2303,8 @@
     "tw-moj-food-contaminants-toxins": {
       "title": "Sanitation Standards for Contaminants and Toxins in Foods",
       "content_hash": "55769e4b0588e8de68f0475bd42a504ce34ae96a7067f2cef613aadd9b68b03d",
-      "fetched_at": "2026-06-25T19:02:19.917Z",
-      "cache_expires_at": "2026-07-25T19:02:19.917Z",
+      "fetched_at": "2026-06-25T19:02:20.600Z",
+      "cache_expires_at": "2026-07-25T19:02:20.600Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-food-contaminants-toxins.md"
@@ -1832,8 +2312,8 @@
     "tw-tfda-food-microorganisms-standard": {
       "title": "Sanitation Standard for Microorganisms in Foods",
       "content_hash": "8f76e480ff192fb3b2993e57c6073d18ac34b10cbfe9fa5e0d282bf7602cd1ae",
-      "fetched_at": "2026-06-25T19:16:55.427Z",
-      "cache_expires_at": "2026-07-25T19:16:55.427Z",
+      "fetched_at": "2026-06-25T19:16:56.200Z",
+      "cache_expires_at": "2026-07-25T19:16:56.200Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-microorganisms-standard.md"
@@ -1841,8 +2321,8 @@
     "tw-tfda-food-traceability": {
       "title": "Regulations Governing Traceability of Foods and Relevant Products",
       "content_hash": "b1aca3b63c4125f8bfc8a9a91ed9c54f53598ad19ab582fe1f39ff1a84ac44a2",
-      "fetched_at": "2026-06-25T19:02:19.917Z",
-      "cache_expires_at": "2026-07-25T19:02:19.917Z",
+      "fetched_at": "2026-06-25T19:02:21.009Z",
+      "cache_expires_at": "2026-07-25T19:02:21.009Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-traceability.md"
@@ -1850,8 +2330,8 @@
     "tw-tfda-food-ghp-regulations": {
       "title": "Good Hygiene Practice Regulations for Food",
       "content_hash": "99163b35fce0586520f072b9245014e13ba381209e4cf70daf9e4f639601b46d",
-      "fetched_at": "2026-06-25T19:02:19.917Z",
-      "cache_expires_at": "2026-07-25T19:02:19.917Z",
+      "fetched_at": "2026-06-25T19:02:21.135Z",
+      "cache_expires_at": "2026-07-25T19:02:21.135Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-ghp-regulations.md"
@@ -1868,8 +2348,8 @@
     "tw-moj-foreign-trade-act": {
       "title": "Foreign Trade Act",
       "content_hash": "9b7c88dc98ca7a225a90ed74dc1169d6cf3a523fb5521f702d9fe513437638b8",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:36.011Z",
+      "cache_expires_at": "2026-07-25T19:47:36.011Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-foreign-trade-act.md"
@@ -1877,8 +2357,8 @@
     "tw-moj-import-commodities-regulations": {
       "title": "Regulations Governing Import of Commodities",
       "content_hash": "6918e1222400ac6d83d58a327d0469a8cdaa28208f5e4b6242d911df825c6a53",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:36.190Z",
+      "cache_expires_at": "2026-07-25T19:47:36.190Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-import-commodities-regulations.md"
@@ -1886,8 +2366,8 @@
     "tw-moj-export-commodities-regulations": {
       "title": "Regulations Governing Export of Commodities",
       "content_hash": "a971a72efdd02f3167be64dede150f62e0107a9730400f35876ddbf40b18f9d7",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:36.409Z",
+      "cache_expires_at": "2026-07-25T19:47:36.409Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-export-commodities-regulations.md"
@@ -1895,8 +2375,8 @@
     "tw-moj-exporter-importer-registration": {
       "title": "Regulations Governing Registration of Exporters and Importers",
       "content_hash": "55a6f4167c09fff2c7ec920ea470d91ea1adf4c055d6d7afdc0b2075bee051dc",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:36.572Z",
+      "cache_expires_at": "2026-07-25T19:47:36.572Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-exporter-importer-registration.md"
@@ -1904,8 +2384,8 @@
     "tw-trade-import-export-administration": {
       "title": "Import and Export Administration",
       "content_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "fetched_at": "2026-06-25T15:09:16.612Z",
+      "cache_expires_at": "2026-07-09T15:09:16.612Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md"
@@ -1913,8 +2393,8 @@
     "tw-trade-ccc-import-export-regulations": {
       "title": "Import and Export Regulations by CCC Code",
       "content_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
-      "fetched_at": "2026-06-25T14:44:25.986Z",
-      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-02T22:28:07.369Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md"
@@ -1922,8 +2402,8 @@
     "tw-trade-commodity-classification-guide": {
       "title": "Commodity Classification and Import/Export Regulation Guide",
       "content_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-09T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:37.922Z",
+      "cache_expires_at": "2026-07-09T19:47:37.922Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-commodity-classification-guide.md"
@@ -1931,8 +2411,8 @@
     "tw-customs-tariff-database-download": {
       "title": "GC453 Tariff Database Download",
       "content_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
-      "fetched_at": "2026-06-25T14:44:25.986Z",
-      "cache_expires_at": "2026-07-02T14:44:25.986Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-07-02T22:28:07.369Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md"
@@ -1940,8 +2420,8 @@
     "tw-customs-tariff-system": {
       "title": "Tariff System - Customs Administration",
       "content_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "fetched_at": "2026-06-25T15:09:18.698Z",
+      "cache_expires_at": "2026-07-09T15:09:18.698Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-tariff-system.md"
@@ -1949,8 +2429,8 @@
     "tw-customs-advance-tariff-classification-ruling": {
       "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
       "content_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
-      "fetched_at": "2026-06-25T14:39:00.574Z",
-      "cache_expires_at": "2026-07-09T14:39:00.574Z",
+      "fetched_at": "2026-06-25T14:39:06.986Z",
+      "cache_expires_at": "2026-07-09T14:39:06.986Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-advance-tariff-classification-ruling.md"
@@ -1958,8 +2438,8 @@
     "tw-customs-imported-goods-advance-tariff-classification-ruling": {
       "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
       "content_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
-      "fetched_at": "2026-06-25T15:09:13.960Z",
-      "cache_expires_at": "2026-07-09T15:09:13.960Z",
+      "fetched_at": "2026-06-25T15:09:22.209Z",
+      "cache_expires_at": "2026-07-09T15:09:22.209Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md"
@@ -1994,8 +2474,8 @@
     "tw-moj-customs-act": {
       "title": "Customs Act",
       "content_hash": "bdf6eac48a0ab066a21a5605463cfe010b7e79f6f4299b9e0c58ea121ed7a39e",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:38.446Z",
+      "cache_expires_at": "2026-07-25T19:47:38.446Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-customs-act.md"
@@ -2012,8 +2492,8 @@
     "tw-moj-shtc-export-import-regulations": {
       "title": "Regulations Governing the Export and Import of Strategic High-tech Commodities",
       "content_hash": "b376bf9815cb9b92f2c3da41a4df90e279eb49564b2fec8b0a7adef685f0eecf",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:38.619Z",
+      "cache_expires_at": "2026-07-25T19:47:38.619Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-shtc-export-import-regulations.md"
@@ -2030,8 +2510,8 @@
     "tw-trade-shtc-bilingual-glossary": {
       "title": "Strategic High-Tech Commodities Bilingual Glossary",
       "content_hash": "74c9680517d02b2f13e2d8c4a79f20e84205dc18b5b2fef5e53d54371de19c5a",
-      "fetched_at": "2026-06-25T19:47:35.493Z",
-      "cache_expires_at": "2026-07-25T19:47:35.493Z",
+      "fetched_at": "2026-06-25T19:47:40.412Z",
+      "cache_expires_at": "2026-07-25T19:47:40.412Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-shtc-bilingual-glossary.md"
@@ -2093,8 +2573,8 @@
     "global-unece-ghs-rev11": {
       "title": "Globally Harmonized System of Classification and Labelling of Chemicals Rev. 11",
       "content_hash": "d003b83f5a695efbc362bf8b65d814289c4fa04e74e877a92a31c6f747ab4762",
-      "fetched_at": "2026-06-25T13:56:16.130Z",
-      "cache_expires_at": "2026-09-23T13:56:16.130Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-09-23T22:28:07.369Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/global-unece-ghs-rev11.md"
@@ -2102,8 +2582,8 @@
     "global-unece-ghs-rev11-pdf": {
       "title": "GHS Rev. 11 English PDF",
       "content_hash": "486b2ad4eff864354c0090c77729393da3fbcae2c56b06b7661517067c8dabd5",
-      "fetched_at": "2026-06-25T13:56:16.130Z",
-      "cache_expires_at": "2026-12-22T13:56:16.130Z",
+      "fetched_at": "2026-06-25T22:28:07.369Z",
+      "cache_expires_at": "2026-12-22T22:28:07.369Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/global-unece-ghs-rev11-pdf.md"

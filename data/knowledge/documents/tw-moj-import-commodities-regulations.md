@@ -8,14 +8,14 @@ domain: trade
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T19:47:35.493Z
+fetched_at: 2026-06-25T19:47:36.190Z
 fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0090007
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T19:47:35.493Z
+cache_expires_at: 2026-07-25T19:47:36.190Z
 cache_status: fresh
 content_hash: 6918e1222400ac6d83d58a327d0469a8cdaa28208f5e4b6242d911df825c6a53
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

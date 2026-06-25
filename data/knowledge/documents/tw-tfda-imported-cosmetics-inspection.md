@@ -8,14 +8,14 @@ domain: cosmetics_import
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T15:13:34.048Z
+fetched_at: 2026-06-25T15:13:34.781Z
 fetched_url: https://www.fda.gov.tw/ENG/lawContent.aspx?cid=5062&id=3191
-extra_fetched_urls: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030102
+extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T15:13:34.048Z
+cache_expires_at: 2026-07-25T15:13:34.781Z
 cache_status: fresh
 content_hash: d3587c735a7707aa00496e7b674b63daec1831b43dee2abec55a4769b9c9cc0e
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

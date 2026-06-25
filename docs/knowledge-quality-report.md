@@ -1,12 +1,12 @@
 # Knowledge Quality Report
 
-Crawl index: 2026-06-25T13:56:16.130Z
+Crawl index: 2026-06-25T22:28:07.369Z
 
 This report flags source extracts that may be too thin, blocked, encoded incorrectly, or otherwise weak as reusable regulatory evidence. It is an operations backlog, not a legal conclusion.
 
 ## Summary
 
-- Sources checked: 73
+- Sources checked: 115
 - High findings: 0
 - Medium findings: 0
 - Low findings: 0

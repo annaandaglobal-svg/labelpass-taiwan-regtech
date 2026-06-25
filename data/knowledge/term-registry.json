@@ -3364,6 +3364,123 @@
       "notes": "Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping."
     },
     {
+      "id": "cosmetic-prohibited-ingredients",
+      "canonical_name": "Cosmetic Prohibited Ingredients",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "prohibited ingredient", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "cosmetic prohibited ingredients", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "banned cosmetic ingredient", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "금지성분", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "화장품 금지성분", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "禁用成分", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品禁止使用成分", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "禁止成分", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "使用禁止成分", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-cosmetic-prohibited-ingredients", "tw-moj-cosmetic-hygiene-safety-act", "tw-tfda-cosmetic-announcements"],
+      "notes": "Taiwan cosmetic prohibited-ingredient dataset concept, including CAS-based hard-block screening."
+    },
+    {
+      "id": "cosmetic-restricted-ingredients",
+      "canonical_name": "Cosmetic Restricted Ingredients",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "restricted ingredient", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "cosmetic restricted ingredients", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "use restriction", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "제한성분", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "화장품 제한성분", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "限用成分", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品成分使用限制", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "限制成分", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "使用制限成分", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-cosmetic-restricted-ingredients", "tw-moj-cosmetic-hygiene-safety-act", "tw-tfda-cosmetic-announcements"],
+      "notes": "Taiwan cosmetic restricted-ingredient dataset concept for concentration limits, use scope, and label cautions."
+    },
+    {
+      "id": "cosmetic-colorants",
+      "canonical_name": "Cosmetic Colorants",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "colorant", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "cosmetic colorants", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "color index", "type": "identifier_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "색소", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "화장품 색소", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "色素", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品色素", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "著色料", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 },
+        { "value": "着色剂", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-announcements", "eu-cosing-cosmetic-ingredients"],
+      "notes": "Taiwan cosmetic colorant dataset concept, including CI number aliases and eye-area, mucous-membrane, and rinse-off restrictions."
+    },
+    {
+      "id": "cosmetic-preservatives",
+      "canonical_name": "Cosmetic Preservatives",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "preservative", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "cosmetic preservatives", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "antimicrobial preservative", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "보존제", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "방부제", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "화장품 보존제", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "防腐劑", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品防腐劑", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "防腐剂", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "防腐剤", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.9 }
+      ],
+      "source_keys": ["tw-tfda-cosmetic-preservatives", "tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-cosmetic-announcements"],
+      "notes": "Taiwan cosmetic preservative dataset concept, including INCI/CAS aliases, limit text, use scope, and required cautions."
+    },
+    {
+      "id": "cosmetic-sunscreen-ingredients",
+      "canonical_name": "Cosmetic Sunscreen Ingredients",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "sunscreen ingredient", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "UV filter", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "cosmetic sunscreen ingredients", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "자외선차단제 성분", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "선스크린 성분", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "防曬劑", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "防曬成分", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品防曬劑", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "防晒成分", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
+        { "value": "日焼け止め成分", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-cosmetic-sunscreen-ingredients", "tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-pif-hub-zh"],
+      "notes": "Taiwan sunscreen-ingredient dataset concept for UV filter limits, sunscreen factor evidence, and PIF functional substantiation."
+    },
+    {
       "id": "nutrition-labeling",
       "canonical_name": "Nutrition Labeling",
       "category": "food_labeling",
@@ -3382,8 +3499,39 @@
         { "value": "营养标签", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.95 },
         { "value": "栄養成分表示", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.9 }
       ],
-      "source_keys": ["tw-tfda-food-nutrition-labeling", "tw-tfda-nutrition-claim-prepackaged-food", "global-codex-nutrition-labeling", "us-ecfr-food-labeling-21-cfr-101"],
+      "source_keys": ["tw-tfda-food-nutrition-labeling", "tw-tfda-nutrition-claim-prepackaged-food", "tw-tfda-sweetness-claim-prepackaged-food", "global-codex-nutrition-labeling", "us-ecfr-food-labeling-21-cfr-101"],
       "notes": "Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence."
+    },
+    {
+      "id": "food-labeling-claims",
+      "canonical_name": "Food Labeling and Claims",
+      "category": "food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "food claims", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "food labeling claims", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "false exaggerated misleading food claim", "type": "prohibited_claim", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "medical efficacy food claim", "type": "prohibited_claim", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "sweetness claim", "type": "claim_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품 표시광고", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "식품 표시 광고", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품 효능표현", "type": "prohibited_claim", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품 과장광고", "type": "prohibited_claim", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "의학적 효능 표시", "type": "prohibited_claim", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "食品標示廣告", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "食品宣稱", "type": "claim_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "誇大不實", "type": "prohibited_claim", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "醫療效能", "type": "prohibited_claim", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "甜味宣稱", "type": "claim_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "食品标签宣称", "type": "claim_phrase", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 },
+        { "value": "食品表示広告", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-food-safety-sanitation-act", "tw-tfda-food-false-exaggerated-medical-efficacy-claims", "tw-tfda-sweetness-claim-prepackaged-food", "tw-tfda-nutrition-claim-prepackaged-food", "global-codex-prepackaged-food-labeling"],
+      "notes": "Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims."
     },
     {
       "id": "food-allergen-labeling",

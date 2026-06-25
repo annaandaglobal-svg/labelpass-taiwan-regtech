@@ -8,14 +8,14 @@ domain: export_control
 source_type: terminology
 priority: high
 format: html
-fetched_at: 2026-06-25T19:47:35.493Z
+fetched_at: 2026-06-25T19:47:40.412Z
 fetched_url: https://www.trade.gov.tw/Pages/Detail.aspx?nodeID=134&pid=677765
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T19:47:35.493Z
+cache_expires_at: 2026-07-25T19:47:40.412Z
 cache_status: fresh
 content_hash: 74c9680517d02b2f13e2d8c4a79f20e84205dc18b5b2fef5e53d54371de19c5a
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

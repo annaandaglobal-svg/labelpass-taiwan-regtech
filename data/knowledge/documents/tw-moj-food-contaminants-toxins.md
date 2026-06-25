@@ -8,14 +8,14 @@ domain: food_safety
 source_type: standard
 priority: high
 format: html
-fetched_at: 2026-06-25T19:02:19.917Z
+fetched_at: 2026-06-25T19:02:20.600Z
 fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040138
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T19:02:19.917Z
+cache_expires_at: 2026-07-25T19:02:20.600Z
 cache_status: fresh
 content_hash: 55769e4b0588e8de68f0475bd42a504ce34ae96a7067f2cef613aadd9b68b03d
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 
