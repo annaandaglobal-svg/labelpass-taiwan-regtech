@@ -83,7 +83,7 @@ Expected counts after the current seed:
 - `knowledge_terms`: 1,127
 - `term_aliases`: 3,287
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 20
+- `regulatory_update_candidates`: 19
 
 Recommended verification query:
 

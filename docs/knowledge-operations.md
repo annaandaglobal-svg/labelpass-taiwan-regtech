@@ -38,8 +38,8 @@ LabelPass does not automatically mutate rules just because a crawler sees a new 
 
 Current queue baseline:
 
-- Update candidates: 20
-- Newly detected content changes: 1
+- Update candidates: 19
+- Newly detected content changes: 0
 - Sources pending refresh: 5
 - Watched sources: 14
 
@@ -94,7 +94,7 @@ Current generated counts:
 - `knowledge_terms`: 1,127
 - `term_aliases`: 3,287
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 20
+- `regulatory_update_candidates`: 19
 - `rules`: 1,081
 
 Current freshness status:

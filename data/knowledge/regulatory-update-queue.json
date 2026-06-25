@@ -4,86 +4,16 @@
   "crawl_generated_at": "2026-06-25T19:16:55.427Z",
   "expiring_soon_days": 7,
   "summary": {
-    "total": 20,
-    "detected": 1,
+    "total": 19,
+    "detected": 0,
     "pending_refresh": 5,
     "watching": 14,
     "approved": 0,
-    "high": 1,
+    "high": 0,
     "medium": 18,
     "low": 1
   },
   "items": [
-    {
-      "candidate_key": "tw-tfda-food-microorganisms-standard:content_changed:8f76e480ff192fb3",
-      "source_key": "tw-tfda-food-microorganisms-standard",
-      "title": "Sanitation Standard for Microorganisms in Foods",
-      "source_url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=513&id=3292",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "food_safety",
-      "source_type": "standard",
-      "source_priority": "high",
-      "change_type": "content_changed",
-      "severity": "high",
-      "status": "detected",
-      "detected_at": "2026-06-25T19:16:55.427Z",
-      "fetched_at": "2026-06-25T19:16:55.427Z",
-      "cache_expires_at": "2026-07-25T19:16:55.427Z",
-      "previous_hash": "caf40fa3f86915b665944dfa69c197d4f9adf6072ee82ceadcaf9cbe0fce131a",
-      "current_hash": "8f76e480ff192fb3b2993e57c6073d18ac34b10cbfe9fa5e0d282bf7602cd1ae",
-      "affected_domains": [
-        "food_safety",
-        "food",
-        "microorganisms",
-        "pathogens",
-        "sanitation-standard",
-        "import-risk",
-        "testing"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-microorganism-sanitation-standard",
-          "canonical_name": "Food Microorganism Sanitation Standard",
-          "category": "regulatory_concept"
-        }
-      ],
-      "affected_products": [
-        "food",
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-food-microorganisms-standard.md",
-        "fetched_url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=513&id=3292",
-        "extra_fetched_urls": [
-          "https://consumer.fda.gov.tw/Law/Detail.aspx?nodeID=518&lang=1&lawid=776"
-        ],
-        "text_chars": 3444,
-        "format": "html",
-        "from_cache": false,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: Guidance, Law & Regulations Food Drugs Controlled Drugs Medical Devices Cosmetics Inspections Compliance & Accreditation Others ::: you are in： Home Guidance, Law &amp; Regulations Sanitation Standard for Microorganisms in Foods 【Update Date： 2020-10-06 】 unit：食品組 【Announced Date： 2020-10-06 】 【Amended Date： 2020-10-06 】 http://consumer.fda.gov.tw/Law/Detail.aspx?nodeID=518&lang=1&lawid=776 News About FDA 1 Director General 2 Chronicle of Histor"
-      },
-      "next_action": "원문 변경분을 확인하고 영향 용어·룰 후보를 승인 큐에서 분류합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food",
-          "microorganisms",
-          "pathogens",
-          "sanitation-standard",
-          "import-risk",
-          "testing"
-        ],
-        "compact_title": "sanitation-standard-for-microorganisms-in-foods"
-      }
-    },
     {
       "candidate_key": "tw-customs-tariff-database-download:source_expiring_soon:2026-07-02",
       "source_key": "tw-customs-tariff-database-download",
