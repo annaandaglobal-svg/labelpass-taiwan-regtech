@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-25",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 56,
+  "curated_term_count": 65,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -4152,6 +4152,875 @@
         "tw-tfda-food-allergen-labeling-consumer-notice"
       ],
       "notes": "TFDA consumer notice recommends allergen advisory labeling for kiwifruit and products."
+    },
+    {
+      "id": "ghs-chemical-labeling",
+      "canonical_name": "GHS Chemical Classification and Labelling",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "GHS",
+          "normalized": "ghs",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "UN GHS",
+          "normalized": "un ghs",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Globally Harmonized System",
+          "normalized": "globally harmonized system",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Purple Book",
+          "normalized": "purple book",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "chemical hazard label",
+          "normalized": "chemical hazard label",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화학물질 분류 표시",
+          "normalized": "화학물질 분류 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화학물질 표시",
+          "normalized": "화학물질 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "全球化学品统一分类和标签制度",
+          "normalized": "全球化学品统一分类和标签制度",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "全球化學品統一分類和標示制度",
+          "normalized": "全球化學品統一分類和標示制度",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-unece-ghs-rev11",
+        "global-unece-ghs-rev11-pdf",
+        "us-osha-hazcom-29-cfr-1910-1200",
+        "eu-clp-regulation-1272-2008"
+      ],
+      "notes": "Regulatory concept term for chemical classification, hazard pictograms, signal words, hazard statements, and precautionary statements."
+    },
+    {
+      "id": "safety-data-sheet",
+      "canonical_name": "Safety Data Sheet",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Safety Data Sheet",
+          "normalized": "safety data sheet",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SDS",
+          "normalized": "sds",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Material Safety Data Sheet",
+          "normalized": "material safety data sheet",
+          "type": "legacy_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "MSDS",
+          "normalized": "msds",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "안전보건자료",
+          "normalized": "안전보건자료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "물질안전보건자료",
+          "normalized": "물질안전보건자료",
+          "type": "legacy_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "安全資料表",
+          "normalized": "安全資料表",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "安全数据表",
+          "normalized": "安全数据表",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-unece-ghs-rev11",
+        "global-unece-ghs-rev11-pdf",
+        "us-osha-hazcom-29-cfr-1910-1200"
+      ],
+      "notes": "Search concept for SDS/MSDS evidence, sections, and hazard communication documentation."
+    },
+    {
+      "id": "hs-code-classification",
+      "canonical_name": "HS Code Classification",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "HS code",
+          "normalized": "hs code",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Harmonized System",
+          "normalized": "harmonized system",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tariff classification",
+          "normalized": "tariff classification",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "statistical code",
+          "normalized": "statistical code",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "세번",
+          "normalized": "세번",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HS코드",
+          "normalized": "hs코드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "稅則號列",
+          "normalized": "稅則號列",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商品编码",
+          "normalized": "商品编码",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "統計品目番号",
+          "normalized": "統計品目番号",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-wco-harmonized-system",
+        "jp-customs-tariff-schedule",
+        "us-itc-harmonized-tariff",
+        "kr-customs-tariff-list"
+      ],
+      "notes": "Concept term for tariff classification, customs statistical codes, and HS-code based routing."
+    },
+    {
+      "id": "country-of-origin-marking",
+      "canonical_name": "Country of Origin Marking",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "country of origin",
+          "normalized": "country of origin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "origin marking",
+          "normalized": "origin marking",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "made in",
+          "normalized": "made in",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Phrase can appear outside legal origin context; verify use.",
+          "source": "curated"
+        },
+        {
+          "value": "원산지 표시",
+          "normalized": "원산지 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產地標示",
+          "normalized": "產地標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原产地标识",
+          "normalized": "原产地标识",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原産地表示",
+          "normalized": "原産地表示",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "us-ecfr-origin-marking-19-cfr-134",
+        "tw-customs-origin-importers",
+        "jp-customs-origin-verification",
+        "tw-trade-origin-textiles-2023"
+      ],
+      "notes": "Concept term for import labeling, origin statements, and customs origin evidence."
+    },
+    {
+      "id": "inci-ingredient-name",
+      "canonical_name": "INCI Ingredient Name",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "INCI",
+          "normalized": "inci",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "International Nomenclature Cosmetic Ingredient",
+          "normalized": "international nomenclature cosmetic ingredient",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic ingredient name",
+          "normalized": "cosmetic ingredient name",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 성분명",
+          "normalized": "화장품 성분명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "국제화장품성분명",
+          "normalized": "국제화장품성분명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品成分名稱",
+          "normalized": "化粧品成分名稱",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品成分名称",
+          "normalized": "化妆品成分名称",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-product-notification"
+      ],
+      "notes": "Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping."
+    },
+    {
+      "id": "nutrition-labeling",
+      "canonical_name": "Nutrition Labeling",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "nutrition label",
+          "normalized": "nutrition label",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "nutrition facts",
+          "normalized": "nutrition facts",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "US",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "nutrition claim",
+          "normalized": "nutrition claim",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영양성분표",
+          "normalized": "영양성분표",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영양표시",
+          "normalized": "영양표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "營養標示",
+          "normalized": "營養標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "营养标签",
+          "normalized": "营养标签",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "栄養成分表示",
+          "normalized": "栄養成分表示",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-nutrition-labeling",
+        "tw-tfda-nutrition-claim-prepackaged-food",
+        "global-codex-nutrition-labeling",
+        "us-ecfr-food-labeling-21-cfr-101"
+      ],
+      "notes": "Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence."
+    },
+    {
+      "id": "food-allergen-labeling",
+      "canonical_name": "Food Allergen Labeling",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "allergen labeling",
+          "normalized": "allergen labeling",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "allergen warning",
+          "normalized": "allergen warning",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "contains statement",
+          "normalized": "contains statement",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "알레르기 표시",
+          "normalized": "알레르기 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "알레르겐 표시",
+          "normalized": "알레르겐 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "過敏原標示",
+          "normalized": "過敏原標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "过敏原标识",
+          "normalized": "过敏原标识",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "アレルゲン表示",
+          "normalized": "アレルゲン表示",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice",
+        "global-codex-prepackaged-food-labeling"
+      ],
+      "notes": "Concept term for mandatory and advisory allergen declarations on food labels."
+    },
+    {
+      "id": "cosmetic-product-information-file",
+      "canonical_name": "Cosmetic Product Information File",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Product Information File",
+          "normalized": "product information file",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "PIF",
+          "normalized": "pif",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic safety file",
+          "normalized": "cosmetic safety file",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "제품정보파일",
+          "normalized": "제품정보파일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 제품정보파일",
+          "normalized": "화장품 제품정보파일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產品資訊檔案",
+          "normalized": "產品資訊檔案",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "产品信息档案",
+          "normalized": "产品信息档案",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-pif-management",
+        "tw-tfda-pif-hub-zh",
+        "tw-tfda-pif-implementation",
+        "eu-cosmetics-regulation-1223-2009"
+      ],
+      "notes": "Concept term for cosmetic product information file and safety documentation obligations."
+    },
+    {
+      "id": "cosmetic-product-notification",
+      "canonical_name": "Cosmetic Product Notification",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "cosmetic product notification",
+          "normalized": "cosmetic product notification",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "product notification",
+          "normalized": "product notification",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic filing",
+          "normalized": "cosmetic filing",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 신고",
+          "normalized": "화장품 신고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 등록",
+          "normalized": "화장품 등록",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "May refer to filing, registration, or notification depending on jurisdiction.",
+          "source": "curated"
+        },
+        {
+          "value": "化粧品產品登錄",
+          "normalized": "化粧品產品登錄",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品备案",
+          "normalized": "化妆品备案",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-product-notification",
+        "tw-tfda-pif-hub-zh",
+        "cn-nmpa-cosmetics-registration-filing",
+        "eu-cosmetics-regulation-1223-2009"
+      ],
+      "notes": "Concept term for product notification, filing, and registration workflows before or around market entry."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",

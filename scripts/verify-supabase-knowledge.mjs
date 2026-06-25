@@ -43,10 +43,32 @@ const probeTermKeys = [
   "benzoates-food-additives",
   "caseinates-food-additives",
   "cephalopods-advisory-allergen",
-  "kiwifruit-advisory-allergen"
+  "kiwifruit-advisory-allergen",
+  "safety-data-sheet",
+  "hs-code-classification",
+  "country-of-origin-marking",
+  "inci-ingredient-name",
+  "nutrition-labeling",
+  "food-allergen-labeling",
+  "cosmetic-product-information-file",
+  "cosmetic-product-notification"
 ];
 
-const probeAliases = ["msg", "味精", "카제인나트륨", "魷魚", "奇異果"];
+const probeAliases = [
+  "msg",
+  "味精",
+  "카제인나트륨",
+  "魷魚",
+  "奇異果",
+  "sds",
+  "hs코드",
+  "원산지 표시",
+  "inci",
+  "營養標示",
+  "過敏原標示",
+  "pif",
+  "化妆品备案"
+];
 
 if (dryRun || !databaseUrl) {
   console.log(

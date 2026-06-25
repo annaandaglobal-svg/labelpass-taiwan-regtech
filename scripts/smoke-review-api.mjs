@@ -196,9 +196,17 @@ const knowledgeCases = [
   { query: "스테비아", expectedTerm: "Steviol Glycosides" },
   { query: "魷魚", expectedTerm: "Cephalopods" },
   { query: "奇異果", expectedTerm: "Kiwifruit" },
-  { query: "BA", expectedTerm: "Benzoic Acid and Benzoates", expectedFirst: "Benzoic Acid and Benzoates" },
-  { query: "DHA", expectedTerm: "Dehydroacetic Acid", expectedFirst: "Dehydroacetic Acid" },
-  { query: "Gly", expectedTerm: "Glycine", expectedFirst: "Glycine" }
+  { query: "SDS", expectedTerm: "Safety Data Sheet", expectedFirst: "Safety Data Sheet" },
+  { query: "HS코드", expectedTerm: "HS Code Classification" },
+  { query: "원산지 표시", expectedTerm: "Country of Origin Marking" },
+  { query: "INCI", expectedTerm: "INCI Ingredient Name", expectedFirst: "INCI Ingredient Name" },
+  { query: "營養標示", expectedTerm: "Nutrition Labeling" },
+  { query: "過敏原標示", expectedTerm: "Food Allergen Labeling" },
+  { query: "PIF", expectedTerm: "Cosmetic Product Information File", expectedFirst: "Cosmetic Product Information File" },
+  { query: "化妆品备案", expectedTerm: "Cosmetic Product Notification" },
+  { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
+  { query: "DHA", expectedTerm: "Dehydroacetic Acid" },
+  { query: "Gly", expectedTerm: "Glycine" }
 ];
 
 for (const testCase of knowledgeCases) {
