@@ -44,27 +44,27 @@
         {
           "term_key": "hs-code-classification",
           "canonical_name": "HS Code Classification",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         },
         {
           "term_key": "commercial-invoice",
           "canonical_name": "Commercial Invoice",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "packing-list",
           "canonical_name": "Packing List",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "advance-tariff-classification-ruling",
           "canonical_name": "Advance Tariff Classification Ruling",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         },
         {
           "term_key": "customs-declaration",
           "canonical_name": "Customs Declaration",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         }
       ],
       "affected_products": [
@@ -130,12 +130,17 @@
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         },
         {
           "term_key": "cosmetic-gmp",
           "canonical_name": "Cosmetic Good Manufacturing Practice",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-labeling-claims",
+          "canonical_name": "Cosmetic Labeling and Claims",
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
@@ -200,12 +205,12 @@
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         },
         {
           "term_key": "cosmetic-product-notification",
           "canonical_name": "Cosmetic Product Notification",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
@@ -269,32 +274,32 @@
         {
           "term_key": "hs-code-classification",
           "canonical_name": "HS Code Classification",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         },
         {
           "term_key": "incoterms",
           "canonical_name": "Incoterms",
-          "category": "regulatory_concept"
+          "category": "trade_document"
         },
         {
           "term_key": "shipment-purpose",
           "canonical_name": "Shipment Purpose",
-          "category": "regulatory_concept"
+          "category": "trade_document"
         },
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         },
         {
           "term_key": "customs-declaration",
           "canonical_name": "Customs Declaration",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "shtc-export-permit",
           "canonical_name": "SHTC Export Permit",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         }
       ],
       "affected_products": [
@@ -359,7 +364,7 @@
         {
           "term_key": "advance-tariff-classification-ruling",
           "canonical_name": "Advance Tariff Classification Ruling",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         }
       ],
       "affected_products": [
@@ -424,27 +429,27 @@
         {
           "term_key": "hs-code-classification",
           "canonical_name": "HS Code Classification",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         },
         {
           "term_key": "commercial-invoice",
           "canonical_name": "Commercial Invoice",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "packing-list",
           "canonical_name": "Packing List",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "advance-tariff-classification-ruling",
           "canonical_name": "Advance Tariff Classification Ruling",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         },
         {
           "term_key": "customs-declaration",
           "canonical_name": "Customs Declaration",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         }
       ],
       "affected_products": [
@@ -509,7 +514,7 @@
         {
           "term_key": "hs-code-classification",
           "canonical_name": "HS Code Classification",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         }
       ],
       "affected_products": [
@@ -575,7 +580,7 @@
         {
           "term_key": "food-pesticide-residue-limits",
           "canonical_name": "Food Pesticide Residue Limits",
-          "category": "regulatory_concept"
+          "category": "food_safety"
         }
       ],
       "affected_products": [
@@ -641,7 +646,7 @@
         {
           "term_key": "strategic-high-tech-commodities",
           "canonical_name": "Strategic High-Tech Commodities",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         }
       ],
       "affected_products": [
@@ -706,12 +711,17 @@
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         },
         {
           "term_key": "cosmetic-gmp",
           "canonical_name": "Cosmetic Good Manufacturing Practice",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-labeling-claims",
+          "canonical_name": "Cosmetic Labeling and Claims",
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
@@ -777,7 +787,7 @@
         {
           "term_key": "cosmetic-product-notification",
           "canonical_name": "Cosmetic Product Notification",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
@@ -843,12 +853,12 @@
         {
           "term_key": "food-additive-inspection-registration",
           "canonical_name": "Food Additive Inspection Registration",
-          "category": "regulatory_concept"
+          "category": "food_import"
         },
         {
           "term_key": "compound-food-additive-import-documents",
           "canonical_name": "Compound Food Additive Import Documents",
-          "category": "regulatory_concept"
+          "category": "food_import"
         }
       ],
       "affected_products": [
@@ -915,7 +925,7 @@
         {
           "term_key": "food-additive-inspection-registration",
           "canonical_name": "Food Additive Inspection Registration",
-          "category": "regulatory_concept"
+          "category": "food_import"
         }
       ],
       "affected_products": [
@@ -980,12 +990,12 @@
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         },
         {
           "term_key": "cosmetic-product-notification",
           "canonical_name": "Cosmetic Product Notification",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
@@ -1047,7 +1057,7 @@
         {
           "term_key": "cosmetic-product-information-file",
           "canonical_name": "Cosmetic Product Information File",
-          "category": "regulatory_concept"
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
@@ -1110,32 +1120,32 @@
         {
           "term_key": "hs-code-classification",
           "canonical_name": "HS Code Classification",
-          "category": "regulatory_concept"
+          "category": "customs_classification"
         },
         {
           "term_key": "incoterms",
           "canonical_name": "Incoterms",
-          "category": "regulatory_concept"
+          "category": "trade_document"
         },
         {
           "term_key": "shipment-purpose",
           "canonical_name": "Shipment Purpose",
-          "category": "regulatory_concept"
+          "category": "trade_document"
         },
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         },
         {
           "term_key": "customs-declaration",
           "canonical_name": "Customs Declaration",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "shtc-export-permit",
           "canonical_name": "SHTC Export Permit",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         }
       ],
       "affected_products": [
@@ -1261,12 +1271,12 @@
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         },
         {
           "term_key": "exporter-importer-registration",
           "canonical_name": "Exporter and Importer Registration",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         }
       ],
       "affected_products": [
@@ -1331,32 +1341,32 @@
         {
           "term_key": "incoterms",
           "canonical_name": "Incoterms",
-          "category": "regulatory_concept"
+          "category": "trade_document"
         },
         {
           "term_key": "commercial-invoice",
           "canonical_name": "Commercial Invoice",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "packing-list",
           "canonical_name": "Packing List",
-          "category": "regulatory_concept"
+          "category": "customs_document"
         },
         {
           "term_key": "shipment-purpose",
           "canonical_name": "Shipment Purpose",
-          "category": "regulatory_concept"
+          "category": "trade_document"
         },
         {
           "term_key": "import-export-permit",
           "canonical_name": "Import and Export Permit",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         },
         {
           "term_key": "foreign-trade-act",
           "canonical_name": "Foreign Trade Act",
-          "category": "regulatory_concept"
+          "category": "import_export_control"
         }
       ],
       "affected_products": [
