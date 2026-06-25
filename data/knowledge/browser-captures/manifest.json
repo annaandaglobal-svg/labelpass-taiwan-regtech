@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-06-25T09:42:00.657Z",
+  "captures": [
+    {
+      "id": "jp-meti-security-export-control",
+      "title": "Trade Control / METI Ministry of Economy, Trade and Industry",
+      "url": "https://www.meti.go.jp/english/policy/external_economy/trade_control/index.html",
+      "text_chars": 8553,
+      "text_path": "data/knowledge/browser-captures/jp-meti-security-export-control.txt",
+      "screenshot_path": "data/knowledge/browser-captures/jp-meti-security-export-control.png"
+    },
+    {
+      "id": "tw-bsmi-commodity-inspection-mark-law",
+      "title": "Ministry of Economic Affairs R.O.C.(Taiwan) -Content",
+      "url": "https://law.moea.gov.tw/EngLawContent.aspx?id=10729&lan=E",
+      "text_chars": 13184,
+      "text_path": "data/knowledge/browser-captures/tw-bsmi-commodity-inspection-mark-law.txt",
+      "screenshot_path": "data/knowledge/browser-captures/tw-bsmi-commodity-inspection-mark-law.png"
+    },
+    {
+      "id": "global-unece-ghs-rev11-blocked",
+      "title": "잠시만 기다리십시오…",
+      "url": "https://unece.org/transport/dangerous-goods/ghs-rev11-2025",
+      "text_chars": 157,
+      "text_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-blocked.txt",
+      "screenshot_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-blocked.png"
+    },
+    {
+      "id": "global-unece-ghs-rev11-pdf-blocked",
+      "title": "잠시만 기다리십시오…",
+      "url": "https://unece.org/sites/default/files/2025-09/GHS%20Rev11e.pdf",
+      "text_chars": 157,
+      "text_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-pdf-blocked.txt",
+      "screenshot_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-pdf-blocked.png"
+    },
+    {
+      "id": "eu-commission-clp-chemical-labeling",
+      "title": "Classification, labelling and packaging of chemicals - Environment",
+      "url": "https://environment.ec.europa.eu/topics/chemicals/classification-labelling-and-packaging-chemicals_en",
+      "text_chars": 5240,
+      "text_path": "data/knowledge/browser-captures/eu-commission-clp-chemical-labeling.txt",
+      "screenshot_path": "data/knowledge/browser-captures/eu-commission-clp-chemical-labeling.png"
+    },
+    {
+      "id": "cn-state-council-customs-duties-guide",
+      "title": "Customs",
+      "url": "https://english.www.gov.cn/services/visitchina/202008/04/content_WS5f2905dec6d029c1c26372f0.html",
+      "text_chars": 18677,
+      "text_path": "data/knowledge/browser-captures/cn-state-council-customs-duties-guide.txt",
+      "screenshot_path": "data/knowledge/browser-captures/cn-state-council-customs-duties-guide.png"
+    }
+  ]
+}

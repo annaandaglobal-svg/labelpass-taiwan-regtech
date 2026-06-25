@@ -10,6 +10,9 @@
     "fetch:tfda": "node scripts/fetch-tfda-data.mjs",
     "build:rules": "node scripts/build-regulatory-rules.mjs",
     "build:supabase-seed": "node scripts/generate-supabase-seed.mjs",
+    "crawl:knowledge": "node scripts/crawl-knowledge-base.mjs",
+    "build:terms": "node scripts/build-term-index.mjs",
+    "build:knowledge-seed": "pnpm build:terms && node scripts/generate-knowledge-seed.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
     "test:rules": "node scripts/verify-rules.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs"
@@ -28,6 +31,7 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
+    "pdf-parse": "1.1.1",
     "typescript": "^5.5.3"
   }
 }

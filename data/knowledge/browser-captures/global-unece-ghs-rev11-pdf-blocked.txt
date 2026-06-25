@@ -1,0 +1,13 @@
+id: global-unece-ghs-rev11-pdf-blocked
+url: https://unece.org/sites/default/files/2025-09/GHS%20Rev11e.pdf
+title: 잠시만 기다리십시오…
+captured_at: 2026-06-25T09:41:54.141Z
+
+unece.org
+보안 확인 수행 중
+
+이 웹 사이트는 보안 서비스를 사용하여 악의적인 봇으로부터 보호합니다. 이 페이지는 웹 사이트에서 사용자가 봇이 아님을 확인하는 동안에만 표시됩니다.
+
+Ray ID: a11303107e9329e5
+Cloudflare의 성능 및 보안
+개인 정보

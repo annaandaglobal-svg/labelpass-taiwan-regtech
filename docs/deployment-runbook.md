@@ -1,79 +1,86 @@
-# LabelPass 배포 실행 문서
+# LabelPass Deployment Runbook
 
-기준일: 2026-06-25
+Updated: 2026-06-25
 
-## 현재 상태
+## Current Assets
 
-- 로컬 앱: `http://127.0.0.1:3000`
-- 빌드: `pnpm build` 통과
-- 공식 규칙 검증: `pnpm test:rules` 통과
-- API 스모크 테스트: `pnpm smoke:api` 통과
-- Supabase/GitHub/Vercel 외부 프로젝트 생성: 로그인 또는 액세스 토큰 필요
+- GitHub repository: `https://github.com/annaandaglobal-svg/labelpass-taiwan-regtech`
+- Supabase project: `labeling ai`
+- Supabase URL: `https://zqmpvveneqdkrojtqxhi.supabase.co`
+- Vercel project target: `labelpass-taiwan-regtech`
 
-## 로그인 후 1회 설정
-
-### GitHub
-
-1. `annaanda.global@gmail.com` 계정으로 GitHub에 로그인합니다.
-2. 새 repository를 만듭니다.
-   - 권장 이름: `labelpass-taiwan-regtech`
-   - visibility: 초기 검증 전에는 private 권장
-3. 로컬 저장소에 remote를 연결합니다.
-
-```bash
-git remote add origin https://github.com/<owner>/labelpass-taiwan-regtech.git
-git push -u origin main
-```
-
-### Supabase
-
-1. Supabase dashboard에서 새 프로젝트를 만듭니다.
-   - 권장 이름: `labelpass-taiwan-regtech`
-   - region: Taiwan 사용자가 많으면 Northeast Asia 계열 권장
-2. SQL editor에서 `supabase/schema.sql`을 실행합니다.
-3. seed가 필요하면 `supabase/seed.sql`을 실행합니다.
-4. Project Settings > API에서 아래 값을 복사합니다.
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-
-### Vercel
-
-1. Vercel에 로그인하고 GitHub repository를 import합니다.
-2. Framework preset은 Next.js로 둡니다.
-3. Environment Variables에 Supabase 값을 입력합니다.
-4. 첫 배포 후 Production URL을 Supabase Auth redirect URL에 추가합니다.
-
-## 배포 전 확인
+## Pre-Deployment Checks
 
 ```bash
 pnpm install
 pnpm exec tsc --noEmit
 pnpm test:rules
+pnpm crawl:knowledge
+pnpm build:knowledge-seed
 pnpm build
 ```
 
-로컬 서버가 켜져 있을 때:
+With the app running, also run:
 
 ```bash
 pnpm smoke:api
 ```
 
-## 데이터 갱신 절차
+## Supabase
 
-TFDA 공식 오픈데이터를 새로 가져올 때:
+Apply the SQL files in this order:
 
-```bash
-pnpm refresh:rules
-pnpm test:rules
-pnpm build:supabase-seed
+1. `supabase/schema.sql`
+2. `supabase/seed.sql`
+3. `supabase/knowledge-schema.sql`
+4. `supabase/knowledge-seed.sql`
+
+Expected counts after the current seed:
+
+- `rules`: 1,081
+- current `rule_versions`: 1,081
+- `knowledge_sources`: 57
+- `knowledge_snapshots`: 57
+- `knowledge_terms`: 1,079
+- `term_aliases`: 2,769
+- `term_rule_links`: 1,082
+
+Recommended verification query:
+
+```sql
+select 'rules' as table_name, count(*) from public.rules
+union all select 'current_rule_versions', count(*) from public.rule_versions where valid_to is null
+union all select 'knowledge_sources', count(*) from public.knowledge_sources
+union all select 'knowledge_snapshots', count(*) from public.knowledge_snapshots
+union all select 'knowledge_terms', count(*) from public.knowledge_terms
+union all select 'term_aliases', count(*) from public.term_aliases
+union all select 'term_rule_links', count(*) from public.term_rule_links;
 ```
 
-검증이 통과하면 `data/rules/tw-cosmetics-rules.json`, `data/rules/manifest.json`, `supabase/seed.sql`을 함께 커밋합니다.
+## GitHub
 
-## 주의 사항
+```bash
+git status --short
+git add .
+git commit -m "Add reusable regulatory knowledge and term index"
+git push
+```
 
-- `data/tfda/` 원본 다운로드 파일은 git에 올리지 않습니다.
-- `SUPABASE_SERVICE_ROLE_KEY`는 Vercel server-side environment variable로만 넣고 브라우저에 노출하지 않습니다.
-- 규칙 판정 API는 현재 `/api/review`에서 서버 실행되므로, 대형 규칙 JSON이 화면 번들에 포함되지 않습니다.
-- 공식 프로젝트 생성은 2026-06-25 확인 기준으로 GitHub/Supabase/Vercel 로그인 화면에서 막혀 있습니다.
+## Vercel
+
+1. Import `annaandaglobal-svg/labelpass-taiwan-regtech`.
+2. Use the Next.js framework preset.
+3. Add this environment variable:
+
+```text
+NEXT_PUBLIC_SUPABASE_URL=https://zqmpvveneqdkrojtqxhi.supabase.co
+```
+
+The current runtime review endpoint uses local generated rule JSON, so a Supabase anon key is not required for the MVP. Add Supabase runtime credentials later when user accounts, saved reviews, or server-side synchronization are enabled.
+
+## Post-Deployment Verification
+
+1. Open the production URL.
+2. Run a review with English ingredients such as `Triclosan`, `Methylisothiazolinone`, and `Mercury`.
+3. Run a review with aliases such as `살리실산`, `水楊酸`, `水杨酸`, `Oxybenzone`, and `Phenoxyethanol`.
+4. Confirm findings include source identifiers and rule evidence.

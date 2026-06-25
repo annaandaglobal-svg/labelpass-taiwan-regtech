@@ -1,4 +1,5 @@
 import rulesData from "../../data/rules/tw-cosmetics-rules.json";
+import termIndexData from "../../data/knowledge/term-index.json";
 
 export type ReviewStatus = "pass" | "warn" | "fail" | "needs_info";
 
@@ -75,7 +76,27 @@ type RegulatoryRule = {
   notes: string;
 };
 
+type IndexedAlias = {
+  value: string;
+  normalized?: string;
+  type?: string;
+  language?: string;
+  jurisdiction?: string;
+  confidence?: number;
+  note?: string | null;
+  source?: string;
+};
+
+type RuleAliasIndex = {
+  rule_id: string;
+  term_ids: string[];
+  aliases: IndexedAlias[];
+};
+
 const officialRules = (rulesData.rules as RegulatoryRule[]).filter((rule) => rule.aliases.length > 0);
+const indexedAliasesByRule = new Map(
+  ((termIndexData.rule_aliases ?? []) as RuleAliasIndex[]).map((entry) => [entry.rule_id, entry.aliases])
+);
 
 const labelRequirements = [
   { id: "name", label: "제품명", patterns: [/品名|產品名|product name|제품명/i] },
@@ -112,14 +133,60 @@ export function parseIngredients(text: string): ParsedIngredient[] {
 }
 
 function normalizeForMatch(value: string) {
-  return value.toLowerCase().replace(/\s+/g, " ").replace(/[()[\]{}]/g, "").trim();
+  return value
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[‐‑‒–—―]/g, "-")
+    .replace(/[()[\]{}]/g, " ")
+    .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-function hasAlias(ingredient: ParsedIngredient, aliases: string[]) {
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function aliasesForRule(rule: RegulatoryRule): IndexedAlias[] {
+  const indexedAliases = indexedAliasesByRule.get(rule.id) ?? [];
+  const officialAliases: IndexedAlias[] = [
+    rule.ingredient_name,
+    ...(rule.inci_names ?? []),
+    ...(rule.cas_numbers ?? []),
+    ...(rule.color_index_numbers ?? []),
+    ...(rule.aliases ?? [])
+  ]
+    .filter(Boolean)
+    .map((value) => ({
+      value,
+      confidence: 0.9,
+      source: "tfda-rule"
+    }));
+
+  const seen = new Set<string>();
+  return [...indexedAliases, ...officialAliases].filter((alias) => {
+    const normalized = alias.normalized ?? normalizeForMatch(alias.value);
+    if (!normalized || seen.has(normalized)) return false;
+    seen.add(normalized);
+    return true;
+  });
+}
+
+function hasAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
   const value = normalizeForMatch(`${ingredient.raw} ${ingredient.name}`);
+
   return aliases.some((alias) => {
-    const normalizedAlias = normalizeForMatch(alias);
-    if (normalizedAlias.length < 3) return false;
+    const normalizedAlias = alias.normalized ?? normalizeForMatch(alias.value);
+    if (!normalizedAlias) return false;
+
+    const isLatinShortAlias = /^[a-z0-9.+-]+$/i.test(normalizedAlias) && normalizedAlias.length <= 3;
+    const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
+
+    if (isLatinShortAlias || isLowConfidence) {
+      return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+    }
+
+    if (normalizedAlias.length < 2) return false;
     return value.includes(normalizedAlias);
   });
 }
@@ -166,7 +233,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   const findings: Finding[] = [];
 
   for (const ingredient of parsedIngredients) {
-    const matchedRules = officialRules.filter((rule) => hasAlias(ingredient, rule.aliases));
+    const matchedRules = officialRules.filter((rule) => hasAlias(ingredient, aliasesForRule(rule)));
     const emitted = new Set<string>();
 
     for (const rule of matchedRules) {

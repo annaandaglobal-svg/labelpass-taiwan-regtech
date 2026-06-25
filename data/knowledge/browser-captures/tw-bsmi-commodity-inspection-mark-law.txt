@@ -1,0 +1,211 @@
+id: tw-bsmi-commodity-inspection-mark-law
+url: https://law.moea.gov.tw/EngLawContent.aspx?id=10729&lan=E
+title: Ministry of Economic Affairs R.O.C.(Taiwan) -Content
+captured_at: 2026-06-25T09:41:53.538Z
+
+Main Content Area
+:::
+Sitemap
+Home
+中文版
+News
+Searching
+:::
+Location：
+Searching
+Content
+ PDF  Print
+ Content
+Title：	Regulations Governing the Use of Commodity Inspection Mark Ch
+Date：	2026.01.21
+Legislative：	1.Adopted and promulgated by Ministerial Order on 9 January 2002.
+2.Articles 7, 10, 12, 14 and 17 amended and promulgated by Ministerial Order on 30 October 2002.
+3.16 Articles amended and promulgated by Ministerial Order on 5 January 2006.
+4.Articles 3, 4, 6, 7 and 10 amended and promulgated by Ministerial Order on 24 May 2007.
+5.Articles 9 and 11 amended and promulgated by Ministerial Order on 29 January 2008.
+6.Articles 3 and 14 amended and promulgated by Ministerial Order on 12 November 2009.
+7.Articles 6, 10, 11, 12 and 14 amended and promulgated by Ministerial Order on 28 September 2018.
+8.Articles 3 and 9 amended and promulgated by Ministerial Order on 11 January 2022.
+9.Articles 3, 4, 6, 11 and 12 amended and promulgated by Ministerial Order on 21 January 2026.
+Content：	Article 1
+These Regulations have been established in accordance with Paragraph Two Article 12 of the 
+Commodity Inspection Act (the Act).
+
+Article 2
+An obligatory inspection applicant (applicant) shall employ the Commodity Inspection Mark (the 
+Mark) in accordance with these Regulations, except for those approved by the Bureau of Standards, 
+Metrology, and Inspection (BSMI) to be exempt from this requirement.
+
+Article 3
+The Mark is comprised of a graphic symbol with an identification number. Unless otherwise 
+specified, the identification number shall be placed to the right of or below the graphic symbol.
+The graphic symbol for the Mark, named Product Safety Mark, is illustrated in Appendix 1.
+The identification number of the Mark shall, depending on the inspection method, consist of a 
+Roman letter, a sequence of numbers and/or designated codes as specified below:
+1. For batch-by-batch inspection and monitoring inspection: the Roman letter 'C' followed by a 
+number sequence, except the following situations:
+(1) Type-approved products designated by the BSMI permitting the applicant to print the Mark: the 
+Roman letter 'T' followed by a designated code;
+(2) Commodities manufactured by organizations with management systems certified by the BSMI 
+permitting the applicant to print the Mark: the Roman letter 'Q' with a designated code; and
+(3) Commodities designated by the BSMI permitting the applicant to print the Mark: a Roman letter 
+'M' with a designated code.
+2. Registration of product certification: the Roman letter 'R' followed by a designated code. For 
+products designated by the BSMI, the identification number shall consist of the Roman letter “R”, a 
+sequence of numbers and a designated code.
+3. Declaration of conformity: the Roman letter 'D' followed by a designated code.
+The designated codes referred to in subparagraphs 1 and 2 of the preceding paragraph shall be 
+specified by the BSMI when granting approval or issuing certificates. For the sequence of numbers 
+mentioned in the proviso subparagraph 2 of the preceding paragraph and the designated codes 
+mentioned in subparagraph 3 of the preceding paragraph, the applicant shall apply to the BSMI with 
+the relevant documents.
+Where the designated codes referred to in the preceding paragraph are required, as designated and 
+publicly announced by the BSMI, to include a QR code, an application for the QR code shall be 
+filed with the BSMI before a certificate is issued or at the time of registration of declaration of 
+conformity. For those which have been granted product registration certificates prior to the entry 
+into force of the announcement of products to bear QR code, the application for QR code shall be 
+made before the products are imported or transported out of the manufacturing premises.
+
+Article 4
+The Mark shall be printed in accordance with the following rules:
+1. Under batch-by-batch inspection and monitoring inspection: The BSMI shall print the Mark 
+labels. However, for the situations specified in items (1) to (3) of subparagraph 1, paragraph 3, 
+Article 3, as designated or approved by the BSMI, the applicant may print the Mark labels itself in 
+accordance with the applicable requirements.
+2. For registration of product certification, the Mark labels shall be printed by the applicant in 
+accordance with the applicable requirements.
+3. For declaration of conformity, the Mark labels shall be printed by the applicant in accordance 
+with the applicable requirements.
+
+Article 5
+The inspection mark printed by manufacturers shall use materials that are not easily altered, and the 
+content shall be in a clearly identifiable and indelible form affixed permanently to the commodity.
+
+Article 6
+The Roman letter "C" Mark labels printed by the BSMI shall be issued upon approval of the 
+application for inspection by the applicant. The applicant shall apply the Mark labels onto 
+commodities before they are sampled for inspection. However, commodities that have been granted 
+prior release by the BSMI may be labeled after sampling.
+If the Mark labels have not been applied in accordance with requirements, the BSMI or its 
+subsidiary branches (hereinafter referred to as the inspection authority) may send its personnel to 
+supervise the method by which the Mark labels are applied.
+
+Article 7
+The applicant shall record on the inspection application form the identification numbers of products 
+undergone batch-by-batch inspection and monitoring inspection.
+
+Article 8
+The Mark should be applied in a prominent place on a commodity. Other marks applied to a 
+commodity that are likely to be confused with the Mark shall be prohibited.
+The prominent place mentioned in the previous paragraph shall mean a position next to the plate, 
+brand or trademark of a commodity and easily to be identified.
+
+Article 9
+An applicant shall apply the Mark on the body of a commodity; however, if the commodity is too 
+small or for other specific causes to accommodate the Mark, it shall be affixed in accordance with 
+the following methods:
+1. If the commodity is packaged, the Mark shall be applied to its smallest package;
+2. If the commodity is not packaged, or if it is not appropriate to apply the Mark to the packaging, 
+the mark may be attached to the commodity by hang tags;
+3. If applying the Mark to the packaging or by hang tags is not appropriate, the Mark shall be put 
+inside the packaging;
+4. The Mark may be applied to a commodity by other methods approved by the BSMI.
+For products announced by the BSMI to include a QR code in the designated code, the methods 
+mentioned in subparagraphs 1 to 4 of the above paragraph may apply to affixing the QR code.
+
+Article 10
+An applicant with commodities that have complied with inspection requirements for three 
+consecutive applications may fill application forms and attach related proof documents to apply for 
+pre-purchasing an appropriate amount of Roman letter "C" Mark labels. These pre-purchased Mark 
+labels shall be fully used, cancelled by, or returned to the inspection authority within 6 months. The 
+applicant may apply for a single extension of no more than six months if the Mark labels are not 
+fully used within the specified period.
+Where the pre-chased Mark labels are not fully used, cancelled or returned in accordance with the 
+preceding paragraph the right to pre-purchase the Mark labels will be suspended. The inspection 
+authority shall check the status of those pre-purchased Mark labels and not approve any further 
+pre-purchasing until they are fully used, cancelled or returned.
+The inspection authority shall prepare individual record books to record the issued pre-purchased 
+Mark labels.
+The applicant shall be responsible for custody of the pre-purchased Mark labels. If the Mark labels 
+are lost or damaged, the applicant shall immediately report the identification numbers of the lost or 
+damaged Mark labels to the inspection authority where they were pre-purchased.
+
+Article 11
+If the applicant fails to use the pre-purchased Mark labels in accordance with paragraph 4 of the 
+preceding Article, lose the Mark labels for twice or more, or the commodities do not comply with 
+requirements after inspection, the applicant’s right to pre-purchase Mark labels shall be immediately 
+revoked.
+The applicant’s right to pre-purchase Mark labels may be restored if three consecutive batches of 
+commodities submitted by the applicant for inspection pass inspection.
+If the applicant obtains permission from the BSMI to print the Mark labels on the commodities in 
+accordance with item 3, subparagraph 1, paragraph 3, Article 3 and have any of the following 
+situations, the BSMI may rescind the permission it granted to the applicant for printing the Mark 
+labels on commodities:
+1. Where the applicant’s business is closed, or the applicant is untraceable,or no application for 
+inspection had been made for more than 2 years.
+2. Where the Mark is found to be printed on products not approved by the BSMI; or
+3. Where the products have been found to be not bearing the Mark for two times or more.
+The applicants of whom the permission for printing the Mark labels on commodities is rescinded, as 
+mentioned in the preceding paragraph, shall be able to make a new application for permission 3 
+months after the date of rescission and after compliance with the inspection requirements for a 
+consecutive 3 batches of commodities.
+
+Article 12
+If the Mark labels issued by the BSMI during the application of inspection are not used, the 
+applicant shall apply for cancellation or return these Mark labels in accordance with the following 
+requirements:
+1. If the inspection application is withdrawn by the applicant due to an insufficient quantity of 
+commodities or incomplete packaging, the unused Mark labels must be returned;
+2. If during on-site sampling or inspection it is found that the quantity of commodities does not 
+reach the quantity specified in the inspection application, the quantity specified in the application 
+should be corrected. The surplus Mark labels are allowed to be returned if there are more than one 
+hundred well preserved Mark labels in sequence, or cancelled directly if there are less than one 
+hundred ones or there are more than one hundred ones but not in sequence or not well preserved.
+Where the unused Mark labels referred to in the preceding paragraph cannot be written off or used 
+up within the time limit specified in paragraph 1, Article 10 due to justifiable reasons, the unused 
+Mark labels can still be returned if the amount is more than one hundred and the labels are intact 
+with serial numbers in sequence. The inspection authority shall directly cancel such Mark labels if 
+the amount is less than one hundred, or if the amount is more than one hundred but the labels are not 
+well preserved or the serial numbers are not in sequence.
+An applicant who returns Mark labels in accordance with the preceding two paragraphs may,within 
+one year from the date of return, apply for a refund of the certificate fees related to such Mark 
+labels.
+
+Article 13
+The quantity of commodities that the sampling personnel checks to verify the use of Mark labels 
+shall be two to three times of the quantity of sampled commodities for inspection or boxes opened 
+for inspection. Commodities sampled to check the Mark labels shall have the Mark label 
+identification numbers recorded in the sampling report. If there are discrepancies between the 
+results of the check and those specified in the application form, the case shall be dealt with in 
+accordance with related regulations.
+
+Article 14
+If commodities do not comply with the requirements under batch-by-batch inspection or monitoring 
+inspection, the inspection authority shall send its personnel to the storage place of the commodities 
+and cancel the Mark labels with receipt issued to the applicant within 15 days after the next day of 
+issuance of the non-conformity notice. If the application for re-inspection or a new application for 
+inspection is filed and the applicant ensures the integrity of the Mark labels by signing written 
+declaration, these Mark labels may not be cancelled after gaining approval from the inspection 
+authority.
+The applicant shall file a new application for inspection within 6months for commodities of which 
+the inspection Mark labels are not cancelled in accordance with the preceding paragraph. The 
+inspection authority shall immediately send its personnel to cancel the Mark labels if the applicant is 
+not able to file such application within the specified period.
+
+Article 15
+A new application for Mark labels shall be submitted if commodities have any of the following 
+problems:
+1. The packaging has been changed;
+2. A new application for inspection has been made in accordance with Article 27 of the Act;
+3. The Mark labels have been damaged;
+4. The Mark labels have been lost.
+
+Article 16
+These Regulations shall take effect from the date of promulgation.
+ 
+Attachments：	
+Appendix 1.pdf
+:::
+Address：No.15, Fuzhou St., Zhongzheng Dist., Taipei City 100210, Taiwan (R.O.C.)
+Tel：+886-2-2321-2200 Fax：+886-2-2397-4667
+The number of visitors：42,924,992

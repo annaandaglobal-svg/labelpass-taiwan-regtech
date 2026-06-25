@@ -38,5 +38,10 @@ jobs:
           pnpm build:supabase-seed
           git diff --exit-code data/rules/tw-cosmetics-rules.json data/rules/manifest.json supabase/seed.sql
 
+      - name: Check knowledge seed drift
+        run: |
+          pnpm build:knowledge-seed
+          git diff --exit-code data/knowledge/term-index.json supabase/knowledge-seed.sql
+
       - name: Build
         run: pnpm build

@@ -229,6 +229,94 @@ create table if not exists public.audit_logs (
 comment on table public.audit_logs is
   'Append-only audit trail. RLS should deny direct client inserts and expose reads only to admins or narrowly scoped support workflows.';
 
+-- Reusable crawled source registry for LLM/wiki/regulatory retrieval.
+create table if not exists public.knowledge_sources (
+  source_key text primary key,
+  title text not null,
+  source_url text not null unique,
+  authority text,
+  jurisdiction text not null default 'GLOBAL',
+  domain text not null,
+  source_type text not null,
+  priority text not null default 'medium'
+    check (priority in ('low', 'medium', 'high')),
+  tags jsonb not null default '[]'::jsonb,
+  cache_days integer not null default 14,
+  is_active boolean not null default true,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+comment on table public.knowledge_sources is
+  'Crawled source registry for reusable regulatory memory. Raw cache is stored locally; source metadata and snapshots are queryable in Supabase.';
+
+create table if not exists public.knowledge_snapshots (
+  id uuid primary key default gen_random_uuid(),
+  source_key text not null references public.knowledge_sources (source_key) on delete cascade,
+  content_hash text not null,
+  fetched_at timestamptz not null,
+  from_cache boolean not null default false,
+  bytes integer not null default 0,
+  text_chars integer not null default 0,
+  document_path text not null,
+  extract text,
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  unique (source_key, content_hash)
+);
+
+comment on table public.knowledge_snapshots is
+  'Content-hashed source snapshots used for LLM retrieval, diffing, and evidence traceability.';
+
+create table if not exists public.knowledge_terms (
+  term_key text primary key,
+  canonical_name text not null,
+  category text,
+  identifiers jsonb not null default '{}'::jsonb,
+  source_keys jsonb not null default '[]'::jsonb,
+  notes text,
+  registry_version text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+comment on table public.knowledge_terms is
+  'Canonical ingredient, chemical, product, and trade terms used to bridge country-specific names, INCI, CAS, CI, and local-language aliases.';
+
+create table if not exists public.term_aliases (
+  id uuid primary key default gen_random_uuid(),
+  term_key text not null references public.knowledge_terms (term_key) on delete cascade,
+  alias_value text not null,
+  normalized_alias text not null,
+  alias_type text not null default 'alias',
+  language text not null default 'und',
+  jurisdiction text not null default 'GLOBAL',
+  confidence numeric(4,3) not null default 0.850
+    check (confidence >= 0 and confidence <= 1),
+  source text,
+  note text,
+  created_at timestamptz not null default now(),
+  unique (term_key, normalized_alias, language, jurisdiction, alias_type)
+);
+
+comment on table public.term_aliases is
+  'Searchable aliases for a canonical term, including local names, INCI names, CAS numbers, color index numbers, abbreviations, and trade names.';
+
+create table if not exists public.term_rule_links (
+  term_key text not null references public.knowledge_terms (term_key) on delete cascade,
+  rule_code text not null references public.rules (rule_code) on delete cascade,
+  jurisdiction text not null default 'TW',
+  match_basis text not null,
+  confidence numeric(4,3) not null default 0.850
+    check (confidence >= 0 and confidence <= 1),
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  primary key (term_key, rule_code)
+);
+
+comment on table public.term_rule_links is
+  'Links canonical terms and aliases to regulatory rules so synonym search can resolve back to source-backed compliance rules.';
+
 -- Updated-at triggers.
 drop trigger if exists trg_profiles_updated_at on public.profiles;
 create trigger trg_profiles_updated_at
@@ -265,6 +353,16 @@ create trigger trg_review_queue_updated_at
 before update on public.review_queue
 for each row execute function public.set_updated_at();
 
+drop trigger if exists trg_knowledge_sources_updated_at on public.knowledge_sources;
+create trigger trg_knowledge_sources_updated_at
+before update on public.knowledge_sources
+for each row execute function public.set_updated_at();
+
+drop trigger if exists trg_knowledge_terms_updated_at on public.knowledge_terms;
+create trigger trg_knowledge_terms_updated_at
+before update on public.knowledge_terms
+for each row execute function public.set_updated_at();
+
 -- Lookup and workflow indexes.
 create index if not exists idx_products_owner_id on public.products (owner_id);
 create index if not exists idx_products_status on public.products (status);
@@ -297,6 +395,15 @@ create index if not exists idx_audit_logs_actor_profile_id on public.audit_logs 
 create index if not exists idx_audit_logs_entity on public.audit_logs (entity_table, entity_id);
 create index if not exists idx_audit_logs_created_at on public.audit_logs (created_at desc);
 
+create index if not exists idx_knowledge_sources_domain_priority on public.knowledge_sources (domain, priority);
+create index if not exists idx_knowledge_sources_tags on public.knowledge_sources using gin (tags);
+create index if not exists idx_knowledge_snapshots_source_fetched on public.knowledge_snapshots (source_key, fetched_at desc);
+create index if not exists idx_knowledge_snapshots_hash on public.knowledge_snapshots (content_hash);
+create index if not exists idx_knowledge_terms_identifiers on public.knowledge_terms using gin (identifiers);
+create index if not exists idx_term_aliases_normalized on public.term_aliases (normalized_alias);
+create index if not exists idx_term_aliases_jurisdiction_language on public.term_aliases (jurisdiction, language);
+create index if not exists idx_term_rule_links_rule_code on public.term_rule_links (rule_code);
+
 -- RLS is enabled now so the database is deny-by-default until explicit policies are added.
 alter table public.profiles enable row level security;
 alter table public.products enable row level security;
@@ -307,6 +414,11 @@ alter table public.reviews enable row level security;
 alter table public.findings enable row level security;
 alter table public.review_queue enable row level security;
 alter table public.audit_logs enable row level security;
+alter table public.knowledge_sources enable row level security;
+alter table public.knowledge_snapshots enable row level security;
+alter table public.knowledge_terms enable row level security;
+alter table public.term_aliases enable row level security;
+alter table public.term_rule_links enable row level security;
 
 -- Suggested policy shape for the app migration that follows:
 --   profiles: users can select/update own row; admins can select/update all.
@@ -456,3 +568,35 @@ create policy "audit_logs_admin_read"
 on public.audit_logs for select
 to authenticated
 using (public.is_admin());
+
+-- Knowledge registry is readable to signed-in users; writes stay in crawler/admin channels.
+create policy "knowledge_sources_authenticated_read"
+on public.knowledge_sources for select
+to authenticated
+using (is_active = true or public.is_reviewer_or_admin());
+
+create policy "knowledge_snapshots_authenticated_read"
+on public.knowledge_snapshots for select
+to authenticated
+using (
+  exists (
+    select 1 from public.knowledge_sources
+    where knowledge_sources.source_key = knowledge_snapshots.source_key
+      and (knowledge_sources.is_active = true or public.is_reviewer_or_admin())
+  )
+);
+
+create policy "knowledge_terms_authenticated_read"
+on public.knowledge_terms for select
+to authenticated
+using (true);
+
+create policy "term_aliases_authenticated_read"
+on public.term_aliases for select
+to authenticated
+using (true);
+
+create policy "term_rule_links_authenticated_read"
+on public.term_rule_links for select
+to authenticated
+using (true);
