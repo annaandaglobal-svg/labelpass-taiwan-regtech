@@ -56,6 +56,37 @@ for (const testCase of cases) {
   }
 }
 
+const foodResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Peanut Milk Cookie",
+    productType: "prepackaged food / snack",
+    ingredientsText: "Wheat flour, peanut, milk powder, sugar",
+    labelText: "Product name: Peanut Milk Cookie. Net weight 120g. Made in Korea. EXP 2027-01-01. Nutrition: Calories 500 kcal, protein 5g, fat 20g, carbohydrate 60g, sodium 300mg.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods"
+  })
+});
+
+if (!foodResponse.ok) {
+  throw new Error(`Food review: Review API returned ${foodResponse.status}`);
+}
+
+const foodResult = await foodResponse.json();
+
+if (foodResult.ruleVersion !== "TW-FOOD-2026.06-draft") {
+  throw new Error(`Food review: expected TW food rule version, got ${foodResult.ruleVersion}`);
+}
+
+if (foodResult.status !== "fail") {
+  throw new Error(`Food review: expected fail status for missing allergen warning, got ${foodResult.status}`);
+}
+
+if (!foodResult.findings?.some((finding) => finding.id === "food-allergen-peanut" && finding.status === "fail")) {
+  throw new Error("Food review: expected peanut allergen failure");
+}
+
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
@@ -79,4 +110,4 @@ for (const testCase of knowledgeCases) {
   }
 }
 
-console.log(`API smoke test passed: ${cases.length} review cases, ${knowledgeCases.length} knowledge cases.`);
+console.log(`API smoke test passed: ${cases.length + 1} review cases, ${knowledgeCases.length} knowledge cases.`);

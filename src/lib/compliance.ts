@@ -12,9 +12,9 @@ export type ParsedIngredient = {
 export type Finding = {
   id: string;
   status: ReviewStatus;
-  area: "성분" | "라벨" | "효능표현" | "서류" | "통관";
+  area: "성분" | "라벨" | "효능표현" | "서류" | "통관" | "식품표시" | "알레르겐" | "영양표시";
   title: string;
-  severity: "낮음" | "중간" | "높음";
+  severity: "낮음" | "중간" | "높음" | "low" | "medium" | "high";
   why: string;
   fix: string[];
   source: string;
@@ -53,6 +53,12 @@ const SOURCE_PIF = "TFDA PIF phased implementation notice, 2025-08-14";
 const SOURCE_PIF_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164";
 const SOURCE_OPEN_DATA = "TFDA cosmetics open datasets, InfoId 199-203";
 const SOURCE_OPEN_DATA_URL = "https://data.gov.tw/dataset/173684";
+const SOURCE_FOOD_ACT = "Act Governing Food Safety and Sanitation, Articles 3 and 22";
+const SOURCE_FOOD_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001";
+const SOURCE_FOOD_NUTRITION = "TFDA Regulations on Nutrition Labeling for Prepackaged Food Products";
+const SOURCE_FOOD_NUTRITION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633";
+const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
+const SOURCE_FOOD_ALLERGEN_URL = "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315";
 const PIF_EFFECTIVE_AT = Date.parse("2026-07-01T00:00:00+08:00");
 
 type RegulatoryRule = {
@@ -228,10 +234,141 @@ function fixOptions(rule: RegulatoryRule, limit?: number) {
   return options.slice(0, 4);
 }
 
+function isFoodProduct(input: ReviewInput) {
+  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|식품|음료|과자|소스|분말|차|커피|건강기능|食品|飲料|餅乾|糖果|茶|咖啡/i.test(
+    `${input.productName} ${input.productType} ${input.labelText}`
+  );
+}
+
+const foodLabelRequirements = [
+  {
+    id: "food-name",
+    label: "식품명",
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    present: (input: ReviewInput) => Boolean(input.productName.trim()) || /product name|品名|食品名稱|제품명|식품명/i.test(input.labelText)
+  },
+  {
+    id: "food-ingredients",
+    label: "원재료명 또는 성분",
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    present: (input: ReviewInput) => Boolean(input.ingredientsText.trim()) || /ingredients|成分|原料|원재료|성분/i.test(input.labelText)
+  },
+  {
+    id: "food-net-contents",
+    label: "내용량",
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    present: (input: ReviewInput) => /net|contents|weight|volume|內容量|净含量|淨重|重量|용량|중량|\b\d+(?:\.\d+)?\s*(g|kg|ml|l)\b/i.test(input.labelText)
+  },
+  {
+    id: "food-expiry",
+    label: "유통기한 또는 소비기한",
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    present: (input: ReviewInput) => /expiry|expiration|best before|use by|EXP|有效日期|保存期限|賞味期限|유통기한|소비기한/i.test(input.labelText)
+  },
+  {
+    id: "food-origin",
+    label: "원산지",
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    present: (input: ReviewInput) => Boolean(input.origin.trim()) || /country of origin|origin|made in|原產地|原产地|產地|원산지|제조국/i.test(input.labelText)
+  },
+  {
+    id: "food-responsible-firm",
+    label: "제조업자/수입업자 정보",
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    present: (input: ReviewInput) =>
+      Boolean(input.manufacturer.trim()) || /manufacturer|importer|address|tel|製造|進口商|輸入|地址|電話|제조원|수입원|주소|전화/i.test(input.labelText)
+  },
+  {
+    id: "food-nutrition",
+    label: "영양표시",
+    source: SOURCE_FOOD_NUTRITION,
+    sourceUrl: SOURCE_FOOD_NUTRITION_URL,
+    present: (input: ReviewInput) => /nutrition|calories|kcal|protein|fat|carbohydrate|sugar|sodium|營養|熱量|蛋白質|脂肪|碳水化合物|糖|鈉|영양|열량|단백질|지방|탄수화물|나트륨/i.test(input.labelText)
+  }
+];
+
+const taiwanFoodAllergens = [
+  { id: "crustacea", label: "crustacea", pattern: /crustacea|shrimp|crab|shellfish|갑각류|새우|게|甲殼|蝦|蟹/i },
+  { id: "mango", label: "mango", pattern: /mango|망고|芒果/i },
+  { id: "peanut", label: "peanut", pattern: /peanut|땅콩|花生|落花生/i },
+  { id: "milk", label: "milk", pattern: /milk|goat milk|casein|lactose|우유|유청|카제인|乳|牛奶|羊奶|酪蛋白/i },
+  { id: "egg", label: "egg", pattern: /egg|albumin|난류|계란|달걀|蛋|卵白/i },
+  { id: "nuts", label: "tree nuts", pattern: /almond|walnut|cashew|hazelnut|pistachio|macadamia|견과|아몬드|호두|캐슈|堅果|杏仁|核桃|腰果/i },
+  { id: "sesame", label: "sesame", pattern: /sesame|참깨|芝麻/i },
+  { id: "gluten", label: "gluten cereals", pattern: /wheat|barley|rye|oat|gluten|밀|보리|호밀|귀리|글루텐|小麥|大麥|黑麥|燕麥|麩質/i },
+  { id: "soy", label: "soybean", pattern: /soy|soybean|soya|대두|콩|大豆|黃豆/i },
+  { id: "fish", label: "fish", pattern: /fish|gelatine|gelatin|생선|어류|魚|明膠/i },
+  { id: "sulphites", label: "sulphites", pattern: /sulphite|sulfite|so2|sulfur dioxide|아황산|이산화황|亞硫酸|二氧化硫/i }
+];
+
+function addFoodFindings(input: ReviewInput, findings: Finding[]) {
+  for (const requirement of foodLabelRequirements) {
+    if (!requirement.present(input)) {
+      findings.push({
+        id: `food-label-${requirement.id}`,
+        status: requirement.id === "food-nutrition" ? "needs_info" : "warn",
+        area: requirement.id === "food-nutrition" ? "영양표시" : "식품표시",
+        title: `대만 식품 라벨 필수 항목 확인 필요: ${requirement.label}`,
+        severity: requirement.id === "food-nutrition" ? "medium" : "low",
+        why: "대만 식품 라벨은 식품명, 성분, 내용량, 원산지, 제조/수입업자, 유통기한 또는 소비기한, 영양표시 같은 핵심 항목을 제품과 포장 형태에 맞게 확인해야 합니다.",
+        fix: [
+          `${requirement.label} 항목을 중국어 라벨 또는 수입 스티커에 명확히 추가`,
+          "원문 라벨, 번역 라벨, 수입자 정보, 포장 면적 기준을 함께 재검토"
+        ],
+        source: requirement.source,
+        sourceUrl: requirement.sourceUrl
+      });
+    }
+  }
+
+  const combinedText = `${input.ingredientsText} ${input.labelText}`;
+  const matchedAllergens = taiwanFoodAllergens.filter((allergen) => allergen.pattern.test(combinedText));
+  const hasAllergenWarning = /allergen|contains|may contain|本產品含|含有|過敏|알레르기|함유|주의/i.test(input.labelText);
+
+  for (const allergen of matchedAllergens) {
+    findings.push({
+      id: `food-allergen-${allergen.id}`,
+      status: hasAllergenWarning ? "pass" : "fail",
+      area: "알레르겐",
+      title: hasAllergenWarning ? `대만 알레르겐 표시 확인됨: ${allergen.label}` : `대만 알레르겐 경고 누락 가능성: ${allergen.label}`,
+      severity: hasAllergenWarning ? "low" : "high",
+      why: "대만 TFDA 알레르겐 표시 규정은 민감한 소비자에게 알레르기 반응을 일으킬 수 있는 지정 원료가 들어간 사전포장식품에 경고 문구를 요구합니다.",
+      fix: hasAllergenWarning
+        ? ["알레르겐 경고 문구가 실제 원료와 일치하는지 중국어 라벨에서 최종 확인"]
+        : [`${allergen.label} 함유 경고를 중국어 라벨에 추가`, "교차오염 가능성이 있으면 별도 advisory 문구 적용 여부 검토"],
+      source: SOURCE_FOOD_ALLERGEN,
+      sourceUrl: SOURCE_FOOD_ALLERGEN_URL,
+      evidence: allergen.label
+    });
+  }
+
+  if (matchedAllergens.length === 0 && input.ingredientsText.trim()) {
+    findings.push({
+      id: "food-allergen-screen-clear",
+      status: "pass",
+      area: "알레르겐",
+      title: "대만 지정 알레르겐 1차 키워드 매칭 없음",
+      severity: "low",
+      why: "입력된 성분 텍스트에서 대만 알레르겐 표시 규정의 대표 키워드는 발견되지 않았습니다. 원료 공급사 사양서와 교차오염 정보는 별도로 확인해야 합니다.",
+      fix: ["원료명, 향료, 복합원료, 가공보조제, 교차오염 정보를 공급사 문서와 대조"],
+      source: SOURCE_FOOD_ALLERGEN,
+      sourceUrl: SOURCE_FOOD_ALLERGEN_URL
+    });
+  }
+}
+
 export function evaluateReview(input: ReviewInput): ReviewResult {
   const parsedIngredients = parseIngredients(input.ingredientsText);
   const findings: Finding[] = [];
+  const foodProduct = isFoodProduct(input);
 
+  if (!foodProduct) {
   for (const ingredient of parsedIngredients) {
     const matchedRules = officialRules.filter((rule) => hasAlias(ingredient, aliasesForRule(rule)));
     const emitted = new Set<string>();
@@ -403,18 +540,25 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
       sourceUrl: SOURCE_PIF_URL
     });
   }
+  } else {
+    addFoodFindings(input, findings);
+  }
 
   if (findings.length === 0) {
     findings.push({
       id: "basic-pass",
       status: "pass",
-      area: "성분",
-      title: "입력 성분에서 즉시 탐지된 금지/초과 항목 없음",
+      area: foodProduct ? "식품표시" : "성분",
+      title: foodProduct ? "대만 식품 라벨 1차 필수 항목에서 즉시 탐지된 문제 없음" : "입력 성분에서 즉시 탐지된 금지/초과 항목 없음",
       severity: "낮음",
-      why: "현재 내장 샘플 룰셋 기준으로 자동 탐지된 금지 성분이나 제한 초과는 없습니다.",
-      fix: [`공식 TFDA 룰셋 ${officialRules.length}개 기준으로 재검토`, "라벨 이미지 OCR과 원본 서류로 2차 확인"],
-      source: SOURCE_OPEN_DATA,
-      sourceUrl: SOURCE_OPEN_DATA_URL
+      why: foodProduct
+        ? "입력된 식품 라벨 텍스트 기준으로 필수 항목과 대표 알레르겐 키워드의 즉시 위험은 발견되지 않았습니다."
+        : "현재 내장 샘플 룰셋 기준으로 자동 탐지된 금지 성분이나 제한 초과는 없습니다.",
+      fix: foodProduct
+        ? ["원문 라벨 이미지, 중국어 번역 라벨, 수입자 정보, 영양표시 값을 원본 서류와 대조"]
+        : [`공식 TFDA 룰셋 ${officialRules.length}개 기준으로 재검토`, "라벨 이미지 OCR과 원본 서류로 2차 확인"],
+      source: foodProduct ? SOURCE_FOOD_ACT : SOURCE_OPEN_DATA,
+      sourceUrl: foodProduct ? SOURCE_FOOD_ACT_URL : SOURCE_OPEN_DATA_URL
     });
   }
 
@@ -432,7 +576,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     status,
     score,
     generatedAt: new Date().toISOString(),
-    ruleVersion: "TW-COS-2026.06-draft",
+    ruleVersion: foodProduct ? "TW-FOOD-2026.06-draft" : "TW-COS-2026.06-draft",
     parsedIngredients,
     findings,
     summary
