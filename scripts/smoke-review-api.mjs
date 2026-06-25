@@ -90,7 +90,11 @@ if (!foodResult.findings?.some((finding) => finding.id === "food-allergen-peanut
 const knowledgeCases = [
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
-  { query: "IPBC", expectedTerm: "Iodopropynyl Butylcarbamate" }
+  { query: "IPBC", expectedTerm: "Iodopropynyl Butylcarbamate" },
+  { query: "땅콩", expectedTerm: "Peanut" },
+  { query: "花生", expectedTerm: "Peanut" },
+  { query: "味精", expectedTerm: "Monosodium Glutamate" },
+  { query: "벤조산나트륨", expectedTerm: "Benzoic Acid and Benzoates" }
 ];
 
 for (const testCase of knowledgeCases) {

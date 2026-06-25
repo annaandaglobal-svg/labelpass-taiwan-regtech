@@ -2,8 +2,8 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-25",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 33,
-  "generated_term_count": 1042,
+  "curated_term_count": 44,
+  "generated_term_count": 1039,
   "rule_count": 1081,
   "rule_alias_count": 1081,
   "terms": [
@@ -1950,6 +1950,1017 @@
         "global-cas-registry"
       ],
       "notes": "Common cooling ingredient with multilingual label variants."
+    },
+    {
+      "id": "peanut-allergen",
+      "canonical_name": "Peanut",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Peanut",
+          "normalized": "peanut",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Peanuts",
+          "normalized": "peanuts",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Groundnut",
+          "normalized": "groundnut",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "花生",
+          "normalized": "花生",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "落花生",
+          "normalized": "落花生",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "땅콩",
+          "normalized": "땅콩",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "notes": "Taiwan food allergen labeling category for prepackaged foods."
+    },
+    {
+      "id": "milk-allergen",
+      "canonical_name": "Milk",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Milk",
+          "normalized": "milk",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Goat milk",
+          "normalized": "goat milk",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Dairy",
+          "normalized": "dairy",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Casein",
+          "normalized": "casein",
+          "type": "protein_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "牛奶",
+          "normalized": "牛奶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "羊奶",
+          "normalized": "羊奶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乳",
+          "normalized": "乳",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.75,
+          "note": "Short Chinese alias; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "우유",
+          "normalized": "우유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유제품",
+          "normalized": "유제품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카제인",
+          "normalized": "카제인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-additive-common-names"
+      ],
+      "notes": "Taiwan food allergen category. Caseinates also appear in food additive common-name material."
+    },
+    {
+      "id": "egg-allergen",
+      "canonical_name": "Egg",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Egg",
+          "normalized": "egg",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Albumin",
+          "normalized": "albumin",
+          "type": "protein_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蛋",
+          "normalized": "蛋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "雞蛋",
+          "normalized": "雞蛋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "계란",
+          "normalized": "계란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "달걀",
+          "normalized": "달걀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "난류",
+          "normalized": "난류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "notes": "Taiwan food allergen labeling category."
+    },
+    {
+      "id": "gluten-cereals-allergen",
+      "canonical_name": "Cereals Containing Gluten",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Gluten",
+          "normalized": "gluten",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Wheat",
+          "normalized": "wheat",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Barley",
+          "normalized": "barley",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Rye",
+          "normalized": "rye",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Oat",
+          "normalized": "oat",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "麩質",
+          "normalized": "麩質",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "小麥",
+          "normalized": "小麥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "大麥",
+          "normalized": "大麥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "글루텐",
+          "normalized": "글루텐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "밀",
+          "normalized": "밀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "보리",
+          "normalized": "보리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "notes": "Taiwan food allergen category for cereals containing gluten, with common cereal aliases."
+    },
+    {
+      "id": "soybean-allergen",
+      "canonical_name": "Soybean",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Soybean",
+          "normalized": "soybean",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Soy",
+          "normalized": "soy",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Soya",
+          "normalized": "soya",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "大豆",
+          "normalized": "大豆",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "黃豆",
+          "normalized": "黃豆",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대두",
+          "normalized": "대두",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "콩",
+          "normalized": "콩",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": "Broad Korean alias; verify context.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "notes": "Taiwan food allergen labeling category."
+    },
+    {
+      "id": "sesame-allergen",
+      "canonical_name": "Sesame",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Sesame",
+          "normalized": "sesame",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sesame seed",
+          "normalized": "sesame seed",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "芝麻",
+          "normalized": "芝麻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "참깨",
+          "normalized": "참깨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "깨",
+          "normalized": "깨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": "Broad Korean alias; verify context.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "notes": "Taiwan food allergen labeling category."
+    },
+    {
+      "id": "monosodium-glutamate",
+      "canonical_name": "Monosodium Glutamate",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "142-47-2"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Monosodium Glutamate",
+          "normalized": "monosodium glutamate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "MSG",
+          "normalized": "msg",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-Glutamate Monosodium",
+          "normalized": "l-glutamate monosodium",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "味精",
+          "normalized": "味精",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "麩酸鈉",
+          "normalized": "麩酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "글루탐산나트륨",
+          "normalized": "글루탐산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names"
+      ],
+      "notes": "Representative food additive alias set from Taiwan common-name material."
+    },
+    {
+      "id": "benzoates-food-additives",
+      "canonical_name": "Benzoic Acid and Benzoates",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "65-85-0",
+          "532-32-1",
+          "582-25-2"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Benzoic acid",
+          "normalized": "benzoic acid",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium benzoate",
+          "normalized": "sodium benzoate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Potassium benzoate",
+          "normalized": "potassium benzoate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "BA",
+          "normalized": "ba",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Ambiguous abbreviation; verify context.",
+          "source": "curated"
+        },
+        {
+          "value": "苯甲酸",
+          "normalized": "苯甲酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "苯甲酸鈉",
+          "normalized": "苯甲酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "苯甲酸鉀",
+          "normalized": "苯甲酸鉀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "벤조산",
+          "normalized": "벤조산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "안식향산",
+          "normalized": "안식향산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "벤조산나트륨",
+          "normalized": "벤조산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names"
+      ],
+      "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
+    },
+    {
+      "id": "sorbates-food-additives",
+      "canonical_name": "Sorbic Acid and Sorbates",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "110-44-1",
+          "24634-61-5",
+          "7757-81-5"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Sorbic acid",
+          "normalized": "sorbic acid",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Potassium sorbate",
+          "normalized": "potassium sorbate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium sorbate",
+          "normalized": "sodium sorbate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山梨酸",
+          "normalized": "山梨酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山梨酸鉀",
+          "normalized": "山梨酸鉀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山梨酸鈉",
+          "normalized": "山梨酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르빈산",
+          "normalized": "소르빈산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르빈산칼륨",
+          "normalized": "소르빈산칼륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names"
+      ],
+      "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
+    },
+    {
+      "id": "sodium-bicarbonate-food-additive",
+      "canonical_name": "Sodium Bicarbonate",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "144-55-8"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Sodium bicarbonate",
+          "normalized": "sodium bicarbonate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Baking soda",
+          "normalized": "baking soda",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "碳酸氫鈉",
+          "normalized": "碳酸氫鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "小蘇打",
+          "normalized": "小蘇打",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "탄산수소나트륨",
+          "normalized": "탄산수소나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "베이킹소다",
+          "normalized": "베이킹소다",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names"
+      ],
+      "notes": "Common food additive and common-name alias."
+    },
+    {
+      "id": "xanthan-gum-food-additive",
+      "canonical_name": "Xanthan Gum",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "11138-66-2"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Xanthan gum",
+          "normalized": "xanthan gum",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Xanthan",
+          "normalized": "xanthan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "三仙膠",
+          "normalized": "三仙膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "玉米糖膠",
+          "normalized": "玉米糖膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "잔탄검",
+          "normalized": "잔탄검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산탄검",
+          "normalized": "산탄검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names"
+      ],
+      "notes": "Food thickener/stabilizer alias set."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -44463,372 +45474,6 @@
       "notes": "Generated from TFDA rule tw-cos-201-3"
     },
     {
-      "id": "tfda-salts-of-benzoic-acid-and-esters-of-benzoic-acid",
-      "canonical_name": "Salts of benzoic acid and esters of benzoic acid",
-      "category": "preservative",
-      "identifiers": {
-        "cas": [
-          "1863-63-4",
-          "2090-05-3",
-          "582-25-2",
-          "553-70-8",
-          "4337-66-0",
-          "93-58-3",
-          "93-89-0",
-          "2315-68-6",
-          "136-60-7",
-          "1205-50-3",
-          "939-48-0",
-          "93-99-2"
-        ],
-        "inci": [
-          "Salts of benzoic acid and esters of benzoic acid",
-          "Ammonium benzoate",
-          "Butyl benzoate",
-          "Calcium benzoate",
-          "Ethyl benzoate",
-          "Isobutyl benzoate",
-          "Isopropyl benzoate",
-          "Magnesium benzoate",
-          "MEA-benzoate",
-          "Methyl benzoate",
-          "Phenyl benzoate",
-          "Potassium benzoate",
-          "Propyl benzoate"
-        ],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "Salts of benzoic acid and esters of benzoic acid",
-          "normalized": "salts of benzoic acid and esters of benzoic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Ammonium benzoate",
-          "normalized": "ammonium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Butyl benzoate",
-          "normalized": "butyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Calcium benzoate",
-          "normalized": "calcium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Ethyl benzoate",
-          "normalized": "ethyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Isobutyl benzoate",
-          "normalized": "isobutyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Isopropyl benzoate",
-          "normalized": "isopropyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Magnesium benzoate",
-          "normalized": "magnesium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "MEA-benzoate",
-          "normalized": "mea-benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Methyl benzoate",
-          "normalized": "methyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Phenyl benzoate",
-          "normalized": "phenyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Potassium benzoate",
-          "normalized": "potassium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Propyl benzoate",
-          "normalized": "propyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "1863-63-4",
-          "normalized": "1863-63-4",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "2090-05-3",
-          "normalized": "2090-05-3",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "582-25-2",
-          "normalized": "582-25-2",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "553-70-8",
-          "normalized": "553-70-8",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "4337-66-0",
-          "normalized": "4337-66-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "93-58-3",
-          "normalized": "93-58-3",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "93-89-0",
-          "normalized": "93-89-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "2315-68-6",
-          "normalized": "2315-68-6",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "136-60-7",
-          "normalized": "136-60-7",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "1205-50-3",
-          "normalized": "1205-50-3",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "939-48-0",
-          "normalized": "939-48-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "93-99-2",
-          "normalized": "93-99-2",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        }
-      ],
-      "source_keys": [
-        "tfda-info-201"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-4"
-    },
-    {
-      "id": "tfda-benzoic-acid-and-its-sodium-salt",
-      "canonical_name": "Benzoic acid and its sodium salt",
-      "category": "preservative",
-      "identifiers": {
-        "cas": [
-          "65-85-0",
-          "532-32-1"
-        ],
-        "inci": [
-          "Benzoic acid and its sodium salt",
-          "Benzoic acid",
-          "Sodium benzoate"
-        ],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "Benzoic acid and its sodium salt",
-          "normalized": "benzoic acid and its sodium salt",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Benzoic acid",
-          "normalized": "benzoic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Sodium benzoate",
-          "normalized": "sodium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "65-85-0",
-          "normalized": "65-85-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "532-32-1",
-          "normalized": "532-32-1",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        }
-      ],
-      "source_keys": [
-        "tfda-info-201"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-5"
-    },
-    {
       "id": "tfda-benzyl-alcohol",
       "canonical_name": "Benzyl alcohol",
       "category": "preservative",
@@ -46614,123 +47259,6 @@
         "tfda-info-201"
       ],
       "notes": "Generated from TFDA rule tw-cos-201-42"
-    },
-    {
-      "id": "tfda-hexa-2-4-dienoic-acid-and-its-salts",
-      "canonical_name": "Hexa-2,4-dienoic acid and its salts",
-      "category": "preservative",
-      "identifiers": {
-        "cas": [
-          "110-44-1",
-          "24634-61-5",
-          "7492-55-9",
-          "7757-81-5"
-        ],
-        "inci": [
-          "Hexa-2,4-dienoic acid and its salts",
-          "Sorbic acid",
-          "Potassium sorbate",
-          "Calcium sorbate",
-          "Sodium sorbate"
-        ],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "Hexa-2,4-dienoic acid and its salts",
-          "normalized": "hexa-2 4-dienoic acid and its salts",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Sorbic acid",
-          "normalized": "sorbic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Potassium sorbate",
-          "normalized": "potassium sorbate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Calcium sorbate",
-          "normalized": "calcium sorbate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Sodium sorbate",
-          "normalized": "sodium sorbate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "110-44-1",
-          "normalized": "110-44-1",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "24634-61-5",
-          "normalized": "24634-61-5",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "7492-55-9",
-          "normalized": "7492-55-9",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "7757-81-5",
-          "normalized": "7757-81-5",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        }
-      ],
-      "source_keys": [
-        "tfda-info-201"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-43"
     },
     {
       "id": "tfda-thiomersal",
@@ -57027,20 +57555,20 @@
       "confidence": 0.8
     },
     {
-      "term_id": "tfda-salts-of-benzoic-acid-and-esters-of-benzoic-acid",
+      "term_id": "benzoates-food-additives",
       "rule_id": "tw-cos-201-4",
       "rule_code": "tw-cos-201-4",
-      "match_basis": "generated_tfda_rule",
+      "match_basis": "cas",
       "jurisdiction": "TW",
-      "confidence": 0.8
+      "confidence": 1
     },
     {
-      "term_id": "tfda-benzoic-acid-and-its-sodium-salt",
+      "term_id": "benzoates-food-additives",
       "rule_id": "tw-cos-201-5",
       "rule_code": "tw-cos-201-5",
-      "match_basis": "generated_tfda_rule",
+      "match_basis": "cas",
       "jurisdiction": "TW",
-      "confidence": 0.8
+      "confidence": 1
     },
     {
       "term_id": "tfda-benzyl-alcohol",
@@ -57347,12 +57875,12 @@
       "confidence": 0.8
     },
     {
-      "term_id": "tfda-hexa-2-4-dienoic-acid-and-its-salts",
+      "term_id": "sorbates-food-additives",
       "rule_id": "tw-cos-201-43",
       "rule_code": "tw-cos-201-43",
-      "match_basis": "generated_tfda_rule",
+      "match_basis": "cas",
       "jurisdiction": "TW",
-      "confidence": 0.8
+      "confidence": 1
     },
     {
       "term_id": "tfda-thiomersal",
@@ -90124,316 +90652,276 @@
     {
       "rule_id": "tw-cos-201-4",
       "term_ids": [
-        "tfda-salts-of-benzoic-acid-and-esters-of-benzoic-acid"
+        "benzoates-food-additives"
       ],
       "aliases": [
         {
-          "value": "Salts of benzoic acid and esters of benzoic acid",
-          "normalized": "salts of benzoic acid and esters of benzoic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "value": "Benzoic acid",
+          "normalized": "benzoic acid",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
-          "value": "Ammonium benzoate",
-          "normalized": "ammonium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "value": "Sodium benzoate",
+          "normalized": "sodium benzoate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Butyl benzoate",
-          "normalized": "butyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Calcium benzoate",
-          "normalized": "calcium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Ethyl benzoate",
-          "normalized": "ethyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Isobutyl benzoate",
-          "normalized": "isobutyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Isopropyl benzoate",
-          "normalized": "isopropyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Magnesium benzoate",
-          "normalized": "magnesium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "MEA-benzoate",
-          "normalized": "mea-benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Methyl benzoate",
-          "normalized": "methyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Phenyl benzoate",
-          "normalized": "phenyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "Potassium benzoate",
           "normalized": "potassium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "BA",
+          "normalized": "ba",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Ambiguous abbreviation; verify context.",
+          "source": "cas"
+        },
+        {
+          "value": "苯甲酸",
+          "normalized": "苯甲酸",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "苯甲酸鈉",
+          "normalized": "苯甲酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "苯甲酸鉀",
+          "normalized": "苯甲酸鉀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "벤조산",
+          "normalized": "벤조산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산",
+          "normalized": "안식향산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.95,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
-          "value": "Propyl benzoate",
-          "normalized": "propyl benzoate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "value": "벤조산나트륨",
+          "normalized": "벤조산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
-          "value": "1863-63-4",
-          "normalized": "1863-63-4",
-          "type": "official_alias",
+          "value": "65-85-0",
+          "normalized": "65-85-0",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
-          "value": "2090-05-3",
-          "normalized": "2090-05-3",
-          "type": "official_alias",
+          "value": "532-32-1",
+          "normalized": "532-32-1",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "582-25-2",
           "normalized": "582-25-2",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "553-70-8",
-          "normalized": "553-70-8",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "4337-66-0",
-          "normalized": "4337-66-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "93-58-3",
-          "normalized": "93-58-3",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "93-89-0",
-          "normalized": "93-89-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "2315-68-6",
-          "normalized": "2315-68-6",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "136-60-7",
-          "normalized": "136-60-7",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "1205-50-3",
-          "normalized": "1205-50-3",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "939-48-0",
-          "normalized": "939-48-0",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "93-99-2",
-          "normalized": "93-99-2",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         }
       ]
     },
     {
       "rule_id": "tw-cos-201-5",
       "term_ids": [
-        "tfda-benzoic-acid-and-its-sodium-salt"
+        "benzoates-food-additives"
       ],
       "aliases": [
         {
-          "value": "Benzoic acid and its sodium salt",
-          "normalized": "benzoic acid and its sodium salt",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
           "value": "Benzoic acid",
           "normalized": "benzoic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "Sodium benzoate",
           "normalized": "sodium benzoate",
-          "type": "official_rule_name",
-          "language": "und",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Potassium benzoate",
+          "normalized": "potassium benzoate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "BA",
+          "normalized": "ba",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.65,
+          "note": "Ambiguous abbreviation; verify context.",
+          "source": "cas"
+        },
+        {
+          "value": "苯甲酸",
+          "normalized": "苯甲酸",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "苯甲酸鈉",
+          "normalized": "苯甲酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "苯甲酸鉀",
+          "normalized": "苯甲酸鉀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "벤조산",
+          "normalized": "벤조산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산",
+          "normalized": "안식향산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.95,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
+        },
+        {
+          "value": "벤조산나트륨",
+          "normalized": "벤조산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
         },
         {
           "value": "65-85-0",
           "normalized": "65-85-0",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "532-32-1",
           "normalized": "532-32-1",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
+        },
+        {
+          "value": "582-25-2",
+          "normalized": "582-25-2",
+          "type": "cas",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
         }
       ]
     },
@@ -92657,98 +93145,118 @@
     {
       "rule_id": "tw-cos-201-43",
       "term_ids": [
-        "tfda-hexa-2-4-dienoic-acid-and-its-salts"
+        "sorbates-food-additives"
       ],
       "aliases": [
         {
-          "value": "Hexa-2,4-dienoic acid and its salts",
-          "normalized": "hexa-2 4-dienoic acid and its salts",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
           "value": "Sorbic acid",
           "normalized": "sorbic acid",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "Potassium sorbate",
           "normalized": "potassium sorbate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "Calcium sorbate",
-          "normalized": "calcium sorbate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "Sodium sorbate",
           "normalized": "sodium sorbate",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
+        },
+        {
+          "value": "山梨酸",
+          "normalized": "山梨酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "山梨酸鉀",
+          "normalized": "山梨酸鉀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "山梨酸鈉",
+          "normalized": "山梨酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산",
+          "normalized": "소르빈산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산칼륨",
+          "normalized": "소르빈산칼륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1,
+          "note": null,
+          "source": "cas"
         },
         {
           "value": "110-44-1",
           "normalized": "110-44-1",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "24634-61-5",
           "normalized": "24634-61-5",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
-        },
-        {
-          "value": "7492-55-9",
-          "normalized": "7492-55-9",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         },
         {
           "value": "7757-81-5",
           "normalized": "7757-81-5",
-          "type": "official_alias",
+          "type": "cas",
           "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "cas"
         }
       ]
     },

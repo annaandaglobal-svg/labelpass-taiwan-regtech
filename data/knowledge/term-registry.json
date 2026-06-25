@@ -2082,6 +2082,243 @@
         "global-cas-registry"
       ],
       "notes": "Common cooling ingredient with multilingual label variants."
+    },
+    {
+      "id": "peanut-allergen",
+      "canonical_name": "Peanut",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Peanut", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Peanuts", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Groundnut", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "花生", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "落花生", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "땅콩", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
+      ],
+      "source_keys": ["tw-tfda-food-allergen-labeling"],
+      "notes": "Taiwan food allergen labeling category for prepackaged foods."
+    },
+    {
+      "id": "milk-allergen",
+      "canonical_name": "Milk",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Milk", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Goat milk", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "Dairy", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "Casein", "type": "protein_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "牛奶", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "羊奶", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "乳", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.75, "note": "Short Chinese alias; verify context." },
+        { "value": "우유", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "유제품", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "카제인", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+      ],
+      "source_keys": ["tw-tfda-food-allergen-labeling", "tw-tfda-food-additive-common-names"],
+      "notes": "Taiwan food allergen category. Caseinates also appear in food additive common-name material."
+    },
+    {
+      "id": "egg-allergen",
+      "canonical_name": "Egg",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Egg", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Albumin", "type": "protein_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "蛋", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "雞蛋", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "계란", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "달걀", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "난류", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+      ],
+      "source_keys": ["tw-tfda-food-allergen-labeling"],
+      "notes": "Taiwan food allergen labeling category."
+    },
+    {
+      "id": "gluten-cereals-allergen",
+      "canonical_name": "Cereals Containing Gluten",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Gluten", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Wheat", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "Barley", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "Rye", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "Oat", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "麩質", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "小麥", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "大麥", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "글루텐", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "밀", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "보리", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+      ],
+      "source_keys": ["tw-tfda-food-allergen-labeling"],
+      "notes": "Taiwan food allergen category for cereals containing gluten, with common cereal aliases."
+    },
+    {
+      "id": "soybean-allergen",
+      "canonical_name": "Soybean",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Soybean", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Soy", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "Soya", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "大豆", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "黃豆", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "대두", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "콩", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.8, "note": "Broad Korean alias; verify context." }
+      ],
+      "source_keys": ["tw-tfda-food-allergen-labeling"],
+      "notes": "Taiwan food allergen labeling category."
+    },
+    {
+      "id": "sesame-allergen",
+      "canonical_name": "Sesame",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Sesame", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Sesame seed", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "芝麻", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "참깨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "깨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.8, "note": "Broad Korean alias; verify context." }
+      ],
+      "source_keys": ["tw-tfda-food-allergen-labeling"],
+      "notes": "Taiwan food allergen labeling category."
+    },
+    {
+      "id": "monosodium-glutamate",
+      "canonical_name": "Monosodium Glutamate",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": ["142-47-2"],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Monosodium Glutamate", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "MSG", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "L-Glutamate Monosodium", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
+        { "value": "味精", "type": "common_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "麩酸鈉", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "글루탐산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "MSG", "type": "abbreviation", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 }
+      ],
+      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "notes": "Representative food additive alias set from Taiwan common-name material."
+    },
+    {
+      "id": "benzoates-food-additives",
+      "canonical_name": "Benzoic Acid and Benzoates",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": ["65-85-0", "532-32-1", "582-25-2"],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Benzoic acid", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Sodium benzoate", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Potassium benzoate", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "BA", "type": "abbreviation", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.65, "note": "Ambiguous abbreviation; verify context." },
+        { "value": "苯甲酸", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "苯甲酸鈉", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "苯甲酸鉀", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "벤조산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "안식향산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "벤조산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
+      ],
+      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
+    },
+    {
+      "id": "sorbates-food-additives",
+      "canonical_name": "Sorbic Acid and Sorbates",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": ["110-44-1", "24634-61-5", "7757-81-5"],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Sorbic acid", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Potassium sorbate", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Sodium sorbate", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "山梨酸", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "山梨酸鉀", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "山梨酸鈉", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "소르빈산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "소르빈산칼륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
+      ],
+      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
+    },
+    {
+      "id": "sodium-bicarbonate-food-additive",
+      "canonical_name": "Sodium Bicarbonate",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": ["144-55-8"],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Sodium bicarbonate", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Baking soda", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "碳酸氫鈉", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "小蘇打", "type": "common_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "탄산수소나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "베이킹소다", "type": "common_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
+      ],
+      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "notes": "Common food additive and common-name alias."
+    },
+    {
+      "id": "xanthan-gum-food-additive",
+      "canonical_name": "Xanthan Gum",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": ["11138-66-2"],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Xanthan gum", "type": "additive_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "Xanthan", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "三仙膠", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "玉米糖膠", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "잔탄검", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "산탄검", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+      ],
+      "source_keys": ["tw-tfda-food-additive-common-names"],
+      "notes": "Food thickener/stabilizer alias set."
     }
   ]
 }
