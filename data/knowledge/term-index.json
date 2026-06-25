@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 85,
+  "curated_term_count": 91,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -7306,6 +7306,733 @@
         "tw-tfda-food-business-use-intact-package-labeling"
       ],
       "notes": "Concept for B2B foods and raw materials in intact packages, especially imported goods that will be repackaged, sub-packaged, or further processed."
+    },
+    {
+      "id": "food-pesticide-residue-limits",
+      "canonical_name": "Food Pesticide Residue Limits",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "pesticide residue limits",
+          "normalized": "pesticide residue limits",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "maximum residue limits",
+          "normalized": "maximum residue limits",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "MRL",
+          "normalized": "mrl",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": "Broad abbreviation; keep exact matching.",
+          "source": "curated"
+        },
+        {
+          "value": "pesticide residues in foods",
+          "normalized": "pesticide residues in foods",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "잔류농약 기준",
+          "normalized": "잔류농약 기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "농약 잔류허용기준",
+          "normalized": "농약 잔류허용기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.98,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 잔류농약",
+          "normalized": "식품 잔류농약",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "農藥殘留容許量標準",
+          "normalized": "農藥殘留容許量標準",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "農藥殘留",
+          "normalized": "農藥殘留",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "农药残留限量",
+          "normalized": "农药残留限量",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "残留農薬基準",
+          "normalized": "残留農薬基準",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-food-pesticide-residue-limits"
+      ],
+      "notes": "Taiwan food-safety standard for pesticide maximum residue limits, crop classifications, omitted MRL lists, and prohibited pesticides."
+    },
+    {
+      "id": "food-veterinary-drug-residue-limits",
+      "canonical_name": "Food Veterinary Drug Residue Limits",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "veterinary drug residue limits",
+          "normalized": "veterinary drug residue limits",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "veterinary drug residues in foods",
+          "normalized": "veterinary drug residues in foods",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "animal drug residue",
+          "normalized": "animal drug residue",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "동물용의약품 잔류허용기준",
+          "normalized": "동물용의약품 잔류허용기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "동물약품 잔류 기준",
+          "normalized": "동물약품 잔류 기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수산물 동물용의약품 잔류",
+          "normalized": "수산물 동물용의약품 잔류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "動物用藥殘留標準",
+          "normalized": "動物用藥殘留標準",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "動物用藥殘留",
+          "normalized": "動物用藥殘留",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "动物用药残留限量",
+          "normalized": "动物用药残留限量",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "動物用医薬品残留基準",
+          "normalized": "動物用医薬品残留基準",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-food-veterinary-drug-residue-limits"
+      ],
+      "notes": "Taiwan food-safety standard for veterinary drug residue limits and not-detected requirements for unlisted drugs."
+    },
+    {
+      "id": "food-contaminants-toxins-standards",
+      "canonical_name": "Food Contaminants and Toxins Standards",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "contaminants and toxins in foods",
+          "normalized": "contaminants and toxins in foods",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food contaminants",
+          "normalized": "food contaminants",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "mycotoxins",
+          "normalized": "mycotoxins",
+          "type": "hazard",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "heavy metals in foods",
+          "normalized": "heavy metals in foods",
+          "type": "hazard",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 오염물질 독소 기준",
+          "normalized": "식품 오염물질 독소 기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "중금속 기준",
+          "normalized": "중금속 기준",
+          "type": "hazard",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "곰팡이독소",
+          "normalized": "곰팡이독소",
+          "type": "hazard",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品中污染物質及毒素衛生標準",
+          "normalized": "食品中污染物質及毒素衛生標準",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "污染物質",
+          "normalized": "污染物質",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "真菌毒素",
+          "normalized": "真菌毒素",
+          "type": "hazard",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品污染物和毒素标准",
+          "normalized": "食品污染物和毒素标准",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-food-contaminants-toxins"
+      ],
+      "notes": "Taiwan food-safety standard for contaminants and toxins, including metals, mycotoxins, marine biotoxins, and natural plant toxins."
+    },
+    {
+      "id": "food-microorganism-sanitation-standard",
+      "canonical_name": "Food Microorganism Sanitation Standard",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "sanitation standard for microorganisms in foods",
+          "normalized": "sanitation standard for microorganisms in foods",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "microorganisms in foods",
+          "normalized": "microorganisms in foods",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food microbiological criteria",
+          "normalized": "food microbiological criteria",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "pathogens in food",
+          "normalized": "pathogens in food",
+          "type": "hazard",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 미생물 기준",
+          "normalized": "식품 미생물 기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 위생 미생물",
+          "normalized": "식품 위생 미생물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品中微生物衛生標準",
+          "normalized": "食品中微生物衛生標準",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品微生物",
+          "normalized": "食品微生物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品微生物卫生标准",
+          "normalized": "食品微生物卫生标准",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品微生物基準",
+          "normalized": "食品微生物基準",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-microorganisms-standard"
+      ],
+      "notes": "Taiwan food-safety source for microbiological sanitation standards and pathogen-related criteria."
+    },
+    {
+      "id": "food-traceability",
+      "canonical_name": "Food Traceability",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "food traceability",
+          "normalized": "food traceability",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "trace the source and track the flow",
+          "normalized": "trace the source and track the flow",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "source tracking records",
+          "normalized": "source tracking records",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 이력추적",
+          "normalized": "식품 이력추적",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 추적관리",
+          "normalized": "식품 추적관리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.98,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "원료 출처 기록",
+          "normalized": "원료 출처 기록",
+          "type": "official_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品追溯追蹤",
+          "normalized": "食品追溯追蹤",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "追溯追蹤",
+          "normalized": "追溯追蹤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品追溯",
+          "normalized": "食品追溯",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品トレーサビリティ",
+          "normalized": "食品トレーサビリティ",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-traceability",
+        "tw-tfda-food-ghp-regulations"
+      ],
+      "notes": "Taiwan traceability concept for source records, flow tracking, foods, food additives, packaging, utensils, and food cleansers."
+    },
+    {
+      "id": "food-good-hygiene-practice",
+      "canonical_name": "Food Good Hygiene Practice",
+      "category": "regulatory_concept",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "good hygiene practice regulations for food",
+          "normalized": "good hygiene practice regulations for food",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "GHP",
+          "normalized": "ghp",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Broad abbreviation; keep exact matching.",
+          "source": "curated"
+        },
+        {
+          "value": "food hygiene management",
+          "normalized": "food hygiene management",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food manufacturing hygiene",
+          "normalized": "food manufacturing hygiene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 우수위생관리기준",
+          "normalized": "식품 우수위생관리기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 GHP",
+          "normalized": "식품 ghp",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 위생관리",
+          "normalized": "식품 위생관리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品良好衛生規範準則",
+          "normalized": "食品良好衛生規範準則",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品良好衛生規範",
+          "normalized": "食品良好衛生規範",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品良好卫生规范",
+          "normalized": "食品良好卫生规范",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品衛生管理",
+          "normalized": "食品衛生管理",
+          "type": "local_name",
+          "language": "ja",
+          "jurisdiction": "JP",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ghp-regulations"
+      ],
+      "notes": "Taiwan GHP concept for manufacturing, storage, transportation, food additives, low-acid foods, packaging, and traceability records."
     },
     {
       "id": "advance-tariff-classification-ruling",

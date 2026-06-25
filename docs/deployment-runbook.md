@@ -65,7 +65,7 @@ After applying the seed, verify that Supabase matches the generated local knowle
 SUPABASE_DB_URL="postgresql://..." pnpm verify:supabase-knowledge
 ```
 
-This check compares table counts and probes high-value Taiwan food aliases such as `MSG`, `味精`, `카제인나트륨`, `魷魚`, `奇異果`, `輸入食品查驗`, `HS 0307 health certificate`, and `食品業者登錄`.
+This check compares table counts and probes high-value Taiwan food aliases such as `MSG`, `味精`, `카제인나트륨`, `魷魚`, `奇異果`, `輸入食品查驗`, `HS 0307 health certificate`, `食品業者登錄`, `잔류농약 기준`, and `食品追溯追蹤`.
 
 To validate the generated seed size before connecting to Supabase:
 
@@ -78,12 +78,12 @@ Expected counts after the current seed:
 
 - `rules`: 1,081
 - current `rule_versions`: 1,081
-- `knowledge_sources`: 94
-- `knowledge_snapshots`: 94
-- `knowledge_terms`: 1,121
-- `term_aliases`: 3,224
+- `knowledge_sources`: 100
+- `knowledge_snapshots`: 100
+- `knowledge_terms`: 1,127
+- `term_aliases`: 3,287
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 18
+- `regulatory_update_candidates`: 20
 
 Recommended verification query:
 
@@ -126,4 +126,4 @@ The current runtime review endpoint uses local generated rule JSON, so a Supabas
 3. Run a review with aliases such as `살리실산`, `水楊酸`, `水杨酸`, `Oxybenzone`, and `Phenoxyethanol`.
 4. Run the food import sample with HS `0307.12` and confirm findings include `food-import-inspection-docs-needed`, `food-importer-registration-needed`, and `food-import-hs0307-health-certificate-needed`.
 5. Confirm findings include source identifiers and rule evidence.
-6. Open `/knowledge` and confirm searches such as `輸入食品查驗`, `HS 0307 health certificate`, and `食品業者登錄` return the expected Taiwan food-import concepts.
+6. Open `/knowledge` and confirm searches such as `輸入食品查驗`, `HS 0307 health certificate`, `食品業者登錄`, `잔류농약 기준`, `食品中污染物質及毒素`, and `食品追溯追蹤` return the expected Taiwan food-import and food-safety concepts.

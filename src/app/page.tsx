@@ -118,11 +118,12 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "94",
-  aliases: "3,224",
+  sources: "100",
+  aliases: "3,287",
+  terms: "1,127",
   reviewCases: "14",
-  knowledgeCases: "50",
-  sourceCases: "16"
+  knowledgeCases: "57",
+  sourceCases: "22"
 };
 
 const flowSteps = [
@@ -386,6 +387,13 @@ export default function Home() {
   }, [filter, result]);
 
   const visibleStatus = result ? statusCopy[result.status] : null;
+  const selectedProductType = useMemo(() => {
+    const value = input.productType.toLowerCase();
+    if (/food|식품|食品|prepackaged/.test(value)) return "food";
+    if (/borderline|expert|경계/.test(value)) return "borderline";
+    if (/cosmetic|화장품|化粧品|化妝品|leave-on/.test(value)) return "cosmetic";
+    return "";
+  }, [input.productType]);
 
   function updateInput<K extends keyof ReviewInput>(key: K, value: ReviewInput[K]) {
     setInput((current) => ({ ...current, [key]: value }));
@@ -519,7 +527,7 @@ export default function Home() {
           </div>
           <div className="top-actions">
             <a className="ghost-btn" href="/knowledge">
-              <Search size={17} /> Term Search
+              <Search size={17} /> 용어 검색
             </a>
             <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
               <UserRoundCheck size={17} /> 전문가 검수
@@ -541,16 +549,20 @@ export default function Home() {
           <>
           <section className="command-center" aria-label="LabelPass 검토 현황">
             <div className="command-hero">
-              <span className="dday-chip">
-                <History size={15} />
-                D-5 · 2026.07.01 화장품 PIF 확대
-              </span>
-              <h2>라벨, 성분, 통관 자료를 한 번에 좁혀서 출고 판단까지 가져갑니다</h2>
-              <p>확정 가능한 성분·표시·통관 항목은 정형 룰로 대조하고, 경계 품목과 서류 부족은 전문가 검수로 넘길 수 있게 분리합니다.</p>
+              <div className="command-summary">
+                <span className="dday-chip">
+                  <History size={15} />
+                  D-5 · PIF 확대
+                </span>
+                <div>
+                  <h2>오늘 출고 판단에 필요한 항목만 먼저 확인합니다</h2>
+                  <p>라벨·성분·HS/CCC·수입자 자료를 공식 소스 100개와 다국어 용어 {knowledgeStats.terms}개 기준으로 대조합니다.</p>
+                </div>
+              </div>
               <div className="hero-proof">
                 <span><ShieldCheck size={15} /> 정형 룰 우선</span>
-                <span><BookOpen size={15} /> 공식 원문 링크</span>
-                <span><UserRoundCheck size={15} /> 전문가 전달용 리포트</span>
+                <span><BookOpen size={15} /> 원문 근거</span>
+                <span><UserRoundCheck size={15} /> 검수 전달</span>
               </div>
             </div>
 
@@ -610,18 +622,26 @@ export default function Home() {
                 </div>
               </div>
 
+              <div className="quick-review-bar">
+                <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing}>
+                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
+                  AI 1차 검토 시작
+                </button>
+                <span>TW-COS · TW-FOOD · CUSTOMS</span>
+              </div>
+
               <div className="form-section">
                 <div className="section-title">
                   <BadgeCheck size={16} />
                   <span>제품 분류</span>
                 </div>
                 <div className="classifier">
-                  <button onClick={classifyProduct}>
+                  <button className="classifier-ai" onClick={classifyProduct}>
                     <Search size={17} /> AI 품목 찾기
                   </button>
-                  <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
-                  <button onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
-                  <button onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
+                  <button className={selectedProductType === "cosmetic" ? "active" : ""} onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
+                  <button className={selectedProductType === "food" ? "active" : ""} onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
+                  <button className={selectedProductType === "borderline" ? "active" : ""} onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
                 </div>
 
                 <label className="field">
@@ -707,6 +727,11 @@ export default function Home() {
               </div>
 
               <div className="action-row">
+                <button className="primary-btn review-start" onClick={() => void runReview()} disabled={isAnalyzing}>
+                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
+                  AI 1차 검토 시작
+                </button>
+                <span className="sample-label">샘플</span>
                 <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사 샘플</button>
@@ -714,10 +739,6 @@ export default function Home() {
                 <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조 샘플</button>
                 <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과 샘플</button>
-                <button className="primary-btn wide" onClick={() => void runReview()} disabled={isAnalyzing}>
-                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
-                  AI 1차 검토 시작
-                </button>
               </div>
             </section>
 
@@ -1200,9 +1221,16 @@ function EmptyResult() {
       <div className="empty-layout">
         <div className="label-visual">
           <div className="label-card">
-            <span>舒敏保濕化妝水</span>
+            <div className="label-card-top">
+              <span>舒敏保濕化妝水</span>
+              <em>TW</em>
+            </div>
             <b>Label OCR</b>
-            <p>全成分 · 原產地 · 批號</p>
+            <div className="ocr-lines" aria-label="OCR 검토 항목 예시">
+              <i>全成分</i>
+              <i>原產地</i>
+              <i>批號</i>
+            </div>
             <div className="barcode" />
           </div>
           <div className="pin pin-a">성분</div>

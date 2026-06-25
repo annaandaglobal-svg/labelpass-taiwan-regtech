@@ -496,7 +496,14 @@ const knowledgeCases = [
   { query: "Gly", expectedTerm: "Glycine" },
   { query: "methyl-isothiazolinone", expectedTerm: "Methylisothiazolinone" },
   { query: "CI-77891", expectedTerm: "Titanium Dioxide" },
-  { query: "CCC-code", expectedTerm: "HS Code Classification" }
+  { query: "CCC-code", expectedTerm: "HS Code Classification" },
+  { query: "잔류농약 기준", expectedTerm: "Food Pesticide Residue Limits" },
+  { query: "農藥殘留容許量", expectedTerm: "Food Pesticide Residue Limits" },
+  { query: "동물용의약품 잔류허용기준", expectedTerm: "Food Veterinary Drug Residue Limits" },
+  { query: "食品中污染物質及毒素", expectedTerm: "Food Contaminants and Toxins Standards" },
+  { query: "식품 미생물 기준", expectedTerm: "Food Microorganism Sanitation Standard" },
+  { query: "食品追溯追蹤", expectedTerm: "Food Traceability" },
+  { query: "식품 GHP", expectedTerm: "Food Good Hygiene Practice" }
 ];
 
 for (const testCase of knowledgeCases) {
@@ -536,7 +543,13 @@ const sourceCases = [
   { query: "food additive inspection registration permit document", expectedSource: "tw-tfda-food-additive-registration-materials" },
   { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
-  { query: "tariff query information", expectedSource: "tw-customs-tariff-system" }
+  { query: "tariff query information", expectedSource: "tw-customs-tariff-system" },
+  { query: "pesticide residue limits crop classification", expectedSource: "tw-moj-food-pesticide-residue-limits" },
+  { query: "veterinary drug residue limits imported products", expectedSource: "tw-moj-food-veterinary-drug-residue-limits" },
+  { query: "contaminants and toxins mycotoxins metals foods", expectedSource: "tw-moj-food-contaminants-toxins" },
+  { query: "microorganisms in foods sanitation standard pathogens", expectedSource: "tw-tfda-food-microorganisms-standard" },
+  { query: "food traceability source track flow records", expectedSource: "tw-tfda-food-traceability" },
+  { query: "good hygiene practice food manufacturing storage transportation", expectedSource: "tw-tfda-food-ghp-regulations" }
 ];
 
 for (const testCase of sourceCases) {

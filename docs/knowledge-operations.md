@@ -7,7 +7,7 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 ## Current Coverage
 
 - Taiwan cosmetics: TFDA restriction data, Cosmetic Hygiene and Safety Act, product notification, PIF management, PIF notices and guidance.
-- Taiwan product labeling and food import: Commodity Labeling Act, food safety law, allergen labeling, nutrition labeling, front-of-package nutrition guidance, small-package food rules, bulk-food labeling, food-additive common names, imported-food inspection, systematic inspection, shellfish HS 0307 health certificates, food importer registration, BSMI commodity inspection, origin/customs notices.
+- Taiwan product labeling and food import: Commodity Labeling Act, food safety law, allergen labeling, nutrition labeling, front-of-package nutrition guidance, small-package food rules, bulk-food labeling, food-additive common names, imported-food inspection, systematic inspection, shellfish HS 0307 health certificates, food importer registration, pesticide and veterinary drug residue limits, contaminants and toxins, microorganisms, traceability, food GHP, BSMI commodity inspection, origin/customs notices.
 - Taiwan import/export controls: International Trade Administration import/export rules, SHTC notices, dual-use/common military list references.
 - Global terminology: WTO TBT, WCO HS, UNECE GHS, Codex food labeling, INCI, CAS, Wassenaar.
 - Comparison markets: EU, United States, Japan, Korea, China, and ASEAN official or high-trust sources.
@@ -38,10 +38,10 @@ LabelPass does not automatically mutate rules just because a crawler sees a new 
 
 Current queue baseline:
 
-- Update candidates: 13
-- Newly detected content changes: 0
-- Sources pending refresh: 4
-- Watched high-priority Taiwan sources: 9
+- Update candidates: 20
+- Newly detected content changes: 1
+- Sources pending refresh: 5
+- Watched sources: 14
 
 ## Manual Browser Capture
 
@@ -89,19 +89,19 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 Current generated counts:
 
-- `knowledge_sources`: 94
-- `knowledge_snapshots`: 94
-- `knowledge_terms`: 1,121
-- `term_aliases`: 3,224
+- `knowledge_sources`: 100
+- `knowledge_snapshots`: 100
+- `knowledge_terms`: 1,127
+- `term_aliases`: 3,287
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 18
+- `regulatory_update_candidates`: 20
 - `rules`: 1,081
 
 Current freshness status:
 
 - Stale sources: 0
 - Sources expiring within 3 days: 0
-- Sources pending refresh within 7 days: 4
+- Sources pending refresh within 7 days: 5
 - Next scheduled source refresh: 2026-07-02 22:02 KST
 
 ## Alias Curation Rules
