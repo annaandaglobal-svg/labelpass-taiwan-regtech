@@ -57,8 +57,8 @@ a {
 
 .shell {
   display: grid;
-  grid-template-columns: 196px minmax(640px, 1fr) 292px;
-  max-width: 1540px;
+  grid-template-columns: 208px minmax(0, 1fr) 300px;
+  max-width: 1500px;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -166,7 +166,7 @@ a {
 
 .workspace {
   min-width: 0;
-  padding: 20px 22px 80px;
+  padding: 24px 26px 90px;
 }
 
 .topbar {
@@ -193,7 +193,7 @@ p {
 
 h1 {
   margin-bottom: 0;
-  font-size: 29px;
+  font-size: 24px;
   line-height: 1.15;
 }
 
@@ -327,15 +327,15 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .command-center {
   display: grid;
-  grid-template-columns: minmax(460px, 1fr) 220px 220px;
-  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.48fr);
+  gap: 14px;
   align-items: start;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .command-hero,
@@ -348,10 +348,12 @@ h2 {
 
 .command-hero {
   display: grid;
-  gap: 10px;
-  padding: 14px 16px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-  color: var(--ink);
+  gap: 14px;
+  min-height: 176px;
+  padding: 22px 24px;
+  border-color: var(--navy);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: #fff;
   align-self: start;
 }
 
@@ -364,16 +366,16 @@ h2 {
 .command-hero h2 {
   max-width: 760px;
   margin: 0 0 5px;
-  color: var(--ink);
-  font-size: 18px;
+  color: #fff;
+  font-size: 20px;
   line-height: 1.25;
 }
 
 .command-hero p {
   max-width: 780px;
   margin-bottom: 0;
-  color: var(--muted);
-  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
   line-height: 1.45;
 }
 
@@ -385,8 +387,8 @@ h2 {
   min-height: 30px;
   padding: 5px 10px;
   border-radius: 999px;
-  background: var(--gold-soft);
-  color: var(--gold);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
   font-size: 12px;
   font-weight: 900;
 }
@@ -411,16 +413,34 @@ h2 {
   font-size: 12px;
 }
 
+.command-hero .primary-btn {
+  border-color: #fff;
+  background: #fff;
+  color: var(--navy);
+}
+
+.command-hero .ghost-btn {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.command-hero .primary-btn:hover,
+.command-hero .ghost-btn:hover {
+  border-color: #fff;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+
 .hero-proof span {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   min-height: 28px;
   padding: 5px 9px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  background: var(--panel-soft);
-  color: var(--navy);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   font-size: 12px;
   font-weight: 800;
 }
@@ -433,7 +453,8 @@ h2 {
 }
 
 .command-side-stack {
-  display: contents;
+  display: grid;
+  gap: 14px;
 }
 
 .pipeline-top {
@@ -789,7 +810,7 @@ h2 {
 
 .review-grid {
   display: grid;
-  grid-template-columns: minmax(390px, 0.92fr) minmax(420px, 1.08fr);
+  grid-template-columns: minmax(330px, 0.92fr) minmax(360px, 1.08fr);
   gap: 14px;
   align-items: start;
 }
@@ -3424,9 +3445,19 @@ h2 {
   line-height: 1.5;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1360px) {
+  .command-center {
+    grid-template-columns: 1fr;
+  }
+
+  .command-side-stack {
+    display: none;
+  }
+}
+
+@media (max-width: 1180px) {
   .shell {
-    grid-template-columns: 196px minmax(0, 1fr);
+    grid-template-columns: 208px minmax(0, 1fr);
     max-width: 1180px;
   }
 
@@ -3441,21 +3472,6 @@ h2 {
 }
 
 @media (max-width: 1180px) {
-  .command-center {
-    grid-template-columns: 1fr;
-  }
-
-  .command-side-stack {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .command-center .pipeline-card,
-  .command-center .impact-card {
-    min-height: 0;
-  }
-
   .knowledge-results {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
   }
@@ -3561,6 +3577,7 @@ h2 {
   }
 
   .command-hero {
+    min-height: 0;
     padding: 13px;
   }
 
@@ -3587,7 +3604,8 @@ h2 {
   }
 
   .command-center {
-    display: none;
+    display: grid;
+    margin-bottom: 12px;
   }
 
   .command-side-stack,
