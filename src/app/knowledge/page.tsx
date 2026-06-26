@@ -1,10 +1,20 @@
 import Link from "next/link";
 import { ArrowLeft, Languages } from "lucide-react";
+import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { getAliasReviewQueue } from "@/lib/alias-review";
 import KnowledgeSearchClient from "./search-client";
 
-export default function KnowledgePage() {
+type KnowledgePageProps = {
+  searchParams?: {
+    q?: string | string[];
+  };
+};
+
+export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
+  const rawInitialQuery = Array.isArray(searchParams?.q) ? searchParams?.q[0] : searchParams?.q;
+  const initialQuery = rawInitialQuery?.trim() ?? "";
+  const initialData: KnowledgeSearchResult | null = initialQuery ? searchKnowledge(initialQuery, 12) : null;
   const totals = searchKnowledge("").totals;
   const overview = getKnowledgeOverview();
   const aliasQueue = getAliasReviewQueue();
@@ -32,7 +42,7 @@ export default function KnowledgePage() {
         </div>
       </section>
 
-      <KnowledgeSearchClient />
+      <KnowledgeSearchClient initialQuery={initialQuery} initialData={initialData} />
 
       <details className="knowledge-ops" aria-label="지식베이스 운영 현황">
         <summary>

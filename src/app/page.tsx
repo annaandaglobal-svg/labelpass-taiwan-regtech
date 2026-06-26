@@ -872,15 +872,9 @@ export default function Home() {
           <section className="start-command-shell start-command-shell-focused start-hub-shell" aria-label="LabelPass 시작 동선">
             <div className="start-command-card start-hub-card">
               <div className="start-command-copy start-hub-copy">
-                <span className="start-kicker">대만 식품·화장품 · 라벨/성분/통관</span>
-                <h2>라벨 검토나 규정 검색 중 어디서든 시작하세요</h2>
-                <p>자료를 올리면 수정 항목을 먼저 정리하고, 성분명·CAS·현지명으로 먼저 검색하면 공식 근거를 검토 화면에 바로 연결합니다.</p>
-                <div className="start-assurance-row" aria-label="검토 범위">
-                  <span>식품·화장품</span>
-                  <span>TFDA·MOJ 근거</span>
-                  <span>INCI·CAS·번체 현지명</span>
-                  <span>제품 이력·규제 업데이트</span>
-                </div>
+                <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
+                <h2>라벨 파일을 올리면 먼저 고쳐야 할 항목부터 정리합니다</h2>
+                <p>PDF, 이미지, OCR 텍스트를 넣으면 대만 표시·성분·통관 기준으로 1차 검토를 시작합니다. 성분이나 규정만 먼저 확인해야 할 때는 아래 검색으로 바로 들어가세요.</p>
               </div>
 
               <div className="start-hub-actions" aria-label="시작 경로">
@@ -909,28 +903,6 @@ export default function Home() {
                   </label>
                 </form>
 
-                <button className="start-path-action" type="button" onClick={() => setScreen("products")}>
-                  <Archive size={22} />
-                  <span>
-                    <b>수출 준비 상태 보기</b>
-                    <small>제품별 리포트, 문서, 담당 조치와 규제 업데이트 확인</small>
-                  </span>
-                </button>
-              </div>
-
-              <div className="start-workflow-strip" aria-label="LabelPass 업무 흐름">
-                <span className="active"><b>1</b><small>자료 입력</small></span>
-                <span><b>2</b><small>규정·성분 대조</small></span>
-                <span><b>3</b><small>근거 확인</small></span>
-                <span><b>4</b><small>수정·통관 조치</small></span>
-              </div>
-
-              <div className="start-sample-row" aria-label="빠른 예시">
-                <span>빠른 확인</span>
-                <button type="button" onClick={focusInputPane}><FileText size={14} /> 직접 입력</button>
-                <button type="button" onClick={() => fillSample("food-additive")}><Sparkles size={14} /> 식품첨가물 샘플</button>
-                <button type="button" onClick={() => openKnowledgeSearch("MSG")}><Search size={14} /> MSG 명칭</button>
-                <button type="button" onClick={() => openKnowledgeSearch("cosmetic PIF Taiwan")}><Search size={14} /> 화장품 PIF</button>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -942,59 +914,6 @@ export default function Home() {
               )}
             </div>
 
-            <div className="start-overview-panel start-overview-compact start-evidence-preview" aria-label="근거 확인 대기 상태">
-              <div className="start-overview-head">
-                <span><ShieldCheck size={16} /></span>
-                <div>
-                  <b>근거 확인 슬롯</b>
-                  <small>검색하거나 검토하면 공식 근거와 다음 조치가 이 자리에 정리됩니다.</small>
-                </div>
-              </div>
-              <button type="button" className="start-overview-row active" onClick={() => openKnowledgeSearch("MSG")}>
-                <ClipboardCheck size={16} />
-                <span><b>업무 결론 먼저</b><small>예: MSG의 대만 식품첨가물 공통명과 표시 근거 확인</small></span>
-              </button>
-              <button type="button" className="start-overview-row" onClick={() => openKnowledgeSearch("CAS 69-72-7")}>
-                <Search size={16} />
-                <span><b>별칭·CAS 연결</b><small>같은 원료의 INCI, CAS, 한국어·중문명을 함께 탐색</small></span>
-              </button>
-              <button type="button" className="start-overview-row" onClick={focusInputPane}>
-                <FileText size={16} />
-                <span><b>검토에 반영</b><small>근거를 선택한 뒤 라벨 검토 콘솔에서 수정 항목으로 연결</small></span>
-              </button>
-            </div>
-
-            <details className="start-support-card" aria-label="LabelPass 기능 범위">
-              <summary>
-                <span><ShieldCheck size={16} /></span>
-                <div>
-                  <b>검토 범위</b>
-                  <small>화장품, 식품, 통관, 클레임은 필요할 때만 펼칩니다.</small>
-                </div>
-              </summary>
-              <div className="start-capability-grid">
-                <button onClick={() => { setReviewStarted(true); updateInput("productType", "cosmetic / leave-on"); }}>
-                  <FlaskConical size={16} />
-                  <span><b>화장품 성분/PIF</b><small>금지·제한·방부제·등록 자료</small></span>
-                </button>
-                <button onClick={() => { setReviewStarted(true); updateInput("productType", "prepackaged food / 식품"); }}>
-                  <BadgeCheck size={16} />
-                  <span><b>식품 라벨/알레르겐</b><small>첨가물·영양·강조표시·알레르겐</small></span>
-                </button>
-                <button onClick={focusInputPane}>
-                  <Ship size={16} />
-                  <span><b>수입·통관 서류</b><small>HS/CCC, 원산지, 수입자 자료</small></span>
-                </button>
-                <button onClick={focusInputPane}>
-                  <MessageSquare size={16} />
-                  <span><b>효능·클레임 표현</b><small>광고성 문구와 번체 라벨 문안</small></span>
-                </button>
-                <button onClick={() => fillSample("food-additive")}>
-                  <Sparkles size={16} />
-                  <span><b>샘플 검토</b><small>식품첨가물 예시로 흐름 확인</small></span>
-                </button>
-              </div>
-            </details>
           </section>
           )}
 
