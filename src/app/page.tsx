@@ -378,8 +378,16 @@ async function persistArchivedReview(review: SavedReview): Promise<ReviewArchive
   return response.json();
 }
 
-async function requestKnowledgeEvidence(query: string): Promise<KnowledgeEvidenceBundle> {
-  const response = await fetch(`/api/knowledge/evidence?q=${encodeURIComponent(query)}&limit=12`, { cache: "no-store" });
+type KnowledgeEvidenceRequestOptions = {
+  productFamily?: string;
+  routeId?: string;
+};
+
+async function requestKnowledgeEvidence(query: string, options: KnowledgeEvidenceRequestOptions = {}): Promise<KnowledgeEvidenceBundle> {
+  const params = new URLSearchParams({ q: query, limit: "12" });
+  if (options.productFamily) params.set("product_family", options.productFamily);
+  if (options.routeId) params.set("route_id", options.routeId);
+  const response = await fetch(`/api/knowledge/evidence?${params.toString()}`, { cache: "no-store" });
   if (!response.ok) throw new Error("knowledge_evidence_failed");
   return response.json();
 }
@@ -392,10 +400,13 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
   const sources = bundle.sources.length
     ? `공식 근거: ${bundle.sources.slice(0, 2).map((source) => source.title).join(" / ")}`
     : "공식 근거: 연결된 소스가 부족합니다.";
-  const route = bundle.routeHints?.[0]
-    ? `업무 경로: ${bundle.routeHints[0].label}. 확인할 입력: ${bundle.routeHints[0].requiredInputs.slice(0, 3).join(", ")}`
+  const routeHint = bundle.routeHints?.[0];
+  const route = routeHint
+    ? `업무 경로: ${formatEvidenceRouteLabel(routeHint.routeId, routeHint.label)}. 확인할 입력: ${routeHint.requiredInputs.slice(0, 3).map(formatEvidenceRouteInput).join(", ")}`
     : "";
-  const action = bundle.suggestedActions[0] ? `다음 작업: ${bundle.suggestedActions[0]}` : "";
+  const action = routeHint
+    ? `다음 작업: ${formatEvidenceRouteAction(routeHint.routeId, routeHint.nextAction)}`
+    : bundle.suggestedActions[0] ? `다음 작업: ${bundle.suggestedActions[0]}` : "";
 
   return [
     fix,
@@ -406,6 +417,60 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
     action,
     `근거 신뢰도: ${bundle.confidence}. 이 답변은 캐시된 공식 소스와 용어 인덱스 기반의 1차 초안입니다.`
   ].filter(Boolean).join("\n");
+}
+
+function formatEvidenceRouteLabel(routeId: string, fallback: string) {
+  const labels: Record<string, string> = {
+    tw_cosmetic_label_pif: "대만 화장품 라벨·PIF·시장진입",
+    tw_food_label_allergen: "대만 포장식품 표시·알레르겐·영양",
+    tw_food_additive_ingredient: "대만 식품첨가물·원료 허용성",
+    tw_food_import_inspection: "대만 식품 수입검사·통관 서류",
+    tw_health_food_claims: "대만 건강식품 허가·효능 문구",
+    tw_food_contact_packaging: "대만 식품접촉 포장·용기 표시",
+    tw_customs_origin_hs: "대만 HS/CCC·원산지·통관 표시",
+    tw_trade_control_shtc: "대만 SHTC·수출입 통제 선별"
+  };
+  return labels[routeId] ?? fallback;
+}
+
+function formatEvidenceRouteInput(value: string) {
+  const labels: Record<string, string> = {
+    "product name": "제품명",
+    "cosmetic category": "화장품 분류",
+    "leave-on/rinse-off/spray": "사용 방식",
+    "specific-purpose function": "특정용도 기능",
+    "ingredient list": "전성분",
+    "Taiwan label text": "대만 라벨 문구",
+    "food category": "식품 유형",
+    "ingredient statement": "원재료명",
+    "allergen sources": "알레르겐 원료",
+    "nutrition facts": "영양성분",
+    "claim wording": "표시·광고 문구",
+    "HS/CCC code": "HS/CCC 코드",
+    "origin": "원산지",
+    "importer": "수입자",
+    "shipment purpose": "수입 목적",
+    "permit number": "허가번호",
+    "approved effect": "승인 효능",
+    "CCC code": "CCC 코드",
+    "technical specification": "기술 사양",
+    "end use": "최종 용도"
+  };
+  return labels[value] ?? value;
+}
+
+function formatEvidenceRouteAction(routeId: string, fallback: string) {
+  const actions: Record<string, string> = {
+    tw_cosmetic_label_pif: "화장품 분류, PIF/제품등록, 전성분 근거를 먼저 묶은 뒤 라벨 검토로 넘기세요.",
+    tw_food_label_allergen: "식품 유형, 원재료, 알레르겐, 영양·표시 문구를 먼저 확정하세요.",
+    tw_food_additive_ingredient: "공식 명칭, 기능군, 사용량, 식품 유형을 확인한 뒤 허용 여부를 판단하세요.",
+    tw_food_import_inspection: "HS/CCC, 수입 목적, 원산지, 수입자와 검사 서류를 먼저 맞추세요.",
+    tw_health_food_claims: "허가번호와 승인된 보건효능 범위를 확인한 뒤 표시 문구를 제한하세요.",
+    tw_food_contact_packaging: "식품접촉 여부, 재질, 사용 조건, 시험성적서를 먼저 확인하세요.",
+    tw_customs_origin_hs: "HS/CCC와 원산지 증빙을 먼저 맞춘 뒤 표시와 수출입 서류를 정리하세요.",
+    tw_trade_control_shtc: "CCC 코드, 기술 사양, 용도, 목적지로 SHTC 통제 여부를 먼저 선별하세요."
+  };
+  return actions[routeId] ?? fallback;
 }
 
 function hasInputText(value?: string) {
@@ -535,6 +600,8 @@ export default function Home() {
     const params = new URLSearchParams(window.location.search);
     const targetScreen = params.get("screen");
     const knowledgeEvidence = params.get("knowledge")?.trim();
+    const productFamily = params.get("product_family")?.trim() || undefined;
+    const routeId = params.get("route_id")?.trim() || undefined;
 
     if (targetScreen === "review" || targetScreen === "products" || targetScreen === "updates" || targetScreen === "partners") {
       setScreen(targetScreen);
@@ -543,7 +610,7 @@ export default function Home() {
     if (knowledgeEvidence) {
       setAssistantQuestion(`지식베이스 증거: ${knowledgeEvidence}`);
       setIsAssistantThinking(true);
-      requestKnowledgeEvidence(knowledgeEvidence)
+      requestKnowledgeEvidence(knowledgeEvidence, { productFamily, routeId })
         .then((bundle) => {
           setAssistantEvidence(bundle);
           setAssistantAnswer(formatKnowledgeEvidenceAnswer(bundle));
@@ -1549,7 +1616,11 @@ export default function Home() {
             <div className="assistant-evidence-pack" aria-label="연결된 지식베이스 근거">
               <span>{assistantEvidence.confidence}</span>
               <b>{assistantEvidence.terms[0]?.canonicalName ?? assistantEvidence.query}</b>
-              <small>{assistantEvidence.routeHints?.[0]?.label ?? assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}</small>
+              <small>
+                {assistantEvidence.routeHints?.[0]
+                  ? formatEvidenceRouteLabel(assistantEvidence.routeHints[0].routeId, assistantEvidence.routeHints[0].label)
+                  : assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}
+              </small>
             </div>
           ) : (
             <div className="source-list">
