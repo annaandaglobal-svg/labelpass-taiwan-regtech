@@ -225,6 +225,19 @@ a {
   gap: 0;
 }
 
+.nav-list-start .nav-btn.active {
+  min-height: 36px;
+  background: var(--panel-soft);
+  border-color: var(--line);
+  color: var(--green-dark);
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.nav-list-start .nav-btn.active svg {
+  color: var(--green-dark);
+}
+
 .side-panel {
   margin-top: auto;
   padding: 16px;
@@ -896,6 +909,12 @@ h2 {
   align-items: center;
 }
 
+.start-secondary-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
 .start-secondary-links button {
   display: inline-flex;
   align-items: center;
@@ -974,6 +993,34 @@ h2 {
   color: var(--navy);
   font-size: 12px;
   font-weight: 900;
+}
+
+.start-next-line {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  min-height: 40px;
+  padding: 9px 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.start-next-line span {
+  color: var(--green-dark);
+  font-weight: 950;
+}
+
+.start-next-line b {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.start-next-line svg {
+  color: #8ba49b;
 }
 
 .start-path-card {
@@ -1158,6 +1205,10 @@ h2 {
 
 .start-support-card[open] summary::after {
   transform: rotate(225deg);
+}
+
+.start-support-card[open] .start-capability-grid {
+  margin-top: 8px;
 }
 
 .start-support-grid {

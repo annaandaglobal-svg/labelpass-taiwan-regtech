@@ -867,8 +867,8 @@ export default function Home() {
             <div className="start-command-card">
               <div className="start-command-copy">
                 <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
-                <h2>제품 자료를 넣으면 검토 흐름이 열립니다</h2>
-                <p>전성분, 번체 라벨, 표시문구, 통관 자료를 한 작업대에서 보고 성분명 별칭과 현지 규정 근거를 함께 연결합니다.</p>
+                <h2>라벨·전성분부터 넣으세요</h2>
+                <p>식품과 화장품 자료를 한 작업대에서 읽고, 성분명 별칭과 대만 규정 근거를 함께 연결합니다.</p>
                 <div className="start-assurance-row" aria-label="검토 범위">
                   <span>식품·화장품</span>
                   <span>TFDA·MOJ 근거</span>
@@ -880,11 +880,12 @@ export default function Home() {
                 <button className="start-primary-action start-primary-action-main" onClick={() => { setReviewStarted(true); fileInputRef.current?.click(); }}>
                   <Upload size={21} />
                   <span>
-                    <b>검토 자료 추가</b>
-                    <small>라벨 파일, 전성분, OCR 결과를 넣고 1차 위험도를 봅니다</small>
+                    <b>자료 넣고 검토 시작</b>
+                    <small>PDF·이미지·전성분 텍스트 모두 가능</small>
                   </span>
                 </button>
                 <div className="start-secondary-links" aria-label="다른 시작 방법">
+                  <span className="start-secondary-label">자료가 아직 없으면</span>
                   <button type="button" onClick={focusInputPane}>
                     <FileText size={15} />
                     직접 입력
@@ -900,11 +901,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="start-path-card" aria-label="검토 시작 순서">
-                <span><b>1</b> 자료 입력</span>
-                <span><b>2</b> 품목 확인</span>
-                <span><b>3</b> 근거 연결</span>
-                <span><b>4</b> 리포트·후속</span>
+              <div className="start-next-line" aria-label="검토 시작 후 흐름">
+                <span>다음 단계</span>
+                <b>품목 확인</b>
+                <ArrowRight size={14} />
+                <b>규정 근거 연결</b>
+                <ArrowRight size={14} />
+                <b>리포트 정리</b>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -916,14 +919,14 @@ export default function Home() {
               )}
             </div>
 
-            <section className="start-capability-map" aria-label="LabelPass 기능 범위">
-              <div className="start-capability-head">
+            <details className="start-support-card" aria-label="LabelPass 기능 범위">
+              <summary>
                 <span><ShieldCheck size={16} /></span>
                 <div>
-                  <b>전체 흐름</b>
-                  <small>검토 시작 후에도 같은 작업대에서 이어집니다.</small>
+                  <b>검토 범위 보기</b>
+                  <small>화장품, 식품, 통관, 클레임 검토 범위</small>
                 </div>
-              </div>
+              </summary>
               <div className="start-capability-grid">
                 <button onClick={() => { setReviewStarted(true); updateInput("productType", "cosmetic / leave-on"); }}>
                   <FlaskConical size={16} />
@@ -942,7 +945,7 @@ export default function Home() {
                   <span><b>효능·클레임 표현</b><small>광고성 문구와 번체 라벨 문안</small></span>
                 </button>
               </div>
-            </section>
+            </details>
           </section>
           )}
 
