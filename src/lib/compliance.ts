@@ -89,7 +89,7 @@ const SOURCE_HEALTH_FOOD_ENFORCEMENT_URL = "https://www.fda.gov.tw/ENG/lawConten
 const SOURCE_FORMULA_CERTAIN_DISEASE = "TFDA Formula for Certain Disease labeling requirements";
 const SOURCE_FORMULA_CERTAIN_DISEASE_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233";
 const SOURCE_FOOD_INGREDIENT_PLATFORM = "TFDA Food Ingredient Integration Query Platform";
-const SOURCE_FOOD_INGREDIENT_PLATFORM_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=30794";
+const SOURCE_FOOD_INGREDIENT_PLATFORM_URL = "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160";
 const SOURCE_FOOD_CONTACT_LABELING = "TFDA Regulations on the Labeling of Food Utensils, Food Containers, or Packaging";
 const SOURCE_FOOD_CONTACT_LABELING_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3090";
 const SOURCE_FOOD_CONTACT_REQUIRED_ITEMS = "TFDA food utensils, containers or packaging required labeling items";

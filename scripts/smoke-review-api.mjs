@@ -1,5 +1,6 @@
 const baseUrl = process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000";
 const foodAdditivePermitQueryUrl = "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162";
+const foodIngredientDirectQueryUrl = "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160";
 
 const baseInput = {
   productName: "Glow Repair Toner",
@@ -453,6 +454,13 @@ for (const findingId of [
   if (!healthFoodResult.findings?.some((finding) => finding.id === findingId)) {
     throw new Error(`Health food review: expected ${findingId}`);
   }
+}
+
+const foodIngredientPlatformFinding = healthFoodResult.findings?.find(
+  (finding) => finding.id === "food-ingredient-platform-review"
+);
+if (foodIngredientPlatformFinding?.sourceUrl !== foodIngredientDirectQueryUrl) {
+  throw new Error("Health food review: expected direct food ingredient query source URL");
 }
 
 if (healthFoodResult.status === "fail") {
