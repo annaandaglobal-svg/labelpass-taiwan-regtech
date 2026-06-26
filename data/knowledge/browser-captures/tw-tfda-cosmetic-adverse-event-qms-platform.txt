@@ -1,0 +1,60 @@
+id: tw-tfda-cosmetic-adverse-event-qms-platform
+official_url: https://qms.fda.gov.tw/
+captured_url: https://qms.fda.gov.tw/tcbw/main/ap/index.jsp
+title: 藥品醫療器材食品化粧品上市後品質管理系統
+captured_at: 2026-06-26T19:21:16.736Z
+capture_status: browser_capture_ok
+
+CAPTURE_NOTE:
+Browser capture succeeded. The visible landing page showed the post-market quality management system title, news modules, login area, cosmetics adverse-event contact information, and mobile reporting notice.
+
+VISIBLE_BROWSER_TEXT:
+最新消息
+食品
+藥品
+醫療器材
+化粧品
+下載專區
+尚未綁定E政府帳號之申請流程
+115/06/02
+藥品醫療器材及化粧品廠商登入帳號申請須知
+115/01/06
+針對藥品如抗生素有未達預期療效者可於藥品不良品通報系統內之不良品缺陷之描述未達預期療效通報
+113/12/27
+醫療人員民眾及食品廠商通報資訊
+113/12/27
+登入專區
+AD登入(FDA專用)
+我的E政府登入
+帳號申請
+
+「藥品不良品通報」、「藥品療效不等通報」、「醫療器材不良事件通報」及「化粧品不良事件通報」已開放使用智慧型手機快速通報，直接使用手機連結本網站，免下載、條碼掃描、照片上傳，一手搞定。
+
+系統操作諮詢電話
+
+通報諮詢專線
+
+藥品通報：02-6625-1166#6401
+
+化粧品通報：02-2521-5027
+
+醫療器材通報：02-2396-0100
+
+食品通報：02-2321-0594
+
+廠商帳號問題
+
+藥品：02-2787-7419
+
+化粧品：02-2787-7515
+
+醫療器材：02-2396-0100
+
+衛生福利部食品藥物管理署地址： 115021 臺北市南港區研究院路一段130巷109號
+
+衛生福利部食品藥物管理署版權所有/資訊安全與隱私政策
+
+資訊問題專線：02-27152222#240
+
+OFFICIAL_WORKFLOW_ANCHOR:
+Official TFDA post-market quality management portal for cosmetics and related regulated products. Use this source when a Taiwan cosmetics review needs to confirm adverse-event reporting route, post-market surveillance workflow, defective product handling, or serious adverse effect escalation. The portal is operational and may require interactive browser access, account login, or form navigation, so the reusable knowledge record should be read together with the TFDA adverse-event reporting guidance and the MOJ serious adverse reporting regulation. For a product dossier, route checks include whether the responsible firm can identify the product, lot, importer or manufacturer, report date, event narrative, corrective action, recall linkage, and follow-up record. Label or claim screening should flag this source when product safety complaints, post-market incidents, recall triggers, or consumer injury wording appears in the file. Refresh by browser capture when the portal exposes downloadable forms or updated submission steps.

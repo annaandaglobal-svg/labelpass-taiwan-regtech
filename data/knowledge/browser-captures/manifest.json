@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-06-25T09:42:00.657Z",
+  "generated_at": "2026-06-26T19:43:04.769Z",
   "captures": [
     {
-      "id": "jp-meti-security-export-control",
-      "title": "Trade Control / METI Ministry of Economy, Trade and Industry",
-      "url": "https://www.meti.go.jp/english/policy/external_economy/trade_control/index.html",
-      "text_chars": 8553,
-      "text_path": "data/knowledge/browser-captures/jp-meti-security-export-control.txt",
-      "screenshot_path": "data/knowledge/browser-captures/jp-meti-security-export-control.png"
+      "id": "cn-state-council-customs-duties-guide",
+      "title": "Customs",
+      "url": "https://english.www.gov.cn/services/visitchina/202008/04/content_WS5f2905dec6d029c1c26372f0.html",
+      "text_chars": 18875,
+      "text_path": "data/knowledge/browser-captures/cn-state-council-customs-duties-guide.txt",
+      "screenshot_path": "data/knowledge/browser-captures/cn-state-council-customs-duties-guide.png"
     },
     {
-      "id": "tw-bsmi-commodity-inspection-mark-law",
-      "title": "Ministry of Economic Affairs R.O.C.(Taiwan) -Content",
-      "url": "https://law.moea.gov.tw/EngLawContent.aspx?id=10729&lan=E",
-      "text_chars": 13184,
-      "text_path": "data/knowledge/browser-captures/tw-bsmi-commodity-inspection-mark-law.txt",
-      "screenshot_path": "data/knowledge/browser-captures/tw-bsmi-commodity-inspection-mark-law.png"
+      "id": "eu-commission-clp-chemical-labeling",
+      "title": "Classification, labelling and packaging of chemicals - Environment",
+      "url": "https://environment.ec.europa.eu/topics/chemicals/classification-labelling-and-packaging-chemicals_en",
+      "text_chars": 5500,
+      "text_path": "data/knowledge/browser-captures/eu-commission-clp-chemical-labeling.txt",
+      "screenshot_path": "data/knowledge/browser-captures/eu-commission-clp-chemical-labeling.png"
     },
     {
       "id": "global-unece-ghs-rev11-blocked",
       "title": "잠시만 기다리십시오…",
       "url": "https://unece.org/transport/dangerous-goods/ghs-rev11-2025",
-      "text_chars": 157,
+      "text_chars": 314,
       "text_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-blocked.txt",
       "screenshot_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-blocked.png"
     },
@@ -29,25 +29,97 @@
       "id": "global-unece-ghs-rev11-pdf-blocked",
       "title": "잠시만 기다리십시오…",
       "url": "https://unece.org/sites/default/files/2025-09/GHS%20Rev11e.pdf",
-      "text_chars": 157,
+      "text_chars": 322,
       "text_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-pdf-blocked.txt",
       "screenshot_path": "data/knowledge/browser-captures/global-unece-ghs-rev11-pdf-blocked.png"
     },
     {
-      "id": "eu-commission-clp-chemical-labeling",
-      "title": "Classification, labelling and packaging of chemicals - Environment",
-      "url": "https://environment.ec.europa.eu/topics/chemicals/classification-labelling-and-packaging-chemicals_en",
-      "text_chars": 5240,
-      "text_path": "data/knowledge/browser-captures/eu-commission-clp-chemical-labeling.txt",
-      "screenshot_path": "data/knowledge/browser-captures/eu-commission-clp-chemical-labeling.png"
+      "id": "jp-meti-security-export-control",
+      "title": "Trade Control / METI Ministry of Economy, Trade and Industry",
+      "url": "https://www.meti.go.jp/english/policy/external_economy/trade_control/index.html",
+      "text_chars": 8781,
+      "text_path": "data/knowledge/browser-captures/jp-meti-security-export-control.txt",
+      "screenshot_path": "data/knowledge/browser-captures/jp-meti-security-export-control.png"
     },
     {
-      "id": "cn-state-council-customs-duties-guide",
-      "title": "Customs",
-      "url": "https://english.www.gov.cn/services/visitchina/202008/04/content_WS5f2905dec6d029c1c26372f0.html",
-      "text_chars": 18677,
-      "text_path": "data/knowledge/browser-captures/cn-state-council-customs-duties-guide.txt",
-      "screenshot_path": "data/knowledge/browser-captures/cn-state-council-customs-duties-guide.png"
+      "id": "tw-bsmi-commodity-inspection-mark-law",
+      "title": "Ministry of Economic Affairs R.O.C.(Taiwan) -Content",
+      "url": "https://law.moea.gov.tw/EngLawContent.aspx?id=10729&lan=E",
+      "text_chars": 13388,
+      "text_path": "data/knowledge/browser-captures/tw-bsmi-commodity-inspection-mark-law.txt",
+      "screenshot_path": "data/knowledge/browser-captures/tw-bsmi-commodity-inspection-mark-law.png"
+    },
+    {
+      "id": "tw-customs-tariff-database-download",
+      "title": "GC453 Tariff Database Download",
+      "url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
+      "text_chars": 2791,
+      "text_path": "data/knowledge/browser-captures/tw-customs-tariff-database-download.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
+    },
+    {
+      "id": "tw-tfda-cosmetic-adverse-event-qms-platform",
+      "title": "TFDA Post-Market Quality Management System",
+      "url": "https://qms.fda.gov.tw/",
+      "text_chars": 2105,
+      "text_path": "data/knowledge/browser-captures/tw-tfda-cosmetic-adverse-event-qms-platform.txt",
+      "screenshot_path": "data/knowledge/browser-captures/tw-tfda-cosmetic-adverse-event-qms-platform.png",
+      "capture_status": "browser_capture_ok"
+    },
+    {
+      "id": "tw-tfda-cosmetic-fadenbook-platform",
+      "title": "TFDA Food and Drug Business Registration Platform",
+      "url": "http://fadenbook.fda.gov.tw/",
+      "text_chars": 1205,
+      "text_path": "data/knowledge/browser-captures/tw-tfda-cosmetic-fadenbook-platform.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
+    },
+    {
+      "id": "tw-tfda-food-additive-permit-query",
+      "title": "Food Additive Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+      "text_chars": 1964,
+      "text_path": "data/knowledge/browser-captures/tw-tfda-food-additive-permit-query.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
+    },
+    {
+      "id": "tw-tfda-health-food-permit-query",
+      "title": "Health Food Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162",
+      "text_chars": 1550,
+      "text_path": "data/knowledge/browser-captures/tw-tfda-health-food-permit-query.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
+    },
+    {
+      "id": "tw-tfda-illegal-advertising-query",
+      "title": "Illegal Food, Drug, and Cosmetics Advertising Query System",
+      "url": "http://pmds.fda.gov.tw/illegalad/",
+      "text_chars": 2881,
+      "text_path": "data/knowledge/browser-captures/tw-tfda-illegal-advertising-query.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
+    },
+    {
+      "id": "tw-tfda-special-disease-food-permit-query",
+      "title": "Special Disease Formula Food Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163",
+      "text_chars": 1588,
+      "text_path": "data/knowledge/browser-captures/tw-tfda-special-disease-food-permit-query.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
+    },
+    {
+      "id": "tw-trade-ccc-import-export-regulations",
+      "title": "Import and Export Regulations by CCC Code",
+      "url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
+      "text_chars": 3018,
+      "text_path": "data/knowledge/browser-captures/tw-trade-ccc-import-export-regulations.txt",
+      "screenshot_path": null,
+      "capture_status": "browser_capture_blocked_manual_anchor"
     }
   ]
 }

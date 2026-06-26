@@ -8,11 +8,11 @@ domain: health_food
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-26T06:30:20.611Z
+fetched_at: 2026-06-26T19:43:15.253Z
 fetched_url: https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T06:30:20.611Z
+cache_expires_at: 2026-07-03T19:43:15.253Z
 cache_status: fresh
 content_hash: ed9670630c0e737fed1cea7e963ba494a86ce1a092842b697b252b5979699499
 from_cache: false

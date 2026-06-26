@@ -1,0 +1,15 @@
+id: tw-tfda-special-disease-food-permit-query
+official_url: https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163
+captured_url: browser_error_page
+title: This site can't be reached
+captured_at: 2026-06-26T19:21:16.736Z
+capture_status: browser_capture_blocked_manual_anchor
+
+CAPTURE_NOTE:
+Browser navigation reached a Chrome network error page for the official dynamic TFDA consumer query URL during manual capture. The official URL remains the authority; this text preserves the special-disease formula permit workflow terms until the live lookup can be re-captured.
+
+VISIBLE_BROWSER_TEXT:
+_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
+
+OFFICIAL_WORKFLOW_ANCHOR:
+Official TFDA Consumer Knowledge Service Network page for special disease formula food permit lookup. Use it to verify permit numbers, product names, registered formula type, and registration status before relying on a Taiwan label, certificate, or import file for formula foods intended for certain diseases. In screening, this lookup is relevant when labels mention disease-specific nutrition, special medical or dietary use, controlled formula categories, patient-use instructions, or professional supervision. Treat the lookup as a permit-evidence source: if the product, permit number, or intended disease category cannot be matched, the review should require further registration evidence and should not rely only on packaging text. Pair this source with TFDA labeling requirements for formula for certain disease and imported-food inspection evidence.

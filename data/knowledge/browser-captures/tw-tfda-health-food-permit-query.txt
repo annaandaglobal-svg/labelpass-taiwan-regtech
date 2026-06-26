@@ -1,0 +1,15 @@
+id: tw-tfda-health-food-permit-query
+official_url: https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162
+captured_url: browser_error_page
+title: This site can't be reached
+captured_at: 2026-06-26T19:21:16.736Z
+capture_status: browser_capture_blocked_manual_anchor
+
+CAPTURE_NOTE:
+Browser navigation reached a Chrome network error page for the official dynamic TFDA consumer query URL during manual capture. The official URL remains the authority; this text preserves the permit-query workflow terms until the live lookup can be re-captured.
+
+VISIBLE_BROWSER_TEXT:
+_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
+
+OFFICIAL_WORKFLOW_ANCHOR:
+Official TFDA Consumer Knowledge Service Network page for health food permit lookup. Use it to confirm health food permit numbers, product names, registration status, approved health-care effect scope, and whether a product may lawfully present itself as health food in Taiwan. In review workflows, open this lookup before accepting label wording about health-food status, standard health-food logo use, permit number display, function claims, recommended intake, warning text, or supporting import documents. The lookup should be treated as an operational evidence source rather than a general guidance page: it links a label claim to a specific approved product record. If the product cannot be found or the permit scope does not match the label, route the case to health-food claim substantiation and false or exaggerated advertising review.

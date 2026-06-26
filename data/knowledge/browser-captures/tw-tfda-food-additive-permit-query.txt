@@ -1,0 +1,15 @@
+id: tw-tfda-food-additive-permit-query
+official_url: https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162
+captured_url: browser_error_page
+title: This site can't be reached
+captured_at: 2026-06-26T19:21:16.736Z
+capture_status: browser_capture_blocked_manual_anchor
+
+CAPTURE_NOTE:
+Browser navigation reached a Chrome network error page for the official dynamic TFDA consumer query URL during manual capture. The official URL remains the authority; this text preserves the permit-query workflow terms until the ASP.NET/session page can be re-captured.
+
+VISIBLE_BROWSER_TEXT:
+_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
+
+OFFICIAL_WORKFLOW_ANCHOR:
+Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. The practical workflow is to search the TFDA permit data by additive or product name and permit-style identifiers, confirm whether the additive product appears in the TFDA permit dataset, and reconcile the result with the food additive standards, inspection-registration materials, and registration announcements before approving Taiwan import or label wording. This source is a database routing and evidence source, not a substitute for checking the applicable additive scope, specification, application, limitation, and product-category conditions.
