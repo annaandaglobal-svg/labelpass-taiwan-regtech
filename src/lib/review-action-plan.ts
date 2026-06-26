@@ -155,6 +155,39 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
         ["food-contact-label-core-needed", "food-contact-label-core-present", "food-contact-plastic-use-status-needed", "food-contact-plastic-use-status-present", "food-contact-heat-use-review"].filter((id) => findingIds.has(id))
       ),
       documentItem(
+        "food-contact-sanitation-evidence",
+        "식품접촉재 위생·재질 시험",
+        findingIds.has("food-contact-sanitation-evidence-present") || findingIds.has("food-contact-infant-bottle-bpa-free-present") || findingIds.has("food-contact-child-phthalate-free-present")
+          ? "ready"
+          : findingIds.has("food-contact-sanitation-evidence-needed") ||
+              findingIds.has("food-contact-recycled-plastic-repackaging-risk") ||
+              findingIds.has("food-contact-infant-bottle-bpa-risk") ||
+              findingIds.has("food-contact-infant-bottle-bpa-free-needed") ||
+              findingIds.has("food-contact-child-phthalate-risk") ||
+              findingIds.has("food-contact-child-phthalate-evidence-needed")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("food-contact-recycled-plastic-repackaging-risk") || findingIds.has("food-contact-infant-bottle-bpa-risk") || findingIds.has("food-contact-child-phthalate-risk")
+          ? "danger"
+          : findingIds.has("food-contact-sanitation-evidence-needed") || findingIds.has("food-contact-infant-bottle-bpa-free-needed") || findingIds.has("food-contact-child-phthalate-evidence-needed")
+            ? "warn"
+            : findingIds.has("food-contact-sanitation-evidence-present") || findingIds.has("food-contact-infant-bottle-bpa-free-present") || findingIds.has("food-contact-child-phthalate-free-present")
+              ? "pass"
+              : "info",
+        "품질/서류 담당",
+        [
+          "food-contact-sanitation-evidence-needed",
+          "food-contact-sanitation-evidence-present",
+          "food-contact-recycled-plastic-repackaging-risk",
+          "food-contact-infant-bottle-bpa-risk",
+          "food-contact-infant-bottle-bpa-free-needed",
+          "food-contact-infant-bottle-bpa-free-present",
+          "food-contact-child-phthalate-risk",
+          "food-contact-child-phthalate-evidence-needed",
+          "food-contact-child-phthalate-free-present"
+        ].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
         "food-contact-pvc-pvdc-warning",
         "PVC/PVDC 경고문",
         findingIds.has("food-contact-pvc-pvdc-warning-present")

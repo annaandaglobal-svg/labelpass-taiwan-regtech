@@ -274,6 +274,7 @@ export const foodContactPackagingSampleReview: ReviewInput = {
     "Material: PVC / polyvinyl chloride.",
     "Size: 30cm x 100m. Made in Korea.",
     "For food contact use. Microwave-safe for hot meals.",
+    "Material safety file: sanitation/migration test report under Sanitation Standards for Food Utensils, Containers and Packages, no discoloration/off odor/contamination/mould/foreign matter, BPA-free and phthalate review not applicable to this wrap.",
     "Taiwan importer pending."
   ].join("\n")
 };

@@ -420,6 +420,7 @@ const foodContactResult = await foodContactResponse.json();
 
 for (const findingId of [
   "food-contact-label-core-present",
+  "food-contact-sanitation-evidence-needed",
   "food-contact-plastic-use-status-needed",
   "food-contact-pvc-pvdc-warning-needed"
 ]) {
@@ -436,6 +437,10 @@ if (!foodContactResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "
   throw new Error("Food contact review: expected needed PVC/PVDC warning checklist item");
 }
 
+if (!foodContactResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-contact-sanitation-evidence" && doc.status === "needed")) {
+  throw new Error("Food contact review: expected needed sanitation evidence checklist item");
+}
+
 const foodContactFindingIds = new Set((foodContactResult.findings ?? []).map((finding) => finding.id));
 for (const ordinaryFoodFindingId of foodContactFindingIds) {
   if (
@@ -446,6 +451,81 @@ for (const ordinaryFoodFindingId of foodContactFindingIds) {
   ) {
     throw new Error(`Food contact review: should not include ordinary food finding ${ordinaryFoodFindingId}`);
   }
+}
+
+const infantBottleResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Clear Baby Bottle",
+    productType: "food contact packaging / plastic infant feeding bottle",
+    ingredientsText: "",
+    labelText: [
+      "Product name: Clear Baby Bottle.",
+      "Material: polypropylene plastic.",
+      "For food contact use. Reusable. Heat resistance temperature 100C.",
+      "Made in Korea. Taiwan importer pending."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Babyware",
+    hsCode: "3924.10",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "800"
+  })
+});
+
+if (!infantBottleResponse.ok) {
+  throw new Error(`Infant bottle review: Review API returned ${infantBottleResponse.status}`);
+}
+
+const infantBottleResult = await infantBottleResponse.json();
+
+for (const findingId of ["food-contact-infant-bottle-bpa-free-needed", "food-contact-sanitation-evidence-needed"]) {
+  if (!infantBottleResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Infant bottle review: expected ${findingId}`);
+  }
+}
+
+if (infantBottleResult.status === "fail") {
+  throw new Error("Infant bottle review: expected non-fail status for BPA evidence gap");
+}
+
+const childUtensilResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Toddler Training Spoon",
+    productType: "food contact utensil / children under three / plastic spoon",
+    ingredientsText: "",
+    labelText: [
+      "Product name: Toddler Training Spoon.",
+      "Material: soft plastic.",
+      "For food contact use. Reusable. Heat resistance temperature 80C.",
+      "DEHP plasticizer added for flexibility.",
+      "Made in Korea. Taiwan importer pending."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Babyware",
+    hsCode: "3924.10",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "760"
+  })
+});
+
+if (!childUtensilResponse.ok) {
+  throw new Error(`Child utensil review: Review API returned ${childUtensilResponse.status}`);
+}
+
+const childUtensilResult = await childUtensilResponse.json();
+
+if (!childUtensilResult.findings?.some((finding) => finding.id === "food-contact-child-phthalate-risk" && finding.status === "fail")) {
+  throw new Error("Child utensil review: expected food-contact-child-phthalate-risk failure");
+}
+
+if (childUtensilResult.status !== "fail") {
+  throw new Error(`Child utensil review: expected fail status for restricted phthalate risk, got ${childUtensilResult.status}`);
 }
 
 const cosmeticPvcBottleResponse = await fetch(`${baseUrl}/api/review`, {
@@ -719,6 +799,8 @@ const knowledgeCases = [
   { query: "food contact packaging", expectedTerm: "Food Contact Utensils, Containers and Packaging" },
   { query: "plastic food contact surface reusable disposable", expectedTerm: "Plastic Food Contact Labeling" },
   { query: "PVC high-fat high-temperature food warning", expectedTerm: "PVC/PVDC Food Contact Warning" },
+  { query: "plastic infant feeding bottles BPA food utensils containers packages sanitation standard", expectedTerm: "Food Contact Material Sanitation Standards" },
+  { query: "食品器具容器包裝衛生標準 雙酚A 鄰苯二甲酸酯", expectedTerm: "Food Contact Material Sanitation Standards" },
   { query: "化粧品GMP", expectedTerm: "Cosmetic Good Manufacturing Practice", expectedFirst: "Cosmetic Good Manufacturing Practice" },
   { query: "15-day adverse event reporting cosmetics", expectedTerm: "Cosmetic Serious Adverse Effect Reporting" },
   { query: "化粧品回收 回收作業計畫書", expectedTerm: "Cosmetic Recall" },
@@ -791,6 +873,7 @@ const sourceCases = [
   { query: "Food Ingredient Integration Query Platform usage limits cautionary notes", expectedSource: "tw-tfda-food-ingredient-integration-query-platform" },
   { query: "Regulations on the Labeling of Food Utensils Food Containers or Packaging for food contact use", expectedSource: "tw-tfda-food-contact-packaging-labeling-regulations" },
   { query: "Food utensils containers packaging plastics Article 26 required labelled", expectedSource: "tw-tfda-food-contact-packaging-required-items" },
+  { query: "Sanitation Standards for Food Utensils Containers and Packages plastic infant feeding bottles BPA", expectedSource: "tw-moj-food-contact-sanitation-standards" },
   { query: "food containers heat resistance microwave safe material use properly", expectedSource: "tw-tfda-food-container-smart-use-2026" },
   { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
@@ -923,5 +1006,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 14} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 16} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );

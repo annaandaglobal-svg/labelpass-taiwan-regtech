@@ -732,6 +732,18 @@
       "tags": ["food-contact-materials", "food-utensils", "food-containers", "packaging", "plastic", "article-26", "labeling"]
     },
     {
+      "id": "tw-moj-food-contact-sanitation-standards",
+      "title": "Sanitation Standards for Food Utensils, Containers and Packages",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040019",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "food_contact_materials",
+      "source_type": "sanitation_standard",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food-contact-materials", "food-utensils", "food-containers", "packaging", "sanitation-standard", "plastic", "recycled-plastic", "bpa", "bisphenol-a", "phthalates", "dehp", "dnop", "dbp", "bbp", "infant-feeding-bottles", "standard-tests"]
+    },
+    {
       "id": "tw-tfda-food-container-smart-use-2026",
       "title": "Check, Read and Properly Use: Three Tips for Smart Using Food Containers",
       "url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31513",

@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 119,
+  "curated_term_count": 120,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -11426,9 +11426,248 @@
       "source_keys": [
         "tw-moj-food-safety-sanitation-act",
         "tw-tfda-food-contact-packaging-labeling-regulations",
+        "tw-tfda-food-contact-packaging-required-items",
+        "tw-moj-food-contact-sanitation-standards"
+      ],
+      "notes": "Taiwan Article 26 labeling applies to designated food utensils, containers and packaging, especially plastic food-contact surfaces. Material sanitation checks also route to the sanitation standards for utensils, containers and packages."
+    },
+    {
+      "id": "food-contact-sanitation-standards",
+      "canonical_name": "Food Contact Material Sanitation Standards",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Sanitation Standards for Food Utensils, Containers and Packages",
+          "normalized": "sanitation standards for food utensils containers and packages",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food contact material sanitation standard",
+          "normalized": "food contact material sanitation standard",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food utensils containers packages sanitation",
+          "normalized": "food utensils containers packages sanitation",
+          "type": "search_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "plastic food containers not recycled",
+          "normalized": "plastic food containers not recycled",
+          "type": "rule_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "plastic infant feeding bottles BPA",
+          "normalized": "plastic infant feeding bottles bpa",
+          "type": "rule_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "bisphenol A infant feeding bottle",
+          "normalized": "bisphenol a infant feeding bottle",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DEHP DNOP DBP BBP children under three",
+          "normalized": "dehp dnop dbp bbp children under three",
+          "type": "restricted_substance",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food contact standard tests",
+          "normalized": "food contact standard tests",
+          "type": "search_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품용 기구 용기 포장 위생기준",
+          "normalized": "식품용 기구 용기 포장 위생기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품접촉재 위생기준",
+          "normalized": "식품접촉재 위생기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유아용 식기 프탈레이트",
+          "normalized": "유아용 식기 프탈레이트",
+          "type": "search_phrase",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "젖병 BPA",
+          "normalized": "젖병 bpa",
+          "type": "search_phrase",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "재활용 플라스틱 식품 재포장 금지",
+          "normalized": "재활용 플라스틱 식품 재포장 금지",
+          "type": "rule_phrase",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品器具容器包裝衛生標準",
+          "normalized": "食品器具容器包裝衛生標準",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品器具容器包裝",
+          "normalized": "食品器具容器包裝",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "塑膠嬰兒奶瓶不得含雙酚A",
+          "normalized": "塑膠嬰兒奶瓶不得含雙酚a",
+          "type": "rule_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "三歲以下兒童食品器具容器",
+          "normalized": "三歲以下兒童食品器具容器",
+          "type": "rule_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "鄰苯二甲酸酯",
+          "normalized": "鄰苯二甲酸酯",
+          "type": "chemical_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "不得回收重新包裝食品",
+          "normalized": "不得回收重新包裝食品",
+          "type": "rule_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品器具容器包装卫生标准",
+          "normalized": "食品器具容器包装卫生标准",
+          "type": "official_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "塑料婴儿奶瓶双酚A",
+          "normalized": "塑料婴儿奶瓶双酚a",
+          "type": "search_phrase",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "邻苯二甲酸酯",
+          "normalized": "邻苯二甲酸酯",
+          "type": "chemical_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-food-contact-sanitation-standards",
+        "tw-tfda-food-contact-packaging-labeling-regulations",
         "tw-tfda-food-contact-packaging-required-items"
       ],
-      "notes": "Taiwan Article 26 labeling applies to designated food utensils, containers and packaging, especially plastic food-contact surfaces."
+      "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented."
     },
     {
       "id": "food-contact-plastic-label",

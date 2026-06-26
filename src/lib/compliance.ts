@@ -88,6 +88,8 @@ const SOURCE_FOOD_CONTACT_LABELING = "TFDA Regulations on the Labeling of Food U
 const SOURCE_FOOD_CONTACT_LABELING_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3090";
 const SOURCE_FOOD_CONTACT_REQUIRED_ITEMS = "TFDA food utensils, containers or packaging required labeling items";
 const SOURCE_FOOD_CONTACT_REQUIRED_ITEMS_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3089";
+const SOURCE_FOOD_CONTACT_SANITATION = "Sanitation Standards for Food Utensils, Containers and Packages";
+const SOURCE_FOOD_CONTACT_SANITATION_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040019";
 const SOURCE_FOOD_CONTAINER_SMART_USE = "TFDA smart use guidance for food containers, 2026-05-05";
 const SOURCE_FOOD_CONTAINER_SMART_USE_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31513";
 const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
@@ -673,6 +675,57 @@ function hasPvcPvdcWarning(input: ReviewInput) {
 
 function hasFoodContactHighHeatUseSignal(input: ReviewInput) {
   return /microwave|oven|hot food|hot soup|high[-\s]?temperature|boiling|freezer|dishwasher|微波|烤箱|高溫|高温|熱食|熱湯|冷凍|洗碗機|전자레인지|오븐|고온|뜨거운|열탕|냉동|식기세척기/i.test(
+    reviewText(input)
+  );
+}
+
+function hasFoodContactSanitationEvidence(input: ReviewInput) {
+  return /sanitation\/migration test report|migration test report|sanitation test report|standard tests?|certificate of analysis|\bCOA\b|material safety file|material safety report|BPA[-\s]?free|bisphenol A free|phthalate[-\s]?free|DEHP[-\s]?free|DNOP[-\s]?free|DBP[-\s]?free|BBP[-\s]?free|no discoloration|off[-\s]?odor|foreign matter|(?:檢驗報告|卫生标准|衛生標準|溶出試驗|雙酚A|不含雙酚A|鄰苯二甲酸酯|不得添加|시험성적서|위생기준|용출시험|재질\s*시험|BPA\s*프리|프탈레이트\s*프리|무첨가|불검출|확보|보유|준비)/i.test(
+    reviewText(input)
+  );
+}
+
+function hasRecycledPlasticFoodRepackagingRisk(input: ReviewInput) {
+  const text = reviewText(input);
+  const recycled = /recycled|recycle|post[-\s]?consumer|\bPCR\b|reused plastic|回收|再生塑膠|再生塑料|재활용|재생\s*플라스틱|재사용\s*플라스틱/i.test(text);
+  const repackaging = /repackag|re-packag|pack food|food packing|重新包裝食品|回收.*包裝食品|食品.*重新包裝|식품\s*재포장|식품\s*소분\s*포장|재포장용/i.test(text);
+  return recycled && repackaging;
+}
+
+function hasInfantBottleSignal(input: ReviewInput) {
+  return /infant feeding bottle|baby bottle|feeding bottle|baby milk bottle|嬰兒奶瓶|婴儿奶瓶|奶瓶|유아용\s*젖병|영아용\s*젖병|젖병/i.test(
+    reviewText(input)
+  );
+}
+
+function hasBpaFreeSignal(input: ReviewInput) {
+  return /BPA[-\s]?free|bisphenol A free|not contain(?:s)? BPA|no BPA|不含雙酚A|不得含雙酚A|無雙酚A|无双酚A|BPA無添加|BPA\s*프리|비스페놀\s*A\s*불검출|비스페놀A\s*무첨가/i.test(
+    reviewText(input)
+  );
+}
+
+function hasBpaPresentRiskSignal(input: ReviewInput) {
+  if (hasBpaFreeSignal(input)) return false;
+  return /(?:contains?|with|含有|添加|함유|첨가).{0,30}(?:BPA|bisphenol A|雙酚A|双酚A|비스페놀\s*A)|(?:BPA|bisphenol A|雙酚A|双酚A|비스페놀\s*A).{0,30}(?:contains?|added|plasticizer|含有|添加|함유|첨가)/i.test(
+    reviewText(input)
+  );
+}
+
+function hasChildrenUnderThreeSignal(input: ReviewInput) {
+  return /children under three|children under 3|under three years|under 3 years|toddler|infant utensil|baby utensil|baby tableware|三歲以下|三岁以下|嬰幼兒|婴幼儿|유아용|영유아|3세\s*미만|세\s*살\s*미만/i.test(
+    reviewText(input)
+  );
+}
+
+function hasPhthalateFreeEvidence(input: ReviewInput) {
+  return /phthalate[-\s]?free|DEHP[-\s]?free|DNOP[-\s]?free|DBP[-\s]?free|BBP[-\s]?free|no\s+(?:DEHP|DNOP|DBP|BBP|phthalates?)|not\s+detected.{0,30}(?:DEHP|DNOP|DBP|BBP|phthalate)|不含(?:DEHP|DNOP|DBP|BBP|鄰苯二甲酸酯)|未檢出(?:DEHP|DNOP|DBP|BBP|鄰苯二甲酸酯)|不得添加(?:DEHP|DNOP|DBP|BBP)|프탈레이트\s*프리|프탈레이트\s*무첨가|(?:DEHP|DNOP|DBP|BBP)\s*불검출/i.test(
+    reviewText(input)
+  );
+}
+
+function hasRestrictedPhthalateRiskSignal(input: ReviewInput) {
+  if (hasPhthalateFreeEvidence(input)) return false;
+  return /(?:contains?|with|added|plasticizer|含有|添加|增塑劑|塑化劑|함유|첨가|가소제).{0,40}(?:DEHP|DNOP|DBP|BBP|phthalate|鄰苯二甲酸酯|邻苯二甲酸酯|프탈레이트)|(?:DEHP|DNOP|DBP|BBP|phthalate|鄰苯二甲酸酯|邻苯二甲酸酯|프탈레이트).{0,40}(?:contains?|added|plasticizer|含有|添加|增塑劑|塑化劑|함유|첨가|가소제)/i.test(
     reviewText(input)
   );
 }
@@ -1517,6 +1570,99 @@ function addFoodContactMaterialFindings(input: ReviewInput, findings: Finding[])
   if (!isFoodContactMaterialProduct(input)) return;
 
   const plastic = hasPlasticFoodContactSignal(input);
+  const infantBottle = hasInfantBottleSignal(input);
+  const childrenUnderThree = hasChildrenUnderThreeSignal(input);
+  const sanitationEvidence = hasFoodContactSanitationEvidence(input);
+
+  findings.push({
+    id: sanitationEvidence ? "food-contact-sanitation-evidence-present" : "food-contact-sanitation-evidence-needed",
+    status: sanitationEvidence ? "pass" : "needs_info",
+    area: "식품접촉재",
+    title: sanitationEvidence ? "식품접촉재 위생·재질 시험자료 신호 확인" : "식품접촉재 위생·재질 시험자료 확인 필요",
+    severity: sanitationEvidence ? "low" : "medium",
+    why: sanitationEvidence
+      ? "식품용 기구·용기·포장 위생기준에 연결할 수 있는 재질 안전, 용출/위생시험 또는 COA 신호가 확인되었습니다."
+      : "식품접촉재는 표시사항뿐 아니라 변색·이취·오염·곰팡이·이물 없음, 재질별 표준시험, BPA/프탈레이트 제한 등 위생기준 근거가 제품 파일에 필요합니다.",
+    fix: sanitationEvidence
+      ? ["시험성적서의 시험 대상 재질, 식품접촉면, 내열조건, 제조 로트가 실제 수출 제품과 일치하는지 확인하세요."]
+      : [
+          "재질 구성표, 용출/위생 시험성적서, COA, 변색·이취·오염·곰팡이·이물 없음 확인자료를 제품 파일에 추가하세요.",
+          "플라스틱, 유아용, 고온 사용, 재활용 원료 신호가 있으면 해당 부속표 시험 항목과 제한물질 검토를 별도 표시하세요."
+        ],
+    source: SOURCE_FOOD_CONTACT_SANITATION,
+    sourceUrl: SOURCE_FOOD_CONTACT_SANITATION_URL,
+    evidence: sanitationEvidence ? "sanitation / migration / material safety evidence" : "sanitation evidence not found"
+  });
+
+  if (hasRecycledPlasticFoodRepackagingRisk(input)) {
+    findings.push({
+      id: "food-contact-recycled-plastic-repackaging-risk",
+      status: "fail",
+      area: "식품접촉재",
+      title: "재활용 플라스틱 식품 재포장 위험",
+      severity: "high",
+      why: "대만 위생기준은 플라스틱 식품용 기구·용기·포장을 회수해 식품을 다시 포장하여 판매하는 것을 금지합니다.",
+      fix: [
+        "재활용 또는 회수 플라스틱이 식품 재포장·소분 포장에 쓰인다는 문구를 삭제하세요.",
+        "식품접촉면이 신규 적합 재질임을 제조사 재질증명서와 시험성적서로 분리해 증빙하세요."
+      ],
+      source: SOURCE_FOOD_CONTACT_SANITATION,
+      sourceUrl: SOURCE_FOOD_CONTACT_SANITATION_URL,
+      evidence: "recycled plastic + food repackaging signal"
+    });
+  }
+
+  if (infantBottle) {
+    const bpaFree = hasBpaFreeSignal(input);
+    const bpaRisk = hasBpaPresentRiskSignal(input);
+
+    findings.push({
+      id: bpaRisk ? "food-contact-infant-bottle-bpa-risk" : bpaFree ? "food-contact-infant-bottle-bpa-free-present" : "food-contact-infant-bottle-bpa-free-needed",
+      status: bpaRisk ? "fail" : bpaFree ? "pass" : "needs_info",
+      area: "식품접촉재",
+      title: bpaRisk ? "플라스틱 젖병 BPA 함유 위험" : bpaFree ? "플라스틱 젖병 BPA 불검출 신호 확인" : "플라스틱 젖병 BPA 불검출 근거 필요",
+      severity: bpaRisk ? "high" : bpaFree ? "low" : "high",
+      why: bpaRisk
+        ? "대만 위생기준은 플라스틱 유아용 젖병에 BPA가 포함되어서는 안 된다고 봅니다."
+        : bpaFree
+          ? "유아용 젖병 신호와 함께 BPA-free 또는 불검출 근거 신호가 확인되었습니다."
+          : "유아용 플라스틱 젖병은 BPA 불검출 또는 BPA-free 근거가 제품 파일과 표시 시안에 연결되어야 합니다.",
+      fix: bpaRisk
+        ? ["BPA 함유 또는 BPA 사용을 암시하는 재질·마케팅 문구를 즉시 제거하고, BPA 불검출 시험성적서를 확보하세요."]
+        : bpaFree
+          ? ["BPA-free 문구가 시험성적서, 재질명, 로트 정보와 일치하는지 확인하세요."]
+          : ["BPA 불검출 시험성적서, 재질 증명서, 라벨 또는 상세페이지의 BPA-free 근거 문구를 확보하세요."],
+      source: SOURCE_FOOD_CONTACT_SANITATION,
+      sourceUrl: SOURCE_FOOD_CONTACT_SANITATION_URL,
+      evidence: bpaRisk ? "BPA present signal" : bpaFree ? "BPA-free signal" : "infant feeding bottle without BPA-free evidence"
+    });
+  }
+
+  if (childrenUnderThree) {
+    const phthalateFree = hasPhthalateFreeEvidence(input);
+    const phthalateRisk = hasRestrictedPhthalateRiskSignal(input);
+
+    findings.push({
+      id: phthalateRisk ? "food-contact-child-phthalate-risk" : phthalateFree ? "food-contact-child-phthalate-free-present" : "food-contact-child-phthalate-evidence-needed",
+      status: phthalateRisk ? "fail" : phthalateFree ? "pass" : "needs_info",
+      area: "식품접촉재",
+      title: phthalateRisk ? "3세 미만 식기 프탈레이트 첨가 위험" : phthalateFree ? "3세 미만 식기 프탈레이트 제한 근거 확인" : "3세 미만 식기 프탈레이트 제한 근거 필요",
+      severity: phthalateRisk ? "high" : phthalateFree ? "low" : "high",
+      why: phthalateRisk
+        ? "대만 위생기준은 3세 미만 아동용 식품용 기구·용기에 DEHP, DNOP, DBP, BBP를 첨가하지 못하도록 합니다."
+        : phthalateFree
+          ? "3세 미만 아동용 식품접촉재 신호와 함께 프탈레이트 무첨가 또는 불검출 근거 신호가 확인되었습니다."
+          : "3세 미만 아동용 식품접촉재는 DEHP, DNOP, DBP, BBP 무첨가·불검출 근거 확인이 필요합니다.",
+      fix: phthalateRisk
+        ? ["DEHP/DNOP/DBP/BBP 또는 프탈레이트 가소제 첨가 재질을 배제하고, 대체 재질과 불검출 시험성적서를 확보하세요."]
+        : phthalateFree
+          ? ["무첨가·불검출 문구가 시험 대상 재질과 제품 사용 연령에 맞는지 확인하세요."]
+          : ["DEHP, DNOP, DBP, BBP 무첨가·불검출 시험성적서와 재질 증명서를 제품 파일에 추가하세요."],
+      source: SOURCE_FOOD_CONTACT_SANITATION,
+      sourceUrl: SOURCE_FOOD_CONTACT_SANITATION_URL,
+      evidence: phthalateRisk ? "restricted phthalate added signal" : phthalateFree ? "phthalate-free signal" : "children-under-three food-contact product without phthalate evidence"
+    });
+  }
 
   if (hasFoodContactUsePhrase(input) && hasMaterialAndHeatSignal(input)) {
     findings.push({
