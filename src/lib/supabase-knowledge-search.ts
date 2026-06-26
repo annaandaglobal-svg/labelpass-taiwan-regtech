@@ -484,6 +484,7 @@ function buildKnowledgeSearchResult(params: {
   return {
     query,
     totals,
+    ambiguity: null,
     terms: termRows.map((term) => ({
       id: term.term_key,
       canonicalName: term.canonical_name,
@@ -552,7 +553,7 @@ async function searchDirectPostgresKnowledge(rawQuery: string, limit: number): P
   const totals = await readTotals(sql);
 
   if (!query) {
-    return { query: "", totals, terms: [], sources: [] };
+    return { query: "", totals, ambiguity: null, terms: [], sources: [] };
   }
 
   const termRows = await readTermRows(sql, query, limit);
@@ -587,7 +588,7 @@ async function searchRemoteSupabaseKnowledge(rawQuery: string, limit: number): P
   const totals = await readRemoteTotals(supabase);
 
   if (!query) {
-    return { query: "", totals, terms: [], sources: [] };
+    return { query: "", totals, ambiguity: null, terms: [], sources: [] };
   }
 
   const termRows = await readRemoteTermRows(supabase, query, limit);

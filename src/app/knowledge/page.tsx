@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Database, Search, ShieldCheck } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import KnowledgeSearchClient from "./search-client";
 
@@ -28,25 +28,13 @@ export default function KnowledgePage() {
             번역 메모까지 묶어 실무자가 바로 다시 쓸 수 있게 정리합니다.
           </p>
         </div>
-        <div className="knowledge-stats">
-          <span>
-            <Database size={18} />
-            {totals.sources.toLocaleString()}개 출처
-          </span>
-          <span>
-            <Search size={18} />
-            {totals.aliases.toLocaleString()}개 검색 별칭
-          </span>
-          <span>
-            <ShieldCheck size={18} />
-            {totals.ruleLinks.toLocaleString()}개 규칙 연결
-          </span>
-        </div>
       </section>
+
+      <KnowledgeSearchClient />
 
       <details className="knowledge-ops" aria-label="지식베이스 운영 현황">
         <summary>
-          <span>지식베이스 운영 현황</span>
+          <span>운영 현황</span>
           <strong>
             출처 {totals.sources.toLocaleString()}개 · 별칭 {totals.aliases.toLocaleString()}개 · 규칙{" "}
             {totals.ruleLinks.toLocaleString()}개
@@ -75,8 +63,6 @@ export default function KnowledgePage() {
           <OverviewGroup title="언어" items={overview.coverage.languages} />
         </div>
       </details>
-
-      <KnowledgeSearchClient />
     </main>
   );
 }

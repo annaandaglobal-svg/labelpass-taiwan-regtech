@@ -1256,6 +1256,14 @@ for (const testCase of ambiguityCases) {
   if (!ambiguity) {
     throw new Error(`${testCase.query}: expected ambiguity note linking ${testCase.expectedTerm} to ${testCase.expectedOtherTerm}`);
   }
+
+  const summaryTerms = Array.isArray(result.ambiguity?.terms)
+    ? result.ambiguity.terms.map((candidate) => candidate.canonicalName)
+    : [];
+
+  if (!summaryTerms.includes(testCase.expectedTerm) || !summaryTerms.includes(testCase.expectedOtherTerm)) {
+    throw new Error(`${testCase.query}: expected result-level ambiguity summary for ${testCase.expectedTerm} and ${testCase.expectedOtherTerm}`);
+  }
 }
 
 const sourceCases = [

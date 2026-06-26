@@ -33,6 +33,7 @@ function mergeKnowledgeResult(
       aliases: Math.max(primary.totals.aliases, fallback.totals.aliases),
       ruleLinks: Math.max(primary.totals.ruleLinks, fallback.totals.ruleLinks)
     },
+    ambiguity: primary.ambiguity ?? fallback.ambiguity,
     terms: terms.slice(0, limit),
     sources: [
       ...primary.sources,

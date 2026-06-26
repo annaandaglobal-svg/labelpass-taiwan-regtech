@@ -203,23 +203,43 @@ export default function KnowledgeSearchClient() {
         {loading && <Loader2 className="spin" size={18} />}
       </div>
 
-      <div className="knowledge-examples">
-        {examples.map((example) => (
-          <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
-            {example.label}
-          </button>
-        ))}
-      </div>
+      {!trimmed && (
+        <div className="knowledge-examples">
+          {examples.map((example) => (
+            <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
+              {example.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {error && <div className="knowledge-alert">{error}</div>}
 
       <div className="knowledge-summary">
-        <span>{data ? `${data.totals.terms.toLocaleString()}개 용어` : "용어·별칭 검색"}</span>
-        <span>{data ? `${data.totals.aliases.toLocaleString()}개 별칭` : "INCI·CAS·현지명"}</span>
-        <span>{data ? `${data.totals.ruleLinks.toLocaleString()}개 규칙 연결` : "규칙·고시 연결"}</span>
-        <span>{data ? `${data.totals.sources.toLocaleString()}개 출처` : "공식 출처 비교"}</span>
+        <span>{data ? `용어 ${filteredTerms.length.toLocaleString()}` : "용어·별칭 검색"}</span>
+        <span>{data ? `출처 ${filteredSources.length.toLocaleString()}` : "INCI·CAS·현지명"}</span>
+        <span>{data ? `우선 검토 ${highPriorityCount.toLocaleString()}` : "규칙·고시 연결"}</span>
+        <span>{data ? `갱신 감시 ${watchCount.toLocaleString()}` : "공식 출처 비교"}</span>
       </div>
 
+      {data?.ambiguity && (
+        <div className="knowledge-ambiguity-panel" role="status">
+          <div>
+            <b>문맥 확인 필요</b>
+            <span>{data.ambiguity.message}</span>
+          </div>
+          <div>
+            {data.ambiguity.terms.map((term) => (
+              <button key={term.id} type="button" onClick={() => setQuery(term.canonicalName)}>
+                <b>{term.canonicalName}</b>
+                <small>{labelFor(term.category)}</small>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {data && (
       <details className="knowledge-filter-drawer">
         <summary>
           <Filter size={16} />
@@ -276,6 +296,7 @@ export default function KnowledgeSearchClient() {
           </div>
         </div>
       </details>
+      )}
 
       <div className="knowledge-results">
         <section className="knowledge-result-column">

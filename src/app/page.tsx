@@ -746,7 +746,8 @@ export default function Home() {
 
   const archiveStatus = archiveCopy[archiveState];
   const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
-  const shellClassName = "shell shell-console";
+  const isGuidedStart = screen === "review" && !result && !isAnalyzing;
+  const shellClassName = isGuidedStart ? "shell shell-console shell-guided-start shell-start-focus" : "shell shell-console";
 
   return (
     <main className={shellClassName}>
@@ -760,8 +761,7 @@ export default function Home() {
         </div>
 
         <nav className="nav-list">
-          <NavButton active={screen === "review" && !result} icon={<PackageCheck />} label="대시보드" onClick={() => setScreen("review")} />
-          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="라벨 검토" onClick={() => setScreen("review")} />
+          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label={result ? "라벨 검토" : "검토 시작"} onClick={() => setScreen("review")} />
           <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
           <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
           <NavButton active={screen === "updates"} icon={<BookOpen />} label="라벨/문구 라이브러리" onClick={() => setScreen("updates")} />
@@ -807,49 +807,52 @@ export default function Home() {
             </button>
           </div>
         </header>
+        <input
+          ref={fileInputRef}
+          className="file-picker"
+          type="file"
+          multiple
+          accept=".pdf,image/*,.txt,.csv"
+          onChange={(event) => handleFiles(event.target.files)}
+        />
 
         {screen === "review" && (
           <>
-          <section className="console-board" aria-label="LabelPass 기능 지도">
-            <div className="console-start-card">
-              <div className="console-card-head">
-                <span><ClipboardCheck size={16} /></span>
-                <div>
-                  <b>새 검토 시작</b>
-                  <small>자료를 넣으면 같은 작업대에서 검토, 검색, 승인까지 이어집니다.</small>
-                </div>
+          {isGuidedStart && (
+          <section className="start-command-shell" aria-label="LabelPass 시작 동선">
+            <div className="start-command-card">
+              <div className="start-command-copy">
+                <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
+                <h2>자료 하나만 넣으면 먼저 위험도와 다음 행동을 정리합니다</h2>
+                <p>전성분, 번체 라벨, 표시문구, 통관 자료를 한 흐름에서 보고 성분명 별칭과 현지 규정 근거를 함께 연결합니다.</p>
               </div>
-              <div className="console-start-actions">
-                <button onClick={() => fileInputRef.current?.click()}>
-                  <Upload size={18} />
+
+              <div className="start-primary-grid">
+                <button className="start-primary-action" onClick={() => fileInputRef.current?.click()}>
+                  <Upload size={19} />
                   <span>
-                    <b>라벨 파일 업로드</b>
+                    <b>라벨 파일 올리기</b>
                     <small>PDF, 이미지, OCR 결과</small>
                   </span>
                 </button>
-                <button onClick={focusInputPane}>
-                  <FileText size={18} />
+                <button className="start-primary-action" onClick={focusInputPane}>
+                  <FileText size={19} />
                   <span>
-                    <b>성분/문구 붙여넣기</b>
+                    <b>성분·문구 직접 입력</b>
                     <small>전성분, 번체 라벨, 경고문</small>
                   </span>
                 </button>
-                <button onClick={() => setScreen("products")}>
-                  <Archive size={18} />
-                  <span>
-                    <b>기존 제품 불러오기</b>
-                    <small>이전 검토를 이어서 실행</small>
-                  </span>
-                </button>
               </div>
-              <input
-                ref={fileInputRef}
-                className="file-picker"
-                type="file"
-                multiple
-                accept=".pdf,image/*,.txt,.csv"
-                onChange={(event) => handleFiles(event.target.files)}
-              />
+
+              <div className="start-progress-card" aria-live="polite">
+                <div>
+                  <span>현재 준비도</span>
+                  <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
+                </div>
+                <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
+                <small>{inputReadiness.missing.length > 0 ? `${inputReadiness.missing.slice(0, 2).join(" · ")}부터 넣으면 시작할 수 있습니다.` : "핵심 자료가 준비되었습니다. 검토를 실행하세요."}</small>
+              </div>
+
               {uploadedFiles.length > 0 && (
                 <div className="file-chip-row" aria-label="연결된 파일">
                   {uploadedFiles.map((file) => (
@@ -859,50 +862,33 @@ export default function Home() {
               )}
             </div>
 
-            <div className="console-scope-card">
-              <div className="console-card-head">
-                <span><ShieldCheck size={16} /></span>
-                <div>
-                  <b>LabelPass가 확인하는 것</b>
-                  <small>기능은 처음부터 보이고, 결과만 상황에 맞게 바뀝니다.</small>
-                </div>
-              </div>
-              <div className="scope-grid">
-                <span>필수 표시사항</span>
-                <span>성분/알레르겐</span>
-                <span>효능/클레임</span>
-                <span>번체 중국어 표기</span>
-                <span>경고문/금지 표현</span>
-                <span>수입·통관 문서</span>
-              </div>
-              <div className="console-knowledge-row">
+            <details className="start-support-card">
+              <summary>
+                <span><Search size={16} /></span>
+                <b>보조 도구</b>
+                <small>규정 검색, 이전 검토, 업데이트 감시는 여기서 열 수 있습니다.</small>
+              </summary>
+              <div className="start-support-grid">
                 <button onClick={() => { window.location.href = "/knowledge"; }}>
-                  <Search size={16} /> 규정 검색
+                  <Search size={16} />
+                  <span><b>규정 검색</b><small>원료·표시문구·대만 용어</small></span>
+                </button>
+                <button onClick={() => setScreen("products")}>
+                  <Archive size={16} />
+                  <span><b>기존 제품</b><small>이전 검토 이어서 실행</small></span>
                 </button>
                 <button onClick={() => setScreen("updates")}>
-                  <BookOpen size={16} /> 라벨/문구 라이브러리
+                  <BookOpen size={16} />
+                  <span><b>업데이트 감시</b><small>TFDA·MOJ·CCC 변경 큐</small></span>
                 </button>
                 <button onClick={() => setScreen("partners")}>
-                  <UserRoundCheck size={16} /> 승인/업무함
+                  <UserRoundCheck size={16} />
+                  <span><b>승인/업무함</b><small>전문가·통관 파트너 연결</small></span>
                 </button>
               </div>
-            </div>
-
-            <div className="console-status-card">
-              <div className="console-card-head">
-                <span><Database size={16} /></span>
-                <div>
-                  <b>운영 지식베이스</b>
-                  <small>{knowledgeStats.sources}개 공식 출처 · {knowledgeStats.aliases}개 검색 별칭</small>
-                </div>
-              </div>
-              <div className="compact-stat-row">
-                <span><b>{knowledgeStats.terms}</b><small>용어</small></span>
-                <span><b>{knowledgeStats.knowledgeCases}</b><small>검색 검증</small></span>
-                <span><b>{regulatoryUpdateQueue.summary.total}</b><small>감시 큐</small></span>
-              </div>
-            </div>
+            </details>
           </section>
+          )}
 
           <div className={result || isAnalyzing ? "review-grid" : "review-grid review-grid-start"}>
             <section className="input-pane">

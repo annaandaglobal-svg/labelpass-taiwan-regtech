@@ -73,6 +73,18 @@ export type KnowledgeSearchResult = {
     aliases: number;
     ruleLinks: number;
   };
+  ambiguity: {
+    query: string;
+    normalized: string;
+    termCount: number;
+    terms: Array<{
+      id: string;
+      canonicalName: string;
+      category: string;
+      notes: string;
+    }>;
+    message: string;
+  } | null;
   terms: Array<{
     id: string;
     canonicalName: string;
@@ -383,6 +395,33 @@ function ambiguousAliasesForTerm(term: KnowledgeTerm, aliases: Alias[], matchedA
     .slice(0, 4);
 }
 
+function ambiguitySummary(query: string, termResults: KnowledgeSearchResult["terms"]): KnowledgeSearchResult["ambiguity"] {
+  if (!query || termResults.length < 2) return null;
+  const exactOwners = aliasOwners.get(query);
+  const ownerIds = exactOwners ? new Set(exactOwners) : null;
+  const ambiguousTerms = termResults.filter((term) => {
+    if (ownerIds?.has(term.id)) return true;
+    return term.ambiguousAliases.some((alias) => alias.normalized === query);
+  });
+
+  if (ambiguousTerms.length < 2) return null;
+
+  const termsForSummary = ambiguousTerms.slice(0, 6).map((term) => ({
+    id: term.id,
+    canonicalName: term.canonicalName,
+    category: term.category,
+    notes: term.notes
+  }));
+
+  return {
+    query,
+    normalized: query,
+    termCount: ambiguousTerms.length,
+    terms: termsForSummary,
+    message: "같은 검색어가 여러 규제 문맥에 연결됩니다. 품목, 용도, 표시문구 문맥을 함께 확인하세요."
+  };
+}
+
 function scoreSource(source: SourceResult, query: string) {
   if (characterLength(query) <= 2 && !hasCjkOrHangul(query)) return 0;
 
@@ -469,7 +508,7 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
   };
 
   if (!query) {
-    return { query: "", totals, terms: [], sources: [] };
+    return { query: "", totals, ambiguity: null, terms: [], sources: [] };
   }
 
   const termResults = terms
@@ -551,6 +590,7 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
   return {
     query,
     totals,
+    ambiguity: ambiguitySummary(query, termResults),
     terms: termResults,
     sources: sourceResults
   };
