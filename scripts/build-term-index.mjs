@@ -7,6 +7,14 @@ const rulesPath = path.join(root, "data", "rules", "tw-cosmetics-rules.json");
 const registryPath = path.join(root, "data", "knowledge", "term-registry.json");
 const outPath = path.join(root, "data", "knowledge", "term-index.json");
 
+const TFDA_SOURCE_KEY_BY_INFO_ID = new Map([
+  ["199", "tw-tfda-cosmetic-restricted-ingredients"],
+  ["200", "tw-tfda-cosmetic-colorants"],
+  ["201", "tw-tfda-cosmetic-preservatives"],
+  ["202", "tw-tfda-cosmetic-sunscreen-ingredients"],
+  ["203", "tw-tfda-cosmetic-prohibited-ingredients"]
+]);
+
 function normalizeText(value) {
   const regulatoryVariantFoldMap = {
     "妆": "粧",
@@ -75,6 +83,19 @@ function asArray(value) {
   return Array.isArray(value) ? value.filter(Boolean) : [];
 }
 
+function sourceKeysForRule(rule) {
+  const sourceInfoId = String(rule?.source_info_id ?? "").trim();
+  if (!sourceInfoId) return [];
+  return [TFDA_SOURCE_KEY_BY_INFO_ID.get(sourceInfoId) ?? `tfda-info-${sourceInfoId}`];
+}
+
+function addTermSourceKeys(map, termId, sourceKeys) {
+  if (!termId || !sourceKeys.length) return;
+  const current = map.get(termId) ?? new Set();
+  for (const sourceKey of sourceKeys) current.add(sourceKey);
+  map.set(termId, current);
+}
+
 function validateTerm(term) {
   if (!term.id || !term.canonical_name) {
     throw new Error(`Invalid term registry entry: ${JSON.stringify(term)}`);
@@ -87,7 +108,7 @@ function validateTerm(term) {
   }
 }
 
-function makeOfficialTerm(rule) {
+function makeOfficialTerm(rule, sourceKeys) {
   const canonical = rule.ingredient_name || rule.inci_names?.[0] || rule.cas_numbers?.[0] || rule.id;
   const identifiers = {
     cas: asArray(rule.cas_numbers),
@@ -136,7 +157,7 @@ function makeOfficialTerm(rule) {
     category: rule.category,
     identifiers,
     aliases,
-    source_keys: [`tfda-info-${rule.source_info_id}`],
+    source_keys: sourceKeys,
     notes: `Generated from TFDA rule ${rule.id}`
   };
 }
@@ -168,14 +189,17 @@ const rules = asArray(rulesPayload.rules);
 const generatedTerms = new Map();
 const termRuleLinks = [];
 const ruleAliases = [];
+const termSourceKeys = new Map();
 
 for (const rule of rules) {
+  const ruleSourceKeys = sourceKeysForRule(rule);
   const matchedTerms = [];
 
   for (const term of curatedTerms) {
     const basis = termMatchesRule(term, rule);
     if (!basis) continue;
     matchedTerms.push({ term, basis });
+    addTermSourceKeys(termSourceKeys, term.id, ruleSourceKeys);
     termRuleLinks.push({
       term_id: term.id,
       rule_id: rule.id,
@@ -187,7 +211,7 @@ for (const rule of rules) {
   }
 
   if (!matchedTerms.length) {
-    const generatedTerm = makeOfficialTerm(rule);
+    const generatedTerm = makeOfficialTerm(rule, ruleSourceKeys);
     generatedTerms.set(`${generatedTerm.id}:${rule.id}`, generatedTerm);
     matchedTerms.push({ term: generatedTerm, basis: "generated_tfda_rule" });
     termRuleLinks.push({
@@ -280,7 +304,7 @@ for (const term of [...curatedTerms, ...generatedTerms.values()]) {
     category: term.category ?? "ingredient",
     identifiers,
     aliases,
-    source_keys: asArray(term.source_keys),
+    source_keys: uniqueByNormalized([...asArray(term.source_keys), ...asArray([...(termSourceKeys.get(term.id) ?? [])])], (value) => value),
     notes: term.notes ?? ""
   });
 }

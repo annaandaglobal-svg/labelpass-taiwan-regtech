@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-26",
+  "version": "2026-06-27",
   "notes": "Curated aliases are merged with official TFDA ingredient aliases by scripts/build-term-index.mjs. Keep ambiguous trade/common names, but mark them in notes so review UI can ask for confirmation.",
   "terms": [
     {
@@ -960,28 +960,28 @@
           "confidence": 0.85
         },
         {
-          "value": "????",
+          "value": "過氧化氫",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "过氧化氢",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "과산화수소",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "過酸化水素",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1024,28 +1024,35 @@
           "confidence": 0.95
         },
         {
-          "value": "??",
+          "value": "麴酸",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "???",
+          "value": "曲酸",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.95
+        },
+        {
+          "value": "코직애씨드",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "?????",
-          "type": "local_name",
+          "value": "코직산",
+          "type": "common_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
         },
         {
-          "value": "????",
+          "value": "コウジ酸",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1103,56 +1110,56 @@
           "confidence": 0.85
         },
         {
-          "value": "????",
+          "value": "氫氧化鉀",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "氢氧化钾",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "氫氧化鈉",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "氢氧化钠",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "수산화칼륨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "??????",
+          "value": "수산화나트륨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "???????",
+          "value": "水酸化カリウム",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
           "confidence": 0.95
         },
         {
-          "value": "????????",
+          "value": "水酸化ナトリウム",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1196,42 +1203,42 @@
           "confidence": 1
         },
         {
-          "value": "?",
+          "value": "氨",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "??",
+          "value": "氫氧化銨",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "암모니아",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "??????",
+          "value": "수산화암모늄",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "アンモニア",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
           "confidence": 0.95
         },
         {
-          "value": "?????????",
+          "value": "水酸化アンモニウム",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1273,28 +1280,28 @@
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "間苯二酚",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "间苯二酚",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "레조시놀",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "レゾルシン",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1338,25 +1345,42 @@
           "confidence": 0.95
         },
         {
-          "value": "??-2,5-??",
-          "type": "local_name",
-          "language": "zh",
+          "value": "Toluene 2,5-diamine",
+          "type": "official_name",
+          "language": "en",
           "jurisdiction": "TW",
-          "confidence": 0.9
+          "confidence": 0.95,
+          "note": "Taiwan TFDA cosmetic ingredient wording; keep sulfate salt linked but separately identifiable."
         },
         {
-          "value": "???-2,5-???",
+          "value": "甲苯-2,5-二胺",
+          "type": "chemical_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Chemical-structure wording for search recall."
+        },
+        {
+          "value": "톨루엔-2,5-디아민",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "confidence": 0.9
+          "confidence": 0.85,
+          "note": "Korean chemical transliteration for search recall."
         },
         {
-          "value": "????-2,5-????",
+          "value": "2,5-디아미노톨루엔",
+          "type": "chemical_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "トルエン-2,5-ジアミン",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
-          "confidence": 0.9
+          "confidence": 0.85
         }
       ],
       "source_keys": [
@@ -1402,35 +1426,35 @@
           "confidence": 0.95
         },
         {
-          "value": "???",
+          "value": "維A酸",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "???",
+          "value": "维A酸",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "트레티노인",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "????",
-          "type": "local_name",
+          "value": "레티노산",
+          "type": "common_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "??????",
+          "value": "トレチノイン",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1466,21 +1490,21 @@
           "confidence": 1
         },
         {
-          "value": "??",
+          "value": "硼酸",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "??",
+          "value": "붕산",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "???",
+          "value": "ホウ酸",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1528,28 +1552,28 @@
           "note": "Ambiguous abbreviation; confirm context."
         },
         {
-          "value": "????",
+          "value": "苯扎氯銨",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "????",
+          "value": "苯扎氯铵",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "??????",
+          "value": "벤잘코늄클로라이드",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "????????????",
+          "value": "塩化ベンザルコニウム",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1597,28 +1621,29 @@
           "confidence": 1
         },
         {
-          "value": "???",
+          "value": "氯己定",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "???",
+          "value": "洗必泰",
           "type": "common_name",
-          "language": "zh",
-          "jurisdiction": "CN",
-          "confidence": 0.85
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Broad common name; confirm salt form and product context."
         },
         {
-          "value": "??????",
+          "value": "클로르헥시딘",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "????????",
+          "value": "クロルヘキシジン",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1653,21 +1678,21 @@
           "confidence": 1
         },
         {
-          "value": "????",
+          "value": "氯苯甘醚",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "?????",
+          "value": "클로페네신",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "????????",
+          "value": "クロルフェネシン",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1710,21 +1735,21 @@
           "confidence": 0.85
         },
         {
-          "value": "????",
+          "value": "氯二甲酚",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "??????",
+          "value": "클로록실레놀",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "?????????",
+          "value": "クロロキシレノール",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1759,28 +1784,29 @@
           "confidence": 1
         },
         {
-          "value": "???",
+          "value": "甘寶素",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
+          "confidence": 0.85,
+          "note": "Market/local ingredient name; confirm INCI in official review."
         },
         {
-          "value": "???",
+          "value": "甘宝素",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
-          "confidence": 0.9
+          "confidence": 0.85
         },
         {
-          "value": "????",
+          "value": "클림바졸",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "???????",
+          "value": "クリンバゾール",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -1815,25 +1841,26 @@
           "confidence": 1
         },
         {
-          "value": "DMDM??",
+          "value": "DMDM 乙內醯脲",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
+          "confidence": 0.8,
+          "note": "Market/local ingredient translation; confirm INCI DMDM Hydantoin in official review."
         },
         {
-          "value": "?????????",
+          "value": "디엠디엠하이단토인",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         {
-          "value": "DMDM??????",
+          "value": "DMDMヒダントイン",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
-          "confidence": 0.9
+          "confidence": 0.85
         }
       ],
       "source_keys": [
@@ -1864,25 +1891,26 @@
           "confidence": 1
         },
         {
-          "value": "??????",
+          "value": "雙咪唑烷基脲",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
+          "confidence": 0.85,
+          "note": "Market/local ingredient translation; confirm INCI Diazolidinyl Urea in official review."
         },
         {
-          "value": "??????",
+          "value": "双咪唑烷基脲",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
-          "confidence": 0.9
+          "confidence": 0.85
         },
         {
-          "value": "?????????",
+          "value": "디아졸리디닐우레아",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "confidence": 0.95
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -1913,18 +1941,19 @@
           "confidence": 1
         },
         {
-          "value": "?????",
+          "value": "咪唑烷基脲",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
+          "confidence": 0.85,
+          "note": "Market/local ingredient translation; confirm INCI Imidazolidinyl Urea in official review."
         },
         {
-          "value": "??????????",
+          "value": "이미다졸리디닐우레아",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "confidence": 0.95
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -1962,14 +1991,15 @@
           "confidence": 0.85
         },
         {
-          "value": "??????????",
+          "value": "碘丙炔醇丁基氨甲酸酯",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
+          "confidence": 0.85,
+          "note": "Market/local ingredient translation; confirm INCI and IPBC context."
         },
         {
-          "value": "???????????????",
+          "value": "아이오도프로피닐부틸카바메이트",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
@@ -2002,28 +2032,28 @@
           "confidence": 1
         },
         {
-          "value": "??",
+          "value": "樟腦",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "??",
+          "value": "樟脑",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.95
         },
         {
-          "value": "??",
+          "value": "장뇌",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "????",
+          "value": "カンフル",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",
@@ -2056,21 +2086,21 @@
           "confidence": 1
         },
         {
-          "value": "???",
+          "value": "薄荷醇",
           "type": "local_name",
-          "language": "zh",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95
         },
         {
-          "value": "??",
+          "value": "멘톨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
         },
         {
-          "value": "?????",
+          "value": "メントール",
           "type": "local_name",
           "language": "ja",
           "jurisdiction": "JP",

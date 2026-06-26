@@ -1736,9 +1736,104 @@
       ],
       "affected_terms": [
         {
+          "term_key": "titanium-dioxide",
+          "canonical_name": "Titanium Dioxide",
+          "category": "colorant_uv_filter"
+        },
+        {
+          "term_key": "zinc-oxide",
+          "canonical_name": "Zinc Oxide",
+          "category": "uv_filter"
+        },
+        {
           "term_key": "cosmetic-colorants",
           "canonical_name": "Cosmetic Colorants",
           "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "tfda-ci-10006",
+          "canonical_name": "CI 10006",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-10020",
+          "canonical_name": "CI 10020",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-10316",
+          "canonical_name": "CI 10316",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-11680",
+          "canonical_name": "CI 11680",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-11710",
+          "canonical_name": "CI 11710",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-11725",
+          "canonical_name": "CI 11725",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-11920",
+          "canonical_name": "CI 11920",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12010",
+          "canonical_name": "CI 12010",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12085",
+          "canonical_name": "CI 12085",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12120",
+          "canonical_name": "CI 12120",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12370",
+          "canonical_name": "CI 12370",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12420",
+          "canonical_name": "CI 12420",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12480",
+          "canonical_name": "CI 12480",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12490",
+          "canonical_name": "CI 12490",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-12700",
+          "canonical_name": "CI 12700",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-13015",
+          "canonical_name": "CI 13015",
+          "category": "colorant"
+        },
+        {
+          "term_key": "tfda-ci-14270",
+          "canonical_name": "CI 14270",
+          "category": "colorant"
         }
       ],
       "affected_products": [
@@ -1941,6 +2036,101 @@
         "infoid-201"
       ],
       "affected_terms": [
+        {
+          "term_key": "salicylic-acid",
+          "canonical_name": "Salicylic Acid",
+          "category": "cosmetic_ingredient"
+        },
+        {
+          "term_key": "methylisothiazolinone",
+          "canonical_name": "Methylisothiazolinone",
+          "category": "preservative"
+        },
+        {
+          "term_key": "methylchloroisothiazolinone",
+          "canonical_name": "Methylchloroisothiazolinone",
+          "category": "preservative"
+        },
+        {
+          "term_key": "triclosan",
+          "canonical_name": "Triclosan",
+          "category": "preservative"
+        },
+        {
+          "term_key": "phenoxyethanol",
+          "canonical_name": "Phenoxyethanol",
+          "category": "preservative"
+        },
+        {
+          "term_key": "methylparaben",
+          "canonical_name": "Methylparaben",
+          "category": "preservative"
+        },
+        {
+          "term_key": "propylparaben",
+          "canonical_name": "Propylparaben",
+          "category": "preservative"
+        },
+        {
+          "term_key": "benzalkonium-chloride-family",
+          "canonical_name": "Benzalkonium Chloride Family",
+          "category": "preservative"
+        },
+        {
+          "term_key": "chlorhexidine-family",
+          "canonical_name": "Chlorhexidine Family",
+          "category": "preservative"
+        },
+        {
+          "term_key": "chlorphenesin",
+          "canonical_name": "Chlorphenesin",
+          "category": "preservative"
+        },
+        {
+          "term_key": "chloroxylenol",
+          "canonical_name": "Chloroxylenol",
+          "category": "preservative"
+        },
+        {
+          "term_key": "climbazole",
+          "canonical_name": "Climbazole",
+          "category": "preservative"
+        },
+        {
+          "term_key": "dmdm-hydantoin",
+          "canonical_name": "DMDM Hydantoin",
+          "category": "preservative"
+        },
+        {
+          "term_key": "diazolidinyl-urea",
+          "canonical_name": "Diazolidinyl Urea",
+          "category": "preservative"
+        },
+        {
+          "term_key": "imidazolidinyl-urea",
+          "canonical_name": "Imidazolidinyl Urea",
+          "category": "preservative"
+        },
+        {
+          "term_key": "iodopropynyl-butylcarbamate",
+          "canonical_name": "Iodopropynyl Butylcarbamate",
+          "category": "preservative"
+        },
+        {
+          "term_key": "benzoates-food-additives",
+          "canonical_name": "Benzoic Acid and Benzoates",
+          "category": "food_additive"
+        },
+        {
+          "term_key": "sorbates-food-additives",
+          "canonical_name": "Sorbic Acid and Sorbates",
+          "category": "food_additive"
+        },
+        {
+          "term_key": "dehydroacetic-acid-food-additive",
+          "canonical_name": "Dehydroacetic Acid",
+          "category": "food_additive"
+        },
         {
           "term_key": "cosmetic-preservatives",
           "canonical_name": "Cosmetic Preservatives",
@@ -2210,9 +2400,104 @@
       ],
       "affected_terms": [
         {
+          "term_key": "mercury",
+          "canonical_name": "Mercury",
+          "category": "restricted_substance"
+        },
+        {
+          "term_key": "formaldehyde",
+          "canonical_name": "Formaldehyde",
+          "category": "restricted_substance"
+        },
+        {
+          "term_key": "hydrogen-peroxide",
+          "canonical_name": "Hydrogen Peroxide",
+          "category": "oxidizing_agent"
+        },
+        {
+          "term_key": "tretinoin-retinoic-acid",
+          "canonical_name": "Tretinoin / Retinoic Acid",
+          "category": "prohibited_substance"
+        },
+        {
+          "term_key": "boric-acid",
+          "canonical_name": "Boric Acid",
+          "category": "restricted_substance"
+        },
+        {
           "term_key": "cosmetic-prohibited-ingredients",
           "canonical_name": "Cosmetic Prohibited Ingredients",
           "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
+          "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-impatientis-semen",
+          "canonical_name": "Impatientis Semen（急性子）",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-knoxiae-radix",
+          "canonical_name": "Knoxiae Radix（紅大戟）",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-stellera-chamaejasme-l",
+          "canonical_name": "Stellera chamaejasme L. (狼毒)",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-anemone-hupehensis-lemoine",
+          "canonical_name": "Anemone hupehensis Lemoine (打破碗花)",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-barium-salts",
+          "canonical_name": "Barium salts",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-tetrahydrocannabinols",
+          "canonical_name": "Tetrahydrocannabinols",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-nonylphenol-and-nonylphenol-polyethylene-glycol-ether",
+          "canonical_name": "Nonylphenol and Nonylphenol polyethylene glycol ether",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-substances-with-androgenic-effect",
+          "canonical_name": "Substances with androgenic effect",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-2-2-2-trichloroethane-1-1-diol",
+          "canonical_name": "2,2,2 -Trichloroethane-1,1-diol",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-pharbitidis-semen",
+          "canonical_name": "Pharbitidis Semen（牽牛子）",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-n-n-bis-2-chloroethyl-methylamine-n-oxide-and-its-salts",
+          "canonical_name": "N,N-bis(2-Chloroethyl)methylamine N-oxide and its salts",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-chlormethine-inn-and-its-salts",
+          "canonical_name": "Chlormethine (INN) and its salts",
+          "category": "prohibited"
+        },
+        {
+          "term_key": "tfda-cyclophosphamide-inn-and-its-salts",
+          "canonical_name": "Cyclophosphamide (INN) and its salts",
+          "category": "prohibited"
         }
       ],
       "affected_products": [
@@ -2279,6 +2564,71 @@
       ],
       "affected_terms": [
         {
+          "term_key": "salicylic-acid",
+          "canonical_name": "Salicylic Acid",
+          "category": "cosmetic_ingredient"
+        },
+        {
+          "term_key": "hydrogen-peroxide",
+          "canonical_name": "Hydrogen Peroxide",
+          "category": "oxidizing_agent"
+        },
+        {
+          "term_key": "kojic-acid",
+          "canonical_name": "Kojic Acid",
+          "category": "skin_lightening_agent"
+        },
+        {
+          "term_key": "alkali-hydroxides",
+          "canonical_name": "Potassium or Sodium Hydroxide",
+          "category": "ph_adjuster"
+        },
+        {
+          "term_key": "ammonia-ammonium-hydroxide",
+          "canonical_name": "Ammonia / Ammonium Hydroxide",
+          "category": "alkalizing_agent"
+        },
+        {
+          "term_key": "resorcinol",
+          "canonical_name": "Resorcinol",
+          "category": "hair_dye_ingredient"
+        },
+        {
+          "term_key": "toluene-2-5-diamine",
+          "canonical_name": "Toluene-2,5-diamine",
+          "category": "hair_dye_ingredient"
+        },
+        {
+          "term_key": "boric-acid",
+          "canonical_name": "Boric Acid",
+          "category": "restricted_substance"
+        },
+        {
+          "term_key": "benzalkonium-chloride-family",
+          "canonical_name": "Benzalkonium Chloride Family",
+          "category": "preservative"
+        },
+        {
+          "term_key": "climbazole",
+          "canonical_name": "Climbazole",
+          "category": "preservative"
+        },
+        {
+          "term_key": "camphor",
+          "canonical_name": "Camphor",
+          "category": "cosmetic_ingredient"
+        },
+        {
+          "term_key": "menthol",
+          "canonical_name": "Menthol",
+          "category": "cosmetic_ingredient"
+        },
+        {
+          "term_key": "calcium-lime-food-additives",
+          "canonical_name": "Calcium Hydroxide and Calcium Oxide",
+          "category": "food_additive"
+        },
+        {
           "term_key": "cosmetic-restricted-ingredients",
           "canonical_name": "Cosmetic Restricted Ingredients",
           "category": "cosmetic_ingredient_restriction"
@@ -2292,6 +2642,26 @@
           "term_key": "cosmetic-sunscreen-ingredients",
           "canonical_name": "Cosmetic Sunscreen Ingredients",
           "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "tfda-6-methylcoumarin",
+          "canonical_name": "6-Methylcoumarin",
+          "category": "restricted"
+        },
+        {
+          "term_key": "tfda-allantoin",
+          "canonical_name": "Allantoin",
+          "category": "restricted"
+        },
+        {
+          "term_key": "tfda-aluminum-potassium-bis-sulfate",
+          "canonical_name": "Aluminum potassium bis(sulfate)",
+          "category": "restricted"
+        },
+        {
+          "term_key": "tfda-alcloxa",
+          "canonical_name": "Alcloxa",
+          "category": "restricted"
         }
       ],
       "affected_products": [
@@ -2360,9 +2730,104 @@
       ],
       "affected_terms": [
         {
+          "term_key": "titanium-dioxide",
+          "canonical_name": "Titanium Dioxide",
+          "category": "colorant_uv_filter"
+        },
+        {
+          "term_key": "zinc-oxide",
+          "canonical_name": "Zinc Oxide",
+          "category": "uv_filter"
+        },
+        {
+          "term_key": "benzophenone-3",
+          "canonical_name": "Benzophenone-3",
+          "category": "uv_filter"
+        },
+        {
           "term_key": "cosmetic-sunscreen-ingredients",
           "canonical_name": "Cosmetic Sunscreen Ingredients",
           "category": "cosmetic_ingredient_restriction"
+        },
+        {
+          "term_key": "tfda-2-ethylhexyl-4-dimethylamino-benzoate-padimate-o",
+          "canonical_name": "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-hydroxy-4-methoxybenzophenone-5-sulfonic-acid-and-its-sodium-salt-sulisobenzon",
+          "canonical_name": "2-Hydroxy-4-methoxybenzophenone-5-sulfonic acid and its sodium salt/ Sulisobenzone",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-benzoic-acid-2-hydroxy-3-3-5-trimethylcyclohexyl-ester-homosalate",
+          "canonical_name": "Benzoic acid, 2-hydroxy-,3,3,5-trimethylcyclohexyl ester/ Homosalate",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-ethylhexyl-4-methoxycinnamate-octinoxate",
+          "canonical_name": "2-Ethylhexyl 4-methoxycinnamate/ Octinoxate",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-ethylhexyl-salicylate-octisalate",
+          "canonical_name": "2-Ethylhexyl salicylate/ Octisalate",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-phenylbenzimidazole-5-sulfonic-acid-and-its-potassium-sodium-and-triethanolami",
+          "canonical_name": "2-Phenylbenzimidazole-5-sulfonic acid and its potassium, sodium and triethanolamine salts/ Ensulizole",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-1-4-tert-butylphenyl-3-4-methoxyphenyl-propane-1-3-dione-avobenzone",
+          "canonical_name": "1-(4-tert-Butylphenyl)-3-(4-methoxyphenyl) propane-1,3-dione/ Avobenzone",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-3-3-1-4-phenylenedimethylene-bis-7-7-dimethyl-2-oxobicyclo-2-2-1-hept-1-ylmethan",
+          "canonical_name": "3,3'-(1,4-Phenylenedimethylene)bis(7, 7-dimethyl-2-oxobicyclo-[2.2.1]hept-1-ylmethanesulfonic acid) and its salts/ Ecamsule",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-cyano-3-3-diphenylacrylic-acid-2-ethylhexyl-ester-octocrilene",
+          "canonical_name": "2-Cyano-3,3-diphenylacrylic acid, 2-ethylhexyl ester/ Octocrilene",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-phenol-2-2h-benzotriazol-2-yl-4-methyl-6-2-methyl-3-1-3-3-3-tetramethyl-1-trimet",
+          "canonical_name": "Phenol,2-(2H-benzotriazol-2-yl)-4-methyl-6-(2-methyl-3-(1,3,3,3-tetramethyl-1-(trimethylsilyl)oxy)disiloxanyl)propyl)",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-2-methylene-bis-6-2h-benzotriazol-2-yl-4-1-1-3-3-tetramethylbutyl-phenol-bisoc",
+          "canonical_name": "2,2'-Methylene-bis(6-(2H-benzotriazol-2-yl)-4-(1,1,3,3-tetramethylbutyl)phenol)/ Bisoctrizole",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-2-6-4-methoxyphenyl-1-3-5-triazine-2-4-diyl-bis-5-2-ethylhexyl-oxy-phenol-bemo",
+          "canonical_name": "2,2'-(6-(4-Methoxyphenyl)-1,3,5-triazine-2,4-diyl)bis(5-((2-ethylhexyl)oxy)phenol)/ Bemotrizinol",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-dimethicodiethylbenzalmalonate",
+          "canonical_name": "Dimethicodiethylbenzalmalonate",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-2-4-6-trianilino-pcarbo-2-ethylhexyl-1-oxy-1-3-5-triazine",
+          "canonical_name": "2,4,6-Trianilino-(pcarbo-2'-ethylhexyl-1'-oxy)-1,3,5-triazine",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-benzoic-acid-2-4-diethylamino-2-hydroxybenzoyl-hexylester",
+          "canonical_name": "Benzoic acid, 2-[-4-(diethylamino)-2-hydroxybenzoyl]-, hexylester",
+          "category": "sunscreen"
+        },
+        {
+          "term_key": "tfda-alpha-2-oxoborn-3-ylidene-toluene-4-sulphonic-acid-and-its-salts",
+          "canonical_name": "alpha-(2-Oxoborn-3-ylidene)-toluene-4-sulphonic acid and its salts",
+          "category": "sunscreen"
         }
       ],
       "affected_products": [

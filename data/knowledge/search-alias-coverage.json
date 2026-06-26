@@ -186,25 +186,69 @@
       "id": "salicylic-cas-unicode-dash",
       "query": "69–72–7",
       "expectedTermId": "salicylic-acid",
-      "requiredAliases": ["69-72-7", "Salicylic Acid"]
+      "requiredAliases": ["69-72-7", "Salicylic Acid"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-cosmetic-preservatives"]
     },
     {
       "id": "salicylic-cas-prefix",
       "query": "CAS 69-72-7",
       "expectedTermId": "salicylic-acid",
-      "requiredAliases": ["69-72-7", "Salicylic Acid"]
+      "requiredAliases": ["69-72-7", "Salicylic Acid"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-cosmetic-preservatives"]
     },
     {
       "id": "titanium-dioxide-ci-compact",
       "query": "CI77891",
       "expectedTermId": "titanium-dioxide",
-      "requiredAliases": ["CI 77891", "Titanium Dioxide", "TiO2"]
+      "requiredAliases": ["CI 77891", "Titanium Dioxide", "TiO2"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-sunscreen-ingredients"]
     },
     {
       "id": "benzophenone-3-inci-synonym",
       "query": "Oxybenzone",
       "expectedTermId": "benzophenone-3",
-      "requiredAliases": ["Oxybenzone", "Benzophenone-3", "二苯酮-3"]
+      "requiredAliases": ["Oxybenzone", "Benzophenone-3", "二苯酮-3"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-sunscreen-ingredients"]
+    },
+    {
+      "id": "hydrogen-peroxide-korean",
+      "query": "과산화수소",
+      "expectedTermId": "hydrogen-peroxide",
+      "requiredAliases": ["Hydrogen Peroxide", "H2O2", "過氧化氫", "과산화수소"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients"]
+    },
+    {
+      "id": "kojic-acid-korean-common",
+      "query": "코직산",
+      "expectedTermId": "kojic-acid",
+      "requiredAliases": ["Kojic Acid", "麴酸", "코직애씨드", "코직산"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients"]
+    },
+    {
+      "id": "toluene-2-5-diamine-korean",
+      "query": "톨루엔-2,5-디아민",
+      "expectedTermId": "toluene-2-5-diamine",
+      "requiredAliases": ["Toluene-2,5-diamine", "Toluene 2,5-diamine", "톨루엔-2,5-디아민"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients"]
+    },
+    {
+      "id": "dmdm-hydantoin-zh",
+      "query": "DMDM 乙內醯脲",
+      "expectedTermId": "dmdm-hydantoin",
+      "requiredAliases": ["DMDM Hydantoin", "DMDM 乙內醯脲", "디엠디엠하이단토인"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-preservatives"]
+    },
+    {
+      "id": "menthol-korean",
+      "query": "멘톨",
+      "expectedTermId": "menthol",
+      "requiredAliases": ["Menthol", "薄荷醇", "멘톨", "メントール"]
+    },
+    {
+      "id": "camphor-zh",
+      "query": "樟腦",
+      "expectedTermId": "camphor",
+      "requiredAliases": ["Camphor", "樟腦", "장뇌", "カンフル"]
     }
   ]
 }

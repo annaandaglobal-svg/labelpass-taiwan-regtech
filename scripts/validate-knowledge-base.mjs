@@ -6,6 +6,7 @@ const root = process.cwd();
 const paths = {
   rules: path.join(root, "data", "rules", "tw-cosmetics-rules.json"),
   registry: path.join(root, "data", "knowledge", "source-registry.json"),
+  termRegistry: path.join(root, "data", "knowledge", "term-registry.json"),
   index: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
   aliasReviewQueue: path.join(root, "data", "knowledge", "alias-review-queue.json"),
@@ -69,9 +70,14 @@ function expectedCacheStatus(value, now = new Date()) {
   return expiresAt <= now.getTime() ? "stale" : "fresh";
 }
 
-const [rulesData, registry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
+function hasDamagedAliasText(value) {
+  return /�|\?{2,}|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔)/u.test(String(value ?? ""));
+}
+
+const [rulesData, registry, termRegistry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
+  readJson(paths.termRegistry),
   readJson(paths.index),
   readJson(paths.termIndex),
   readJson(paths.aliasReviewQueue),
@@ -82,6 +88,7 @@ const [rulesData, registry, index, termIndex, aliasReviewQueue, updateQueue, sch
 
 const rules = rulesData.rules ?? [];
 const sources = registry.sources ?? [];
+const curatedTerms = termRegistry.terms ?? [];
 const results = index.results ?? [];
 const terms = termIndex.terms ?? [];
 const links = termIndex.term_rule_links ?? [];
@@ -94,6 +101,7 @@ const ruleSourceIds = new Set(rules.map((rule) => `tfda-info-${rule.source_info_
 const sourceIds = uniqueBy(sources, (source) => source.id, "source-registry sources");
 uniqueBy(sources, (source) => source.url, "source-registry source URLs");
 const resultIds = uniqueBy(results, (result) => result.id, "knowledge crawl results");
+uniqueBy(curatedTerms, (term) => term.id, "term-registry terms");
 const termIds = uniqueBy(terms, (term) => term.id, "knowledge terms");
 uniqueBy(updateCandidates, (candidate) => candidate.candidate_key, "regulatory update candidates");
 
@@ -111,6 +119,14 @@ if (index.success_count !== results.length) {
 
 if ((index.failure_count ?? 0) !== 0) {
   fail(`knowledge crawl has ${index.failure_count} failed source(s)`);
+}
+
+for (const term of curatedTerms) {
+  for (const alias of term.aliases ?? []) {
+    if (hasDamagedAliasText(alias.value)) {
+      fail(`term-registry term ${term.id} has damaged alias text: ${alias.value}`);
+    }
+  }
 }
 
 for (const result of results) {
@@ -246,6 +262,9 @@ for (const term of terms) {
   for (const alias of aliases) {
     if (!alias.value || !alias.normalized) {
       fail(`term ${term.id} has an alias without value or normalized form`);
+    }
+    if (hasDamagedAliasText(alias.value) || hasDamagedAliasText(alias.normalized)) {
+      fail(`term ${term.id} has damaged alias text: ${alias.value}`);
     }
   }
 

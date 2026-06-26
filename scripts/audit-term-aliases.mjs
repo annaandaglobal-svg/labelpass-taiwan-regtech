@@ -194,13 +194,61 @@ const termIndex = await readJson(paths.termIndex);
 const termRegistry = await readJson(paths.termRegistry);
 
 const registryVersion = termRegistry.version ?? "unknown";
+const rawRegistryTerms = Array.isArray(termRegistry.terms) ? termRegistry.terms : [];
 const scannedTerms = Array.isArray(termIndex.terms) ? termIndex.terms : [];
 const rawAliasCount = scannedTerms.reduce((count, term) => count + (term.aliases?.length ?? 0), 0);
 
 const aliasRows = [];
 const mojibakeFindings = [];
+const mojibakeFindingKeys = new Set();
 const shortNoteFindings = [];
 const localCoverageFindings = [];
+
+function addMojibakeFinding({ term, alias, normalized, confidence, aliasType, aliasLanguage, aliasJurisdiction, note }) {
+  const key = `${term.id}:${normalized}:${alias.value}`;
+  if (mojibakeFindingKeys.has(key)) return;
+  mojibakeFindingKeys.add(key);
+  mojibakeFindings.push({
+    alias: normalized,
+    termCount: 1,
+    maxConfidence: confidence,
+    priority: 3,
+    issue: "mojibake",
+    strictBlocker: false,
+    highConfidenceCollision: false,
+    unnotedHighConfidenceRows: [],
+    notedHighConfidenceRows: [],
+    terms: [
+      {
+        id: term.id,
+        canonical_name: term.canonical_name ?? term.id,
+        confidence,
+        aliasValue: alias.value,
+        aliasType,
+        language: aliasLanguage,
+        jurisdiction: aliasJurisdiction,
+        notes: note || String(term?.notes ?? "").trim()
+      }
+    ]
+  });
+}
+
+for (const term of rawRegistryTerms) {
+  for (const alias of Array.isArray(term.aliases) ? term.aliases : []) {
+    const value = String(alias?.value ?? "").trim();
+    if (!value || !isMojibakeValue(value)) continue;
+    addMojibakeFinding({
+      term,
+      alias: { value },
+      normalized: normalizeText(value),
+      confidence: Number(alias?.confidence ?? 0),
+      aliasType: String(alias?.type ?? "alias"),
+      aliasLanguage: String(alias?.language ?? ""),
+      aliasJurisdiction: String(alias?.jurisdiction ?? ""),
+      note: String(alias?.note ?? "").trim()
+    });
+  }
+}
 
 for (const term of scannedTerms) {
   const aliases = Array.isArray(term.aliases) ? term.aliases : [];
@@ -223,28 +271,15 @@ for (const term of scannedTerms) {
     const aliasJurisdiction = String(alias?.jurisdiction ?? "");
 
     if (isMojibakeValue(value)) {
-      mojibakeFindings.push({
-        alias: normalized,
-        termCount: 1,
-        maxConfidence: confidence,
-        priority: 3,
-        issue: "mojibake",
-        strictBlocker: false,
-        highConfidenceCollision: false,
-        unnotedHighConfidenceRows: [],
-        notedHighConfidenceRows: [],
-        terms: [
-          {
-            id: term.id,
-            canonical_name: term.canonical_name ?? term.id,
-            confidence,
-            aliasValue: value,
-            aliasType,
-            language: aliasLanguage,
-            jurisdiction: aliasJurisdiction,
-            notes: note || String(term?.notes ?? "").trim()
-          }
-        ]
+      addMojibakeFinding({
+        term,
+        alias: { value },
+        normalized,
+        confidence,
+        aliasType,
+        aliasLanguage,
+        aliasJurisdiction,
+        note
       });
     }
 

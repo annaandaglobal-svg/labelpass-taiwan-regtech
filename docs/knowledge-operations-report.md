@@ -1,6 +1,6 @@
 # Knowledge Operations Report
 
-Generated: 2026-06-26T20:10:27.995Z
+Generated: 2026-06-26T20:52:29.747Z
 Crawl index: 2026-06-26T20:07:58.580Z
 Term index: 2026-06-25T07:47:54.729Z
 
@@ -17,13 +17,13 @@ This file is generated from the current LabelPass knowledge artifacts. Use it to
 
 - Knowledge sources: 166
 - High-priority sources: 130
-- Knowledge terms: 1,175
-- Stored term aliases: 4,013
-- Identifier aliases: 2,479
-- Searchable aliases: 6,492
-- Term-rule links: 1,099
+- Knowledge terms: 1,176
+- Stored term aliases: 4,088
+- Identifier aliases: 2,481
+- Searchable aliases: 6,569
+- Term-rule links: 1,082
 - Regulatory update candidates: 57
-- Alias review items: 1,097
+- Alias review items: 1,092
 
 ## Freshness
 
@@ -82,14 +82,14 @@ This file is generated from the current LabelPass knowledge artifacts. Use it to
 ## Queues
 
 - Update queue: 16 pending refresh, 41 watching, 0 detected changes.
-- Alias triage backlog: 46 high-confidence collisions, 2 mojibake aliases, 1,040 regulated terms without readable local aliases; 0 strict blockers.
+- Alias triage backlog: 46 high-confidence collisions, 0 mojibake aliases, 1,037 regulated terms without readable local aliases; 0 strict blockers.
 
 ## Supabase Seed Readiness
 
-- Seed term aliases: 4,013
+- Seed term aliases: 4,088
 - Seed update candidates: 57
-- SQL editor chunks: 22 chunks / 6,682 statements
-- Largest chunk bytes: 224,920
+- SQL editor chunks: 23 chunks / 6,741 statements
+- Largest chunk bytes: 224,921
 
 ## Operating Commands
 

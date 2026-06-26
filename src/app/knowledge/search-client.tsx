@@ -290,7 +290,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
 
   const topResult = unifiedResults[0];
   const secondaryResults = unifiedResults.slice(1);
-  const visibleSecondaryResults = showAllResults ? secondaryResults : secondaryResults.slice(0, 3);
+  const visibleSecondaryResults = showAllResults ? secondaryResults : [];
   const selectedEvidence =
     evidence ?? (topResult ? (topResult.kind === "term" ? buildTermEvidence(topResult.term) : buildSourceEvidence(topResult.source)) : null);
   const selectedEvidenceParam = encodeURIComponent(selectedEvidence?.reviewParam || selectedEvidence?.title || "");
@@ -362,13 +362,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           <p>원료명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드처럼 서로 다른 이름을 한곳에서 연결합니다.</p>
         </div>
         <div className="knowledge-command-actions">
-          <div className="knowledge-mode-tabs" aria-label="품목군 선택">
-            {focusModes.map((mode) => (
-              <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
-                {mode.label}
-              </button>
-            ))}
-          </div>
           <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
             <Search size={19} />
             <input
@@ -379,12 +372,36 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             />
             {loading && <Loader2 className="spin" size={18} />}
           </div>
+          <div className="knowledge-steady-action" aria-label="다음 작업">
+            <span>{selectedEvidence ? selectedEvidence.title : "검색 결과 선택 후 검토에 반영"}</span>
+            {selectedEvidence ? (
+              <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`} className="knowledge-primary-cta">
+                <PackageSearch size={15} />
+                대만 라벨 검토에 반영
+              </Link>
+            ) : (
+              <button type="button" disabled>
+                <PackageSearch size={15} />
+                검토 반영 대기
+              </button>
+            )}
+          </div>
+          <details className="knowledge-mode-drawer">
+            <summary>검색 범위: {focusModeMeta.label}</summary>
+            <div className="knowledge-mode-tabs" aria-label="품목군 선택">
+              {focusModes.map((mode) => (
+                <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
+                  {mode.label}
+                </button>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
 
       {error && <div className="knowledge-alert">{error}</div>}
 
-      <div className="knowledge-results knowledge-results-unified knowledge-results-stable">
+      <div className={["knowledge-results", "knowledge-results-unified", "knowledge-results-stable", !hasQuery ? "is-start" : ""].join(" ")}>
         <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
             <h2>{hasQuery ? "검색 결과" : "검색 시작"}</h2>
@@ -393,30 +410,13 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
 
           {!hasQuery && (
             <div className="knowledge-search-empty knowledge-search-empty-start">
-              <div className="knowledge-start-flow" aria-label="검색 검토 흐름">
-                <div className="active">
-                  <Search size={18} />
-                  <b>1. 검색</b>
-                  <span>원료명, 표시 문구, 허가번호를 입력합니다.</span>
-                </div>
-                <div>
-                  <ShieldCheck size={18} />
-                  <b>2. 공식 근거 확인</b>
-                  <span>대만 공식명, 별칭, 출처를 함께 봅니다.</span>
-                </div>
-                <div>
-                  <PackageSearch size={18} />
-                  <b>3. 검토에 반영</b>
-                  <span>선택한 근거를 라벨 검토 화면으로 넘깁니다.</span>
-                </div>
-              </div>
               <div className="knowledge-start-copy">
                 <b>{focusModeMeta.title}</b>
-                <span>{focusModeMeta.helper}</span>
+                <span>원료명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드 중 하나만 입력해도 관련 공식 근거와 별칭을 연결합니다.</span>
               </div>
               <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
-                <span>바로 시작</span>
-                {taskExamples.map((example) => (
+                <span>예시</span>
+                {taskExamples.slice(0, 3).map((example) => (
                   <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
                     {example.label}
                   </button>
@@ -470,12 +470,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                 <b className="knowledge-score">{topResult.kind === "term" ? "용어" : "근거"}</b>
                 <span className="knowledge-row-action-hint">근거 보기</span>
               </button>
-              <div className="knowledge-best-actions">
-                <Link href={`/?screen=review&knowledge=${encodeURIComponent(topResult.title)}`} className="knowledge-primary-cta">
-                  <PackageSearch size={15} />
-                  대만 라벨 검토에 반영
-                </Link>
-              </div>
             </article>
           )}
 
@@ -516,10 +510,10 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             {hasQuery && hasResults && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 결과가 없습니다.</div>}
             {hasQuery && hasResults && hiddenResultCount > 0 && (
               <div className="knowledge-more-note">
-                <span>{`현재 ${displayedResultCount.toLocaleString()}개를 표시 중입니다. 숨겨진 결과 ${hiddenResultCount.toLocaleString()}개가 더 있습니다.`}</span>
+                <span>{`대표 결과를 먼저 보여줍니다. 관련 결과 ${hiddenResultCount.toLocaleString()}개는 필요할 때 펼칠 수 있습니다.`}</span>
                 {!showAllResults && (
                   <button type="button" onClick={() => setShowAllResults(true)}>
-                    더 보기
+                    관련 결과 보기
                   </button>
                 )}
               </div>
@@ -527,6 +521,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           </div>
         </section>
 
+        {hasQuery && (
         <aside className="knowledge-detail-panel" aria-label="선택한 근거">
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
@@ -600,8 +595,10 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             </div>
           )}
         </aside>
+        )}
       </div>
 
+      {hasQuery && (
       <details className="knowledge-filter-drawer knowledge-filter-drawer-quiet">
         <summary>
           <Filter size={16} />
@@ -657,6 +654,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           )}
         </div>
       </details>
+      )}
     </section>
   );
 }
