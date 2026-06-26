@@ -1712,12 +1712,18 @@ function ProductsScreen({ savedReviews, onOpen, onRecheck }: { savedReviews: Sav
       <section className="product-library">
         <div className="product-toolbar">
           <div>
-            <span>제품 보관함</span>
-            <h2>내 제품 {products.length}개</h2>
+            <span>제품 운영 큐</span>
+            <h2>출고 판단 대기 {counts.act + counts.wait}개</h2>
           </div>
           <button className="ghost-btn" onClick={() => setProductFilter("act")}>
             <RefreshCw size={15} /> 재검토 대상
           </button>
+        </div>
+
+        <div className="product-ops-summary" aria-label="제품 운영 상태">
+          <span><b>{counts.act}</b>오늘 조치</span>
+          <span><b>{counts.wait}</b>회신 대기</span>
+          <span><b>{counts.done}</b>통과 관리</span>
         </div>
 
         <label className="product-search">
@@ -1733,20 +1739,30 @@ function ProductsScreen({ savedReviews, onOpen, onRecheck }: { savedReviews: Sav
         </div>
 
         <div className="product-card-list">
-          {visibleProducts.map((product) => (
-            <button key={product.id} className={selectedProduct.id === product.id ? "product-card active" : "product-card"} onClick={() => setSelectedId(product.id)}>
-              <span className={`product-status ${product.tone}`}>{product.status}</span>
-              <div>
-                <b>{product.name}</b>
-                <small>{product.category} · {product.market} · 담당 {product.owner}</small>
-              </div>
-              <p>{product.nextAction}</p>
-              <div className="product-card-foot">
-                <em>{product.due}</em>
-                <span>{product.progress}%</span>
-              </div>
-            </button>
-          ))}
+          <div className="product-list-head" aria-hidden="true">
+            <span>상태</span>
+            <span>제품</span>
+            <span>다음 조치</span>
+            <span>준비도</span>
+          </div>
+          {visibleProducts.map((product) => {
+            const preparedDocs = product.documents.filter((doc) => doc.tone === "pass").length;
+            return (
+              <button key={product.id} className={selectedProduct.id === product.id ? "product-card active" : "product-card"} onClick={() => setSelectedId(product.id)}>
+                <span className={`product-status ${product.tone}`}>{product.status}</span>
+                <div className="product-row-main">
+                  <b>{product.name}</b>
+                  <small>{product.category} · {product.market} · 담당 {product.owner}</small>
+                </div>
+                <p>{product.nextAction}</p>
+                <div className="product-card-foot">
+                  <em>{product.due}</em>
+                  <span>문서 {preparedDocs}/{product.documents.length}</span>
+                  <b>{product.progress}%</b>
+                </div>
+              </button>
+            );
+          })}
           {visibleProducts.length === 0 && (
             <div className="empty-product-state">
               <Search size={18} />
@@ -1872,39 +1888,18 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
         <div className="update-brief">
           <div>
             <span>대만 규제 업데이트</span>
-            <h2>내 제품에 영향 주는 변경만 먼저 봅니다</h2>
-            <p>자동 수집은 계속 돌리되, 실제 룰셋 반영은 사람 승인 게이트를 통과하도록 분리했습니다.</p>
+            <h2>승인 필요한 변경 큐를 먼저 처리합니다</h2>
+            <p>자동 수집은 계속 돌리되, 룰셋 반영 전에는 변경 감시 큐에서 사람 승인과 영향 제품 확인을 거치도록 분리했습니다.</p>
           </div>
           <button onClick={() => onSelect(sourceCards.find((source) => source.title === "Imported food inspection regulations") || selectedSource)}>
             <RefreshCw size={16} /> 식품 수입검사 보기
           </button>
         </div>
 
-        <div className="update-workflow">
-          {updateWorkflowItems.map((item, index) => (
-            <div key={item.label}>
-              <span>{index + 1}</span>
-              <b>{item.label}</b>
-              <small>{item.detail}</small>
-            </div>
-          ))}
-        </div>
-
-        <div className="impact-matrix">
-          {productImpactItems.map((item) => (
-            <div key={item.title} className={`impact-tile ${item.tone}`}>
-              <span>{item.badge}</span>
-              <b>{item.title}</b>
-              <small>{item.detail}</small>
-              <em>{item.status}</em>
-            </div>
-          ))}
-        </div>
-
         <div className="update-queue">
           <div className="queue-head">
             <div>
-              <span>변경 감시 큐</span>
+              <span>승인 게이트</span>
               <h2>{regulatoryUpdateQueue.summary.total}개 후보 관리 중</h2>
             </div>
             <ShieldCheck size={23} />
@@ -1923,9 +1918,31 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
                   <small>{item.source_key} · {updateChangeLabel(item.change_type)}</small>
                   {item.next_action && <p>{item.next_action}</p>}
                 </div>
+                <em>{severityLabel(item.severity)}</em>
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="impact-matrix">
+          {productImpactItems.map((item) => (
+            <div key={item.title} className={`impact-tile ${item.tone}`}>
+              <span>{item.badge}</span>
+              <b>{item.title}</b>
+              <small>{item.detail}</small>
+              <em>{item.status}</em>
+            </div>
+          ))}
+        </div>
+
+        <div className="update-workflow">
+          {updateWorkflowItems.map((item, index) => (
+            <div key={item.label}>
+              <span>{index + 1}</span>
+              <b>{item.label}</b>
+              <small>{item.detail}</small>
+            </div>
+          ))}
         </div>
 
         <div className="update-feature">
@@ -1989,6 +2006,13 @@ function updateChangeLabel(changeType: string) {
   if (changeType === "source_stale") return "소스 만료";
   if (changeType === "fetch_failed") return "수집 실패";
   return changeType;
+}
+
+function severityLabel(severity: string) {
+  if (severity === "high") return "높음";
+  if (severity === "medium") return "중간";
+  if (severity === "low") return "낮음";
+  return severity;
 }
 
 function PartnersScreen({ onExpert, onLogistics }: { onExpert: () => void; onLogistics: () => void }) {
