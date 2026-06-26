@@ -83,14 +83,24 @@ a {
   max-width: 1280px;
 }
 
+.shell-no-assistant {
+  grid-template-columns: 188px minmax(0, 1fr);
+  max-width: 1420px;
+}
+
 .shell-guided-start .top-actions,
 .shell-guided-start .review-scope-strip {
   display: none;
 }
 
-.shell-guided-start .workspace {
+.shell-guided-start .workspace,
+.shell-no-assistant .workspace {
   max-width: 1040px;
   width: 100%;
+}
+
+.shell-no-assistant .workspace {
+  max-width: 1220px;
 }
 
 .sidebar {
@@ -2014,6 +2024,208 @@ h2 {
 .pass {
   background: var(--green-soft);
   color: var(--green-dark);
+}
+
+.result-focus-panel {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow-tight);
+}
+
+.result-focus-head {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.result-focus-head > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.result-focus-head b,
+.result-focus-head small {
+  display: block;
+}
+
+.result-focus-head b {
+  font-size: 16px;
+}
+
+.result-focus-head small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.result-focus-list {
+  display: grid;
+  gap: 8px;
+}
+
+.result-focus-item,
+.result-focus-empty {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  text-align: left;
+}
+
+.result-focus-item span {
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.result-focus-item b,
+.result-focus-item small,
+.result-focus-empty b,
+.result-focus-empty small {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.result-focus-item b {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.35;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.result-focus-item small,
+.result-focus-empty small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.result-focus-empty {
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
+  background: var(--green-soft);
+}
+
+.result-focus-empty svg {
+  grid-row: 1 / 3;
+  color: var(--green-dark);
+}
+
+.result-owner-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.result-owner-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.result-focus-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.result-focus-buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.result-secondary-drawer {
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.result-secondary-drawer > summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 900;
+  list-style: none;
+  cursor: pointer;
+}
+
+.result-secondary-drawer > summary::-webkit-details-marker {
+  display: none;
+}
+
+.result-secondary-drawer > summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-left: auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.16s ease;
+}
+
+.result-secondary-drawer[open] > summary::after {
+  transform: rotate(225deg) translateY(-2px);
+}
+
+.result-secondary-drawer > :not(summary) {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.result-secondary-drawer > :last-child {
+  margin-bottom: 12px;
 }
 
 .metric-grid {

@@ -713,11 +713,12 @@ export default function Home() {
   }
 
   const archiveStatus = archiveCopy[archiveState];
-  const showAssistantPanel = screen !== "review" || Boolean(result || assistantEvidence || assistantQuestion.trim());
+  const showAssistantPanel = screen !== "review" || Boolean(assistantEvidence || assistantQuestion.trim());
   const isGuidedStart = screen === "review" && !result && !assistantEvidence && !assistantQuestion.trim();
+  const shellClassName = isGuidedStart ? "shell shell-guided-start" : !showAssistantPanel ? "shell shell-no-assistant" : "shell";
 
   return (
-    <main className={isGuidedStart ? "shell shell-guided-start" : "shell"}>
+    <main className={shellClassName}>
       <aside className="sidebar" aria-label="LabelPass navigation">
         <div className="brand">
           <div className="brand-mark">合格</div>
@@ -1063,115 +1064,133 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="metric-grid">
-                    <Metric tone="danger" value={result.summary.fail} label="위반" onClick={() => setFilter("fail")} />
-                    <Metric tone="info" value={result.summary.needsInfo} label="자료 필요" onClick={() => setFilter("needs_info")} />
-                    <Metric tone="warn" value={result.summary.warn} label="주의" onClick={() => setFilter("warn")} />
-                    <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
-                  </div>
-
-                  <ExecutionConsole
+                  <ResultFocusPanel
+                    actionPlan={currentActionPlan}
                     findings={result.findings}
                     onSelect={(findingId) => {
                       setFilter("all");
                       setExpandedFinding(findingId);
                     }}
-                  />
-
-                  <ActionPlanPanel
-                    actionPlan={currentActionPlan}
-                    onSelect={(findingId) => {
-                      setFilter("all");
-                      setExpandedFinding(findingId);
-                    }}
                     onExpert={() => setShowExpertModal(true)}
+                    onLogistics={() => setShowLogisticsModal(true)}
                   />
 
-                  <details className="report-details-drawer">
+                  <details className="result-secondary-drawer">
                     <summary>
                       <BookOpen size={15} />
-                      근거·버전 묶음
+                      세부 근거·전체 항목 보기
                     </summary>
-                    <ReportVersionStrip result={result} actionPlan={currentActionPlan} input={input} />
+
+                    <div className="metric-grid">
+                      <Metric tone="danger" value={result.summary.fail} label="위반" onClick={() => setFilter("fail")} />
+                      <Metric tone="info" value={result.summary.needsInfo} label="자료 필요" onClick={() => setFilter("needs_info")} />
+                      <Metric tone="warn" value={result.summary.warn} label="주의" onClick={() => setFilter("warn")} />
+                      <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
+                    </div>
+
+                    <ExecutionConsole
+                      findings={result.findings}
+                      onSelect={(findingId) => {
+                        setFilter("all");
+                        setExpandedFinding(findingId);
+                      }}
+                    />
+
+                    <ActionPlanPanel
+                      actionPlan={currentActionPlan}
+                      onSelect={(findingId) => {
+                        setFilter("all");
+                        setExpandedFinding(findingId);
+                      }}
+                      onExpert={() => setShowExpertModal(true)}
+                    />
+
+                    <details className="report-details-drawer">
+                      <summary>
+                        <BookOpen size={15} />
+                        근거·버전 묶음
+                      </summary>
+                      <ReportVersionStrip result={result} actionPlan={currentActionPlan} input={input} />
+                    </details>
+
+                    <div className="report-toolbar">
+                      <div className="toolbar-title">
+                        <b>검토 항목</b>
+                        <small>위험도순으로 펼쳐서 근거와 수정안을 확인</small>
+                      </div>
+                      <div className="toolbar-actions">
+                        <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
+                          <Filter size={15} /> 전체
+                        </button>
+                        <button className="ghost-btn" onClick={downloadReport}>
+                          <Download size={16} /> PDF
+                        </button>
+                        <button className="ghost-btn" onClick={() => void recheckAsFixed()}>
+                          <RefreshCw size={16} /> 재검토
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="findings">
+                      {filteredFindings.map((finding) => (
+                        <FindingRow
+                          key={finding.id}
+                          finding={finding}
+                          expanded={expandedFinding === finding.id}
+                          onToggle={() => setExpandedFinding(expandedFinding === finding.id ? null : finding.id)}
+                          onAsk={() => void askAssistant(finding)}
+                        />
+                      ))}
+                    </div>
+
+                    <div className="next-actions">
+                      <button onClick={() => setShowExpertModal(true)}>
+                        <UserRoundCheck size={18} />
+                        <span>
+                          <b>전문가 검수 요청</b>
+                          <small>위반/자료필요 항목만 묶어서 전달</small>
+                        </span>
+                      </button>
+                      <button onClick={() => setScreen("products")}>
+                        <Archive size={18} />
+                        <span>
+                          <b>보관함에서 버전 관리</b>
+                          <small>v1 → v2 수정 이력 비교</small>
+                        </span>
+                      </button>
+                      <button onClick={() => setShowLogisticsModal(true)}>
+                        <Ship size={18} />
+                        <span>
+                          <b>통관·물류 견적</b>
+                          <small>서류 체크 후 파트너 비교</small>
+                        </span>
+                      </button>
+                    </div>
+
+                    <div className="report-footer">
+                      <div className="report-footer-head">
+                        <div>
+                          <b>리포트 처리 순서</b>
+                          <span>체크리스트와 근거 묶음을 같은 버전으로 보관</span>
+                        </div>
+                        <div className="report-footer-actions">
+                          <button onClick={() => void recheckAsFixed()}>
+                            <RefreshCw size={15} /> 수정본 재검토
+                          </button>
+                          <button onClick={downloadReport}>
+                            <Download size={15} /> PDF
+                          </button>
+                        </div>
+                      </div>
+                      <div className="report-footer-flow">
+                        <span><ClipboardCheck size={13} /> 체크리스트 확정</span>
+                        <span><RefreshCw size={13} /> 수정본 재검토</span>
+                        <span><UserRoundCheck size={13} /> 전문가 검수</span>
+                        <span><History size={13} /> PDF/버전 보관</span>
+                      </div>
+                      <p>이 리포트는 공식 소스와 룰셋 기반의 1차 검토 초안입니다. 실제 출고 전에는 조성표, 수입자 자료, 최종 라벨 파일을 같은 버전으로 맞춰 보관하세요.</p>
+                    </div>
                   </details>
-
-                  <div className="report-toolbar">
-                    <div className="toolbar-title">
-                      <b>검토 항목</b>
-                      <small>위험도순으로 펼쳐서 근거와 수정안을 확인</small>
-                    </div>
-                    <div className="toolbar-actions">
-                      <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
-                        <Filter size={15} /> 전체
-                      </button>
-                      <button className="ghost-btn" onClick={downloadReport}>
-                        <Download size={16} /> PDF
-                      </button>
-                      <button className="ghost-btn" onClick={() => void recheckAsFixed()}>
-                        <RefreshCw size={16} /> 재검토
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="findings">
-                    {filteredFindings.map((finding) => (
-                      <FindingRow
-                        key={finding.id}
-                        finding={finding}
-                        expanded={expandedFinding === finding.id}
-                        onToggle={() => setExpandedFinding(expandedFinding === finding.id ? null : finding.id)}
-                        onAsk={() => void askAssistant(finding)}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="next-actions">
-                    <button onClick={() => setShowExpertModal(true)}>
-                      <UserRoundCheck size={18} />
-                      <span>
-                        <b>전문가 검수 요청</b>
-                        <small>위반/자료필요 항목만 묶어서 전달</small>
-                      </span>
-                    </button>
-                    <button onClick={() => setScreen("products")}>
-                      <Archive size={18} />
-                      <span>
-                        <b>보관함에서 버전 관리</b>
-                        <small>v1 → v2 수정 이력 비교</small>
-                      </span>
-                    </button>
-                    <button onClick={() => setShowLogisticsModal(true)}>
-                      <Ship size={18} />
-                      <span>
-                        <b>통관·물류 견적</b>
-                        <small>서류 체크 후 파트너 비교</small>
-                      </span>
-                    </button>
-                  </div>
-
-                  <div className="report-footer">
-                    <div className="report-footer-head">
-                      <div>
-                        <b>리포트 처리 순서</b>
-                        <span>체크리스트와 근거 묶음을 같은 버전으로 보관</span>
-                      </div>
-                      <div className="report-footer-actions">
-                        <button onClick={() => void recheckAsFixed()}>
-                          <RefreshCw size={15} /> 수정본 재검토
-                        </button>
-                        <button onClick={downloadReport}>
-                          <Download size={15} /> PDF
-                        </button>
-                      </div>
-                    </div>
-                    <div className="report-footer-flow">
-                      <span><ClipboardCheck size={13} /> 체크리스트 확정</span>
-                      <span><RefreshCw size={13} /> 수정본 재검토</span>
-                      <span><UserRoundCheck size={13} /> 전문가 검수</span>
-                      <span><History size={13} /> PDF/버전 보관</span>
-                    </div>
-                    <p>이 리포트는 공식 소스와 룰셋 기반의 1차 검토 초안입니다. 실제 출고 전에는 조성표, 수입자 자료, 최종 라벨 파일을 같은 버전으로 맞춰 보관하세요.</p>
-                  </div>
                 </>
               )}
             </section>
@@ -1349,6 +1368,95 @@ function prioritizedFindings(findings: Finding[]) {
     .filter((finding) => finding.status !== "pass")
     .sort((left, right) => rank[left.status] - rank[right.status])
     .slice(0, 3);
+}
+
+function ResultFocusPanel({
+  actionPlan,
+  findings,
+  onSelect,
+  onExpert,
+  onLogistics
+}: {
+  actionPlan: ReviewActionPlan;
+  findings: Finding[];
+  onSelect: (findingId: string) => void;
+  onExpert: () => void;
+  onLogistics: () => void;
+}) {
+  const seenActions = new Set<string>();
+  const actionItems = actionPlan.actionItems.filter((item) => {
+    const key = `${item.owner}:${item.primaryFix || item.title}`.replace(/\s+/g, " ").trim();
+    if (seenActions.has(key)) return false;
+    seenActions.add(key);
+    return true;
+  }).slice(0, 3);
+  const fallbackFindings = prioritizedFindings(findings);
+  const hasBlockingItems = actionItems.length > 0 || fallbackFindings.length > 0;
+
+  return (
+    <div className={`result-focus-panel ${actionPlan.priority}`}>
+      <div className="result-focus-head">
+        <span><ArrowRight size={17} /></span>
+        <div>
+          <b>{hasBlockingItems ? "다음에 할 일만 먼저 보세요" : "차단 항목 없음"}</b>
+          <small>{actionPlan.nextAction}</small>
+        </div>
+      </div>
+
+      <div className="result-focus-list" aria-label="상위 조치 항목">
+        {actionItems.length > 0 ? (
+          actionItems.map((item) => (
+            <button key={item.id} className={`result-focus-item ${statusTone(item.status)}`} onClick={() => onSelect(item.findingId)}>
+              <span>{item.owner}</span>
+              <b>{item.primaryFix}</b>
+              <small>{item.eta} · {item.impact}</small>
+            </button>
+          ))
+        ) : fallbackFindings.length > 0 ? (
+          fallbackFindings.map((finding, index) => (
+            <button key={finding.id} className={`result-focus-item ${statusTone(finding.status)}`} onClick={() => onSelect(finding.id)}>
+              <span>{fixMetaForFinding(finding, index)}</span>
+              <b>{finding.fix[0] ?? finding.title}</b>
+              <small>{finding.title}</small>
+            </button>
+          ))
+        ) : (
+          <div className="result-focus-empty">
+            <ShieldCheck size={18} />
+            <b>출고 전 기록만 보관하세요</b>
+            <small>통과 근거와 라벨 버전을 보관하면 다음 출고에 재사용할 수 있습니다.</small>
+          </div>
+        )}
+      </div>
+
+      <div className="result-owner-row" aria-label="담당자별 처리 항목">
+        {actionPlan.ownerSummary.slice(0, 4).map((item) => (
+          <span key={item.owner}>
+            <UserRoundCheck size={13} />
+            {item.owner} {item.count}
+            {item.urgentCount > 0 ? ` · 긴급 ${item.urgentCount}` : ""}
+          </span>
+        ))}
+        {actionPlan.ownerSummary.length === 0 && (
+          <span>
+            <ShieldCheck size={13} />
+            담당자 회수 항목 없음
+          </span>
+        )}
+      </div>
+
+      <div className="result-focus-buttons">
+        <button onClick={onExpert}>
+          <UserRoundCheck size={16} />
+          전문가 검수
+        </button>
+        <button onClick={onLogistics}>
+          <Ship size={16} />
+          통관·물류
+        </button>
+      </div>
+    </div>
+  );
 }
 
 function ExecutionConsole({ findings, onSelect }: { findings: Finding[]; onSelect: (findingId: string) => void }) {
