@@ -34,8 +34,40 @@ function isHighConfidence(confidence) {
   return Number(confidence ?? 0) >= 0.9;
 }
 
+const LOCAL_LANGUAGES = new Set(["zh", "zh-Hant", "zh-Hans", "ko", "ja"]);
+const SHORT_NOTE_TYPES = new Set(["abbreviation", "symbol", "formula", "short_name", "permit_prefix"]);
+const MOJIBAKE_PATTERN = /�|\?{2,}|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔)/u;
+
 function rowHasNotes(row) {
   return hasText(row?.notes) || hasText(row?.termNotes);
+}
+
+function isMojibakeValue(value) {
+  return MOJIBAKE_PATTERN.test(String(value ?? ""));
+}
+
+function isLocalAlias(alias) {
+  return LOCAL_LANGUAGES.has(String(alias?.language ?? ""));
+}
+
+function isRelevantTaiwanTerm(term) {
+  const category = String(term?.category ?? "");
+  const sourceKeys = Array.isArray(term?.source_keys) ? term.source_keys : [];
+  const aliases = Array.isArray(term?.aliases) ? term.aliases : [];
+
+  return (
+    sourceKeys.some((sourceKey) => String(sourceKey).startsWith("tw-")) ||
+    aliases.some((alias) => String(alias?.jurisdiction ?? "") === "TW") ||
+    /^(cosmetic|food|health|trade|customs|import|export)/.test(category)
+  );
+}
+
+function hasReadableLocalAlias(term) {
+  const aliases = Array.isArray(term?.aliases) ? term.aliases : [];
+  return aliases.some((alias) => {
+    const value = String(alias?.value ?? "").trim();
+    return isLocalAlias(alias) && hasAlphanumeric(normalizeText(value)) && !isMojibakeValue(value);
+  });
 }
 
 function isShortAmbiguousRow(row) {
@@ -86,6 +118,9 @@ const registryVersion = termRegistry.version ?? "unknown";
 const scannedTerms = Array.isArray(termIndex.terms) ? termIndex.terms : [];
 
 const aliasRows = [];
+const mojibakeFindings = [];
+const shortNoteFindings = [];
+const localCoverageFindings = [];
 
 for (const term of scannedTerms) {
   const aliases = Array.isArray(term.aliases) ? term.aliases : [];
@@ -103,6 +138,62 @@ for (const term of scannedTerms) {
     const current = seenInTerm.get(key);
     const confidence = Number(alias?.confidence ?? 0);
     const note = String(alias?.note ?? "").trim();
+    const aliasType = String(alias?.type ?? "alias");
+    const aliasLanguage = String(alias?.language ?? "");
+    const aliasJurisdiction = String(alias?.jurisdiction ?? "");
+
+    if (isMojibakeValue(value)) {
+      mojibakeFindings.push({
+        alias: normalized,
+        termCount: 1,
+        maxConfidence: confidence,
+        priority: 3,
+        issue: "mojibake",
+        strictBlocker: false,
+        highConfidenceCollision: false,
+        unnotedHighConfidenceRows: [],
+        notedHighConfidenceRows: [],
+        terms: [
+          {
+            id: term.id,
+            canonical_name: term.canonical_name ?? term.id,
+            confidence,
+            aliasValue: value,
+            aliasType,
+            notes: note || String(term?.notes ?? "").trim()
+          }
+        ]
+      });
+    }
+
+    if (
+      SHORT_NOTE_TYPES.has(aliasType.toLowerCase()) &&
+      compactText(value).length <= 5 &&
+      !note &&
+      !String(term?.notes ?? "").trim()
+    ) {
+      shortNoteFindings.push({
+        alias: normalized,
+        termCount: 1,
+        maxConfidence: confidence,
+        priority: 3,
+        issue: "short-alias-note",
+        strictBlocker: false,
+        highConfidenceCollision: false,
+        unnotedHighConfidenceRows: [],
+        notedHighConfidenceRows: [],
+        terms: [
+          {
+            id: term.id,
+            canonical_name: term.canonical_name ?? term.id,
+            confidence,
+            aliasValue: value,
+            aliasType,
+            notes: "Short abbreviation or symbol should explain its regulatory context."
+          }
+        ]
+      });
+    }
 
     if (!current) {
       seenInTerm.set(key, {
@@ -110,7 +201,9 @@ for (const term of scannedTerms) {
         canonicalName: term.canonical_name ?? term.id,
         aliasValue: value,
         aliasNormalized: normalized,
-        aliasType: String(alias?.type ?? "alias"),
+        aliasType,
+        language: aliasLanguage,
+        jurisdiction: aliasJurisdiction,
         confidence,
         notes: note,
         termNotes: String(term?.notes ?? "").trim()
@@ -130,6 +223,30 @@ for (const term of scannedTerms) {
   }
 
   aliasRows.push(...seenInTerm.values());
+
+  if (isRelevantTaiwanTerm(term) && !hasReadableLocalAlias(term)) {
+    localCoverageFindings.push({
+      alias: normalizeText(term.canonical_name ?? term.id),
+      termCount: 1,
+      maxConfidence: 0,
+      priority: 4,
+      issue: "missing-local-alias",
+      strictBlocker: false,
+      highConfidenceCollision: false,
+      unnotedHighConfidenceRows: [],
+      notedHighConfidenceRows: [],
+      terms: [
+        {
+          id: term.id,
+          canonical_name: term.canonical_name ?? term.id,
+          confidence: 0,
+          aliasValue: term.canonical_name ?? term.id,
+          aliasType: "coverage",
+          notes: "Taiwan or regulated concept has no readable zh/ko/ja alias."
+        }
+      ]
+    });
+  }
 }
 
 const aliasGroups = new Map();
@@ -217,7 +334,13 @@ shortAmbiguousFindings.sort(sortBySeverity);
 
 const strictBlockers = collisionGroups.filter((group) => group.strictBlocker);
 const highConfidenceCollisions = collisionGroups.filter((group) => group.highConfidenceCollision);
-const findings = [...collisionGroups, ...shortAmbiguousFindings].sort(sortBySeverity);
+const findings = [
+  ...collisionGroups,
+  ...shortAmbiguousFindings,
+  ...mojibakeFindings,
+  ...shortNoteFindings,
+  ...localCoverageFindings
+].sort(sortBySeverity);
 
 const summary = {
   generated_at: new Date().toISOString(),
@@ -227,6 +350,9 @@ const summary = {
   collision_groups: collisionGroups.length,
   high_confidence_collisions: highConfidenceCollisions.length,
   short_ambiguous_aliases_without_notes: shortAmbiguousFindings.length,
+  mojibake_aliases: mojibakeFindings.length,
+  short_abbreviations_without_notes: shortNoteFindings.length,
+  regulated_terms_without_local_alias: localCoverageFindings.length,
   strict_blockers: strictBlockers.length
 };
 
@@ -237,6 +363,9 @@ console.log(`- Aliases scanned: ${summary.aliases_scanned}`);
 console.log(`- Collision groups: ${summary.collision_groups}`);
 console.log(`- High-confidence collisions: ${summary.high_confidence_collisions}`);
 console.log(`- Short or ambiguous aliases without notes: ${summary.short_ambiguous_aliases_without_notes}`);
+console.log(`- Mojibake aliases: ${summary.mojibake_aliases}`);
+console.log(`- Short abbreviations without notes: ${summary.short_abbreviations_without_notes}`);
+console.log(`- Regulated terms without readable local aliases: ${summary.regulated_terms_without_local_alias}`);
 console.log(`- Strict blockers: ${summary.strict_blockers}`);
 
 if (findings.length > 0) {
@@ -246,6 +375,7 @@ if (findings.length > 0) {
   for (const finding of findings.slice(0, 20)) {
     const statusBits = [];
     if (finding.strictBlocker) statusBits.push("strict");
+    if (finding.issue) statusBits.push(finding.issue);
     if (finding.highConfidenceCollision) statusBits.push("high-confidence");
     if (finding.termCount > 1) statusBits.push("collision");
     if (!finding.highConfidenceCollision && finding.termCount === 1) statusBits.push("short/ambiguous");

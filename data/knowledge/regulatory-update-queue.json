@@ -334,7 +334,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-03T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "6f4088fd8b7ffeda9ea014a961cdc5cb15779fc8de16b8a08d157963eedf9bff",
       "current_hash": "6f4088fd8b7ffeda9ea014a961cdc5cb15779fc8de16b8a08d157963eedf9bff",
       "affected_domains": [
         "cosmetics",
@@ -543,7 +543,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-03T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "e5bf7764147dc4e70fbb406d56965d036174204ad7c08b294f5b123867eaaec1",
       "current_hash": "e5bf7764147dc4e70fbb406d56965d036174204ad7c08b294f5b123867eaaec1",
       "affected_domains": [
         "food_labeling",
@@ -732,7 +732,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-03T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "e62b7ef1d8ad781a368b1f095aa3ea4ce33b882338b5841148b92fb13b0e2c34",
       "current_hash": "e62b7ef1d8ad781a368b1f095aa3ea4ce33b882338b5841148b92fb13b0e2c34",
       "affected_domains": [
         "food_import",
@@ -1021,7 +1021,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-10T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "080b766af687d648cf5e18adcde4f75effaebd5f3a341efdfd32397968d065dd",
       "current_hash": "080b766af687d648cf5e18adcde4f75effaebd5f3a341efdfd32397968d065dd",
       "affected_domains": [
         "customs",
@@ -1299,7 +1299,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-10T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e",
       "current_hash": "65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e",
       "affected_domains": [
         "customs",
@@ -2267,7 +2267,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-03T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "6f4088fd8b7ffeda9ea014a961cdc5cb15779fc8de16b8a08d157963eedf9bff",
       "current_hash": "6f4088fd8b7ffeda9ea014a961cdc5cb15779fc8de16b8a08d157963eedf9bff",
       "affected_domains": [
         "cosmetics",
@@ -2682,7 +2682,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-03T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "e5bf7764147dc4e70fbb406d56965d036174204ad7c08b294f5b123867eaaec1",
       "current_hash": "e5bf7764147dc4e70fbb406d56965d036174204ad7c08b294f5b123867eaaec1",
       "affected_domains": [
         "food_labeling",
@@ -2938,7 +2938,7 @@
       "detected_at": "2026-06-26T07:32:31.721Z",
       "fetched_at": "2026-06-26T07:32:31.721Z",
       "cache_expires_at": "2026-07-03T07:32:31.721Z",
-      "previous_hash": null,
+      "previous_hash": "e62b7ef1d8ad781a368b1f095aa3ea4ce33b882338b5841148b92fb13b0e2c34",
       "current_hash": "e62b7ef1d8ad781a368b1f095aa3ea4ce33b882338b5841148b92fb13b0e2c34",
       "affected_domains": [
         "food_import",
