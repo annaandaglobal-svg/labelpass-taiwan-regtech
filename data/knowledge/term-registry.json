@@ -4457,6 +4457,7 @@
         { "value": "Aroma", "type": "official_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
         { "value": "may contain", "type": "label_phrase", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.9 },
         { "value": "化粧品外包裝、容器、標籤或仿單之標示規定", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "化粧品外包裝", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95, "note": "Short search variant for Taiwan cosmetic outer-package marking rules." },
         { "value": "化粧品標示", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
         { "value": "外包裝", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95, "note": "Cosmetic outer-packaging label field; ambiguous outside product-label context." },
         { "value": "容器", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9, "note": "Cosmetic container marking context." },

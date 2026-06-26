@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "description": "Required Taiwan food and cosmetics coverage gates for LabelPass knowledge operations.",
+  "defaults": {
+    "minTextChars": 500
+  },
+  "groups": [
+    {
+      "id": "tw_cosmetics_labeling_market_access",
+      "label": "Taiwan cosmetics labeling, PIF and market access",
+      "minTextChars": 500,
+      "sourceIds": [
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+        "tw-tfda-pif-implementation",
+        "tw-tfda-cosmetic-pif-category-implementation-2024",
+        "tw-tfda-cosmetic-product-registration-categories-2024",
+        "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
+        "tw-tfda-cosmetic-spray-use-safety-guideline",
+        "tw-moj-cosmetic-product-notification"
+      ],
+      "termIds": [
+        "cosmetic-label-required-items",
+        "cosmetic-product-information-file",
+        "cosmetic-pif-product-registration-categories",
+        "specific-purpose-cosmetics-transition",
+        "cosmetic-spray-aerosol-safety",
+        "cosmetic-labeling-claims",
+        "cosmetic-product-notification"
+      ],
+      "aliases": [
+        "대만 화장품 PIF",
+        "化粧品外包裝",
+        "產品登錄",
+        "噴霧狀化粧品",
+        "特定用途化粧品"
+      ]
+    },
+    {
+      "id": "tw_food_labeling_allergen",
+      "label": "Taiwan food labeling, allergens, nutrition and claims",
+      "minTextChars": 500,
+      "sourceIds": [
+        "tw-moj-food-safety-sanitation-act",
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice",
+        "tw-tfda-food-nutrition-labeling",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+      ],
+      "termIds": [
+        "food-label-required-items",
+        "food-allergen-labeling",
+        "crustacea-allergen",
+        "mango-allergen",
+        "tree-nuts-allergen",
+        "fish-allergen",
+        "sulfites-allergen",
+        "nutrition-labeling",
+        "food-labeling-claims"
+      ],
+      "aliases": [
+        "食品標示手冊",
+        "甲殼類",
+        "芒果",
+        "堅果類",
+        "魚類",
+        "亞硫酸鹽",
+        "SO2"
+      ]
+    },
+    {
+      "id": "tw_food_import_routing",
+      "label": "Taiwan food import inspection and regulation code routing",
+      "minTextChars": 500,
+      "sourceIds": [
+        "tw-tfda-imported-food-inspection-regulations",
+        "tw-tfda-imported-food-inspection-forms",
+        "tw-tfda-imported-food-inspection-field-declaration-2024",
+        "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
+        "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-systematic-inspection-imported-food",
+        "tw-tfda-food-business-registration-importers"
+      ],
+      "termIds": [
+        "imported-food-inspection",
+        "imported-food-inspection-forms",
+        "product-information-sheet",
+        "import-regulation-f01-f02-508",
+        "systematic-imported-food-inspection",
+        "food-business-registration-importer"
+      ],
+      "aliases": [
+        "食品及相關產品輸入查驗申請書",
+        "產品資料表",
+        "輸入規定F01",
+        "輸入規定508",
+        "報驗義務人"
+      ]
+    },
+    {
+      "id": "tw_health_food_claims",
+      "label": "Taiwan health food permits, labeling and approved effect vocabulary",
+      "minTextChars": 500,
+      "sourceIds": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules",
+        "tw-tfda-health-food-application-permit-regulations",
+        "tw-tfda-health-food-labeling-regulations",
+        "tw-tfda-health-food-health-care-effect-items-2025",
+        "tw-tfda-health-food-effect-assessment-methods-hub",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026"
+      ],
+      "termIds": [
+        "health-food",
+        "health-food-permit",
+        "health-food-application-permit",
+        "health-food-label-required-items",
+        "health-food-approved-effect-vocabulary",
+        "novel-food-ingredient-safety-assessment"
+      ],
+      "aliases": [
+        "健康食品標示規定",
+        "健康食品查驗登記",
+        "保健功效",
+        "骨質保健",
+        "新興食品原料"
+      ]
+    }
+  ]
+}

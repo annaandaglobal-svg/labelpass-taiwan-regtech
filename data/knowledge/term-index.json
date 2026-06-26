@@ -14835,6 +14835,16 @@
           "source": "curated"
         },
         {
+          "value": "化粧品外包裝",
+          "normalized": "化粧品外包裝",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": "Short search variant for Taiwan cosmetic outer-package marking rules.",
+          "source": "curated"
+        },
+        {
           "value": "化粧品標示",
           "normalized": "化粧品標示",
           "type": "official_term",

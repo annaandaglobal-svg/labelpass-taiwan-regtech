@@ -19,6 +19,7 @@ pnpm crawl:knowledge
 pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm validate:knowledge
+pnpm validate:coverage
 pnpm audit:knowledge
 ```
 
@@ -59,6 +60,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 ## Storage Model
 
 - `data/knowledge/source-registry.json`: source authority, URL, jurisdiction, tags, refresh cadence, and capture metadata.
+- `data/knowledge/coverage-requirements.json`: required Taiwan food/cosmetics coverage groups that must stay searchable and backed by crawled documents.
 - `data/knowledge/raw/`: reproducible raw cache. This is git-ignored.
 - `data/knowledge/documents/*.md`: source extracts with metadata, content hash, and operational notes.
 - `data/knowledge/index.json`: crawl manifest with success/failure status, generated document paths, cache expiry, and freshness status.
@@ -97,7 +99,7 @@ Current generated counts:
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,175
-- `term_aliases`: 4,012
+- `term_aliases`: 4,013
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
 - `rules`: 1,081
@@ -122,6 +124,7 @@ Current freshness status:
 pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm validate:knowledge
+pnpm validate:coverage
 pnpm audit:knowledge
 pnpm audit:aliases
 pnpm detect:updates
@@ -130,4 +133,5 @@ pnpm smoke:api
 ```
 
 The smoke test includes multilingual review aliases and `/api/knowledge/search` cases and must pass before deployment.
+The coverage gate checks required Taiwan cosmetics, food labeling/allergen, food import, and health-food source IDs, term IDs, document extracts, and high-value aliases so high aggregate counts cannot hide a missing core regulatory axis.
 The audit command is intentionally non-blocking in CI; its high and medium findings are treated as the next source-quality backlog.

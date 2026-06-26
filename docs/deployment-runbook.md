@@ -19,6 +19,7 @@ pnpm crawl:knowledge
 pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm validate:knowledge
+pnpm validate:coverage
 pnpm build
 ```
 
@@ -28,7 +29,7 @@ For the current production URL, the single operator gate is:
 pnpm preflight:deploy
 ```
 
-`preflight:deploy` runs type checks, rule verification, knowledge validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless both a database URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are set. Override this only when production is intentionally configured for server-side archive storage:
+`preflight:deploy` runs type checks, rule verification, knowledge validation, Taiwan food/cosmetics coverage validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless both a database URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are set. Override this only when production is intentionally configured for server-side archive storage:
 
 ```bash
 LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment
@@ -132,7 +133,7 @@ Expected counts after the current seed:
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,175
-- `term_aliases`: 4,012
+- `term_aliases`: 4,013
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
 
