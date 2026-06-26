@@ -684,6 +684,18 @@
       "tags": ["food", "traceability", "source-tracking", "records", "food-additives", "packaging", "cleansers"]
     },
     {
+      "id": "tw-moj-food-recall-destruction",
+      "title": "Regulations of Recall and Destruction for Food and Related Products",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040095",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "recall", "destruction", "recall-plan", "progress-report", "downstream-notification", "segregation", "five-year-retention"]
+    },
+    {
       "id": "tw-tfda-food-ghp-regulations",
       "title": "Good Hygiene Practice Regulations for Food",
       "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=2870",

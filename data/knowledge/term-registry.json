@@ -3259,6 +3259,36 @@
       "notes": "Taiwan traceability concept for source records, flow tracking, foods, food additives, packaging, utensils, and food cleansers."
     },
     {
+      "id": "food-recall-destruction",
+      "canonical_name": "Food Recall and Destruction",
+      "category": "food_safety",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "food recall and destruction", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "recall and destruction plan", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "recall progress report", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "downstream counterparties notification", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "segregate recalled products", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "five-year recall records", "type": "compliance_deadline", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품 회수 및 폐기", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "식품 리콜 계획", "type": "local_name", "language": "ko", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "회수 진행 보고", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "하류 거래처 통지", "type": "official_term", "language": "ko", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "五年保存", "type": "compliance_deadline", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "食品回收銷毀", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "回收銷毀計畫", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "回收進度報告", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "下游業者通知", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "食品召回销毁", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-food-recall-destruction", "tw-tfda-food-traceability"],
+      "notes": "Taiwan food responsible enterprises must prepare recall/destruction plans, notify downstream counterparties, report recall progress, segregate recalled products, obtain destruction approval, and keep recall/destruction records for at least five years."
+    },
+    {
       "id": "food-good-hygiene-practice",
       "canonical_name": "Food Good Hygiene Practice",
       "category": "food_safety",

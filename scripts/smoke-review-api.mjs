@@ -99,6 +99,12 @@ if (!foodResult.findings?.some((finding) => finding.id === "food-allergen-peanut
   throw new Error("Food review: expected peanut allergen failure");
 }
 
+for (const findingId of ["food-traceability-records-needed", "food-recall-destruction-plan-needed"]) {
+  if (!foodResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Food review: expected post-market readiness finding ${findingId}`);
+  }
+}
+
 const foodCleanResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -106,7 +112,11 @@ const foodCleanResponse = await fetch(`${baseUrl}/api/review`, {
     productName: "Citron Herbal Tea",
     productType: "prepackaged food / tea / 식품",
     ingredientsText: "Citron peel, rooibos, peppermint, dried apple",
-    labelText: "品名：柚子草本茶. 內容量：40g. 成分：柚子皮、南非國寶茶、薄荷、乾燥蘋果. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-03-01. 營養標示：每份熱量 5 kcal, 蛋白質 0g, 脂肪 0g, 碳水化合物 1g, 糖 0g, 鈉 0mg.",
+    labelText: [
+      "品名：柚子草本茶. 內容量：40g. 成分：柚子皮、南非國寶茶、薄荷、乾燥蘋果. 原產地：韓國. 進口商：Taiwan Importer Co. 有效日期：2027-03-01. 營養標示：每份熱量 5 kcal, 蛋白質 0g, 脂肪 0g, 碳水化合物 1g, 糖 0g, 鈉 0mg.",
+      "Food traceability ledger: lot TEA2603, raw material supplier, country of origin, receiving date, import inspection application number, inventory quantity, delivery date, recipient and downstream distributor records retained for five years.",
+      "Food recall and destruction plan: standing task force, downstream notification list, recall progress report template, recalled product segregation label, final disposal/destruction approval workflow and five-year recall records prepared."
+    ].join(" "),
     origin: "Korea",
     manufacturer: "Annaanda Foods / Taiwan Importer Co."
   })
@@ -124,6 +134,18 @@ if (foodCleanResult.ruleVersion !== "TW-FOOD-2026.06-draft") {
 
 if (foodCleanResult.status === "fail") {
   throw new Error("Food clean review: expected non-fail status");
+}
+
+for (const findingId of ["food-traceability-records-present", "food-recall-destruction-plan-present"]) {
+  if (!foodCleanResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
+    throw new Error(`Food clean review: expected ready post-market finding ${findingId}`);
+  }
+}
+
+for (const checklistId of ["food-traceability-records", "food-recall-destruction-plan"]) {
+  if (!foodCleanResult.actionPlan?.documentChecklist?.some((doc) => doc.id === checklistId && doc.status === "ready")) {
+    throw new Error(`Food clean review: expected ready checklist item ${checklistId}`);
+  }
 }
 
 const foodAdditiveResponse = await fetch(`${baseUrl}/api/review`, {
@@ -717,6 +739,7 @@ const knowledgeCases = [
   { query: "食品中污染物質及毒素", expectedTerm: "Food Contaminants and Toxins Standards" },
   { query: "식품 미생물 기준", expectedTerm: "Food Microorganism Sanitation Standard" },
   { query: "食品追溯追蹤", expectedTerm: "Food Traceability" },
+  { query: "food recall and destruction downstream notification five-year records", expectedTerm: "Food Recall and Destruction" },
   { query: "식품 GHP", expectedTerm: "Food Good Hygiene Practice" },
   { query: "Foreign Trade Act", expectedTerm: "Foreign Trade Act" },
   { query: "수출입업자 등록", expectedTerm: "Exporter and Importer Registration" },
@@ -788,6 +811,7 @@ const sourceCases = [
   { query: "contaminants and toxins mycotoxins metals foods", expectedSource: "tw-moj-food-contaminants-toxins" },
   { query: "microorganisms in foods sanitation standard pathogens", expectedSource: "tw-tfda-food-microorganisms-standard" },
   { query: "food traceability source track flow records", expectedSource: "tw-tfda-food-traceability" },
+  { query: "Regulations of recall and destruction for food related products progress reports", expectedSource: "tw-moj-food-recall-destruction" },
   { query: "good hygiene practice food manufacturing storage transportation", expectedSource: "tw-tfda-food-ghp-regulations" },
   { query: "Foreign Trade Act exporter importer registration", expectedSource: "tw-moj-foreign-trade-act" },
   { query: "Regulations Governing Import of Commodities import permit negative list", expectedSource: "tw-moj-import-commodities-regulations" },

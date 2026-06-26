@@ -202,6 +202,30 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
         "수입자",
         ["food-import-hs0307-health-certificate-needed", "food-import-hs0307-health-certificate-present"].filter((id) => findingIds.has(id))
       ),
+      documentItem(
+        "food-traceability-records",
+        "식품 이력추적 장부",
+        findingIds.has("food-traceability-records-present")
+          ? "ready"
+          : findingIds.has("food-traceability-records-needed")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("food-traceability-records-needed") ? "warn" : findingIds.has("food-traceability-records-present") ? "pass" : "info",
+        "수입자",
+        ["food-traceability-records-needed", "food-traceability-records-present"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
+        "food-recall-destruction-plan",
+        "회수·폐기 계획",
+        findingIds.has("food-recall-destruction-plan-present")
+          ? "ready"
+          : findingIds.has("food-recall-destruction-plan-needed")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("food-recall-destruction-plan-needed") ? "warn" : findingIds.has("food-recall-destruction-plan-present") ? "pass" : "info",
+        "PM",
+        ["food-recall-destruction-plan-needed", "food-recall-destruction-plan-present"].filter((id) => findingIds.has(id))
+      ),
       documentItem("food-chinese-label", "중문 라벨", needsLabel ? "review" : "ready", needsLabel ? "warn" : "pass", "라벨 담당", findings.filter((finding) => finding.area === "식품표시").map((finding) => finding.id))
     ];
   }

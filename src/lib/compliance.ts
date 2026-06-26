@@ -110,6 +110,10 @@ const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE = "TFDA HS 0307 shellfish health 
 const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE_URL = "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095";
 const SOURCE_FOOD_SYSTEMATIC_INSPECTION = "Regulations for Systematic Inspection of Imported Food";
 const SOURCE_FOOD_SYSTEMATIC_INSPECTION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607";
+const SOURCE_FOOD_TRACEABILITY = "Regulations Governing Traceability of Foods and Relevant Products";
+const SOURCE_FOOD_TRACEABILITY_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=2804";
+const SOURCE_FOOD_RECALL_DESTRUCTION = "Regulations of Recall and Destruction for Food and Related Products";
+const SOURCE_FOOD_RECALL_DESTRUCTION_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040095";
 const SOURCE_WCO_HS = "World Customs Organization Harmonized System reference";
 const SOURCE_WCO_HS_URL = "https://www.wcoomd.org/en/topics/nomenclature/overview/what-is-the-harmonized-system.aspx";
 const SOURCE_TW_TRADE = "Taiwan International Trade Administration import/export regulations";
@@ -529,6 +533,27 @@ function hasProductLiabilityInsurance(input: ReviewInput) {
   return /product liability insurance|PL insurance|liability insurance|產品責任保險|产品责任保险|製造物責任|제조물책임보험|생산물배상책임|PL보험/i.test(
     reviewText(input)
   );
+}
+
+function hasFoodTraceabilityReadiness(input: ReviewInput) {
+  const text = reviewText(input);
+  if (/food traceability|traceability system|trace the source|track the flow|source tracking|flow tracking|traceability ledger|食品追溯追蹤|追溯追蹤|식품\s*이력추적|식품\s*추적관리/i.test(text)) return true;
+
+  const hasLot = /lot|batch|serial|unique mark|批號|批号|ロット|제조번호|로트|배치/i.test(text);
+  const hasSource = /supplier|raw material source|exporter|manufacturer|food business registration|country of origin|receiving date|import inspection application|customs release|供應商|原料來源|食品業者登錄|輸入查驗|通關放行|원료\s*출처|공급처|수출자|제조사|원산지|입고일|수입검사/i.test(text);
+  const hasFlow = /recipient|receiver|distributor|delivery date|shipment date|downstream|inventory|returned products|inferior products|product flow|收貨|配送|交貨日期|出貨|庫存|退貨|不良品|수령처|납품처|배송일|출고일|하류|재고|반품|부적합품/i.test(text);
+
+  return hasLot && hasSource && hasFlow;
+}
+
+function hasFoodRecallDestructionReadiness(input: ReviewInput) {
+  const text = reviewText(input);
+  if (/food recall|recall and destruction|recall destruction|recall plan|destruction plan|recall progress report|standing task force|downstream counterparties|segregate recalled products|final disposal|destruction approval|five[-\s]?year recall records|食品回收|食品回收銷毀|回收銷毀|回收計畫|銷毀計畫|回收進度|下游業者|下游廠商|隔離標示|最終處置|五年保存|식품\s*회수|식품\s*리콜|폐기\s*계획|회수\s*진행\s*보고|하류\s*거래처|격리\s*표시|최종\s*처분|5년\s*보관/i.test(text)) return true;
+
+  const hasRecallAction = /recall|withdrawal|market withdrawal|回收|召回|리콜|회수/i.test(text);
+  const hasRecallRecord = /batch|lot|inventory|downstream|notification|progress report|disposal|destruction|records|批號|庫存|下游|通知|進度報告|銷毀|紀錄|로트|재고|하류|통지|보고|폐기|기록/i.test(text);
+
+  return hasRecallAction && hasRecallRecord;
 }
 
 function hasHealthFoodSignal(input: ReviewInput) {
@@ -1581,6 +1606,64 @@ function addFoodContactMaterialFindings(input: ReviewInput, findings: Finding[])
   }
 }
 
+function addFoodPostMarketFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isFoodProduct(input)) return;
+
+  if (hasFoodTraceabilityReadiness(input)) {
+    findings.push({
+      id: "food-traceability-records-present",
+      status: "pass",
+      area: "서류",
+      title: "식품 이력추적 기록 신호가 확인되었습니다",
+      severity: "low",
+      why: "입력 자료에서 로트/배치, 원료 출처, 공급처 또는 출고·수령 흐름 신호가 확인되어 대만 식품 추적관리 요구에 연결할 수 있습니다.",
+      fix: ["원료 공급자, 제품 책임업체, 로트/배치, 수량, 입고일, 통관일, 출고일, 수령처, 재고·반품·부적합품 처리 기록을 5년 보관 기준으로 묶어 두세요."],
+      source: SOURCE_FOOD_TRACEABILITY,
+      sourceUrl: SOURCE_FOOD_TRACEABILITY_URL,
+      evidence: "traceability / lot-flow records"
+    });
+  } else {
+    findings.push({
+      id: "food-traceability-records-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "식품 이력추적·출처/흐름 기록 확인 필요",
+      severity: "medium",
+      why: "대만 식품 추적관리 규정은 식품 및 관련 제품에 대해 원료 출처, 제품 정보, 식별 정보, 제품 흐름, 재고와 폐기/반품 관련 기록을 요구합니다.",
+      fix: ["원료 공급자와 식품업자 등록번호, 원료/제품명, 로트·배치, 유통기한·제조일, 원산지, 수입검사 신청번호, 출고 수량·수령처·배송일 기록을 제품 파일에 추가"],
+      source: SOURCE_FOOD_TRACEABILITY,
+      sourceUrl: SOURCE_FOOD_TRACEABILITY_URL
+    });
+  }
+
+  if (hasFoodRecallDestructionReadiness(input)) {
+    findings.push({
+      id: "food-recall-destruction-plan-present",
+      status: "pass",
+      area: "서류",
+      title: "식품 회수·폐기 계획 신호가 확인되었습니다",
+      severity: "low",
+      why: "입력 자료에서 회수/폐기 계획, 하류 거래처 통지, 회수 진행 보고, 격리·처분 또는 5년 기록 보관 신호가 확인되었습니다.",
+      fix: ["회수 대상 제품 식별, 하류 거래처 비상 연락처, 회수 완료 예정일, 보관 장소, 최종 처분 방식, 진행 보고 주기와 5년 기록 보관 책임자를 운영 SOP에 연결"],
+      source: SOURCE_FOOD_RECALL_DESTRUCTION,
+      sourceUrl: SOURCE_FOOD_RECALL_DESTRUCTION_URL,
+      evidence: "recall/destruction procedure"
+    });
+  } else {
+    findings.push({
+      id: "food-recall-destruction-plan-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "식품 회수·폐기 운영계획 확인 필요",
+      severity: "medium",
+      why: "대만 식품 회수·폐기 규정은 제조자, 판매자 또는 수입자가 회수 전담반을 두고 회수·폐기 계획, 진행 보고, 격리 표시, 폐기 승인과 5년 기록 보관을 준비하도록 요구합니다.",
+      fix: ["회수 전담반/소집 책임자, 회수·폐기 계획서, 하류 거래처 통지 절차, 회수 진행 보고 양식, 회수품 격리 표시, 폐기 승인 요청과 기록 보관 체계를 수입자와 확정"],
+      source: SOURCE_FOOD_RECALL_DESTRUCTION,
+      sourceUrl: SOURCE_FOOD_RECALL_DESTRUCTION_URL
+    });
+  }
+}
+
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   for (const requirement of foodLabelRequirements) {
     if (!requirement.present(input)) {
@@ -1718,6 +1801,7 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
     if (emittedAdditives.size >= 8) break;
   }
 
+  addFoodPostMarketFindings(input, findings);
   addHealthFoodFindings(input, findings);
 }
 

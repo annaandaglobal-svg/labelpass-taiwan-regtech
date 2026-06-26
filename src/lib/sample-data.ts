@@ -118,7 +118,9 @@ export const foodCleanSampleReview: ReviewInput = {
     "進口商：待確認",
     "有效日期：2027.03.01",
     "營養標示：每份熱量 5 kcal、蛋白質 0g、脂肪 0g、碳水化合物 1g、糖 0g、鈉 0mg",
-    "本產品不含公告指定過敏原；如有交叉污染疑慮請依供應商文件確認"
+    "本產品不含公告指定過敏原；如有交叉污染疑慮請依供應商文件確認",
+    "Food traceability ledger: lot TEA2603, raw material supplier, country of origin, receiving date, import inspection application number, inventory quantity, delivery date, recipient and downstream distributor records retained for five years.",
+    "Food recall and destruction plan: standing task force, downstream notification list, recall progress report template, recalled product segregation label, final disposal/destruction approval workflow and five-year recall records prepared."
   ].join("\n")
 };
 
