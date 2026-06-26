@@ -1026,6 +1026,7 @@ h2 {
   color: rgba(255, 255, 255, 0.84);
   font-size: 13px;
   line-height: 1.35;
+  word-break: keep-all;
 }
 
 .start-secondary-links {

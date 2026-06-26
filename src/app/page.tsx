@@ -881,7 +881,7 @@ export default function Home() {
                   <Upload size={21} />
                   <span>
                     <b>자료 넣고 검토 시작</b>
-                    <small>PDF·이미지·전성분 텍스트 모두 가능</small>
+                    <small>PDF·이미지·텍스트 가능</small>
                   </span>
                 </button>
                 <div className="start-secondary-links start-secondary-links-home" aria-label="다른 시작 방법">
