@@ -310,6 +310,14 @@ const queryStopwords = new Set([
   "타이완",
   "taiwan",
   "tw",
+  "official",
+  "platform",
+  "portal",
+  "system",
+  "database",
+  "query",
+  "lookup",
+  "page",
   "臺灣",
   "台灣",
   "규정",
@@ -335,10 +343,27 @@ function queryTokensForFallback(query: string) {
 function tokenScoreWithQueryFallback(target: string, query: string, exactOnly = false) {
   const directScore = tokenScore(target, query, exactOnly);
   if (directScore) return directScore;
-  if (!hasCjkOrHangul(query)) return 0;
 
   const queryTokens = queryTokensForFallback(query);
   if (queryTokens.length <= 1) return 0;
+
+  const tokenScores = queryTokens.reduce<number[]>((scores, token) => {
+    const tokenExactOnly = exactOnly || isShortLatin(token);
+    const score = tokenScore(target, token, tokenExactOnly);
+    if (score > 0) scores.push(score);
+    return scores;
+  }, []);
+
+  if (!tokenScores.length) return 0;
+
+  if (!hasCjkOrHangul(query)) {
+    const coverage = tokenScores.length / queryTokens.length;
+    if (tokenScores.length < 2 || coverage < 0.5) return 0;
+    const averageScore = tokenScores.reduce((sum, score) => sum + Math.min(score, 88), 0) / tokenScores.length;
+    const coverageBoost = Math.round(coverage * 20);
+    const densityBoost = Math.min(12, tokenScores.length * 2);
+    return Math.min(64, Math.max(38, Math.round(averageScore * 0.45) + coverageBoost + densityBoost));
+  }
 
   return queryTokens.reduce((best, token) => {
     const tokenExactOnly = exactOnly || isShortLatin(token);
@@ -477,22 +502,53 @@ function ambiguitySummary(query: string, termResults: KnowledgeSearchResult["ter
 function scoreSource(source: SourceResult, query: string) {
   if (characterLength(query) <= 2 && !hasCjkOrHangul(query)) return 0;
 
-  const haystack = normalize(
-    [
-      source.title,
-      source.url,
-      source.fetched_url,
-      ...(source.extra_fetched_urls ?? []),
-      source.authority,
-      source.jurisdiction,
-      source.domain,
-      source.source_type,
-      source.priority,
-      source.excerpt,
-      ...(source.tags ?? [])
-    ].join(" ")
+  const titleScore = tokenScoreWithQueryFallback(normalize(source.title), query);
+  const tagScore = tokenScoreWithQueryFallback(normalize((source.tags ?? []).join(" ")), query);
+  const urlScore = tokenScoreWithQueryFallback(
+    normalize([source.url, source.fetched_url, ...(source.extra_fetched_urls ?? [])].join(" ")),
+    query
   );
-  return tokenScoreWithQueryFallback(haystack, query);
+  const metadataScore = tokenScoreWithQueryFallback(
+    normalize([source.authority, source.jurisdiction, source.domain, source.source_type, source.priority].join(" ")),
+    query
+  );
+  const excerptScore = tokenScoreWithQueryFallback(normalize(source.excerpt ?? ""), query);
+  const haystackScore = tokenScoreWithQueryFallback(
+    normalize(
+      [
+        source.title,
+        source.url,
+        source.fetched_url,
+        ...(source.extra_fetched_urls ?? []),
+        source.authority,
+        source.jurisdiction,
+        source.domain,
+        source.source_type,
+        source.priority,
+        source.excerpt,
+        ...(source.tags ?? [])
+      ].join(" ")
+    ),
+    query
+  );
+
+  const matchedFields = [titleScore, tagScore, urlScore, metadataScore, excerptScore].filter((score) => score > 0).length;
+  const bestScore = Math.max(
+    titleScore ? titleScore + 8 : 0,
+    tagScore ? tagScore + 6 : 0,
+    urlScore ? urlScore + 4 : 0,
+    metadataScore,
+    excerptScore ? Math.max(0, excerptScore - 2) : 0,
+    haystackScore
+  );
+
+  return Math.min(100, bestScore + (matchedFields >= 2 ? 4 : 0));
+}
+
+function sourcePriorityRank(priority: string) {
+  if (priority === "high") return 0;
+  if (priority === "medium") return 1;
+  return 2;
 }
 
 function topCounts(values: string[], limit = 8) {
@@ -614,7 +670,12 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
       score: Math.max(scoreSource(source, query), sourceBoosts.get(source.id) ?? 0)
     }))
     .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score)
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        sourcePriorityRank(a.source.priority) - sourcePriorityRank(b.source.priority) ||
+        a.source.title.localeCompare(b.source.title)
+    )
     .slice(0, Math.max(8, limit))
     .map(({ source, score }) => ({
       id: source.id,

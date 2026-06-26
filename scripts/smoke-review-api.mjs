@@ -1282,6 +1282,11 @@ const sourceCases = [
   { query: "mofcom export control", expectedSource: "cn-mofcom-export-control-portal" },
   { query: "GC453 CCC CODE", expectedSource: "tw-customs-tariff-database-download" },
   { query: "CCC import export regulation", expectedSource: "tw-trade-ccc-import-export-regulations" },
+  {
+    query: "CCC import export regulations Taiwan",
+    expectedSource: "tw-trade-ccc-import-export-regulations",
+    expectedFirstSource: "tw-trade-ccc-import-export-regulations"
+  },
   { query: "imported cosmetics inspection", expectedSource: "tw-tfda-imported-cosmetics-inspection" },
   { query: "免申請查驗 通關代碼", expectedSource: "tw-tfda-food-import-inspection-exemptions" },
   { query: "Regulations of Inspection of Imported Foods and Related Products", expectedSource: "tw-tfda-imported-food-inspection-regulations" },
@@ -1292,6 +1297,11 @@ const sourceCases = [
   { query: "compound food additive composition report official health certificate", expectedSource: "tw-tfda-compound-food-additive-import-documents" },
   { query: "food additive inspection registration permit document", expectedSource: "tw-tfda-food-additive-registration-materials" },
   { query: "food additive permit query registration number license number", expectedSource: "tw-tfda-food-additive-permit-query" },
+  {
+    query: "food additive permit query Taiwan TFDA",
+    expectedSource: "tw-tfda-food-additive-permit-query",
+    expectedFirstSource: "tw-tfda-food-additive-permit-query"
+  },
   { query: "Health Food Governing Act permit number standard logo approved health care effects", expectedSource: "tw-moj-health-food-governing-act" },
   { query: "Enforcement Rules of Health Food Control Act Article 13 labeling", expectedSource: "tw-tfda-health-food-enforcement-rules" },
   { query: "Formula for Certain Disease warning doctor dietitian principal display panel", expectedSource: "tw-tfda-formula-for-certain-disease-labeling-2025" },
@@ -1310,6 +1320,11 @@ const sourceCases = [
   { query: "Cosmetics Good Manufacturing Practice Regulations quality system site evidence", expectedSource: "tw-tfda-cosmetics-gmp-regulations" },
   { query: "Establishment Standards for Cosmetics Manufactory manufacturing site", expectedSource: "tw-tfda-cosmetics-manufactory-standards" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
+  {
+    query: "TFDA cosmetic adverse event quality management platform",
+    expectedSource: "tw-tfda-cosmetic-adverse-event-qms-platform",
+    expectedFirstSource: "tw-tfda-cosmetic-adverse-event-qms-platform"
+  },
   { query: "cosmetics post-market surveillance quality monitoring adverse event reporting system", expectedSource: "tw-tfda-cosmetics-management-framework" },
   { query: "cosmetic serious adverse effects hygiene safety hazards report within 15 days", expectedSource: "tw-moj-cosmetic-serious-adverse-reporting" },
   { query: "cosmetics recall class 1 class 2 class 3 seller notification recall proposal", expectedSource: "tw-moj-cosmetics-recall-regulations" },
@@ -1359,6 +1374,10 @@ for (const testCase of sourceCases) {
 
   if (!matched) {
     throw new Error(`${testCase.query}: expected source ${testCase.expectedSource}`);
+  }
+
+  if (testCase.expectedFirstSource && result.sources?.[0]?.id !== testCase.expectedFirstSource) {
+    throw new Error(`${testCase.query}: expected first source ${testCase.expectedFirstSource}, got ${result.sources?.[0]?.id ?? "none"}`);
   }
 }
 
