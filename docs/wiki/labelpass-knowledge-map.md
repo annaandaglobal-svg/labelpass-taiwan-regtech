@@ -36,7 +36,7 @@ LabelPass knowledge is managed as a reusable regulatory memory, not as one-off w
 ## Source Families
 
 - Taiwan general labeling: Commodity Labeling Act, customs origin notices, MOEA trade notices.
-- Taiwan cosmetics: Cosmetic Hygiene and Safety Act, TFDA ingredient datasets, PIF notices, PIF guidance, and cosmetics safety requirements.
+- Taiwan cosmetics: Cosmetic Hygiene and Safety Act, cosmetic claim criteria, TFDA ingredient datasets, PIF notices, PIF guidance, and cosmetics safety requirements.
 - Taiwan food and product labeling: TFDA food/nutrition labeling, BSMI commodity inspection, inspection marks, and origin rules.
 - Taiwan trade/export control: International Trade Administration import/export regulations, SHTC regulations, and dual-use list notices.
 - Global terminology: WTO TBT, WCO Harmonized System, UNECE GHS, Codex food labeling, INCI, CAS, and Wassenaar.

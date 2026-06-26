@@ -27,6 +27,18 @@
       "tags": ["cosmetics", "labeling", "claims", "pif"]
     },
     {
+      "id": "tw-moj-cosmetic-claims-criteria",
+      "title": "Regulations Governing Criteria for the Label, Promotion, Advertisement with Deception, Exaggeration, or Medical efficacy of Cosmetic Products",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030099",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "labeling", "promotion", "advertising", "claims", "deception", "exaggeration", "medical-efficacy", "substantiation", "article-10"]
+    },
+    {
       "id": "tw-tfda-pif-implementation",
       "title": "Cosmetic Product Information Files to Be Implemented in Phases",
       "url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",

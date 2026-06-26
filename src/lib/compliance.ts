@@ -54,6 +54,8 @@ export type ReviewResult = {
 
 const SOURCE_ACT = "Cosmetic Hygiene and Safety Act, Articles 6, 7, 10";
 const SOURCE_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030013";
+const SOURCE_COSMETIC_CLAIMS_CRITERIA = "Regulations Governing Criteria for Cosmetic Label, Promotion, Advertisement Claims";
+const SOURCE_COSMETIC_CLAIMS_CRITERIA_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030099";
 const SOURCE_PIF = "TFDA PIF phased implementation notice, 2025-08-14";
 const SOURCE_PIF_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164";
 const SOURCE_COSMETIC_PRODUCT_NOTIFICATION = "TFDA cosmetic product registration zone";
@@ -446,6 +448,19 @@ function hasCosmeticSourceFlowRecords(input: ReviewInput) {
   const hasLotSignal = /lot|batch|批號|批号|제조번호|로트|lot\s*no\.?|batch\s*no\.?/i.test(text);
   const hasFlowSignal = /receiver|recipient|destination|delivery date|shipment date|import declaration|customs declaration|invoice no|purchase order|供應|流向|收貨|交貨|進口報單|報單號碼|수령처|납품처|공급처|수입신고|통관번호|보관/i.test(text);
   return hasLotSignal && hasFlowSignal;
+}
+
+function cosmeticClaimSubstantiationMatch(input: ReviewInput) {
+  const claimText = `${input.productName} ${input.labelText}`;
+  return claimText.match(
+    /clinically\s+(?:proven|tested)|dermatologist\s+tested|hypoallergenic|non[-\s]?comedogenic|(?:24|48)[-\s]?hour|long[-\s]?lasting|wrinkle|anti[-\s]?aging|lifting|firming|whitening|brightening|barrier\s+repair|sensitive\s+skin|臨床|皮膚科|低敏|不致粉刺|(?:24|48)\s*小時|抗皺|緊緻|美白|亮白|屏障|修護|敏感肌|임상|피부과\s*테스트|저자극|논코메도|(?:24|48)\s*시간|주름|탄력|리프팅|미백|브라이트닝|장벽\s*(?:개선|강화|회복)|민감성\s*피부/i
+  )?.[0];
+}
+
+function hasCosmeticClaimEvidenceSignal(input: ReviewInput) {
+  return /claim substantiation|claim evidence|efficacy test|hydration efficacy|clinical report|consumer study|instrumental test|dermatologist test report|in vivo|in vitro|PIF.{0,24}(?:efficacy|claim)|功效測試|人體試驗|臨床報告|檢測報告|佐證資料|效能佐證|宣稱佐證|시험성적서|효능\s*근거|효능\s*시험|인체적용시험|소비자\s*테스트|임상\s*보고|피부과\s*테스트\s*보고/i.test(
+    reviewText(input)
+  );
 }
 
 function hasHsClassification(input: ReviewInput) {
@@ -2086,9 +2101,11 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     });
   }
 
+  let hasMedicalEfficacyClaim = false;
   for (const pattern of medicalClaimPatterns) {
     const match = input.labelText.match(pattern);
     if (match) {
+      hasMedicalEfficacyClaim = true;
       findings.push({
         id: "medical-claim",
         status: "fail",
@@ -2097,9 +2114,40 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
         severity: "높음",
         why: "화장품 표시·홍보·광고는 기만·과장되어서는 안 되며 의료 효능을 표시할 수 없습니다.",
         fix: ["치료·재생·항염 등 의료 효능 표현 삭제", "보습, 피부결 개선, 세정 등 화장품 범위의 표현으로 완화", "광고 문구는 전문가 검수로 별도 확인"],
-        source: SOURCE_ACT,
-        sourceUrl: SOURCE_ACT_URL,
+        source: SOURCE_COSMETIC_CLAIMS_CRITERIA,
+        sourceUrl: SOURCE_COSMETIC_CLAIMS_CRITERIA_URL,
         evidence: match[0]
+      });
+    }
+  }
+
+  const cosmeticClaimEvidence = cosmeticClaimSubstantiationMatch(input);
+  if (!hasMedicalEfficacyClaim && cosmeticClaimEvidence) {
+    if (hasCosmeticClaimEvidenceSignal(input)) {
+      findings.push({
+        id: "cosmetic-claim-substantiation-present",
+        status: "pass",
+        area: "효능표현",
+        title: "효능표현 근거자료 신호 확인",
+        severity: "낮음",
+        why: "대만 기준은 사실과 다르거나 근거가 없거나 불충분한 효능표현을 허위·과장으로 볼 수 있으므로, 표현별 근거자료를 PIF와 광고 검수 파일에 연결해야 합니다.",
+        fix: ["표현별 시험성적서·소비자 사용시험·문헌 근거를 최종 광고 문구와 같은 버전으로 보관", "대만 수입자와 광고 집행 전 문구·근거 매핑표 공유"],
+        source: SOURCE_COSMETIC_CLAIMS_CRITERIA,
+        sourceUrl: SOURCE_COSMETIC_CLAIMS_CRITERIA_URL,
+        evidence: cosmeticClaimEvidence
+      });
+    } else {
+      findings.push({
+        id: "cosmetic-claim-substantiation-needed",
+        status: "needs_info",
+        area: "효능표현",
+        title: "효능표현 근거자료 확인 필요",
+        severity: "중간",
+        why: "대만 기준은 내용 설명이 사실과 맞지 않거나 근거가 없거나 불충분하면 허위·과장 표시·광고로 볼 수 있습니다.",
+        fix: ["효능 표현별 시험성적서·인체적용시험·소비자 사용시험·문헌 근거 연결", "광고·상세페이지·라벨 문구를 같은 표현 단위로 쪼개 근거 매핑표 작성", "근거가 부족한 표현은 보습·피부결·사용감 등 화장품 범위의 완화 문구로 수정"],
+        source: SOURCE_COSMETIC_CLAIMS_CRITERIA,
+        sourceUrl: SOURCE_COSMETIC_CLAIMS_CRITERIA_URL,
+        evidence: cosmeticClaimEvidence
       });
     }
   }

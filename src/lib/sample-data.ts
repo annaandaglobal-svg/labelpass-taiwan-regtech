@@ -60,6 +60,7 @@ export const cleanSampleReview: ReviewInput = {
     "原產地：韓國",
     "批號：C26TW02",
     "製造日期：2026.06.01 / 有效日期：2029.06.01",
+    "Claim substantiation file: hydration efficacy test, dermatologist test report, and sensitive-skin consumer study are linked to 修護 and 保濕 claims.",
     "化粧品產品登錄字號 TW-COS-2026-00021. PIF 產品資訊檔案與 safety assessment 已備妥.",
     "化粧品GMP / ISO 22716 certificate for ANNAANDA Beauty Lab manufacturing site.",
     "Post-market surveillance SOP: adverse event reporting within 15 days, consumer complaint intake, and safety alert monitoring are assigned to Taiwan Importer Co.",
@@ -315,6 +316,12 @@ export const sourceCards = [
     detail: "Article 6 bans or restricts ingredients by public announcement; Article 7 defines required cosmetic label items; Article 10 controls deceptive, exaggerated, and medical efficacy claims.",
     url: "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030013",
     tag: "법령"
+  },
+  {
+    title: "Cosmetic claims criteria",
+    detail: "MOJ regulation for judging cosmetic label, promotion, and advertising claims by overall consumer presentation, evidence sufficiency, and medical-efficacy risk.",
+    url: "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030099",
+    tag: "효능표현"
   },
   {
     title: "Imported cosmetics inspection",

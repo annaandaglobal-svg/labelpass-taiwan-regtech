@@ -318,6 +318,20 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
     ),
     documentItem("cosmetic-coa", "COA / 조성표", needsConcentration ? "needed" : "ready", needsConcentration ? "warn" : "pass", "제조사", findings.filter((finding) => finding.id.includes("missing-concentration")).map((finding) => finding.id)),
     documentItem("cosmetic-chinese-label", "중문 라벨", needsLabel ? "review" : "ready", needsLabel ? "warn" : "pass", "라벨 담당", findings.filter((finding) => finding.area === "라벨").map((finding) => finding.id)),
+    documentItem(
+      "cosmetic-claim-substantiation",
+      "효능표현 근거자료",
+      findingIds.has("medical-claim")
+        ? "needed"
+        : findingIds.has("cosmetic-claim-substantiation-needed")
+          ? "needed"
+          : findingIds.has("cosmetic-claim-substantiation-present")
+            ? "ready"
+            : "not_applicable",
+      findingIds.has("medical-claim") ? "danger" : findingIds.has("cosmetic-claim-substantiation-needed") ? "warn" : findingIds.has("cosmetic-claim-substantiation-present") ? "pass" : "info",
+      "라벨 담당",
+      ["medical-claim", "cosmetic-claim-substantiation-needed", "cosmetic-claim-substantiation-present"].filter((id) => findingIds.has(id))
+    ),
     documentItem("trade-invoice-packing", "인보이스 / 패킹리스트", needsTrade ? "review" : "ready", needsTrade ? "info" : "pass", "수입자", findings.filter((finding) => finding.area === "통관").map((finding) => finding.id))
   ];
 }

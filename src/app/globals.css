@@ -847,7 +847,18 @@ h2 {
 
 .primary-btn:disabled {
   opacity: 0.7;
-  cursor: wait;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary-btn,
+.ghost-btn,
+.chip,
+.nav-btn,
+.classifier button {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .wide {
@@ -4640,7 +4651,6 @@ h2 {
     padding: 12px 13px;
   }
 
-  .command-hero p,
   .hero-proof {
     display: none;
   }

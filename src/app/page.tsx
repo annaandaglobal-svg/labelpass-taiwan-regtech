@@ -115,12 +115,12 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "129",
-  aliases: "3,629",
-  terms: "1,156",
-  reviewCases: "20",
-  knowledgeCases: "84",
-  sourceCases: "53"
+  sources: "130",
+  aliases: "3,659",
+  terms: "1,157",
+  reviewCases: "21",
+  knowledgeCases: "86",
+  sourceCases: "54"
 };
 
 const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {
@@ -740,16 +740,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero-actions">
-                <button className="ghost-btn" onClick={focusInputPane}>
+                <button className="primary-btn" onClick={focusInputPane}>
                   <ArrowRight size={17} />
                   입력 폼 이동
                 </button>
-                <button className="ghost-btn" onClick={() => fillSample("food-import")}>
-                  <Ship size={16} /> 식품 통관 샘플
-                </button>
-                <a className="ghost-btn" href="/knowledge">
-                  <Search size={16} /> 용어·소스 검색
-                </a>
               </div>
               <div className="hero-proof">
                 <span><ShieldCheck size={15} /> 정형 룰 우선</span>
@@ -823,9 +817,9 @@ export default function Home() {
 
               <div className="quick-review-bar">
                 <div className="review-cta-stack">
-                  <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing}>
+                  <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
                     {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
-                    AI 1차 검토 시작
+                    {inputReadiness.canReview ? "AI 1차 검토 시작" : "필수 입력 후 검토"}
                   </button>
                   <small>{inputReadiness.canReview ? "필수 입력 완료 · 통관 자료가 있으면 판정 정확도가 올라갑니다." : `${inputReadiness.missing.slice(0, 2).join(", ")} 입력 시 판정 품질이 좋아집니다.`}</small>
                 </div>

@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 120,
+  "curated_term_count": 121,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -9917,6 +9917,26 @@
           "source": "curated"
         },
         {
+          "value": "cosmetic claim substantiation",
+          "normalized": "cosmetic claim substantiation",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic claim evidence",
+          "normalized": "cosmetic claim evidence",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "medical efficacy claim",
           "normalized": "medical efficacy claim",
           "type": "prohibited_claim",
@@ -9977,8 +9997,48 @@
           "source": "curated"
         },
         {
+          "value": "화장품 효능표현 근거",
+          "normalized": "화장품 효능표현 근거",
+          "type": "official_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 광고 근거자료",
+          "normalized": "화장품 광고 근거자료",
+          "type": "official_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "의학적 효능 표현",
           "normalized": "의학적 효능 표현",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 의료효능 표현",
+          "normalized": "화장품 의료효능 표현",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 허위 과장 표시",
+          "normalized": "화장품 허위 과장 표시",
           "type": "prohibited_claim",
           "language": "ko",
           "jurisdiction": "TW",
@@ -10037,6 +10097,36 @@
           "source": "curated"
         },
         {
+          "value": "化粧品標示宣傳廣告",
+          "normalized": "化粧品標示宣傳廣告",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "虛偽誇大",
+          "normalized": "虛偽誇大",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "宣稱佐證",
+          "normalized": "宣稱佐證",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "醫療效能",
           "normalized": "醫療效能",
           "type": "prohibited_claim",
@@ -10077,6 +10167,26 @@
           "source": "curated"
         },
         {
+          "value": "化妆品虚假夸大医疗效能",
+          "normalized": "化妆品虚假夸大医疗效能",
+          "type": "prohibited_claim",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品宣称依据",
+          "normalized": "化妆品宣称依据",
+          "type": "official_term",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "化粧品表示",
           "normalized": "化粧品表示",
           "type": "local_name",
@@ -10099,12 +10209,220 @@
       ],
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-moj-cosmetic-claims-criteria",
         "tw-moj-cosmetic-product-notification",
         "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetics-business-area",
         "tw-us-ita-labeling-marking"
       ],
-      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, and medical-efficacy claim screening."
+      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+    },
+    {
+      "id": "cosmetic-claims-criteria",
+      "canonical_name": "Cosmetic Claims Criteria",
+      "category": "cosmetic_compliance",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Regulations Governing Criteria for the Label Promotion Advertisement with Deception Exaggeration or Medical efficacy of Cosmetic Products",
+          "normalized": "regulations governing criteria for the label promotion advertisement with deception exaggeration or medical efficacy of cosmetic products",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic claims criteria",
+          "normalized": "cosmetic claims criteria",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic claim substantiation",
+          "normalized": "cosmetic claim substantiation",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic claim evidence",
+          "normalized": "cosmetic claim evidence",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "false exaggerated cosmetic label",
+          "normalized": "false exaggerated cosmetic label",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic medical efficacy claim",
+          "normalized": "cosmetic medical efficacy claim",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic advertisement deception",
+          "normalized": "cosmetic advertisement deception",
+          "type": "prohibited_claim",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 효능표현 판단기준",
+          "normalized": "화장품 효능표현 판단기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 허위 과장 표시",
+          "normalized": "화장품 허위 과장 표시",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 의료효능 표현",
+          "normalized": "화장품 의료효능 표현",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 광고 근거자료",
+          "normalized": "화장품 광고 근거자료",
+          "type": "official_term",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 표시 광고 기준",
+          "normalized": "화장품 표시 광고 기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則",
+          "normalized": "化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品標示宣傳廣告",
+          "normalized": "化粧品標示宣傳廣告",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "虛偽誇大",
+          "normalized": "虛偽誇大",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "醫療效能",
+          "normalized": "醫療效能",
+          "type": "prohibited_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "宣稱佐證",
+          "normalized": "宣稱佐證",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品虚假夸大医疗效能",
+          "normalized": "化妆品虚假夸大医疗效能",
+          "type": "prohibited_claim",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化妆品宣称依据",
+          "normalized": "化妆品宣称依据",
+          "type": "official_term",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-claims-criteria",
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "Taiwan criteria for judging cosmetic labels, promotion, and advertisements by overall consumer presentation. False or exaggerated claims include content not conforming to facts, lacking evidence, having insufficient evidence, or exceeding cosmetic definition/category/scope; medical-efficacy claims relate to prevention, mitigation, diagnosis, or treatment of disease or similar drug/medical-equipment effects."
     },
     {
       "id": "food-additive-inspection-registration",

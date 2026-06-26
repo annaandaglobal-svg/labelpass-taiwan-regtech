@@ -692,6 +692,7 @@ const tradeCompleteResponse = await fetch(`${baseUrl}/api/review`, {
       "品名：積雪草修護霜. 容量：50ml. 全成分：Water, Glycerin, Panthenol, Phenoxyethanol.",
       "原產地：韓國. 進口商：Taiwan Importer Co. 製造日期：2026-06-01. 有效日期：2029-06-01.",
       "化粧品產品登錄字號 TW-COS-2026-00021. PIF product information file and safety assessment prepared.",
+      "Claim substantiation file: hydration efficacy test and dermatologist test report linked to 修護 and 保濕 claims.",
       "化粧品GMP / ISO 22716 certificate for manufacturing site.",
       "Post-market surveillance SOP: adverse event reporting within 15 days, consumer complaint intake, and safety alert monitoring.",
       "Recall SOP and CAPA plan prepared with seller notification, recall quantity log, and completion report template.",
@@ -722,6 +723,7 @@ for (const findingId of [
   "cosmetic-product-notification-present",
   "cosmetic-pif-readiness-present",
   "cosmetic-gmp-readiness-present",
+  "cosmetic-claim-substantiation-present",
   "cosmetic-adverse-reporting-present",
   "cosmetic-recall-procedure-present",
   "cosmetic-source-flow-records-present"
@@ -741,8 +743,47 @@ for (const checklistId of ["cosmetic-adverse-reporting", "cosmetic-recall-proced
   }
 }
 
+if (!tradeCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "cosmetic-claim-substantiation" && doc.status === "ready")) {
+  throw new Error("Trade complete review: expected ready cosmetic claim substantiation checklist item");
+}
+
 if (!Array.isArray(tradeCompleteResult.actionPlan?.ownerSummary)) {
   throw new Error("Trade complete review: expected action plan owner summary");
+}
+
+const cosmeticClaimGapResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Hydra Calm Ampoule",
+    productType: "leave-on serum / general cosmetics",
+    ingredientsText: "Water, Glycerin 5%, Niacinamide 2%, Phenoxyethanol 0.5%",
+    labelText: [
+      "品名：舒緩保濕安瓶. 容量：30ml. 全成分：Water, Glycerin, Niacinamide, Phenoxyethanol.",
+      "原產地：韓國. 進口商：Taiwan Importer Co. 批號：HC2606.",
+      "Clinically proven 48-hour moisturizing and dermatologist tested for sensitive skin."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Beauty Lab / Taiwan Importer Co.",
+    hsCode: "3304.99",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "980"
+  })
+});
+
+if (!cosmeticClaimGapResponse.ok) {
+  throw new Error(`Cosmetic claim review: Review API returned ${cosmeticClaimGapResponse.status}`);
+}
+
+const cosmeticClaimGapResult = await cosmeticClaimGapResponse.json();
+
+if (!cosmeticClaimGapResult.findings?.some((finding) => finding.id === "cosmetic-claim-substantiation-needed")) {
+  throw new Error("Cosmetic claim review: expected claim substantiation finding");
+}
+
+if (!cosmeticClaimGapResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "cosmetic-claim-substantiation" && doc.status === "needed")) {
+  throw new Error("Cosmetic claim review: expected needed claim substantiation checklist item");
 }
 
 const knowledgeCases = [
@@ -806,6 +847,8 @@ const knowledgeCases = [
   { query: "化粧品回收 回收作業計畫書", expectedTerm: "Cosmetic Recall" },
   { query: "source and flow data lot number five-year retention cosmetic", expectedTerm: "Cosmetic Source and Flow Records" },
   { query: "化粧品產品登錄", expectedTerm: "Cosmetic Product Notification", expectedFirst: "Cosmetic Product Notification" },
+  { query: "화장품 의료효능 표현 허위 과장 광고", expectedTerm: "Cosmetic Claims Criteria" },
+  { query: "醫療效能 虛偽誇大 化粧品標示宣傳廣告", expectedTerm: "Cosmetic Claims Criteria" },
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
   { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
   { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
@@ -881,6 +924,7 @@ const sourceCases = [
   { query: "cosmetic serious adverse effects hygiene safety hazards report within 15 days", expectedSource: "tw-moj-cosmetic-serious-adverse-reporting" },
   { query: "cosmetics recall class 1 class 2 class 3 seller notification recall proposal", expectedSource: "tw-moj-cosmetics-recall-regulations" },
   { query: "cosmetic source and flow data lot import declaration five-year retention", expectedSource: "tw-moj-cosmetic-source-flow-data" },
+  { query: "Regulations Governing Criteria Label Promotion Advertisement Deception Exaggeration Medical efficacy Cosmetic Products", expectedSource: "tw-moj-cosmetic-claims-criteria" },
   { query: "Mercury CAS 7439 prohibited cosmetic ingredient", expectedSource: "tw-tfda-cosmetic-prohibited-ingredients" },
   { query: "化粧品成分使用限制 限量標準", expectedSource: "tw-tfda-cosmetic-restricted-ingredients" },
   { query: "CI 77891 colorant usage restriction", expectedSource: "tw-tfda-cosmetic-colorants" },
@@ -1006,5 +1050,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 16} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 17} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );
