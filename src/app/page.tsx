@@ -440,6 +440,7 @@ export default function Home() {
   const [archiveState, setArchiveState] = useState<ReviewArchiveStorage>("browser");
   const [filter, setFilter] = useState<FilterStatus>("all");
   const [expandedFinding, setExpandedFinding] = useState<string | null>(null);
+  const [showResultDetails, setShowResultDetails] = useState(false);
   const [showExpertModal, setShowExpertModal] = useState(false);
   const [showLogisticsModal, setShowLogisticsModal] = useState(false);
   const [assistantQuestion, setAssistantQuestion] = useState("");
@@ -642,6 +643,7 @@ export default function Home() {
   async function runReview(nextInput = input) {
     setIsAnalyzing(true);
     setExpandedFinding(null);
+    setShowResultDetails(false);
     try {
       const nextResult = await requestReview(nextInput);
       const review = makeSavedReview(nextInput, nextResult);
@@ -663,6 +665,7 @@ export default function Home() {
     const fixedInput = cleanSampleReview;
     setInput(fixedInput);
     setIsAnalyzing(true);
+    setShowResultDetails(false);
     try {
       const nextResult = await requestReview(fixedInput);
       const review = makeSavedReview(fixedInput, nextResult);
@@ -712,8 +715,19 @@ export default function Home() {
     window.print();
   }
 
+  function openResultDetails(findingId?: string) {
+    if (findingId) {
+      setFilter("all");
+      setExpandedFinding(findingId);
+    }
+    setShowResultDetails(true);
+    window.setTimeout(() => {
+      document.querySelector(".result-secondary-drawer")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
+  }
+
   const archiveStatus = archiveCopy[archiveState];
-  const showAssistantPanel = screen !== "review" || Boolean(assistantEvidence || assistantQuestion.trim());
+  const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
   const isGuidedStart = screen === "review" && !result && !assistantEvidence && !assistantQuestion.trim();
   const shellClassName = isGuidedStart ? "shell shell-guided-start" : !showAssistantPanel ? "shell shell-no-assistant" : "shell";
 
@@ -1067,15 +1081,12 @@ export default function Home() {
                   <ResultFocusPanel
                     actionPlan={currentActionPlan}
                     findings={result.findings}
-                    onSelect={(findingId) => {
-                      setFilter("all");
-                      setExpandedFinding(findingId);
-                    }}
+                    onSelect={openResultDetails}
                     onExpert={() => setShowExpertModal(true)}
                     onLogistics={() => setShowLogisticsModal(true)}
                   />
 
-                  <details className="result-secondary-drawer">
+                  <details className="result-secondary-drawer" open={showResultDetails} onToggle={(event) => setShowResultDetails(event.currentTarget.open)}>
                     <summary>
                       <BookOpen size={15} />
                       세부 근거·전체 항목 보기
@@ -1090,18 +1101,12 @@ export default function Home() {
 
                     <ExecutionConsole
                       findings={result.findings}
-                      onSelect={(findingId) => {
-                        setFilter("all");
-                        setExpandedFinding(findingId);
-                      }}
+                      onSelect={openResultDetails}
                     />
 
                     <ActionPlanPanel
                       actionPlan={currentActionPlan}
-                      onSelect={(findingId) => {
-                        setFilter("all");
-                        setExpandedFinding(findingId);
-                      }}
+                      onSelect={openResultDetails}
                       onExpert={() => setShowExpertModal(true)}
                     />
 

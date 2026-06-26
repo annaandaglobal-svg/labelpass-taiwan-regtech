@@ -4068,6 +4068,10 @@ h2 {
   display: none;
 }
 
+.assistant-panel.assistant-panel-collapsed {
+  display: none;
+}
+
 .assistant-header {
   display: flex;
   align-items: center;
