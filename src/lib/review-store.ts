@@ -24,10 +24,11 @@ export type ReviewStoreSaveResult = {
 };
 
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
+const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 let client: DbClient | null = null;
 
 function getClient() {
-  if (!databaseUrl) return null;
+  if (!databaseUrl || !publicReviewArchiveEnabled) return null;
   client ??= postgres(databaseUrl, {
     max: 2,
     ssl: databaseUrl.includes("localhost") || databaseUrl.includes("127.0.0.1") ? false : "require",

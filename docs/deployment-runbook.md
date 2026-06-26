@@ -28,7 +28,7 @@ For the current production URL, the single operator gate is:
 pnpm preflight:deploy
 ```
 
-`preflight:deploy` runs type checks, rule verification, knowledge validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless a database URL is set locally. Override this when production is already configured for server-side archive storage:
+`preflight:deploy` runs type checks, rule verification, knowledge validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless both a database URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are set. Override this only when production is intentionally configured for server-side archive storage:
 
 ```bash
 LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment
@@ -129,12 +129,12 @@ Expected counts after the current seed:
 
 - `rules`: 1,081
 - current `rule_versions`: 1,081
-- `knowledge_sources`: 149
-- `knowledge_snapshots`: 149
-- `knowledge_terms`: 1,158
-- `term_aliases`: 3,754
+- `knowledge_sources`: 166
+- `knowledge_snapshots`: 166
+- `knowledge_terms`: 1,175
+- `term_aliases`: 4,012
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 52
+- `regulatory_update_candidates`: 57
 
 Recommended verification query:
 
@@ -175,11 +175,14 @@ Recommended server-only environment variable for production review history:
 
 ```text
 SUPABASE_DB_URL=postgresql://...
+LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1
 ```
 
-The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep this value server-only; never expose it as a `NEXT_PUBLIC_*` variable.
+The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep this value server-only; never expose it as a `NEXT_PUBLIC_*` variable. `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` is a deliberate opt-in because `/api/reviews` is currently a public archive endpoint without user authentication.
 
-The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without it, the app falls back to the browser-side archive and the UI shows local storage status.
+The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` plus `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without both values, the app falls back to the browser-side archive and the UI shows local storage status.
+
+If production Supabase is already configured for public knowledge search, compare all remote counts after every seed apply. `pnpm preflight:deployment` warns when the remote alias count differs from the generated local seed; run it with `LABELPASS_STRICT_REMOTE_ALIASES=1` when you want stale alias rows to block deployment. A mismatch usually means the generated knowledge seed was not re-applied with its leading cleanup statements.
 
 ## Post-Deployment Verification
 
@@ -189,4 +192,4 @@ The runtime review engine still uses bundled generated rule JSON. Knowledge sear
 4. Run the food import sample with HS `0307.12` and confirm findings include `food-import-inspection-docs-needed`, `food-importer-registration-needed`, and `food-import-hs0307-health-certificate-needed`.
 5. Confirm findings include source identifiers and rule evidence.
 6. Open `/knowledge` and confirm searches such as `輸入食品查驗`, `HS 0307 health certificate`, `食品業者登錄`, `잔류농약 기준`, `食品中污染物質及毒素`, and `食品追溯追蹤` return the expected Taiwan food-import and food-safety concepts.
-7. Run `LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment` when `SUPABASE_DB_URL` is configured in Vercel. Run it without that override when production is intentionally still using browser/local archive fallback.
+7. Run `LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment` only when `SUPABASE_DB_URL` and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are both configured in Vercel. Run it without that override when production is intentionally still using browser/local archive fallback.

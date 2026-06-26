@@ -1403,9 +1403,11 @@ if (!archiveListResponse.ok) {
 }
 
 const archiveList = await archiveListResponse.json();
+const archiveDbUrl = process.env.SUPABASE_DB_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL;
+const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const expectedArchiveStorage =
   process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
-  (process.env.SUPABASE_DB_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL ? "database" : "disabled");
+  (archiveDbUrl && publicReviewArchiveEnabled ? "database" : "disabled");
 const validArchiveStates = new Set(["database", "disabled", "unavailable"]);
 
 if (!validArchiveStates.has(expectedArchiveStorage)) {

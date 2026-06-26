@@ -15,7 +15,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Generates a regulatory update queue so source changes, stale caches, and high-priority Taiwan notices require human approval before rules are changed.
-- Archives review history through `/api/reviews` when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is configured; otherwise the app keeps an immediate browser-side review archive.
+- Archives review history through `/api/reviews` only when a server DB URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are configured; otherwise the app keeps an immediate browser-side review archive.
 
 ## Local Setup
 
@@ -60,6 +60,13 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 ```
 
+Persistent review history is deliberately opt-in because the current archive endpoint is public:
+
+```bash
+SUPABASE_DB_URL=
+LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1
+```
+
 Browser-only or blocked sources are preserved with manual text captures and screenshots under `data/knowledge/browser-captures/`.
 
 ## Verification
@@ -71,7 +78,7 @@ pnpm build
 pnpm smoke:api
 ```
 
-`pnpm smoke:api` expects the app to be running. It checks 14 review cases covering English, Korean, Traditional Chinese, Simplified Chinese, INCI, and separator-folded ingredient aliases through `/api/review`, Taiwan food allergen/additive/nutrition/import-document action plans, 71 multilingual term lookups and 40 source-retrieval probes through `/api/knowledge/search`, 3 reusable evidence-bundle probes through `/api/knowledge/evidence`, plus review archive list/save probes through `/api/reviews`.
+`pnpm smoke:api` expects the app to be running. It checks 28 review cases, 109 multilingual knowledge cases, 2 ambiguity cases, 66 source probes, 3 reusable evidence-bundle probes, plus review archive list/save probes through `/api/reviews`.
 
 ## Deployment Files
 

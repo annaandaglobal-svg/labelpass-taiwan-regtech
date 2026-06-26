@@ -4,8 +4,10 @@ import path from "node:path";
 const root = process.cwd();
 const baseUrl = (process.env.LABELPASS_BASE_URL || "https://labelpass-taiwan-regtech.vercel.app").replace(/\/$/, "");
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
+const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const expectedArchiveStorage =
-  process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ?? (databaseUrl ? "database" : "disabled");
+  process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
+  (databaseUrl && publicReviewArchiveEnabled ? "database" : "disabled");
 const validArchiveStates = new Set(["database", "disabled", "unavailable"]);
 
 const paths = {
@@ -182,11 +184,18 @@ const env = [
   envState("NEXT_PUBLIC_SUPABASE_URL", process.env.NEXT_PUBLIC_SUPABASE_URL),
   envState("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
+  envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("SUPABASE_ACCESS_TOKEN", process.env.SUPABASE_ACCESS_TOKEN)
 ];
 
 if (!databaseUrl) {
   warnings.push("Server DB URL is not set; review archive storage will remain browser/local fallback in production.");
+}
+if (databaseUrl && !publicReviewArchiveEnabled) {
+  warnings.push("Server DB URL is set, but LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE is not 1; public review archive API stays disabled.");
+}
+if (!databaseUrl && publicReviewArchiveEnabled) {
+  warnings.push("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE is 1, but no server DB URL is set; archive storage cannot use database.");
 }
 
 const remoteChecks = [];
@@ -215,6 +224,14 @@ if (knowledgeTotals) {
   }
   if (knowledgeTotals.terms !== localCounts.knowledgeTerms) {
     errors.push(`Remote knowledge terms ${knowledgeTotals.terms} did not match local ${localCounts.knowledgeTerms}`);
+  }
+  if (knowledgeTotals.aliases !== localCounts.termAliases) {
+    const message = `Remote term aliases ${knowledgeTotals.aliases} did not match local ${localCounts.termAliases}`;
+    if (process.env.LABELPASS_STRICT_REMOTE_ALIASES === "1") {
+      errors.push(message);
+    } else {
+      warnings.push(`${message}. Run pnpm verify:supabase-knowledge with SUPABASE_DB_URL, then re-apply the generated knowledge seed to remove stale aliases.`);
+    }
   }
   if (knowledgeTotals.ruleLinks !== localCounts.termRuleLinks) {
     errors.push(`Remote rule links ${knowledgeTotals.ruleLinks} did not match local ${localCounts.termRuleLinks}`);
