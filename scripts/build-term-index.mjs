@@ -8,6 +8,37 @@ const registryPath = path.join(root, "data", "knowledge", "term-registry.json");
 const outPath = path.join(root, "data", "knowledge", "term-index.json");
 
 function normalizeText(value) {
+  const regulatoryVariantFoldMap = {
+    "妆": "粧",
+    "妝": "粧",
+    "钠": "鈉",
+    "钾": "鉀",
+    "钙": "鈣",
+    "镁": "鎂",
+    "锌": "鋅",
+    "铁": "鐵",
+    "铜": "銅",
+    "铝": "鋁",
+    "盐": "鹽",
+    "亚": "亞",
+    "剂": "劑",
+    "标": "標",
+    "签": "籤",
+    "营": "營",
+    "养": "養",
+    "过": "過",
+    "产": "產",
+    "资": "資",
+    "讯": "訊",
+    "档": "檔",
+    "录": "錄",
+    "验": "驗",
+    "证": "證",
+    "许": "許",
+    "湾": "灣",
+    "臺": "台"
+  };
+
   return String(value ?? "")
     .normalize("NFKC")
     .toLowerCase()
@@ -15,7 +46,8 @@ function normalizeText(value) {
     .replace(/[()[\]{}]/g, " ")
     .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim()
+    .replace(/[妆妝钠钾钙镁锌铁铜铝盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => regulatoryVariantFoldMap[character] ?? character);
 }
 
 function slug(value) {

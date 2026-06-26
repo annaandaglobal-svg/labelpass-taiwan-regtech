@@ -9,13 +9,46 @@ const paths = {
 };
 
 function normalizeText(value) {
+  const regulatoryVariantFoldMap = {
+    "妆": "粧",
+    "妝": "粧",
+    "钠": "鈉",
+    "钾": "鉀",
+    "钙": "鈣",
+    "镁": "鎂",
+    "锌": "鋅",
+    "铁": "鐵",
+    "铜": "銅",
+    "铝": "鋁",
+    "盐": "鹽",
+    "亚": "亞",
+    "剂": "劑",
+    "标": "標",
+    "签": "籤",
+    "营": "營",
+    "养": "養",
+    "过": "過",
+    "产": "產",
+    "资": "資",
+    "讯": "訊",
+    "档": "檔",
+    "录": "錄",
+    "验": "驗",
+    "证": "證",
+    "许": "許",
+    "湾": "灣",
+    "臺": "台"
+  };
+
   return String(value ?? "")
     .normalize("NFKC")
     .toLowerCase()
+    .replace(/[‐‑‒–—―]/g, "-")
     .replace(/[()[\]{}]/g, " ")
     .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim()
+    .replace(/[妆妝钠钾钙镁锌铁铜铝盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => regulatoryVariantFoldMap[character] ?? character);
 }
 
 function foldSeparators(value) {
@@ -58,10 +91,16 @@ function scoreAlias(alias, query) {
   if (target === queryNormalized) return 100;
   const targetFolded = foldSeparators(target);
   const queryFolded = foldSeparators(queryNormalized);
+  const compactChemical = (value) => /^[a-z0-9.+-]{2,6}$/i.test(value) && /\d/.test(value) && /[a-z]/i.test(value);
+  const casRegistryNumber = (value) => /^\d{2,7}-\d{2}-\d$/i.test(value);
+  if (targetFolded === queryFolded && compactChemical(targetFolded) && compactChemical(queryFolded)) return 94;
   if (targetFolded.length > 3 && targetFolded === queryFolded) return 94;
+  if (casRegistryNumber(target) && queryNormalized.replace(/^cas\s+/i, "") === target) return 94;
+  if (/^[a-z0-9.+-]{2,4}$/i.test(target) && queryNormalized.split(" ").includes(target)) return 86;
   if (target.startsWith(queryNormalized)) return 88;
   if (target.includes(queryNormalized)) return 72;
   if (queryNormalized.length > 4 && queryNormalized.includes(target)) return 44;
+  if (targetFolded.length > 3 && queryFolded.includes(targetFolded)) return 42;
   return 0;
 }
 

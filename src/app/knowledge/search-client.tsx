@@ -240,6 +240,8 @@ export default function KnowledgeSearchClient() {
     return [...termRows, ...sourceRows].sort((left, right) => right.score - left.score).slice(0, 8);
   }, [visibleSources, visibleTerms]);
 
+  const topResult = unifiedResults[0];
+  const secondaryResults = unifiedResults.slice(1);
   const selectedEvidence = evidence;
   const selectedEvidenceParam = encodeURIComponent(selectedEvidence?.reviewParam || selectedEvidence?.title || "");
   const resultCountLabel = hasResults ? unifiedResults.length.toLocaleString() : loading ? "검색 중" : "대기";
@@ -310,13 +312,16 @@ export default function KnowledgeSearchClient() {
         {loading && <Loader2 className="spin" size={18} />}
       </div>
 
-      <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
-        {onboardingExamples.map((example) => (
-          <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
-            {example.label}
-          </button>
-        ))}
-      </div>
+      {!hasQuery && (
+        <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
+          <span>바로 검색</span>
+          {onboardingExamples.map((example) => (
+            <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
+              {example.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {error && <div className="knowledge-alert">{error}</div>}
 
@@ -480,9 +485,33 @@ export default function KnowledgeSearchClient() {
                   결과를 새로 확인하는 중입니다.
                 </div>
               )}
+              {hasResults && topResult && (
+                <article className={`knowledge-best-card ${topResult.kind}`}>
+                  <button
+                    type="button"
+                    className="knowledge-best-main"
+                    onClick={() => (topResult.kind === "term" ? selectTerm(topResult.term) : selectSource(topResult.source))}
+                    aria-pressed={selectedEvidence?.title === topResult.title}
+                  >
+                    <span className="knowledge-row-kind">{topResult.kind === "term" ? "가장 가까운 용어" : "가장 가까운 근거"}</span>
+                    <div>
+                      <h3>{topResult.title}</h3>
+                      <p>{compact(topResult.detail, 190)}</p>
+                      <div className="knowledge-row-meta">
+                        <span>{topResult.subtitle}</span>
+                        {topResult.chips.slice(0, 3).map((chip) => (
+                          <span key={`${topResult.id}-${chip}`}>{chip}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <b>{Math.round(topResult.score)}</b>
+                  </button>
+                </article>
+              )}
+
               <div className="knowledge-row-list">
                 {hasResults &&
-                  unifiedResults.map((item) => (
+                  secondaryResults.map((item) => (
                     <article className={`knowledge-row ${item.kind}`} key={item.id}>
                       <button
                         type="button"

@@ -139,6 +139,72 @@
       "query": "食品添加物查驗登記",
       "expectedTermId": "food-additive-inspection-registration",
       "requiredAliases": ["食品添加物查驗登記", "food additive inspection registration", "food additive registration", "식품첨가물 등록"]
+    },
+    {
+      "id": "benzoate-sodium-zh-hans",
+      "query": "苯甲酸钠",
+      "expectedTermId": "benzoates-food-additives",
+      "requiredAliases": ["Sodium benzoate", "苯甲酸鈉", "安息香酸鈉"]
+    },
+    {
+      "id": "sorbate-potassium-zh-hans",
+      "query": "山梨酸钾",
+      "expectedTermId": "sorbates-food-additives",
+      "requiredAliases": ["Potassium sorbate", "山梨酸鉀", "소르빈산칼륨"]
+    },
+    {
+      "id": "msg-simplified-glutamate",
+      "query": "谷氨酸钠",
+      "expectedTermId": "monosodium-glutamate",
+      "requiredAliases": ["谷氨酸鈉", "麩酸鈉", "MSG"]
+    },
+    {
+      "id": "sulfites-so2-spaced",
+      "query": "SO 2",
+      "expectedTermId": "sulfites-allergen",
+      "requiredAliases": ["SO2", "SO₂", "二氧化硫"]
+    },
+    {
+      "id": "cosmetic-gmp-zh-hans",
+      "query": "化妆品GMP",
+      "expectedTermId": "cosmetic-gmp",
+      "requiredAliases": ["化粧品GMP", "化妝品GMP", "화장품 GMP"]
+    },
+    {
+      "id": "cosmetic-pif-zh-hans",
+      "query": "化妆品产品资讯档案",
+      "expectedTermId": "cosmetic-product-information-file",
+      "requiredAliases": ["產品資訊檔案", "化粧品產品資訊檔案", "化妝品產品資訊檔案"]
+    },
+    {
+      "id": "cosmetic-product-notification-zh-hans-context",
+      "query": "台湾化妆品产品登录",
+      "expectedTermId": "cosmetic-product-notification",
+      "requiredAliases": ["產品登錄", "化粧品產品登錄", "cosmetic product notification"]
+    },
+    {
+      "id": "salicylic-cas-unicode-dash",
+      "query": "69–72–7",
+      "expectedTermId": "salicylic-acid",
+      "requiredAliases": ["69-72-7", "Salicylic Acid"]
+    },
+    {
+      "id": "salicylic-cas-prefix",
+      "query": "CAS 69-72-7",
+      "expectedTermId": "salicylic-acid",
+      "requiredAliases": ["69-72-7", "Salicylic Acid"]
+    },
+    {
+      "id": "titanium-dioxide-ci-compact",
+      "query": "CI77891",
+      "expectedTermId": "titanium-dioxide",
+      "requiredAliases": ["CI 77891", "Titanium Dioxide", "TiO2"]
+    },
+    {
+      "id": "benzophenone-3-inci-synonym",
+      "query": "Oxybenzone",
+      "expectedTermId": "benzophenone-3",
+      "requiredAliases": ["Oxybenzone", "Benzophenone-3", "二苯酮-3"]
     }
   ]
 }

@@ -773,16 +773,6 @@
           "source": "curated"
         },
         {
-          "value": "氧化锌",
-          "normalized": "氧化锌",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.95,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "징크옥사이드",
           "normalized": "징크옥사이드",
           "type": "local_name",
@@ -4465,7 +4455,7 @@
         },
         {
           "value": "全球化学品统一分类和标签制度",
-          "normalized": "全球化学品统一分类和标签制度",
+          "normalized": "全球化学品统一分类和標籤制度",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -5015,7 +5005,7 @@
         },
         {
           "value": "原产地标识",
-          "normalized": "原产地标识",
+          "normalized": "原產地標识",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -5025,7 +5015,7 @@
         },
         {
           "value": "制造国标示",
-          "normalized": "制造国标示",
+          "normalized": "制造国標示",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -5146,7 +5136,7 @@
         },
         {
           "value": "原产地证书",
-          "normalized": "原产地证书",
+          "normalized": "原產地證书",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -6232,7 +6222,7 @@
         },
         {
           "value": "检验报告",
-          "normalized": "检验报告",
+          "normalized": "检驗报告",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -6470,7 +6460,7 @@
         },
         {
           "value": "进口化妆品检验",
-          "normalized": "进口化妆品检验",
+          "normalized": "进口化粧品检驗",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -6617,7 +6607,7 @@
         },
         {
           "value": "进口食品检验豁免",
-          "normalized": "进口食品检验豁免",
+          "normalized": "进口食品检驗豁免",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -6803,7 +6793,7 @@
         },
         {
           "value": "进口食品查验",
-          "normalized": "进口食品查验",
+          "normalized": "进口食品查驗",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -6813,7 +6803,7 @@
         },
         {
           "value": "进口食品检验",
-          "normalized": "进口食品检验",
+          "normalized": "进口食品检驗",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -7126,7 +7116,7 @@
         },
         {
           "value": "卫生证明",
-          "normalized": "卫生证明",
+          "normalized": "卫生證明",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -7283,7 +7273,7 @@
         },
         {
           "value": "食品业者登录",
-          "normalized": "食品业者登录",
+          "normalized": "食品业者登錄",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -7439,7 +7429,7 @@
         },
         {
           "value": "产品信息表",
-          "normalized": "产品信息表",
+          "normalized": "產品信息表",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -7585,7 +7575,7 @@
         },
         {
           "value": "业务用食品标识",
-          "normalized": "业务用食品标识",
+          "normalized": "业务用食品標识",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -7973,7 +7963,7 @@
         },
         {
           "value": "食品污染物和毒素标准",
-          "normalized": "食品污染物和毒素标准",
+          "normalized": "食品污染物和毒素標准",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -8079,7 +8069,7 @@
         },
         {
           "value": "食品微生物卫生标准",
-          "normalized": "食品微生物卫生标准",
+          "normalized": "食品微生物卫生標准",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -8823,7 +8813,7 @@
         },
         {
           "value": "进口许可证",
-          "normalized": "进口许可证",
+          "normalized": "进口許可證",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -8833,7 +8823,7 @@
         },
         {
           "value": "出口许可证",
-          "normalized": "出口许可证",
+          "normalized": "出口許可證",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -8941,7 +8931,7 @@
         },
         {
           "value": "化妆品成分名称",
-          "normalized": "化妆品成分名称",
+          "normalized": "化粧品成分名称",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -9265,7 +9255,7 @@
         },
         {
           "value": "着色剂",
-          "normalized": "着色剂",
+          "normalized": "着色劑",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -9368,16 +9358,6 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 1,
-          "note": null,
-          "source": "curated"
-        },
-        {
-          "value": "防腐剂",
-          "normalized": "防腐剂",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },
@@ -9589,7 +9569,7 @@
         },
         {
           "value": "营养标签",
-          "normalized": "营养标签",
+          "normalized": "營養標籤",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -9889,7 +9869,7 @@
         },
         {
           "value": "食品标签宣称",
-          "normalized": "食品标签宣称",
+          "normalized": "食品標籤宣称",
           "type": "claim_phrase",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -9999,7 +9979,7 @@
         },
         {
           "value": "过敏原标识",
-          "normalized": "过敏原标识",
+          "normalized": "過敏原標识",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10137,18 +10117,8 @@
           "source": "curated"
         },
         {
-          "value": "化妝品產品資訊檔案",
-          "normalized": "化妝品產品資訊檔案",
-          "type": "variant",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "产品信息档案",
-          "normalized": "产品信息档案",
+          "normalized": "產品信息檔案",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10240,6 +10210,16 @@
           "source": "curated"
         },
         {
+          "value": "台灣化粧品產品登錄",
+          "normalized": "台灣化粧品產品登錄",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "化粧品登錄",
           "normalized": "化粧品登錄",
           "type": "short_name",
@@ -10260,16 +10240,6 @@
           "source": "curated"
         },
         {
-          "value": "化妝品產品登錄",
-          "normalized": "化妝品產品登錄",
-          "type": "variant",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "產品登錄",
           "normalized": "產品登錄",
           "type": "short_name",
@@ -10281,7 +10251,7 @@
         },
         {
           "value": "化妆品备案",
-          "normalized": "化妆品备案",
+          "normalized": "化粧品备案",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10411,16 +10381,6 @@
           "source": "curated"
         },
         {
-          "value": "化妝品GMP",
-          "normalized": "化妝品gmp",
-          "type": "variant",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "優良製造規範",
           "normalized": "優良製造規範",
           "type": "short_name",
@@ -10432,7 +10392,7 @@
         },
         {
           "value": "化妆品良好生产规范",
-          "normalized": "化妆品良好生产规范",
+          "normalized": "化粧品良好生產规范",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10719,18 +10679,8 @@
           "source": "curated"
         },
         {
-          "value": "化妆品标签",
-          "normalized": "化妆品标签",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.85,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "化妆品宣称",
-          "normalized": "化妆品宣称",
+          "normalized": "化粧品宣称",
           "type": "claim_phrase",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10740,7 +10690,7 @@
         },
         {
           "value": "化妆品虚假夸大医疗效能",
-          "normalized": "化妆品虚假夸大医疗效能",
+          "normalized": "化粧品虚假夸大医疗效能",
           "type": "prohibited_claim",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10750,7 +10700,7 @@
         },
         {
           "value": "化妆品宣称依据",
-          "normalized": "化妆品宣称依据",
+          "normalized": "化粧品宣称依据",
           "type": "official_term",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10971,7 +10921,7 @@
         },
         {
           "value": "化妆品虚假夸大医疗效能",
-          "normalized": "化妆品虚假夸大医疗效能",
+          "normalized": "化粧品虚假夸大医疗效能",
           "type": "prohibited_claim",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10981,7 +10931,7 @@
         },
         {
           "value": "化妆品宣称依据",
-          "normalized": "化妆品宣称依据",
+          "normalized": "化粧品宣称依据",
           "type": "official_term",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -11185,16 +11135,6 @@
           "confidence": 0.95,
           "note": null,
           "source": "curated"
-        },
-        {
-          "value": "食品添加物许可证",
-          "normalized": "食品添加物许可证",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.85,
-          "note": null,
-          "source": "curated"
         }
       ],
       "source_keys": [
@@ -11358,7 +11298,7 @@
         },
         {
           "value": "复方食品添加剂",
-          "normalized": "复方食品添加剂",
+          "normalized": "复方食品添加劑",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -11368,7 +11308,7 @@
         },
         {
           "value": "产品成分报告",
-          "normalized": "产品成分报告",
+          "normalized": "產品成分报告",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -12677,7 +12617,7 @@
         },
         {
           "value": "国际进口证明书",
-          "normalized": "国际进口证明书",
+          "normalized": "国际进口證明书",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -13063,7 +13003,7 @@
         },
         {
           "value": "食品器具容器包装卫生标准",
-          "normalized": "食品器具容器包装卫生标准",
+          "normalized": "食品器具容器包装卫生標准",
           "type": "official_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -104574,16 +104514,6 @@
           "source": "color_index"
         },
         {
-          "value": "氧化锌",
-          "normalized": "氧化锌",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.95,
-          "note": null,
-          "source": "color_index"
-        },
-        {
           "value": "징크옥사이드",
           "normalized": "징크옥사이드",
           "type": "local_name",
@@ -109296,16 +109226,6 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "cas"
-        },
-        {
-          "value": "氧化锌",
-          "normalized": "氧化锌",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
           "confidence": 0.95,
           "note": null,
           "source": "cas"

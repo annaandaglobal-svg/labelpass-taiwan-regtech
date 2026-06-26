@@ -172,6 +172,59 @@ for (const link of links) {
   linksByTerm.set(link.term_id, [...(linksByTerm.get(link.term_id) ?? []), link]);
 }
 
+const termNamesById = new Map(terms.map((term) => [term.id, term.canonical_name]));
+
+const regulatoryVariantFoldMap: Record<string, string> = {
+  "妆": "粧",
+  "妝": "粧",
+  "钠": "鈉",
+  "钾": "鉀",
+  "钙": "鈣",
+  "镁": "鎂",
+  "锌": "鋅",
+  "铁": "鐵",
+  "铜": "銅",
+  "铝": "鋁",
+  "盐": "鹽",
+  "亚": "亞",
+  "剂": "劑",
+  "标": "標",
+  "签": "籤",
+  "营": "營",
+  "养": "養",
+  "过": "過",
+  "产": "產",
+  "资": "資",
+  "讯": "訊",
+  "档": "檔",
+  "录": "錄",
+  "验": "驗",
+  "证": "證",
+  "许": "許",
+  "湾": "灣",
+  "臺": "台"
+};
+
+function foldRegulatoryVariants(value: string) {
+  return value.replace(/[妆妝钠钾钙镁锌铁铜铝盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => {
+    return regulatoryVariantFoldMap[character] ?? character;
+  });
+}
+
+export function normalizeKnowledgeQuery(value: string) {
+  const normalized = String(value ?? "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[‐‑‒–—―]/g, "-")
+    .replace(/[()[\]{}]/g, " ")
+    .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return foldRegulatoryVariants(normalized);
+}
+
+const normalize = normalizeKnowledgeQuery;
+
 const aliasOwners = new Map<string, Set<string>>();
 for (const term of terms) {
   const aliases = [
@@ -181,26 +234,11 @@ for (const term of terms) {
     ...(term.identifiers?.color_index ?? []).map((value) => ({ value, normalized: normalizeKnowledgeQuery(value) }))
   ];
   for (const alias of aliases) {
-    const normalized = alias.normalized ?? normalizeKnowledgeQuery(alias.value);
+    const normalized = normalizeKnowledgeQuery(alias.value || alias.normalized || "");
     if (!normalized) continue;
     aliasOwners.set(normalized, (aliasOwners.get(normalized) ?? new Set()).add(term.id));
   }
 }
-
-const termNamesById = new Map(terms.map((term) => [term.id, term.canonical_name]));
-
-export function normalizeKnowledgeQuery(value: string) {
-  return String(value ?? "")
-    .normalize("NFKC")
-    .toLowerCase()
-    .replace(/[‐‑‒–—―]/g, "-")
-    .replace(/[()[\]{}]/g, " ")
-    .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-const normalize = normalizeKnowledgeQuery;
 
 export function foldKnowledgeSeparators(value: string) {
   return String(value ?? "").replace(/[\s._-]+/g, "");
@@ -219,7 +257,15 @@ function hasCjkOrHangul(value: string) {
 }
 
 function isShortLatin(value: string) {
-  return /^[a-z0-9.+-]+$/i.test(value) && value.length <= 3;
+  return /^[a-z0-9.+-]+$/i.test(value) && value.length <= 4;
+}
+
+function isCompactChemicalToken(value: string) {
+  return /^[a-z0-9.+-]{2,6}$/i.test(value) && /\d/.test(value) && /[a-z]/i.test(value);
+}
+
+function isCasRegistryNumber(value: string) {
+  return /^\d{2,7}-\d{2}-\d$/i.test(value);
 }
 
 function isBroadOrAmbiguous(alias: Alias) {
@@ -233,9 +279,15 @@ function tokenScore(target: string, query: string, exactOnly = false) {
 
   const targetFolded = foldKnowledgeSeparators(target);
   const queryFolded = foldKnowledgeSeparators(query);
+  const canUseShortFoldedExact =
+    targetFolded === queryFolded && isCompactChemicalToken(targetFolded) && isCompactChemicalToken(queryFolded);
+  if (canUseShortFoldedExact) return 94;
+
   const canUseFolded = targetFolded.length > 3 && queryFolded.length > 3;
   if (canUseFolded && targetFolded === queryFolded) return 94;
+  if (isCasRegistryNumber(target) && query.replace(/^cas\s+/i, "") === target) return 94;
 
+  if (exactOnly && query.split(" ").includes(target)) return 86;
   if (exactOnly) return 0;
   if (target.startsWith(query)) return 88;
   if (target.includes(query)) return 72;
@@ -297,7 +349,7 @@ function tokenScoreWithQueryFallback(target: string, query: string, exactOnly = 
 }
 
 function scoreAlias(alias: Alias, query: string) {
-  const normalized = alias.normalized ?? normalize(alias.value);
+  const normalized = normalize(alias.value || alias.normalized || "");
   const exactOnly = isShortLatin(normalized) || isBroadOrAmbiguous(alias);
   const base = tokenScoreWithQueryFallback(normalized, query, exactOnly);
   if (!base) return 0;
@@ -347,7 +399,7 @@ function aliasesForTerm(term: KnowledgeTerm): Alias[] {
 
   const seen = new Set<string>();
   return [...(term.aliases ?? []), ...identifierAliases].filter((alias) => {
-    const key = `${alias.normalized ?? normalize(alias.value)}:${alias.language ?? ""}:${alias.jurisdiction ?? ""}:${alias.type ?? ""}`;
+    const key = `${normalize(alias.value || alias.normalized || "")}:${alias.language ?? ""}:${alias.jurisdiction ?? ""}:${alias.type ?? ""}`;
     if (!alias.value || seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -370,10 +422,10 @@ function scoreTerm(term: KnowledgeTerm, query: string) {
 }
 
 function ambiguousAliasesForTerm(term: KnowledgeTerm, aliases: Alias[], matchedAliases: Alias[]) {
-  const matchedKeys = new Set(matchedAliases.map((alias) => alias.normalized ?? normalize(alias.value)));
+  const matchedKeys = new Set(matchedAliases.map((alias) => normalize(alias.value || alias.normalized || "")));
   return aliases
     .map((alias) => {
-      const normalized = alias.normalized ?? normalize(alias.value);
+      const normalized = normalize(alias.value || alias.normalized || "");
       if (!matchedKeys.has(normalized)) return null;
       const owners = aliasOwners.get(normalized);
       if (!owners || owners.size <= 1) return null;

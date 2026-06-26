@@ -3670,6 +3670,8 @@
         { "value": "화장품 신고", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
         { "value": "화장품 등록", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85, "note": "May refer to filing, registration, or notification depending on jurisdiction." },
         { "value": "化粧品產品登錄", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "台灣化粧品產品登錄", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "台湾化妆品产品登录", "type": "variant", "language": "zh-Hans", "jurisdiction": "TW", "confidence": 1 },
         { "value": "化粧品登錄", "type": "short_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "化粧品產品登錄平台系統", "type": "official_system", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
         { "value": "化妝品產品登錄", "type": "variant", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },

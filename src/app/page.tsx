@@ -891,7 +891,7 @@ export default function Home() {
                   </button>
                   <button type="button" onClick={() => fillSample("food-additive")}>
                     <Sparkles size={15} />
-                    샘플 보기
+                    샘플로 시작
                   </button>
                   <button type="button" onClick={() => { window.location.href = "/knowledge"; }}>
                     <Search size={15} />

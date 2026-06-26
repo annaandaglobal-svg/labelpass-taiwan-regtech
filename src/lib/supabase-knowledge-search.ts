@@ -147,6 +147,10 @@ function priorityRank(priority: string) {
   return 2;
 }
 
+function isCompactChemicalToken(value: string) {
+  return /^[a-z0-9.+-]{2,6}$/i.test(value) && /\d/.test(value) && /[a-z]/i.test(value);
+}
+
 function sourceBoostsFor(termRows: TermRow[]) {
   const sourceBoosts = new Map<string, number>();
   for (const term of termRows.slice(0, 6)) {
@@ -187,7 +191,7 @@ async function readTermRows(sql: DbClient, query: string, limit: number) {
   const prefix = `${escaped}%`;
   const foldedQuery = foldKnowledgeSeparators(query);
   const canUseContains = query.length > 2 || /[\p{Script=Han}\p{Script=Hangul}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(query);
-  const canUseFolded = foldedQuery.length > 3;
+  const canUseFolded = foldedQuery.length > 3 || isCompactChemicalToken(foldedQuery);
 
   return sql<TermRow[]>`
     with alias_scores as (
