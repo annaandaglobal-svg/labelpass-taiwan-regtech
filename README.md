@@ -39,6 +39,7 @@ pnpm crawl:knowledge
 pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm export:knowledge-memory
+pnpm export:knowledge-playbooks
 ```
 
 The TFDA raw cache is stored under `data/tfda/`. Built rule data lives in `data/rules/tw-cosmetics-rules.json`.
@@ -53,7 +54,11 @@ Reusable regulatory memory is managed through:
 - `data/knowledge/regulatory-update-queue.json`
 - `data/knowledge/alias-review-queue.json`
 - `data/knowledge/knowledge-memory.json`
+- `data/knowledge/product-routing-matrix.json`
+- `data/knowledge/evidence-bundle-templates.json`
 - `docs/wiki/knowledge-memory.md`
+- `docs/wiki/product-routing-matrix.md`
+- `docs/wiki/evidence-bundles/`
 - `supabase/knowledge-schema.sql`
 - `supabase/knowledge-seed.sql`
 
@@ -69,10 +74,11 @@ Before deploying a knowledge update, run:
 ```bash
 pnpm check:knowledge-drift
 pnpm check:knowledge-memory
+pnpm check:knowledge-playbooks
 pnpm preflight:supabase-knowledge
 ```
 
-`check:knowledge-drift` already regenerates the reusable memory files; `check:knowledge-memory` is useful when only the LLM/Obsidian memory layer is being reviewed. `preflight:deploy` includes the drift gate, Supabase knowledge preflight, type checks, rule verification, build, and production API checks.
+`check:knowledge-drift` already regenerates the reusable memory and product routing files; `check:knowledge-memory` is useful when only the LLM/Obsidian memory layer is being reviewed, and `check:knowledge-playbooks` checks the generated routing/evidence template layer. `preflight:deploy` includes the drift gate, Supabase knowledge preflight, type checks, rule verification, build, and production API checks.
 
 Persistent review history is deliberately opt-in. A database URL plus the archive flag only makes the server capable of database storage; read/write access still needs either a server-side archive token for checks or explicit public demo flags:
 
@@ -108,6 +114,8 @@ pnpm smoke:api
 - `supabase/knowledge-seed.sql`: generated source and term knowledge seed.
 - `data/knowledge/knowledge-memory.json`: generated structured retrieval memory for LLM/agent reuse.
 - `docs/wiki/knowledge-memory.md`: generated human-readable knowledge memory for operators and Obsidian-style review.
+- `data/knowledge/product-routing-matrix.json`: generated workflow routing matrix for Taiwan cosmetics, food, import, customs, and trade controls.
+- `data/knowledge/evidence-bundle-templates.json`: generated evidence bundle templates used by the evidence API route hints.
 - `vercel.json`: Vercel deployment config.
 - `.github/workflows/ci.yml`: typecheck, data drift checks, and production build.
 - `scripts/audit-production-env.mjs`: no-secret production readiness audit for Vercel/Supabase/archive storage.

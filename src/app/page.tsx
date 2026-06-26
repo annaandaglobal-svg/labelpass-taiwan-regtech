@@ -392,6 +392,9 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
   const sources = bundle.sources.length
     ? `공식 근거: ${bundle.sources.slice(0, 2).map((source) => source.title).join(" / ")}`
     : "공식 근거: 연결된 소스가 부족합니다.";
+  const route = bundle.routeHints?.[0]
+    ? `업무 경로: ${bundle.routeHints[0].label}. 확인할 입력: ${bundle.routeHints[0].requiredInputs.slice(0, 3).join(", ")}`
+    : "";
   const action = bundle.suggestedActions[0] ? `다음 작업: ${bundle.suggestedActions[0]}` : "";
 
   return [
@@ -399,6 +402,7 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
     `지식베이스 요약: ${bundle.summary}`,
     terms,
     sources,
+    route,
     action,
     `근거 신뢰도: ${bundle.confidence}. 이 답변은 캐시된 공식 소스와 용어 인덱스 기반의 1차 초안입니다.`
   ].filter(Boolean).join("\n");
@@ -1545,7 +1549,7 @@ export default function Home() {
             <div className="assistant-evidence-pack" aria-label="연결된 지식베이스 근거">
               <span>{assistantEvidence.confidence}</span>
               <b>{assistantEvidence.terms[0]?.canonicalName ?? assistantEvidence.query}</b>
-              <small>{assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}</small>
+              <small>{assistantEvidence.routeHints?.[0]?.label ?? assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}</small>
             </div>
           ) : (
             <div className="source-list">

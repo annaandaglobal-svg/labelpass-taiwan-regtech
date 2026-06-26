@@ -21,10 +21,12 @@ pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm build:alias-queue
 pnpm export:knowledge-memory
+pnpm export:knowledge-playbooks
 pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
 pnpm check:knowledge-memory
+pnpm check:knowledge-playbooks
 pnpm check:knowledge-drift
 pnpm preflight:supabase-knowledge
 ```
@@ -33,9 +35,10 @@ Use `pnpm report:knowledge-ops` for a read-only operational snapshot before deci
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
 Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` and `build:alias-queue` automatically.
 Use `pnpm export:knowledge-memory` after a crawl or seed rebuild to fold the current source index, term aliases, coverage groups, alias queue, and refresh queue into `data/knowledge/knowledge-memory.json` and `docs/wiki/knowledge-memory.md` for LLM/Obsidian reuse.
+Use `pnpm export:knowledge-playbooks` after memory export to generate product routing and evidence bundle templates from the reusable memory. This adds workflow routing for Taiwan cosmetics, food labels, food additives, food import inspection, health food, food-contact packaging, customs/origin, and SHTC/trade controls.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
 Use `pnpm audit:aliases` after term edits or a seed rebuild to inspect normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Use `pnpm build:alias-queue` when those audit findings should be written to the persistent review queue. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
-Use `pnpm check:knowledge-memory` when only the LLM/Obsidian memory layer is being checked. Use `pnpm check:knowledge-drift` before committing a knowledge update. It rebuilds the generated term index, update queue, alias review queue, reusable memory, and Supabase seed, then fails if those tracked artifacts were not committed.
+Use `pnpm check:knowledge-memory` when only the LLM/Obsidian memory layer is being checked. Use `pnpm check:knowledge-playbooks` when the routing and evidence templates are being reviewed. Use `pnpm check:knowledge-drift` before committing a knowledge update. It rebuilds the generated term index, update queue, alias review queue, reusable memory, product routing, evidence templates, and Supabase seed, then fails if those tracked artifacts were not committed.
 Use `pnpm preflight:supabase-knowledge` before any cloud DB apply. It regenerates ignored SQL chunks, then chains knowledge validation, coverage validation, alias search audit, operations reporting, freshness gates, generated SQL format checks, target project checks, and a dry-run Supabase apply plan.
 
 ## Regulatory Update Queue
@@ -99,7 +102,11 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/alias-review-queue.json`: generated alias collision, damaged-text, short-alias, and missing-local-name review queue.
 - `data/knowledge/regulatory-update-queue.json`: generated source-change and freshness candidates requiring human review before rule changes.
 - `data/knowledge/knowledge-memory.json`: generated LLM/Obsidian retrieval memory with coverage cards, selected source cards, selected term cards, alias ambiguity, refresh queue, and retrieval playbooks.
+- `data/knowledge/product-routing-matrix.json`: generated product and shipment routing matrix for Taiwan cosmetics, food, import, customs, and trade-control workflows.
+- `data/knowledge/evidence-bundle-templates.json`: generated evidence bundle templates that define required inputs, citation slots, top terms, required sources, caveats, and stop conditions for each route.
 - `docs/wiki/knowledge-memory.md`: generated human-readable memory map for operators and agent handoffs.
+- `docs/wiki/product-routing-matrix.md`: generated Obsidian-friendly product routing guide.
+- `docs/wiki/evidence-bundles/`: generated evidence bundle template cards.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
 - `supabase/migrations/202606260002_public_knowledge_search.sql`: read-only public policies and RPC functions for cloud knowledge search through a Supabase publishable key.
@@ -107,8 +114,10 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `supabase/migrations/202606260004_public_source_candidate_limit.sql`: direct source candidate limit alignment with the app's requested result count.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
 - `pnpm export:knowledge-memory`: folds existing generated knowledge artifacts into reusable memory files without recrawling.
+- `pnpm export:knowledge-playbooks`: regenerates memory, product routing, and evidence bundle template files without recrawling.
 - `pnpm check:knowledge-memory`: regenerates the tracked memory files and fails if they are stale.
-- `pnpm check:knowledge-drift`: rebuilds tracked generated knowledge artifacts and fails if `term-index`, `regulatory-update-queue`, `alias-review-queue`, reusable memory, or `supabase/knowledge-seed.sql` are stale.
+- `pnpm check:knowledge-playbooks`: regenerates the tracked memory/playbook files and fails if they are stale.
+- `pnpm check:knowledge-drift`: rebuilds tracked generated knowledge artifacts and fails if `term-index`, `regulatory-update-queue`, `alias-review-queue`, reusable memory, product routing, evidence templates, or `supabase/knowledge-seed.sql` are stale.
 - `pnpm preflight:supabase-knowledge`: regenerates ignored SQL chunks, validates the generated knowledge base, and dry-runs the Supabase apply plan before any DB write.
 - `pnpm apply:supabase-knowledge`: runs the Supabase preflight, then applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set. Real applies require `SUPABASE_APPLY_CONFIRM=APPLY_LABELPASS_KNOWLEDGE` and the DB URL must include the expected project ref unless `SUPABASE_EXPECTED_PROJECT_REF` or `SUPABASE_ALLOW_UNKNOWN_PROJECT=1` is set intentionally.
 - `pnpm verify:supabase-knowledge`: compares Supabase table counts and probe aliases with the generated local knowledge base after a seed apply.
@@ -119,6 +128,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 - `/api/knowledge/search?q=<term>` searches canonical terms, INCI names, CAS RN, color index numbers, local-language aliases, abbreviations, and source metadata. It uses Supabase public read-only RPCs when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are configured, then falls back to the bundled generated cache.
 - `/api/knowledge/evidence?q=<term>` packages the same reusable memory into an assistant-ready bundle with top terms, official sources, cache status, and suggested next actions.
+- `/api/knowledge/evidence?q=<term>&product_family=<family>&route_id=<route>` also returns generated `routeHints` when a query maps to a product workflow. These hints come from `data/knowledge/product-routing-matrix.json` and `data/knowledge/evidence-bundle-templates.json`.
 - `/knowledge` is the operator-facing search screen for ingredient synonyms, identifiers, and linked Taiwan TFDA rules.
 - Search aliases include stored `term_aliases` plus identifier aliases from CAS, INCI, and color index fields, so the UI/API search count can be higher than the physical Supabase `term_aliases` row count.
 

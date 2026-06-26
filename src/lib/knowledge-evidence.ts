@@ -1,5 +1,7 @@
 import type { KnowledgeSearchResult } from "./knowledge-search";
 import { searchKnowledgeRuntime } from "./knowledge-runtime";
+import evidenceTemplateData from "../../data/knowledge/evidence-bundle-templates.json";
+import productRouteData from "../../data/knowledge/product-routing-matrix.json";
 
 type EvidenceTerm = {
   id: string;
@@ -27,14 +29,33 @@ type EvidenceSource = {
   score: number;
 };
 
+type EvidenceRouteHint = {
+  routeId: string;
+  label: string;
+  productFamily: string;
+  templateId: string;
+  score: number;
+  requiredInputs: string[];
+  openQuestions: string[];
+  nextAction: string;
+  sourceIds: string[];
+  termIds: string[];
+};
+
 export type KnowledgeEvidenceBundle = {
   query: string;
   summary: string;
   confidence: "high" | "medium" | "low";
   terms: EvidenceTerm[];
   sources: EvidenceSource[];
+  routeHints: EvidenceRouteHint[];
   suggestedActions: string[];
   totals: KnowledgeSearchResult["totals"];
+};
+
+type EvidenceOptions = {
+  productFamily?: string;
+  routeId?: string;
 };
 
 function compact(value: string, maxLength: number) {
@@ -45,6 +66,16 @@ function compact(value: string, maxLength: number) {
 
 function unique(values: string[], limit: number) {
   return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean))).slice(0, limit);
+}
+
+function overlapCount(left: string[], right: string[]) {
+  const rightSet = new Set(right);
+  return left.filter((value) => rightSet.has(value)).length;
+}
+
+function routeQueryScore(query: string, examples: string[]) {
+  const normalized = query.toLowerCase();
+  return examples.some((example) => normalized.includes(example.toLowerCase()) || example.toLowerCase().includes(normalized)) ? 30 : 0;
 }
 
 function confidenceFor(result: KnowledgeSearchResult): KnowledgeEvidenceBundle["confidence"] {
@@ -74,8 +105,49 @@ function buildSummary(query: string, result: KnowledgeSearchResult) {
   return `"${query}"에 대한 재사용 근거가 부족합니다. 공식 소스 또는 별칭 후보를 추가해야 합니다.`;
 }
 
-function suggestedActions(result: KnowledgeSearchResult) {
+function routeHintsFor(result: KnowledgeSearchResult, query: string, options: EvidenceOptions) {
+  const termIds = result.terms.map((term) => term.id);
+  const sourceIds = result.sources.map((source) => source.id);
+  const domains = result.sources.map((source) => source.domain);
+  const categories = result.terms.map((term) => term.category);
+  const routeRows = productRouteData.product_routes ?? [];
+  const templates = evidenceTemplateData.templates ?? [];
+
+  return routeRows
+    .map((route) => {
+      const template = templates.find((item) => item.product_route_id === route.id);
+      if (!template) return null;
+      let score = 0;
+      if (options.routeId && route.id === options.routeId) score += 1000;
+      if (options.productFamily && route.product_family === options.productFamily) score += 180;
+      score += overlapCount(termIds, route.term_ids ?? []) * 90;
+      score += overlapCount(sourceIds, route.source_ids ?? []) * 80;
+      score += overlapCount(domains, template.match_domains ?? []) * 18;
+      score += overlapCount(categories, template.match_categories ?? []) * 24;
+      score += routeQueryScore(query, route.query_examples ?? []);
+      if (score === 0) return null;
+
+      return {
+        routeId: route.id,
+        label: route.label,
+        productFamily: route.product_family,
+        templateId: template.id,
+        score,
+        requiredInputs: (template.required_inputs ?? route.classification_inputs ?? []).slice(0, 7),
+        openQuestions: (route.entry_questions ?? []).slice(0, 3),
+        nextAction: template.next_action ?? route.next_actions?.[0] ?? "",
+        sourceIds: (route.source_ids ?? []).slice(0, 6),
+        termIds: (route.term_ids ?? []).slice(0, 6)
+      };
+    })
+    .filter((hint): hint is EvidenceRouteHint => Boolean(hint))
+    .sort((left, right) => right.score - left.score || left.routeId.localeCompare(right.routeId))
+    .slice(0, 3);
+}
+
+function suggestedActions(result: KnowledgeSearchResult, routeHints: EvidenceRouteHint[]) {
   const actions = [
+    routeHints[0]?.nextAction ? `업무 라우트: ${routeHints[0].nextAction}` : "",
     result.terms[0] ? `${result.terms[0].canonicalName} 기준으로 라벨 문구와 원료명을 재대조` : "",
     result.sources[0] ? `${result.sources[0].title} 원문 또는 캐시 문서를 검토 근거로 첨부` : "",
     result.sources.some((source) => source.cacheStatus === "stale") ? "만료된 소스는 재크롤링 큐에 올리고 변경 승인 후 룰에 반영" : "",
@@ -85,9 +157,10 @@ function suggestedActions(result: KnowledgeSearchResult) {
   return unique(actions, 4);
 }
 
-export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12): Promise<KnowledgeEvidenceBundle> {
+export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12, options: EvidenceOptions = {}): Promise<KnowledgeEvidenceBundle> {
   const query = String(rawQuery ?? "").trim().slice(0, 160);
   const result = await searchKnowledgeRuntime(query, limit);
+  const routeHints = routeHintsFor(result, query, options);
 
   const terms = result.terms.slice(0, 5).map((term) => ({
     id: term.id,
@@ -121,7 +194,8 @@ export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12)
     confidence: confidenceFor(result),
     terms,
     sources,
-    suggestedActions: suggestedActions(result),
+    routeHints,
+    suggestedActions: suggestedActions(result, routeHints),
     totals: result.totals
   };
 }

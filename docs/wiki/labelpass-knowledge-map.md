@@ -33,7 +33,11 @@ LabelPass knowledge is managed as a reusable regulatory memory, not as one-off w
    - Files: `data/knowledge/knowledge-memory.json`, `docs/wiki/knowledge-memory.md`
    - Purpose: generated LLM/Obsidian working map that folds coverage groups, selected source cards, selected term cards, alias ambiguity, refresh queues, and retrieval playbooks into a stable reusable layer.
 
-8. Supabase evidence tables
+8. Product routing and evidence templates
+   - Files: `data/knowledge/product-routing-matrix.json`, `data/knowledge/evidence-bundle-templates.json`, `docs/wiki/product-routing-matrix.md`, `docs/wiki/evidence-bundles/`
+   - Purpose: generated workflow layer that maps searches and product reviews to Taiwan cosmetic, food label, food additive, food import, health food, food-contact packaging, customs/origin, and SHTC/trade-control routes.
+
+9. Supabase evidence tables
    - Tables: `regulatory_sources`, `rules`, `rule_versions`, `knowledge_sources`, `knowledge_snapshots`, `knowledge_terms`, `term_aliases`, `term_rule_links`
    - Purpose: app runtime explainability, official rule lookups, reusable knowledge retrieval, and search normalization.
 
@@ -61,5 +65,6 @@ LabelPass knowledge is managed as a reusable regulatory memory, not as one-off w
 - Use global terminology sources to normalize words such as technical regulation, standard, HS code, INCI, CAS, and conformity assessment.
 - Use curated term aliases to normalize ingredients across INCI, CAS RN, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese.
 - Use `docs/wiki/knowledge-memory.md` for fast operator/agent orientation before searching individual extracts.
+- Use `docs/wiki/product-routing-matrix.md` and `docs/wiki/evidence-bundles/` to decide which workflow, required inputs, citation slots, and stop conditions apply before drafting a final answer.
 - Use secondary government guides only as navigation aids; never let them override primary Taiwan law or TFDA/MOEA/Customs notices.
 - Store every automated answer with source URL, source hash, generated timestamp, and rule version.
