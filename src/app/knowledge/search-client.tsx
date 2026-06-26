@@ -310,15 +310,13 @@ export default function KnowledgeSearchClient() {
         {loading && <Loader2 className="spin" size={18} />}
       </div>
 
-      {!hasQuery && (
-        <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
-          {onboardingExamples.map((example) => (
-            <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
-              {example.label}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
+        {onboardingExamples.map((example) => (
+          <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
+            {example.label}
+          </button>
+        ))}
+      </div>
 
       {error && <div className="knowledge-alert">{error}</div>}
 
@@ -346,18 +344,58 @@ export default function KnowledgeSearchClient() {
       </div>
 
       {!hasQuery ? (
-        <div className="knowledge-start-guide" aria-label="검색 전 안내">
-          <div>
-            <ShieldCheck size={18} />
-            <b>검색하면 후보만 먼저 보여줍니다.</b>
-            <span>검토 연결은 결과를 직접 선택한 뒤에만 활성화됩니다.</span>
+        <>
+          <details className="knowledge-filter-drawer">
+            <summary>
+              <Filter size={16} />
+              필터
+              <span>검색 후 결과 범위를 좁힐 수 있습니다</span>
+            </summary>
+            <div className="knowledge-control-room" aria-label="검색 필터">
+              <div className="knowledge-filter-panel">
+                <FilterGroup title="관할권" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled />
+                <FilterGroup title="분야" value={domain} options={filterOptions.domains} onChange={setDomain} disabled />
+                <FilterGroup title="출처" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled />
+                <FilterGroup title="범주" value={category} options={filterOptions.categories} onChange={setCategory} disabled />
+                <FilterGroup title="상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled />
+              </div>
+            </div>
+          </details>
+
+          <div className="knowledge-results knowledge-results-unified">
+            <section className="knowledge-result-feed">
+              <div className="knowledge-section-title">
+                <h2>검색 결과</h2>
+                <span>{resultCountLabel}</span>
+              </div>
+              <div className="knowledge-search-empty">
+                <Search size={20} />
+                <b>검색어를 입력하면 이 자리에 후보가 정리됩니다.</b>
+                <span>원료명, CAS, INCI, 번체 현지명, HS code를 같은 검색창에서 찾을 수 있습니다.</span>
+              </div>
+            </section>
+
+            <aside className="knowledge-detail-panel" aria-label="근거 확인">
+              <div className="knowledge-tray-head">
+                <ShieldCheck size={18} />
+                <div>
+                  <h2>근거 확인</h2>
+                  <span>결과를 선택하면 원문, 별칭, 검토 연결이 이 자리에 표시됩니다.</span>
+                </div>
+              </div>
+              <div className="knowledge-tray-actions" aria-label="검토 반영">
+                <button type="button" disabled>
+                  <PackageSearch size={15} />
+                  결과 선택 후 검토 반영
+                </button>
+              </div>
+              <div className="knowledge-evidence-empty">
+                <ClipboardCheck size={20} />
+                <p>후보를 선택하면 관련 원문, 별칭, 근거 상태를 확인할 수 있습니다.</p>
+              </div>
+            </aside>
           </div>
-          <div>
-            <BookOpen size={18} />
-            <b>필터와 운영 지표는 접어두었습니다.</b>
-            <span>필요할 때만 펼쳐서 관할권, 출처 유형, 상태를 좁힐 수 있습니다.</span>
-          </div>
-        </div>
+        </>
       ) : (
         <>
           {data?.ambiguity && (
@@ -377,30 +415,22 @@ export default function KnowledgeSearchClient() {
             </div>
           )}
 
-          {hasResults && (
-            <details className="knowledge-filter-drawer">
+          <details className="knowledge-filter-drawer">
               <summary>
                 <Filter size={16} />
-                보조 옵션
-                <span>{filterSummary}</span>
+                필터
+                <span>{hasResults ? filterSummary : "검색 후 결과 범위를 좁힐 수 있습니다"}</span>
               </summary>
               <div className="knowledge-control-room" aria-label="검색 보조 옵션">
                 <div className="knowledge-filter-panel">
-                  <div className="knowledge-panel-title">
-                    <Filter size={17} />
-                    <div>
-                      <b>필터</b>
-                      <span>결과가 많을 때만 펼쳐서 후보 범위를 좁힙니다.</span>
-                    </div>
-                  </div>
-                  <FilterGroup title="관할권" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} />
-                  <FilterGroup title="분야" value={domain} options={filterOptions.domains} onChange={setDomain} />
-                  <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} />
-                  <FilterGroup title="범주" value={category} options={filterOptions.categories} onChange={setCategory} />
-                  <FilterGroup title="상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} />
+                  <FilterGroup title="관할권" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!hasResults} />
+                  <FilterGroup title="분야" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!hasResults} />
+                  <FilterGroup title="출처" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!hasResults} />
+                  <FilterGroup title="범주" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!hasResults} />
+                  <FilterGroup title="상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!hasResults} />
                 </div>
 
-                <details className="knowledge-health-drawer">
+                {hasResults && <details className="knowledge-health-drawer">
                   <summary>
                     <Database size={16} />
                     운영 지표
@@ -435,10 +465,9 @@ export default function KnowledgeSearchClient() {
                       tone="neutral"
                     />
                   </div>
-                </details>
+                </details>}
               </div>
             </details>
-          )}
 
           <div className="knowledge-results knowledge-results-unified">
             <section className="knowledge-result-feed">
@@ -467,7 +496,7 @@ export default function KnowledgeSearchClient() {
                           <p>{compact(item.detail, 150)}</p>
                           <div className="knowledge-row-meta">
                             <span>{item.subtitle}</span>
-                            {item.chips.slice(0, 3).map((chip) => (
+                            {item.chips.slice(0, 2).map((chip) => (
                               <span key={`${item.id}-${chip}`}>{chip}</span>
                             ))}
                           </div>
@@ -480,8 +509,8 @@ export default function KnowledgeSearchClient() {
                 {!hasResults && (
                   <div className="knowledge-search-empty">
                     <Loader2 className={loading ? "spin" : undefined} size={20} />
-                    <b>{loading ? "검색 중입니다." : "검색 결과를 기다리고 있습니다."}</b>
-                    <span>후보가 준비되면 하나를 선택해 근거를 확인할 수 있습니다.</span>
+                    <b>{loading ? "검색 중입니다." : "검색어에 맞는 후보를 정리하고 있습니다."}</b>
+                    <span>결과가 준비되면 같은 자리에서 근거를 선택하고 검토에 반영할 수 있습니다.</span>
                   </div>
                 )}
                 {hasResults && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 결과가 없습니다.</div>}
@@ -537,7 +566,7 @@ export default function KnowledgeSearchClient() {
                   )}
                   <p>{compact(selectedEvidence.detail, 240)}</p>
                   <div className="knowledge-evidence-chips">
-                    {selectedEvidence.chips.slice(0, 8).map((chip) => (
+                    {selectedEvidence.chips.slice(0, 6).map((chip) => (
                       <span key={`${selectedEvidence.title}-${chip}`}>{chip}</span>
                     ))}
                   </div>

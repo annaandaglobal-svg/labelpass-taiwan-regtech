@@ -793,15 +793,11 @@ export default function Home() {
         </div>
 
         <nav className={isStartOnly ? "nav-list nav-list-start" : "nav-list"}>
-          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label={result ? "라벨 검토" : "검토 시작"} onClick={() => setScreen("review")} />
-          {!isStartOnly && (
-            <>
-              <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
-              <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
-              <NavButton active={screen === "updates"} icon={<BookOpen />} label="업데이트" onClick={() => setScreen("updates")} />
-              <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가" onClick={() => setScreen("partners")} />
-            </>
-          )}
+          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="검토" onClick={() => setScreen("review")} />
+          <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
+          <NavButton active={screen === "products"} icon={<Archive />} label="이력" onClick={() => setScreen("products")} />
+          <NavButton active={screen === "updates"} icon={<BookOpen />} label="업데이트" onClick={() => setScreen("updates")} />
+          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가" onClick={() => setScreen("partners")} />
         </nav>
 
         <div className="side-panel">
@@ -867,12 +863,12 @@ export default function Home() {
         {screen === "review" && (
           <>
           {isStartOnly && (
-          <section className="start-command-shell" aria-label="LabelPass 시작 동선">
+          <section className="start-command-shell start-command-shell-focused" aria-label="LabelPass 시작 동선">
             <div className="start-command-card">
               <div className="start-command-copy">
                 <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
-                <h2>자료를 넣으면 검토, 근거 검색, 이력 관리까지 이어집니다</h2>
-                <p>라벨·전성분을 먼저 읽고, 대만 식품·화장품 규정과 원료 별칭을 연결해 출고 전 조치만 정리합니다.</p>
+                <h2>라벨 자료를 넣고 출고 전 수정 항목만 확인하세요</h2>
+                <p>제품명, 품목, 전성분 또는 라벨 문구를 기준으로 대만 식품·화장품 규정과 원료 별칭을 연결합니다.</p>
                 <div className="start-assurance-row" aria-label="검토 범위">
                   <span>식품·화장품</span>
                   <span>TFDA·MOJ 근거</span>
@@ -897,6 +893,10 @@ export default function Home() {
                     <Sparkles size={15} />
                     샘플 보기
                   </button>
+                  <button type="button" onClick={() => { window.location.href = "/knowledge"; }}>
+                    <Search size={15} />
+                    규정 검색
+                  </button>
                 </div>
               </div>
 
@@ -918,12 +918,12 @@ export default function Home() {
               )}
             </div>
 
-            <div className="start-overview-panel" aria-label="LabelPass 작업 영역">
+            <div className="start-overview-panel start-overview-compact" aria-label="LabelPass 작업 흐름">
               <div className="start-overview-head">
                 <span><ShieldCheck size={16} /></span>
                 <div>
-                  <b>작업 영역</b>
-                  <small>처음부터 전체 기능을 같은 구조로 보여줍니다.</small>
+                  <b>작업 흐름</b>
+                  <small>검토, 근거, 이력으로 이어지는 기본 흐름입니다.</small>
                 </div>
               </div>
               <button type="button" className="start-overview-row active" onClick={focusInputPane}>
@@ -936,15 +936,7 @@ export default function Home() {
               </button>
               <button type="button" className="start-overview-row" onClick={() => setScreen("products")}>
                 <Archive size={16} />
-                <span><b>검토 이력</b><small>제품별 버전, 문서, 조치 상태를 봅니다.</small></span>
-              </button>
-              <button type="button" className="start-overview-row" onClick={() => setScreen("updates")}>
-                <BookOpen size={16} />
-                <span><b>규정 업데이트</b><small>수집된 변경 후보와 영향 범위를 확인합니다.</small></span>
-              </button>
-              <button type="button" className="start-overview-row" onClick={() => setScreen("partners")}>
-                <UserRoundCheck size={16} />
-                <span><b>전문가 연결</b><small>AI 검토 후 필요한 항목만 전달합니다.</small></span>
+                <span><b>이력·조치 관리</b><small>제품별 버전, 문서, 담당 조치를 묶습니다.</small></span>
               </button>
             </div>
 
@@ -952,8 +944,8 @@ export default function Home() {
               <summary>
                 <span><ShieldCheck size={16} /></span>
                 <div>
-                  <b>검토 범위와 샘플 보기</b>
-                  <small>화장품, 식품, 통관, 클레임 검토 범위</small>
+                  <b>검토 범위</b>
+                  <small>화장품, 식품, 통관, 클레임은 필요할 때만 펼칩니다.</small>
                 </div>
               </summary>
               <div className="start-capability-grid">

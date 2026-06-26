@@ -109,7 +109,7 @@ a {
 }
 
 .shell-start-empty {
-  grid-template-columns: 164px minmax(0, 1fr);
+  grid-template-columns: 188px minmax(0, 1fr);
   max-width: 1320px;
 }
 
@@ -225,8 +225,8 @@ a {
 .nav-list-start .nav-btn:not(.active) {
   display: flex;
   color: var(--muted);
-  opacity: 0.62;
-  min-height: 34px;
+  opacity: 0.86;
+  min-height: 36px;
   padding: 7px 8px;
   border-color: transparent;
   background: transparent;
@@ -787,6 +787,11 @@ h2 {
   margin-bottom: 12px;
 }
 
+.start-command-shell-focused {
+  grid-template-columns: minmax(0, 1.1fr) minmax(270px, 0.58fr);
+  gap: 14px;
+}
+
 .start-command-card,
 .start-support-card {
   min-width: 0;
@@ -806,6 +811,13 @@ h2 {
   border-color: #c6d8d1;
 }
 
+.start-command-shell-focused .start-command-card {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.46fr);
+  gap: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 26px rgba(19, 31, 29, 0.045);
+}
+
 .start-overview-panel {
   display: grid;
   grid-column: 2;
@@ -816,6 +828,12 @@ h2 {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow-tight);
+}
+
+.start-overview-compact {
+  align-self: start;
+  background: #fbfdfc;
+  box-shadow: none;
 }
 
 .start-overview-head,
@@ -868,6 +886,11 @@ h2 {
   background: #fff;
   color: var(--ink);
   text-align: left;
+}
+
+.start-overview-compact .start-overview-row {
+  min-height: 62px;
+  background: transparent;
 }
 
 .start-overview-row.active {
@@ -959,6 +982,10 @@ h2 {
   text-align: left;
 }
 
+.start-command-shell-focused .start-primary-action {
+  min-height: 92px;
+}
+
 .start-primary-action-main {
   border-color: var(--green-dark);
   background: var(--green-dark);
@@ -1013,6 +1040,10 @@ h2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.start-secondary-links-home button:last-child {
+  grid-column: 1 / -1;
+}
+
 .start-secondary-label {
   color: var(--muted);
   font-size: 12px;
@@ -1031,6 +1062,8 @@ h2 {
   color: var(--navy);
   font-size: 13px;
   font-weight: 900;
+  line-height: 1.2;
+  word-break: keep-all;
 }
 
 .start-secondary-links-home button {
@@ -6528,13 +6561,13 @@ h2 {
 
 .knowledge-workbench.is-empty,
 .knowledge-workbench.is-awaiting {
-  max-width: 900px;
-  padding: 22px;
+  max-width: 1180px;
+  padding: 18px;
 }
 
 .knowledge-workbench.is-empty .knowledge-searchbar,
 .knowledge-workbench.is-awaiting .knowledge-searchbar {
-  min-height: 58px;
+  min-height: 54px;
   background: #fff;
 }
 
@@ -6598,12 +6631,12 @@ h2 {
 .knowledge-flow-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 14px;
-  padding: 8px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #f7faf8;
+  gap: 0;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .knowledge-flow-strip span {
@@ -6612,10 +6645,11 @@ h2 {
   gap: 4px 8px;
   align-items: center;
   min-width: 0;
-  min-height: 52px;
-  padding: 9px 10px;
+  min-height: 44px;
+  padding: 8px 10px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-bottom-color: var(--line);
+  border-radius: 0;
   color: var(--muted);
 }
 
@@ -6646,9 +6680,9 @@ h2 {
 }
 
 .knowledge-flow-strip span.ready {
-  border-color: #cfe0d9;
-  background: #fff;
-  box-shadow: var(--shadow-tight);
+  border-bottom-color: var(--green-dark);
+  background: transparent;
+  box-shadow: none;
 }
 
 .knowledge-flow-strip span.ready svg {
@@ -6828,11 +6862,11 @@ h2 {
 }
 
 .knowledge-filter-drawer {
-  margin-top: 12px;
+  margin-top: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
-  box-shadow: var(--shadow-tight);
+  background: #fbfdfc;
+  box-shadow: none;
 }
 
 .knowledge-filter-drawer > summary {
@@ -6840,8 +6874,8 @@ h2 {
   grid-template-columns: 18px minmax(0, 1fr) auto;
   gap: 8px;
   align-items: center;
-  min-height: 42px;
-  padding: 9px 12px;
+  min-height: 38px;
+  padding: 8px 11px;
   color: var(--navy);
   font-size: 13px;
   font-weight: 900;
@@ -6912,9 +6946,9 @@ h2 {
 
 .knowledge-control-room {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-  gap: 14px;
-  margin-top: 14px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.6fr);
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .knowledge-filter-panel,
@@ -6930,8 +6964,8 @@ h2 {
 .knowledge-filter-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  padding: 14px;
+  gap: 9px 12px;
+  padding: 12px;
 }
 
 .knowledge-panel-title {
@@ -7073,9 +7107,9 @@ h2 {
 
 .knowledge-results {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.55fr);
-  gap: 16px;
-  margin-top: 18px;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.58fr);
+  gap: 12px;
+  margin-top: 14px;
   align-items: start;
 }
 
@@ -7145,7 +7179,7 @@ h2 {
   display: grid;
   gap: 8px;
   min-width: 0;
-  padding: 10px;
+  padding: 9px 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
@@ -7153,8 +7187,8 @@ h2 {
 
 .knowledge-row-main {
   display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) 42px;
-  gap: 12px;
+  grid-template-columns: 48px minmax(0, 1fr) 38px;
+  gap: 10px;
   align-items: start;
   width: 100%;
   padding: 0;
@@ -7180,13 +7214,14 @@ h2 {
 
 .knowledge-row-main > b {
   display: grid;
-  width: 40px;
-  height: 32px;
+  width: 36px;
+  height: 30px;
   place-items: center;
   border-radius: 8px;
-  background: var(--navy-soft);
-  color: var(--navy);
+  background: #f2f6f4;
+  color: var(--muted);
   font-size: 12px;
+  font-weight: 850;
 }
 
 .knowledge-row-kind {
@@ -7539,8 +7574,8 @@ h2 {
   position: sticky;
   top: 18px;
   display: grid;
-  gap: 14px;
-  padding: 14px;
+  gap: 12px;
+  padding: 13px;
 }
 
 .knowledge-evidence-card {
@@ -7709,6 +7744,12 @@ h2 {
   .start-support-card {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .start-command-shell-focused .start-command-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
   }
 
   .topbar {
@@ -8460,6 +8501,15 @@ h2 {
   .knowledge-filter-row,
   .knowledge-ambiguity-panel {
     grid-template-columns: 1fr;
+  }
+
+  .knowledge-flow-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .knowledge-flow-strip span {
+    min-height: 38px;
+    padding: 7px 8px;
   }
 
   .knowledge-filter-panel {
