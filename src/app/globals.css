@@ -375,6 +375,16 @@ h2 {
   margin-bottom: 10px;
 }
 
+.command-main-stack {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.command-main-stack .ops-strip {
+  margin: 0;
+}
+
 .command-hero,
 .pipeline-card {
   border: 1px solid var(--line);
@@ -388,7 +398,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px 12px;
-  min-height: 96px;
+  min-height: 118px;
   overflow: hidden;
   padding: 13px 14px 13px 16px;
   border-color: #cad8d2;
@@ -638,7 +648,7 @@ h2 {
 
 .command-center .pipeline-card,
 .command-center .impact-card {
-  min-height: 142px;
+  min-height: 132px;
 }
 
 .command-center .impact-card {

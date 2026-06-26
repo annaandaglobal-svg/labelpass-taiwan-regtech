@@ -764,27 +764,36 @@ export default function Home() {
         {screen === "review" && (
           <>
           <section className="command-center" aria-label="LabelPass 검토 현황">
-            <div className="command-hero">
-              <div className="command-summary">
-                <span className="dday-chip">
-                  <History size={15} />
-                  D-5 · PIF 확대
-                </span>
-                <div>
-                  <h2>오늘 출고 판단에 필요한 항목만 먼저 확인합니다</h2>
-                  <p>라벨·성분·HS/CCC·수입자 자료를 공식 소스 {knowledgeStats.sources}개와 다국어 용어 {knowledgeStats.terms}개 기준으로 대조합니다.</p>
+            <div className="command-main-stack">
+              <div className="command-hero">
+                <div className="command-summary">
+                  <span className="dday-chip">
+                    <History size={15} />
+                    D-5 · PIF 확대
+                  </span>
+                  <div>
+                    <h2>오늘 출고 판단에 필요한 항목만 먼저 확인합니다</h2>
+                    <p>라벨·성분·HS/CCC·수입자 자료를 공식 소스 {knowledgeStats.sources}개와 다국어 용어 {knowledgeStats.terms}개 기준으로 대조합니다.</p>
+                  </div>
+                </div>
+                <div className="hero-actions">
+                  <button className="primary-btn" onClick={focusInputPane}>
+                    <ArrowRight size={17} />
+                    입력 폼 이동
+                  </button>
+                </div>
+                <div className="hero-proof">
+                  <span><ShieldCheck size={15} /> 정형 룰 우선</span>
+                  <span><BookOpen size={15} /> 원문 근거</span>
+                  <span><UserRoundCheck size={15} /> 검수 전달</span>
                 </div>
               </div>
-              <div className="hero-actions">
-                <button className="primary-btn" onClick={focusInputPane}>
-                  <ArrowRight size={17} />
-                  입력 폼 이동
-                </button>
-              </div>
-              <div className="hero-proof">
-                <span><ShieldCheck size={15} /> 정형 룰 우선</span>
-                <span><BookOpen size={15} /> 원문 근거</span>
-                <span><UserRoundCheck size={15} /> 검수 전달</span>
+
+              <div className="ops-strip" aria-label="LabelPass 운영 상태">
+                <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
+                <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
+                <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
+                <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
               </div>
             </div>
 
@@ -827,13 +836,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
-          <div className="ops-strip" aria-label="LabelPass 운영 상태">
-            <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
-            <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
-            <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
-            <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
-          </div>
 
           <div className="review-grid">
             <section className="input-pane">
