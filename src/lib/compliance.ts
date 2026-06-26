@@ -106,8 +106,8 @@ const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Applicati
 const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES_URL = "https://www.fda.gov.tw/TC/siteContent.aspx?sid=10159";
-const SOURCE_FOOD_ADDITIVE_REGISTRATION = "TFDA food additive inspection registration materials";
-const SOURCE_FOOD_ADDITIVE_REGISTRATION_URL = "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895";
+const SOURCE_FOOD_ADDITIVE_PERMIT_QUERY = "TFDA Food Additive Permit Data Query";
+const SOURCE_FOOD_ADDITIVE_PERMIT_QUERY_URL = "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162";
 const SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS = "TFDA compound food additive import document notice";
 const SOURCE_COMPOUND_FOOD_ADDITIVE_IMPORT_DOCS_URL = "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405";
 const SOURCE_FOOD_IMPORT_INSPECTION = "Regulations of Inspection of Imported Foods and Related Products, Articles 3, 4, 6, and 8";
@@ -1146,8 +1146,8 @@ function addFoodAdditiveProductFindings(input: ReviewInput, findings: Finding[])
       severity: "low",
       why: "제품 자체가 식품첨가물 또는 식품첨가물 원료로 보이며, 입력 자료에서 대만 식품첨가물 검사등록·허가증·등록번호 신호가 확인되었습니다.",
       fix: ["허가증의 품명, 성분명, 제조자, 수입자가 인보이스·라벨·제품정보표와 같은지 대조", "허가 유효기간과 적용 범위가 현재 lot와 맞는지 확인"],
-      source: SOURCE_FOOD_ADDITIVE_REGISTRATION,
-      sourceUrl: SOURCE_FOOD_ADDITIVE_REGISTRATION_URL,
+      source: SOURCE_FOOD_ADDITIVE_PERMIT_QUERY,
+      sourceUrl: SOURCE_FOOD_ADDITIVE_PERMIT_QUERY_URL,
       evidence: additiveEvidence || "food additive registration signal"
     });
   } else {
@@ -1163,8 +1163,8 @@ function addFoodAdditiveProductFindings(input: ReviewInput, findings: Finding[])
         "단방/복방 여부, 사용 목적, 식품 유형, 성분 함량을 제품정보표와 조성표에 맞춰 정리",
         "허가 대상이 아니라는 판단이면 예외 근거와 공식 회신을 lot 문서철에 보관"
       ],
-      source: SOURCE_FOOD_ADDITIVE_REGISTRATION,
-      sourceUrl: SOURCE_FOOD_ADDITIVE_REGISTRATION_URL,
+      source: SOURCE_FOOD_ADDITIVE_PERMIT_QUERY,
+      sourceUrl: SOURCE_FOOD_ADDITIVE_PERMIT_QUERY_URL,
       evidence: additiveEvidence || "food additive product identity"
     });
   }

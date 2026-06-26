@@ -1,4 +1,5 @@
 const baseUrl = process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000";
+const foodAdditivePermitQueryUrl = "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162";
 
 const baseInput = {
   productName: "Glow Repair Toner",
@@ -211,6 +212,13 @@ for (const findingId of [
   }
 }
 
+const additivePermitGapFinding = compoundAdditiveMissingResult.findings?.find(
+  (finding) => finding.id === "food-additive-inspection-registration-needed"
+);
+if (additivePermitGapFinding?.sourceUrl !== foodAdditivePermitQueryUrl) {
+  throw new Error("Compound additive missing review: expected direct food additive permit query source URL");
+}
+
 if (compoundAdditiveMissingResult.status === "fail") {
   throw new Error("Compound additive missing review: expected non-fail status for document gaps");
 }
@@ -258,6 +266,13 @@ for (const findingId of [
   if (!compoundAdditiveCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
     throw new Error(`Compound additive complete review: expected pass finding ${findingId}`);
   }
+}
+
+const additivePermitReadyFinding = compoundAdditiveCompleteResult.findings?.find(
+  (finding) => finding.id === "food-additive-inspection-registration-present"
+);
+if (additivePermitReadyFinding?.sourceUrl !== foodAdditivePermitQueryUrl) {
+  throw new Error("Compound additive complete review: expected direct food additive permit query source URL");
 }
 
 if (!compoundAdditiveCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "compound-food-additive-import-docs" && doc.status === "ready")) {
