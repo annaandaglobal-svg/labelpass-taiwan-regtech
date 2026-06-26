@@ -29,11 +29,17 @@ For the current production URL, the single operator gate is:
 pnpm preflight:deploy
 ```
 
-`preflight:deploy` runs type checks, rule verification, knowledge validation, Taiwan food/cosmetics coverage validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless both a database URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are set. Override this only when production is intentionally configured for server-side archive storage:
+`preflight:deploy` runs type checks, rule verification, knowledge validation, Taiwan food/cosmetics coverage validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
 
 ```bash
 LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment
 LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm smoke:api
+```
+
+Use separate expectations when read and write are intentionally different:
+
+```bash
+LABELPASS_EXPECT_ARCHIVE_READ_STORAGE=disabled LABELPASS_EXPECT_ARCHIVE_WRITE_STORAGE=database pnpm preflight:deployment
 ```
 
 PowerShell equivalent:
@@ -177,11 +183,12 @@ Recommended server-only environment variable for production review history:
 ```text
 SUPABASE_DB_URL=postgresql://...
 LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1
+LABELPASS_REVIEW_ARCHIVE_TOKEN=long-random-server-token
 ```
 
-The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep this value server-only; never expose it as a `NEXT_PUBLIC_*` variable. `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` is a deliberate opt-in because `/api/reviews` is currently a public archive endpoint without user authentication.
+The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep these values server-only; never expose them as `NEXT_PUBLIC_*` variables. `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` only enables the database-backed archive path. Public read/write remain disabled unless `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ=1` or `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE=1` is set. Use those public flags only for demo data because `/api/reviews` still has no user account ownership model.
 
-The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` plus `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without both values, the app falls back to the browser-side archive and the UI shows local storage status.
+The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` plus `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` prepares `/api/reviews` to store products, review outcomes, and finding evidence in Supabase, but the route returns `storage: "disabled"` until read/write access is authorized by token or explicit public flags. Without an authorized server archive path, the app falls back to the browser-side archive and the UI shows local storage status.
 
 If production Supabase is already configured for public knowledge search, compare all remote counts after every seed apply. `pnpm preflight:deployment` warns when the remote alias count differs from the generated local seed; run it with `LABELPASS_STRICT_REMOTE_ALIASES=1` when you want stale alias rows to block deployment. A mismatch usually means the generated knowledge seed was not re-applied with its leading cleanup statements.
 
@@ -193,4 +200,4 @@ If production Supabase is already configured for public knowledge search, compar
 4. Run the food import sample with HS `0307.12` and confirm findings include `food-import-inspection-docs-needed`, `food-importer-registration-needed`, and `food-import-hs0307-health-certificate-needed`.
 5. Confirm findings include source identifiers and rule evidence.
 6. Open `/knowledge` and confirm searches such as `輸入食品查驗`, `HS 0307 health certificate`, `食品業者登錄`, `잔류농약 기준`, `食品中污染物質及毒素`, and `食品追溯追蹤` return the expected Taiwan food-import and food-safety concepts.
-7. Run `LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment` only when `SUPABASE_DB_URL` and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are both configured in Vercel. Run it without that override when production is intentionally still using browser/local archive fallback.
+7. Run `LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment` only when `SUPABASE_DB_URL`, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or explicit public read/write flags are configured in Vercel. Run it without that override when production is intentionally still using browser/local archive fallback.

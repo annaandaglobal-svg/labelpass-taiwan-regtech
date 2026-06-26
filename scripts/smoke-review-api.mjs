@@ -1396,23 +1396,39 @@ for (const testCase of evidenceCases) {
   }
 }
 
-const archiveListResponse = await fetch(`${baseUrl}/api/reviews`);
+const archiveDbUrl = process.env.SUPABASE_DB_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL;
+const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
+const publicReviewArchiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
+const publicReviewArchiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
+const archiveToken = process.env.LABELPASS_REVIEW_ARCHIVE_TOKEN;
+const archiveHeaders = archiveToken ? { authorization: `Bearer ${archiveToken}` } : {};
+const expectedArchiveReadStorage =
+  process.env.LABELPASS_EXPECT_ARCHIVE_READ_STORAGE ??
+  process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
+  (archiveDbUrl && publicReviewArchiveEnabled && (publicReviewArchiveReadEnabled || archiveToken) ? "database" : "disabled");
+const expectedArchiveWriteStorage =
+  process.env.LABELPASS_EXPECT_ARCHIVE_WRITE_STORAGE ??
+  process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
+  (archiveDbUrl && publicReviewArchiveEnabled && (publicReviewArchiveWriteEnabled || archiveToken) ? "database" : "disabled");
+const validArchiveStates = new Set(["database", "disabled", "unavailable"]);
+
+const archiveListResponse = await fetch(`${baseUrl}/api/reviews`, { headers: archiveHeaders });
 
 if (!archiveListResponse.ok) {
   throw new Error(`Review archive list: API returned ${archiveListResponse.status}`);
 }
 
 const archiveList = await archiveListResponse.json();
-const archiveDbUrl = process.env.SUPABASE_DB_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL;
-const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
-const expectedArchiveStorage =
-  process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
-  (archiveDbUrl && publicReviewArchiveEnabled ? "database" : "disabled");
-const validArchiveStates = new Set(["database", "disabled", "unavailable"]);
 
-if (!validArchiveStates.has(expectedArchiveStorage)) {
+if (!validArchiveStates.has(expectedArchiveReadStorage)) {
   throw new Error(
-    `Review archive: LABELPASS_EXPECT_ARCHIVE_STORAGE must be database, disabled, or unavailable. Got ${expectedArchiveStorage}`
+    `Review archive: LABELPASS_EXPECT_ARCHIVE_READ_STORAGE must be database, disabled, or unavailable. Got ${expectedArchiveReadStorage}`
+  );
+}
+
+if (!validArchiveStates.has(expectedArchiveWriteStorage)) {
+  throw new Error(
+    `Review archive: LABELPASS_EXPECT_ARCHIVE_WRITE_STORAGE must be database, disabled, or unavailable. Got ${expectedArchiveWriteStorage}`
   );
 }
 
@@ -1420,14 +1436,14 @@ if (!validArchiveStates.has(archiveList.storage) || !Array.isArray(archiveList.r
   throw new Error("Review archive list: expected storage state and reviews array");
 }
 
-if (archiveList.storage !== expectedArchiveStorage) {
-  throw new Error(`Review archive list: expected ${expectedArchiveStorage}, got ${archiveList.storage}`);
+if (archiveList.storage !== expectedArchiveReadStorage) {
+  throw new Error(`Review archive list: expected ${expectedArchiveReadStorage}, got ${archiveList.storage}`);
 }
 
 const archiveSmokeId = `smoke-${Date.now()}`;
 const archiveSaveResponse = await fetch(`${baseUrl}/api/reviews?dryRun=1`, {
   method: "POST",
-  headers: { "Content-Type": "application/json" },
+  headers: { "Content-Type": "application/json", ...archiveHeaders },
   body: JSON.stringify({
     id: archiveSmokeId,
     input: {
@@ -1452,14 +1468,14 @@ if (!validArchiveStates.has(archiveSave.storage)) {
   throw new Error(`Review archive save: unexpected storage state ${archiveSave.storage}`);
 }
 
-if (archiveSave.storage !== expectedArchiveStorage) {
-  throw new Error(`Review archive save: expected ${expectedArchiveStorage}, got ${archiveSave.storage}`);
+if (archiveSave.storage !== expectedArchiveWriteStorage) {
+  throw new Error(`Review archive save: expected ${expectedArchiveWriteStorage}, got ${archiveSave.storage}`);
 }
 
-if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmokeId) {
+if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeId) {
   throw new Error("Review archive save: database response did not preserve app review id");
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 24} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (${expectedArchiveStorage}).`
+  `API smoke test passed: ${cases.length + 24} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

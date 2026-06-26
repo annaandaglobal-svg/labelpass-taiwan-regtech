@@ -5,10 +5,19 @@ const root = process.cwd();
 const baseUrl = (process.env.LABELPASS_BASE_URL || "https://labelpass-taiwan-regtech.vercel.app").replace(/\/$/, "");
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
 const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
-const expectedArchiveStorage =
+const publicReviewArchiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
+const publicReviewArchiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
+const archiveToken = process.env.LABELPASS_REVIEW_ARCHIVE_TOKEN;
+const expectedArchiveReadStorage =
+  process.env.LABELPASS_EXPECT_ARCHIVE_READ_STORAGE ??
   process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
-  (databaseUrl && publicReviewArchiveEnabled ? "database" : "disabled");
+  (databaseUrl && publicReviewArchiveEnabled && (publicReviewArchiveReadEnabled || archiveToken) ? "database" : "disabled");
+const expectedArchiveWriteStorage =
+  process.env.LABELPASS_EXPECT_ARCHIVE_WRITE_STORAGE ??
+  process.env.LABELPASS_EXPECT_ARCHIVE_STORAGE ??
+  (databaseUrl && publicReviewArchiveEnabled && (publicReviewArchiveWriteEnabled || archiveToken) ? "database" : "disabled");
 const validArchiveStates = new Set(["database", "disabled", "unavailable"]);
+const archiveHeaders = archiveToken ? { authorization: `Bearer ${archiveToken}` } : {};
 
 const paths = {
   rules: path.join(root, "data", "rules", "tw-cosmetics-rules.json"),
@@ -120,9 +129,14 @@ async function fetchJson(label, url, options) {
 const errors = [];
 const warnings = [];
 
-if (!validArchiveStates.has(expectedArchiveStorage)) {
+if (!validArchiveStates.has(expectedArchiveReadStorage)) {
   errors.push(
-    `LABELPASS_EXPECT_ARCHIVE_STORAGE must be database, disabled, or unavailable. Got ${expectedArchiveStorage}`
+    `LABELPASS_EXPECT_ARCHIVE_READ_STORAGE must be database, disabled, or unavailable. Got ${expectedArchiveReadStorage}`
+  );
+}
+if (!validArchiveStates.has(expectedArchiveWriteStorage)) {
+  errors.push(
+    `LABELPASS_EXPECT_ARCHIVE_WRITE_STORAGE must be database, disabled, or unavailable. Got ${expectedArchiveWriteStorage}`
   );
 }
 
@@ -185,6 +199,9 @@ const env = [
   envState("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
+  envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
+  envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
+  envState("LABELPASS_REVIEW_ARCHIVE_TOKEN", archiveToken),
   envState("SUPABASE_ACCESS_TOKEN", process.env.SUPABASE_ACCESS_TOKEN)
 ];
 
@@ -197,14 +214,23 @@ if (databaseUrl && !publicReviewArchiveEnabled) {
 if (!databaseUrl && publicReviewArchiveEnabled) {
   warnings.push("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE is 1, but no server DB URL is set; archive storage cannot use database.");
 }
+if (databaseUrl && publicReviewArchiveEnabled && !publicReviewArchiveReadEnabled && !archiveToken) {
+  warnings.push("Review archive DB is configured, but read access is disabled without LABELPASS_REVIEW_ARCHIVE_TOKEN or LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ=1.");
+}
+if (databaseUrl && publicReviewArchiveEnabled && !publicReviewArchiveWriteEnabled && !archiveToken) {
+  warnings.push("Review archive DB is configured, but write access is disabled without LABELPASS_REVIEW_ARCHIVE_TOKEN or LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE=1.");
+}
 
 const remoteChecks = [];
 try {
   remoteChecks.push(await fetchJson("knowledge search", `${baseUrl}/api/knowledge/search?q=casein&limit=6&preflight=${Date.now()}`));
-  remoteChecks.push(await fetchJson("review archive list", `${baseUrl}/api/reviews?limit=1&preflight=${Date.now()}`));
+  remoteChecks.push(await fetchJson("review archive list", `${baseUrl}/api/reviews?limit=1&preflight=${Date.now()}`, {
+    headers: archiveHeaders
+  }));
   remoteChecks.push(
     await fetchJson("review archive dry run", `${baseUrl}/api/reviews?dryRun=1&preflight=${Date.now()}`, {
       method: "POST",
+      headers: archiveHeaders,
       body: JSON.stringify(buildReviewPayload())
     })
   );
@@ -247,20 +273,22 @@ if (archiveList && !validArchiveStates.has(archiveList.storage)) {
 if (archiveDryRun && !validArchiveStates.has(archiveDryRun.storage)) {
   errors.push(`Unexpected archive dry-run storage state: ${archiveDryRun.storage}`);
 }
-if (archiveList && archiveList.storage !== expectedArchiveStorage) {
-  errors.push(`Archive list expected ${expectedArchiveStorage}, got ${archiveList.storage}`);
+if (archiveList && archiveList.storage !== expectedArchiveReadStorage) {
+  errors.push(`Archive list expected ${expectedArchiveReadStorage}, got ${archiveList.storage}`);
 }
-if (archiveDryRun && archiveDryRun.storage !== expectedArchiveStorage) {
-  errors.push(`Archive dry run expected ${expectedArchiveStorage}, got ${archiveDryRun.storage}`);
+if (archiveDryRun && archiveDryRun.storage !== expectedArchiveWriteStorage) {
+  errors.push(`Archive dry run expected ${expectedArchiveWriteStorage}, got ${archiveDryRun.storage}`);
 }
-if (expectedArchiveStorage === "database" && archiveDryRun?.review?.id?.startsWith("preflight-") !== true) {
+if (expectedArchiveWriteStorage === "database" && archiveDryRun?.reviewId?.startsWith("preflight-") !== true) {
   errors.push("Archive dry run expected database storage to preserve the preflight review id");
 }
 
 const report = {
   ok: errors.length === 0,
   baseUrl,
-  expectedArchiveStorage,
+  expectedArchiveStorage: expectedArchiveWriteStorage,
+  expectedArchiveReadStorage,
+  expectedArchiveWriteStorage,
   env,
   localCounts,
   sqlFiles,

@@ -431,6 +431,9 @@ create index if not exists idx_rule_versions_ingredient_names on public.rule_ver
 
 create index if not exists idx_reviews_product_id on public.reviews (product_id);
 create index if not exists idx_reviews_reviewer_id on public.reviews (reviewer_id);
+create index if not exists idx_reviews_app_review_id
+  on public.reviews ((source_version_summary->>'app_review_id'))
+  where source_version_summary ? 'app_review_id';
 
 create index if not exists idx_findings_product_id on public.findings (product_id);
 create index if not exists idx_findings_review_id on public.findings (review_id);

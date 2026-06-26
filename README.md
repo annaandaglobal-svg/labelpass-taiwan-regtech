@@ -60,11 +60,16 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 ```
 
-Persistent review history is deliberately opt-in because the current archive endpoint is public:
+Persistent review history is deliberately opt-in. A database URL plus the archive flag only makes the server capable of database storage; read/write access still needs either a server-side archive token for checks or explicit public demo flags:
 
 ```bash
 SUPABASE_DB_URL=
 LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1
+LABELPASS_REVIEW_ARCHIVE_TOKEN=
+
+# Demo/public archive mode only, not recommended for production customer data:
+LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ=1
+LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE=1
 ```
 
 Browser-only or blocked sources are preserved with manual text captures and screenshots under `data/knowledge/browser-captures/`.

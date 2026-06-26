@@ -27,6 +27,10 @@ const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? p
 const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 let client: DbClient | null = null;
 
+export function isReviewArchiveDatabaseConfigured() {
+  return Boolean(databaseUrl && publicReviewArchiveEnabled);
+}
+
 function getClient() {
   if (!databaseUrl || !publicReviewArchiveEnabled) return null;
   client ??= postgres(databaseUrl, {
@@ -98,6 +102,18 @@ function toSavedReview(row: ReviewRow): SavedReview | null {
   };
 }
 
+async function findStoredReviewByAppId(sql: DbClient, appReviewId: string) {
+  const rows = await sql<ReviewRow[]>`
+    select id, source_version_summary
+    from public.reviews
+    where source_version_summary->>'app_review_id' = ${appReviewId}
+    order by created_at desc
+    limit 1
+  `;
+
+  return rows.map(toSavedReview).find((review): review is SavedReview => Boolean(review)) ?? null;
+}
+
 export async function listStoredReviews(limit = 20): Promise<ReviewStoreListResult> {
   const sql = getClient();
   if (!sql) return { storage: "disabled", reviews: [] };
@@ -119,6 +135,9 @@ export async function listStoredReviews(limit = 20): Promise<ReviewStoreListResu
 export async function saveStoredReview(review: SavedReview): Promise<ReviewStoreSaveResult> {
   const sql = getClient();
   if (!sql) return { storage: "disabled", review: null };
+
+  const existingReview = await findStoredReviewByAppId(sql, review.id);
+  if (existingReview) return { storage: "database", review: existingReview };
 
   await sql.begin(async (tx) => {
     const category = productCategory(review.input, review.result);

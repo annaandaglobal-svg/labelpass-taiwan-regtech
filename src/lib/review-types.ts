@@ -12,5 +12,8 @@ export type ReviewArchiveResponse = {
   storage: Exclude<ReviewArchiveStorage, "browser">;
   reviews?: SavedReview[];
   review?: SavedReview | null;
+  reviewId?: string;
+  dryRun?: boolean;
+  access?: "restricted";
   error?: string;
 };
