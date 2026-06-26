@@ -121,8 +121,6 @@ export default function KnowledgeSearchClient() {
     const timer = window.setTimeout(() => {
       setLoading(true);
       setError("");
-      setData(null);
-      setEvidence(null);
       fetch(`/api/knowledge/search?q=${encodeURIComponent(trimmed)}&limit=12`, { signal: controller.signal })
         .then((response) => {
           if (!response.ok) throw new Error("search_failed");
@@ -197,6 +195,7 @@ export default function KnowledgeSearchClient() {
   const primarySource = filteredSources[0];
   const hasQuery = Boolean(trimmed);
   const hasResults = Boolean(data);
+  const isRefreshing = loading && hasResults;
   const highPriorityCount = filteredSources.filter((source) => source.priority === "high").length;
   const watchCount = filteredSources.filter((source) => source.manualFallback || source.cacheStatus === "stale").length;
   const browserCount = filteredSources.filter((source) => source.browserCapture).length;
@@ -244,7 +243,7 @@ export default function KnowledgeSearchClient() {
   const activeEvidence = evidence ?? (primaryTerm ? buildTermEvidence(primaryTerm) : primarySource ? buildSourceEvidence(primarySource) : null);
   const activeEvidenceParam = encodeURIComponent(activeEvidence?.reviewParam || activeEvidence?.title || trimmed || "PIF");
   const controlSummary = hasResults
-    ? `우선 검토 ${highPriorityCount.toLocaleString()} · 감시 ${watchCount.toLocaleString()}`
+    ? `${isRefreshing ? "업데이트 중 · " : ""}우선 검토 ${highPriorityCount.toLocaleString()} · 감시 ${watchCount.toLocaleString()}`
     : hasQuery
       ? "결과가 준비되면 활성화됩니다"
       : "검색 후 범위를 좁힙니다";
@@ -301,8 +300,8 @@ export default function KnowledgeSearchClient() {
   }
 
   return (
-    <section className={["knowledge-workbench", hasQuery ? "has-query" : "is-awaiting"].join(" ")}>
-      <div className="knowledge-searchbar">
+    <section className={["knowledge-workbench", hasQuery ? "has-query" : "is-awaiting", isRefreshing ? "is-refreshing" : ""].filter(Boolean).join(" ")}>
+      <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
         <Search size={19} />
         <input
           value={query}
@@ -313,10 +312,20 @@ export default function KnowledgeSearchClient() {
         {loading && <Loader2 className="spin" size={18} />}
       </div>
 
+      {!hasQuery && (
+        <div className="knowledge-examples knowledge-examples-start" aria-label="예시 검색">
+          {onboardingExamples.map((example) => (
+            <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
+              {example.label}
+            </button>
+          ))}
+        </div>
+      )}
+
       {error && <div className="knowledge-alert">{error}</div>}
 
       <div className="knowledge-summary" aria-live="polite">
-        <span>{hasResults ? `검색 결과 ${matchedCount.toLocaleString()}건` : hasQuery ? "검색 준비 중" : "검색 전 대기"}</span>
+        <span>{hasResults ? `${isRefreshing ? "검색 갱신 중 · " : ""}검색 결과 ${matchedCount.toLocaleString()}건` : hasQuery ? "검색 준비 중" : "검색 전 대기"}</span>
         <span>{hasResults ? `용어 ${filteredTerms.length.toLocaleString()}` : "용어 대기"}</span>
         <span>{hasResults ? `출처 ${filteredSources.length.toLocaleString()}` : "출처 대기"}</span>
       </div>
@@ -399,6 +408,11 @@ export default function KnowledgeSearchClient() {
             <h2>검토 후보</h2>
             <span>{resultCountLabel}</span>
           </div>
+          {isRefreshing && (
+            <div className="knowledge-refresh-note" role="status">
+              기존 후보를 유지한 채 새 검색을 반영하고 있습니다.
+            </div>
+          )}
           <div className="knowledge-row-list">
             {hasResults && unifiedResults.map((item) => (
               <article className={`knowledge-row ${item.kind}`} key={item.id}>
@@ -426,14 +440,7 @@ export default function KnowledgeSearchClient() {
               <div className="knowledge-search-empty">
                 <Search size={20} />
                 <b>원료명, 현지 용어, CAS, 표시문구를 검색하세요.</b>
-                <span>후보 목록, 고급 필터, 근거 액션은 같은 자리에서 열립니다. 먼저 자주 쓰는 검색으로 시작해도 됩니다.</span>
-                <div className="knowledge-examples" aria-label="예시 검색">
-                  {onboardingExamples.map((example) => (
-                    <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
-                      {example.label}
-                    </button>
-                  ))}
-                </div>
+                <span>후보 목록, 고급 필터, 근거 액션은 같은 자리에서 열립니다.</span>
               </div>
             )}
             {!hasResults && hasQuery && (

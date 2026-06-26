@@ -1140,18 +1140,18 @@ export default function Home() {
                   <div className={`verdict ${visibleStatus.tone}`}>
                     <div className="verdict-copy">
                       <div className="report-meta">
-                        <span className="stamp">{visibleStatus.stamp}</span>
                         <em>대만 {productFamilyLabel(input.productType)} 리포트</em>
                         <em>{input.productName || "미지정 제품"}</em>
                         <em>{formatReportDate(result.generatedAt)}</em>
                       </div>
                       <h2>{result.summary.fail + result.summary.warn + result.summary.needsInfo}건만 확인하면 출고 판단에 가까워집니다</h2>
-                      <p>자동 판정 점수 {result.score}점 · 룰셋 {result.ruleVersion}</p>
+                      <p>자동 판정 점수 {result.score}점</p>
                     </div>
                     <div className="verdict-status-card">
                       <small>출고 판단</small>
                       <strong>{visibleStatus.label}</strong>
                       <span>{currentActionPlan.nextAction}</span>
+                      <span className="verdict-rule">룰셋 {result.ruleVersion}</span>
                     </div>
                   </div>
 
@@ -1166,7 +1166,7 @@ export default function Home() {
                   <details className="result-secondary-drawer" open={showResultDetails} onToggle={(event) => setShowResultDetails(event.currentTarget.open)}>
                     <summary>
                       <BookOpen size={15} />
-                      세부 근거·전체 항목 보기
+                      전체 근거와 세부 항목 보기
                     </summary>
 
                     <div className="metric-grid">
@@ -1176,16 +1176,22 @@ export default function Home() {
                       <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
                     </div>
 
-                    <ExecutionConsole
-                      findings={result.findings}
-                      onSelect={openResultDetails}
-                    />
+                    <details className="result-workflow-drawer">
+                      <summary>
+                        <ClipboardCheck size={15} />
+                        담당자별 실행 흐름 보기
+                      </summary>
+                      <ExecutionConsole
+                        findings={result.findings}
+                        onSelect={openResultDetails}
+                      />
 
-                    <ActionPlanPanel
-                      actionPlan={currentActionPlan}
-                      onSelect={openResultDetails}
-                      onExpert={() => setShowExpertModal(true)}
-                    />
+                      <ActionPlanPanel
+                        actionPlan={currentActionPlan}
+                        onSelect={openResultDetails}
+                        onExpert={() => setShowExpertModal(true)}
+                      />
+                    </details>
 
                     <details className="report-details-drawer">
                       <summary>
