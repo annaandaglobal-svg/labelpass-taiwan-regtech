@@ -383,6 +383,34 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
   ].filter(Boolean).join("\n");
 }
 
+function hasInputText(value?: string) {
+  return Boolean(value?.trim());
+}
+
+function buildInputReadiness(input: ReviewInput) {
+  const productNameReady = hasInputText(input.productName);
+  const productTypeReady = hasInputText(input.productType);
+  const labelReady = hasInputText(input.ingredientsText) || hasInputText(input.labelText);
+  const tradeReady = hasInputText(input.origin) || hasInputText(input.manufacturer) || hasInputText(input.hsCode) || hasInputText(input.incoterms);
+  const readyCount = [productNameReady, productTypeReady, labelReady, tradeReady].filter(Boolean).length;
+  const missing = [
+    !productNameReady ? "제품명" : "",
+    !productTypeReady ? "품목 분류" : "",
+    !labelReady ? "성분 또는 라벨" : "",
+    !tradeReady ? "원산지·수입자 자료" : ""
+  ].filter(Boolean);
+
+  return {
+    canReview: productNameReady && productTypeReady && labelReady,
+    labelReady,
+    missing,
+    productReady: productNameReady && productTypeReady,
+    readyCount,
+    tradeReady,
+    total: 4
+  };
+}
+
 export default function Home() {
   const [screen, setScreen] = useState<Screen>("review");
   const [input, setInput] = useState<ReviewInput>(emptyInput);
@@ -401,6 +429,7 @@ export default function Home() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
   const currentActionPlan = useMemo(() => result ? actionPlanForResult(result) : null, [result]);
+  const inputReadiness = useMemo(() => buildInputReadiness(input), [input]);
 
   useEffect(() => {
     let cancelled = false;
@@ -551,6 +580,10 @@ export default function Home() {
     }, 60);
   }
 
+  function focusInputPane() {
+    document.querySelector(".input-pane")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
     const looksNonFoodContact = /not\s+(?:for|intended for)\s+food[-\s]?contact|not food safe|non[-\s]?food|非食品用|不得接觸食品|식품용\s*아님|비식품용/i.test(haystack);
@@ -684,9 +717,11 @@ export default function Home() {
             <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
               <UserRoundCheck size={17} /> 전문가 검수
             </button>
-            <button className="primary-btn" onClick={() => setScreen("review")}>
-              <Sparkles size={17} /> 새 검토
-            </button>
+            {screen !== "review" && (
+              <button className="primary-btn" onClick={() => setScreen("review")}>
+                <Sparkles size={17} /> 새 검토
+              </button>
+            )}
           </div>
         </header>
 
@@ -705,9 +740,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="hero-actions">
-                <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing}>
-                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
-                  현재 입력 검토
+                <button className="ghost-btn" onClick={focusInputPane}>
+                  <ArrowRight size={17} />
+                  입력 폼 이동
                 </button>
                 <button className="ghost-btn" onClick={() => fillSample("food-import")}>
                   <Ship size={16} /> 식품 통관 샘플
@@ -773,10 +808,10 @@ export default function Home() {
           <div className="review-grid">
             <section className="input-pane">
               <div className="intake-rail" aria-label="검토 입력 단계">
-                <span className="done">1 품목</span>
-                <span className="now">2 라벨·성분</span>
-                <span>3 통관</span>
-                <span>4 판정</span>
+                <span className={inputReadiness.productReady ? "done" : "now"}>1 품목</span>
+                <span className={inputReadiness.labelReady ? "done" : inputReadiness.productReady ? "now" : ""}>2 라벨·성분</span>
+                <span className={inputReadiness.tradeReady ? "done" : inputReadiness.labelReady ? "now" : ""}>3 통관</span>
+                <span className={result ? "done" : inputReadiness.canReview ? "now" : ""}>4 판정</span>
               </div>
               <div className="step-row">
                 <span>1</span>
@@ -787,10 +822,13 @@ export default function Home() {
               </div>
 
               <div className="quick-review-bar">
-                <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing}>
-                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
-                  AI 1차 검토 시작
-                </button>
+                <div className="review-cta-stack">
+                  <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing}>
+                    {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
+                    AI 1차 검토 시작
+                  </button>
+                  <small>{inputReadiness.canReview ? "필수 입력 완료 · 통관 자료가 있으면 판정 정확도가 올라갑니다." : `${inputReadiness.missing.slice(0, 2).join(", ")} 입력 시 판정 품질이 좋아집니다.`}</small>
+                </div>
                 <div className={`archive-status ${archiveStatus.tone}`} aria-live="polite">
                   <Database size={15} />
                   <div>
@@ -798,6 +836,15 @@ export default function Home() {
                     <small>{archiveStatus.detail}</small>
                   </div>
                 </div>
+              </div>
+
+              <div className="input-completeness" aria-live="polite">
+                <div>
+                  <span>입력 준비도</span>
+                  <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
+                </div>
+                <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
+                <p>{inputReadiness.missing.length > 0 ? `남은 확인: ${inputReadiness.missing.join(" · ")}` : "핵심 자료가 들어왔습니다. 바로 1차 검토를 돌릴 수 있습니다."}</p>
               </div>
 
               <div className="review-scope-strip" aria-label="검토 범위">
@@ -903,10 +950,6 @@ export default function Home() {
               </div>
 
               <div className="action-row">
-                <button className="primary-btn review-start" onClick={() => void runReview()} disabled={isAnalyzing}>
-                  {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
-                  AI 1차 검토 시작
-                </button>
                 <details className="sample-drawer">
                   <summary>
                     <Sparkles size={15} />
@@ -957,8 +1000,6 @@ export default function Home() {
                     <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
                   </div>
 
-                  <ReportVersionStrip result={result} actionPlan={currentActionPlan} input={input} />
-
                   <ExecutionConsole
                     findings={result.findings}
                     onSelect={(findingId) => {
@@ -975,6 +1016,14 @@ export default function Home() {
                     }}
                     onExpert={() => setShowExpertModal(true)}
                   />
+
+                  <details className="report-details-drawer">
+                    <summary>
+                      <BookOpen size={15} />
+                      근거·버전 묶음
+                    </summary>
+                    <ReportVersionStrip result={result} actionPlan={currentActionPlan} input={input} />
+                  </details>
 
                   <div className="report-toolbar">
                     <div className="toolbar-title">
@@ -1547,22 +1596,18 @@ function EmptyResult() {
         </div>
       </div>
       <div className="empty-layout">
-        <div className="label-visual">
-          <div className="label-card">
-            <div className="label-card-top">
-              <span>舒敏保濕化妝水</span>
-              <em>TW</em>
-            </div>
-            <b>Label OCR</b>
-            <div className="ocr-lines" aria-label="OCR 검토 항목 예시">
-              <i>全成分</i>
-              <i>原產地</i>
-              <i>批號</i>
-            </div>
-            <div className="barcode" />
+        <div className="preflight-card">
+          <div className="preflight-score">
+            <small>검토 준비</small>
+            <strong>필수 자료 3종</strong>
+            <span>제품 분류, 라벨·성분, 통관 자료를 같은 버전으로 맞추면 판정 품질이 올라갑니다.</span>
           </div>
-          <div className="pin pin-a">성분</div>
-          <div className="pin pin-b">라벨</div>
+          <div className="preflight-list" aria-label="검토 전 자료 체크">
+            <PreflightRow icon={<BadgeCheck size={16} />} title="품목 분류" detail="화장품 · 식품 · 식품용 포장재" status="필수" />
+            <PreflightRow icon={<FileText size={16} />} title="라벨/OCR" detail="중문 품명, 용도, 전성분, 원산지, 배치번호" status="필수" />
+            <PreflightRow icon={<FlaskConical size={16} />} title="성분·별칭" detail="INCI, CAS, 현지명, 농도 표현을 함께 검색" status="핵심" />
+            <PreflightRow icon={<Ship size={16} />} title="통관 자료" detail="HS/CCC, 수입자, 인보이스, 출하 목적" status="권장" />
+          </div>
         </div>
 
         <div className="gate-stack">
@@ -1591,6 +1636,19 @@ function EmptyResult() {
         <span>근거 링크</span>
         <span>수정 지시</span>
       </div>
+    </div>
+  );
+}
+
+function PreflightRow({ icon, title, detail, status }: { icon: React.ReactNode; title: string; detail: string; status: string }) {
+  return (
+    <div className="preflight-row">
+      <span>{icon}</span>
+      <div>
+        <b>{title}</b>
+        <small>{detail}</small>
+      </div>
+      <em>{status}</em>
     </div>
   );
 }
