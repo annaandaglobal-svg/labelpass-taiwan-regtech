@@ -93,6 +93,24 @@ a {
   display: none;
 }
 
+.shell-guided-start .sidebar {
+  background: transparent;
+  box-shadow: none;
+}
+
+.shell-guided-start .nav-list .nav-btn:not(.active),
+.shell-guided-start .side-panel {
+  display: none;
+}
+
+.shell-guided-start .nav-btn.active {
+  pointer-events: none;
+  background: var(--panel);
+  border-color: var(--green-soft);
+  color: var(--green-dark);
+  box-shadow: none;
+}
+
 .shell-guided-start .workspace,
 .shell-no-assistant .workspace {
   max-width: 1040px;
