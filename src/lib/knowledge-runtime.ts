@@ -1,4 +1,4 @@
-import { searchKnowledge } from "./knowledge-search";
+import { scoreKnowledgeSourceForQuery, searchKnowledge } from "./knowledge-search";
 import type { KnowledgeSearchResult } from "./knowledge-search";
 import { searchSupabaseKnowledge } from "./supabase-knowledge-search";
 
@@ -48,7 +48,28 @@ function mergeKnowledgeResult(
     .sort((a, b) => b.score - a.score || a.canonicalName.localeCompare(b.canonicalName))
     .slice(0, limit);
 
+  const query = primary.query || fallback.query;
   const mergedSources = [...sourcesById.values()]
+    .map((source) => {
+      const normalizedScore = scoreKnowledgeSourceForQuery(
+        {
+          title: source.title,
+          url: source.url,
+          authority: source.authority,
+          jurisdiction: source.jurisdiction,
+          domain: source.domain,
+          sourceType: source.sourceType,
+          priority: source.priority,
+          tags: source.tags,
+          excerpt: source.excerpt
+        },
+        query
+      );
+      return {
+        ...source,
+        score: normalizedScore >= 38 ? normalizedScore : source.score
+      };
+    })
     .sort(
       (a, b) =>
         b.score - a.score ||

@@ -65,6 +65,20 @@ type UpdateQueueItem = {
   status: string;
 };
 
+export type KnowledgeSourceScoringInput = {
+  title: string;
+  url: string;
+  fetchedUrl?: string;
+  extraFetchedUrls?: string[];
+  authority: string;
+  jurisdiction: string;
+  domain: string;
+  sourceType: string;
+  priority: string;
+  tags?: string[];
+  excerpt?: string;
+};
+
 export type KnowledgeSearchResult = {
   query: string;
   totals: {
@@ -499,17 +513,17 @@ function ambiguitySummary(query: string, termResults: KnowledgeSearchResult["ter
   };
 }
 
-function scoreSource(source: SourceResult, query: string) {
+function scoreSourceFields(source: KnowledgeSourceScoringInput, query: string) {
   if (characterLength(query) <= 2 && !hasCjkOrHangul(query)) return 0;
 
   const titleScore = tokenScoreWithQueryFallback(normalize(source.title), query);
   const tagScore = tokenScoreWithQueryFallback(normalize((source.tags ?? []).join(" ")), query);
   const urlScore = tokenScoreWithQueryFallback(
-    normalize([source.url, source.fetched_url, ...(source.extra_fetched_urls ?? [])].join(" ")),
+    normalize([source.url, source.fetchedUrl, ...(source.extraFetchedUrls ?? [])].join(" ")),
     query
   );
   const metadataScore = tokenScoreWithQueryFallback(
-    normalize([source.authority, source.jurisdiction, source.domain, source.source_type, source.priority].join(" ")),
+    normalize([source.authority, source.jurisdiction, source.domain, source.sourceType, source.priority].join(" ")),
     query
   );
   const excerptScore = tokenScoreWithQueryFallback(normalize(source.excerpt ?? ""), query);
@@ -518,12 +532,12 @@ function scoreSource(source: SourceResult, query: string) {
       [
         source.title,
         source.url,
-        source.fetched_url,
-        ...(source.extra_fetched_urls ?? []),
+        source.fetchedUrl,
+        ...(source.extraFetchedUrls ?? []),
         source.authority,
         source.jurisdiction,
         source.domain,
-        source.source_type,
+        source.sourceType,
         source.priority,
         source.excerpt,
         ...(source.tags ?? [])
@@ -543,6 +557,29 @@ function scoreSource(source: SourceResult, query: string) {
   );
 
   return Math.min(100, bestScore + (matchedFields >= 2 ? 4 : 0));
+}
+
+export function scoreKnowledgeSourceForQuery(source: KnowledgeSourceScoringInput, rawQuery: string) {
+  return scoreSourceFields(source, normalize(rawQuery).slice(0, 120));
+}
+
+function scoreSource(source: SourceResult, query: string) {
+  return scoreSourceFields(
+    {
+      title: source.title,
+      url: source.url,
+      fetchedUrl: source.fetched_url,
+      extraFetchedUrls: source.extra_fetched_urls,
+      authority: source.authority,
+      jurisdiction: source.jurisdiction,
+      domain: source.domain,
+      sourceType: source.source_type,
+      priority: source.priority,
+      tags: source.tags,
+      excerpt: source.excerpt
+    },
+    query
+  );
 }
 
 function sourcePriorityRank(priority: string) {
