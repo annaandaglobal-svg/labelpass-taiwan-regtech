@@ -66,6 +66,62 @@ async function fileInfo(filePath) {
   };
 }
 
+function normalizeKnowledgeQuery(value) {
+  return String(value ?? "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[‐‑‒–—―]/g, "-")
+    .replace(/[()[\]{}]/g, " ")
+    .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function countSearchableAliases(term) {
+  const aliasesForTerm = [
+    ...(term.aliases ?? []).map((alias) => ({ ...alias, identifierAlias: false })),
+    ...(term.identifiers?.cas ?? []).map((value) => ({
+      value,
+      normalized: normalizeKnowledgeQuery(value),
+      type: "cas",
+      language: "und",
+      jurisdiction: "GLOBAL",
+      identifierAlias: true
+    })),
+    ...(term.identifiers?.inci ?? []).map((value) => ({
+      value,
+      normalized: normalizeKnowledgeQuery(value),
+      type: "INCI",
+      language: "en",
+      jurisdiction: "GLOBAL",
+      identifierAlias: true
+    })),
+    ...(term.identifiers?.color_index ?? []).map((value) => ({
+      value,
+      normalized: normalizeKnowledgeQuery(value),
+      type: "color_index",
+      language: "en",
+      jurisdiction: "GLOBAL",
+      identifierAlias: true
+    }))
+  ];
+
+  const seen = new Set();
+  let aliases = 0;
+  let identifierAliases = 0;
+
+  for (const alias of aliasesForTerm) {
+    const normalized = alias.normalized ?? normalizeKnowledgeQuery(alias.value);
+    const key = `${normalized}:${alias.language ?? ""}:${alias.jurisdiction ?? ""}:${alias.type ?? ""}`;
+    if (!alias.value || seen.has(key)) continue;
+    seen.add(key);
+    aliases += 1;
+    if (alias.identifierAlias) identifierAliases += 1;
+  }
+
+  return { aliases, identifierAliases };
+}
+
 function buildReviewPayload() {
   const generatedAt = new Date().toISOString();
   return {
@@ -156,12 +212,23 @@ const aliases = terms.flatMap((term) => term.aliases ?? []);
 const links = termIndex.term_rule_links ?? [];
 const updateCandidates = updateQueue.items ?? [];
 const aliasQueueItems = aliasReviewQueue.items ?? [];
+const searchableAliasCounts = terms.reduce(
+  (counts, term) => {
+    const termCounts = countSearchableAliases(term);
+    counts.aliases += termCounts.aliases;
+    counts.identifierAliases += termCounts.identifierAliases;
+    return counts;
+  },
+  { aliases: 0, identifierAliases: 0 }
+);
 
 const localCounts = {
   rules: rules.length,
   knowledgeSources: sources.length,
   knowledgeTerms: terms.length,
   termAliases: aliases.length,
+  searchableIdentifierAliases: searchableAliasCounts.identifierAliases,
+  searchableAliases: searchableAliasCounts.aliases,
   termRuleLinks: links.length,
   regulatoryUpdateCandidates: updateCandidates.length,
   aliasReviewQueueItems: aliasQueueItems.length
@@ -255,12 +322,16 @@ if (knowledgeTotals) {
   if (knowledgeTotals.terms !== localCounts.knowledgeTerms) {
     errors.push(`Remote knowledge terms ${knowledgeTotals.terms} did not match local ${localCounts.knowledgeTerms}`);
   }
-  if (knowledgeTotals.aliases !== localCounts.termAliases) {
-    const message = `Remote term aliases ${knowledgeTotals.aliases} did not match local ${localCounts.termAliases}`;
+  if (knowledgeTotals.aliases !== localCounts.searchableAliases) {
+    const message =
+      `Remote searchable aliases ${knowledgeTotals.aliases} did not match local ${localCounts.searchableAliases} ` +
+      `(stored term aliases ${localCounts.termAliases} + searchable identifier aliases ${localCounts.searchableIdentifierAliases})`;
     if (process.env.LABELPASS_STRICT_REMOTE_ALIASES === "1") {
       errors.push(message);
     } else {
-      warnings.push(`${message}. Run pnpm verify:supabase-knowledge with SUPABASE_DB_URL, then re-apply the generated knowledge seed to remove stale aliases.`);
+      warnings.push(
+        `${message}. Run pnpm verify:supabase-knowledge with SUPABASE_DB_URL to compare physical Supabase table rows.`
+      );
     }
   }
   if (knowledgeTotals.ruleLinks !== localCounts.termRuleLinks) {

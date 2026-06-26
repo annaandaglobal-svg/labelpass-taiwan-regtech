@@ -140,6 +140,7 @@ Expected counts after the current seed:
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,175
 - `term_aliases`: 4,013
+- `searchable_aliases`: 6,492 (`term_aliases` plus CAS, INCI, and color-index identifiers used by bundled search)
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
 
@@ -190,7 +191,7 @@ The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep these
 
 The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` plus `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` prepares `/api/reviews` to store products, review outcomes, and finding evidence in Supabase, but the route returns `storage: "disabled"` until read/write access is authorized by token or explicit public flags. Without an authorized server archive path, the app falls back to the browser-side archive and the UI shows local storage status.
 
-If production Supabase is already configured for public knowledge search, compare all remote counts after every seed apply. `pnpm preflight:deployment` warns when the remote alias count differs from the generated local seed; run it with `LABELPASS_STRICT_REMOTE_ALIASES=1` when you want stale alias rows to block deployment. A mismatch usually means the generated knowledge seed was not re-applied with its leading cleanup statements.
+If production Supabase is already configured for public knowledge search, compare all remote counts after every seed apply. `pnpm preflight:deployment` compares the public API alias total with generated local `searchable_aliases`, not just the physical `term_aliases` table, because runtime search also counts CAS, INCI, and color-index identifiers from `knowledge_terms`. Use `pnpm verify:supabase-knowledge` with `SUPABASE_DB_URL` when you need to compare physical Supabase table rows, and run preflight with `LABELPASS_STRICT_REMOTE_ALIASES=1` when a public search alias-count mismatch should block deployment.
 
 ## Post-Deployment Verification
 

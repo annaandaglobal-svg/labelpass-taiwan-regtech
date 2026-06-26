@@ -104,14 +104,14 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `/api/knowledge/search?q=<term>` searches canonical terms, INCI names, CAS RN, color index numbers, local-language aliases, abbreviations, and source metadata. It uses Supabase public read-only RPCs when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are configured, then falls back to the bundled generated cache.
 - `/api/knowledge/evidence?q=<term>` packages the same reusable memory into an assistant-ready bundle with top terms, official sources, cache status, and suggested next actions.
 - `/knowledge` is the operator-facing search screen for ingredient synonyms, identifiers, and linked Taiwan TFDA rules.
-- Search aliases include stored `term_aliases` plus identifier aliases from CAS, INCI, and color index fields, so the UI count can be higher than the Supabase `term_aliases` row count.
+- Search aliases include stored `term_aliases` plus identifier aliases from CAS, INCI, and color index fields, so the UI/API search count can be higher than the physical Supabase `term_aliases` row count.
 
 ## Supabase Tables
 
 - `knowledge_sources`: canonical source registry.
 - `knowledge_snapshots`: hashed crawled or captured source snapshots.
 - `knowledge_terms`: canonical ingredient or regulatory terms.
-- `term_aliases`: multilingual and identifier aliases for search.
+- `term_aliases`: stored multilingual, local-language, and regulatory phrase aliases for search.
 - `term_rule_links`: links from normalized terms to official TFDA rule codes.
 - `regulatory_update_candidates`: source freshness/content-change candidates awaiting reviewer triage or approval.
 - `regulatory_sources`, `rules`, `rule_versions`: official Taiwan TFDA rule evidence used by the app.
@@ -122,6 +122,7 @@ Current generated counts:
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,175
 - `term_aliases`: 4,013
+- `searchable_aliases`: 6,492
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
 - `alias_review_queue`: 1,097
