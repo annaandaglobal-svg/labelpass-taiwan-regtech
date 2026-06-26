@@ -303,6 +303,104 @@ if (!foodClaimResult.findings?.some((finding) => finding.id === "food-nutrition-
   throw new Error("Food claim review: expected sugar nutrition claim finding");
 }
 
+if (!foodClaimResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-claim-substantiation" && doc.status === "review")) {
+  throw new Error("Food claim review: expected review claim substantiation checklist item");
+}
+
+const foodMedicalClaimResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Healthy Ginseng Jelly",
+    productType: "prepackaged food / snack",
+    ingredientsText: "Sugar, ginseng extract, gelatin, citric acid",
+    labelText: "品名：健康人蔘果凍. 內容量：80g. 成分：糖、人蔘萃取物、明膠、檸檬酸. 原產地：韓國. Cures diabetes and lowers hypertension.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!foodMedicalClaimResponse.ok) {
+  throw new Error(`Food medical claim review: Review API returned ${foodMedicalClaimResponse.status}`);
+}
+
+const foodMedicalClaimResult = await foodMedicalClaimResponse.json();
+
+if (!foodMedicalClaimResult.findings?.some((finding) => finding.id === "food-medical-efficacy-claim-prohibited" && finding.status === "fail")) {
+  throw new Error("Food medical claim review: expected prohibited medical efficacy claim");
+}
+
+if (!foodMedicalClaimResult.findings?.some((finding) => finding.id === "food-health-name-misleading-review")) {
+  throw new Error("Food medical claim review: expected health name misleading review");
+}
+
+if (!foodMedicalClaimResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-claim-substantiation" && doc.status === "needed")) {
+  throw new Error("Food medical claim review: expected needed claim substantiation checklist item");
+}
+
+const foodSweetnessClaimResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Mildly Sweet Yuzu Drink",
+    productType: "prepackaged food / beverage",
+    ingredientsText: "Water, yuzu juice, erythritol, citric acid, salt",
+    labelText: "Product name: Mildly Sweet Yuzu Drink. Net volume: 250ml. Ingredients: water, yuzu juice, erythritol, citric acid, salt. Origin: Korea. Not sweet, slightly sweet, nutrition facts: 45 kcal, sugars 0g, sodium 90mg. EXP 2028-05-01.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!foodSweetnessClaimResponse.ok) {
+  throw new Error(`Food sweetness claim review: Review API returned ${foodSweetnessClaimResponse.status}`);
+}
+
+const foodSweetnessClaimResult = await foodSweetnessClaimResponse.json();
+
+if (foodSweetnessClaimResult.status === "fail") {
+  throw new Error("Food sweetness claim review: expected non-fail status for sweetness claim review");
+}
+
+if (!foodSweetnessClaimResult.findings?.some((finding) => finding.id === "food-sweetness-claim-misleading-review")) {
+  throw new Error("Food sweetness claim review: expected sweetness claim finding");
+}
+
+const foodClaimEvidenceResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Digestive Fiber Drink",
+    productType: "prepackaged food / beverage",
+    ingredientsText: "Water, inulin, lemon juice, salt",
+    labelText: [
+      "Product name: Digestive Fiber Drink. Net volume 250ml.",
+      "Ingredients: water, inulin, lemon juice, salt. Made in Korea.",
+      "Improves digestion and supports immunity.",
+      "Claim substantiation file: scientific evidence, nutrition analysis, test report, and COA retained for Taiwan label review."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!foodClaimEvidenceResponse.ok) {
+  throw new Error(`Food claim evidence review: Review API returned ${foodClaimEvidenceResponse.status}`);
+}
+
+const foodClaimEvidenceResult = await foodClaimEvidenceResponse.json();
+
+if (foodClaimEvidenceResult.status === "fail") {
+  throw new Error("Food claim evidence review: expected non-fail status for substantiated general food claim");
+}
+
+if (!foodClaimEvidenceResult.findings?.some((finding) => finding.id === "food-claim-substantiation-present" && finding.status === "pass")) {
+  throw new Error("Food claim evidence review: expected present claim substantiation finding");
+}
+
+if (!foodClaimEvidenceResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-claim-substantiation" && doc.status === "ready")) {
+  throw new Error("Food claim evidence review: expected ready claim substantiation checklist item");
+}
+
 const healthFoodResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -350,6 +448,53 @@ if (!healthFoodResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "h
   throw new Error("Health food review: expected needed health food permit checklist item");
 }
 
+const healthFoodCompleteResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Probiotic Health Capsule",
+    productType: "prepackaged food / health food / supplement",
+    ingredientsText: "Lactobacillus plantarum strain, inulin, vitamin C, botanical extract",
+    labelText: [
+      "Product name: Probiotic Health Capsule. Net weight 60 capsules.",
+      "Ingredients: Lactobacillus plantarum strain, inulin, vitamin C, botanical extract.",
+      "Made in Korea. EXP 2028-03-01.",
+      "Health food permit number TFDA-HF-123456. Standard health food logo present.",
+      "Approved health care effect: supports immunity and gut health.",
+      "Recommended intake: one capsule daily. Warning: follow recommended intake and consult a professional if needed.",
+      "Scientific evidence, test report, and COA retained for the approved claim scope."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Nutrients / Taiwan Importer Co.",
+    hsCode: "2106.90",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1800"
+  })
+});
+
+if (!healthFoodCompleteResponse.ok) {
+  throw new Error(`Health food complete review: Review API returned ${healthFoodCompleteResponse.status}`);
+}
+
+const healthFoodCompleteResult = await healthFoodCompleteResponse.json();
+
+if (healthFoodCompleteResult.status === "fail") {
+  throw new Error("Health food complete review: expected non-fail status for permitted health food");
+}
+
+if (!healthFoodCompleteResult.findings?.some((finding) => finding.id === "health-food-permit-present" && finding.status === "pass")) {
+  throw new Error("Health food complete review: expected present health food permit finding");
+}
+
+if (healthFoodCompleteResult.findings?.some((finding) => finding.id === "health-food-medical-claim-prohibited" || finding.id === "food-medical-efficacy-claim-prohibited")) {
+  throw new Error("Health food complete review: should not trigger medical claim prohibition for approved health care effect wording");
+}
+
+if (!healthFoodCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "health-food-permit" && doc.status === "ready")) {
+  throw new Error("Health food complete review: expected ready health food permit checklist item");
+}
+
 const formulaFoodResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -387,6 +532,46 @@ if (formulaFoodResult.status === "fail") {
 
 if (!formulaFoodResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "formula-certain-disease-label" && doc.status === "needed")) {
   throw new Error("Formula food review: expected needed formula label checklist item");
+}
+
+const formulaFoodCompleteResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Renal Formula Drink",
+    productType: "formula for certain disease / special dietary food",
+    ingredientsText: "Maltodextrin, whey protein isolate, vegetable oil, vitamins, minerals",
+    labelText: [
+      "Product name: Renal Formula Drink.",
+      "Formula for Certain Disease. Net volume 200ml. Made in Korea. EXP 2028-04-01.",
+      "For renal nutrition support under healthcare professional guidance.",
+      "Warning: not suitable for the general population, use under doctor or registered dietitian advice, not for intravenous use, increasing the dosage will not help."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Medical Nutrition / Taiwan Importer Co.",
+    hsCode: "2106.90",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "2100"
+  })
+});
+
+if (!formulaFoodCompleteResponse.ok) {
+  throw new Error(`Formula food complete review: Review API returned ${formulaFoodCompleteResponse.status}`);
+}
+
+const formulaFoodCompleteResult = await formulaFoodCompleteResponse.json();
+
+if (formulaFoodCompleteResult.status === "fail") {
+  throw new Error("Formula food complete review: expected non-fail status for complete special dietary label");
+}
+
+if (!formulaFoodCompleteResult.findings?.some((finding) => finding.id === "formula-certain-disease-label-present" && finding.status === "pass")) {
+  throw new Error("Formula food complete review: expected present formula label finding");
+}
+
+if (!formulaFoodCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "formula-certain-disease-label" && doc.status === "ready")) {
+  throw new Error("Formula food complete review: expected ready formula label checklist item");
 }
 
 const foodContactResponse = await fetch(`${baseUrl}/api/review`, {
@@ -822,6 +1007,8 @@ const knowledgeCases = [
   { query: "防曬成分", expectedTerm: "Cosmetic Sunscreen Ingredients" },
   { query: "식품 효능표현", expectedTerm: "Food Labeling and Claims" },
   { query: "甜味宣稱", expectedTerm: "Food Labeling and Claims" },
+  { query: "식품 의료효능 표시 근거자료", expectedTerm: "Food Labeling and Claims" },
+  { query: "微甜 不甜 甜味宣稱", expectedTerm: "Food Labeling and Claims" },
   { query: "免申請查驗", expectedTerm: "Food Import Inspection Exemption" },
   { query: "輸入食品查驗", expectedTerm: "Imported Food Inspection" },
   { query: "수입식품 통관검사", expectedTerm: "Imported Food Inspection" },
@@ -1050,5 +1237,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 17} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 22} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );

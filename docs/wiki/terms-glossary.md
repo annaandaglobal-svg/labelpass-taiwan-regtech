@@ -7,6 +7,7 @@ This glossary is the starting vocabulary for LabelPass. Each term should eventua
 - Commodity labeling: consumer-facing product information required under Taiwan commodity labeling rules.
 - Chinese label: Taiwan-facing label content in Traditional Chinese. English or other languages may supplement it, but Chinese content should not be less complete for Taiwan sales.
 - Cosmetic claims criteria: Taiwan cosmetic label, promotion, and advertisement standard used to distinguish ordinary cosmetic claims from false, exaggerated, insufficiently supported, or medical-efficacy claims.
+- Food claim criteria: Taiwan food label, promotion, and advertisement standard used to distinguish ordinary food claims from false, exaggerated, misleading, insufficiently supported, or medical-efficacy claims.
 - Origin labeling: country or place of origin marking. For selected imported goods, origin can be required at import and must not be false or misleading.
 - PIF: Product Information File for cosmetics. It includes product details, ingredient names and concentrations, manufacturing process, toxicological data, stability information, and safety assessment evidence.
 - SHTC: Strategic High-Tech Commodities. Export/import controlled goods, including dual-use or sensitive high-technology items, that may require permits.

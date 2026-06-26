@@ -9338,6 +9338,26 @@
           "source": "curated"
         },
         {
+          "value": "food claim substantiation",
+          "normalized": "food claim substantiation",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food advertising evidence",
+          "normalized": "food advertising evidence",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "false exaggerated misleading food claim",
           "normalized": "false exaggerated misleading food claim",
           "type": "prohibited_claim",
@@ -9368,6 +9388,26 @@
           "source": "curated"
         },
         {
+          "value": "slightly sweet",
+          "normalized": "slightly sweet",
+          "type": "claim_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "not sweet",
+          "normalized": "not sweet",
+          "type": "claim_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "식품 표시광고",
           "normalized": "식품 표시광고",
           "type": "local_name",
@@ -9381,6 +9421,16 @@
           "value": "식품 표시 광고",
           "normalized": "식품 표시 광고",
           "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 표시 광고 근거자료",
+          "normalized": "식품 표시 광고 근거자료",
+          "type": "official_term",
           "language": "ko",
           "jurisdiction": "TW",
           "confidence": 0.95,
@@ -9418,6 +9468,26 @@
           "source": "curated"
         },
         {
+          "value": "식품 의료효능 표시",
+          "normalized": "식품 의료효능 표시",
+          "type": "prohibited_claim",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "달지 않음 표시",
+          "normalized": "달지 않음 표시",
+          "type": "claim_phrase",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "食品標示廣告",
           "normalized": "食品標示廣告",
           "type": "local_name",
@@ -9431,6 +9501,26 @@
           "value": "食品宣稱",
           "normalized": "食品宣稱",
           "type": "claim_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "佐證資料",
+          "normalized": "佐證資料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "虛偽誇張易生誤解",
+          "normalized": "虛偽誇張易生誤解",
+          "type": "prohibited_claim",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95,
@@ -9464,6 +9554,26 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "微甜",
+          "normalized": "微甜",
+          "type": "claim_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "不甜",
+          "normalized": "不甜",
+          "type": "claim_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },

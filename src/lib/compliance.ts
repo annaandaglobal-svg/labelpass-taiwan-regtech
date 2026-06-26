@@ -74,10 +74,14 @@ const SOURCE_OPEN_DATA = "TFDA cosmetics open datasets, InfoId 199-203";
 const SOURCE_OPEN_DATA_URL = "https://data.gov.tw/dataset/173684";
 const SOURCE_FOOD_ACT = "Act Governing Food Safety and Sanitation, Articles 3 and 22";
 const SOURCE_FOOD_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040001";
+const SOURCE_FOOD_CLAIMS_CRITERIA = "TFDA criteria for false, exaggerated, misleading, or medical-efficacy food claims";
+const SOURCE_FOOD_CLAIMS_CRITERIA_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3424";
 const SOURCE_FOOD_NUTRITION = "TFDA Regulations on Nutrition Labeling for Prepackaged Food Products";
 const SOURCE_FOOD_NUTRITION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633";
 const SOURCE_FOOD_NUTRITION_CLAIM = "TFDA Revised Regulations on Nutrition Claim for Prepackaged Food Products";
 const SOURCE_FOOD_NUTRITION_CLAIM_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3522";
+const SOURCE_FOOD_SWEETNESS_CLAIM = "TFDA regulation for slightly sweet, not sweet, and other sweetness claims";
+const SOURCE_FOOD_SWEETNESS_CLAIM_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3416";
 const SOURCE_HEALTH_FOOD_ACT = "Health Food Governing Act, Articles 6, 7, 13, and 14";
 const SOURCE_HEALTH_FOOD_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040012";
 const SOURCE_HEALTH_FOOD_ENFORCEMENT = "TFDA Enforcement Rules of Health Food Control Act";
@@ -619,8 +623,37 @@ function hasFormulaWarningSignal(input: ReviewInput) {
   );
 }
 
+function foodMedicalEfficacyMatch(input: ReviewInput) {
+  return reviewText(input).match(
+    /\b(?:cure|treat|treatment|heals?|therapeutic|prevent\s+(?:diabetes|cancer|hypertension|kidney disease|renal failure))\b|medical efficacy|cancer|hypertension|renal failure|kidney disease|eczema|acne cure|治療|療效|治癒|醫療效能|預防.{0,10}(?:糖尿病|癌症|高血壓|腎臟病)|癌症|糖尿病|高血壓|腎臟病|치료|완치|의학적\s*효능|(?:당뇨|암|고혈압|신장병).{0,12}(?:예방|치료|완화|개선)|아토피|여드름\s*치료/i
+  )?.[0];
+}
+
 function hasFoodMedicalEfficacySignal(input: ReviewInput) {
-  return /\b(?:cure|treat|treatment|heals?|therapeutic)\b|medical efficacy|prevent diabetes|cancer|hypertension|renal failure|kidney disease|eczema|acne cure|治療|療效|治癒|醫療效能|癌症|糖尿病|高血壓|腎臟病|치료|완치|의학적\s*효능|암|당뇨|고혈압|신장병|아토피|여드름\s*치료/i.test(
+  return Boolean(foodMedicalEfficacyMatch(input));
+}
+
+function foodPhysiologicalClaimMatch(input: ReviewInput) {
+  const claimText = `${input.productName} ${input.labelText}`;
+  return claimText.match(
+    /improve\s+(?:digestion|constitution|metabolism|appetite)|maintain\s+(?:digestive|gut|skin|health)|relieve\s+constipation|enhance\s+energy|increase\s+vitality|help\s+sleep|immune\s+support|supports?\s+immunity|gut\s+health|cholesterol|blood\s+sugar|detox|fat\s+burning|beauty|anti[-\s]?aging|促進消化|維持消化|腸道健康|改善體質|調節生理機能|增強體力|增加活力|幫助睡眠|促進代謝|改善排便|免疫|膽固醇|血糖|排毒|燃脂|美容|抗老|소화\s*(?:개선|촉진)|장\s*건강|장건강|체질\s*개선|생리\s*기능|활력|에너지|수면|숙면|대사\s*(?:개선|촉진)|배변|변비|면역|콜레스테롤|혈당|해독|디톡스|체지방|다이어트|뷰티|항노화/i
+  )?.[0];
+}
+
+function foodSweetnessClaimMatch(input: ReviewInput) {
+  const claimText = `${input.productName} ${input.labelText}`;
+  return claimText.match(
+    /slightly\s+sweet|not\s+sweet|mildly\s+sweet|less\s+sweet|lightly\s+sweet|微甜|不甜|少甜|淡甜|덜\s*달|달지\s*않|안\s*달|약간\s*달|살짝\s*달/i
+  )?.[0];
+}
+
+function foodHealthNameMatch(input: ReviewInput) {
+  const identityText = `${input.productName} ${input.labelText}`;
+  return identityText.match(/\bhealth(?:y)?\b|健康/i)?.[0];
+}
+
+function hasFoodClaimEvidenceSignal(input: ReviewInput) {
+  return /claim substantiation|claim evidence|scientific evidence|clinical report|nutrition analysis|test report|inspection report|certificate of analysis|\bCOA\b|approved official letter|health food permit|許可證|核准函|檢驗報告|檢測報告|佐證資料|科學證據|健康食品許可|시험성적서|검사성적서|효능\s*근거|표시\s*근거|과학적\s*근거|허가번호|건강식품\s*허가/i.test(
     reviewText(input)
   );
 }
@@ -1446,6 +1479,94 @@ const nutritionClaimPatterns = [
   }
 ];
 
+function addFoodClaimFindings(input: ReviewInput, findings: Finding[]) {
+  const medicalClaim = foodMedicalEfficacyMatch(input);
+  const formulaForCertainDisease = hasFormulaForCertainDiseaseSignal(input);
+
+  if (medicalClaim && !formulaForCertainDisease) {
+    findings.push({
+      id: "food-medical-efficacy-claim-prohibited",
+      status: "fail",
+      area: "효능표현",
+      title: "식품 의료 효능 표현 삭제 필요",
+      severity: "high",
+      why: "대만 식품 표시·홍보·광고 기준은 질병의 예방, 개선, 완화, 진단, 치료 또는 이와 유사한 의료 효능 표현을 식품에 사용할 수 없도록 합니다.",
+      fix: [
+        "질병명, 치료, 완치, 예방, 의학적 효능 표현을 라벨·상세페이지·광고에서 삭제하세요.",
+        "일반 식품은 영양성분 또는 허용된 일반 생리기능 표현 범위로 문구를 낮추고, 근거자료와 함께 보관하세요.",
+        "건강식품으로 판매하려면 대만 건강식품 허가번호와 승인 효능 범위를 먼저 확인하세요."
+      ],
+      source: SOURCE_FOOD_CLAIMS_CRITERIA,
+      sourceUrl: SOURCE_FOOD_CLAIMS_CRITERIA_URL,
+      evidence: medicalClaim
+    });
+  }
+
+  const healthName = foodHealthNameMatch(input);
+  if (healthName && !hasHealthFoodPermitSignal(input)) {
+    findings.push({
+      id: "food-health-name-misleading-review",
+      status: "needs_info",
+      area: "효능표현",
+      title: "제품명에 '건강/health' 표현 사용 가능성 확인 필요",
+      severity: "medium",
+      why: "대만 식품 claim 기준은 식품 제품명 일부로 'health'를 쓰면 건강식품 허가가 없는 한 오인 표시로 볼 수 있다고 설명합니다.",
+      fix: [
+        "건강식품 허가번호가 없으면 제품명·브랜드명·상세페이지에서 health/健康/건강 표현을 제거하거나 맥락을 분리하세요.",
+        "허가 제품이면 허가번호, 승인 효능, 표준로고, 권장섭취량·경고문을 같은 라벨 버전으로 연결하세요."
+      ],
+      source: SOURCE_FOOD_CLAIMS_CRITERIA,
+      sourceUrl: SOURCE_FOOD_CLAIMS_CRITERIA_URL,
+      evidence: healthName
+    });
+  }
+
+  const sweetnessClaim = foodSweetnessClaimMatch(input);
+  if (sweetnessClaim) {
+    findings.push({
+      id: "food-sweetness-claim-misleading-review",
+      status: "needs_info",
+      area: "효능표현",
+      title: "단맛 표현이 영양강조표시와 충돌하는지 확인 필요",
+      severity: "medium",
+      why: "TFDA는 'slightly sweet', 'not sweet' 등 단맛 표현이 소비자에게 당 함량 기준으로 오인될 수 있어 영양강조표시 기준과 함께 검토해야 한다고 안내합니다.",
+      fix: [
+        "단맛 표현을 low sugar/free sugar 등 대만 영양강조표시 기준과 대조하세요.",
+        "검증 가능한 당류 수치, 영양성분표, 시험성적서를 확보하고 중국어 문구를 조정하세요.",
+        "기준 충족이 불명확하면 단맛 표현을 삭제하거나 관능 설명과 영양 claim을 분리하세요."
+      ],
+      source: SOURCE_FOOD_SWEETNESS_CLAIM,
+      sourceUrl: SOURCE_FOOD_SWEETNESS_CLAIM_URL,
+      evidence: sweetnessClaim
+    });
+  }
+
+  const physiologicalClaim = foodPhysiologicalClaimMatch(input);
+  if (!medicalClaim && physiologicalClaim) {
+    const claimEvidence = hasFoodClaimEvidenceSignal(input);
+    findings.push({
+      id: claimEvidence ? "food-claim-substantiation-present" : "food-claim-substantiation-needed",
+      status: claimEvidence ? "pass" : "needs_info",
+      area: "효능표현",
+      title: claimEvidence ? "식품 표시·광고 근거자료 신호 확인" : "식품 표시·광고 근거자료 확인 필요",
+      severity: claimEvidence ? "low" : "medium",
+      why: claimEvidence
+        ? "식품 효능·생리기능 표현과 연결할 수 있는 근거자료 신호가 확인되었습니다. 표현별 성분·수치·근거 매핑은 최종 검수에서 유지해야 합니다."
+        : "대만 기준은 식품 표시·홍보·광고 설명이 사실과 다르거나 근거가 없거나 불충분하면 허위·과장·오인 표시로 볼 수 있습니다.",
+      fix: claimEvidence
+        ? ["표현별 시험성적서, 영양성분 수치, 문헌 또는 허가 근거를 라벨·광고 문구와 같은 버전으로 보관하세요."]
+        : [
+            "효능·생리기능 표현별로 시험성적서, 영양성분 수치, 문헌, 허가번호 또는 과학적 근거를 연결하세요.",
+            "근거가 부족한 표현은 일반 맛·섭취상황·영양성분 표시 중심으로 낮추세요.",
+            "허용된 Appendix 표현이라도 해당 영양성분 또는 특정 성분 조건을 충족하는지 확인하세요."
+          ],
+      source: SOURCE_FOOD_CLAIMS_CRITERIA,
+      sourceUrl: SOURCE_FOOD_CLAIMS_CRITERIA_URL,
+      evidence: physiologicalClaim
+    });
+  }
+}
+
 function addHealthFoodFindings(input: ReviewInput, findings: Finding[]) {
   const healthFood = hasHealthFoodSignal(input);
   const formulaForCertainDisease = hasFormulaForCertainDiseaseSignal(input);
@@ -1927,6 +2048,8 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
       evidence: claim.label
     });
   }
+
+  addFoodClaimFindings(input, findings);
 
   const emittedAdditives = new Set<string>();
   for (const ingredient of parseIngredients(input.ingredientsText)) {

@@ -101,6 +101,17 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
       findingIds.has("food-contact-child-phthalate-risk") ||
       findingIds.has("food-contact-child-phthalate-evidence-needed");
     const foodContactSanitationReady = findingIds.has("food-contact-sanitation-evidence-present") && !foodContactSanitationBlocker;
+    const foodClaimFindingIds = findings
+      .filter(
+        (finding) =>
+          finding.id === "food-medical-efficacy-claim-prohibited" ||
+          finding.id === "food-health-name-misleading-review" ||
+          finding.id === "food-sweetness-claim-misleading-review" ||
+          finding.id === "food-claim-substantiation-needed" ||
+          finding.id === "food-claim-substantiation-present" ||
+          finding.id.startsWith("food-nutrition-claim-")
+      )
+      .map((finding) => finding.id);
 
     return [
       documentItem(
@@ -138,6 +149,32 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
         findingIds.has("health-food-permit-needed") ? "warn" : findingIds.has("health-food-permit-present") ? "pass" : "info",
         "규제 담당",
         ["health-food-permit-needed", "health-food-permit-present", "health-food-label-items-review"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
+        "food-claim-substantiation",
+        "식품 표시·광고 근거자료",
+        findingIds.has("food-medical-efficacy-claim-prohibited")
+          ? "needed"
+          : findingIds.has("food-claim-substantiation-needed") ||
+              findingIds.has("food-health-name-misleading-review") ||
+              findingIds.has("food-sweetness-claim-misleading-review") ||
+              foodClaimFindingIds.some((id) => id.startsWith("food-nutrition-claim-"))
+            ? "review"
+            : findingIds.has("food-claim-substantiation-present")
+              ? "ready"
+              : "not_applicable",
+        findingIds.has("food-medical-efficacy-claim-prohibited")
+          ? "danger"
+          : findingIds.has("food-claim-substantiation-needed") ||
+              findingIds.has("food-health-name-misleading-review") ||
+              findingIds.has("food-sweetness-claim-misleading-review") ||
+              foodClaimFindingIds.some((id) => id.startsWith("food-nutrition-claim-"))
+            ? "warn"
+            : findingIds.has("food-claim-substantiation-present")
+              ? "pass"
+              : "info",
+        "라벨 담당",
+        foodClaimFindingIds
       ),
       documentItem(
         "formula-certain-disease-label",

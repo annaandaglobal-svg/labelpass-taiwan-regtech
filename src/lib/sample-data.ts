@@ -438,6 +438,18 @@ export const sourceCards = [
     tag: "강조표시"
   },
   {
+    title: "TFDA food claim criteria",
+    detail: "Criteria for food label, promotion, and advertisement claims identified as false, exaggerated, misleading, or having medical efficacy.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3424",
+    tag: "식품광고"
+  },
+  {
+    title: "TFDA sweetness claims",
+    detail: "Specific rule for slightly sweet, not sweet, and similar sweetness claims that may mislead consumers about sugar content.",
+    url: "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3416",
+    tag: "단맛표현"
+  },
+  {
     title: "Food additive inspection registration materials",
     detail: "TFDA food-additive inspection-registration materials used to separate additive-product permits from ordinary food labels that merely contain additives.",
     url: "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895",
