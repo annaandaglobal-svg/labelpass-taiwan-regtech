@@ -451,6 +451,7 @@ export default function Home() {
   const [reviewStarted, setReviewStarted] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [startKnowledgeQuery, setStartKnowledgeQuery] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const assistantSourceCards = useMemo(() => {
     const priorityTitles = [
@@ -651,6 +652,11 @@ export default function Home() {
     }, 60);
   }
 
+  function openKnowledgeSearch(query = startKnowledgeQuery) {
+    const trimmed = query.trim();
+    window.location.href = trimmed ? `/knowledge?q=${encodeURIComponent(trimmed)}` : "/knowledge";
+  }
+
   function classifyProduct() {
     setReviewStarted(true);
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
@@ -793,11 +799,11 @@ export default function Home() {
         </div>
 
         <nav className={isStartOnly ? "nav-list nav-list-start" : "nav-list"}>
-          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="검토" onClick={() => setScreen("review")} />
-          <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
-          <NavButton active={screen === "products"} icon={<Archive />} label="이력" onClick={() => setScreen("products")} />
-          <NavButton active={screen === "updates"} icon={<BookOpen />} label="업데이트" onClick={() => setScreen("updates")} />
-          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가" onClick={() => setScreen("partners")} />
+          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="검토 시작" onClick={() => setScreen("review")} />
+          <NavButton active={false} icon={<Search />} label="규정·성분" onClick={() => openKnowledgeSearch()} />
+          <NavButton active={screen === "products"} icon={<Archive />} label="내 제품" onClick={() => setScreen("products")} />
+          <NavButton active={screen === "updates"} icon={<BookOpen />} label="규제 업데이트" onClick={() => setScreen("updates")} />
+          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가·통관" onClick={() => setScreen("partners")} />
         </nav>
 
         <div className="side-panel">
@@ -863,50 +869,68 @@ export default function Home() {
         {screen === "review" && (
           <>
           {isStartOnly && (
-          <section className="start-command-shell start-command-shell-focused" aria-label="LabelPass 시작 동선">
-            <div className="start-command-card">
-              <div className="start-command-copy">
-                <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
-                <h2>라벨 자료를 넣고 출고 전 수정 항목만 확인하세요</h2>
-                <p>제품명, 품목, 전성분 또는 라벨 문구를 기준으로 대만 식품·화장품 규정과 원료 별칭을 연결합니다.</p>
+          <section className="start-command-shell start-command-shell-focused start-hub-shell" aria-label="LabelPass 시작 동선">
+            <div className="start-command-card start-hub-card">
+              <div className="start-command-copy start-hub-copy">
+                <span className="start-kicker">대만 식품·화장품 · 라벨/성분/통관</span>
+                <h2>라벨 검토나 규정 검색 중 어디서든 시작하세요</h2>
+                <p>자료를 올리면 수정 항목을 먼저 정리하고, 성분명·CAS·현지명으로 먼저 검색하면 공식 근거를 검토 화면에 바로 연결합니다.</p>
                 <div className="start-assurance-row" aria-label="검토 범위">
                   <span>식품·화장품</span>
                   <span>TFDA·MOJ 근거</span>
-                  <span>INCI·CAS·현지명</span>
+                  <span>INCI·CAS·번체 현지명</span>
+                  <span>제품 이력·규제 업데이트</span>
                 </div>
               </div>
 
-              <div className="start-action-panel">
-                <button className="start-primary-action start-primary-action-main" onClick={() => { setReviewStarted(true); fileInputRef.current?.click(); }}>
-                  <Upload size={21} />
+              <div className="start-hub-actions" aria-label="시작 경로">
+                <button className="start-path-action primary" type="button" onClick={() => { setReviewStarted(true); fileInputRef.current?.click(); }}>
+                  <Upload size={22} />
                   <span>
-                    <b>자료 넣고 검토 시작</b>
-                    <small>PDF·이미지·텍스트 가능</small>
+                    <b>라벨이 있음</b>
+                    <small>PDF, 이미지, OCR 텍스트를 올려 대만 기준 1차 검토</small>
                   </span>
                 </button>
-                <div className="start-secondary-links start-secondary-links-home" aria-label="다른 시작 방법">
-                  <button type="button" onClick={focusInputPane}>
-                    <FileText size={15} />
-                    직접 입력
-                  </button>
-                  <button type="button" onClick={() => fillSample("food-additive")}>
-                    <Sparkles size={15} />
-                    샘플로 시작
-                  </button>
-                  <button type="button" onClick={() => { window.location.href = "/knowledge"; }}>
-                    <Search size={15} />
-                    규정 검색
-                  </button>
-                </div>
+
+                <form className="start-path-action start-search-action" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
+                  <Search size={22} />
+                  <span>
+                    <b>성분·규정을 먼저 확인</b>
+                    <small>INCI, CAS, MSG, PIF, HS code를 공식 근거와 연결</small>
+                  </span>
+                  <label className="start-search-box">
+                    <span className="sr-only">규정·성분 검색어</span>
+                    <input
+                      value={startKnowledgeQuery}
+                      onChange={(event) => setStartKnowledgeQuery(event.target.value)}
+                      placeholder="예: MSG, CAS 69-72-7, 화장품 PIF"
+                    />
+                    <button type="submit">검색</button>
+                  </label>
+                </form>
+
+                <button className="start-path-action" type="button" onClick={() => setScreen("products")}>
+                  <Archive size={22} />
+                  <span>
+                    <b>수출 준비 상태 보기</b>
+                    <small>제품별 리포트, 문서, 담당 조치와 규제 업데이트 확인</small>
+                  </span>
+                </button>
               </div>
 
-              <div className="start-next-line" aria-label="검토 시작 후 흐름">
-                <span>다음 단계</span>
-                <b>품목 확인</b>
-                <ArrowRight size={14} />
-                <b>규정 근거 연결</b>
-                <ArrowRight size={14} />
-                <b>리포트 정리</b>
+              <div className="start-workflow-strip" aria-label="LabelPass 업무 흐름">
+                <span className="active"><b>1</b><small>자료 입력</small></span>
+                <span><b>2</b><small>규정·성분 대조</small></span>
+                <span><b>3</b><small>근거 확인</small></span>
+                <span><b>4</b><small>수정·통관 조치</small></span>
+              </div>
+
+              <div className="start-sample-row" aria-label="빠른 예시">
+                <span>빠른 확인</span>
+                <button type="button" onClick={focusInputPane}><FileText size={14} /> 직접 입력</button>
+                <button type="button" onClick={() => fillSample("food-additive")}><Sparkles size={14} /> 식품첨가물 샘플</button>
+                <button type="button" onClick={() => openKnowledgeSearch("MSG")}><Search size={14} /> MSG 명칭</button>
+                <button type="button" onClick={() => openKnowledgeSearch("cosmetic PIF Taiwan")}><Search size={14} /> 화장품 PIF</button>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -918,25 +942,25 @@ export default function Home() {
               )}
             </div>
 
-            <div className="start-overview-panel start-overview-compact" aria-label="LabelPass 작업 흐름">
+            <div className="start-overview-panel start-overview-compact start-evidence-preview" aria-label="근거 확인 대기 상태">
               <div className="start-overview-head">
                 <span><ShieldCheck size={16} /></span>
                 <div>
-                  <b>작업 흐름</b>
-                  <small>검토, 근거, 이력으로 이어지는 기본 흐름입니다.</small>
+                  <b>근거 확인 슬롯</b>
+                  <small>검색하거나 검토하면 공식 근거와 다음 조치가 이 자리에 정리됩니다.</small>
                 </div>
               </div>
-              <button type="button" className="start-overview-row active" onClick={focusInputPane}>
+              <button type="button" className="start-overview-row active" onClick={() => openKnowledgeSearch("MSG")}>
                 <ClipboardCheck size={16} />
-                <span><b>1차 라벨 검토</b><small>라벨·성분 입력 후 위험 항목만 추립니다.</small></span>
+                <span><b>업무 결론 먼저</b><small>예: MSG의 대만 식품첨가물 공통명과 표시 근거 확인</small></span>
               </button>
-              <button type="button" className="start-overview-row" onClick={() => { window.location.href = "/knowledge"; }}>
+              <button type="button" className="start-overview-row" onClick={() => openKnowledgeSearch("CAS 69-72-7")}>
                 <Search size={16} />
-                <span><b>규정 지식 검색</b><small>용어, CAS, 현지명, 공식 근거를 찾습니다.</small></span>
+                <span><b>별칭·CAS 연결</b><small>같은 원료의 INCI, CAS, 한국어·중문명을 함께 탐색</small></span>
               </button>
-              <button type="button" className="start-overview-row" onClick={() => setScreen("products")}>
-                <Archive size={16} />
-                <span><b>이력·조치 관리</b><small>제품별 버전, 문서, 담당 조치를 묶습니다.</small></span>
+              <button type="button" className="start-overview-row" onClick={focusInputPane}>
+                <FileText size={16} />
+                <span><b>검토에 반영</b><small>근거를 선택한 뒤 라벨 검토 콘솔에서 수정 항목으로 연결</small></span>
               </button>
             </div>
 

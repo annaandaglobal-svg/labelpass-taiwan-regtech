@@ -325,7 +325,7 @@ export default function KnowledgeSearchClient() {
 
       {error && <div className="knowledge-alert">{error}</div>}
 
-      <div className="knowledge-flow-strip" aria-label="검색 흐름">
+      <div className="knowledge-flow-strip knowledge-status-rail" aria-label="검색 상태">
         <span className={hasQuery ? "ready" : ""}>
           <Search size={15} />
           <b>검색</b>
@@ -493,10 +493,10 @@ export default function KnowledgeSearchClient() {
                     onClick={() => (topResult.kind === "term" ? selectTerm(topResult.term) : selectSource(topResult.source))}
                     aria-pressed={selectedEvidence?.title === topResult.title}
                   >
-                    <span className="knowledge-row-kind">{topResult.kind === "term" ? "가장 가까운 용어" : "가장 가까운 근거"}</span>
+                    <span className={`knowledge-decision ${decisionForResult(topResult).tone}`}>{decisionForResult(topResult).label}</span>
                     <div>
                       <h3>{topResult.title}</h3>
-                      <p>{compact(topResult.detail, 190)}</p>
+                      <p>{decisionForResult(topResult).detail}</p>
                       <div className="knowledge-row-meta">
                         <span>{topResult.subtitle}</span>
                         {topResult.chips.slice(0, 3).map((chip) => (
@@ -504,7 +504,8 @@ export default function KnowledgeSearchClient() {
                         ))}
                       </div>
                     </div>
-                    <b>{Math.round(topResult.score)}</b>
+                    <b className="knowledge-score">{Math.round(topResult.score)}</b>
+                    <span className="knowledge-row-action-hint">근거 보기</span>
                   </button>
                 </article>
               )}
@@ -519,10 +520,10 @@ export default function KnowledgeSearchClient() {
                         onClick={() => (item.kind === "term" ? selectTerm(item.term) : selectSource(item.source))}
                         aria-pressed={selectedEvidence?.title === item.title}
                       >
-                        <span className="knowledge-row-kind">{item.kind === "term" ? "용어" : "근거"}</span>
+                        <span className={`knowledge-decision ${decisionForResult(item).tone}`}>{decisionForResult(item).label}</span>
                         <div>
                           <h3>{item.title}</h3>
-                          <p>{compact(item.detail, 150)}</p>
+                          <p>{decisionForResult(item).detail}</p>
                           <div className="knowledge-row-meta">
                             <span>{item.subtitle}</span>
                             {item.chips.slice(0, 2).map((chip) => (
@@ -530,7 +531,7 @@ export default function KnowledgeSearchClient() {
                             ))}
                           </div>
                         </div>
-                        <b>{Math.round(item.score)}</b>
+                        <b className="knowledge-score">{Math.round(item.score)}</b>
                       </button>
                     </article>
                   ))}
@@ -743,6 +744,27 @@ function freshnessMeta(source: SourceItem) {
   if (source.cacheStatus === "stale") return { label: "확인 필요", tone: "stale" };
   if (source.cacheStatus === "fresh") return { label: source.fromCache ? "캐시 최신" : "최신", tone: "fresh" };
   return { label: source.cacheStatus || "상태 미확인", tone: "unknown" };
+}
+
+function decisionForResult(item: UnifiedResult) {
+  if (item.kind === "term") {
+    return {
+      label: "명칭 후보",
+      detail: item.chips.some((chip) => chip.startsWith("CAS") || chip.startsWith("INCI"))
+        ? "동일 원료의 CAS, INCI, 현지명을 함께 확인할 수 있습니다."
+        : "대만 검토에 쓸 공식명과 별칭 후보를 먼저 확인합니다.",
+      tone: "green"
+    };
+  }
+
+  const needsReview = item.source.cacheStatus === "stale" || item.source.manualFallback;
+  return {
+    label: needsReview ? "확인 필요" : "공식 근거",
+    detail: needsReview
+      ? "원문 근거는 연결됐지만 최신성 또는 수동 보강 상태를 확인해야 합니다."
+      : `${item.source.authority} 출처의 근거로 검토에 바로 연결할 수 있습니다.`,
+    tone: needsReview ? "gold" : "blue"
+  };
 }
 
 function compact(value: string, maxLength: number) {

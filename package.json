@@ -20,6 +20,8 @@
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
     "validate:coverage": "node scripts/validate-knowledge-coverage.mjs",
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
+    "report:knowledge-ops": "node scripts/report-knowledge-operations.mjs",
+    "report:knowledge-ops:write": "node scripts/report-knowledge-operations.mjs --write-report",
     "audit:production-env": "node scripts/audit-production-env.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
     "preflight:deployment": "node scripts/preflight-deployment.mjs",
