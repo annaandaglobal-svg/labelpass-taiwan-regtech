@@ -448,6 +448,7 @@ export default function Home() {
   const [isAssistantThinking, setIsAssistantThinking] = useState(false);
   const [toast, setToast] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [reviewStarted, setReviewStarted] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -571,12 +572,14 @@ export default function Home() {
   }, [input.productType]);
 
   function updateInput<K extends keyof ReviewInput>(key: K, value: ReviewInput[K]) {
+    setReviewStarted(true);
     setInput((current) => ({ ...current, [key]: value }));
   }
 
   function handleFiles(files: FileList | null) {
     const names = Array.from(files ?? []).map((file) => file.name).filter(Boolean);
     if (names.length === 0) return;
+    setReviewStarted(true);
     setUploadedFiles((current) => [...names, ...current].slice(0, 4));
     setToast(`${names.length}개 파일을 작업대에 연결했습니다. OCR 텍스트가 있으면 아래 라벨 문구에 붙여넣어 검토하세요.`);
   }
@@ -622,6 +625,7 @@ export default function Home() {
       "food-contact": "식품용 포장재 표시 샘플을 채웠습니다."
     };
     const next = samples[kind];
+    setReviewStarted(true);
     setInput(next);
     setResult(null);
     setExpandedFinding(null);
@@ -635,10 +639,14 @@ export default function Home() {
   }
 
   function focusInputPane() {
-    document.querySelector(".input-pane")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setReviewStarted(true);
+    window.setTimeout(() => {
+      document.querySelector(".input-pane")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
   }
 
   function classifyProduct() {
+    setReviewStarted(true);
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
     const looksNonFoodContact = /not\s+(?:for|intended for)\s+food[-\s]?contact|not food safe|non[-\s]?food|非食品用|不得接觸食品|식품용\s*아님|비식품용/i.test(haystack);
     const looksFoodContact = !looksNonFoodContact && /food[-\s]?contact|food container|food packaging|food wrap|food utensil|tableware|microwave container|식품\s*접촉|식품용\s*(?:기구|용기|포장|포장재)|식품\s*포장재|식품접촉재|食品器具|食品容器|食品包裝|食品器具容器包裝/i.test(haystack);
@@ -659,6 +667,7 @@ export default function Home() {
   }
 
   async function runReview(nextInput = input) {
+    setReviewStarted(true);
     setIsAnalyzing(true);
     setExpandedFinding(null);
     setShowResultDetails(false);
@@ -681,6 +690,7 @@ export default function Home() {
 
   async function recheckAsFixed() {
     const fixedInput = cleanSampleReview;
+    setReviewStarted(true);
     setInput(fixedInput);
     setIsAnalyzing(true);
     setShowResultDetails(false);
@@ -746,8 +756,15 @@ export default function Home() {
 
   const archiveStatus = archiveCopy[archiveState];
   const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
-  const isGuidedStart = screen === "review" && !result && !isAnalyzing;
-  const shellClassName = isGuidedStart ? "shell shell-console shell-guided-start shell-start-focus" : "shell shell-console";
+  const hasReviewWorkspace =
+    reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
+  const isStartOnly = screen === "review" && !result && !isAnalyzing && !showAssistantPanel && !hasReviewWorkspace;
+  const shellClassName = [
+    "shell",
+    "shell-console",
+    isStartOnly ? "shell-guided-start shell-start-focus" : "",
+    isStartOnly ? "shell-start-empty" : ""
+  ].filter(Boolean).join(" ");
 
   return (
     <main className={shellClassName}>
@@ -793,18 +810,25 @@ export default function Home() {
             </button>
           </form>
           <div className="top-actions">
-            <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
-              {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />} 검토 실행
-            </button>
-            <button className="ghost-btn" onClick={() => setToast("초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")} disabled={!inputReadiness.labelReady && !inputReadiness.productReady}>
-              <Database size={17} /> 초안 저장
-            </button>
-            <button className="ghost-btn" onClick={downloadReport} disabled={!result}>
-              <Download size={17} /> 리포트
-            </button>
-            <button className="ghost-btn" onClick={() => setShowExpertModal(true)} disabled={!result}>
-              <UserRoundCheck size={17} /> 승인 요청
-            </button>
+            {result ? (
+              <>
+                <button className="primary-btn" onClick={() => void recheckAsFixed()}>
+                  <RefreshCw size={17} /> 수정본 재검토
+                </button>
+                <button className="ghost-btn" onClick={downloadReport}>
+                  <Download size={17} /> 리포트
+                </button>
+                <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
+                  <UserRoundCheck size={17} /> 승인 요청
+                </button>
+              </>
+            ) : (
+              hasReviewWorkspace && (
+                <button className="ghost-btn" onClick={() => setToast("초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")} disabled={!inputReadiness.labelReady && !inputReadiness.productReady}>
+                  <Database size={17} /> 초안 저장
+                </button>
+              )
+            )}
           </div>
         </header>
         <input
@@ -818,7 +842,7 @@ export default function Home() {
 
         {screen === "review" && (
           <>
-          {isGuidedStart && (
+          {isStartOnly && (
           <section className="start-command-shell" aria-label="LabelPass 시작 동선">
             <div className="start-command-card">
               <div className="start-command-copy">
@@ -828,7 +852,7 @@ export default function Home() {
               </div>
 
               <div className="start-primary-grid">
-                <button className="start-primary-action" onClick={() => fileInputRef.current?.click()}>
+                <button className="start-primary-action start-primary-action-main" onClick={() => { setReviewStarted(true); fileInputRef.current?.click(); }}>
                   <Upload size={19} />
                   <span>
                     <b>라벨 파일 올리기</b>
@@ -840,6 +864,13 @@ export default function Home() {
                   <span>
                     <b>성분·문구 직접 입력</b>
                     <small>전성분, 번체 라벨, 경고문</small>
+                  </span>
+                </button>
+                <button className="start-primary-action start-primary-action-muted" onClick={() => fillSample("food-additive")}>
+                  <Sparkles size={19} />
+                  <span>
+                    <b>샘플로 1분 체험</b>
+                    <small>대만 식품첨가물 예시</small>
                   </span>
                 </button>
               </div>
@@ -890,6 +921,7 @@ export default function Home() {
           </section>
           )}
 
+          {hasReviewWorkspace && (
           <div className={result || isAnalyzing ? "review-grid" : "review-grid review-grid-start"}>
             <section className="input-pane">
               <div className="intake-rail" aria-label="검토 입력 단계">
@@ -1232,6 +1264,7 @@ export default function Home() {
             </section>
             )}
           </div>
+          )}
           </>
         )}
 
