@@ -1,6 +1,6 @@
 # LabelPass Deployment Runbook
 
-Updated: 2026-06-26
+Updated: 2026-06-27
 
 ## Current Assets
 
@@ -30,6 +30,18 @@ pnpm preflight:deploy
 ```
 
 `preflight:deploy` runs type checks, rule verification, knowledge validation, Taiwan food/cosmetics coverage validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
+
+For a no-secret readiness snapshot before or after deployment, run:
+
+```bash
+pnpm audit:production-env
+```
+
+This prints only presence/absence, URL hosts, and remote API storage states. It does not print database URLs, tokens, publishable keys, or archive secrets. Use strict mode only after production is intentionally configured for Supabase-backed review history:
+
+```bash
+pnpm audit:production-env -- --strict-archive
+```
 
 ```bash
 LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment
@@ -139,8 +151,8 @@ Expected counts after the current seed:
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,175
-- `term_aliases`: 4,013
-- `searchable_aliases`: 6,492 (`term_aliases` plus CAS, INCI, and color-index identifiers used by bundled search)
+- `term_aliases`: 4,019
+- `searchable_aliases`: 6,498 (`term_aliases` plus CAS, INCI, and color-index identifiers used by bundled search)
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
 
@@ -188,6 +200,29 @@ LABELPASS_REVIEW_ARCHIVE_TOKEN=long-random-server-token
 ```
 
 The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep these values server-only; never expose them as `NEXT_PUBLIC_*` variables. `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` only enables the database-backed archive path. Public read/write remain disabled unless `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ=1` or `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE=1` is set. Use those public flags only for demo data because `/api/reviews` still has no user account ownership model.
+
+To add production values without echoing secrets into the terminal history, use interactive Vercel prompts:
+
+```bash
+pnpm dlx vercel@latest env add SUPABASE_DB_URL production
+pnpm dlx vercel@latest env add LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE production
+pnpm dlx vercel@latest env add LABELPASS_REVIEW_ARCHIVE_TOKEN production
+```
+
+Use `1` for `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE`. Use a long random value for `LABELPASS_REVIEW_ARCHIVE_TOKEN`. After adding or changing Vercel environment variables, redeploy production and run:
+
+```bash
+pnpm dlx vercel@latest --prod --yes
+pnpm audit:production-env
+```
+
+When the archive token is required for read/write probes, set the same token only in the local shell for the audit run; do not commit it:
+
+```powershell
+$env:LABELPASS_REVIEW_ARCHIVE_TOKEN="..."
+pnpm audit:production-env -- --strict-archive
+Remove-Item Env:\LABELPASS_REVIEW_ARCHIVE_TOKEN -ErrorAction SilentlyContinue
+```
 
 The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` plus `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` prepares `/api/reviews` to store products, review outcomes, and finding evidence in Supabase, but the route returns `storage: "disabled"` until read/write access is authorized by token or explicit public flags. Without an authorized server archive path, the app falls back to the browser-side archive and the UI shows local storage status.
 

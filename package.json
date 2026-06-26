@@ -20,6 +20,7 @@
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
     "validate:coverage": "node scripts/validate-knowledge-coverage.mjs",
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
+    "audit:production-env": "node scripts/audit-production-env.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
     "preflight:deployment": "node scripts/preflight-deployment.mjs",
     "preflight:deploy": "pnpm exec tsc --noEmit && pnpm test:rules && pnpm validate:knowledge && pnpm validate:coverage && pnpm audit:search-aliases && pnpm build && pnpm preflight:deployment",

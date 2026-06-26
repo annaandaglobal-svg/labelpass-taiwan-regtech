@@ -121,8 +121,8 @@ Current generated counts:
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,175
-- `term_aliases`: 4,013
-- `searchable_aliases`: 6,492
+- `term_aliases`: 4,019
+- `searchable_aliases`: 6,498
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
 - `alias_review_queue`: 1,097

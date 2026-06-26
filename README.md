@@ -80,10 +80,11 @@ Browser-only or blocked sources are preserved with manual text captures and scre
 pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm build
+pnpm audit:production-env
 pnpm smoke:api
 ```
 
-`pnpm smoke:api` expects the app to be running. It checks 28 review cases, 109 multilingual knowledge cases, 2 ambiguity cases, 66 source probes, 3 reusable evidence-bundle probes, plus review archive list/save probes through `/api/reviews`.
+`pnpm audit:production-env` checks production API readiness without printing secrets. `pnpm smoke:api` expects the app to be running. It checks 28 review cases, 109 multilingual knowledge cases, 2 ambiguity cases, 66 source probes, 3 reusable evidence-bundle probes, plus review archive list/save probes through `/api/reviews`.
 
 ## Deployment Files
 
@@ -93,5 +94,6 @@ pnpm smoke:api
 - `supabase/knowledge-seed.sql`: generated source and term knowledge seed.
 - `vercel.json`: Vercel deployment config.
 - `.github/workflows/ci.yml`: typecheck, data drift checks, and production build.
+- `scripts/audit-production-env.mjs`: no-secret production readiness audit for Vercel/Supabase/archive storage.
 - `docs/deployment-runbook.md`: GitHub, Supabase, and Vercel deployment steps.
 - `docs/knowledge-operations.md`: knowledge refresh and curation process.
