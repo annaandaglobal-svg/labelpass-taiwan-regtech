@@ -52,7 +52,7 @@ export async function searchKnowledgeRuntime(query: string, limit = 10) {
     const supabaseResult = await searchSupabaseKnowledge(query, limit);
     if (!supabaseResult) return bundledResult;
     if (!query.trim()) return supabaseResult;
-    return mergeKnowledgeResult(supabaseResult, { ...bundledResult, totals: supabaseResult.totals }, limit);
+    return mergeKnowledgeResult(supabaseResult, bundledResult, limit);
   } catch (error) {
     console.warn("Supabase knowledge search unavailable; using bundled cache.", error);
   }
