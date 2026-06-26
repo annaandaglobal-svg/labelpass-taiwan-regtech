@@ -386,16 +386,13 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
               </button>
             )}
           </div>
-          <details className="knowledge-mode-drawer">
-            <summary>검색 범위: {focusModeMeta.label}</summary>
-            <div className="knowledge-mode-tabs" aria-label="품목군 선택">
-              {focusModes.map((mode) => (
-                <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
-                  {mode.label}
-                </button>
-              ))}
-            </div>
-          </details>
+          <div className="knowledge-mode-tabs knowledge-mode-tabs-steady" aria-label="품목군 선택">
+            {focusModes.map((mode) => (
+              <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
+                {mode.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -421,6 +418,23 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                     {example.label}
                   </button>
                 ))}
+              </div>
+              <div className="knowledge-start-flow" aria-label="검색 후 이어지는 작업">
+                <div className="active">
+                  <Search size={17} />
+                  <b>검색</b>
+                  <span>원료·문구·코드 입력</span>
+                </div>
+                <div>
+                  <BookOpen size={17} />
+                  <b>근거 확인</b>
+                  <span>공식 출처와 별칭 연결</span>
+                </div>
+                <div>
+                  <PackageSearch size={17} />
+                  <b>검토 반영</b>
+                  <span>라벨 작업대에 추가</span>
+                </div>
               </div>
             </div>
           )}
@@ -521,7 +535,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           </div>
         </section>
 
-        {hasQuery && (
         <aside className="knowledge-detail-panel" aria-label="선택한 근거">
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
@@ -595,15 +608,13 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             </div>
           )}
         </aside>
-        )}
       </div>
 
-      {hasQuery && (
       <details className="knowledge-filter-drawer knowledge-filter-drawer-quiet">
         <summary>
           <Filter size={16} />
           상세 필터·데이터 상태
-          <span>{hasResults ? filterSummary : "검색 후 필요한 경우에만 펼쳐 봅니다."}</span>
+          <span>{hasResults ? filterSummary : "검색 전에도 범위와 데이터 상태를 확인할 수 있습니다."}</span>
         </summary>
         <div className="knowledge-control-room" aria-label="검색 필터">
           <div className="knowledge-filter-panel">
@@ -654,7 +665,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           )}
         </div>
       </details>
-      )}
     </section>
   );
 }

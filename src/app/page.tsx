@@ -786,6 +786,23 @@ export default function Home() {
     : inputReadiness.canReview
       ? { label: "AI 1차 검토", icon: isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />, disabled: isAnalyzing, run: () => void runReview() }
       : { label: "자료 추가", icon: <Upload size={17} />, disabled: false, run: () => { setReviewStarted(true); fileInputRef.current?.click(); } };
+  const intakeChecklist = [
+    {
+      label: "제품명",
+      detail: input.productName || "제품명을 입력하세요",
+      ready: hasInputText(input.productName)
+    },
+    {
+      label: "품목",
+      detail: input.productType || "화장품·식품·경계 품목",
+      ready: hasInputText(input.productType)
+    },
+    {
+      label: "라벨·성분",
+      detail: inputReadiness.labelReady ? "검토 자료 연결됨" : "성분 또는 라벨 문구 필요",
+      ready: inputReadiness.labelReady
+    }
+  ];
 
   return (
     <main className={shellClassName}>
@@ -817,7 +834,7 @@ export default function Home() {
         <header className={["topbar", isFocusedIntake ? "topbar-minimal" : !showGlobalSearch ? "topbar-compact" : ""].filter(Boolean).join(" ")}>
           <div>
             <p className="eyebrow">대만 · 식품/화장품 · 기준일 {nowTime()}</p>
-            <h1>{screen === "review" ? "대만 수출 라벨·통관 검토" : screenTitle(screen)}</h1>
+            <h1>{screen === "review" ? "대만 수출 라벨 1차 검토" : screenTitle(screen)}</h1>
           </div>
           {showGlobalSearch && (
             <form className="global-search" onSubmit={(event) => { event.preventDefault(); void askAssistant(); }}>
@@ -874,24 +891,15 @@ export default function Home() {
               {!result && (
                 <div className="intake-hero-panel">
                   <div>
-                    <span>AI 1차 사전점검</span>
-                    <h2>대만 수출 전, 라벨에서 막힐 항목만 먼저 확인하세요</h2>
-                    <p>제품명, 품목, 전성분이나 라벨 문구를 넣으면 대만 식품·화장품 기준으로 차단 항목과 추가 자료만 정리합니다.</p>
+                    <span>대만 식품·화장품 작업대</span>
+                    <h2>제품명과 라벨을 넣으면 막힐 항목부터 정리합니다</h2>
+                    <p>검토 시작, 규정 검색, 파일 첨부, 샘플 확인이 한 흐름 안에서 움직입니다. 검색 후에도 같은 자리에서 근거와 다음 행동을 이어갑니다.</p>
                   </div>
-                  <div className="intake-fixed-actions" aria-label="고정 시작 도구">
-                    <button className="primary-btn" type="button" onClick={() => fileInputRef.current?.click()}>
-                      <Upload size={16} /> 파일 첨부
-                    </button>
-                    <form className="intake-inline-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
-                      <Search size={15} />
-                      <input
-                        value={startKnowledgeQuery}
-                        onChange={(event) => setStartKnowledgeQuery(event.target.value)}
-                        placeholder="성분·규정 검색"
-                        aria-label="성분 또는 규정 검색"
-                      />
-                      <button type="submit">검색</button>
-                    </form>
+                  <div className="intake-start-flow" aria-label="검토 흐름">
+                    <span className="active"><b>1</b><small>자료 입력</small></span>
+                    <span><b>2</b><small>위험도 판정</small></span>
+                    <span><b>3</b><small>근거 확인</small></span>
+                    <span><b>4</b><small>리포트 저장</small></span>
                   </div>
                 </div>
               )}
@@ -989,6 +997,16 @@ export default function Home() {
                     </div>
                     <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
                     <p>{inputReadiness.missing.length > 0 ? `남은 확인: ${inputReadiness.missing.join(" · ")}` : "핵심 자료가 들어왔습니다. 바로 1차 검토를 돌릴 수 있습니다."}</p>
+                  </div>
+
+                  <div className="intake-checklist" aria-label="검토 시작 체크리스트">
+                    {intakeChecklist.map((item) => (
+                      <span key={item.label} className={item.ready ? "ready" : ""}>
+                        <Check size={14} />
+                        <b>{item.label}</b>
+                        <small>{item.detail}</small>
+                      </span>
+                    ))}
                   </div>
 
                   {uploadedFiles.length > 0 && (
@@ -1144,6 +1162,60 @@ export default function Home() {
                 </>
               )}
             </section>
+
+            {!showResultPane && (
+              <aside className="intake-side-panel" aria-label="검토 다음 작업 패널">
+                <div className="intake-side-head">
+                  <ShieldCheck size={18} />
+                  <div>
+                    <b>다음 작업</b>
+                    <span>처음부터 검토, 검색, 샘플, 전문가 연결이 같은 위치에 있습니다.</span>
+                  </div>
+                </div>
+
+                <div className="intake-side-cta">
+                  <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
+                    {isAnalyzing ? <RefreshCw className="spin" size={16} /> : <ArrowRight size={16} />}
+                    {inputReadiness.canReview ? "AI 1차 검토 시작" : "필수 입력 후 검토"}
+                  </button>
+                  <button className="ghost-btn" type="button" onClick={() => fileInputRef.current?.click()}>
+                    <Upload size={16} /> 파일 첨부
+                  </button>
+                </div>
+
+                <form className="intake-inline-search intake-side-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
+                  <Search size={15} />
+                  <input
+                    value={startKnowledgeQuery}
+                    onChange={(event) => setStartKnowledgeQuery(event.target.value)}
+                    placeholder="성분명, 표시문구, TFDA 용어, HS/CCC 코드"
+                    aria-label="성분 또는 규정 검색"
+                  />
+                  <button type="submit">검색</button>
+                </form>
+
+                <div className="intake-filter-strip" aria-label="처음부터 보이는 검색 범위">
+                  <span>전체</span>
+                  <span>화장품</span>
+                  <span>식품</span>
+                  <span>표시문구</span>
+                  <span>성분</span>
+                  <span>통관</span>
+                </div>
+
+                <div className="intake-side-samples" aria-label="첫 사용자 샘플">
+                  <b>샘플로 시작</b>
+                  <button type="button" onClick={() => fillSample("risky")}>화장품 샘플</button>
+                  <button type="button" onClick={() => fillSample("food-risky")}>식품 샘플</button>
+                  <button type="button" onClick={() => fillSample("food-import")}>통관 샘플</button>
+                </div>
+
+                <div className="intake-side-note">
+                  <b>룰셋 TW-COS / TW-FOOD</b>
+                  <span>기준일 {nowTime()} · 공식 근거와 용어 별칭을 함께 연결합니다.</span>
+                </div>
+              </aside>
+            )}
 
             {showResultPane && (
             <section className="result-pane">
