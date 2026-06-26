@@ -80,12 +80,7 @@ function mergeKnowledgeResult(
 
   return {
     ...primary,
-    totals: {
-      sources: Math.max(primary.totals.sources, fallback.totals.sources),
-      terms: Math.max(primary.totals.terms, fallback.totals.terms),
-      aliases: Math.max(primary.totals.aliases, fallback.totals.aliases),
-      ruleLinks: Math.max(primary.totals.ruleLinks, fallback.totals.ruleLinks)
-    },
+    totals: fallback.totals,
     ambiguity: primary.ambiguity ?? fallback.ambiguity,
     terms: mergedTerms,
     sources: mergedSources
