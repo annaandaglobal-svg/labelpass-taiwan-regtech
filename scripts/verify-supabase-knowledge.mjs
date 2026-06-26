@@ -84,7 +84,10 @@ const probeTermKeys = [
   "health-food-permit",
   "health-food-approved-claims",
   "formula-for-certain-disease",
-  "food-ingredient-integration-query-platform"
+  "food-ingredient-integration-query-platform",
+  "food-contact-packaging",
+  "food-contact-plastic-label",
+  "pvc-pvdc-food-contact-warning"
 ];
 
 const probeAliases = [
@@ -134,7 +137,11 @@ const probeAliases = [
   "approved health care effects",
   "formula for certain disease",
   "特定疾病配方食品",
-  "food ingredient integration query platform"
+  "food ingredient integration query platform",
+  "food contact packaging",
+  "食品器具容器包裝",
+  "plastic food contact surface",
+  "pvc"
 ];
 
 if (dryRun || !databaseUrl) {

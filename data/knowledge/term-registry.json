@@ -3868,6 +3868,91 @@
       "notes": "SHTC import-control evidence concept, covering IC, WA, and DV documents used to verify intended use, customs clearance, and arrival/transfer obligations."
     },
     {
+      "id": "food-contact-packaging",
+      "canonical_name": "Food Contact Utensils, Containers and Packaging",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "food utensils", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "food containers", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "food packaging", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "food contact packaging", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "food contact materials", "type": "common_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
+        { "value": "for food contact use", "type": "label_phrase", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "食品器具", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "食品容器", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "食品包裝", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "食品器具容器包裝", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "食品接觸用", "type": "label_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "식품용 기구", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "식품용 용기", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "식품 포장재", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "식품접촉재", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 }
+      ],
+      "source_keys": ["tw-moj-food-safety-sanitation-act", "tw-tfda-food-contact-packaging-labeling-regulations", "tw-tfda-food-contact-packaging-required-items"],
+      "notes": "Taiwan Article 26 labeling applies to designated food utensils, containers and packaging, especially plastic food-contact surfaces."
+    },
+    {
+      "id": "food-contact-plastic-label",
+      "canonical_name": "Plastic Food Contact Labeling",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "plastic food contact surface", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "reusable", "type": "label_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "disposable", "type": "label_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "heat resistance temperature", "type": "label_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "microwave-safe", "type": "market_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "塑膠食品接觸面", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "重複性使用", "type": "label_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "一次性使用", "type": "label_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "耐熱溫度", "type": "label_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "可微波", "type": "market_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "플라스틱 식품접촉면", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "재사용", "type": "label_phrase", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "일회용", "type": "label_phrase", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "내열온도", "type": "label_phrase", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "전자레인지 사용 가능", "type": "market_term", "language": "ko", "jurisdiction": "KR", "confidence": 0.8 }
+      ],
+      "source_keys": ["tw-tfda-food-contact-packaging-labeling-regulations", "tw-tfda-food-contact-packaging-required-items", "tw-tfda-food-container-smart-use-2026"],
+      "notes": "Plastic food-contact packaging should show food-contact use and reusable/disposable status, and product labels should support safe heating and use conditions."
+    },
+    {
+      "id": "pvc-pvdc-food-contact-warning",
+      "canonical_name": "PVC/PVDC Food Contact Warning",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "PVC", "type": "material", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "PVDC", "type": "material", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "polyvinyl chloride", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "poly(vinylidene chloride)", "type": "chemical_name", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
+        { "value": "not directly contact high-fat and high-temperature food", "type": "warning_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "PVC high-fat high-temperature food warning", "type": "search_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "PVDC high-fat high-temperature food warning", "type": "search_phrase", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "聚氯乙烯", "type": "material", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "聚偏二氯乙烯", "type": "material", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "不得直接接觸高油脂及高溫食品", "type": "warning_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "고지방 및 고온 식품에 직접 접촉 금지", "type": "warning_phrase", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "염화비닐수지", "type": "material", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "폴리염화비닐리덴", "type": "material", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-food-contact-packaging-labeling-regulations"],
+      "notes": "Taiwan requires PVC or PVDC food-contact surfaces to carry a warning against direct contact with high-fat and high-temperature foods."
+    },
+    {
       "id": "health-food",
       "canonical_name": "Health Food",
       "category": "health_food",

@@ -143,6 +143,30 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
         ["formula-certain-disease-label-needed", "formula-certain-disease-label-present"].filter((id) => findingIds.has(id))
       ),
       documentItem(
+        "food-contact-packaging-label",
+        "식품용 포장재 라벨",
+        findingIds.has("food-contact-label-core-present")
+          ? "ready"
+          : findingIds.has("food-contact-label-core-needed") || findingIds.has("food-contact-plastic-use-status-needed") || findingIds.has("food-contact-heat-use-review")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("food-contact-label-core-needed") || findingIds.has("food-contact-plastic-use-status-needed") || findingIds.has("food-contact-heat-use-review") ? "warn" : findingIds.has("food-contact-label-core-present") ? "pass" : "info",
+        "라벨 담당",
+        ["food-contact-label-core-needed", "food-contact-label-core-present", "food-contact-plastic-use-status-needed", "food-contact-plastic-use-status-present", "food-contact-heat-use-review"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
+        "food-contact-pvc-pvdc-warning",
+        "PVC/PVDC 경고문",
+        findingIds.has("food-contact-pvc-pvdc-warning-present")
+          ? "ready"
+          : findingIds.has("food-contact-pvc-pvdc-warning-needed")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("food-contact-pvc-pvdc-warning-needed") ? "danger" : findingIds.has("food-contact-pvc-pvdc-warning-present") ? "pass" : "info",
+        "라벨 담당",
+        ["food-contact-pvc-pvdc-warning-needed", "food-contact-pvc-pvdc-warning-present"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
         "food-additive-registration",
         "식품첨가물 등록",
         findingIds.has("food-additive-inspection-registration-present")

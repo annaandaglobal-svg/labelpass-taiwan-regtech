@@ -76,6 +76,12 @@ const SOURCE_FORMULA_CERTAIN_DISEASE = "TFDA Formula for Certain Disease labelin
 const SOURCE_FORMULA_CERTAIN_DISEASE_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233";
 const SOURCE_FOOD_INGREDIENT_PLATFORM = "TFDA Food Ingredient Integration Query Platform";
 const SOURCE_FOOD_INGREDIENT_PLATFORM_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=30794";
+const SOURCE_FOOD_CONTACT_LABELING = "TFDA Regulations on the Labeling of Food Utensils, Food Containers, or Packaging";
+const SOURCE_FOOD_CONTACT_LABELING_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3090";
+const SOURCE_FOOD_CONTACT_REQUIRED_ITEMS = "TFDA food utensils, containers or packaging required labeling items";
+const SOURCE_FOOD_CONTACT_REQUIRED_ITEMS_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3089";
+const SOURCE_FOOD_CONTAINER_SMART_USE = "TFDA smart use guidance for food containers, 2026-05-05";
+const SOURCE_FOOD_CONTAINER_SMART_USE_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31513";
 const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
 const SOURCE_FOOD_ALLERGEN_URL = "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315";
 const SOURCE_FOOD_RECOMMENDED_ALLERGEN = "TFDA Regulations Governing Food Allergen Labeling on the Recommended Labeling Allergens";
@@ -554,6 +560,54 @@ function hasFoodMedicalEfficacySignal(input: ReviewInput) {
 
 function hasIngredientSafetyReviewSignal(input: ReviewInput) {
   return /extract|botanical|herbal|probiotic|strain|enzyme|novel ingredient|new ingredient|萃取|草本|益生菌|菌株|酵素|新原料|추출|허브|균주|효소|신규\s*원료/i.test(
+    reviewText(input)
+  );
+}
+
+function isFoodContactMaterialProduct(input: ReviewInput) {
+  return /food contact|food-contact|food utensil|food container|food packaging|food wrap|lunch box|cup|straw|tableware|tray|bottle|plastic container|microwave container|食品器具|食品容器|食品包裝|食品器具容器包裝|餐具|便當盒|杯|吸管|托盤|保鮮膜|食物容器|식품\s*접촉|식품용\s*기구|식품용\s*용기|식품\s*포장재|식품접촉재|도시락\s*용기|컵|빨대|트레이|랩|비닐랩|전자레인지\s*용기/i.test(
+    `${input.productName} ${input.productType} ${input.labelText}`
+  );
+}
+
+function hasFoodContactUsePhrase(input: ReviewInput) {
+  return /for food contact use|food contact use|food safe|for food use|食品接觸用|供食品接觸用|食品用|可供食品接觸|식품용|식품\s*접촉용|식품에\s*접촉/i.test(
+    input.labelText
+  );
+}
+
+function hasPlasticFoodContactSignal(input: ReviewInput) {
+  return /plastic|polypropylene|\bPP\b|polyethylene|\bPE\b|PET|polystyrene|\bPS\b|polycarbonate|\bPC\b|PLA|melamine|silicone|塑膠|塑料|聚丙烯|聚乙烯|聚苯乙烯|聚碳酸酯|矽膠|美耐皿|플라스틱|폴리프로필렌|폴리에틸렌|폴리스티렌|폴리카보네이트|실리콘|멜라민/i.test(
+    reviewText(input)
+  );
+}
+
+function hasMaterialAndHeatSignal(input: ReviewInput) {
+  return /material|materials|heat resistance|heat-resistant|temperature|耐熱|耐热|材質|材料|溫度|温度|내열|내열온도|재질|소재|온도/i.test(
+    input.labelText
+  );
+}
+
+function hasReusableDisposableSignal(input: ReviewInput) {
+  return /reusable|disposable|single[-\s]?use|one[-\s]?time use|reuse|do not reuse|重複性使用|重複使用|一次性使用|一次性|可重複|不可重複|不得重複|재사용|반복\s*사용|일회용|1회용|재사용\s*금지/i.test(
+    input.labelText
+  );
+}
+
+function hasPvcPvdcSignal(input: ReviewInput) {
+  return /\bPVC\b|\bPVDC\b|polyvinyl chloride|vinylidene chloride|聚氯乙烯|聚偏二氯乙烯|염화비닐|폴리염화비닐|폴리염화비닐리덴/i.test(
+    reviewText(input)
+  );
+}
+
+function hasPvcPvdcWarning(input: ReviewInput) {
+  return /not directly contact.*(?:high[-\s]?fat|high[-\s]?temperature)|high[-\s]?fat.*high[-\s]?temperature|不得直接接觸高油脂及高溫食品|不得直接接觸.*高油脂|高油脂.*高溫|高脂.*高温|고지방.*고온|고온.*고지방|직접\s*접촉\s*금지/i.test(
+    input.labelText
+  );
+}
+
+function hasFoodContactHighHeatUseSignal(input: ReviewInput) {
+  return /microwave|oven|hot food|hot soup|high[-\s]?temperature|boiling|freezer|dishwasher|微波|烤箱|高溫|高温|熱食|熱湯|冷凍|洗碗機|전자레인지|오븐|고온|뜨거운|열탕|냉동|식기세척기/i.test(
     reviewText(input)
   );
 }
@@ -1309,6 +1363,99 @@ function addHealthFoodFindings(input: ReviewInput, findings: Finding[]) {
   }
 }
 
+function addFoodContactMaterialFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isFoodContactMaterialProduct(input) && !hasPvcPvdcSignal(input) && !hasFoodContactHighHeatUseSignal(input)) return;
+
+  const plastic = hasPlasticFoodContactSignal(input);
+
+  if (hasFoodContactUsePhrase(input) && hasMaterialAndHeatSignal(input)) {
+    findings.push({
+      id: "food-contact-label-core-present",
+      status: "pass",
+      area: "식품표시",
+      title: "식품접촉 포장재 핵심 표시 신호 확인",
+      severity: "low",
+      why: "식품용 기구·용기·포장재 라벨에서 식품접촉용 문구와 재질/내열 관련 표시 신호가 확인되었습니다.",
+      fix: ["중문 라벨에서 제품명, 재질명, 내열온도, 수량, 국내 책임업자 정보, 원산지, 용도·주의사항까지 최종 대조하세요."],
+      source: SOURCE_FOOD_CONTACT_LABELING,
+      sourceUrl: SOURCE_FOOD_CONTACT_LABELING_URL,
+      evidence: "for food contact use / material or heat resistance"
+    });
+  } else {
+    findings.push({
+      id: "food-contact-label-core-needed",
+      status: "needs_info",
+      area: "식품표시",
+      title: "식품용 기구·용기·포장재 표시 확인 필요",
+      severity: "medium",
+      why: "식품접촉 포장재 신호가 있지만, 대만 라벨의 '식품접촉용' 문구 또는 재질·내열온도 정보가 충분히 확인되지 않았습니다.",
+      fix: [
+        "중문 라벨에 제품명, 재질명과 내열온도, 순중량/용량/수량, 국내 책임업자명·전화·주소, 원산지, 용도·주의사항을 매핑하세요.",
+        "식품과 직접 접촉하는 면의 재질이 복합재라면 각 재질명을 분리해 표시하세요.",
+        "식품접촉용 또는 동등 문구가 빠져 있으면 판매 전 라벨 시안에 추가하세요."
+      ],
+      source: SOURCE_FOOD_CONTACT_LABELING,
+      sourceUrl: SOURCE_FOOD_CONTACT_LABELING_URL,
+      evidence: [
+        hasFoodContactUsePhrase(input) ? "food-contact phrase present" : "food-contact phrase missing",
+        hasMaterialAndHeatSignal(input) ? "material/heat signal present" : "material/heat signal missing"
+      ].join(" / ")
+    });
+  }
+
+  if (plastic) {
+    findings.push({
+      id: hasReusableDisposableSignal(input) ? "food-contact-plastic-use-status-present" : "food-contact-plastic-use-status-needed",
+      status: hasReusableDisposableSignal(input) ? "pass" : "needs_info",
+      area: "식품표시",
+      title: hasReusableDisposableSignal(input) ? "플라스틱 포장재 재사용/일회용 표시 확인" : "플라스틱 포장재 재사용/일회용 표시 필요",
+      severity: hasReusableDisposableSignal(input) ? "low" : "medium",
+      why: "대만은 식품접촉면에 플라스틱이 있는 식품용 기구·용기·포장재에 재사용 또는 일회용 등 동등 문구 표시를 요구합니다.",
+      fix: hasReusableDisposableSignal(input)
+        ? ["재사용/일회용 문구가 실제 제품 용도, 내열온도, 사용방법과 충돌하지 않는지 확인하세요."]
+        : ["라벨에 reusable/disposable 또는 중문 동등 문구를 추가하고, 반복 사용 가능 여부를 사용방법과 일치시키세요."],
+      source: SOURCE_FOOD_CONTACT_REQUIRED_ITEMS,
+      sourceUrl: SOURCE_FOOD_CONTACT_REQUIRED_ITEMS_URL,
+      evidence: hasReusableDisposableSignal(input) ? "reusable/disposable" : "plastic food contact surface without use-status phrase"
+    });
+  }
+
+  if (hasPvcPvdcSignal(input)) {
+    findings.push({
+      id: hasPvcPvdcWarning(input) ? "food-contact-pvc-pvdc-warning-present" : "food-contact-pvc-pvdc-warning-needed",
+      status: hasPvcPvdcWarning(input) ? "pass" : "fail",
+      area: "식품표시",
+      title: hasPvcPvdcWarning(input) ? "PVC/PVDC 고온·고지방 접촉 경고 확인" : "PVC/PVDC 고온·고지방 접촉 경고 누락",
+      severity: hasPvcPvdcWarning(input) ? "low" : "high",
+      why: "PVC 또는 PVDC가 식품접촉면에 있는 경우 고지방 및 고온 식품에 직접 접촉하지 말라는 취지의 경고문이 필요합니다.",
+      fix: hasPvcPvdcWarning(input)
+        ? ["경고문이 중문 라벨과 외포장에 명확히 보이는지 확인하세요."]
+        : ["PVC/PVDC 식품접촉면이 있으면 '고지방 및 고온 식품에 직접 접촉 금지' 동등 문구를 중문 라벨에 추가하세요.", "고온 조리·전자레인지 사용 가능처럼 보이는 문구가 있으면 즉시 삭제하거나 재질 시험자료와 일치하게 수정하세요."],
+      source: SOURCE_FOOD_CONTACT_LABELING,
+      sourceUrl: SOURCE_FOOD_CONTACT_LABELING_URL,
+      evidence: hasPvcPvdcWarning(input) ? "PVC/PVDC warning" : "PVC/PVDC without required warning"
+    });
+  }
+
+  if (hasFoodContactHighHeatUseSignal(input) && !hasMaterialAndHeatSignal(input)) {
+    findings.push({
+      id: "food-contact-heat-use-review",
+      status: "needs_info",
+      area: "식품표시",
+      title: "고온·전자레인지 사용 표시 근거 확인 필요",
+      severity: "medium",
+      why: "전자레인지, 고온, 뜨거운 식품 사용 신호가 있으나 재질과 내열온도 표시가 충분하지 않습니다.",
+      fix: [
+        "재질별 내열온도와 사용 제한을 라벨에 표시하세요.",
+        "전자레인지 가능, 오븐 가능, 식기세척기 가능 등 사용 문구는 시험자료와 실제 재질 제한에 맞춰 조정하세요."
+      ],
+      source: SOURCE_FOOD_CONTAINER_SMART_USE,
+      sourceUrl: SOURCE_FOOD_CONTAINER_SMART_USE_URL,
+      evidence: "microwave / high-temperature use signal"
+    });
+  }
+}
+
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   for (const requirement of foodLabelRequirements) {
     if (!requirement.present(input)) {
@@ -1453,8 +1600,9 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   const parsedIngredients = parseIngredients(input.ingredientsText);
   const findings: Finding[] = [];
   const foodProduct = isFoodProduct(input);
+  const foodContactMaterialProduct = isFoodContactMaterialProduct(input);
 
-  if (!foodProduct) {
+  if (!foodProduct && !foodContactMaterialProduct) {
   for (const ingredient of parsedIngredients) {
     const matchedRules = officialRules
       .map((rule) => ({ rule, alias: matchedAlias(ingredient, aliasesForRule(rule)) }))
@@ -1631,8 +1779,11 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     });
   }
   } else {
-    addFoodFindings(input, findings);
-    addFoodAdditiveProductFindings(input, findings);
+    if (foodProduct) {
+      addFoodFindings(input, findings);
+      addFoodAdditiveProductFindings(input, findings);
+    }
+    addFoodContactMaterialFindings(input, findings);
     addFoodImportFindings(input, findings);
   }
 
@@ -1642,17 +1793,17 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     findings.push({
       id: "basic-pass",
       status: "pass",
-      area: foodProduct ? "식품표시" : "성분",
-      title: foodProduct ? "대만 식품 라벨 1차 필수 항목에서 즉시 탐지된 문제 없음" : "입력 성분에서 즉시 탐지된 금지/초과 항목 없음",
+      area: foodProduct || foodContactMaterialProduct ? "식품표시" : "성분",
+      title: foodProduct || foodContactMaterialProduct ? "대만 식품 라벨 1차 필수 항목에서 즉시 탐지된 문제 없음" : "입력 성분에서 즉시 탐지된 금지/초과 항목 없음",
       severity: "낮음",
-      why: foodProduct
+      why: foodProduct || foodContactMaterialProduct
         ? "입력된 식품 라벨 텍스트 기준으로 필수 항목과 대표 알레르겐 키워드의 즉시 위험은 발견되지 않았습니다."
         : "현재 내장 샘플 룰셋 기준으로 자동 탐지된 금지 성분이나 제한 초과는 없습니다.",
-      fix: foodProduct
+      fix: foodProduct || foodContactMaterialProduct
         ? ["원문 라벨 이미지, 중국어 번역 라벨, 수입자 정보, 영양표시 값을 원본 서류와 대조"]
         : [`공식 TFDA 룰셋 ${officialRules.length}개 기준으로 재검토`, "라벨 이미지 OCR과 원본 서류로 2차 확인"],
-      source: foodProduct ? SOURCE_FOOD_ACT : SOURCE_OPEN_DATA,
-      sourceUrl: foodProduct ? SOURCE_FOOD_ACT_URL : SOURCE_OPEN_DATA_URL
+      source: foodProduct || foodContactMaterialProduct ? SOURCE_FOOD_ACT : SOURCE_OPEN_DATA,
+      sourceUrl: foodProduct || foodContactMaterialProduct ? SOURCE_FOOD_ACT_URL : SOURCE_OPEN_DATA_URL
     });
   }
 
@@ -1665,7 +1816,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
 
   const status: ReviewStatus = summary.fail > 0 ? "fail" : summary.needsInfo > 0 ? "needs_info" : summary.warn > 0 ? "warn" : "pass";
   const score = Math.max(0, 100 - summary.fail * 24 - summary.warn * 8 - summary.needsInfo * 10);
-  const ruleVersion = foodProduct ? "TW-FOOD-2026.06-draft" : "TW-COS-2026.06-draft";
+  const ruleVersion = foodProduct || foodContactMaterialProduct ? "TW-FOOD-2026.06-draft" : "TW-COS-2026.06-draft";
 
   return {
     status,

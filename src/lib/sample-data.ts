@@ -254,6 +254,25 @@ export const healthFoodSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const foodContactPackagingSampleReview: ReviewInput = {
+  productName: "PVC Fresh Food Wrap",
+  productType: "food contact packaging / plastic food wrap / 식품 포장재",
+  origin: "Korea",
+  manufacturer: "ANNAANDA Packaging, Seoul / Taiwan importer pending",
+  hsCode: "3920.43",
+  incoterms: "CIF Keelung",
+  shipmentPurpose: "commercial sale",
+  invoiceValue: "1300",
+  ingredientsText: "",
+  labelText: [
+    "Product name: PVC Fresh Food Wrap.",
+    "Material: PVC / polyvinyl chloride.",
+    "Size: 30cm x 100m. Made in Korea.",
+    "For food contact use. Microwave-safe for hot meals.",
+    "Taiwan importer pending."
+  ].join("\n")
+};
+
 export const sourceCards = [
   {
     title: "Taiwan CCC import/export regulations",

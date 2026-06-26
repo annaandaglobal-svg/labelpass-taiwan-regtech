@@ -214,7 +214,7 @@ h2 {
 
 .action-row {
   display: grid;
-  grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 10px;
   align-items: start;
   padding-top: 4px;
@@ -246,6 +246,7 @@ h2 {
 
 .sample-drawer {
   min-width: 0;
+  width: 100%;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
@@ -285,9 +286,15 @@ h2 {
 
 .sample-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   gap: 7px;
   padding: 0 10px 10px;
+}
+
+.sample-grid .ghost-btn {
+  min-width: 0;
+  white-space: normal;
+  word-break: keep-all;
 }
 
 .primary-btn,
@@ -1005,14 +1012,15 @@ h2 {
 
 .classifier {
   display: grid;
-  grid-template-columns: 1.16fr repeat(3, minmax(0, 0.94fr));
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
   gap: 8px;
   margin-bottom: 12px;
 }
 
 .classifier button {
   min-width: 0;
-  white-space: normal;
+  white-space: nowrap;
+  word-break: keep-all;
   min-height: 48px;
   padding: 9px 10px;
   font-size: 12px;

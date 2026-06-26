@@ -367,6 +367,53 @@ if (!formulaFoodResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "
   throw new Error("Formula food review: expected needed formula label checklist item");
 }
 
+const foodContactResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "PVC Fresh Food Wrap",
+    productType: "food contact packaging / plastic food wrap",
+    ingredientsText: "",
+    labelText: [
+      "Product name: PVC Fresh Food Wrap.",
+      "Material: PVC / polyvinyl chloride.",
+      "Size: 30cm x 100m. Made in Korea.",
+      "For food contact use. Microwave-safe for hot meals.",
+      "Taiwan importer pending."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Packaging / Taiwan importer pending",
+    hsCode: "3920.43",
+    incoterms: "CIF Keelung",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1300"
+  })
+});
+
+if (!foodContactResponse.ok) {
+  throw new Error(`Food contact review: Review API returned ${foodContactResponse.status}`);
+}
+
+const foodContactResult = await foodContactResponse.json();
+
+for (const findingId of [
+  "food-contact-label-core-present",
+  "food-contact-plastic-use-status-needed",
+  "food-contact-pvc-pvdc-warning-needed"
+]) {
+  if (!foodContactResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Food contact review: expected ${findingId}`);
+  }
+}
+
+if (foodContactResult.status !== "fail") {
+  throw new Error(`Food contact review: expected fail status for missing PVC/PVDC warning, got ${foodContactResult.status}`);
+}
+
+if (!foodContactResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-contact-pvc-pvdc-warning" && doc.status === "needed")) {
+  throw new Error("Food contact review: expected needed PVC/PVDC warning checklist item");
+}
+
 const foodImportMissingResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -587,6 +634,9 @@ const knowledgeCases = [
   { query: "health food permit", expectedTerm: "Health Food Permit" },
   { query: "Formula for Certain Disease", expectedTerm: "Formula for Certain Disease" },
   { query: "Food Ingredient Integration Query Platform", expectedTerm: "Food Ingredient Integration Query Platform" },
+  { query: "food contact packaging", expectedTerm: "Food Contact Utensils, Containers and Packaging" },
+  { query: "plastic food contact surface reusable disposable", expectedTerm: "Plastic Food Contact Labeling" },
+  { query: "PVC high-fat high-temperature food warning", expectedTerm: "PVC/PVDC Food Contact Warning" },
   { query: "化粧品GMP", expectedTerm: "Cosmetic Good Manufacturing Practice", expectedFirst: "Cosmetic Good Manufacturing Practice" },
   { query: "化粧品產品登錄", expectedTerm: "Cosmetic Product Notification", expectedFirst: "Cosmetic Product Notification" },
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
@@ -653,6 +703,9 @@ const sourceCases = [
   { query: "Enforcement Rules of Health Food Control Act Article 13 labeling", expectedSource: "tw-tfda-health-food-enforcement-rules" },
   { query: "Formula for Certain Disease warning doctor dietitian principal display panel", expectedSource: "tw-tfda-formula-for-certain-disease-labeling-2025" },
   { query: "Food Ingredient Integration Query Platform usage limits cautionary notes", expectedSource: "tw-tfda-food-ingredient-integration-query-platform" },
+  { query: "Regulations on the Labeling of Food Utensils Food Containers or Packaging for food contact use", expectedSource: "tw-tfda-food-contact-packaging-labeling-regulations" },
+  { query: "Food utensils containers packaging plastics Article 26 required labelled", expectedSource: "tw-tfda-food-contact-packaging-required-items" },
+  { query: "food containers heat resistance microwave safe material use properly", expectedSource: "tw-tfda-food-container-smart-use-2026" },
   { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
   { query: "Mercury CAS 7439 prohibited cosmetic ingredient", expectedSource: "tw-tfda-cosmetic-prohibited-ingredients" },
@@ -779,5 +832,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 12} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 13} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );
