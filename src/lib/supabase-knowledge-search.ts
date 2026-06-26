@@ -505,6 +505,7 @@ function buildKnowledgeSearchResult(params: {
         source: alias.source ?? undefined
       })),
       aliasCount: aliasesByTerm.get(term.term_key)?.length ?? 0,
+      ambiguousAliases: [],
       sourceKeys: jsonArray(term.source_keys),
       notes: term.notes ?? "",
       rules: (rulesByTerm.get(term.term_key) ?? []).slice(0, 12).map((rule) => ({

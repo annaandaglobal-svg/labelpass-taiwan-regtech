@@ -87,6 +87,43 @@
       "tags": ["cosmetics", "post-market-surveillance", "adverse-event-reporting", "pif", "gmp"]
     },
     {
+      "id": "tw-tfda-cosmetics-law-regulations-index",
+      "title": "TFDA Cosmetics Guidance, Law and Regulations Index",
+      "url": "https://www.fda.gov.tw/eng/law.aspx?cid=5062",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation_index",
+      "priority": "high",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-cosmetic-prohibited-ingredients", "tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-preservatives", "tw-tfda-cosmetic-sunscreen-ingredients", "tw-tfda-cosmetics-gmp-regulations", "tw-tfda-cosmetics-manufactory-standards"],
+      "tags": ["cosmetics", "law-index", "latest-regulations", "ingredient-lists", "microorganism-limits", "gmp", "manufactory-standards"]
+    },
+    {
+      "id": "tw-tfda-cosmetics-gmp-regulations",
+      "title": "Cosmetics Good Manufacturing Practice Regulations",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=166&id=3200",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "gmp", "manufacturing", "quality-system", "pif", "site-evidence"]
+    },
+    {
+      "id": "tw-tfda-cosmetics-manufactory-standards",
+      "title": "Establishment Standards for Cosmetics Manufactory",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=5062&id=3284",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "standard",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["cosmetics", "manufactory", "facility-standards", "manufacturing-site", "import-evidence"]
+    },
+    {
       "id": "tw-tfda-cosmetic-adverse-event-reporting-system",
       "title": "TFDA National Cosmetics Adverse Event Reporting System",
       "url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=4244",
@@ -458,6 +495,43 @@
       "tags": ["food", "sweetness-claim", "nutrition-claim", "prepackaged-food", "claims", "misleading"]
     },
     {
+      "id": "tw-tfda-food-law-regulations-index",
+      "title": "TFDA Food Guidance, Law and Regulations Index",
+      "url": "https://www.fda.gov.tw/eng/law.aspx?cid=16",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation_index",
+      "priority": "high",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-gmo-prepackaged-food-labeling", "tw-tfda-milk-product-name-labeling", "tw-tfda-food-allergen-labeling-en", "tw-tfda-food-additive-common-names-en"],
+      "tags": ["food", "law-index", "latest-regulations", "labeling", "claims", "food-additives", "ingredient-labeling"]
+    },
+    {
+      "id": "tw-tfda-gmo-prepackaged-food-labeling",
+      "title": "Labelling Requirements for Prepackaged Food Containing Ingredients of GMOs",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3136",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["food", "gmo", "genetically-modified", "ingredient-labeling", "prepackaged-food", "soybean", "corn"]
+    },
+    {
+      "id": "tw-tfda-milk-product-name-labeling",
+      "title": "Product Names and Labeling of Prepackaged Milk, Flavored Milk, Milk Drink, and Milk Powder",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3574",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "regulation",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "milk", "dairy", "product-name", "milk-powder", "flavored-milk", "labeling"]
+    },
+    {
       "id": "tw-tfda-nutrition-labeling-exemptions",
       "title": "Regulations on Prepackaged Food Products Exempted from the Nutrition Labeling",
       "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3393",
@@ -659,6 +733,19 @@
       "tags": ["food", "import-inspection", "border-inspection", "documents", "ccc-code", "tfda", "import-declaration"]
     },
     {
+      "id": "tw-tfda-inspections-law-regulations-index",
+      "title": "TFDA Inspections Guidance, Law and Regulations Index",
+      "url": "https://www.fda.gov.tw/eng/law.aspx?cid=5094",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "regulation_index",
+      "priority": "high",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-imported-food-inspection-regulations", "tw-tfda-systematic-inspection-imported-food", "tw-tfda-food-import-inspection-exemptions"],
+      "tags": ["food", "import-inspection", "inspection-index", "border-inspection", "fees", "documents"]
+    },
+    {
       "id": "tw-tfda-systematic-inspection-imported-food",
       "title": "Regulations for Systematic Inspection of Imported Food",
       "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607",
@@ -705,6 +792,18 @@
       "priority": "high",
       "cache_days": 14,
       "tags": ["food", "pesticide-residue", "mrl", "crop-classification", "import-risk", "testing"]
+    },
+    {
+      "id": "tw-tfda-animal-product-pesticide-residue-limits",
+      "title": "Standards for Pesticide Residue Limits in Animal Products",
+      "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=497",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "standard",
+      "priority": "medium",
+      "cache_days": 30,
+      "tags": ["food", "animal-products", "pesticide-residue", "mrl", "dairy", "meat", "import-risk", "testing"]
     },
     {
       "id": "tw-moj-food-veterinary-drug-residue-limits",
@@ -1140,6 +1239,30 @@
       "priority": "high",
       "cache_days": 30,
       "tags": ["customs", "customs-declaration", "single-window", "invoice", "packing-list", "post-clearance-audit"]
+    },
+    {
+      "id": "tw-customs-import-cargo-clearance",
+      "title": "Import Cargo Clearance",
+      "url": "https://web.customs.gov.tw/ekeelung/singlehtml/1451",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "guidance",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["customs", "import-clearance", "import-declaration", "single-window", "15-day-declaration", "invoice", "packing-list"]
+    },
+    {
+      "id": "tw-customs-valuation",
+      "title": "Customs Valuation",
+      "url": "https://web.customs.gov.tw/en/singlehtml/1865?cntId=cus16_183499_1865",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "guidance",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["customs", "customs-valuation", "transaction-value", "duty-paid-value", "invoice", "royalties", "assists"]
     },
     {
       "id": "tw-shtc-regulations",

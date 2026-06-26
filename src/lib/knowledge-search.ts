@@ -85,6 +85,12 @@ export type KnowledgeSearchResult = {
     };
     aliases: Alias[];
     aliasCount: number;
+    ambiguousAliases: Array<{
+      value: string;
+      normalized: string;
+      otherTerms: string[];
+      note: string;
+    }>;
     sourceKeys: string[];
     notes: string;
     rules: Array<{
@@ -153,6 +159,23 @@ const linksByTerm = new Map<string, TermRuleLink[]>();
 for (const link of links) {
   linksByTerm.set(link.term_id, [...(linksByTerm.get(link.term_id) ?? []), link]);
 }
+
+const aliasOwners = new Map<string, Set<string>>();
+for (const term of terms) {
+  const aliases = [
+    ...(term.aliases ?? []),
+    ...(term.identifiers?.cas ?? []).map((value) => ({ value, normalized: normalizeKnowledgeQuery(value) })),
+    ...(term.identifiers?.inci ?? []).map((value) => ({ value, normalized: normalizeKnowledgeQuery(value) })),
+    ...(term.identifiers?.color_index ?? []).map((value) => ({ value, normalized: normalizeKnowledgeQuery(value) }))
+  ];
+  for (const alias of aliases) {
+    const normalized = alias.normalized ?? normalizeKnowledgeQuery(alias.value);
+    if (!normalized) continue;
+    aliasOwners.set(normalized, (aliasOwners.get(normalized) ?? new Set()).add(term.id));
+  }
+}
+
+const termNamesById = new Map(terms.map((term) => [term.id, term.canonical_name]));
 
 export function normalizeKnowledgeQuery(value: string) {
   return String(value ?? "")
@@ -277,8 +300,9 @@ function scoreAlias(alias: Alias, query: string) {
       : 0;
   const taiwanBoost = alias.jurisdiction === "TW" && hasCjkOrHangul(query) ? 5 : 0;
   const ambiguityPenalty = isBroadOrAmbiguous(alias) ? 6 : 0;
+  const sharedAliasPenalty = (aliasOwners.get(normalized)?.size ?? 0) > 1 ? 10 : 0;
 
-  return base + confidenceBoost + typeBoost + exactBoost + localLanguageBoost + taiwanBoost - ambiguityPenalty;
+  return base + confidenceBoost + typeBoost + exactBoost + localLanguageBoost + taiwanBoost - ambiguityPenalty - sharedAliasPenalty;
 }
 
 function aliasesForTerm(term: KnowledgeTerm): Alias[] {
@@ -331,6 +355,32 @@ function scoreTerm(term: KnowledgeTerm, query: string) {
     : 0;
   const score = Math.max(canonicalScore, aliasScores[0]?.score ?? 0);
   return { score, aliasScores };
+}
+
+function ambiguousAliasesForTerm(term: KnowledgeTerm, aliases: Alias[], matchedAliases: Alias[]) {
+  const matchedKeys = new Set(matchedAliases.map((alias) => alias.normalized ?? normalize(alias.value)));
+  return aliases
+    .map((alias) => {
+      const normalized = alias.normalized ?? normalize(alias.value);
+      if (!matchedKeys.has(normalized)) return null;
+      const owners = aliasOwners.get(normalized);
+      if (!owners || owners.size <= 1) return null;
+      const otherTerms = [...owners]
+        .filter((termId) => termId !== term.id)
+        .map((termId) => termNamesById.get(termId) ?? termId)
+        .sort((a, b) => a.localeCompare(b))
+        .slice(0, 5);
+      if (!otherTerms.length) return null;
+      return {
+        value: alias.value,
+        normalized,
+        otherTerms,
+        note: "동일 별칭이 여러 규제 용어에 연결되어 문맥 확인이 필요합니다."
+      };
+    })
+    .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
+    .filter((entry, index, list) => list.findIndex((candidate) => candidate.normalized === entry.normalized) === index)
+    .slice(0, 4);
 }
 
 function scoreSource(source: SourceResult, query: string) {
@@ -444,6 +494,7 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
         },
         aliases: matchedAliases,
         aliasCount: aliases.length,
+        ambiguousAliases: ambiguousAliasesForTerm(term, aliases, matchedAliases),
         sourceKeys: term.source_keys ?? [],
         notes: term.notes ?? "",
         rules: (linksByTerm.get(term.id) ?? []).slice(0, 12).map((link) => ({

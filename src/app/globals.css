@@ -4010,7 +4010,8 @@ h2 {
 .knowledge-summary,
 .knowledge-identifiers,
 .knowledge-rules,
-.knowledge-aliases {
+.knowledge-aliases,
+.knowledge-ambiguity {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -4327,6 +4328,25 @@ h2 {
   color: var(--muted);
   font-size: 11px;
   font-weight: 700;
+}
+
+.knowledge-ambiguity {
+  align-items: center;
+  padding: 9px 10px;
+  border: 1px solid rgba(165, 108, 21, 0.24);
+  border-radius: 8px;
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.knowledge-ambiguity b {
+  color: var(--ink);
+}
+
+.knowledge-ambiguity span {
+  overflow-wrap: anywhere;
 }
 
 .knowledge-rules button {

@@ -1228,6 +1228,36 @@ for (const testCase of knowledgeCases) {
   }
 }
 
+const ambiguityCases = [
+  { query: "casein", expectedTerm: "Casein and Caseinates", expectedOtherTerm: "Milk" },
+  { query: "preservative", expectedTerm: "Cosmetic Preservatives", expectedOtherTerm: "Food Additive Functional Classes" }
+];
+
+for (const testCase of ambiguityCases) {
+  const response = await fetch(`${baseUrl}/api/knowledge/search?q=${encodeURIComponent(testCase.query)}`);
+
+  if (!response.ok) {
+    throw new Error(`${testCase.query}: Knowledge API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const term = Array.isArray(result.terms)
+    ? result.terms.find((candidate) => candidate.canonicalName === testCase.expectedTerm)
+    : null;
+
+  if (!term) {
+    throw new Error(`${testCase.query}: expected ambiguous term ${testCase.expectedTerm}`);
+  }
+
+  const ambiguity = Array.isArray(term.ambiguousAliases)
+    ? term.ambiguousAliases.find((alias) => alias.otherTerms?.includes(testCase.expectedOtherTerm))
+    : null;
+
+  if (!ambiguity) {
+    throw new Error(`${testCase.query}: expected ambiguity note linking ${testCase.expectedTerm} to ${testCase.expectedOtherTerm}`);
+  }
+}
+
 const sourceCases = [
   { query: "simple asphyxiants", expectedSource: "global-unece-ghs-rev11-pdf" },
   { query: "April 1 2026 tariff", expectedSource: "jp-customs-tariff-schedule" },
@@ -1237,6 +1267,7 @@ const sourceCases = [
   { query: "imported cosmetics inspection", expectedSource: "tw-tfda-imported-cosmetics-inspection" },
   { query: "免申請查驗 通關代碼", expectedSource: "tw-tfda-food-import-inspection-exemptions" },
   { query: "Regulations of Inspection of Imported Foods and Related Products", expectedSource: "tw-tfda-imported-food-inspection-regulations" },
+  { query: "TFDA inspections guidance law regulations imported food fees", expectedSource: "tw-tfda-inspections-law-regulations-index" },
   { query: "systematic inspection imported food document review", expectedSource: "tw-tfda-systematic-inspection-imported-food" },
   { query: "shellfish HS 0307 health certificate harvest area", expectedSource: "tw-tfda-shellfish-hs0307-health-certificate" },
   { query: "food business registration import business operators product liability insurance", expectedSource: "tw-tfda-food-business-registration-importers" },
@@ -1248,12 +1279,18 @@ const sourceCases = [
   { query: "Formula for Certain Disease warning doctor dietitian principal display panel", expectedSource: "tw-tfda-formula-for-certain-disease-labeling-2025" },
   { query: "Food Ingredient Integration Query Platform usage limits cautionary notes", expectedSource: "tw-tfda-food-ingredient-integration-query-platform" },
   { query: "Food Ingredient Integration Query Platform direct query scientific name", expectedSource: "tw-tfda-food-ingredient-query-platform-direct" },
+  { query: "Labelling requirements prepackaged food ingredients of GMOs", expectedSource: "tw-tfda-gmo-prepackaged-food-labeling" },
+  { query: "prepackaged milk flavored milk milk drink milk powder product names labeling", expectedSource: "tw-tfda-milk-product-name-labeling" },
+  { query: "pesticide residue limits in animal products dairy meat", expectedSource: "tw-tfda-animal-product-pesticide-residue-limits" },
   { query: "TFDA Food Business Information Query Links ingredient permit query", expectedSource: "tw-tfda-food-business-info-query-links" },
   { query: "Regulations on the Labeling of Food Utensils Food Containers or Packaging for food contact use", expectedSource: "tw-tfda-food-contact-packaging-labeling-regulations" },
   { query: "Food utensils containers packaging plastics Article 26 required labelled", expectedSource: "tw-tfda-food-contact-packaging-required-items" },
   { query: "Sanitation Standards for Food Utensils Containers and Packages plastic infant feeding bottles BPA", expectedSource: "tw-moj-food-contact-sanitation-standards" },
   { query: "food containers heat resistance microwave safe material use properly", expectedSource: "tw-tfda-food-container-smart-use-2026" },
   { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
+  { query: "TFDA cosmetics guidance law regulations microorganism limits GMP", expectedSource: "tw-tfda-cosmetics-law-regulations-index" },
+  { query: "Cosmetics Good Manufacturing Practice Regulations quality system site evidence", expectedSource: "tw-tfda-cosmetics-gmp-regulations" },
+  { query: "Establishment Standards for Cosmetics Manufactory manufacturing site", expectedSource: "tw-tfda-cosmetics-manufactory-standards" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
   { query: "cosmetics post-market surveillance quality monitoring adverse event reporting system", expectedSource: "tw-tfda-cosmetics-management-framework" },
   { query: "cosmetic serious adverse effects hygiene safety hazards report within 15 days", expectedSource: "tw-moj-cosmetic-serious-adverse-reporting" },
@@ -1284,6 +1321,8 @@ const sourceCases = [
   { query: "Strategic High-tech Commodities International Import Certificate end user", expectedSource: "tw-moj-shtc-export-import-regulations" },
   { query: "戰略性高科技貨品 國際進口證明書 最終用途", expectedSource: "tw-trade-shtc-bilingual-glossary" },
   { query: "進口報單", expectedSource: "tw-moj-customs-act" },
+  { query: "import cargo clearance 15-day declaration invoice packing list single window", expectedSource: "tw-customs-import-cargo-clearance" },
+  { query: "customs valuation transaction value duty-paid value royalties assists", expectedSource: "tw-customs-valuation" },
   { query: "SHTC export permit", expectedSource: "tw-moj-shtc-export-import-regulations" },
   { query: "國際進口證明書", expectedSource: "tw-moj-shtc-export-import-regulations" }
 ];
@@ -1385,5 +1424,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 24} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 24} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );

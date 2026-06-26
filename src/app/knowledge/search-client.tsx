@@ -302,6 +302,17 @@ export default function KnowledgeSearchClient() {
                   ))}
                 </div>
 
+                {Boolean(term.ambiguousAliases?.length) && (
+                  <div className="knowledge-ambiguity">
+                    <b>문맥 확인 필요</b>
+                    {term.ambiguousAliases.slice(0, 3).map((alias) => (
+                      <span key={`${term.id}-${alias.normalized}`}>
+                        {alias.value} → {alias.otherTerms.join(", ")}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
                 <div className="knowledge-identifiers">
                   {term.identifiers.cas.map((value) => (
                     <button key={`cas-${value}`} type="button" onClick={() => setQuery(value)}>
