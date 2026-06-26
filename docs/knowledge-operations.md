@@ -80,7 +80,7 @@ Some official sites block automated collection, require a security check, or ret
 4. Add `browser_capture_path` and `screenshot_path` to `data/knowledge/source-registry.json`.
 5. Re-run `pnpm crawl:knowledge`.
 
-The crawler records whether a source used an automated fetch, manual fallback, PDF extraction, or browser capture.
+The crawler records whether a source used an automated fetch, manual fallback, PDF extraction, or browser capture. A dynamic official page may remain `manual_fallback: true` for search-quality reasons while also carrying `browser_capture: true` when a reusable browser evidence file is attached. Treat only manual fallbacks without browser evidence as capture backlog.
 
 ## Storage Model
 

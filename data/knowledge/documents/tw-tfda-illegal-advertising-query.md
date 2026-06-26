@@ -8,16 +8,16 @@ domain: food_labeling
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-26T19:43:15.253Z
+fetched_at: 2026-06-26T19:43:04.751Z
 fetched_url: http://pmds.fda.gov.tw/illegalad/
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T19:43:15.253Z
+cache_expires_at: 2026-07-03T19:43:04.751Z
 cache_status: fresh
 content_hash: 6937af3da999bb6833ed52af98451dd653a6ea32358c0c51ad170c364a770897
 from_cache: false
 manual_fallback: true
-browser_capture: false
+browser_capture: true
 parse_error:
 tags: food, drugs, cosmetics, advertising, violation, query, consumer
 ---

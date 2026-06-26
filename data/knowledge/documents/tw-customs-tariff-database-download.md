@@ -8,16 +8,16 @@ domain: customs
 source_type: tariff_database
 priority: high
 format: manual
-fetched_at: 2026-06-26T19:43:15.253Z
+fetched_at: 2026-06-26T19:43:04.752Z
 fetched_url: https://portal.sw.nat.gov.tw/APGQ/GC453
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T19:43:15.253Z
+cache_expires_at: 2026-07-03T19:43:04.752Z
 cache_status: fresh
 content_hash: 0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719
 from_cache: false
 manual_fallback: true
-browser_capture: false
+browser_capture: true
 parse_error:
 tags: hs-code, ccc-code, tariff, customs, import-export
 ---

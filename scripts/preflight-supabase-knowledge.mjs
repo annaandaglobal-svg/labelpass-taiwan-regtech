@@ -123,6 +123,12 @@ function validateFreshness(index) {
   });
   const highPriorityStaleSources = results.filter((source) => source.priority === "high" && source.cache_status === "stale");
   const highPriorityManualFallbacks = results.filter((source) => source.priority === "high" && source.manual_fallback);
+  const highPriorityManualFallbacksWithEvidence = highPriorityManualFallbacks.filter(
+    (source) => source.browser_capture || source.browser_capture_path || source.screenshot_path
+  );
+  const highPriorityManualFallbacksWithoutEvidence = highPriorityManualFallbacks.filter(
+    (source) => !source.browser_capture && !source.browser_capture_path && !source.screenshot_path
+  );
 
   if (expiredSources.length > 0) {
     fail(`Knowledge crawl has ${expiredSources.length} expired source(s). Refresh before applying to Supabase.`);
@@ -132,15 +138,19 @@ function validateFreshness(index) {
     fail(`Knowledge crawl has ${highPriorityStaleSources.length} high-priority stale source(s). Refresh before applying to Supabase.`);
   }
 
-  if (highPriorityManualFallbacks.length > 0) {
-    warn(`${highPriorityManualFallbacks.length} high-priority source(s) use manual fallback. Review docs/knowledge-operations-report.md for follow-up capture work.`);
+  if (highPriorityManualFallbacksWithoutEvidence.length > 0) {
+    warn(
+      `${highPriorityManualFallbacksWithoutEvidence.length} high-priority manual fallback source(s) have no browser capture evidence. Review docs/knowledge-operations-report.md for follow-up capture work.`
+    );
   }
 
   return {
     sources: results.length,
     expired: expiredSources.length,
     highPriorityStale: highPriorityStaleSources.length,
-    highPriorityManualFallbacks: highPriorityManualFallbacks.length
+    highPriorityManualFallbacks: highPriorityManualFallbacks.length,
+    highPriorityManualFallbacksWithEvidence: highPriorityManualFallbacksWithEvidence.length,
+    highPriorityManualFallbacksWithoutEvidence: highPriorityManualFallbacksWithoutEvidence.length
   };
 }
 

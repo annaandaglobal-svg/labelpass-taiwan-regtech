@@ -290,6 +290,11 @@ async function fetchSource(source, cacheDays) {
     body = Buffer.from(source.manual_extract ?? "", "utf8");
     contentType = "text/plain";
     manualFallback = true;
+    if (source.browser_capture_path) {
+      const capturePath = path.join(root, source.browser_capture_path);
+      fetchedAt = (await fileMtime(capturePath)) ?? now;
+      browserCapture = true;
+    }
   } else if (source.format?.toLowerCase() === "browser_capture" && source.browser_capture_path) {
     const capturePath = path.join(root, source.browser_capture_path);
     body = await readFile(capturePath);

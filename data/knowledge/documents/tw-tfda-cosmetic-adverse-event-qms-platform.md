@@ -8,16 +8,16 @@ domain: cosmetics
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-26T19:43:15.253Z
+fetched_at: 2026-06-26T19:21:16.738Z
 fetched_url: https://qms.fda.gov.tw/
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T19:43:15.253Z
+cache_expires_at: 2026-07-03T19:21:16.738Z
 cache_status: fresh
 content_hash: 7bc535dfefe40b6eb370b15657262233992e06e56bc6460f0a4b36f520f37da5
 from_cache: false
 manual_fallback: true
-browser_capture: false
+browser_capture: true
 parse_error:
 tags: cosmetics, adverse-event-reporting, post-market-surveillance, quality-management, portal, system
 ---

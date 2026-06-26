@@ -178,6 +178,12 @@ const expiredSources = results.filter((source) => {
 const highPrioritySources = results.filter((source) => source.priority === "high");
 const manualFallbackSources = results.filter((source) => source.manual_fallback);
 const browserCaptureSources = results.filter((source) => source.browser_capture);
+const manualFallbackWithEvidenceSources = manualFallbackSources.filter(
+  (source) => source.browser_capture || source.browser_capture_path || source.screenshot_path
+);
+const manualFallbackWithoutEvidenceSources = manualFallbackSources.filter(
+  (source) => !source.browser_capture && !source.browser_capture_path && !source.screenshot_path
+);
 const fromCacheSources = results.filter((source) => source.from_cache);
 const nextRefresh = topDueSources(results, 1)[0] ?? null;
 
@@ -224,6 +230,8 @@ const summary = {
   expired_sources: expiredSources.length,
   due_within_7_days: dueSoonSources.length,
   manual_fallback_sources: manualFallbackSources.length,
+  manual_fallback_with_browser_evidence_sources: manualFallbackWithEvidenceSources.length,
+  manual_fallback_without_browser_evidence_sources: manualFallbackWithoutEvidenceSources.length,
   browser_capture_sources: browserCaptureSources.length,
   from_cache_sources: fromCacheSources.length,
   next_refresh_at: nextRefresh?.cache_expires_at ?? null,
@@ -279,6 +287,8 @@ if (writeReport) {
     `- Sources due within 7 days: ${formatNumber(summary.due_within_7_days)}`,
     `- Next scheduled refresh: ${formatDate(summary.next_refresh_at)}`,
     `- Manual fallback sources: ${formatNumber(summary.manual_fallback_sources)}`,
+    `- Manual fallback with browser evidence: ${formatNumber(summary.manual_fallback_with_browser_evidence_sources)}`,
+    `- Manual fallback without browser evidence: ${formatNumber(summary.manual_fallback_without_browser_evidence_sources)}`,
     `- Browser capture sources: ${formatNumber(summary.browser_capture_sources)}`,
     `- Reused from raw cache: ${formatNumber(summary.from_cache_sources)}`,
     "",
@@ -307,7 +317,7 @@ if (writeReport) {
     "## Queues",
     "",
     `- Update queue: ${formatNumber(summary.update_candidates.pending_refresh)} pending refresh, ${formatNumber(summary.update_candidates.watching)} watching, ${formatNumber(summary.update_candidates.detected)} detected changes.`,
-    `- Alias queue: ${formatNumber(summary.alias_queue.high_confidence_collisions)} high-confidence collisions, ${formatNumber(summary.alias_queue.mojibake_aliases)} mojibake aliases, ${formatNumber(summary.alias_queue.regulated_terms_without_local_alias)} regulated terms without readable local aliases.`,
+    `- Alias triage backlog: ${formatNumber(summary.alias_queue.high_confidence_collisions)} high-confidence collisions, ${formatNumber(summary.alias_queue.mojibake_aliases)} mojibake aliases, ${formatNumber(summary.alias_queue.regulated_terms_without_local_alias)} regulated terms without readable local aliases; ${formatNumber(summary.alias_queue.strict_blockers)} strict blockers.`,
     "",
     "## Supabase Seed Readiness",
     "",

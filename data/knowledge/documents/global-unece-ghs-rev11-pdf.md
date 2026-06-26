@@ -8,16 +8,16 @@ domain: chemical_labeling
 source_type: standard
 priority: high
 format: manual
-fetched_at: 2026-06-26T06:24:07.617Z
+fetched_at: 2026-06-25T09:41:54.335Z
 fetched_url: https://unece.org/sites/default/files/2025-09/GHS%20Rev11e.pdf
 extra_fetched_urls:
 cache_days: 180
-cache_expires_at: 2026-12-23T06:24:07.617Z
+cache_expires_at: 2026-12-22T09:41:54.335Z
 cache_status: fresh
 content_hash: 486b2ad4eff864354c0090c77729393da3fbcae2c56b06b7661517067c8dabd5
 from_cache: false
 manual_fallback: true
-browser_capture: false
+browser_capture: true
 parse_error:
 tags: ghs, hazard-statements, precautionary-statements, pictograms, rev11, 2025
 ---
