@@ -18,15 +18,16 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 pnpm crawl:knowledge
 pnpm detect:updates
 pnpm build:knowledge-seed
+pnpm build:alias-queue
 pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
 ```
 
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
-Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` automatically.
+Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` and `build:alias-queue` automatically.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
-Use `pnpm audit:aliases` after term edits or a seed rebuild to catch normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
+Use `pnpm audit:aliases` after term edits or a seed rebuild to inspect normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Use `pnpm build:alias-queue` when those audit findings should be written to the persistent review queue. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
 
 ## Regulatory Update Queue
 
@@ -44,6 +45,26 @@ Current queue baseline:
 - Newly detected content changes: 0
 - Sources pending refresh: 16
 - Watched sources: 41
+
+## Alias Review Queue
+
+The same ingredient or regulatory phrase can appear under different legal, local-language, ingredient, allergen, functional-class, or shipment contexts. LabelPass therefore keeps alias ambiguity as a reviewable operating queue instead of hiding it inside search scoring.
+
+The operating loop is:
+
+1. Curate aliases in `data/knowledge/term-registry.json` or regenerate the term index from TFDA rules.
+2. Run `pnpm build:alias-queue`.
+3. Review high-priority collisions first, especially shared aliases such as `casein`, `INCI`, `防腐劑`, `自用`, and `國內負責廠商`.
+4. Add source-backed notes, split aliases, lower confidence, or add local names as needed.
+5. Re-run `pnpm build:knowledge-seed`, `pnpm build:alias-queue`, and `pnpm validate:knowledge`.
+
+Current alias queue baseline:
+
+- Review items: 1,097
+- High-confidence collisions: 46
+- Mojibake/damaged aliases: 2
+- Strict blockers: 0
+- Regulated terms needing readable local aliases: 1,040
 
 ## Manual Browser Capture
 
@@ -66,6 +87,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/index.json`: crawl manifest with success/failure status, generated document paths, cache expiry, and freshness status.
 - `data/knowledge/term-registry.json`: curated high-value ingredient aliases.
 - `data/knowledge/term-index.json`: generated search index linking aliases to TFDA rules.
+- `data/knowledge/alias-review-queue.json`: generated alias collision, damaged-text, short-alias, and missing-local-name review queue.
 - `data/knowledge/regulatory-update-queue.json`: generated source-change and freshness candidates requiring human review before rule changes.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
@@ -102,6 +124,7 @@ Current generated counts:
 - `term_aliases`: 4,013
 - `term_rule_links`: 1,099
 - `regulatory_update_candidates`: 57
+- `alias_review_queue`: 1,097
 - `rules`: 1,081
 
 Current freshness status:
@@ -117,6 +140,8 @@ Current freshness status:
 - Do not collapse trade names, INCI names, and legal substance names into a single identifier. Link them with confidence and source context.
 - Keep short Latin aliases such as `MI`, `MIT`, `MCI`, and `CI` behind stricter matching to reduce false positives.
 - Add aliases first in `data/knowledge/term-registry.json`, then run `pnpm build:knowledge-seed`.
+- After any alias or generated-rule refresh, run `pnpm build:alias-queue`; review high-confidence collisions before assuming a search match is unambiguous.
+- For damaged text or mojibake findings, recrawl the source or use manual browser capture before promoting the alias.
 
 ## Quality Gates
 
@@ -127,6 +152,7 @@ pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
 pnpm audit:aliases
+pnpm build:alias-queue
 pnpm detect:updates
 pnpm build
 pnpm smoke:api

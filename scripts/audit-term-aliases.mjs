@@ -1,12 +1,15 @@
-import { readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
 const strict = process.argv.includes("--strict");
+const writeQueue = process.argv.includes("--write-queue");
 
 const paths = {
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
-  termRegistry: path.join(root, "data", "knowledge", "term-registry.json")
+  termRegistry: path.join(root, "data", "knowledge", "term-registry.json"),
+  aliasReviewQueue: path.join(root, "data", "knowledge", "alias-review-queue.json")
 };
 
 function normalizeText(value) {
@@ -107,6 +110,82 @@ function formatConfidence(confidence) {
   return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/\.00$/, "");
 }
 
+function hashId(parts) {
+  return createHash("sha256").update(parts.filter(Boolean).join("|")).digest("hex").slice(0, 14);
+}
+
+function priorityLabel(priority) {
+  if (priority <= 0) return "blocker";
+  if (priority === 1) return "high";
+  if (priority === 2) return "medium";
+  if (priority === 3) return "low";
+  return "backlog";
+}
+
+function issueForFinding(finding) {
+  if (finding.issue) return finding.issue;
+  if (finding.termCount > 1) return finding.highConfidenceCollision ? "alias-collision-high-confidence" : "alias-collision";
+  return "alias-review";
+}
+
+function recommendedAction(finding) {
+  const issue = issueForFinding(finding);
+  if (finding.strictBlocker) {
+    return "Resolve before promotion: split the alias, lower confidence, or add source-backed disambiguating notes for every affected term.";
+  }
+  if (issue === "alias-collision-high-confidence" || issue === "alias-collision") {
+    return "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.";
+  }
+  if (issue === "mojibake") {
+    return "Recrawl, manually capture, or replace the damaged alias with a readable source-backed value before using it in search.";
+  }
+  if (issue === "short-alias-note" || issue === "short-ambiguous-alias") {
+    return "Add a short note explaining the regulatory context and keep matching exact or context-gated.";
+  }
+  if (issue === "missing-local-alias") {
+    return "Add Traditional Chinese, Korean, Japanese, or local official aliases from a trusted source, or mark the term as intentionally global.";
+  }
+  return "Review alias provenance, confidence, and notes before promoting it into automated matching.";
+}
+
+function queueTerm(term) {
+  return {
+    term_id: term.id,
+    canonical_name: term.canonical_name,
+    confidence: Number(term.confidence ?? 0),
+    alias_value: term.aliasValue,
+    alias_type: term.aliasType,
+    language: term.language || "und",
+    jurisdiction: term.jurisdiction || "GLOBAL",
+    notes: term.notes || ""
+  };
+}
+
+function queueItemForFinding(finding, index) {
+  const issue = issueForFinding(finding);
+  const terms = finding.terms.map(queueTerm);
+  const id = `alias-${hashId([
+    issue,
+    finding.alias,
+    ...terms.map((term) => `${term.term_id}:${term.alias_value}:${term.confidence}`)
+  ])}`;
+
+  return {
+    id,
+    status: "review",
+    issue,
+    priority: priorityLabel(finding.priority),
+    sort_order: index + 1,
+    alias: finding.alias,
+    term_count: finding.termCount,
+    max_confidence: Number(finding.maxConfidence ?? 0),
+    strict_blocker: Boolean(finding.strictBlocker),
+    high_confidence_collision: Boolean(finding.highConfidenceCollision),
+    recommended_action: recommendedAction(finding),
+    terms
+  };
+}
+
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
 }
@@ -116,6 +195,7 @@ const termRegistry = await readJson(paths.termRegistry);
 
 const registryVersion = termRegistry.version ?? "unknown";
 const scannedTerms = Array.isArray(termIndex.terms) ? termIndex.terms : [];
+const rawAliasCount = scannedTerms.reduce((count, term) => count + (term.aliases?.length ?? 0), 0);
 
 const aliasRows = [];
 const mojibakeFindings = [];
@@ -160,6 +240,8 @@ for (const term of scannedTerms) {
             confidence,
             aliasValue: value,
             aliasType,
+            language: aliasLanguage,
+            jurisdiction: aliasJurisdiction,
             notes: note || String(term?.notes ?? "").trim()
           }
         ]
@@ -189,6 +271,8 @@ for (const term of scannedTerms) {
             confidence,
             aliasValue: value,
             aliasType,
+            language: aliasLanguage,
+            jurisdiction: aliasJurisdiction,
             notes: "Short abbreviation or symbol should explain its regulatory context."
           }
         ]
@@ -242,6 +326,8 @@ for (const term of scannedTerms) {
           confidence: 0,
           aliasValue: term.canonical_name ?? term.id,
           aliasType: "coverage",
+          language: "und",
+          jurisdiction: "TW",
           notes: "Taiwan or regulated concept has no readable zh/ko/ja alias."
         }
       ]
@@ -298,6 +384,8 @@ for (const group of aliasGroups.values()) {
         confidence: row.confidence,
         aliasValue: row.aliasValue,
         aliasType: row.aliasType,
+        language: row.language,
+        jurisdiction: row.jurisdiction,
         notes: row.notes || row.termNotes || ""
       }))
     });
@@ -311,6 +399,7 @@ for (const group of aliasGroups.values()) {
       termCount: 1,
       maxConfidence: Number(row.confidence ?? 0),
       priority: 3,
+      issue: "short-ambiguous-alias",
       strictBlocker: false,
       highConfidenceCollision: false,
       unnotedHighConfidenceRows: [],
@@ -322,6 +411,8 @@ for (const group of aliasGroups.values()) {
           confidence: row.confidence,
           aliasValue: row.aliasValue,
           aliasType: row.aliasType,
+          language: row.language,
+          jurisdiction: row.jurisdiction,
           notes: row.termNotes || ""
         }
       ]
@@ -343,23 +434,46 @@ const findings = [
 ].sort(sortBySeverity);
 
 const summary = {
-  generated_at: new Date().toISOString(),
+  generated_at: termIndex.generated_at ?? new Date().toISOString(),
   registry_version: registryVersion,
   terms_scanned: scannedTerms.length,
-  aliases_scanned: aliasRows.length,
+  aliases_scanned: rawAliasCount,
+  alias_rows_scanned: aliasRows.length,
   collision_groups: collisionGroups.length,
   high_confidence_collisions: highConfidenceCollisions.length,
   short_ambiguous_aliases_without_notes: shortAmbiguousFindings.length,
   mojibake_aliases: mojibakeFindings.length,
   short_abbreviations_without_notes: shortNoteFindings.length,
   regulated_terms_without_local_alias: localCoverageFindings.length,
-  strict_blockers: strictBlockers.length
+  strict_blockers: strictBlockers.length,
+  review_items: findings.length
 };
+
+async function writeAliasReviewQueue() {
+  const items = findings.map(queueItemForFinding);
+  const queue = {
+    generated_at: summary.generated_at,
+    source: {
+      registry_version: registryVersion,
+      term_index_generated_at: termIndex.generated_at ?? null,
+      term_index_path: "data/knowledge/term-index.json",
+      term_registry_path: "data/knowledge/term-registry.json",
+      audit_command: "pnpm build:alias-queue"
+    },
+    summary,
+    items
+  };
+
+  await mkdir(path.dirname(paths.aliasReviewQueue), { recursive: true });
+  await writeFile(paths.aliasReviewQueue, `${JSON.stringify(queue, null, 2)}\n`);
+  console.log(`\nWrote alias review queue: ${path.relative(root, paths.aliasReviewQueue)} (${items.length} items)`);
+}
 
 console.log("Alias audit summary");
 console.log(`- Registry version: ${summary.registry_version}`);
 console.log(`- Terms scanned: ${summary.terms_scanned}`);
 console.log(`- Aliases scanned: ${summary.aliases_scanned}`);
+console.log(`- Alias rows scanned: ${summary.alias_rows_scanned}`);
 console.log(`- Collision groups: ${summary.collision_groups}`);
 console.log(`- High-confidence collisions: ${summary.high_confidence_collisions}`);
 console.log(`- Short or ambiguous aliases without notes: ${summary.short_ambiguous_aliases_without_notes}`);
@@ -397,6 +511,10 @@ if (findings.length > 0) {
 
     console.log(`- ${line.join(" | ")}`);
   }
+}
+
+if (writeQueue) {
+  await writeAliasReviewQueue();
 }
 
 if (strict && strictBlockers.length > 0) {

@@ -8,6 +8,7 @@ const paths = {
   registry: path.join(root, "data", "knowledge", "source-registry.json"),
   index: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
+  aliasReviewQueue: path.join(root, "data", "knowledge", "alias-review-queue.json"),
   updateQueue: path.join(root, "data", "knowledge", "regulatory-update-queue.json"),
   schema: path.join(root, "supabase", "knowledge-schema.sql"),
   seed: path.join(root, "supabase", "knowledge-seed.sql")
@@ -62,11 +63,12 @@ function isValidDate(value) {
   return Number.isFinite(Date.parse(String(value ?? "")));
 }
 
-const [rulesData, registry, index, termIndex, updateQueue, schemaSql, seedSql] = await Promise.all([
+const [rulesData, registry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
   readJson(paths.index),
   readJson(paths.termIndex),
+  readJson(paths.aliasReviewQueue),
   readJson(paths.updateQueue),
   readFile(paths.schema, "utf8"),
   readFile(paths.seed, "utf8")
@@ -77,7 +79,9 @@ const sources = registry.sources ?? [];
 const results = index.results ?? [];
 const terms = termIndex.terms ?? [];
 const links = termIndex.term_rule_links ?? [];
+const aliasQueueItems = aliasReviewQueue.items ?? [];
 const updateCandidates = updateQueue.items ?? [];
+const aliasCount = terms.reduce((count, term) => count + (term.aliases?.length ?? 0), 0);
 
 const ruleIds = uniqueBy(rules, (rule) => rule.id, "rules");
 const ruleSourceIds = new Set(rules.map((rule) => `tfda-info-${rule.source_info_id}`).filter(Boolean));
@@ -223,6 +227,68 @@ for (const term of terms) {
   }
 }
 
+const aliasQueueSummary = aliasReviewQueue.summary ?? {};
+if (aliasReviewQueue.source?.registry_version !== termIndex.registry_version) {
+  fail(
+    `alias review queue registry_version is ${aliasReviewQueue.source?.registry_version}, but term index is ${termIndex.registry_version}`
+  );
+}
+
+if (aliasReviewQueue.source?.term_index_generated_at !== termIndex.generated_at) {
+  fail(
+    `alias review queue term_index_generated_at is ${aliasReviewQueue.source?.term_index_generated_at}, but term index generated_at is ${termIndex.generated_at}`
+  );
+}
+
+if (aliasQueueSummary.terms_scanned !== terms.length) {
+  fail(`alias review queue terms_scanned is ${aliasQueueSummary.terms_scanned}, expected ${terms.length}`);
+}
+
+if (aliasQueueSummary.aliases_scanned !== aliasCount) {
+  fail(`alias review queue aliases_scanned is ${aliasQueueSummary.aliases_scanned}, expected ${aliasCount}`);
+}
+
+if (aliasQueueSummary.review_items !== aliasQueueItems.length) {
+  fail(`alias review queue summary has ${aliasQueueSummary.review_items} item(s), but items array has ${aliasQueueItems.length}`);
+}
+
+if ((aliasQueueSummary.strict_blockers ?? 0) > 0) {
+  fail(`alias review queue has ${aliasQueueSummary.strict_blockers} strict blocker(s)`);
+}
+
+uniqueBy(aliasQueueItems, (item) => item.id, "alias review queue items");
+
+const aliasQueuePriorities = new Set(["blocker", "high", "medium", "low", "backlog"]);
+for (const item of aliasQueueItems) {
+  for (const field of ["id", "status", "issue", "priority", "alias", "recommended_action"]) {
+    if (!item[field]) {
+      fail(`alias review queue item ${item.id ?? "(missing id)"} is missing ${field}`);
+    }
+  }
+
+  if (!aliasQueuePriorities.has(item.priority)) {
+    fail(`alias review queue item ${item.id} has invalid priority: ${item.priority}`);
+  }
+
+  if (!Array.isArray(item.terms) || item.terms.length === 0) {
+    fail(`alias review queue item ${item.id} has no terms`);
+    continue;
+  }
+
+  if (item.term_count !== item.terms.length) {
+    fail(`alias review queue item ${item.id} term_count is ${item.term_count}, expected ${item.terms.length}`);
+  }
+
+  for (const term of item.terms) {
+    if (!term.term_id || !termIds.has(term.term_id)) {
+      fail(`alias review queue item ${item.id} references missing term: ${term.term_id}`);
+    }
+    if (!term.alias_value || !term.alias_type) {
+      fail(`alias review queue item ${item.id} has a term without alias_value or alias_type`);
+    }
+  }
+}
+
 for (const link of links) {
   if (!termIds.has(link.term_id)) {
     fail(`term_rule_link references missing term_id: ${link.term_id}`);
@@ -246,7 +312,6 @@ for (const tableName of [
   }
 }
 
-const aliasCount = terms.reduce((count, term) => count + (term.aliases?.length ?? 0), 0);
 const expectedSeedInserts = {
   knowledge_sources: results.length,
   knowledge_snapshots: results.length,
@@ -275,6 +340,7 @@ const summary = {
   term_aliases: aliasCount,
   term_rule_links: links.length,
   regulatory_update_candidates: updateCandidates.length,
+  alias_review_queue_items: aliasQueueItems.length,
   warnings: warnings.length,
   errors: errors.length
 };

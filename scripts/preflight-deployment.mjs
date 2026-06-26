@@ -24,6 +24,7 @@ const paths = {
   sourceIndex: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
   updateQueue: path.join(root, "data", "knowledge", "regulatory-update-queue.json"),
+  aliasReviewQueue: path.join(root, "data", "knowledge", "alias-review-queue.json"),
   baseSchema: path.join(root, "supabase", "schema.sql"),
   baseSeed: path.join(root, "supabase", "seed.sql"),
   knowledgeSchema: path.join(root, "supabase", "knowledge-schema.sql"),
@@ -140,11 +141,12 @@ if (!validArchiveStates.has(expectedArchiveWriteStorage)) {
   );
 }
 
-const [rulesData, sourceIndex, termIndex, updateQueue] = await Promise.all([
+const [rulesData, sourceIndex, termIndex, updateQueue, aliasReviewQueue] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.sourceIndex),
   readJson(paths.termIndex),
-  readJson(paths.updateQueue)
+  readJson(paths.updateQueue),
+  readJson(paths.aliasReviewQueue)
 ]);
 
 const rules = rulesData.rules ?? [];
@@ -153,6 +155,7 @@ const terms = termIndex.terms ?? [];
 const aliases = terms.flatMap((term) => term.aliases ?? []);
 const links = termIndex.term_rule_links ?? [];
 const updateCandidates = updateQueue.items ?? [];
+const aliasQueueItems = aliasReviewQueue.items ?? [];
 
 const localCounts = {
   rules: rules.length,
@@ -160,7 +163,8 @@ const localCounts = {
   knowledgeTerms: terms.length,
   termAliases: aliases.length,
   termRuleLinks: links.length,
-  regulatoryUpdateCandidates: updateCandidates.length
+  regulatoryUpdateCandidates: updateCandidates.length,
+  aliasReviewQueueItems: aliasQueueItems.length
 };
 
 for (const [name, value] of Object.entries(localCounts)) {
