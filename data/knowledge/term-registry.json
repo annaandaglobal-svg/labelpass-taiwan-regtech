@@ -2269,7 +2269,9 @@
         { "value": "벤조산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "안식향산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
         { "value": "벤조산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "벤조산 나트륨", "type": "spacing_variant", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
         { "value": "안식향산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "안식향산 나트륨", "type": "spacing_variant", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
         { "value": "안식향산염", "type": "common_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
         { "value": "벤조에이트", "type": "common_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
       ],
@@ -2293,7 +2295,10 @@
         { "value": "山梨酸鉀", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
         { "value": "山梨酸鈉", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
         { "value": "소르빈산", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
-        { "value": "소르빈산칼륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 }
+        { "value": "소르빈산칼륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
+        { "value": "소르빈산 칼륨", "type": "spacing_variant", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "소르빈산나트륨", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "소르빈산 나트륨", "type": "spacing_variant", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
       ],
       "source_keys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup."
@@ -3616,6 +3621,7 @@
         { "value": "알레르기 표시", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 1 },
         { "value": "알레르겐 표시", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
         { "value": "過敏原標示", "type": "local_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "致過敏性內容物", "type": "official_phrase", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
         { "value": "过敏原标识", "type": "local_name", "language": "zh-Hans", "jurisdiction": "CN", "confidence": 0.9 },
         { "value": "アレルゲン表示", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.9 }
       ],
@@ -4817,6 +4823,7 @@
         { "value": "Sulphites", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
         { "value": "Sulfites", "type": "variant", "language": "en", "jurisdiction": "GLOBAL", "confidence": 1 },
         { "value": "SO2", "type": "formula", "language": "und", "jurisdiction": "GLOBAL", "confidence": 0.95, "note": "Sulfur dioxide expression in Taiwan sulphites allergen threshold context." },
+        { "value": "SO₂", "type": "formula", "language": "und", "jurisdiction": "GLOBAL", "confidence": 0.95, "note": "Unicode subscript formula variant for sulfur dioxide." },
         { "value": "sulfur dioxide", "type": "official_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
         { "value": "sulphur dioxide", "type": "variant", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.95 },
         { "value": "10 mg/kg", "type": "threshold", "language": "und", "jurisdiction": "TW", "confidence": 0.95 },

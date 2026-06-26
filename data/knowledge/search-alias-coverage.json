@@ -1,0 +1,144 @@
+{
+  "version": "2026-06-27",
+  "description": "High-value multilingual alias coverage cases for Taiwan food and cosmetics labeling search. These cases protect source-backed ingredient, allergen, claim, and market-access terms from disappearing during crawling or term-index rebuilds.",
+  "cases": [
+    {
+      "id": "msg-english-abbreviation",
+      "query": "MSG",
+      "expectedTermId": "monosodium-glutamate",
+      "requiredAliases": ["MSG", "Monosodium glutamate (MSG)", "글루탐산나트륨", "味精", "麩酸鈉"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
+      "note": "Short abbreviation must stay exact-match searchable for Taiwan food-additive review."
+    },
+    {
+      "id": "msg-korean-local-name",
+      "query": "글루탐산나트륨",
+      "expectedTermId": "monosodium-glutamate",
+      "requiredAliases": ["글루탐산나트륨", "글루탐산 나트륨", "MSG", "味精"]
+    },
+    {
+      "id": "msg-taiwan-common-name",
+      "query": "味精",
+      "expectedTermId": "monosodium-glutamate",
+      "requiredAliases": ["味精", "味素", "麩酸鈉", "谷氨酸鈉"]
+    },
+    {
+      "id": "benzoate-sodium-zh",
+      "query": "苯甲酸鈉",
+      "expectedTermId": "benzoates-food-additives",
+      "requiredAliases": ["Sodium benzoate", "苯甲酸鈉", "安息香酸鈉", "안식향산나트륨"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+    },
+    {
+      "id": "benzoate-korean",
+      "query": "안식향산나트륨",
+      "expectedTermId": "benzoates-food-additives",
+      "requiredAliases": ["안식향산나트륨", "안식향산 나트륨", "벤조산나트륨", "벤조산 나트륨", "Sodium benzoate", "苯甲酸鈉"]
+    },
+    {
+      "id": "sorbate-potassium-zh",
+      "query": "山梨酸鉀",
+      "expectedTermId": "sorbates-food-additives",
+      "requiredAliases": ["Potassium sorbate", "山梨酸鉀", "소르빈산칼륨", "소르빈산 칼륨"]
+    },
+    {
+      "id": "xanthan-taiwan-name",
+      "query": "三仙膠",
+      "expectedTermId": "xanthan-gum-food-additive",
+      "requiredAliases": ["Xanthan gum", "三仙膠", "玉米糖膠", "잔탄검"]
+    },
+    {
+      "id": "xanthan-korean",
+      "query": "잔탄검",
+      "expectedTermId": "xanthan-gum-food-additive",
+      "requiredAliases": ["잔탄검", "산탄검", "Xanthan gum", "三仙膠"]
+    },
+    {
+      "id": "crustacea-taiwan-allergen",
+      "query": "甲殼類",
+      "expectedTermId": "crustacea-allergen",
+      "requiredAliases": ["甲殼類", "蝦", "蟹", "갑각류", "새우"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+    },
+    {
+      "id": "crustacea-korean-shrimp",
+      "query": "새우",
+      "expectedTermId": "crustacea-allergen",
+      "requiredAliases": ["새우", "갑각류", "蝦", "Crustacea"]
+    },
+    {
+      "id": "sulfites-so2",
+      "query": "SO₂",
+      "expectedTermId": "sulfites-allergen",
+      "requiredAliases": ["二氧化硫", "亞硫酸鹽", "亞硫酸鹽類", "SO2", "SO₂", "아황산염"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+    },
+    {
+      "id": "sulfites-korean",
+      "query": "아황산염",
+      "expectedTermId": "sulfites-allergen",
+      "requiredAliases": ["아황산염", "이산화황", "Sulfites", "二氧化硫"]
+    },
+    {
+      "id": "cosmetic-pif-abbreviation",
+      "query": "PIF",
+      "expectedTermId": "cosmetic-product-information-file",
+      "requiredAliases": ["PIF", "Product Information File", "產品資訊檔案", "化粧品產品資訊檔案", "화장품 PIF"],
+      "requiredSourceKeys": ["tw-tfda-pif-hub-zh", "tw-tfda-pif-implementation"]
+    },
+    {
+      "id": "cosmetic-pif-zh-official",
+      "query": "產品資訊檔案",
+      "expectedTermId": "cosmetic-product-information-file",
+      "requiredAliases": ["產品資訊檔案", "化粧品產品資訊檔案", "化妝品產品資訊檔案", "대만 화장품 제품정보파일"]
+    },
+    {
+      "id": "cosmetic-gmp-zh",
+      "query": "化粧品GMP",
+      "expectedTermId": "cosmetic-gmp",
+      "requiredAliases": ["cosmetic GMP", "化粧品GMP", "化妝品GMP", "化粧品優良製造準則", "화장품 GMP"]
+    },
+    {
+      "id": "cosmetic-preservative-zh",
+      "query": "防腐劑",
+      "expectedTermId": "cosmetic-preservatives",
+      "requiredAliases": ["防腐劑", "化粧品防腐劑", "방부제", "보존제", "cosmetic preservatives"]
+    },
+    {
+      "id": "cosmetic-colorants-zh",
+      "query": "化粧品色素",
+      "expectedTermId": "cosmetic-colorants",
+      "requiredAliases": ["化粧品色素", "色素", "화장품 색소", "color index", "cosmetic colorants"]
+    },
+    {
+      "id": "cosmetic-sunscreen-zh",
+      "query": "防曬劑",
+      "expectedTermId": "cosmetic-sunscreen-ingredients",
+      "requiredAliases": ["防曬劑", "防曬成分", "化粧品防曬劑", "UV filter", "자외선차단제 성분"]
+    },
+    {
+      "id": "nutrition-labeling-zh",
+      "query": "營養標示",
+      "expectedTermId": "nutrition-labeling",
+      "requiredAliases": ["營養標示", "nutrition label", "nutrition claim", "영양표시"]
+    },
+    {
+      "id": "food-allergen-labeling-zh",
+      "query": "過敏原標示",
+      "expectedTermId": "food-allergen-labeling",
+      "requiredAliases": ["過敏原標示", "allergen labeling", "알레르겐 표시", "致過敏性內容物"]
+    },
+    {
+      "id": "cosmetic-product-notification-zh",
+      "query": "化粧品產品登錄",
+      "expectedTermId": "cosmetic-product-notification",
+      "requiredAliases": ["產品登錄", "化粧品產品登錄", "cosmetic product notification", "화장품 등록"]
+    },
+    {
+      "id": "food-additive-registration-zh",
+      "query": "食品添加物查驗登記",
+      "expectedTermId": "food-additive-inspection-registration",
+      "requiredAliases": ["食品添加物查驗登記", "food additive inspection registration", "food additive registration", "식품첨가물 등록"]
+    }
+  ]
+}

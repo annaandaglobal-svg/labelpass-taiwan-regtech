@@ -2852,12 +2852,32 @@
           "source": "curated"
         },
         {
+          "value": "벤조산 나트륨",
+          "normalized": "벤조산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "안식향산나트륨",
           "normalized": "안식향산나트륨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "안식향산 나트륨",
+          "normalized": "안식향산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },
@@ -2979,6 +2999,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르빈산 칼륨",
+          "normalized": "소르빈산 칼륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르빈산나트륨",
+          "normalized": "소르빈산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르빈산 나트륨",
+          "normalized": "소르빈산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         }
@@ -9934,6 +9984,16 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "致過敏性內容物",
+          "normalized": "致過敏性內容物",
+          "type": "official_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
           "note": null,
           "source": "curated"
         },
@@ -105238,12 +105298,32 @@
           "source": "cas"
         },
         {
+          "value": "벤조산 나트륨",
+          "normalized": "벤조산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "안식향산나트륨",
           "normalized": "안식향산나트륨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산 나트륨",
+          "normalized": "안식향산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "cas"
         },
@@ -105476,12 +105556,32 @@
           "source": "cas"
         },
         {
+          "value": "벤조산 나트륨",
+          "normalized": "벤조산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "안식향산나트륨",
           "normalized": "안식향산나트륨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산 나트륨",
+          "normalized": "안식향산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "cas"
         },
@@ -107847,6 +107947,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산 칼륨",
+          "normalized": "소르빈산 칼륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산나트륨",
+          "normalized": "소르빈산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산 나트륨",
+          "normalized": "소르빈산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "cas"
         },
