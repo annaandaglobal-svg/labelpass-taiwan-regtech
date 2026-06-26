@@ -50,6 +50,7 @@ Reusable regulatory memory is managed through:
 - `data/knowledge/term-registry.json`
 - `data/knowledge/term-index.json`
 - `data/knowledge/regulatory-update-queue.json`
+- `data/knowledge/alias-review-queue.json`
 - `supabase/knowledge-schema.sql`
 - `supabase/knowledge-seed.sql`
 
@@ -59,6 +60,15 @@ Runtime knowledge search can use Supabase without a database password when these
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 ```
+
+Before deploying a knowledge update, run:
+
+```bash
+pnpm check:knowledge-drift
+pnpm preflight:supabase-knowledge
+```
+
+`preflight:deploy` includes both gates, plus type checks, rule verification, build, and production API checks.
 
 Persistent review history is deliberately opt-in. A database URL plus the archive flag only makes the server capable of database storage; read/write access still needs either a server-side archive token for checks or explicit public demo flags:
 
