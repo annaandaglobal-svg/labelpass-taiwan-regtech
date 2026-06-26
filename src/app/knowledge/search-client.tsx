@@ -16,19 +16,54 @@ import {
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 
-const examples = [
-  { label: "PIF", query: "PIF" },
-  { label: "식품첨가물", query: "food additive" },
-  { label: "알레르기 표시", query: "allergen labeling" },
-  { label: "화장품 색소", query: "cosmetic colorants" },
-  { label: "INCI", query: "INCI" },
-  { label: "HS code", query: "HS code" },
-  { label: "건강기능식품", query: "health food" },
-  { label: "SDS/GHS", query: "SDS" }
-];
-
 const ALL = "all";
-const onboardingExamples = examples.slice(0, 4);
+
+const focusModes = [
+  {
+    id: "cosmetics",
+    label: "화장품",
+    title: "화장품 라벨·PIF 검토",
+    helper: "PIF, INCI, 색소, 성분명처럼 화장품 검토에서 먼저 확인할 표현입니다.",
+    placeholder: "예: 화장품 PIF, INCI, 색소"
+  },
+  {
+    id: "food",
+    label: "식품",
+    title: "식품 표시·허가 검토",
+    helper: "식품첨가물, 알레르겐, 건강식품 허가번호처럼 표시와 수입 검토에 쓰입니다.",
+    placeholder: "예: 식품첨가물, 알레르겐, 허가번호"
+  },
+  {
+    id: "codes",
+    label: "공통·코드",
+    title: "코드·다국어 명칭 확인",
+    helper: "CAS, HS/CCC, SDS/GHS, 번체중문 별칭처럼 나라별 표현 차이를 확인합니다.",
+    placeholder: "예: CAS, HS/CCC, SDS/GHS"
+  }
+] as const;
+
+type FocusMode = (typeof focusModes)[number]["id"];
+
+const taskExampleSets: Record<FocusMode, Array<{ label: string; query: string }>> = {
+  cosmetics: [
+    { label: "화장품 PIF 확인", query: "대만 화장품 PIF" },
+    { label: "INCI/CAS로 검색", query: "INCI CAS" },
+    { label: "화장품 색소", query: "cosmetic colorants" },
+    { label: "성분 표시명", query: "cosmetic ingredient labeling" }
+  ],
+  food: [
+    { label: "식품첨가물 허용 여부", query: "food additive" },
+    { label: "알레르겐 표시", query: "allergen labeling" },
+    { label: "건강식품 허가번호", query: "health food permit" },
+    { label: "영양 표시 확인", query: "nutrition labeling" }
+  ],
+  codes: [
+    { label: "HS/CCC 코드 확인", query: "HS code CCC code" },
+    { label: "SDS/GHS 표시", query: "SDS GHS" },
+    { label: "번체중문 별칭", query: "traditional Chinese alias" },
+    { label: "수출입 통관 근거", query: "import export customs" }
+  ]
+};
 
 type SourceItem = KnowledgeSearchResult["sources"][number];
 type TermItem = KnowledgeSearchResult["terms"][number];
@@ -82,9 +117,9 @@ type KnowledgeSearchClientProps = {
 const fixedFreshnessOptions: Option[] = [
   { value: ALL, label: "전체" },
   { value: "fresh", label: "최신" },
-  { value: "stale", label: "확인 필요" },
+  { value: "stale", label: "갱신 필요" },
   { value: "manual", label: "수동 보강" },
-  { value: "browser", label: "브라우저 캡처" },
+  { value: "browser", label: "브라우저 근거" },
   { value: "cache", label: "캐시" }
 ];
 
@@ -100,6 +135,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
   const [freshness, setFreshness] = useState(ALL);
   const [evidence, setEvidence] = useState<EvidenceItem | null>(null);
   const [showAllResults, setShowAllResults] = useState(false);
+  const [focusMode, setFocusMode] = useState<FocusMode>("cosmetics");
 
   const trimmed = useMemo(() => query.trim(), [query]);
 
@@ -143,7 +179,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
         })
         .catch((searchError) => {
           if (active && (searchError as Error).name !== "AbortError") {
-            setError("검색 결과를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.");
+            setError("지식베이스 검색에 실패했습니다. 잠시 후 다시 검색해 주세요.");
           }
         })
         .finally(() => {
@@ -209,6 +245,8 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
   const highPriorityCount = filteredSources.filter((source) => source.priority === "high").length;
   const watchCount = filteredSources.filter((source) => source.manualFallback || source.cacheStatus === "stale").length;
   const browserCount = filteredSources.filter((source) => source.browserCapture).length;
+  const focusModeMeta = focusModes.find((mode) => mode.id === focusMode) ?? focusModes[0];
+  const taskExamples = taskExampleSets[focusMode];
 
   const unifiedResults = useMemo<UnifiedResult[]>(() => {
     const termRows = visibleTerms.map((term) => ({
@@ -234,12 +272,12 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
         id: `source-${source.id}`,
         title: source.title,
         subtitle: `${source.authority} - ${labelFor(source.domain)}`,
-        detail: source.excerpt || "제목, 기관, 관할권, 연결 용어 기준으로 매칭된 근거 출처입니다.",
+        detail: source.excerpt || "공식 원문, 캐시, 수동 보강 기록을 함께 확인할 수 있는 근거 출처입니다.",
         score: source.score,
         chips: uniqueCompact([
           source.jurisdiction,
           labelFor(source.sourceType),
-          source.priority === "high" ? "중요" : source.priority,
+          source.priority === "high" ? "고우선" : source.priority,
           meta.label
         ]).slice(0, 4),
         href: source.url,
@@ -259,18 +297,18 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
   const displayedResultCount = (topResult ? 1 : 0) + visibleSecondaryResults.length;
   const hiddenResultCount = Math.max(0, matchedCount - displayedResultCount);
   const resultCountLabel = hasResults
-    ? `${matchedCount.toLocaleString()}개 중 핵심 ${displayedResultCount.toLocaleString()}개`
+    ? `${matchedCount.toLocaleString()}개 중 ${displayedResultCount.toLocaleString()}개 표시`
     : loading
       ? "검색 중"
       : "대기";
-  const filterSummary = `${matchedCount.toLocaleString()}개 결과 - 중요 ${highPriorityCount.toLocaleString()} - 확인 필요 ${watchCount.toLocaleString()}`;
+  const filterSummary = `${matchedCount.toLocaleString()}개 결과, 고우선 ${highPriorityCount.toLocaleString()}개, 갱신 확인 ${watchCount.toLocaleString()}개`;
 
   function buildTermEvidence(term: TermItem): EvidenceItem {
     return {
       kind: "term",
       title: term.canonicalName,
       subtitle: `${labelFor(term.category)} - 별칭 ${term.aliasCount.toLocaleString()}개`,
-      detail: term.notes || "검토에 반영하기 전에 별칭, 식별자, 연결 규정을 확인합니다.",
+      detail: term.notes || "검토에 반영하기 전에 별칭, 식별자, 연결 규정과 근거 출처를 함께 확인하세요.",
       score: term.score,
       chips: uniqueCompact([
         ...term.identifiers.cas.map((value) => `CAS ${value}`),
@@ -289,15 +327,15 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
       kind: "source",
       title: source.title,
       subtitle: `${source.authority} - ${labelFor(source.domain)}`,
-      detail: source.excerpt || "검토에 반영하기 전에 매칭된 출처 발췌와 최신 상태를 확인합니다.",
+      detail: source.excerpt || "검토에 반영하기 전에 공식 원문과 캡처 상태를 확인하세요.",
       score: source.score,
       href: source.url,
       chips: uniqueCompact([
         source.jurisdiction,
         labelFor(source.sourceType),
-        source.priority === "high" ? "중요" : source.priority,
+        source.priority === "high" ? "고우선" : source.priority,
         meta.label,
-        source.documentPath ? "문서 저장됨" : ""
+        source.documentPath ? "문서화됨" : ""
       ]),
       reviewParam: source.title
     };
@@ -319,19 +357,28 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
     >
       <div className="knowledge-command-head">
         <div>
-          <span>대만 규정·용어 검색</span>
-          <h2>한 가지 성분이나 표시문구부터 확인하세요</h2>
-          <p>검색 전후 화면 구조는 그대로 두고, 후보와 근거만 같은 자리에서 바뀝니다.</p>
+          <span>대만 식품·화장품 지식 검색</span>
+          <h2>검색하면 공식 근거와 검토 반영 단계까지 이어집니다.</h2>
+          <p>원료명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드처럼 서로 다른 이름을 한곳에서 연결합니다.</p>
         </div>
-        <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
-          <Search size={19} />
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="대만 화장품 PIF, 식품첨가물, INCI, CAS, HS code"
-            aria-label="지식 검색어"
-          />
-          {loading && <Loader2 className="spin" size={18} />}
+        <div className="knowledge-command-actions">
+          <div className="knowledge-mode-tabs" aria-label="품목군 선택">
+            {focusModes.map((mode) => (
+              <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
+                {mode.label}
+              </button>
+            ))}
+          </div>
+          <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
+            <Search size={19} />
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={focusModeMeta.placeholder}
+              aria-label="지식베이스 검색"
+            />
+            {loading && <Loader2 className="spin" size={18} />}
+          </div>
         </div>
       </div>
 
@@ -340,18 +387,36 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
       <div className="knowledge-results knowledge-results-unified knowledge-results-stable">
         <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
-            <h2>{hasQuery ? "검색 결과" : "검색 대기"}</h2>
-            <span>{hasQuery ? resultCountLabel : "예시를 선택하거나 직접 입력"}</span>
+            <h2>{hasQuery ? "검색 결과" : "검색 시작"}</h2>
+            <span>{hasQuery ? resultCountLabel : "원료, 문구, 코드, 허가 키워드를 입력하세요."}</span>
           </div>
 
           {!hasQuery && (
             <div className="knowledge-search-empty knowledge-search-empty-start">
-              <ShieldCheck size={20} />
-              <b>처음에는 하나만 검색하면 됩니다</b>
-              <span>성분명, CAS, INCI, HS code, 표시문구 중 하나를 넣으면 관련 후보와 공식 근거를 같은 화면에서 정리합니다.</span>
+              <div className="knowledge-start-flow" aria-label="검색 검토 흐름">
+                <div className="active">
+                  <Search size={18} />
+                  <b>1. 검색</b>
+                  <span>원료명, 표시 문구, 허가번호를 입력합니다.</span>
+                </div>
+                <div>
+                  <ShieldCheck size={18} />
+                  <b>2. 공식 근거 확인</b>
+                  <span>대만 공식명, 별칭, 출처를 함께 봅니다.</span>
+                </div>
+                <div>
+                  <PackageSearch size={18} />
+                  <b>3. 검토에 반영</b>
+                  <span>선택한 근거를 라벨 검토 화면으로 넘깁니다.</span>
+                </div>
+              </div>
+              <div className="knowledge-start-copy">
+                <b>{focusModeMeta.title}</b>
+                <span>{focusModeMeta.helper}</span>
+              </div>
               <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
-                <span>예시</span>
-                {onboardingExamples.map((example) => (
+                <span>바로 시작</span>
+                {taskExamples.map((example) => (
                   <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
                     {example.label}
                   </button>
@@ -363,7 +428,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           {hasQuery && data?.ambiguity && (
             <div className="knowledge-ambiguity-panel" role="status">
               <div>
-                <b>비슷한 후보가 있습니다</b>
+                <b>같은 표현이 여러 규제 의미로 쓰입니다.</b>
                 <span>{data.ambiguity.message}</span>
               </div>
               <div>
@@ -379,7 +444,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
 
           {hasQuery && isRefreshing && (
             <div className="knowledge-refresh-note" role="status">
-              결과를 새로 확인하는 중입니다.
+              최신 결과로 갱신하는 중입니다.
             </div>
           )}
 
@@ -402,9 +467,15 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                     ))}
                   </div>
                 </div>
-                <b className="knowledge-score">{Math.round(topResult.score)}</b>
+                <b className="knowledge-score">{topResult.kind === "term" ? "용어" : "근거"}</b>
                 <span className="knowledge-row-action-hint">근거 보기</span>
               </button>
+              <div className="knowledge-best-actions">
+                <Link href={`/?screen=review&knowledge=${encodeURIComponent(topResult.title)}`} className="knowledge-primary-cta">
+                  <PackageSearch size={15} />
+                  대만 라벨 검토에 반영
+                </Link>
+              </div>
             </article>
           )}
 
@@ -430,7 +501,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                         ))}
                       </div>
                     </div>
-                    <b className="knowledge-score">{Math.round(item.score)}</b>
+                    <b className="knowledge-score">{item.kind === "term" ? "용어" : "근거"}</b>
                   </button>
                 </article>
               ))}
@@ -438,17 +509,17 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             {hasQuery && !hasResults && (
               <div className="knowledge-search-empty">
                 <Loader2 className={loading ? "spin" : undefined} size={20} />
-                <b>{loading ? "검색 중입니다." : "검색어에 맞는 후보를 정리하고 있습니다."}</b>
-                <span>결과가 준비되면 같은 자리에서 근거를 선택하고 검토에 반영할 수 있습니다.</span>
+                <b>{loading ? "검색 중입니다." : "아직 결과가 없습니다."}</b>
+                <span>검색어를 조금 더 구체적으로 입력하거나, INCI/CAS/허가번호처럼 원문에 가까운 표현으로 다시 검색해 보세요.</span>
               </div>
             )}
             {hasQuery && hasResults && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 결과가 없습니다.</div>}
             {hasQuery && hasResults && hiddenResultCount > 0 && (
               <div className="knowledge-more-note">
-                <span>{`핵심 후보 ${displayedResultCount.toLocaleString()}개만 먼저 표시했습니다. 남은 후보 ${hiddenResultCount.toLocaleString()}개는 필요할 때 펼쳐보세요.`}</span>
+                <span>{`현재 ${displayedResultCount.toLocaleString()}개를 표시 중입니다. 숨겨진 결과 ${hiddenResultCount.toLocaleString()}개가 더 있습니다.`}</span>
                 {!showAllResults && (
                   <button type="button" onClick={() => setShowAllResults(true)}>
-                    후보 더 보기
+                    더 보기
                   </button>
                 )}
               </div>
@@ -456,15 +527,15 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           </div>
         </section>
 
-        <aside className="knowledge-detail-panel" aria-label="근거 확인">
+        <aside className="knowledge-detail-panel" aria-label="선택한 근거">
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
             <div>
-              <h2>근거 확인</h2>
+              <h2>근거 패널</h2>
               <span>
                 {selectedEvidence
-                  ? "선택한 후보의 공식 출처와 관련 용어를 확인합니다."
-                  : "검색 결과를 선택하면 근거와 검토 연결을 확인할 수 있습니다."}
+                  ? "선택한 항목의 공식 출처, 별칭, 연결 규칙을 검토합니다."
+                  : "검색 결과를 선택하면 검토 근거가 여기에 열립니다."}
               </span>
             </div>
           </div>
@@ -484,9 +555,9 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                 ))}
               </div>
               <div className="knowledge-tray-actions" aria-label="근거 작업">
-                <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`}>
+                <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`} className="primary">
                   <PackageSearch size={15} />
-                  검토에 반영
+                  대만 라벨 검토에 반영
                 </Link>
                 {selectedEvidence.href && (
                   <a href={selectedEvidence.href} target="_blank" rel="noreferrer">
@@ -509,9 +580,23 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
               ) : null}
             </div>
           ) : (
-            <div className="knowledge-evidence-empty">
+            <div className="knowledge-evidence-empty knowledge-evidence-preview">
               <ClipboardCheck size={20} />
-              <p>왼쪽 검색 결과에서 항목을 선택하면 제목, 분류, 근거 상태를 바로 확인할 수 있습니다.</p>
+              <b>결과를 선택하면 다음 단계가 활성화됩니다.</b>
+              <p>공식 근거, 별칭, 원문 링크를 확인한 뒤 라벨 검토 화면으로 반영할 수 있습니다.</p>
+              <div className="knowledge-tray-actions knowledge-tray-actions-disabled" aria-label="예정된 근거 작업">
+                <button type="button" disabled>
+                  <PackageSearch size={15} />
+                  결과 선택 후 검토에 반영
+                </button>
+                <button type="button" disabled>
+                  원문 <ExternalLink size={15} />
+                </button>
+                <button type="button" disabled>
+                  <Search size={15} />
+                  다른 이름으로 재검색
+                </button>
+              </div>
             </div>
           )}
         </aside>
@@ -520,51 +605,51 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
       <details className="knowledge-filter-drawer knowledge-filter-drawer-quiet">
         <summary>
           <Filter size={16} />
-          상세 필터·운영 지표
-          <span>{hasResults ? filterSummary : "검색 후 필요할 때만 펼쳐보세요"}</span>
+          상세 필터·데이터 상태
+          <span>{hasResults ? filterSummary : "검색 후 필요한 경우에만 펼쳐 봅니다."}</span>
         </summary>
-        <div className="knowledge-control-room" aria-label="검색 보조 옵션">
+        <div className="knowledge-control-room" aria-label="검색 필터">
           <div className="knowledge-filter-panel">
-            <FilterGroup title="관할권" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!hasResults} />
-            <FilterGroup title="분야" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!hasResults} />
-            <FilterGroup title="출처" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!hasResults} />
-            <FilterGroup title="범주" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!hasResults} />
-            <FilterGroup title="상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!hasResults} />
+            <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!hasResults} />
+            <FilterGroup title="영역" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!hasResults} />
+            <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!hasResults} />
+            <FilterGroup title="용어 분류" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!hasResults} />
+            <FilterGroup title="근거 상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!hasResults} />
           </div>
 
           {hasResults && (
             <details className="knowledge-health-drawer">
               <summary>
                 <Database size={16} />
-                운영 지표
+                운영 상태
               </summary>
               <div className="knowledge-health-grid">
                 <StatusTile
                   icon={<ShieldCheck size={17} />}
-                  label="매칭 결과"
+                  label="검색 결과"
                   value={matchedCount.toLocaleString()}
-                  detail={`용어 ${filteredTerms.length.toLocaleString()}개 - 근거 ${filteredSources.length.toLocaleString()}개`}
+                  detail={`용어 ${filteredTerms.length.toLocaleString()}개, 출처 ${filteredSources.length.toLocaleString()}개`}
                   tone="green"
                 />
                 <StatusTile
                   icon={<Database size={17} />}
-                  label="중요 출처"
+                  label="고우선 출처"
                   value={highPriorityCount.toLocaleString()}
-                  detail="우선 검토 대상 출처"
+                  detail="검토에서 먼저 확인할 공식 출처"
                   tone="blue"
                 />
                 <StatusTile
                   icon={<RefreshCw size={17} />}
-                  label="확인 필요"
+                  label="갱신 확인"
                   value={watchCount.toLocaleString()}
-                  detail="오래된 캐시 또는 수동 보강 항목"
+                  detail="수동 보강 또는 갱신 감시 대상"
                   tone={watchCount ? "gold" : "green"}
                 />
                 <StatusTile
                   icon={<BookOpen size={17} />}
-                  label="브라우저"
+                  label="브라우저 근거"
                   value={browserCount.toLocaleString()}
-                  detail="브라우저 기반 보강 근거"
+                  detail="직접 캡처된 공식 화면 근거"
                   tone="neutral"
                 />
               </div>
@@ -624,31 +709,66 @@ function StatusTile({
   tone: "green" | "blue" | "gold" | "neutral";
 }) {
   return (
-    <div className={`knowledge-health-card ${tone}`}>
-      <div>
-        {icon}
-        <span>{label}</span>
-      </div>
-      <strong>{value}</strong>
+    <div className={`knowledge-status-tile ${tone}`}>
+      {icon}
+      <span>{label}</span>
+      <b>{value}</b>
       <small>{detail}</small>
     </div>
   );
 }
 
-function buildOptions(values: string[], limit = 7): Option[] {
+function buildOptions(values: string[]) {
   const counts = new Map<string, number>();
-  for (const value of values) {
-    if (!value) continue;
-    counts.set(value, (counts.get(value) ?? 0) + 1);
+  values
+    .map((value) => value?.trim())
+    .filter(Boolean)
+    .forEach((value) => counts.set(value, (counts.get(value) ?? 0) + 1));
+
+  const options = Array.from(counts.entries())
+    .sort((left, right) => right[1] - left[1] || labelFor(left[0]).localeCompare(labelFor(right[0])))
+    .map(([value, count]) => ({ value, label: labelFor(value), count }));
+
+  return [{ value: ALL, label: "전체", count: values.filter(Boolean).length }, ...options];
+}
+
+function matchesFreshness(source: SourceItem, value: string) {
+  if (value === ALL) return true;
+  if (value === "manual") return source.manualFallback;
+  if (value === "browser") return source.browserCapture;
+  if (value === "cache") return source.fromCache;
+  return source.cacheStatus === value;
+}
+
+function freshnessMeta(source: SourceItem) {
+  if (source.browserCapture) return { label: "브라우저 근거", tone: "blue" };
+  if (source.manualFallback) return { label: "수동 보강", tone: "gold" };
+  if (source.cacheStatus === "stale") return { label: "갱신 필요", tone: "gold" };
+  if (source.fromCache) return { label: "캐시", tone: "neutral" };
+  if (source.cacheStatus === "fresh") return { label: "최신", tone: "green" };
+  return { label: "확인 필요", tone: "neutral" };
+}
+
+function decisionForResult(item: UnifiedResult) {
+  if (item.kind === "term") {
+    if (item.score >= 95) return { label: "공식명 확인됨", detail: "입력 표현이 공식명 또는 고신뢰 별칭과 직접 연결됩니다.", tone: "green" };
+    if (item.score >= 70) return { label: "관련 용어", detail: "공식명과 별칭을 함께 확인한 뒤 검토에 반영하세요.", tone: "blue" };
+    return { label: "문맥 확인 필요", detail: "품목군과 용도를 확인해야 하는 후보입니다.", tone: "gold" };
   }
 
-  return [
-    { value: ALL, label: "전체" },
-    ...[...counts.entries()]
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .slice(0, limit)
-      .map(([value, count]) => ({ value, label: labelFor(value), count }))
-  ];
+  if (item.score >= 80) return { label: "공식 근거 있음", detail: "검색어와 가장 가까운 공식 출처입니다.", tone: "green" };
+  if (item.score >= 58) return { label: "참고 근거", detail: "라벨 검토에 참고할 수 있는 공식 출처입니다.", tone: "blue" };
+  return { label: "보조 확인 필요", detail: "연결 문맥을 확인한 뒤 사용하세요.", tone: "neutral" };
+}
+
+function uniqueCompact(values: string[]) {
+  return Array.from(new Set(values.map((value) => compact(value, 42)).filter(Boolean)));
+}
+
+function compact(value: string, maxLength: number) {
+  const normalized = String(value ?? "").replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, Math.max(0, maxLength - 1)).trim()}...`;
 }
 
 function labelFor(value: string) {
@@ -663,67 +783,37 @@ function labelFor(value: string) {
     GLOBAL: "글로벌",
     cosmetics: "화장품",
     food: "식품",
+    food_labeling: "식품 표시",
+    food_import: "식품 수입",
+    food_safety: "식품 안전",
+    food_additives: "식품첨가물",
+    health_food: "건강식품",
+    special_dietary_food: "특수영양식품",
     trade: "무역",
-    general_labeling: "일반 표시",
+    trade_controls: "무역 규제",
     customs: "통관",
-    law: "법률",
+    export_control: "수출통제",
+    chemical_labeling: "화학물질 표시",
+    terminology: "용어",
+    general_labeling: "일반 표시",
+    law: "법령",
     regulation: "규정",
     notice: "고시",
     guidance: "가이드",
     dataset: "데이터셋",
-    cosmetic_ingredient: "화장품 성분",
+    html: "웹문서",
+    pdf: "PDF",
+    manual: "수동",
+    browser_capture: "브라우저 캡처",
+    cosmetic_ingredient: "화장품 원료",
     food_ingredient: "식품 원료",
     food_additive: "식품첨가물",
-    label_claim: "표시 광고",
-    allergen: "알레르기"
+    label_claim: "표시·광고 문구",
+    allergen: "알레르겐",
+    documentation: "서류",
+    import_export: "수출입",
+    term: "용어"
   };
+
   return labels[value] ?? value.replaceAll("_", " ");
-}
-
-function matchesFreshness(source: SourceItem, value: string) {
-  if (value === ALL) return true;
-  if (value === "fresh") return source.cacheStatus === "fresh";
-  if (value === "stale") return source.cacheStatus === "stale";
-  if (value === "manual") return source.manualFallback;
-  if (value === "browser") return source.browserCapture;
-  if (value === "cache") return source.fromCache;
-  return true;
-}
-
-function freshnessMeta(source: SourceItem) {
-  if (source.manualFallback) return { label: "수동 보강", tone: "manual" };
-  if (source.cacheStatus === "stale") return { label: "확인 필요", tone: "stale" };
-  if (source.cacheStatus === "fresh") return { label: source.fromCache ? "캐시 최신" : "최신", tone: "fresh" };
-  return { label: source.cacheStatus || "상태 미확인", tone: "unknown" };
-}
-
-function decisionForResult(item: UnifiedResult) {
-  if (item.kind === "term") {
-    return {
-      label: "명칭 후보",
-      detail: item.chips.some((chip) => chip.startsWith("CAS") || chip.startsWith("INCI"))
-        ? "동일 원료의 CAS, INCI, 현지명을 함께 확인할 수 있습니다."
-        : "대만 검토에 쓸 공식명과 별칭 후보를 먼저 확인합니다.",
-      tone: "green"
-    };
-  }
-
-  const needsReview = item.source.cacheStatus === "stale" || item.source.manualFallback;
-  return {
-    label: needsReview ? "확인 필요" : "공식 근거",
-    detail: needsReview
-      ? "원문 근거는 연결됐지만 최신성 또는 수동 보강 상태를 확인해야 합니다."
-      : `${item.source.authority} 출처의 근거로 검토에 바로 연결할 수 있습니다.`,
-    tone: needsReview ? "gold" : "blue"
-  };
-}
-
-function compact(value: string, maxLength: number) {
-  const normalized = value.replace(/\s+/g, " ").trim();
-  if (normalized.length <= maxLength) return normalized;
-  return `${normalized.slice(0, maxLength - 1).trim()}...`;
-}
-
-function uniqueCompact(values: string[]) {
-  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean))).slice(0, 8);
 }

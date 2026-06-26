@@ -6700,7 +6700,7 @@ h2 {
 
 .knowledge-command-head {
   display: grid;
-  grid-template-columns: minmax(240px, 0.48fr) minmax(340px, 1fr);
+  grid-template-columns: minmax(250px, 0.46fr) minmax(360px, 1fr);
   gap: 16px;
   align-items: end;
   margin-bottom: 14px;
@@ -6724,6 +6724,41 @@ h2 {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.knowledge-command-actions {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.knowledge-mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+
+.knowledge-mode-tabs button {
+  min-height: 32px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.knowledge-mode-tabs button.active {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+  color: #fff;
+}
+
+.knowledge-mode-tabs button:hover:not(.active) {
+  border-color: var(--green);
+  color: var(--green-dark);
 }
 
 .knowledge-searchbar {
@@ -6920,8 +6955,9 @@ h2 {
 }
 
 .knowledge-search-empty-start {
-  min-height: 284px;
+  min-height: 250px;
   justify-items: start;
+  align-content: start;
   text-align: left;
 }
 
@@ -6931,6 +6967,71 @@ h2 {
 
 .knowledge-search-empty-start .knowledge-examples {
   margin-top: 6px;
+}
+
+.knowledge-start-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.knowledge-start-flow > div {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 3px 8px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.knowledge-start-flow > div.active {
+  border-color: #bcd8cd;
+  background: var(--green-soft);
+}
+
+.knowledge-start-flow svg {
+  grid-row: 1 / span 2;
+  color: var(--green-dark);
+}
+
+.knowledge-start-flow b,
+.knowledge-start-flow span,
+.knowledge-start-copy b,
+.knowledge-start-copy span {
+  display: block;
+}
+
+.knowledge-start-flow b {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.knowledge-start-flow span {
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.knowledge-start-copy {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 8px 0 2px;
+}
+
+.knowledge-start-copy b {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.knowledge-start-copy span {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.45;
 }
 
 .knowledge-start-panel {
@@ -7441,6 +7542,36 @@ h2 {
 
 .knowledge-best-main[aria-pressed="true"] .knowledge-row-kind {
   background: var(--green-dark);
+  color: #fff;
+}
+
+.knowledge-best-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.knowledge-primary-cta,
+.knowledge-tray-actions a.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid var(--green-dark);
+  border-radius: 8px;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.knowledge-primary-cta:hover,
+.knowledge-tray-actions a.primary:hover {
+  border-color: #0e5f48;
+  background: #0e5f48;
   color: #fff;
 }
 
@@ -7976,11 +8107,36 @@ h2 {
   text-align: center;
 }
 
+.knowledge-evidence-preview {
+  justify-items: stretch;
+  place-items: initial;
+  text-align: left;
+}
+
+.knowledge-evidence-preview > svg {
+  color: var(--green-dark);
+}
+
+.knowledge-evidence-preview b {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
 .knowledge-evidence-empty p {
   margin: 0;
   max-width: 230px;
   font-size: 13px;
   line-height: 1.5;
+}
+
+.knowledge-evidence-preview p {
+  max-width: 100%;
+}
+
+.knowledge-tray-actions-disabled {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .knowledge-search-empty .knowledge-examples {
@@ -7991,6 +8147,11 @@ h2 {
 
 .knowledge-search-empty .knowledge-examples button {
   background: #fff;
+}
+
+.knowledge-search-empty-start .knowledge-examples {
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .start-hub-shell.start-command-shell-focused {
@@ -8370,6 +8531,7 @@ h2 {
 @media (max-width: 760px) {
   .start-hub-actions,
   .start-workflow-strip,
+  .knowledge-start-flow,
   .knowledge-status-rail {
     grid-template-columns: 1fr;
   }
@@ -8401,6 +8563,20 @@ h2 {
 
   .knowledge-row-action-hint {
     justify-self: end;
+  }
+
+  .knowledge-mode-tabs button {
+    flex: 1 1 92px;
+  }
+
+  .knowledge-section-title {
+    display: grid;
+    justify-content: stretch;
+  }
+
+  .knowledge-section-title span {
+    justify-self: start;
+    text-align: left;
   }
 }
 
