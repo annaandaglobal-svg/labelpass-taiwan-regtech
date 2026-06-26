@@ -414,12 +414,11 @@ function buildInputReadiness(input: ReviewInput) {
   const productTypeReady = hasInputText(input.productType);
   const labelReady = hasInputText(input.ingredientsText) || hasInputText(input.labelText);
   const tradeReady = hasInputText(input.origin) || hasInputText(input.manufacturer) || hasInputText(input.hsCode) || hasInputText(input.incoterms);
-  const readyCount = [productNameReady, productTypeReady, labelReady, tradeReady].filter(Boolean).length;
+  const readyCount = [productNameReady, productTypeReady, labelReady].filter(Boolean).length;
   const missing = [
     !productNameReady ? "제품명" : "",
     !productTypeReady ? "품목 분류" : "",
-    !labelReady ? "성분 또는 라벨" : "",
-    !tradeReady ? "원산지·수입자 자료" : ""
+    !labelReady ? "성분 또는 라벨" : ""
   ].filter(Boolean);
 
   return {
@@ -429,7 +428,7 @@ function buildInputReadiness(input: ReviewInput) {
     productReady: productNameReady && productTypeReady,
     readyCount,
     tradeReady,
-    total: 4
+    total: 3
   };
 }
 
@@ -714,9 +713,11 @@ export default function Home() {
   }
 
   const archiveStatus = archiveCopy[archiveState];
+  const showAssistantPanel = screen !== "review" || Boolean(result || assistantEvidence || assistantQuestion.trim());
+  const isGuidedStart = screen === "review" && !result && !assistantEvidence && !assistantQuestion.trim();
 
   return (
-    <main className="shell">
+    <main className={isGuidedStart ? "shell shell-guided-start" : "shell"}>
       <aside className="sidebar" aria-label="LabelPass navigation">
         <div className="brand">
           <div className="brand-mark">合格</div>
@@ -768,35 +769,47 @@ export default function Home() {
               <div className="command-hero">
                 <div className="command-summary">
                   <span className="dday-chip">
-                    <History size={15} />
-                    D-5 · PIF 확대
+                    <ClipboardCheck size={15} />
+                    첫 단계
                   </span>
                   <div>
-                    <h2>오늘 출고 판단에 필요한 항목만 먼저 확인합니다</h2>
-                    <p>라벨·성분·HS/CCC·수입자 자료를 공식 소스 {knowledgeStats.sources}개와 다국어 용어 {knowledgeStats.terms}개 기준으로 대조합니다.</p>
+                    <h2>라벨·전성분 자료부터 올리세요</h2>
+                    <p>화장품 또는 식품을 고르고, 성분·라벨 텍스트를 붙여넣은 뒤 1차 검토를 시작하세요.</p>
                   </div>
                 </div>
                 <div className="hero-actions">
                   <button className="primary-btn" onClick={focusInputPane}>
                     <ArrowRight size={17} />
-                    입력 폼 이동
+                    자료 올리기
+                  </button>
+                  <button className="ghost-btn" onClick={() => fillSample("food-additive")}>
+                    <Sparkles size={17} />
+                    샘플로 시작
                   </button>
                 </div>
                 <div className="hero-proof">
-                  <span><ShieldCheck size={15} /> 정형 룰 우선</span>
-                  <span><BookOpen size={15} /> 원문 근거</span>
-                  <span><UserRoundCheck size={15} /> 검수 전달</span>
+                  <span><BadgeCheck size={15} /> 1 품목 선택</span>
+                  <span><FileText size={15} /> 2 라벨·성분</span>
+                  <span><ArrowRight size={15} /> 3 검토 시작</span>
                 </div>
               </div>
 
-              <div className="ops-strip" aria-label="LabelPass 운영 상태">
-                <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
-                <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
-                <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
-                <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
-              </div>
+              <details className="ops-disclosure">
+                <summary>
+                  <Info size={15} />
+                  운영 상태
+                  <span>{knowledgeStats.sources}개 공식 소스 · {knowledgeStats.terms}개 용어</span>
+                </summary>
+                <div className="ops-strip" aria-label="LabelPass 운영 상태">
+                  <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
+                  <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
+                  <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
+                  <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
+                </div>
+              </details>
             </div>
 
+            {!isGuidedStart && (
             <div className="command-side-stack">
               <div className="pipeline-card">
                 <div className="pipeline-top">
@@ -835,25 +848,41 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            )}
           </section>
 
-          <div className="review-grid">
+          <div className={result || isAnalyzing ? "review-grid" : "review-grid review-grid-start"}>
             <section className="input-pane">
               <div className="intake-rail" aria-label="검토 입력 단계">
-                <span className={inputReadiness.productReady ? "done" : "now"}>1 품목</span>
-                <span className={inputReadiness.labelReady ? "done" : inputReadiness.productReady ? "now" : ""}>2 라벨·성분</span>
-                <span className={inputReadiness.tradeReady ? "done" : inputReadiness.labelReady ? "now" : ""}>3 통관</span>
-                <span className={result ? "done" : inputReadiness.canReview ? "now" : ""}>4 판정</span>
+                <span className={inputReadiness.labelReady ? "done" : "now"}>1 자료</span>
+                <span className={inputReadiness.productReady ? "done" : inputReadiness.labelReady ? "now" : ""}>2 품목</span>
+                <span className={inputReadiness.tradeReady ? "done" : ""}>3 선택자료</span>
+                <span className={result ? "done" : inputReadiness.canReview ? "now" : ""}>4 리포트</span>
               </div>
               <div className="step-row">
                 <span>1</span>
                 <div>
-                  <b>어떤 제품인가요?</b>
-                  <p>AI가 품목을 추정하고, 사용자는 확인만 하도록 설계했습니다.</p>
+                  <b>라벨·전성분 자료 올리기</b>
+                  <p>파일이 있으면 올리고, 지금은 전성분이나 라벨 문구를 붙여넣어도 됩니다.</p>
                 </div>
               </div>
 
-              <div className="quick-review-bar">
+              <div className="start-upload-card">
+                <button className="start-upload-main" onClick={() => setToast("파일 업로드 자리입니다. 지금은 아래 전성분·라벨 텍스트 입력으로 검토할 수 있습니다.")}>
+                  <Upload size={20} />
+                  <span>
+                    <b>라벨/PDF 올리기</b>
+                    <small>또는 아래에 전성분을 직접 붙여넣기</small>
+                  </span>
+                </button>
+                <div className="start-shortcuts">
+                  <button onClick={() => fillSample("food-additive")}>샘플로 1분 체험</button>
+                  <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
+                  <button onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
+                </div>
+              </div>
+
+              <div className={result ? "quick-review-bar" : "quick-review-bar quick-review-bar-start"}>
                 <div className="review-cta-stack">
                   <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
                     {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
@@ -861,6 +890,7 @@ export default function Home() {
                   </button>
                   <small>{inputReadiness.canReview ? "필수 입력 완료 · 통관 자료가 있으면 판정 정확도가 올라갑니다." : `${inputReadiness.missing.slice(0, 2).join(", ")} 입력 시 판정 품질이 좋아집니다.`}</small>
                 </div>
+                {result && (
                 <div className={`archive-status ${archiveStatus.tone}`} aria-live="polite">
                   <Database size={15} />
                   <div>
@@ -868,6 +898,7 @@ export default function Home() {
                     <small>{archiveStatus.detail}</small>
                   </div>
                 </div>
+                )}
               </div>
 
               <div className="input-completeness" aria-live="polite">
@@ -942,6 +973,12 @@ export default function Home() {
                 </label>
               </div>
 
+              <details className="optional-section">
+                <summary>
+                  <Ship size={16} />
+                  통관 자료도 있으면 추가
+                  <small>HS/CCC, 원산지, 수입자, 인보이스</small>
+                </summary>
               <div className="form-section">
                 <div className="section-title">
                   <Ship size={16} />
@@ -980,6 +1017,7 @@ export default function Home() {
                   </label>
                 </div>
               </div>
+              </details>
 
               <div className="action-row">
                 <details className="sample-drawer">
@@ -1002,8 +1040,8 @@ export default function Home() {
               </div>
             </section>
 
+            {(result || isAnalyzing) && (
             <section className="result-pane">
-              {!result && !isAnalyzing && <EmptyResult />}
               {isAnalyzing && <Analyzing />}
               {result && visibleStatus && currentActionPlan && (
                 <>
@@ -1137,6 +1175,7 @@ export default function Home() {
                 </>
               )}
             </section>
+            )}
           </div>
           </>
         )}
@@ -1152,7 +1191,7 @@ export default function Home() {
         {screen === "partners" && <PartnersScreen onExpert={() => setShowExpertModal(true)} onLogistics={() => setShowLogisticsModal(true)} />}
       </section>
 
-      <aside className="assistant-panel">
+      <aside className={showAssistantPanel ? "assistant-panel" : "assistant-panel assistant-panel-collapsed"} aria-hidden={!showAssistantPanel}>
         <div className="assistant-header">
           <Bot size={19} />
           <div>
@@ -1619,54 +1658,19 @@ function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; 
 
 function EmptyResult() {
   return (
-    <div className="empty-result">
+    <div className="empty-result empty-result-simple">
       <div className="empty-head">
         <span className="mini-seal">TW</span>
         <div>
-          <b>대만 출고 게이트</b>
-          <p>성분·표시·통관 자료가 들어오면 공식 룰셋으로 즉시 분리 판정합니다.</p>
-        </div>
-      </div>
-      <div className="empty-layout">
-        <div className="preflight-card">
-          <div className="preflight-score">
-            <small>검토 준비</small>
-            <strong>필수 자료 3종</strong>
-            <span>제품 분류, 라벨·성분, 통관 자료를 같은 버전으로 맞추면 판정 품질이 올라갑니다.</span>
-          </div>
-          <div className="preflight-list" aria-label="검토 전 자료 체크">
-            <PreflightRow icon={<BadgeCheck size={16} />} title="품목 분류" detail="화장품 · 식품 · 식품용 포장재" status="필수" />
-            <PreflightRow icon={<FileText size={16} />} title="라벨/OCR" detail="중문 품명, 용도, 전성분, 원산지, 배치번호" status="필수" />
-            <PreflightRow icon={<FlaskConical size={16} />} title="성분·별칭" detail="INCI, CAS, 현지명, 농도 표현을 함께 검색" status="핵심" />
-            <PreflightRow icon={<Ship size={16} />} title="통관 자료" detail="HS/CCC, 수입자, 인보이스, 출하 목적" status="권장" />
-          </div>
-        </div>
-
-        <div className="gate-stack">
-          <div className="gate-score">
-            <small>검토 전</small>
-            <strong>4개 블록 대기</strong>
-            <span>입력 즉시 위반·자료부족·주의·통과로 나눕니다.</span>
-          </div>
-          <GateLine icon={<FlaskConical size={16} />} title="성분·농도" detail="금지/제한 성분, 농도 초과, 별칭 정규화" code="TW-COS" />
-          <GateLine icon={<FileText size={16} />} title="중문 라벨" detail="품명, 용도, 전성분, 원산지, 배치번호" code="LABEL" />
-          <GateLine icon={<PackageCheck size={16} />} title="식품 표시" detail="알레르겐, 첨가물, 영양·강조 문구" code="TW-FOOD" />
-          <GateLine icon={<Ship size={16} />} title="통관 자료" detail="HS/CCC, 출하 목적, 수입자·송장 정보" code="CUSTOMS" />
+          <b>검토는 왼쪽 입력부터 시작합니다</b>
+          <p>처음에는 제품명, 제품 유형, 성분·라벨 텍스트만 있으면 됩니다.</p>
         </div>
       </div>
 
-      <div className="law-strip" aria-label="적용 근거">
-        <span>TFDA 화장품</span>
-        <span>식품 표시법</span>
-        <span>수입검사 면제</span>
-        <span>관세 사전심사</span>
-      </div>
-
-      <div className="decision-path">
-        <span>입력</span>
-        <span>정형 룰 대조</span>
-        <span>근거 링크</span>
-        <span>수정 지시</span>
+      <div className="start-path" aria-label="검토 시작 순서">
+        <span><b>1. 품목</b><small>화장품 또는 식품</small></span>
+        <span><b>2. 라벨·성분</b><small>붙여넣기 또는 OCR</small></span>
+        <span><b>3. 검토</b><small>위험 항목만 리포트</small></span>
       </div>
     </div>
   );
