@@ -58,7 +58,7 @@ const fixedFreshnessOptions: Option[] = [
 ];
 
 export default function KnowledgeSearchClient() {
-  const [query, setQuery] = useState("PIF");
+  const [query, setQuery] = useState("");
   const [data, setData] = useState<KnowledgeSearchResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -151,6 +151,7 @@ export default function KnowledgeSearchClient() {
   const highPriorityCount = filteredSources.filter((source) => source.priority === "high").length;
   const watchCount = filteredSources.filter((source) => source.manualFallback || source.cacheStatus === "stale").length;
   const browserCount = filteredSources.filter((source) => source.browserCapture).length;
+  const matchedCount = filteredTerms.length + filteredSources.length;
 
   function selectTerm(term: TermItem) {
     const chips = uniqueCompact([
@@ -212,64 +213,69 @@ export default function KnowledgeSearchClient() {
 
       {error && <div className="knowledge-alert">{error}</div>}
 
-      {data && (
-        <>
-          <div className="knowledge-summary">
-            <span>{data.totals.terms.toLocaleString()}개 용어</span>
-            <span>{data.totals.aliases.toLocaleString()}개 별칭</span>
-            <span>{data.totals.ruleLinks.toLocaleString()}개 규칙 연결</span>
-            <span>{data.totals.sources.toLocaleString()}개 출처</span>
-          </div>
+      <div className="knowledge-summary">
+        <span>{data ? `${data.totals.terms.toLocaleString()}개 용어` : "용어·별칭 검색"}</span>
+        <span>{data ? `${data.totals.aliases.toLocaleString()}개 별칭` : "INCI·CAS·현지명"}</span>
+        <span>{data ? `${data.totals.ruleLinks.toLocaleString()}개 규칙 연결` : "규칙·고시 연결"}</span>
+        <span>{data ? `${data.totals.sources.toLocaleString()}개 출처` : "공식 출처 비교"}</span>
+      </div>
 
-          <div className="knowledge-control-room" aria-label="검색 결과 제어판">
-            <div className="knowledge-filter-panel">
-              <div className="knowledge-panel-title">
-                <Filter size={17} />
-                <div>
-                  <b>검색 필터</b>
-                  <span>관할, 도메인, 출처 유형, 분류, 신선도로 검색 범위를 좁힙니다.</span>
-                </div>
+      <details className="knowledge-filter-drawer">
+        <summary>
+          <Filter size={16} />
+          상세 필터와 운영 상태
+          <span>
+            {data ? `일치 ${matchedCount} · 우선 검토 ${highPriorityCount}` : "검색 후 이 자리에서 범위를 좁힙니다"}
+          </span>
+        </summary>
+        <div className="knowledge-control-room" aria-label="검색 결과 제어판">
+          <div className="knowledge-filter-panel">
+            <div className="knowledge-panel-title">
+              <Filter size={17} />
+              <div>
+                <b>검색 필터</b>
+                <span>관할, 도메인, 출처 유형, 분류, 신선도로 검색 범위를 좁힙니다.</span>
               </div>
-              <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} />
-              <FilterGroup title="도메인" value={domain} options={filterOptions.domains} onChange={setDomain} />
-              <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} />
-              <FilterGroup title="분류" value={category} options={filterOptions.categories} onChange={setCategory} />
-              <FilterGroup title="신선도" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} />
             </div>
-
-            <div className="knowledge-health-grid">
-              <StatusTile
-                icon={<ShieldCheck size={17} />}
-                label="일치한 항목"
-                value={`${filteredTerms.length + filteredSources.length}`}
-                detail={`용어 ${filteredTerms.length.toLocaleString()}개 · 출처 ${filteredSources.length.toLocaleString()}개`}
-                tone="green"
-              />
-              <StatusTile
-                icon={<Database size={17} />}
-                label="우선 검토 자료"
-                value={highPriorityCount.toLocaleString()}
-                detail="우선 검토가 필요한 공식 자료"
-                tone="blue"
-              />
-              <StatusTile
-                icon={<RefreshCw size={17} />}
-                label="갱신 감시"
-                value={watchCount.toLocaleString()}
-                detail="갱신 필요 또는 수동 보완 상태"
-                tone={watchCount ? "gold" : "green"}
-              />
-              <StatusTile
-                icon={<BookOpen size={17} />}
-                label="브라우저 수집"
-                value={browserCount.toLocaleString()}
-                detail="브라우저에서 확보한 보조 근거"
-                tone="neutral"
-              />
-            </div>
+            <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} />
+            <FilterGroup title="도메인" value={domain} options={filterOptions.domains} onChange={setDomain} />
+            <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} />
+            <FilterGroup title="분류" value={category} options={filterOptions.categories} onChange={setCategory} />
+            <FilterGroup title="신선도" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} />
           </div>
-        </>
-      )}
+
+          <div className="knowledge-health-grid">
+            <StatusTile
+              icon={<ShieldCheck size={17} />}
+              label="일치한 항목"
+              value={data ? matchedCount.toLocaleString() : "대기"}
+              detail={data ? `용어 ${filteredTerms.length.toLocaleString()}개 · 출처 ${filteredSources.length.toLocaleString()}개` : "검색어를 넣으면 결과 기준으로 갱신됩니다"}
+              tone="green"
+            />
+            <StatusTile
+              icon={<Database size={17} />}
+              label="우선 검토 자료"
+              value={data ? highPriorityCount.toLocaleString() : "대기"}
+              detail="우선 검토가 필요한 공식 자료"
+              tone="blue"
+            />
+            <StatusTile
+              icon={<RefreshCw size={17} />}
+              label="갱신 감시"
+              value={data ? watchCount.toLocaleString() : "대기"}
+              detail="갱신 필요 또는 수동 보완 상태"
+              tone={watchCount ? "gold" : "green"}
+            />
+            <StatusTile
+              icon={<BookOpen size={17} />}
+              label="브라우저 수집"
+              value={data ? browserCount.toLocaleString() : "대기"}
+              detail="브라우저에서 확보한 보조 근거"
+              tone="neutral"
+            />
+          </div>
+        </div>
+      </details>
 
       <div className="knowledge-results">
         <section className="knowledge-result-column">

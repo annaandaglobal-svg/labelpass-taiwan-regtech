@@ -44,23 +44,37 @@ export default function KnowledgePage() {
         </div>
       </section>
 
-      <section className="knowledge-ops" aria-label="지식베이스 운영 현황">
-        <div>
-          <span>최근 수집</span>
-          <strong>{latestFetched}</strong>
+      <details className="knowledge-ops" aria-label="지식베이스 운영 현황">
+        <summary>
+          <span>지식베이스 운영 현황</span>
+          <strong>
+            출처 {totals.sources.toLocaleString()}개 · 별칭 {totals.aliases.toLocaleString()}개 · 규칙{" "}
+            {totals.ruleLinks.toLocaleString()}개
+          </strong>
           <small>
-            다음 갱신 {nextRefresh} · 갱신 필요 {overview.operations.staleSources.toLocaleString()}개 · 3일 내 만료 예상{" "}
-            {overview.operations.expiringSoonSources.toLocaleString()}개 · 캐시 반영 {overview.operations.fromCache.toLocaleString()}개 ·
-            브라우저 수집 {overview.operations.browserCaptures.toLocaleString()}개 · 수동 보완 {overview.operations.manualFallbacks.toLocaleString()}
-            개 · 업데이트 후보 {overview.operations.updateCandidates.toLocaleString()}개 · 대기 중 업데이트{" "}
-            {overview.operations.pendingUpdateCandidates.toLocaleString()}개 · 감시 중 {overview.operations.watchedUpdateSources.toLocaleString()}개
+            최근 수집 {latestFetched} · 갱신 필요 {overview.operations.staleSources.toLocaleString()}개 · 감시 중{" "}
+            {overview.operations.watchedUpdateSources.toLocaleString()}개
           </small>
+        </summary>
+        <div className="knowledge-ops-grid">
+          <div>
+            <span>최근 수집</span>
+            <strong>{latestFetched}</strong>
+            <small>
+              다음 갱신 {nextRefresh} · 3일 내 만료 예상 {overview.operations.expiringSoonSources.toLocaleString()}개 ·
+              캐시 반영 {overview.operations.fromCache.toLocaleString()}개 · 브라우저 수집{" "}
+              {overview.operations.browserCaptures.toLocaleString()}개 · 수동 보완{" "}
+              {overview.operations.manualFallbacks.toLocaleString()}개 · 업데이트 후보{" "}
+              {overview.operations.updateCandidates.toLocaleString()}개 · 대기 중 업데이트{" "}
+              {overview.operations.pendingUpdateCandidates.toLocaleString()}개
+            </small>
+          </div>
+          <OverviewGroup title="관할" items={overview.coverage.jurisdictions} />
+          <OverviewGroup title="도메인" items={overview.coverage.domains} />
+          <OverviewGroup title="분류" items={overview.coverage.categories} />
+          <OverviewGroup title="언어" items={overview.coverage.languages} />
         </div>
-        <OverviewGroup title="관할" items={overview.coverage.jurisdictions} />
-        <OverviewGroup title="도메인" items={overview.coverage.domains} />
-        <OverviewGroup title="분류" items={overview.coverage.categories} />
-        <OverviewGroup title="언어" items={overview.coverage.languages} />
-      </section>
+      </details>
 
       <KnowledgeSearchClient />
     </main>

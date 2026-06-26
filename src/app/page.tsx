@@ -6,7 +6,6 @@ import {
   ArrowRight,
   BadgeCheck,
   BookOpen,
-  Bot,
   Check,
   ChevronDown,
   ClipboardCheck,
@@ -30,7 +29,7 @@ import {
   UserRoundCheck,
   X
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { buildReviewActionPlan, type ReviewActionPlan } from "@/lib/review-action-plan";
@@ -450,6 +449,8 @@ export default function Home() {
   const [toast, setToast] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const assistantSourceCards = useMemo(() => {
     const priorityTitles = [
       "Food additive permit query",
@@ -465,6 +466,16 @@ export default function Home() {
     return [...priorityCards, ...fallbackCards].slice(0, 4);
   }, []);
   const currentActionPlan = useMemo(() => result ? actionPlanForResult(result) : null, [result]);
+  const workActionItems = useMemo(() => {
+    if (!currentActionPlan) return [];
+    const seen = new Set<string>();
+    return currentActionPlan.actionItems.filter((item) => {
+      const key = `${item.owner}:${item.primaryFix || item.title}`.replace(/\s+/g, " ").trim();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).slice(0, 3);
+  }, [currentActionPlan]);
   const inputReadiness = useMemo(() => buildInputReadiness(input), [input]);
 
   useEffect(() => {
@@ -561,6 +572,13 @@ export default function Home() {
 
   function updateInput<K extends keyof ReviewInput>(key: K, value: ReviewInput[K]) {
     setInput((current) => ({ ...current, [key]: value }));
+  }
+
+  function handleFiles(files: FileList | null) {
+    const names = Array.from(files ?? []).map((file) => file.name).filter(Boolean);
+    if (names.length === 0) return;
+    setUploadedFiles((current) => [...names, ...current].slice(0, 4));
+    setToast(`${names.length}개 파일을 작업대에 연결했습니다. OCR 텍스트가 있으면 아래 라벨 문구에 붙여넣어 검토하세요.`);
   }
 
   function archiveReviewLater(review: SavedReview) {
@@ -728,8 +746,7 @@ export default function Home() {
 
   const archiveStatus = archiveCopy[archiveState];
   const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
-  const isGuidedStart = screen === "review" && !result && !assistantEvidence && !assistantQuestion.trim();
-  const shellClassName = isGuidedStart ? "shell shell-guided-start" : !showAssistantPanel ? "shell shell-no-assistant" : "shell";
+  const shellClassName = "shell shell-console";
 
   return (
     <main className={shellClassName}>
@@ -743,10 +760,12 @@ export default function Home() {
         </div>
 
         <nav className="nav-list">
-          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="새 라벨 검토" onClick={() => setScreen("review")} />
-          <NavButton active={screen === "products"} icon={<Archive />} label="내 제품" onClick={() => setScreen("products")} />
-          <NavButton active={screen === "updates"} icon={<BookOpen />} label="규제 업데이트" onClick={() => setScreen("updates")} />
-          <NavButton active={screen === "partners"} icon={<Ship />} label="전문가·통관" onClick={() => setScreen("partners")} />
+          <NavButton active={screen === "review" && !result} icon={<PackageCheck />} label="대시보드" onClick={() => setScreen("review")} />
+          <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="라벨 검토" onClick={() => setScreen("review")} />
+          <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
+          <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
+          <NavButton active={screen === "updates"} icon={<BookOpen />} label="라벨/문구 라이브러리" onClick={() => setScreen("updates")} />
+          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="승인/업무함" onClick={() => setScreen("partners")} />
         </nav>
 
         <div className="side-panel">
@@ -759,111 +778,130 @@ export default function Home() {
       <section className="workspace">
         <header className="topbar">
           <div>
-            <p className="eyebrow">1차 스크리닝 · 법률 자문 아님 · 기준일 {nowTime()}</p>
+            <p className="eyebrow">대만 · 식품/화장품 · 기준일 {nowTime()}</p>
             <h1>{screen === "review" ? "대만 수출 라벨·통관 검토" : screenTitle(screen)}</h1>
           </div>
-          <div className="top-actions">
-            <a className="ghost-btn" href="/knowledge">
-              <Search size={17} /> 용어 검색
-            </a>
-            <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
-              <UserRoundCheck size={17} /> 전문가 검수
+          <form className="global-search" onSubmit={(event) => { event.preventDefault(); void askAssistant(); }}>
+            <Search size={16} />
+            <input
+              value={assistantQuestion}
+              onChange={(event) => setAssistantQuestion(event.target.value)}
+              placeholder="원료, 표시문구, 대만 규정, 과거 검토 검색"
+            />
+            <button type="submit" disabled={!assistantQuestion.trim() || isAssistantThinking}>
+              검색
             </button>
-            {screen !== "review" && (
-              <button className="primary-btn" onClick={() => setScreen("review")}>
-                <Sparkles size={17} /> 새 검토
-              </button>
-            )}
+          </form>
+          <div className="top-actions">
+            <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
+              {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />} 검토 실행
+            </button>
+            <button className="ghost-btn" onClick={() => setToast("초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")} disabled={!inputReadiness.labelReady && !inputReadiness.productReady}>
+              <Database size={17} /> 초안 저장
+            </button>
+            <button className="ghost-btn" onClick={downloadReport} disabled={!result}>
+              <Download size={17} /> 리포트
+            </button>
+            <button className="ghost-btn" onClick={() => setShowExpertModal(true)} disabled={!result}>
+              <UserRoundCheck size={17} /> 승인 요청
+            </button>
           </div>
         </header>
 
         {screen === "review" && (
           <>
-          <section className="command-center" aria-label="LabelPass 검토 현황">
-            <div className="command-main-stack">
-              <div className="command-hero">
-                <div className="command-summary">
-                  <span className="dday-chip">
-                    <ClipboardCheck size={15} />
-                    첫 단계
+          <section className="console-board" aria-label="LabelPass 기능 지도">
+            <div className="console-start-card">
+              <div className="console-card-head">
+                <span><ClipboardCheck size={16} /></span>
+                <div>
+                  <b>새 검토 시작</b>
+                  <small>자료를 넣으면 같은 작업대에서 검토, 검색, 승인까지 이어집니다.</small>
+                </div>
+              </div>
+              <div className="console-start-actions">
+                <button onClick={() => fileInputRef.current?.click()}>
+                  <Upload size={18} />
+                  <span>
+                    <b>라벨 파일 업로드</b>
+                    <small>PDF, 이미지, OCR 결과</small>
                   </span>
-                  <div>
-                    <h2>라벨·전성분 자료부터 올리세요</h2>
-                    <p>화장품 또는 식품을 고르고, 성분·라벨 텍스트를 붙여넣은 뒤 1차 검토를 시작하세요.</p>
-                  </div>
-                </div>
-                <div className="hero-actions">
-                  <button className="primary-btn" onClick={focusInputPane}>
-                    <ArrowRight size={17} />
-                    자료 올리기
-                  </button>
-                  <button className="ghost-btn" onClick={() => fillSample("food-additive")}>
-                    <Sparkles size={17} />
-                    샘플로 시작
-                  </button>
-                </div>
-                <div className="hero-proof">
-                  <span><BadgeCheck size={15} /> 1 품목 선택</span>
-                  <span><FileText size={15} /> 2 라벨·성분</span>
-                  <span><ArrowRight size={15} /> 3 검토 시작</span>
-                </div>
+                </button>
+                <button onClick={focusInputPane}>
+                  <FileText size={18} />
+                  <span>
+                    <b>성분/문구 붙여넣기</b>
+                    <small>전성분, 번체 라벨, 경고문</small>
+                  </span>
+                </button>
+                <button onClick={() => setScreen("products")}>
+                  <Archive size={18} />
+                  <span>
+                    <b>기존 제품 불러오기</b>
+                    <small>이전 검토를 이어서 실행</small>
+                  </span>
+                </button>
               </div>
-
-              <details className="ops-disclosure">
-                <summary>
-                  <Info size={15} />
-                  운영 상태
-                  <span>{knowledgeStats.sources}개 공식 소스 · {knowledgeStats.terms}개 용어</span>
-                </summary>
-                <div className="ops-strip" aria-label="LabelPass 운영 상태">
-                  <StatusTile icon={<BookOpen />} label="공식 소스" value={knowledgeStats.sources} detail="대만·글로벌 원문 캐시" />
-                  <StatusTile icon={<Search />} label="검색 별칭" value={knowledgeStats.aliases} detail="다국어 성분·통관 용어" />
-                  <StatusTile icon={<ClipboardCheck />} label="검증 케이스" value={knowledgeStats.knowledgeCases} detail={`${knowledgeStats.reviewCases}개 검토 · ${knowledgeStats.sourceCases}개 소스`} />
-                  <StatusTile icon={<RefreshCw />} label="감시 큐" value={`${regulatoryUpdateQueue.summary.total}`} detail={`${regulatoryUpdateQueue.summary.pending_refresh}개 갱신 대기`} />
-                </div>
-              </details>
-            </div>
-
-            {!isGuidedStart && (
-            <div className="command-side-stack">
-              <div className="pipeline-card">
-                <div className="pipeline-top">
-                  <span className="pipeline-badge">진행 중</span>
-                  <div>
-                    <b>수분 진정 토너 300ml</b>
-                    <small>대만 · v3 · 라벨 수정 단계</small>
-                  </div>
-                </div>
-                <ProgressRail />
-                <div className="pipeline-foot">
-                  <span>다음 조치: 중문 주의사항·대만 수입자 정보 보강</span>
-                  <button onClick={() => fillSample("risky")}>샘플 불러오기</button>
-                </div>
-              </div>
-
-              <div className="impact-card">
-                <div className="impact-card-head">
-                  <div>
-                    <span>내 제품 영향</span>
-                    <b>규제 업데이트 우선순위</b>
-                  </div>
-                  <button onClick={() => setScreen("updates")}>전체 보기</button>
-                </div>
-                <div className="impact-list">
-                  {productImpactItems.map((item) => (
-                    <div key={item.title} className={`impact-item ${item.tone}`}>
-                      <span>{item.badge}</span>
-                      <div>
-                        <b>{item.title}</b>
-                        <small>{item.detail}</small>
-                      </div>
-                      <em>{item.status}</em>
-                    </div>
+              <input
+                ref={fileInputRef}
+                className="file-picker"
+                type="file"
+                multiple
+                accept=".pdf,image/*,.txt,.csv"
+                onChange={(event) => handleFiles(event.target.files)}
+              />
+              {uploadedFiles.length > 0 && (
+                <div className="file-chip-row" aria-label="연결된 파일">
+                  {uploadedFiles.map((file) => (
+                    <span key={file}><FileText size={13} />{file}</span>
                   ))}
                 </div>
+              )}
+            </div>
+
+            <div className="console-scope-card">
+              <div className="console-card-head">
+                <span><ShieldCheck size={16} /></span>
+                <div>
+                  <b>LabelPass가 확인하는 것</b>
+                  <small>기능은 처음부터 보이고, 결과만 상황에 맞게 바뀝니다.</small>
+                </div>
+              </div>
+              <div className="scope-grid">
+                <span>필수 표시사항</span>
+                <span>성분/알레르겐</span>
+                <span>효능/클레임</span>
+                <span>번체 중국어 표기</span>
+                <span>경고문/금지 표현</span>
+                <span>수입·통관 문서</span>
+              </div>
+              <div className="console-knowledge-row">
+                <button onClick={() => { window.location.href = "/knowledge"; }}>
+                  <Search size={16} /> 규정 검색
+                </button>
+                <button onClick={() => setScreen("updates")}>
+                  <BookOpen size={16} /> 라벨/문구 라이브러리
+                </button>
+                <button onClick={() => setScreen("partners")}>
+                  <UserRoundCheck size={16} /> 승인/업무함
+                </button>
               </div>
             </div>
-            )}
+
+            <div className="console-status-card">
+              <div className="console-card-head">
+                <span><Database size={16} /></span>
+                <div>
+                  <b>운영 지식베이스</b>
+                  <small>{knowledgeStats.sources}개 공식 출처 · {knowledgeStats.aliases}개 검색 별칭</small>
+                </div>
+              </div>
+              <div className="compact-stat-row">
+                <span><b>{knowledgeStats.terms}</b><small>용어</small></span>
+                <span><b>{knowledgeStats.knowledgeCases}</b><small>검색 검증</small></span>
+                <span><b>{regulatoryUpdateQueue.summary.total}</b><small>감시 큐</small></span>
+              </div>
+            </div>
           </section>
 
           <div className={result || isAnalyzing ? "review-grid" : "review-grid review-grid-start"}>
@@ -883,13 +921,20 @@ export default function Home() {
               </div>
 
               <div className="start-upload-card">
-                <button className="start-upload-main" onClick={() => setToast("파일 업로드 자리입니다. 지금은 아래 전성분·라벨 텍스트 입력으로 검토할 수 있습니다.")}>
+                <button className="start-upload-main" onClick={() => fileInputRef.current?.click()}>
                   <Upload size={20} />
                   <span>
                     <b>라벨/PDF 올리기</b>
-                    <small>또는 아래에 전성분을 직접 붙여넣기</small>
+                    <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "또는 아래에 전성분을 직접 붙여넣기"}</small>
                   </span>
                 </button>
+                {uploadedFiles.length > 0 && (
+                  <div className="file-chip-row compact" aria-label="입력 패널 연결 파일">
+                    {uploadedFiles.map((file) => (
+                      <span key={file}><FileText size={13} />{file}</span>
+                    ))}
+                  </div>
+                )}
                 <div className="start-shortcuts">
                   <button onClick={() => fillSample("food-additive")}>샘플로 1분 체험</button>
                   <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
@@ -972,11 +1017,11 @@ export default function Home() {
                 </label>
 
                 <div className="upload-row">
-                  <button className="upload-box" onClick={() => setToast("라벨 앞면 파일이 첨부된 것으로 표시했습니다.")}>
+                  <button className="upload-box" onClick={() => fileInputRef.current?.click()}>
                     <Upload size={19} />
                     <span>라벨 앞면/PDF 업로드</span>
                   </button>
-                  <button className="upload-box" onClick={() => setToast("라벨 뒷면 파일이 첨부된 것으로 표시했습니다.")}>
+                  <button className="upload-box" onClick={() => fileInputRef.current?.click()}>
                     <Upload size={19} />
                     <span>라벨 뒷면/PDF 업로드</span>
                   </button>
@@ -1215,35 +1260,128 @@ export default function Home() {
         {screen === "partners" && <PartnersScreen onExpert={() => setShowExpertModal(true)} onLogistics={() => setShowLogisticsModal(true)} />}
       </section>
 
-      <aside className={showAssistantPanel ? "assistant-panel" : "assistant-panel assistant-panel-collapsed"} aria-hidden={!showAssistantPanel}>
-        <div className="assistant-header">
-          <Bot size={19} />
+      <aside className="work-panel" aria-label="LabelPass 작업 패널">
+        <div className="work-panel-section work-panel-head">
+          <span><ClipboardCheck size={18} /></span>
           <div>
-            <b>규제 어시스턴트</b>
-            <span>현재 리포트 맥락으로 답변</span>
+            <b>{result ? "작업 패널" : "오늘의 업무"}</b>
+            <small>{result ? "위험도, 수정안, 근거, 승인 요청을 한 자리에서 처리합니다." : "검토 전에도 사용할 수 있는 기능을 항상 보여줍니다."}</small>
           </div>
         </div>
-        <div className="answer">{assistantAnswer}</div>
-        {assistantEvidence && (
-          <div className="assistant-evidence-pack" aria-label="연결된 지식베이스 근거">
-            <span>{assistantEvidence.confidence}</span>
-            <b>{assistantEvidence.terms[0]?.canonicalName ?? assistantEvidence.query}</b>
-            <small>{assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}</small>
+
+        <div className="work-panel-section">
+          <div className="work-section-title">
+            <b>{result && currentActionPlan ? "다음 행동" : "검토 대기"}</b>
+            <small>{result && currentActionPlan ? currentActionPlan.nextAction : `${inputReadiness.readyCount}/${inputReadiness.total} 입력 완료`}</small>
           </div>
-        )}
-        <div className="ask-row">
-          <input value={assistantQuestion} onChange={(event) => setAssistantQuestion(event.target.value)} placeholder="예: Triclosan 대체안은?" />
-          <button onClick={() => void askAssistant()} aria-label="질문 보내기" disabled={isAssistantThinking}>
-            {isAssistantThinking ? <RefreshCw className="spin" size={16} /> : <Send size={16} />}
-          </button>
+
+          {result && currentActionPlan ? (
+            <div className="work-action-list">
+              {workActionItems.map((item) => (
+                <button key={item.id} className={`work-action ${statusTone(item.status)}`} onClick={() => openResultDetails(item.findingId)}>
+                  <span>{item.owner}</span>
+                  <b>{item.primaryFix}</b>
+                  <small>{item.eta} · {item.impact}</small>
+                </button>
+              ))}
+              {workActionItems.length === 0 && (
+                <div className="work-empty">
+                  <ShieldCheck size={17} />
+                  <b>차단 항목 없음</b>
+                  <small>리포트와 근거만 보관하면 됩니다.</small>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="work-action-list">
+              <button className="work-action" onClick={() => fileInputRef.current?.click()}>
+                <span>1</span>
+                <b>라벨 자료 추가</b>
+                <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "PDF, 이미지, OCR 결과"}</small>
+              </button>
+              <button className="work-action" onClick={() => { window.location.href = "/knowledge"; }}>
+                <span>2</span>
+                <b>규정 검색</b>
+                <small>원료, 표시문구, 대만 규정 검색</small>
+              </button>
+              <button className="work-action muted" onClick={() => setToast("초안 저장은 DB 연결 후 서버 보관으로 전환됩니다.")}>
+                <span>3</span>
+                <b>초안 저장</b>
+                <small>입력 자료와 검토 버전 보관</small>
+              </button>
+              <button className="work-action muted" onClick={() => setShowExpertModal(true)}>
+                <span>4</span>
+                <b>승인 요청 준비</b>
+                <small>전문가·통관 파트너 연결</small>
+              </button>
+            </div>
+          )}
         </div>
-        <div className="source-list">
-          {assistantSourceCards.map((source) => (
-            <button key={source.title} onClick={() => { setSelectedSource(source); setScreen("updates"); }}>
-              <span>{source.tag}</span>
-              {source.title}
+
+        <div className="work-panel-section">
+          <div className="work-section-title">
+            <b>{result ? "판정 요약" : "기능 범위"}</b>
+            <small>{result ? `${result.score}점 · ${result.ruleVersion}` : "처음부터 가능한 작업"}</small>
+          </div>
+          {result && visibleStatus ? (
+            <div className="work-metric-stack">
+              <span className={visibleStatus.tone}><b>{visibleStatus.label}</b><small>{visibleStatus.stamp}</small></span>
+              <span><b>{result.summary.fail}</b><small>위반</small></span>
+              <span><b>{result.summary.needsInfo}</b><small>자료 필요</small></span>
+              <span><b>{result.summary.warn}</b><small>주의</small></span>
+            </div>
+          ) : (
+            <div className="work-scope-list">
+              <span>필수 표시사항</span>
+              <span>성분/알레르겐</span>
+              <span>효능/클레임</span>
+              <span>번체 중국어 표기</span>
+              <span>경고문/금지 표현</span>
+              <span>수입·통관 문서</span>
+            </div>
+          )}
+        </div>
+
+        <div className="work-panel-section">
+          <div className="work-section-title">
+            <b>근거·검색</b>
+            <small>{assistantEvidence ? assistantEvidence.confidence : "검색 결과를 검토 근거로 연결"}</small>
+          </div>
+          {assistantEvidence ? (
+            <div className="assistant-evidence-pack" aria-label="연결된 지식베이스 근거">
+              <span>{assistantEvidence.confidence}</span>
+              <b>{assistantEvidence.terms[0]?.canonicalName ?? assistantEvidence.query}</b>
+              <small>{assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}</small>
+            </div>
+          ) : (
+            <div className="source-list">
+              {assistantSourceCards.map((source) => (
+                <button key={source.title} onClick={() => { setSelectedSource(source); setScreen("updates"); }}>
+                  <span>{source.tag}</span>
+                  {source.title}
+                </button>
+              ))}
+            </div>
+          )}
+          <div className="ask-row work-ask-row">
+            <input value={assistantQuestion} onChange={(event) => setAssistantQuestion(event.target.value)} placeholder="예: casein, 防腐劑, nutrition claim" />
+            <button onClick={() => void askAssistant()} aria-label="검색 보내기" disabled={isAssistantThinking || !assistantQuestion.trim()}>
+              {isAssistantThinking ? <RefreshCw className="spin" size={16} /> : <Send size={16} />}
             </button>
-          ))}
+          </div>
+          {showAssistantPanel && <div className="answer work-answer">{assistantAnswer}</div>}
+        </div>
+
+        <div className="work-panel-section work-panel-footer">
+          <button onClick={() => setShowExpertModal(true)} disabled={!result}>
+            <UserRoundCheck size={16} /> 전문가 승인
+          </button>
+          <button onClick={() => setShowLogisticsModal(true)}>
+            <Ship size={16} /> 통관 연결
+          </button>
+          <button onClick={downloadReport} disabled={!result}>
+            <Download size={16} /> 내보내기
+          </button>
         </div>
       </aside>
 
