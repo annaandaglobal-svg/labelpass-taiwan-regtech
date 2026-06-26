@@ -25,6 +25,7 @@
     "audit:production-env": "node scripts/audit-production-env.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
     "preflight:deployment": "node scripts/preflight-deployment.mjs",
+    "preflight:supabase-knowledge": "node scripts/preflight-supabase-knowledge.mjs",
     "preflight:deploy": "pnpm exec tsc --noEmit && pnpm test:rules && pnpm validate:knowledge && pnpm validate:coverage && pnpm audit:search-aliases && pnpm build && pnpm preflight:deployment",
     "apply:supabase-knowledge": "node scripts/apply-supabase-knowledge.mjs",
     "verify:supabase-knowledge": "node scripts/verify-supabase-knowledge.mjs",

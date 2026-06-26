@@ -23,6 +23,7 @@ pnpm build:alias-queue
 pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
+pnpm preflight:supabase-knowledge
 ```
 
 Use `pnpm report:knowledge-ops` for a read-only operational snapshot before deciding whether a crawl or seed rebuild is actually needed. Use `pnpm report:knowledge-ops:write` when the generated Markdown report in `docs/knowledge-operations-report.md` should be refreshed for handoff or review.
@@ -30,6 +31,7 @@ Use the crawler when source content may have changed. Use the seed builder after
 Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` and `build:alias-queue` automatically.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
 Use `pnpm audit:aliases` after term edits or a seed rebuild to inspect normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Use `pnpm build:alias-queue` when those audit findings should be written to the persistent review queue. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
+Use `pnpm preflight:supabase-knowledge` before any cloud DB apply. It chains knowledge validation, coverage validation, alias search audit, operations reporting, freshness gates, generated SQL format checks, target project checks, and a dry-run Supabase apply plan.
 
 ## Regulatory Update Queue
 
@@ -97,7 +99,8 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `supabase/migrations/202606260003_tokenized_public_source_search.sql`: token-based source search scoring so date and keyphrase queries still find official sources.
 - `supabase/migrations/202606260004_public_source_candidate_limit.sql`: direct source candidate limit alignment with the app's requested result count.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
-- `pnpm apply:supabase-knowledge`: applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set.
+- `pnpm preflight:supabase-knowledge`: validates the generated knowledge base and dry-runs the Supabase apply plan before any DB write.
+- `pnpm apply:supabase-knowledge`: runs the Supabase preflight, then applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set. Real applies require `SUPABASE_APPLY_CONFIRM=APPLY_LABELPASS_KNOWLEDGE` and the DB URL must include the expected project ref unless `SUPABASE_EXPECTED_PROJECT_REF` or `SUPABASE_ALLOW_UNKNOWN_PROJECT=1` is set intentionally.
 - `pnpm verify:supabase-knowledge`: compares Supabase table counts and probe aliases with the generated local knowledge base after a seed apply.
 - `pnpm report:knowledge-ops`: prints current source freshness, alias counts, update queue state, and Supabase seed readiness from generated artifacts.
 - `cache_days`, `cache_expires_at`, and `cache_status`: per-source freshness fields used to avoid unnecessary recrawls while surfacing stale official sources.

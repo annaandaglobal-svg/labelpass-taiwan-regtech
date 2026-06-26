@@ -46,7 +46,7 @@ function normalizeKnowledgeQuery(value) {
   return String(value ?? "")
     .normalize("NFKC")
     .toLowerCase()
-    .replace(/[‐‑‒–—―]/g, "-")
+    .replace(/[\u2010-\u2015]/g, "-")
     .replace(/[()[\]{}]/g, " ")
     .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
     .replace(/\s+/g, " ")

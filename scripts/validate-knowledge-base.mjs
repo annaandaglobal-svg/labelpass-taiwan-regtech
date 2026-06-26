@@ -63,6 +63,12 @@ function isValidDate(value) {
   return Number.isFinite(Date.parse(String(value ?? "")));
 }
 
+function expectedCacheStatus(value, now = new Date()) {
+  const expiresAt = Date.parse(String(value ?? ""));
+  if (!Number.isFinite(expiresAt)) return null;
+  return expiresAt <= now.getTime() ? "stale" : "fresh";
+}
+
 const [rulesData, registry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
@@ -126,6 +132,29 @@ for (const result of results) {
 
   if (!["fresh", "stale"].includes(result.cache_status)) {
     fail(`crawl result has invalid cache_status for ${result.id}: ${result.cache_status}`);
+  }
+
+  const expectedStatus = expectedCacheStatus(result.cache_expires_at);
+  if (expectedStatus && result.cache_status !== expectedStatus) {
+    fail(`crawl result ${result.id} cache_status is ${result.cache_status}, but current cache_expires_at implies ${expectedStatus}`);
+  }
+
+  if (result.manual_fallback && (!Number.isFinite(result.text_chars) || result.text_chars < 250)) {
+    fail(`manual fallback result ${result.id} has too little extracted text (${result.text_chars ?? "n/a"} chars)`);
+  }
+
+  if (result.manual_fallback && result.priority === "high" && !result.browser_capture_path && !result.screenshot_path) {
+    warn(`high-priority manual fallback has no browser capture evidence path: ${result.id}`);
+  }
+
+  if (result.browser_capture && !result.browser_capture_path) {
+    fail(`browser capture result has no browser_capture_path: ${result.id}`);
+  }
+
+  for (const evidencePath of [result.browser_capture_path, result.screenshot_path].filter(Boolean)) {
+    if (!(await fileExists(path.join(root, evidencePath)))) {
+      fail(`crawl evidence file is missing for ${result.id}: ${evidencePath}`);
+    }
   }
 
   if (!result.document_path) {
