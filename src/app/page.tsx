@@ -561,6 +561,12 @@ export default function Home() {
     if (!result) return [];
     return filter === "all" ? result.findings : result.findings.filter((item) => item.status === filter);
   }, [filter, result]);
+  const orderedFindings = useMemo(() => {
+    if (!result) return [];
+    return filter === "all" ? orderedActionFindings(result.findings) : filteredFindings;
+  }, [filter, filteredFindings, result]);
+  const visibleFindings = orderedFindings.slice(0, 4);
+  const remainingFindings = orderedFindings.slice(4);
 
   const visibleStatus = result ? statusCopy[result.status] : null;
   const selectedProductType = useMemo(() => {
@@ -761,7 +767,7 @@ export default function Home() {
   const reviewMode = isAnalyzing ? "analyzing" : result ? "result" : hasReviewWorkspace ? "intake" : "start";
   const isStartOnly = screen === "review" && reviewMode === "start";
   const showResultPane = Boolean(result) || isAnalyzing;
-  const showWorkPanel = screen === "review" && (reviewMode === "result" || (showAssistantPanel && !isStartOnly));
+  const showWorkPanel = screen === "review" && showAssistantPanel && !isStartOnly && reviewMode !== "result";
   const showGlobalSearch = !isStartOnly && (screen !== "review" || Boolean(result) || showAssistantPanel);
   const shellClassName = [
     "shell",
@@ -834,12 +840,6 @@ export default function Home() {
               )}
               {result && (
                 <>
-                  <button
-                    className="ghost-btn"
-                    onClick={() => setToast("현재 검토 버전은 보관함에 저장되어 있습니다.")}
-                  >
-                    <Database size={17} /> 저장
-                  </button>
                   <button className="ghost-btn" onClick={downloadReport}>
                     <Download size={17} /> 내보내기
                   </button>
@@ -953,6 +953,78 @@ export default function Home() {
                 <span className={inputReadiness.productReady ? "done" : inputReadiness.labelReady ? "now" : ""}>2 품목</span>
                 <span className={result ? "done" : inputReadiness.canReview ? "now" : ""}>3 리포트</span>
               </div>
+              {result && currentActionPlan ? (
+                <div className="result-source-summary" aria-label="검토 입력 요약">
+                  <div className="result-source-head">
+                    <span><ClipboardCheck size={17} /></span>
+                    <div>
+                      <b>검토에 사용한 자료</b>
+                      <small>결과 화면에서는 입력 원본을 요약하고, 수정은 필요할 때만 펼칩니다.</small>
+                    </div>
+                  </div>
+
+                  <div className="result-source-grid">
+                    <span><b>제품</b>{input.productName || "미지정 제품"}</span>
+                    <span><b>분류</b>{input.productType || "미지정"}</span>
+                    <span><b>원산지</b>{input.origin || "미입력"}</span>
+                    <span><b>HS/CCC</b>{input.hsCode || "선택 입력"}</span>
+                  </div>
+
+                  <div className="result-source-snippets">
+                    <div>
+                      <b>전성분</b>
+                      <p>{input.ingredientsText ? compact(input.ingredientsText, 160) : "전성분 텍스트가 비어 있습니다."}</p>
+                    </div>
+                    <div>
+                      <b>라벨 문구</b>
+                      <p>{input.labelText ? compact(input.labelText, 160) : "라벨 문구 또는 OCR 텍스트가 비어 있습니다."}</p>
+                    </div>
+                  </div>
+
+                  <div className={`archive-status ${archiveStatus.tone}`} aria-live="polite">
+                    <Database size={15} />
+                    <div>
+                      <b>{archiveStatus.label}</b>
+                      <small>{archiveStatus.detail}</small>
+                    </div>
+                  </div>
+
+                  <details className="result-edit-drawer">
+                    <summary>
+                      <FileText size={15} />
+                      입력 수정 후 다시 검토
+                    </summary>
+                    <div className="result-edit-grid">
+                      <label className="field">
+                        <span>제품명</span>
+                        <input value={input.productName} onChange={(event) => updateInput("productName", event.target.value)} placeholder="예: 수분 진정 토너 300ml" />
+                      </label>
+                      <label className="field">
+                        <span>제품 유형</span>
+                        <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder="예: leave-on toner / 일반 화장품" />
+                      </label>
+                      <label className="field">
+                        <span>전성분 텍스트</span>
+                        <textarea value={input.ingredientsText} onChange={(event) => updateInput("ingredientsText", event.target.value)} rows={5} />
+                      </label>
+                      <label className="field">
+                        <span>라벨 문구 또는 OCR 결과</span>
+                        <textarea value={input.labelText} onChange={(event) => updateInput("labelText", event.target.value)} rows={5} />
+                      </label>
+                    </div>
+                    <div className="result-edit-actions">
+                      <button className="ghost-btn" type="button" onClick={() => fileInputRef.current?.click()}>
+                        <Upload size={15} /> 파일 추가
+                      </button>
+                      <button className="primary-btn" type="button" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
+                        {isAnalyzing ? <RefreshCw className="spin" size={15} /> : <ArrowRight size={15} />}
+                        수정 입력으로 재검토
+                      </button>
+                    </div>
+                  </details>
+                </div>
+              ) : (
+                <>
               <div className="step-row">
                 <span>1</span>
                 <div>
@@ -1126,6 +1198,8 @@ export default function Home() {
                   </div>
                 </details>
               </div>
+                </>
+              )}
             </section>
 
             {showResultPane && (
@@ -1165,12 +1239,69 @@ export default function Home() {
                       전체 근거와 세부 항목 보기
                     </summary>
 
-                    <div className="metric-grid">
-                      <Metric tone="danger" value={result.summary.fail} label="위반" onClick={() => setFilter("fail")} />
-                      <Metric tone="info" value={result.summary.needsInfo} label="자료 필요" onClick={() => setFilter("needs_info")} />
-                      <Metric tone="warn" value={result.summary.warn} label="주의" onClick={() => setFilter("warn")} />
-                      <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
+                    <div className="report-toolbar">
+                      <div className="toolbar-title">
+                        <b>검토 항목</b>
+                        <small>{filter === "all" ? "처리 필요한 항목만 먼저 표시합니다." : `${statusCopy[filter as ReviewStatus]?.label ?? "선택 항목"} 필터 적용 중`}</small>
+                      </div>
+                      <div className="toolbar-actions">
+                        <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
+                          <Filter size={15} /> 처리 항목
+                        </button>
+                      </div>
                     </div>
+
+                    <div className="findings">
+                      {visibleFindings.map((finding) => (
+                        <FindingRow
+                          key={finding.id}
+                          finding={finding}
+                          expanded={expandedFinding === finding.id}
+                          onToggle={() => setExpandedFinding(expandedFinding === finding.id ? null : finding.id)}
+                          onAsk={() => void askAssistant(finding)}
+                        />
+                      ))}
+                      {visibleFindings.length === 0 && (
+                        <div className="result-detail-empty">
+                          <ShieldCheck size={18} />
+                          <b>기본 처리 항목이 없습니다</b>
+                          <span>통과 항목과 버전 근거는 아래 보조 섹션에서 확인할 수 있습니다.</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {remainingFindings.length > 0 && (
+                      <details className="finding-more-drawer">
+                        <summary>
+                          <BookOpen size={15} />
+                          숨은 검토 항목 {remainingFindings.length}개 더 보기
+                        </summary>
+                        <div className="findings">
+                          {remainingFindings.map((finding) => (
+                            <FindingRow
+                              key={finding.id}
+                              finding={finding}
+                              expanded={expandedFinding === finding.id}
+                              onToggle={() => setExpandedFinding(expandedFinding === finding.id ? null : finding.id)}
+                              onAsk={() => void askAssistant(finding)}
+                            />
+                          ))}
+                        </div>
+                      </details>
+                    )}
+
+                    <details className="result-workflow-drawer">
+                      <summary>
+                        <Filter size={15} />
+                        판정 수치 보기
+                      </summary>
+                      <div className="metric-grid">
+                        <Metric tone="danger" value={result.summary.fail} label="위반" onClick={() => setFilter("fail")} />
+                        <Metric tone="info" value={result.summary.needsInfo} label="자료 필요" onClick={() => setFilter("needs_info")} />
+                        <Metric tone="warn" value={result.summary.warn} label="주의" onClick={() => setFilter("warn")} />
+                        <Metric tone="pass" value={result.summary.pass} label="통과" onClick={() => setFilter("pass")} />
+                      </div>
+                    </details>
 
                     <details className="result-workflow-drawer">
                       <summary>
@@ -1197,45 +1328,27 @@ export default function Home() {
                       <ReportVersionStrip result={result} actionPlan={currentActionPlan} input={input} />
                     </details>
 
-                    <div className="report-toolbar">
-                      <div className="toolbar-title">
-                        <b>검토 항목</b>
-                        <small>위험도순으로 펼쳐서 근거와 수정안을 확인</small>
-                      </div>
-                      <div className="toolbar-actions">
-                        <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
-                          <Filter size={15} /> 전체
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="findings">
-                      {filteredFindings.map((finding) => (
-                        <FindingRow
-                          key={finding.id}
-                          finding={finding}
-                          expanded={expandedFinding === finding.id}
-                          onToggle={() => setExpandedFinding(expandedFinding === finding.id ? null : finding.id)}
-                          onAsk={() => void askAssistant(finding)}
-                        />
-                      ))}
-                    </div>
-
-                    <div className="report-footer">
-                      <div className="report-footer-head">
-                        <div>
-                          <b>리포트 처리 순서</b>
-                          <span>체크리스트와 근거 묶음을 같은 버전으로 보관</span>
+                    <details className="report-details-drawer">
+                      <summary>
+                        <History size={15} />
+                        리포트 처리 순서
+                      </summary>
+                      <div className="report-footer">
+                        <div className="report-footer-head">
+                          <div>
+                            <b>체크리스트와 근거 묶음을 같은 버전으로 보관</b>
+                            <span>출고 전에는 조성표, 수입자 자료, 최종 라벨 파일을 같은 버전으로 맞춥니다.</span>
+                          </div>
                         </div>
+                        <div className="report-footer-flow">
+                          <span><ClipboardCheck size={13} /> 체크리스트 확정</span>
+                          <span><RefreshCw size={13} /> 수정본 재검토</span>
+                          <span><UserRoundCheck size={13} /> 전문가 검수</span>
+                          <span><History size={13} /> PDF/버전 보관</span>
+                        </div>
+                        <p>이 리포트는 공식 소스와 룰셋 기반의 1차 검토 초안입니다.</p>
                       </div>
-                      <div className="report-footer-flow">
-                        <span><ClipboardCheck size={13} /> 체크리스트 확정</span>
-                        <span><RefreshCw size={13} /> 수정본 재검토</span>
-                        <span><UserRoundCheck size={13} /> 전문가 검수</span>
-                        <span><History size={13} /> PDF/버전 보관</span>
-                      </div>
-                      <p>이 리포트는 공식 소스와 룰셋 기반의 1차 검토 초안입니다. 실제 출고 전에는 조성표, 수입자 자료, 최종 라벨 파일을 같은 버전으로 맞춰 보관하세요.</p>
-                    </div>
+                    </details>
                   </details>
                 </>
               )}
@@ -1504,12 +1617,15 @@ function fixMetaForFinding(finding: Finding, index: number) {
   return `${owner} · ${eta}`;
 }
 
-function prioritizedFindings(findings: Finding[]) {
+function orderedActionFindings(findings: Finding[]) {
   const rank: Record<ReviewStatus, number> = { fail: 0, needs_info: 1, warn: 2, pass: 3 };
   return [...findings]
     .filter((finding) => finding.status !== "pass")
-    .sort((left, right) => rank[left.status] - rank[right.status])
-    .slice(0, 3);
+    .sort((left, right) => rank[left.status] - rank[right.status]);
+}
+
+function prioritizedFindings(findings: Finding[]) {
+  return orderedActionFindings(findings).slice(0, 3);
 }
 
 function ResultFocusPanel({
