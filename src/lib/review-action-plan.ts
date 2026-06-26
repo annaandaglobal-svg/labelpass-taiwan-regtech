@@ -93,6 +93,15 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
   const foodRule = ruleVersion.includes("FOOD");
 
   if (foodRule) {
+    const foodContactSanitationBlocker =
+      findingIds.has("food-contact-sanitation-evidence-needed") ||
+      findingIds.has("food-contact-recycled-plastic-repackaging-risk") ||
+      findingIds.has("food-contact-infant-bottle-bpa-risk") ||
+      findingIds.has("food-contact-infant-bottle-bpa-free-needed") ||
+      findingIds.has("food-contact-child-phthalate-risk") ||
+      findingIds.has("food-contact-child-phthalate-evidence-needed");
+    const foodContactSanitationReady = findingIds.has("food-contact-sanitation-evidence-present") && !foodContactSanitationBlocker;
+
     return [
       documentItem(
         "food-product-information-sheet",
@@ -157,21 +166,16 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
       documentItem(
         "food-contact-sanitation-evidence",
         "식품접촉재 위생·재질 시험",
-        findingIds.has("food-contact-sanitation-evidence-present") || findingIds.has("food-contact-infant-bottle-bpa-free-present") || findingIds.has("food-contact-child-phthalate-free-present")
+        foodContactSanitationReady
           ? "ready"
-          : findingIds.has("food-contact-sanitation-evidence-needed") ||
-              findingIds.has("food-contact-recycled-plastic-repackaging-risk") ||
-              findingIds.has("food-contact-infant-bottle-bpa-risk") ||
-              findingIds.has("food-contact-infant-bottle-bpa-free-needed") ||
-              findingIds.has("food-contact-child-phthalate-risk") ||
-              findingIds.has("food-contact-child-phthalate-evidence-needed")
+          : foodContactSanitationBlocker
             ? "needed"
             : "not_applicable",
         findingIds.has("food-contact-recycled-plastic-repackaging-risk") || findingIds.has("food-contact-infant-bottle-bpa-risk") || findingIds.has("food-contact-child-phthalate-risk")
           ? "danger"
           : findingIds.has("food-contact-sanitation-evidence-needed") || findingIds.has("food-contact-infant-bottle-bpa-free-needed") || findingIds.has("food-contact-child-phthalate-evidence-needed")
             ? "warn"
-            : findingIds.has("food-contact-sanitation-evidence-present") || findingIds.has("food-contact-infant-bottle-bpa-free-present") || findingIds.has("food-contact-child-phthalate-free-present")
+            : foodContactSanitationReady
               ? "pass"
               : "info",
         "품질/서류 담당",

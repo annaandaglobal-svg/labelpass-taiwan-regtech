@@ -680,7 +680,7 @@ function hasFoodContactHighHeatUseSignal(input: ReviewInput) {
 }
 
 function hasFoodContactSanitationEvidence(input: ReviewInput) {
-  return /sanitation\/migration test report|migration test report|sanitation test report|standard tests?|certificate of analysis|\bCOA\b|material safety file|material safety report|BPA[-\s]?free|bisphenol A free|phthalate[-\s]?free|DEHP[-\s]?free|DNOP[-\s]?free|DBP[-\s]?free|BBP[-\s]?free|no discoloration|off[-\s]?odor|foreign matter|(?:檢驗報告|卫生标准|衛生標準|溶出試驗|雙酚A|不含雙酚A|鄰苯二甲酸酯|不得添加|시험성적서|위생기준|용출시험|재질\s*시험|BPA\s*프리|프탈레이트\s*프리|무첨가|불검출|확보|보유|준비)/i.test(
+  return /sanitation\/migration test report|migration test report|sanitation test report|standard tests?|certificate of analysis|\bCOA\b|material safety file|material safety report|(?:檢驗報告|卫生标准|衛生標準|溶出試驗|시험성적서|위생기준|용출시험|재질\s*시험)/i.test(
     reviewText(input)
   );
 }

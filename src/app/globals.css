@@ -4641,8 +4641,18 @@ h2 {
   }
 
   .command-hero p,
-  .hero-actions,
   .hero-proof {
+    display: none;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-width: 0;
+  }
+
+  .hero-actions .ghost-btn:not(:first-child) {
     display: none;
   }
 
