@@ -4,91 +4,16 @@
   "crawl_generated_at": "2026-06-26T04:43:23.764Z",
   "expiring_soon_days": 7,
   "summary": {
-    "total": 34,
-    "detected": 1,
+    "total": 33,
+    "detected": 0,
     "pending_refresh": 8,
     "watching": 25,
     "approved": 0,
-    "high": 1,
+    "high": 0,
     "medium": 31,
     "low": 2
   },
   "items": [
-    {
-      "candidate_key": "tw-tfda-food-additive-permit-query:content_changed:1a221e19211bc1c2",
-      "source_key": "tw-tfda-food-additive-permit-query",
-      "title": "Food Additive Permit Data Query",
-      "source_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
-      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
-      "jurisdiction": "TW",
-      "domain": "food_additives",
-      "source_type": "database",
-      "source_priority": "high",
-      "change_type": "content_changed",
-      "severity": "high",
-      "status": "detected",
-      "detected_at": "2026-06-26T04:43:23.764Z",
-      "fetched_at": "2026-06-26T04:43:23.764Z",
-      "cache_expires_at": "2026-07-03T04:43:23.764Z",
-      "previous_hash": "1648765936757f5dfa7bc59b68f9a560c505228336fe4fec30aacafa9c4bbcd4",
-      "current_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
-      "affected_domains": [
-        "food_additives",
-        "food",
-        "food-additives",
-        "permit-query",
-        "registration-number",
-        "license-number",
-        "database",
-        "traditional-chinese"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-additive-inspection-registration",
-          "canonical_name": "Food Additive Inspection Registration",
-          "category": "food_import"
-        },
-        {
-          "term_key": "food-additive-functional-classes",
-          "canonical_name": "Food Additive Functional Classes",
-          "category": "food_additive"
-        }
-      ],
-      "affected_products": [
-        "food",
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md",
-        "fetched_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
-        "extra_fetched_urls": [],
-        "text_chars": 1250,
-        "format": "manual",
-        "from_cache": false,
-        "browser_capture": false,
-        "manual_fallback": true,
-        "parse_error": null,
-        "excerpt": "Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. "
-      },
-      "next_action": "원문 변경분을 확인하고 영향 용어·룰 후보를 승인 큐에서 분류합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food",
-          "food-additives",
-          "permit-query",
-          "registration-number",
-          "license-number",
-          "database",
-          "traditional-chinese"
-        ],
-        "compact_title": "food-additive-permit-data-query"
-      }
-    },
     {
       "candidate_key": "tw-customs-tariff-database-download:source_expiring_soon:2026-07-03",
       "source_key": "tw-customs-tariff-database-download",
@@ -287,7 +212,7 @@
       "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-26T04:43:23.764Z",
       "cache_expires_at": "2026-07-03T04:43:23.764Z",
-      "previous_hash": "1648765936757f5dfa7bc59b68f9a560c505228336fe4fec30aacafa9c4bbcd4",
+      "previous_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
       "current_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
       "affected_domains": [
         "food_additives",
@@ -1533,7 +1458,7 @@
       "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-26T04:43:23.764Z",
       "cache_expires_at": "2026-07-03T04:43:23.764Z",
-      "previous_hash": "1648765936757f5dfa7bc59b68f9a560c505228336fe4fec30aacafa9c4bbcd4",
+      "previous_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
       "current_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
       "affected_domains": [
         "food_additives",

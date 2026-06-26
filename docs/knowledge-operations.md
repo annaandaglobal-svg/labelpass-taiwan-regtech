@@ -96,9 +96,9 @@ Current generated counts:
 - `knowledge_sources`: 133
 - `knowledge_snapshots`: 133
 - `knowledge_terms`: 1,158
-- `term_aliases`: 3,726
+- `term_aliases`: 3,754
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 34
+- `regulatory_update_candidates`: 33
 - `rules`: 1,081
 
 Current freshness status:

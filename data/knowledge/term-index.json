@@ -2541,6 +2541,36 @@
           "source": "curated"
         },
         {
+          "value": "Monosodium glutamate (MSG)",
+          "normalized": "monosodium glutamate msg",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Monosodium L-glutamate",
+          "normalized": "monosodium l-glutamate",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium glutamate",
+          "normalized": "sodium glutamate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "L-Glutamate Monosodium",
           "normalized": "l-glutamate monosodium",
           "type": "chemical_name",
@@ -2561,6 +2591,16 @@
           "source": "curated"
         },
         {
+          "value": "味素",
+          "normalized": "味素",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "麩酸鈉",
           "normalized": "麩酸鈉",
           "type": "local_name",
@@ -2571,12 +2611,52 @@
           "source": "curated"
         },
         {
+          "value": "麩胺酸鈉",
+          "normalized": "麩胺酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "谷氨酸鈉",
+          "normalized": "谷氨酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "글루탐산나트륨",
           "normalized": "글루탐산나트륨",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "글루탐산 나트륨",
+          "normalized": "글루탐산 나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "MSG 조미료",
+          "normalized": "msg 조미료",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         }
@@ -2632,6 +2712,46 @@
           "source": "curated"
         },
         {
+          "value": "Benzoates",
+          "normalized": "benzoates",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Benzoate salts",
+          "normalized": "benzoate salts",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium benzoate preservative",
+          "normalized": "sodium benzoate preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Benzoic acid preservative",
+          "normalized": "benzoic acid preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "BA",
           "normalized": "ba",
           "type": "abbreviation",
@@ -2672,6 +2792,36 @@
           "source": "curated"
         },
         {
+          "value": "苯甲酸鹽",
+          "normalized": "苯甲酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "安息香酸",
+          "normalized": "安息香酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "安息香酸鈉",
+          "normalized": "安息香酸鈉",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "벤조산",
           "normalized": "벤조산",
           "type": "local_name",
@@ -2698,6 +2848,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "안식향산나트륨",
+          "normalized": "안식향산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "안식향산염",
+          "normalized": "안식향산염",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "벤조에이트",
+          "normalized": "벤조에이트",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         }
@@ -10963,8 +11143,28 @@
           "source": "curated"
         },
         {
+          "value": "sweeteners",
+          "normalized": "sweeteners",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "preservative",
           "normalized": "preservative",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "preservatives",
+          "normalized": "preservatives",
           "type": "functional_class",
           "language": "en",
           "jurisdiction": "GLOBAL",
@@ -10983,8 +11183,28 @@
           "source": "curated"
         },
         {
+          "value": "flavour enhancers",
+          "normalized": "flavour enhancers",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "flavor enhancer",
           "normalized": "flavor enhancer",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "flavor enhancers",
+          "normalized": "flavor enhancers",
           "type": "functional_class",
           "language": "en",
           "jurisdiction": "GLOBAL",
@@ -11093,6 +11313,16 @@
           "source": "curated"
         },
         {
+          "value": "감미제",
+          "normalized": "감미제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "보존료",
           "normalized": "보존료",
           "type": "functional_class",
@@ -11103,12 +11333,32 @@
           "source": "curated"
         },
         {
+          "value": "방부제",
+          "normalized": "방부제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Broad Korean alias; verify food-additive context.",
+          "source": "curated"
+        },
+        {
           "value": "향미증진제",
           "normalized": "향미증진제",
           "type": "functional_class",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "향미증강제",
+          "normalized": "향미증강제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         },
@@ -11193,6 +11443,16 @@
           "source": "curated"
         },
         {
+          "value": "甜味料",
+          "normalized": "甜味料",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "防腐劑",
           "normalized": "防腐劑",
           "type": "functional_class",
@@ -11209,6 +11469,26 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "增味劑",
+          "normalized": "增味劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "鮮味劑",
+          "normalized": "鮮味劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         },
@@ -101932,6 +102212,46 @@
           "source": "cas"
         },
         {
+          "value": "Benzoates",
+          "normalized": "benzoates",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Benzoate salts",
+          "normalized": "benzoate salts",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Sodium benzoate preservative",
+          "normalized": "sodium benzoate preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Benzoic acid preservative",
+          "normalized": "benzoic acid preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "BA",
           "normalized": "ba",
           "type": "abbreviation",
@@ -101972,6 +102292,36 @@
           "source": "cas"
         },
         {
+          "value": "苯甲酸鹽",
+          "normalized": "苯甲酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "安息香酸",
+          "normalized": "安息香酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "安息香酸鈉",
+          "normalized": "安息香酸鈉",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "벤조산",
           "normalized": "벤조산",
           "type": "local_name",
@@ -101998,6 +102348,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산나트륨",
+          "normalized": "안식향산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산염",
+          "normalized": "안식향산염",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "벤조에이트",
+          "normalized": "벤조에이트",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "cas"
         },
@@ -102070,6 +102450,46 @@
           "source": "cas"
         },
         {
+          "value": "Benzoates",
+          "normalized": "benzoates",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Benzoate salts",
+          "normalized": "benzoate salts",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Sodium benzoate preservative",
+          "normalized": "sodium benzoate preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "Benzoic acid preservative",
+          "normalized": "benzoic acid preservative",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "BA",
           "normalized": "ba",
           "type": "abbreviation",
@@ -102110,6 +102530,36 @@
           "source": "cas"
         },
         {
+          "value": "苯甲酸鹽",
+          "normalized": "苯甲酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "安息香酸",
+          "normalized": "安息香酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "安息香酸鈉",
+          "normalized": "安息香酸鈉",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "벤조산",
           "normalized": "벤조산",
           "type": "local_name",
@@ -102136,6 +102586,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산나트륨",
+          "normalized": "안식향산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "안식향산염",
+          "normalized": "안식향산염",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "벤조에이트",
+          "normalized": "벤조에이트",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "cas"
         },

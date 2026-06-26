@@ -116,10 +116,10 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 
 const knowledgeStats = {
   sources: "133",
-  aliases: "3,726",
+  aliases: "3,754",
   terms: "1,158",
   reviewCases: "26",
-  knowledgeCases: "92",
+  knowledgeCases: "96",
   sourceCases: "57"
 };
 
@@ -428,6 +428,20 @@ export default function Home() {
   const [toast, setToast] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
+  const assistantSourceCards = useMemo(() => {
+    const priorityTitles = [
+      "Food additive permit query",
+      "Food ingredient direct query",
+      "TFDA food claim criteria",
+      "PIF phased implementation"
+    ];
+    const priorityCards = priorityTitles
+      .map((title) => sourceCards.find((source) => source.title === title))
+      .filter((source): source is (typeof sourceCards)[number] => Boolean(source));
+    const fallbackCards = sourceCards.filter((source) => !priorityTitles.includes(source.title));
+
+    return [...priorityCards, ...fallbackCards].slice(0, 4);
+  }, []);
   const currentActionPlan = useMemo(() => result ? actionPlanForResult(result) : null, [result]);
   const inputReadiness = useMemo(() => buildInputReadiness(input), [input]);
 
@@ -1137,7 +1151,7 @@ export default function Home() {
           </button>
         </div>
         <div className="source-list">
-          {sourceCards.slice(0, 4).map((source) => (
+          {assistantSourceCards.map((source) => (
             <button key={source.title} onClick={() => { setSelectedSource(source); setScreen("updates"); }}>
               <span>{source.tag}</span>
               {source.title}
