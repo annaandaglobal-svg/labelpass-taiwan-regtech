@@ -290,12 +290,11 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
 
   const topResult = unifiedResults[0];
   const secondaryResults = unifiedResults.slice(1);
-  const visibleSecondaryResults = showAllResults ? secondaryResults : [];
-  const selectedEvidence =
-    evidence ?? (topResult ? (topResult.kind === "term" ? buildTermEvidence(topResult.term) : buildSourceEvidence(topResult.source)) : null);
+  const visibleSecondaryResults = showAllResults ? secondaryResults : secondaryResults.slice(0, 2);
+  const selectedEvidence = evidence;
   const selectedEvidenceParam = encodeURIComponent(selectedEvidence?.reviewParam || selectedEvidence?.title || "");
   const displayedResultCount = (topResult ? 1 : 0) + visibleSecondaryResults.length;
-  const hiddenResultCount = Math.max(0, matchedCount - displayedResultCount);
+  const hiddenResultCount = Math.max(0, unifiedResults.length - displayedResultCount);
   const resultCountLabel = hasResults
     ? `${matchedCount.toLocaleString()}개 중 ${displayedResultCount.toLocaleString()}개 표시`
     : loading
@@ -371,20 +370,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
               aria-label="지식베이스 검색"
             />
             {loading && <Loader2 className="spin" size={18} />}
-          </div>
-          <div className="knowledge-steady-action" aria-label="다음 작업">
-            <span>{selectedEvidence ? selectedEvidence.title : "검색 결과 선택 후 검토에 반영"}</span>
-            {selectedEvidence ? (
-              <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`} className="knowledge-primary-cta">
-                <PackageSearch size={15} />
-                대만 라벨 검토에 반영
-              </Link>
-            ) : (
-              <button type="button" disabled>
-                <PackageSearch size={15} />
-                검토 반영 대기
-              </button>
-            )}
           </div>
           <div className="knowledge-mode-tabs knowledge-mode-tabs-steady" aria-label="품목군 선택">
             {focusModes.map((mode) => (
@@ -590,21 +575,8 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           ) : (
             <div className="knowledge-evidence-empty knowledge-evidence-preview">
               <ClipboardCheck size={20} />
-              <b>결과를 선택하면 다음 단계가 활성화됩니다.</b>
-              <p>공식 근거, 별칭, 원문 링크를 확인한 뒤 라벨 검토 화면으로 반영할 수 있습니다.</p>
-              <div className="knowledge-tray-actions knowledge-tray-actions-disabled" aria-label="예정된 근거 작업">
-                <button type="button" disabled>
-                  <PackageSearch size={15} />
-                  결과 선택 후 검토에 반영
-                </button>
-                <button type="button" disabled>
-                  원문 <ExternalLink size={15} />
-                </button>
-                <button type="button" disabled>
-                  <Search size={15} />
-                  다른 이름으로 재검색
-                </button>
-              </div>
+              <b>{hasQuery ? "왼쪽 결과를 선택하면 근거가 열립니다." : "검색어를 입력하면 공식 근거를 좁혀드립니다."}</b>
+              <p>{hasQuery ? "결과를 직접 선택한 뒤 공식 출처, 별칭, 원문 링크를 확인하고 검토 화면에 반영할 수 있습니다." : "성분명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드 중 하나로 시작하세요."}</p>
             </div>
           )}
         </aside>

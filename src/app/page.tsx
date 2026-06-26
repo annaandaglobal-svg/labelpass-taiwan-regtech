@@ -893,7 +893,7 @@ export default function Home() {
                   <div>
                     <span>대만 식품·화장품 작업대</span>
                     <h2>제품명과 라벨을 넣으면 막힐 항목부터 정리합니다</h2>
-                    <p>검토 시작, 규정 검색, 파일 첨부, 샘플 확인이 한 흐름 안에서 움직입니다. 검색 후에도 같은 자리에서 근거와 다음 행동을 이어갑니다.</p>
+                    <p>처음에는 제품명, 품목, 라벨·성분만 채우세요. 대만 기준으로 먼저 막힐 가능성이 큰 항목과 필요한 보완 자료를 좁혀드립니다.</p>
                   </div>
                   <div className="intake-start-flow" aria-label="검토 흐름">
                     <span className="active"><b>1</b><small>자료 입력</small></span>
@@ -1039,26 +1039,34 @@ export default function Home() {
               <div className="form-section">
                 <div className="section-title">
                   <BadgeCheck size={16} />
-                  <span>제품 분류</span>
+                  <span>제품 정보</span>
                 </div>
-                <div className="classifier">
-                  <button className="classifier-ai" onClick={classifyProduct} title="AI가 입력값으로 품목을 추정합니다">
-                    <Search size={17} /> AI 찾기
-                  </button>
-                  <button className={selectedProductType === "cosmetic" ? "active" : ""} onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
-                  <button className={selectedProductType === "food" ? "active" : ""} onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
-                  <button className={selectedProductType === "borderline" ? "active" : ""} onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
+                <div className="two-col">
+                  <label className="field">
+                    <span>제품명</span>
+                    <input value={input.productName} onChange={(event) => updateInput("productName", event.target.value)} placeholder="예: 수분 진정 토너 300ml" />
+                  </label>
+
+                  <label className="field">
+                    <span>제품 유형</span>
+                    <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder="예: leave-on toner / 일반 화장품" />
+                  </label>
                 </div>
 
-                <label className="field">
-                  <span>제품명</span>
-                  <input value={input.productName} onChange={(event) => updateInput("productName", event.target.value)} placeholder="예: 수분 진정 토너 300ml" />
-                </label>
-
-                <label className="field">
-                  <span>제품 유형</span>
-                  <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder="예: leave-on toner / 일반 화장품" />
-                </label>
+                <details className="classifier-drawer">
+                  <summary>
+                    <Search size={15} />
+                    품목 빠르게 선택
+                  </summary>
+                  <div className="classifier">
+                    <button className="classifier-ai" onClick={classifyProduct} title="AI가 입력값으로 품목을 추정합니다">
+                      <Search size={17} /> AI 찾기
+                    </button>
+                    <button className={selectedProductType === "cosmetic" ? "active" : ""} onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
+                    <button className={selectedProductType === "food" ? "active" : ""} onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
+                    <button className={selectedProductType === "borderline" ? "active" : ""} onClick={() => updateInput("productType", "borderline / expert")}>경계 품목</button>
+                  </div>
+                </details>
               </div>
 
               <div className="form-section">
@@ -1168,47 +1176,46 @@ export default function Home() {
                 <div className="intake-side-head">
                   <ShieldCheck size={18} />
                   <div>
-                    <b>다음 작업</b>
-                    <span>처음부터 검토, 검색, 샘플, 전문가 연결이 같은 위치에 있습니다.</span>
+                    <b>검토 준비</b>
+                    <span>본문의 3가지 필수 입력을 먼저 채우면 1차 검토가 열립니다.</span>
                   </div>
                 </div>
 
                 <div className="intake-side-cta">
-                  <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
-                    {isAnalyzing ? <RefreshCw className="spin" size={16} /> : <ArrowRight size={16} />}
-                    {inputReadiness.canReview ? "AI 1차 검토 시작" : "필수 입력 후 검토"}
-                  </button>
                   <button className="ghost-btn" type="button" onClick={() => fileInputRef.current?.click()}>
                     <Upload size={16} /> 파일 첨부
                   </button>
+                  <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "라벨/PDF가 있으면 먼저 올리고, 없으면 아래 입력칸에 붙여넣어도 됩니다."}</small>
                 </div>
 
-                <form className="intake-inline-search intake-side-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
-                  <Search size={15} />
-                  <input
-                    value={startKnowledgeQuery}
-                    onChange={(event) => setStartKnowledgeQuery(event.target.value)}
-                    placeholder="성분명, 표시문구, TFDA 용어, HS/CCC 코드"
-                    aria-label="성분 또는 규정 검색"
-                  />
-                  <button type="submit">검색</button>
-                </form>
+                <details className="intake-side-tools">
+                  <summary>
+                    <Search size={15} />
+                    성분·규정 검색
+                  </summary>
+                  <form className="intake-inline-search intake-side-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
+                    <Search size={15} />
+                    <input
+                      value={startKnowledgeQuery}
+                      onChange={(event) => setStartKnowledgeQuery(event.target.value)}
+                      placeholder="성분명, 표시문구, TFDA 용어, HS/CCC 코드"
+                      aria-label="성분 또는 규정 검색"
+                    />
+                    <button type="submit">검색</button>
+                  </form>
+                </details>
 
-                <div className="intake-filter-strip" aria-label="처음부터 보이는 검색 범위">
-                  <span>전체</span>
-                  <span>화장품</span>
-                  <span>식품</span>
-                  <span>표시문구</span>
-                  <span>성분</span>
-                  <span>통관</span>
-                </div>
-
-                <div className="intake-side-samples" aria-label="첫 사용자 샘플">
-                  <b>샘플로 시작</b>
-                  <button type="button" onClick={() => fillSample("risky")}>화장품 샘플</button>
-                  <button type="button" onClick={() => fillSample("food-risky")}>식품 샘플</button>
-                  <button type="button" onClick={() => fillSample("food-import")}>통관 샘플</button>
-                </div>
+                <details className="intake-side-tools">
+                  <summary>
+                    <ClipboardCheck size={15} />
+                    샘플로 보기
+                  </summary>
+                  <div className="intake-side-samples" aria-label="첫 사용자 샘플">
+                    <button type="button" onClick={() => fillSample("risky")}>화장품 샘플</button>
+                    <button type="button" onClick={() => fillSample("food-risky")}>식품 샘플</button>
+                    <button type="button" onClick={() => fillSample("food-import")}>통관 샘플</button>
+                  </div>
+                </details>
 
                 <div className="intake-side-note">
                   <b>룰셋 TW-COS / TW-FOOD</b>
