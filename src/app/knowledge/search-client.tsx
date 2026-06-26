@@ -45,6 +45,8 @@ type EvidenceItem = {
   score?: number;
   chips: string[];
   href?: string;
+  aliases?: string[];
+  reviewParam?: string;
 };
 
 type UnifiedResult =
@@ -131,6 +133,10 @@ export default function KnowledgeSearchClient() {
     };
   }, [trimmed]);
 
+  useEffect(() => {
+    setEvidence(null);
+  }, [data]);
+
   const filterOptions = useMemo(() => {
     const sources = data?.sources ?? [];
     const terms = data?.terms ?? [];
@@ -174,8 +180,6 @@ export default function KnowledgeSearchClient() {
   const visibleSources = filteredSources.slice(0, 4);
   const primaryTerm = filteredTerms[0];
   const primarySource = filteredSources[0];
-  const evidenceTitle = evidence?.title || primaryTerm?.canonicalName || primarySource?.title || trimmed || "PIF";
-  const evidenceParam = encodeURIComponent(evidenceTitle);
   const highPriorityCount = filteredSources.filter((source) => source.priority === "high").length;
   const watchCount = filteredSources.filter((source) => source.manualFallback || source.cacheStatus === "stale").length;
   const browserCount = filteredSources.filter((source) => source.browserCapture).length;
@@ -221,6 +225,7 @@ export default function KnowledgeSearchClient() {
     return [...termRows, ...sourceRows].sort((left, right) => right.score - left.score).slice(0, 8);
   }, [visibleSources, visibleTerms]);
   const activeEvidence = evidence ?? (primaryTerm ? buildTermEvidence(primaryTerm) : primarySource ? buildSourceEvidence(primarySource) : null);
+  const activeEvidenceParam = encodeURIComponent(activeEvidence?.reviewParam || activeEvidence?.title || trimmed || "PIF");
 
   function buildTermEvidence(term: TermItem): EvidenceItem {
     const chips = uniqueCompact([
@@ -237,7 +242,9 @@ export default function KnowledgeSearchClient() {
       detail:
         term.notes || "이 용어는 다국어 별칭, 식별자, 규칙 연결을 함께 묶어 검토하기 좋습니다.",
       score: term.score,
-      chips
+      chips,
+      aliases: uniqueCompact(term.aliases.map((alias) => alias.value).filter((value) => value !== term.canonicalName)),
+      reviewParam: term.canonicalName
     };
   }
 
@@ -256,7 +263,8 @@ export default function KnowledgeSearchClient() {
         source.priority === "high" ? "우선 검토" : source.priority,
         meta.label,
         source.documentPath ? "로컬 문서" : ""
-      ])
+      ]),
+      reviewParam: source.title
     };
   }
 
@@ -316,7 +324,6 @@ export default function KnowledgeSearchClient() {
         </div>
       )}
 
-      {data && (
       <details className="knowledge-filter-drawer">
         <summary>
           <Filter size={16} />
@@ -334,11 +341,11 @@ export default function KnowledgeSearchClient() {
                 <span>관할, 도메인, 출처 유형, 분류, 신선도로 검색 범위를 좁힙니다.</span>
               </div>
             </div>
-            <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} />
-            <FilterGroup title="도메인" value={domain} options={filterOptions.domains} onChange={setDomain} />
-            <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} />
-            <FilterGroup title="분류" value={category} options={filterOptions.categories} onChange={setCategory} />
-            <FilterGroup title="신선도" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} />
+            <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!data} />
+            <FilterGroup title="도메인" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!data} />
+            <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!data} />
+            <FilterGroup title="분류" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!data} />
+            <FilterGroup title="신선도" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!data} />
           </div>
 
           <div className="knowledge-health-grid">
@@ -373,22 +380,21 @@ export default function KnowledgeSearchClient() {
           </div>
         </div>
       </details>
-      )}
 
-      {data ? (
       <div className="knowledge-results knowledge-results-unified">
         <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
             <h2>검토에 쓸 후보</h2>
-            <span>{unifiedResults.length.toLocaleString()}</span>
+            <span>{data ? unifiedResults.length.toLocaleString() : "0"}</span>
           </div>
           <div className="knowledge-row-list">
-            {unifiedResults.map((item) => (
+            {data && unifiedResults.map((item) => (
               <article className={`knowledge-row ${item.kind}`} key={item.id}>
                 <button
                   type="button"
                   className="knowledge-row-main"
                   onClick={() => item.kind === "term" ? selectTerm(item.term) : selectSource(item.source)}
+                  aria-pressed={activeEvidence?.title === item.title}
                 >
                   <span className="knowledge-row-kind">{item.kind === "term" ? "용어" : "출처"}</span>
                   <div>
@@ -401,37 +407,25 @@ export default function KnowledgeSearchClient() {
                   </div>
                   <b>{Math.round(item.score)}</b>
                 </button>
-
-                <div className="knowledge-row-actions">
-                  <Link href={`/?screen=review&knowledge=${encodeURIComponent(item.reviewParam)}`}>
-                    <PackageSearch size={15} />
-                    검토에 사용
-                  </Link>
-                  <details className="knowledge-row-more">
-                    <summary>더보기</summary>
-                    <div>
-                      <button type="button" onClick={() => item.kind === "term" ? selectTerm(item.term) : selectSource(item.source)}>
-                        <ClipboardCheck size={15} />
-                        근거 상세
-                      </button>
-                      {item.kind === "source" && (
-                        <a href={item.href} target="_blank" rel="noreferrer">
-                          원문 열기 <ExternalLink size={15} />
-                        </a>
-                      )}
-                      {item.kind === "term" && item.term.aliases.slice(0, 3).map((alias) => (
-                        <button key={`${item.id}-${alias.value}`} type="button" onClick={() => setQuery(alias.value)}>
-                          {alias.value}
-                        </button>
-                      ))}
-                    </div>
-                  </details>
-                </div>
               </article>
             ))}
 
-            {unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 후보가 없습니다.</div>}
-            {(filteredTerms.length > visibleTerms.length || filteredSources.length > visibleSources.length) && (
+            {!data && !trimmed && (
+              <div className="knowledge-search-empty">
+                <Search size={20} />
+                <b>원료명, 현지 용어, CAS, 표시문구를 검색하세요.</b>
+                <span>대만 식품·화장품 규정과 연결된 용어, 공식 출처, 업데이트 감시 상태를 한 번에 정리합니다.</span>
+              </div>
+            )}
+            {!data && trimmed && (
+              <div className="knowledge-search-empty">
+                <Loader2 className={loading ? "spin" : undefined} size={20} />
+                <b>{loading ? "검색 중입니다." : "검색 결과를 기다리고 있습니다."}</b>
+                <span>후보가 준비되면 이 목록에서 하나만 선택하고, 실행은 오른쪽 근거 패널에서 이어갑니다.</span>
+              </div>
+            )}
+            {data && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 후보가 없습니다.</div>}
+            {data && (filteredTerms.length > visibleTerms.length || filteredSources.length > visibleSources.length) && (
               <div className="knowledge-more-note">상위 후보만 먼저 보여줍니다. 고급 필터로 관할, 도메인, 출처 유형을 좁히면 나머지 후보를 더 정확히 볼 수 있습니다.</div>
             )}
           </div>
@@ -454,14 +448,8 @@ export default function KnowledgeSearchClient() {
                 <span>{activeEvidence.subtitle}</span>
               </div>
               {typeof activeEvidence.score === "number" && <b>{Math.round(activeEvidence.score)}</b>}
-              <p>{compact(activeEvidence.detail, 240)}</p>
-              <div className="knowledge-evidence-chips">
-                {activeEvidence.chips.slice(0, 8).map((chip) => (
-                  <span key={`${activeEvidence.title}-${chip}`}>{chip}</span>
-                ))}
-              </div>
               <div className="knowledge-tray-actions">
-                <Link href={`/?screen=review&knowledge=${evidenceParam}`}>
+                <Link href={`/?screen=review&knowledge=${activeEvidenceParam}`}>
                   <PackageSearch size={15} />
                   검토에 사용
                 </Link>
@@ -471,22 +459,31 @@ export default function KnowledgeSearchClient() {
                   </a>
                 )}
               </div>
+              <p>{compact(activeEvidence.detail, 240)}</p>
+              <div className="knowledge-evidence-chips">
+                {activeEvidence.chips.slice(0, 8).map((chip) => (
+                  <span key={`${activeEvidence.title}-${chip}`}>{chip}</span>
+                ))}
+              </div>
+              {activeEvidence.aliases?.length ? (
+                <div className="knowledge-action-row" aria-label="별칭 재검색">
+                  {activeEvidence.aliases.slice(0, 4).map((alias) => (
+                    <button key={`${activeEvidence.title}-${alias}`} type="button" onClick={() => setQuery(alias)} title={`${alias} 별칭으로 다시 검색`}>
+                      <Search size={14} />
+                      {compact(alias, 28)}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ) : (
             <div className="knowledge-evidence-empty">
               <ClipboardCheck size={20} />
-              <p>검색 후보를 선택하면 근거가 여기에 정리됩니다.</p>
+              <p>{trimmed ? "후보를 선택하면 검토 액션이 이곳에서 활성화됩니다." : "검색 전에는 검토 액션이 비활성 상태로 대기합니다."}</p>
             </div>
           )}
         </aside>
       </div>
-      ) : (
-        <div className="knowledge-search-empty">
-          <Search size={20} />
-          <b>원료명, 현지 용어, CAS, 표시문구를 검색하세요.</b>
-          <span>대만 식품·화장품 규정과 연결된 용어, 공식 출처, 업데이트 감시 상태를 한 번에 정리합니다.</span>
-        </div>
-      )}
     </section>
   );
 }
@@ -495,12 +492,14 @@ function FilterGroup({
   title,
   value,
   options,
-  onChange
+  onChange,
+  disabled = false
 }: {
   title: string;
   value: string;
   options: Option[];
   onChange: (value: string) => void;
+  disabled?: boolean;
 }) {
   return (
     <div className="knowledge-filter-row">
@@ -512,6 +511,7 @@ function FilterGroup({
             type="button"
             className={option.value === value ? "active" : ""}
             onClick={() => onChange(option.value)}
+            disabled={disabled}
           >
             {option.label}
             {typeof option.count === "number" && <small>{option.count}</small>}

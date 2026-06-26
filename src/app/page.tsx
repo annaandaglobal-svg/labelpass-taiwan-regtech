@@ -759,12 +759,12 @@ export default function Home() {
   const hasReviewWorkspace =
     reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
   const isStartOnly = screen === "review" && !result && !isAnalyzing && !showAssistantPanel && !hasReviewWorkspace;
-  const shellClassName = [
-    "shell",
-    "shell-console",
-    isStartOnly ? "shell-guided-start shell-start-focus" : "",
-    isStartOnly ? "shell-start-empty" : ""
-  ].filter(Boolean).join(" ");
+  const shellClassName = ["shell", "shell-console"].join(" ");
+  const primaryAction = result
+    ? { label: "수정본 재검토", icon: <RefreshCw size={17} />, disabled: isAnalyzing, run: () => void recheckAsFixed() }
+    : inputReadiness.canReview
+      ? { label: "AI 1차 검토", icon: isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />, disabled: isAnalyzing, run: () => void runReview() }
+      : { label: "자료 추가", icon: <Upload size={17} />, disabled: false, run: () => { setReviewStarted(true); fileInputRef.current?.click(); } };
 
   return (
     <main className={shellClassName}>
@@ -781,8 +781,8 @@ export default function Home() {
           <NavButton active={screen === "review"} icon={<ClipboardCheck />} label={result ? "라벨 검토" : "검토 시작"} onClick={() => setScreen("review")} />
           <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
           <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
-          <NavButton active={screen === "updates"} icon={<BookOpen />} label="라벨/문구 라이브러리" onClick={() => setScreen("updates")} />
-          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="승인/업무함" onClick={() => setScreen("partners")} />
+          <NavButton active={screen === "updates"} icon={<BookOpen />} label="업데이트" onClick={() => setScreen("updates")} />
+          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가" onClick={() => setScreen("partners")} />
         </nav>
 
         <div className="side-panel">
@@ -810,15 +810,18 @@ export default function Home() {
             </button>
           </form>
           <div className="top-actions">
+            <button className="primary-btn" onClick={primaryAction.run} disabled={primaryAction.disabled}>
+              {primaryAction.icon} {primaryAction.label}
+            </button>
+            <button className="ghost-btn" onClick={() => { window.location.href = "/knowledge"; }}>
+              <Search size={17} /> 규정 검색
+            </button>
             <button
               className="ghost-btn"
               onClick={() => setToast(result ? "현재 검토 버전은 보관함에 저장되어 있습니다." : "초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")}
               disabled={!hasReviewWorkspace || (!result && !inputReadiness.labelReady && !inputReadiness.productReady)}
             >
               <Database size={17} /> 저장
-            </button>
-            <button className={result ? "primary-btn" : "ghost-btn"} onClick={() => void recheckAsFixed()} disabled={!result}>
-              <RefreshCw size={17} /> 재검토
             </button>
             <button className="ghost-btn" onClick={downloadReport} disabled={!result}>
               <Download size={17} /> 내보내기
@@ -866,6 +869,23 @@ export default function Home() {
                     샘플 보기
                   </button>
                 </div>
+              </div>
+
+              <div className="start-progress-card">
+                <div>
+                  <span>필수 입력 3가지</span>
+                  <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
+                </div>
+                <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
+                <small>제품명, 제품 유형, 성분 또는 라벨 문구만 있으면 첫 판정을 시작할 수 있습니다.</small>
+              </div>
+
+              <div className="start-scope-strip" aria-label="처음부터 함께 보는 검토 범위">
+                <span>식품 표시</span>
+                <span>화장품 성분</span>
+                <span>번체 라벨</span>
+                <span>클레임</span>
+                <span>통관 서류</span>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -1018,17 +1038,6 @@ export default function Home() {
                   />
                 </label>
 
-                <div className="upload-row">
-                  <button className="upload-box" onClick={() => fileInputRef.current?.click()}>
-                    <Upload size={19} />
-                    <span>라벨 앞면/PDF 업로드</span>
-                  </button>
-                  <button className="upload-box" onClick={() => fileInputRef.current?.click()}>
-                    <Upload size={19} />
-                    <span>라벨 뒷면/PDF 업로드</span>
-                  </button>
-                </div>
-
                 <label className="field">
                   <span>라벨 문구 또는 OCR 결과</span>
                   <textarea value={input.labelText} onChange={(event) => updateInput("labelText", event.target.value)} placeholder="品名, 用途, 全成分, 原產地, 批號..." rows={7} />
@@ -1102,7 +1111,6 @@ export default function Home() {
               </div>
             </section>
 
-            {(result || isAnalyzing) && (
             <section className="result-pane">
               {isAnalyzing && <Analyzing />}
               {result && visibleStatus && currentActionPlan && (
@@ -1207,8 +1215,8 @@ export default function Home() {
                   </details>
                 </>
               )}
+              {!result && !isAnalyzing && <EmptyResult readiness={inputReadiness} />}
             </section>
-            )}
           </div>
           )}
           </>
@@ -1865,21 +1873,23 @@ function FindingRow({ finding, expanded, onToggle, onAsk }: { finding: Finding; 
   );
 }
 
-function EmptyResult() {
+function EmptyResult({ readiness }: { readiness: ReturnType<typeof buildInputReadiness> }) {
+  const ready = readiness.canReview;
+
   return (
     <div className="empty-result empty-result-simple">
       <div className="empty-head">
         <span className="mini-seal">TW</span>
         <div>
-          <b>검토는 왼쪽 입력부터 시작합니다</b>
-          <p>처음에는 제품명, 제품 유형, 성분·라벨 텍스트만 있으면 됩니다.</p>
+          <b>{ready ? "검토 실행만 남았습니다" : "검토는 왼쪽 입력부터 시작합니다"}</b>
+          <p>{ready ? "필수 자료가 준비됐습니다. 1차 검토를 실행하면 위험 항목과 다음 행동만 먼저 정리합니다." : "처음에는 제품명, 제품 유형, 성분·라벨 텍스트만 있으면 됩니다."}</p>
         </div>
       </div>
 
       <div className="start-path" aria-label="검토 시작 순서">
-        <span><b>1. 품목</b><small>화장품 또는 식품</small></span>
-        <span><b>2. 라벨·성분</b><small>붙여넣기 또는 OCR</small></span>
-        <span><b>3. 검토</b><small>위험 항목만 리포트</small></span>
+        <span className={readiness.productReady ? "done" : ""}><b>1. 품목</b><small>화장품 또는 식품</small></span>
+        <span className={readiness.labelReady ? "done" : ""}><b>2. 라벨·성분</b><small>붙여넣기 또는 OCR</small></span>
+        <span className={ready ? "now" : ""}><b>3. 검토</b><small>위험 항목만 리포트</small></span>
       </div>
     </div>
   );
