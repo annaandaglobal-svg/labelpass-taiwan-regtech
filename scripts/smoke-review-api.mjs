@@ -959,6 +959,117 @@ if (!Array.isArray(tradeCompleteResult.actionPlan?.ownerSummary)) {
   throw new Error("Trade complete review: expected action plan owner summary");
 }
 
+const cosmeticNoDocsResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Bare Hydration Serum",
+    productType: "leave-on serum / cosmetic",
+    ingredientsText: "Water, Glycerin 5%, Panthenol 1%, Phenoxyethanol 0.6%",
+    labelText: "Product name: Bare Hydration Serum. Net volume 30ml. Ingredients: Water, Glycerin, Panthenol, Phenoxyethanol. Made in Korea. Batch BH2606. EXP 2029-06-01. Taiwan importer pending.",
+    origin: "Korea",
+    manufacturer: "Annaanda Beauty Lab",
+    hsCode: "3304.99",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "920"
+  })
+});
+
+if (!cosmeticNoDocsResponse.ok) {
+  throw new Error(`Cosmetic no-docs review: Review API returned ${cosmeticNoDocsResponse.status}`);
+}
+
+const cosmeticNoDocsResult = await cosmeticNoDocsResponse.json();
+
+for (const findingId of [
+  "cosmetic-product-notification-needed",
+  "cosmetic-pif-readiness-needed",
+  "cosmetic-gmp-readiness-needed",
+  "cosmetic-adverse-reporting-needed",
+  "cosmetic-recall-procedure-needed",
+  "cosmetic-source-flow-records-needed"
+]) {
+  if (!cosmeticNoDocsResult.findings?.some((finding) => finding.id === findingId && finding.status === "needs_info")) {
+    throw new Error(`Cosmetic no-docs review: expected needs_info finding ${findingId}`);
+  }
+}
+
+for (const checklistId of [
+  "cosmetic-product-notification",
+  "cosmetic-pif",
+  "cosmetic-gmp",
+  "cosmetic-adverse-reporting",
+  "cosmetic-recall-procedure",
+  "cosmetic-source-flow-records"
+]) {
+  if (!cosmeticNoDocsResult.actionPlan?.documentChecklist?.some((doc) => doc.id === checklistId && doc.status === "needed")) {
+    throw new Error(`Cosmetic no-docs review: expected needed checklist item ${checklistId}`);
+  }
+}
+
+const cosmeticPartialDocsResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Cica Balance Lotion",
+    productType: "leave-on lotion / cosmetic",
+    ingredientsText: "Water, Glycerin 4%, Centella Asiatica Extract, Phenoxyethanol 0.7%",
+    labelText: [
+      "Product name: Cica Balance Lotion. Net volume 50ml. Ingredients: Water, Glycerin, Centella Asiatica Extract, Phenoxyethanol.",
+      "Made in Korea. Taiwan importer: Taiwan Importer Co. Batch CBL2606. EXP 2029-06-01.",
+      "Cosmetic product notification registration number TW-COS-2026-01021.",
+      "PIF product information file and safety assessment prepared.",
+      "GMP / ISO 22716 certificate prepared for the manufacturing site."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Beauty Lab / Taiwan Importer Co.",
+    hsCode: "3304.99",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1100"
+  })
+});
+
+if (!cosmeticPartialDocsResponse.ok) {
+  throw new Error(`Cosmetic partial-docs review: Review API returned ${cosmeticPartialDocsResponse.status}`);
+}
+
+const cosmeticPartialDocsResult = await cosmeticPartialDocsResponse.json();
+
+for (const findingId of [
+  "cosmetic-product-notification-present",
+  "cosmetic-pif-readiness-present",
+  "cosmetic-gmp-readiness-present"
+]) {
+  if (!cosmeticPartialDocsResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
+    throw new Error(`Cosmetic partial-docs review: expected pass finding ${findingId}`);
+  }
+}
+
+for (const findingId of [
+  "cosmetic-adverse-reporting-needed",
+  "cosmetic-recall-procedure-needed",
+  "cosmetic-source-flow-records-needed"
+]) {
+  if (!cosmeticPartialDocsResult.findings?.some((finding) => finding.id === findingId && finding.status === "needs_info")) {
+    throw new Error(`Cosmetic partial-docs review: expected needs_info finding ${findingId}`);
+  }
+}
+
+for (const [checklistId, status] of [
+  ["cosmetic-product-notification", "ready"],
+  ["cosmetic-pif", "ready"],
+  ["cosmetic-gmp", "ready"],
+  ["cosmetic-adverse-reporting", "needed"],
+  ["cosmetic-recall-procedure", "needed"],
+  ["cosmetic-source-flow-records", "needed"]
+]) {
+  if (!cosmeticPartialDocsResult.actionPlan?.documentChecklist?.some((doc) => doc.id === checklistId && doc.status === status)) {
+    throw new Error(`Cosmetic partial-docs review: expected ${status} checklist item ${checklistId}`);
+  }
+}
+
 const cosmeticClaimGapResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -1271,5 +1382,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 22} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 24} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );
