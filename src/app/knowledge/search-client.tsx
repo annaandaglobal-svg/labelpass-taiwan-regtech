@@ -317,41 +317,50 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
         .filter(Boolean)
         .join(" ")}
     >
-      <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
-        <Search size={19} />
-        <input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="대만 화장품 PIF, 식품첨가물, INCI, CAS, HS code"
-          aria-label="지식 검색어"
-        />
-        {loading && <Loader2 className="spin" size={18} />}
-      </div>
-
-      {!hasQuery && (
-        <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
-          <span>바로 검색</span>
-          {onboardingExamples.map((example) => (
-            <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
-              {example.label}
-            </button>
-          ))}
+      <div className="knowledge-command-head">
+        <div>
+          <span>대만 규정·용어 검색</span>
+          <h2>한 가지 성분이나 표시문구부터 확인하세요</h2>
+          <p>검색 전후 화면 구조는 그대로 두고, 후보와 근거만 같은 자리에서 바뀝니다.</p>
         </div>
-      )}
+        <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
+          <Search size={19} />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="대만 화장품 PIF, 식품첨가물, INCI, CAS, HS code"
+            aria-label="지식 검색어"
+          />
+          {loading && <Loader2 className="spin" size={18} />}
+        </div>
+      </div>
 
       {error && <div className="knowledge-alert">{error}</div>}
 
-      {!hasQuery ? (
-        <section className="knowledge-start-panel" aria-label="검색 시작 안내">
-          <ShieldCheck size={20} />
-          <div>
-            <b>성분명, CAS, INCI, HS code를 한 곳에서 검색하세요.</b>
-            <p>검색 후에는 가장 가능성이 높은 후보와 공식 근거만 먼저 보여주고, 필요한 경우에만 필터와 추가 출처를 펼칩니다.</p>
+      <div className="knowledge-results knowledge-results-unified knowledge-results-stable">
+        <section className="knowledge-result-feed">
+          <div className="knowledge-section-title">
+            <h2>{hasQuery ? "검색 결과" : "검색 대기"}</h2>
+            <span>{hasQuery ? resultCountLabel : "예시를 선택하거나 직접 입력"}</span>
           </div>
-        </section>
-      ) : (
-        <>
-          {data?.ambiguity && (
+
+          {!hasQuery && (
+            <div className="knowledge-search-empty knowledge-search-empty-start">
+              <ShieldCheck size={20} />
+              <b>처음에는 하나만 검색하면 됩니다</b>
+              <span>성분명, CAS, INCI, HS code, 표시문구 중 하나를 넣으면 관련 후보와 공식 근거를 같은 화면에서 정리합니다.</span>
+              <div className="knowledge-examples knowledge-examples-start" aria-label="검색 예시">
+                <span>예시</span>
+                {onboardingExamples.map((example) => (
+                  <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
+                    {example.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {hasQuery && data?.ambiguity && (
             <div className="knowledge-ambiguity-panel" role="status">
               <div>
                 <b>비슷한 후보가 있습니다</b>
@@ -368,212 +377,201 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             </div>
           )}
 
-          <details className="knowledge-filter-drawer">
-              <summary>
-                <Filter size={16} />
-                필터
-                <span>{hasResults ? filterSummary : "검색 후 결과 범위를 좁힐 수 있습니다"}</span>
-              </summary>
-              <div className="knowledge-control-room" aria-label="검색 보조 옵션">
-                <div className="knowledge-filter-panel">
-                  <FilterGroup title="관할권" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!hasResults} />
-                  <FilterGroup title="분야" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!hasResults} />
-                  <FilterGroup title="출처" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!hasResults} />
-                  <FilterGroup title="범주" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!hasResults} />
-                  <FilterGroup title="상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!hasResults} />
-                </div>
+          {hasQuery && isRefreshing && (
+            <div className="knowledge-refresh-note" role="status">
+              결과를 새로 확인하는 중입니다.
+            </div>
+          )}
 
-                {hasResults && <details className="knowledge-health-drawer">
-                  <summary>
-                    <Database size={16} />
-                    운영 지표
-                  </summary>
-                  <div className="knowledge-health-grid">
-                    <StatusTile
-                      icon={<ShieldCheck size={17} />}
-                      label="매칭 결과"
-                      value={matchedCount.toLocaleString()}
-                      detail={`용어 ${filteredTerms.length.toLocaleString()}개 - 근거 ${filteredSources.length.toLocaleString()}개`}
-                      tone="green"
-                    />
-                    <StatusTile
-                      icon={<Database size={17} />}
-                      label="중요 출처"
-                      value={highPriorityCount.toLocaleString()}
-                      detail="우선 검토 대상 출처"
-                      tone="blue"
-                    />
-                    <StatusTile
-                      icon={<RefreshCw size={17} />}
-                      label="확인 필요"
-                      value={watchCount.toLocaleString()}
-                      detail="오래된 캐시 또는 수동 보강 항목"
-                      tone={watchCount ? "gold" : "green"}
-                    />
-                    <StatusTile
-                      icon={<BookOpen size={17} />}
-                      label="브라우저"
-                      value={browserCount.toLocaleString()}
-                      detail="브라우저 기반 보강 근거"
-                      tone="neutral"
-                    />
+          {hasQuery && hasResults && topResult && (
+            <article className={`knowledge-best-card ${topResult.kind}`}>
+              <button
+                type="button"
+                className="knowledge-best-main"
+                onClick={() => (topResult.kind === "term" ? selectTerm(topResult.term) : selectSource(topResult.source))}
+                aria-pressed={selectedEvidence?.title === topResult.title}
+              >
+                <span className={`knowledge-decision ${decisionForResult(topResult).tone}`}>{decisionForResult(topResult).label}</span>
+                <div>
+                  <h3>{topResult.title}</h3>
+                  <p>{decisionForResult(topResult).detail}</p>
+                  <div className="knowledge-row-meta">
+                    <span>{topResult.subtitle}</span>
+                    {topResult.chips.slice(0, 3).map((chip) => (
+                      <span key={`${topResult.id}-${chip}`}>{chip}</span>
+                    ))}
                   </div>
-                </details>}
-              </div>
-            </details>
-
-          <div className="knowledge-results knowledge-results-unified">
-            <section className="knowledge-result-feed">
-              <div className="knowledge-section-title">
-                <h2>검색 결과</h2>
-                <span>{resultCountLabel}</span>
-              </div>
-              {isRefreshing && (
-                <div className="knowledge-refresh-note" role="status">
-                  결과를 새로 확인하는 중입니다.
                 </div>
-              )}
-              {hasResults && topResult && (
-                <article className={`knowledge-best-card ${topResult.kind}`}>
+                <b className="knowledge-score">{Math.round(topResult.score)}</b>
+                <span className="knowledge-row-action-hint">근거 보기</span>
+              </button>
+            </article>
+          )}
+
+          <div className="knowledge-row-list">
+            {hasQuery &&
+              hasResults &&
+              visibleSecondaryResults.map((item) => (
+                <article className={`knowledge-row ${item.kind}`} key={item.id}>
                   <button
                     type="button"
-                    className="knowledge-best-main"
-                    onClick={() => (topResult.kind === "term" ? selectTerm(topResult.term) : selectSource(topResult.source))}
-                    aria-pressed={selectedEvidence?.title === topResult.title}
+                    className="knowledge-row-main"
+                    onClick={() => (item.kind === "term" ? selectTerm(item.term) : selectSource(item.source))}
+                    aria-pressed={selectedEvidence?.title === item.title}
                   >
-                    <span className={`knowledge-decision ${decisionForResult(topResult).tone}`}>{decisionForResult(topResult).label}</span>
+                    <span className={`knowledge-decision ${decisionForResult(item).tone}`}>{decisionForResult(item).label}</span>
                     <div>
-                      <h3>{topResult.title}</h3>
-                      <p>{decisionForResult(topResult).detail}</p>
+                      <h3>{item.title}</h3>
+                      <p>{decisionForResult(item).detail}</p>
                       <div className="knowledge-row-meta">
-                        <span>{topResult.subtitle}</span>
-                        {topResult.chips.slice(0, 3).map((chip) => (
-                          <span key={`${topResult.id}-${chip}`}>{chip}</span>
+                        <span>{item.subtitle}</span>
+                        {item.chips.slice(0, 2).map((chip) => (
+                          <span key={`${item.id}-${chip}`}>{chip}</span>
                         ))}
                       </div>
                     </div>
-                    <b className="knowledge-score">{Math.round(topResult.score)}</b>
-                    <span className="knowledge-row-action-hint">근거 보기</span>
+                    <b className="knowledge-score">{Math.round(item.score)}</b>
                   </button>
                 </article>
-              )}
+              ))}
 
-              <div className="knowledge-row-list">
-                {hasResults &&
-                  visibleSecondaryResults.map((item) => (
-                    <article className={`knowledge-row ${item.kind}`} key={item.id}>
-                      <button
-                        type="button"
-                        className="knowledge-row-main"
-                        onClick={() => (item.kind === "term" ? selectTerm(item.term) : selectSource(item.source))}
-                        aria-pressed={selectedEvidence?.title === item.title}
-                      >
-                        <span className={`knowledge-decision ${decisionForResult(item).tone}`}>{decisionForResult(item).label}</span>
-                        <div>
-                          <h3>{item.title}</h3>
-                          <p>{decisionForResult(item).detail}</p>
-                          <div className="knowledge-row-meta">
-                            <span>{item.subtitle}</span>
-                            {item.chips.slice(0, 2).map((chip) => (
-                              <span key={`${item.id}-${chip}`}>{chip}</span>
-                            ))}
-                          </div>
-                        </div>
-                        <b className="knowledge-score">{Math.round(item.score)}</b>
-                      </button>
-                    </article>
-                  ))}
-
-                {!hasResults && (
-                  <div className="knowledge-search-empty">
-                    <Loader2 className={loading ? "spin" : undefined} size={20} />
-                    <b>{loading ? "검색 중입니다." : "검색어에 맞는 후보를 정리하고 있습니다."}</b>
-                    <span>결과가 준비되면 같은 자리에서 근거를 선택하고 검토에 반영할 수 있습니다.</span>
-                  </div>
-                )}
-                {hasResults && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 결과가 없습니다.</div>}
-                {hasResults && hiddenResultCount > 0 && (
-                  <div className="knowledge-more-note">
-                    <span>{`핵심 후보 ${displayedResultCount.toLocaleString()}개만 먼저 표시했습니다. 남은 후보 ${hiddenResultCount.toLocaleString()}개는 필요할 때 펼쳐보세요.`}</span>
-                    {!showAllResults && (
-                      <button type="button" onClick={() => setShowAllResults(true)}>
-                        후보 더 보기
-                      </button>
-                    )}
-                  </div>
-                )}
+            {hasQuery && !hasResults && (
+              <div className="knowledge-search-empty">
+                <Loader2 className={loading ? "spin" : undefined} size={20} />
+                <b>{loading ? "검색 중입니다." : "검색어에 맞는 후보를 정리하고 있습니다."}</b>
+                <span>결과가 준비되면 같은 자리에서 근거를 선택하고 검토에 반영할 수 있습니다.</span>
               </div>
-            </section>
-
-            <aside className="knowledge-detail-panel" aria-label="근거 확인">
-              <div className="knowledge-tray-head">
-                <ShieldCheck size={18} />
-                <div>
-                  <h2>근거 확인</h2>
-                  <span>
-                    {selectedEvidence
-                      ? "근거를 확인한 뒤 검토 화면에 반영할 수 있습니다."
-                      : "결과를 선택하면 근거와 검토 연결을 확인할 수 있습니다."}
-                  </span>
-                </div>
-              </div>
-
-              <div className="knowledge-tray-actions" aria-label="검토 반영">
-                {selectedEvidence ? (
-                  <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`}>
-                    <PackageSearch size={15} />
-                    검토에 반영하기
-                  </Link>
-                ) : (
-                  <button type="button" disabled>
-                    <PackageSearch size={15} />
-                    결과 선택 후 검토 반영
+            )}
+            {hasQuery && hasResults && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 결과가 없습니다.</div>}
+            {hasQuery && hasResults && hiddenResultCount > 0 && (
+              <div className="knowledge-more-note">
+                <span>{`핵심 후보 ${displayedResultCount.toLocaleString()}개만 먼저 표시했습니다. 남은 후보 ${hiddenResultCount.toLocaleString()}개는 필요할 때 펼쳐보세요.`}</span>
+                {!showAllResults && (
+                  <button type="button" onClick={() => setShowAllResults(true)}>
+                    후보 더 보기
                   </button>
                 )}
               </div>
+            )}
+          </div>
+        </section>
 
-              {selectedEvidence ? (
-                <div className="knowledge-evidence-card">
-                  <div>
-                    <small>{selectedEvidence.kind === "term" ? "용어 근거" : "출처 근거"}</small>
-                    <h3>{selectedEvidence.title}</h3>
-                    <span>{selectedEvidence.subtitle}</span>
-                  </div>
-                  {typeof selectedEvidence.score === "number" && <b>{Math.round(selectedEvidence.score)}</b>}
-                  {selectedEvidence.href && (
-                    <div className="knowledge-tray-actions" aria-label="원문 확인">
-                      <a href={selectedEvidence.href} target="_blank" rel="noreferrer">
-                        원문 열기 <ExternalLink size={15} />
-                      </a>
-                    </div>
-                  )}
-                  <p>{compact(selectedEvidence.detail, 240)}</p>
-                  <div className="knowledge-evidence-chips">
-                    {selectedEvidence.chips.slice(0, 6).map((chip) => (
-                      <span key={`${selectedEvidence.title}-${chip}`}>{chip}</span>
+        <aside className="knowledge-detail-panel" aria-label="근거 확인">
+          <div className="knowledge-tray-head">
+            <ShieldCheck size={18} />
+            <div>
+              <h2>근거 확인</h2>
+              <span>
+                {selectedEvidence
+                  ? "선택한 후보의 공식 출처와 관련 용어를 확인합니다."
+                  : "검색 결과를 선택하면 근거와 검토 연결을 확인할 수 있습니다."}
+              </span>
+            </div>
+          </div>
+
+          {selectedEvidence ? (
+            <div className="knowledge-evidence-card">
+              <div>
+                <small>{selectedEvidence.kind === "term" ? "용어 근거" : "출처 근거"}</small>
+                <h3>{selectedEvidence.title}</h3>
+                <span>{selectedEvidence.subtitle}</span>
+              </div>
+              {typeof selectedEvidence.score === "number" && <b>{Math.round(selectedEvidence.score)}</b>}
+              <p>{compact(selectedEvidence.detail, 240)}</p>
+              <div className="knowledge-evidence-chips">
+                {selectedEvidence.chips.slice(0, 6).map((chip) => (
+                  <span key={`${selectedEvidence.title}-${chip}`}>{chip}</span>
+                ))}
+              </div>
+              <div className="knowledge-tray-actions" aria-label="근거 작업">
+                <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`}>
+                  <PackageSearch size={15} />
+                  검토에 반영
+                </Link>
+                {selectedEvidence.href && (
+                  <a href={selectedEvidence.href} target="_blank" rel="noreferrer">
+                    원문 <ExternalLink size={15} />
+                  </a>
+                )}
+              </div>
+              {selectedEvidence.aliases?.length ? (
+                <details className="knowledge-alias-drawer">
+                  <summary>다른 이름으로 다시 검색</summary>
+                  <div className="knowledge-action-row" aria-label="별칭 재검색">
+                    {selectedEvidence.aliases.slice(0, 4).map((alias) => (
+                      <button key={`${selectedEvidence.title}-${alias}`} type="button" onClick={() => setQuery(alias)} title={`${alias} 재검색`}>
+                        <Search size={14} />
+                        {compact(alias, 28)}
+                      </button>
                     ))}
                   </div>
-                  {selectedEvidence.aliases?.length ? (
-                    <div className="knowledge-action-row" aria-label="별칭 재검색">
-                      {selectedEvidence.aliases.slice(0, 4).map((alias) => (
-                        <button key={`${selectedEvidence.title}-${alias}`} type="button" onClick={() => setQuery(alias)} title={`${alias} 재검색`}>
-                          <Search size={14} />
-                          {compact(alias, 28)}
-                        </button>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              ) : (
-                <div className="knowledge-evidence-empty">
-                  <ClipboardCheck size={20} />
-                  <p>왼쪽 검색 결과에서 항목을 선택하면 제목, 분류, 근거 상태를 바로 확인할 수 있습니다.</p>
-                </div>
-              )}
-            </aside>
+                </details>
+              ) : null}
+            </div>
+          ) : (
+            <div className="knowledge-evidence-empty">
+              <ClipboardCheck size={20} />
+              <p>왼쪽 검색 결과에서 항목을 선택하면 제목, 분류, 근거 상태를 바로 확인할 수 있습니다.</p>
+            </div>
+          )}
+        </aside>
+      </div>
+
+      <details className="knowledge-filter-drawer knowledge-filter-drawer-quiet">
+        <summary>
+          <Filter size={16} />
+          상세 필터·운영 지표
+          <span>{hasResults ? filterSummary : "검색 후 필요할 때만 펼쳐보세요"}</span>
+        </summary>
+        <div className="knowledge-control-room" aria-label="검색 보조 옵션">
+          <div className="knowledge-filter-panel">
+            <FilterGroup title="관할권" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!hasResults} />
+            <FilterGroup title="분야" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!hasResults} />
+            <FilterGroup title="출처" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!hasResults} />
+            <FilterGroup title="범주" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!hasResults} />
+            <FilterGroup title="상태" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!hasResults} />
           </div>
-        </>
-      )}
+
+          {hasResults && (
+            <details className="knowledge-health-drawer">
+              <summary>
+                <Database size={16} />
+                운영 지표
+              </summary>
+              <div className="knowledge-health-grid">
+                <StatusTile
+                  icon={<ShieldCheck size={17} />}
+                  label="매칭 결과"
+                  value={matchedCount.toLocaleString()}
+                  detail={`용어 ${filteredTerms.length.toLocaleString()}개 - 근거 ${filteredSources.length.toLocaleString()}개`}
+                  tone="green"
+                />
+                <StatusTile
+                  icon={<Database size={17} />}
+                  label="중요 출처"
+                  value={highPriorityCount.toLocaleString()}
+                  detail="우선 검토 대상 출처"
+                  tone="blue"
+                />
+                <StatusTile
+                  icon={<RefreshCw size={17} />}
+                  label="확인 필요"
+                  value={watchCount.toLocaleString()}
+                  detail="오래된 캐시 또는 수동 보강 항목"
+                  tone={watchCount ? "gold" : "green"}
+                />
+                <StatusTile
+                  icon={<BookOpen size={17} />}
+                  label="브라우저"
+                  value={browserCount.toLocaleString()}
+                  detail="브라우저 기반 보강 근거"
+                  tone="neutral"
+                />
+              </div>
+            </details>
+          )}
+        </div>
+      </details>
     </section>
   );
 }

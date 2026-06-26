@@ -769,16 +769,16 @@ export default function Home() {
   const archiveStatus = archiveCopy[archiveState];
   const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
   const hasReviewWorkspace =
-    reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
+    screen === "review" || reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
   const reviewMode = isAnalyzing ? "analyzing" : result ? "result" : hasReviewWorkspace ? "intake" : "start";
-  const isStartOnly = screen === "review" && reviewMode === "start";
+  const isFocusedIntake = screen === "review" && reviewMode === "intake" && !showAssistantPanel;
   const showResultPane = Boolean(result) || isAnalyzing;
-  const showWorkPanel = screen === "review" && showAssistantPanel && !isStartOnly && reviewMode !== "result";
-  const showGlobalSearch = !isStartOnly && (screen !== "review" || Boolean(result) || showAssistantPanel);
+  const showWorkPanel = screen === "review" && showAssistantPanel && reviewMode !== "result";
+  const showGlobalSearch = !isFocusedIntake && (screen !== "review" || Boolean(result) || showAssistantPanel);
   const shellClassName = [
     "shell",
     showWorkPanel ? "shell-console" : "shell-no-assistant",
-    isStartOnly ? "shell-start-empty" : "",
+    isFocusedIntake ? "shell-start-empty" : "",
     screen === "review" && hasReviewWorkspace && !showResultPane ? "shell-start-focus" : ""
   ].filter(Boolean).join(" ");
   const primaryAction = result
@@ -798,7 +798,7 @@ export default function Home() {
           </div>
         </div>
 
-        <nav className={isStartOnly ? "nav-list nav-list-start" : "nav-list"}>
+        <nav className={isFocusedIntake ? "nav-list nav-list-start" : "nav-list"}>
           <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="검토 시작" onClick={() => setScreen("review")} />
           <NavButton active={false} icon={<Search />} label="규정·성분" onClick={() => openKnowledgeSearch()} />
           <NavButton active={screen === "products"} icon={<Archive />} label="내 제품" onClick={() => setScreen("products")} />
@@ -814,7 +814,7 @@ export default function Home() {
       </aside>
 
       <section className="workspace">
-        <header className={["topbar", isStartOnly ? "topbar-minimal" : !showGlobalSearch ? "topbar-compact" : ""].filter(Boolean).join(" ")}>
+        <header className={["topbar", isFocusedIntake ? "topbar-minimal" : !showGlobalSearch ? "topbar-compact" : ""].filter(Boolean).join(" ")}>
           <div>
             <p className="eyebrow">대만 · 식품/화장품 · 기준일 {nowTime()}</p>
             <h1>{screen === "review" ? "대만 수출 라벨·통관 검토" : screenTitle(screen)}</h1>
@@ -832,7 +832,7 @@ export default function Home() {
               </button>
             </form>
           )}
-          {!isStartOnly && (
+          {!isFocusedIntake && (
             <div className="top-actions">
               {screen === "review" && result && (
                 <button className="primary-btn" onClick={primaryAction.run} disabled={primaryAction.disabled}>
@@ -868,58 +868,33 @@ export default function Home() {
 
         {screen === "review" && (
           <>
-          {isStartOnly && (
-          <section className="start-command-shell start-command-shell-focused start-hub-shell" aria-label="LabelPass 시작 동선">
-            <div className="start-command-card start-hub-card">
-              <div className="start-command-copy start-hub-copy">
-                <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
-                <h2>라벨 파일을 올리면 먼저 고쳐야 할 항목부터 정리합니다</h2>
-                <p>PDF, 이미지, OCR 텍스트를 넣으면 대만 표시·성분·통관 기준으로 1차 검토를 시작합니다. 성분이나 규정만 먼저 확인해야 할 때는 아래 검색으로 바로 들어가세요.</p>
-              </div>
-
-              <div className="start-hub-actions" aria-label="시작 경로">
-                <button className="start-path-action primary" type="button" onClick={() => { setReviewStarted(true); fileInputRef.current?.click(); }}>
-                  <Upload size={22} />
-                  <span>
-                    <b>라벨이 있음</b>
-                    <small>PDF, 이미지, OCR 텍스트를 올려 대만 기준 1차 검토</small>
-                  </span>
-                </button>
-
-                <form className="start-path-action start-search-action" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
-                  <Search size={22} />
-                  <span>
-                    <b>성분·규정을 먼저 확인</b>
-                    <small>INCI, CAS, MSG, PIF, HS code를 공식 근거와 연결</small>
-                  </span>
-                  <label className="start-search-box">
-                    <span className="sr-only">규정·성분 검색어</span>
-                    <input
-                      value={startKnowledgeQuery}
-                      onChange={(event) => setStartKnowledgeQuery(event.target.value)}
-                      placeholder="예: MSG, CAS 69-72-7, 화장품 PIF"
-                    />
-                    <button type="submit">검색</button>
-                  </label>
-                </form>
-
-              </div>
-
-              {uploadedFiles.length > 0 && (
-                <div className="file-chip-row" aria-label="연결된 파일">
-                  {uploadedFiles.map((file) => (
-                    <span key={file}><FileText size={13} />{file}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-
-          </section>
-          )}
-
           {hasReviewWorkspace && (
           <div className={showResultPane ? "review-grid" : "review-grid review-grid-start"}>
             <section className="input-pane">
+              {!result && (
+                <div className="intake-hero-panel">
+                  <div>
+                    <span>AI 1차 사전점검</span>
+                    <h2>대만 수출 전, 라벨에서 막힐 항목만 먼저 확인하세요</h2>
+                    <p>제품명, 품목, 전성분이나 라벨 문구를 넣으면 대만 식품·화장품 기준으로 차단 항목과 추가 자료만 정리합니다.</p>
+                  </div>
+                  <div className="intake-fixed-actions" aria-label="고정 시작 도구">
+                    <button className="primary-btn" type="button" onClick={() => fileInputRef.current?.click()}>
+                      <Upload size={16} /> 파일 첨부
+                    </button>
+                    <form className="intake-inline-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
+                      <Search size={15} />
+                      <input
+                        value={startKnowledgeQuery}
+                        onChange={(event) => setStartKnowledgeQuery(event.target.value)}
+                        placeholder="성분·규정 검색"
+                        aria-label="성분 또는 규정 검색"
+                      />
+                      <button type="submit">검색</button>
+                    </form>
+                  </div>
+                </div>
+              )}
               <div className="intake-rail" aria-label="검토 입력 단계">
                 <span className={inputReadiness.labelReady ? "done" : "now"}>1 자료</span>
                 <span className={inputReadiness.productReady ? "done" : inputReadiness.labelReady ? "now" : ""}>2 품목</span>
