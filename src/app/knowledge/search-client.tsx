@@ -11,8 +11,7 @@ import {
   PackageSearch,
   RefreshCw,
   Search,
-  ShieldCheck,
-  Tags
+  ShieldCheck
 } from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
@@ -47,6 +46,31 @@ type EvidenceItem = {
   chips: string[];
   href?: string;
 };
+
+type UnifiedResult =
+  | {
+      kind: "term";
+      id: string;
+      title: string;
+      subtitle: string;
+      detail: string;
+      score: number;
+      chips: string[];
+      reviewParam: string;
+      term: TermItem;
+    }
+  | {
+      kind: "source";
+      id: string;
+      title: string;
+      subtitle: string;
+      detail: string;
+      score: number;
+      chips: string[];
+      reviewParam: string;
+      href: string;
+      source: SourceItem;
+    };
 
 const fixedFreshnessOptions: Option[] = [
   { value: ALL, label: "전체" },
@@ -156,15 +180,57 @@ export default function KnowledgeSearchClient() {
   const watchCount = filteredSources.filter((source) => source.manualFallback || source.cacheStatus === "stale").length;
   const browserCount = filteredSources.filter((source) => source.browserCapture).length;
   const matchedCount = filteredTerms.length + filteredSources.length;
+  const unifiedResults = useMemo<UnifiedResult[]>(() => {
+    const termRows = visibleTerms.map((term) => ({
+      kind: "term" as const,
+      id: `term-${term.id}`,
+      title: term.canonicalName,
+      subtitle: `${labelFor(term.category)} · 별칭 ${term.aliasCount.toLocaleString()}개`,
+      detail: term.notes || "다국어 별칭, 식별자, 규칙 연결을 함께 확인해야 하는 용어입니다.",
+      score: term.score,
+      chips: uniqueCompact([
+        ...term.identifiers.cas.slice(0, 1).map((value) => `CAS ${value}`),
+        ...term.identifiers.inci.slice(0, 1).map((value) => `INCI ${value}`),
+        ...term.aliases.slice(0, 2).map((alias) => alias.value),
+        `${term.sourceKeys.length}개 출처`
+      ]).slice(0, 4),
+      reviewParam: term.canonicalName,
+      term
+    }));
+    const sourceRows = visibleSources.map((source) => {
+      const meta = freshnessMeta(source);
+      return {
+        kind: "source" as const,
+        id: `source-${source.id}`,
+        title: source.title,
+        subtitle: `${source.authority} · ${labelFor(source.domain)}`,
+        detail: source.excerpt || "검색어와 연결된 공식 규제 근거입니다.",
+        score: source.score,
+        chips: uniqueCompact([
+          source.jurisdiction,
+          labelFor(source.sourceType),
+          source.priority === "high" ? "우선 검토" : source.priority,
+          meta.label
+        ]).slice(0, 4),
+        reviewParam: source.title,
+        href: source.url,
+        source
+      };
+    });
 
-  function selectTerm(term: TermItem) {
+    return [...termRows, ...sourceRows].sort((left, right) => right.score - left.score).slice(0, 8);
+  }, [visibleSources, visibleTerms]);
+  const activeEvidence = evidence ?? (primaryTerm ? buildTermEvidence(primaryTerm) : primarySource ? buildSourceEvidence(primarySource) : null);
+
+  function buildTermEvidence(term: TermItem): EvidenceItem {
     const chips = uniqueCompact([
       ...term.identifiers.cas.map((value) => `CAS ${value}`),
       ...term.identifiers.inci.slice(0, 3).map((value) => `INCI ${value}`),
       ...term.rules.slice(0, 4).map((rule) => rule.ruleCode),
       `${term.sourceKeys.length}개 출처`
     ]);
-    setEvidence({
+
+    return {
       kind: "term",
       title: term.canonicalName,
       subtitle: `${labelFor(term.category)} · 별칭 ${term.aliasCount.toLocaleString()}개`,
@@ -172,12 +238,12 @@ export default function KnowledgeSearchClient() {
         term.notes || "이 용어는 다국어 별칭, 식별자, 규칙 연결을 함께 묶어 검토하기 좋습니다.",
       score: term.score,
       chips
-    });
+    };
   }
 
-  function selectSource(source: SourceItem) {
+  function buildSourceEvidence(source: SourceItem): EvidenceItem {
     const meta = freshnessMeta(source);
-    setEvidence({
+    return {
       kind: "source",
       title: source.title,
       subtitle: `${source.authority} · ${labelFor(source.domain)}`,
@@ -191,7 +257,15 @@ export default function KnowledgeSearchClient() {
         meta.label,
         source.documentPath ? "로컬 문서" : ""
       ])
-    });
+    };
+  }
+
+  function selectTerm(term: TermItem) {
+    setEvidence(buildTermEvidence(term));
+  }
+
+  function selectSource(source: SourceItem) {
+    setEvidence(buildSourceEvidence(source));
   }
 
   return (
@@ -220,10 +294,9 @@ export default function KnowledgeSearchClient() {
       {error && <div className="knowledge-alert">{error}</div>}
 
       <div className="knowledge-summary">
-        <span>{data ? `용어 ${filteredTerms.length.toLocaleString()}` : "용어·별칭 검색"}</span>
-        <span>{data ? `출처 ${filteredSources.length.toLocaleString()}` : "INCI·CAS·현지명"}</span>
-        <span>{data ? `우선 검토 ${highPriorityCount.toLocaleString()}` : "규칙·고시 연결"}</span>
-        <span>{data ? `갱신 감시 ${watchCount.toLocaleString()}` : "공식 출처 비교"}</span>
+        <span>{data ? `검색 결과 ${matchedCount.toLocaleString()}건` : "용어·별칭 검색"}</span>
+        <span>{data ? `용어 ${filteredTerms.length.toLocaleString()}` : "INCI·CAS·현지명"}</span>
+        <span>{data ? `출처 ${filteredSources.length.toLocaleString()}` : "공식 출처 연결"}</span>
       </div>
 
       {data?.ambiguity && (
@@ -247,9 +320,9 @@ export default function KnowledgeSearchClient() {
       <details className="knowledge-filter-drawer">
         <summary>
           <Filter size={16} />
-          상세 필터와 운영 상태
+          고급 필터
           <span>
-            {data ? `일치 ${matchedCount} · 우선 검토 ${highPriorityCount}` : "검색 후 이 자리에서 범위를 좁힙니다"}
+            {data ? `우선 검토 ${highPriorityCount} · 감시 ${watchCount}` : "검색 후 범위를 좁힙니다"}
           </span>
         </summary>
         <div className="knowledge-control-room" aria-label="검색 결과 제어판">
@@ -303,244 +376,108 @@ export default function KnowledgeSearchClient() {
       )}
 
       {data ? (
-      <div className="knowledge-results">
-        <section className="knowledge-result-column">
+      <div className="knowledge-results knowledge-results-unified">
+        <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
-            <h2>일치한 용어</h2>
-            <span>{filteredTerms.length.toLocaleString()}</span>
+            <h2>검토에 쓸 후보</h2>
+            <span>{unifiedResults.length.toLocaleString()}</span>
           </div>
-          <div className="knowledge-result-list">
-            {visibleTerms.map((term) => (
-              <article className="knowledge-term" key={term.id}>
-                <div className="knowledge-term-head">
-                  <Tags size={18} />
+          <div className="knowledge-row-list">
+            {unifiedResults.map((item) => (
+              <article className={`knowledge-row ${item.kind}`} key={item.id}>
+                <button
+                  type="button"
+                  className="knowledge-row-main"
+                  onClick={() => item.kind === "term" ? selectTerm(item.term) : selectSource(item.source)}
+                >
+                  <span className="knowledge-row-kind">{item.kind === "term" ? "용어" : "출처"}</span>
                   <div>
-                    <h3>{term.canonicalName}</h3>
-                    <span>{labelFor(term.category)}</span>
+                    <h3>{item.title}</h3>
+                    <p>{compact(item.detail, 150)}</p>
+                    <div className="knowledge-row-meta">
+                      <span>{item.subtitle}</span>
+                      {item.chips.slice(0, 3).map((chip) => <span key={`${item.id}-${chip}`}>{chip}</span>)}
+                    </div>
                   </div>
-                  <b>{Math.round(term.score)}</b>
-                </div>
+                  <b>{Math.round(item.score)}</b>
+                </button>
 
-                {term.notes && <p>{term.notes}</p>}
-
-                {Boolean(term.ambiguousAliases?.length) && (
-                  <div className="knowledge-ambiguity">
-                    <b>문맥 확인 필요</b>
-                    {term.ambiguousAliases.slice(0, 3).map((alias) => (
-                      <span key={`${term.id}-${alias.normalized}`}>
-                        {alias.value} → {alias.otherTerms.join(", ")}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                <div className="knowledge-action-row">
-                  <Link href={`/?screen=review&knowledge=${encodeURIComponent(term.canonicalName)}`}>
+                <div className="knowledge-row-actions">
+                  <Link href={`/?screen=review&knowledge=${encodeURIComponent(item.reviewParam)}`}>
                     <PackageSearch size={15} />
-                    검토 화면
+                    검토에 사용
                   </Link>
-                  <button type="button" onClick={() => selectTerm(term)}>
-                    <ClipboardCheck size={15} />
-                    증거함에 담기
-                  </button>
-                </div>
-
-                <details className="knowledge-detail-drawer">
-                  <summary>
-                    세부 별칭·식별자·규칙
-                    <span>{term.aliases.length.toLocaleString()}개 별칭 · {term.rules.length.toLocaleString()}개 규칙</span>
-                  </summary>
-
-                  <div className="knowledge-aliases">
-                    {term.aliases.slice(0, 12).map((alias) => (
-                      <button
-                        key={`${term.id}-${alias.value}-${alias.language}-${alias.type}`}
-                        type="button"
-                        onClick={() => setQuery(alias.value)}
-                      >
-                        <span>{alias.value}</span>
-                        <small>{[alias.type, alias.language, alias.jurisdiction].filter(Boolean).join(" / ")}</small>
-                      </button>
-                    ))}
-                  </div>
-
-                  <div className="knowledge-identifiers">
-                    {term.identifiers.cas.map((value) => (
-                      <button key={`cas-${value}`} type="button" onClick={() => setQuery(value)}>
-                        CAS {value}
-                      </button>
-                    ))}
-                    {term.identifiers.inci.slice(0, 4).map((value) => (
-                      <button key={`inci-${value}`} type="button" onClick={() => setQuery(value)}>
-                        INCI {value}
-                      </button>
-                    ))}
-                    {term.identifiers.colorIndex.map((value) => (
-                      <button key={`ci-${value}`} type="button" onClick={() => setQuery(value)}>
-                        {value}
-                      </button>
-                    ))}
-                  </div>
-
-                  {term.rules.length > 0 && (
-                    <div className="knowledge-rules">
-                      {term.rules.slice(0, 6).map((rule) => (
-                        <button
-                          key={`${term.id}-${rule.ruleCode}`}
-                          type="button"
-                          onClick={() => {
-                            setQuery(rule.ruleCode);
-                            selectTerm(term);
-                          }}
-                        >
-                          <span>{rule.ruleCode}</span>
-                          <small>{rule.basis}</small>
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </details>
-              </article>
-            ))}
-
-            {data && filteredTerms.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 용어가 없습니다.</div>}
-            {filteredTerms.length > visibleTerms.length && (
-              <div className="knowledge-more-note">상위 {visibleTerms.length}개만 먼저 보여줍니다. 상세 필터로 범위를 좁히면 나머지 후보를 더 정확히 볼 수 있습니다.</div>
-            )}
-          </div>
-        </section>
-
-        <section className="knowledge-result-column">
-          <div className="knowledge-section-title">
-            <h2>일치한 출처</h2>
-            <span>{filteredSources.length.toLocaleString()}</span>
-          </div>
-          <div className="knowledge-result-list">
-            {visibleSources.map((source) => {
-              const meta = freshnessMeta(source);
-              return (
-                <article className="knowledge-source" key={source.id}>
-                  <div className="knowledge-term-head">
-                    <BookOpen size={18} />
+                  <details className="knowledge-row-more">
+                    <summary>더보기</summary>
                     <div>
-                      <h3>{source.title}</h3>
-                      <span>{source.authority}</span>
-                    </div>
-                    <b>{Math.round(source.score)}</b>
-                  </div>
-                  <div className="knowledge-source-meta">
-                    <span className={`knowledge-freshness ${meta.tone}`}>{meta.label}</span>
-                    <span>{source.jurisdiction}</span>
-                    <span>{labelFor(source.domain)}</span>
-                    <span>{labelFor(source.sourceType)}</span>
-                    <span>{source.format.toUpperCase()}</span>
-                    {source.cacheExpiresAt && <span>다음 갱신 {formatDate(source.cacheExpiresAt)}</span>}
-                    {source.browserCapture && <span>브라우저 수집</span>}
-                    {source.manualFallback && <span>수동 보완</span>}
-                  </div>
-                  {source.excerpt && <p className="knowledge-source-excerpt">{compact(source.excerpt, 180)}</p>}
-                  <div className="knowledge-action-row">
-                    <a href={source.url} target="_blank" rel="noreferrer">
-                      원문 열기 <ExternalLink size={15} />
-                    </a>
-                    <button type="button" onClick={() => selectSource(source)}>
-                      <ClipboardCheck size={15} />
-                      증거함에 담기
-                    </button>
-                  </div>
-                  <details className="knowledge-detail-drawer">
-                    <summary>
-                      출처 태그와 기관 검색
-                      <span>{source.tags.length.toLocaleString()}개 태그</span>
-                    </summary>
-                    <div className="knowledge-source-tags">
-                      <button type="button" onClick={() => setQuery(source.authority)}>
-                        <Database size={14} />
-                        {source.authority}
+                      <button type="button" onClick={() => item.kind === "term" ? selectTerm(item.term) : selectSource(item.source)}>
+                        <ClipboardCheck size={15} />
+                        근거 상세
                       </button>
-                      {source.tags.slice(0, 8).map((tag) => (
-                        <button key={`${source.id}-${tag}`} type="button" onClick={() => setQuery(tag)}>
-                          {tag}
+                      {item.kind === "source" && (
+                        <a href={item.href} target="_blank" rel="noreferrer">
+                          원문 열기 <ExternalLink size={15} />
+                        </a>
+                      )}
+                      {item.kind === "term" && item.term.aliases.slice(0, 3).map((alias) => (
+                        <button key={`${item.id}-${alias.value}`} type="button" onClick={() => setQuery(alias.value)}>
+                          {alias.value}
                         </button>
                       ))}
                     </div>
                   </details>
-                </article>
-              );
-            })}
+                </div>
+              </article>
+            ))}
 
-            {data && filteredSources.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 출처가 없습니다.</div>}
-            {filteredSources.length > visibleSources.length && (
-              <div className="knowledge-more-note">상위 {visibleSources.length}개 출처만 먼저 보여줍니다. 필터를 열어 기관·도메인을 좁혀보세요.</div>
+            {unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 후보가 없습니다.</div>}
+            {(filteredTerms.length > visibleTerms.length || filteredSources.length > visibleSources.length) && (
+              <div className="knowledge-more-note">상위 후보만 먼저 보여줍니다. 고급 필터로 관할, 도메인, 출처 유형을 좁히면 나머지 후보를 더 정확히 볼 수 있습니다.</div>
             )}
           </div>
         </section>
 
-        <aside className="knowledge-evidence-tray" aria-label="검토 증거함">
+        <aside className="knowledge-detail-panel" aria-label="선택한 근거">
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
             <div>
-              <h2>검토 증거함</h2>
-              <span>선택한 용어와 출처를 한 번 더 확인하는 고정 영역입니다.</span>
+              <h2>근거 상세</h2>
+              <span>후보를 선택하면 검토에 넘길 근거만 따로 확인합니다.</span>
             </div>
           </div>
 
-          {evidence ? (
+          {activeEvidence ? (
             <div className="knowledge-evidence-card">
               <div>
-                <small>{evidence.kind === "term" ? "용어 근거" : "출처 근거"}</small>
-                <h3>{evidence.title}</h3>
-                <span>{evidence.subtitle}</span>
+                <small>{activeEvidence.kind === "term" ? "용어 근거" : "출처 근거"}</small>
+                <h3>{activeEvidence.title}</h3>
+                <span>{activeEvidence.subtitle}</span>
               </div>
-              {typeof evidence.score === "number" && <b>{Math.round(evidence.score)}</b>}
-              <p>{compact(evidence.detail, 220)}</p>
+              {typeof activeEvidence.score === "number" && <b>{Math.round(activeEvidence.score)}</b>}
+              <p>{compact(activeEvidence.detail, 240)}</p>
               <div className="knowledge-evidence-chips">
-                {evidence.chips.map((chip) => (
-                  <span key={`${evidence.title}-${chip}`}>{chip}</span>
+                {activeEvidence.chips.slice(0, 8).map((chip) => (
+                  <span key={`${activeEvidence.title}-${chip}`}>{chip}</span>
                 ))}
               </div>
-            </div>
-          ) : data && primaryTerm ? (
-            <div className="knowledge-evidence-card">
-              <div>
-                <small>추천 시작점</small>
-                <h3>{primaryTerm.canonicalName}</h3>
-                <span>{labelFor(primaryTerm.category)} · 별칭 {primaryTerm.aliasCount.toLocaleString()}개</span>
-              </div>
-              <b>{Math.round(primaryTerm.score)}</b>
-              <p>검색 결과 중 가장 관련도가 높은 용어입니다. 먼저 검토 화면으로 보내거나 증거함에 담아 출처와 규칙을 확인하세요.</p>
-              <div className="knowledge-evidence-chips">
-                {uniqueCompact([
-                  ...primaryTerm.identifiers.cas.slice(0, 2).map((value) => `CAS ${value}`),
-                  ...primaryTerm.identifiers.inci.slice(0, 2).map((value) => `INCI ${value}`),
-                  ...primaryTerm.aliases.slice(0, 3).map((alias) => alias.value)
-                ]).map((chip) => (
-                  <span key={`${primaryTerm.id}-${chip}`}>{chip}</span>
-                ))}
+              <div className="knowledge-tray-actions">
+                <Link href={`/?screen=review&knowledge=${evidenceParam}`}>
+                  <PackageSearch size={15} />
+                  검토에 사용
+                </Link>
+                {activeEvidence.href && (
+                  <a href={activeEvidence.href} target="_blank" rel="noreferrer">
+                    원문 보기 <ExternalLink size={15} />
+                  </a>
+                )}
               </div>
             </div>
           ) : (
             <div className="knowledge-evidence-empty">
               <ClipboardCheck size={20} />
-              <p>용어, 규칙, 출처를 눌러 이곳에 검토용 근거를 모아 두세요.</p>
+              <p>검색 후보를 선택하면 근거가 여기에 정리됩니다.</p>
             </div>
           )}
-
-          <div className="knowledge-tray-actions">
-            <Link href={`/?screen=review&knowledge=${evidenceParam}`}>
-              <PackageSearch size={15} />
-              검토 화면
-            </Link>
-            <Link href={`/?screen=products&knowledge=${evidenceParam}`}>
-              <Database size={15} />
-              제품 연결
-            </Link>
-            {evidence?.href && (
-              <a href={evidence.href} target="_blank" rel="noreferrer">
-                원문 보기 <ExternalLink size={15} />
-              </a>
-            )}
-          </div>
         </aside>
       </div>
       ) : (

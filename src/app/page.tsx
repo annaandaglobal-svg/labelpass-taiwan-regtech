@@ -810,25 +810,22 @@ export default function Home() {
             </button>
           </form>
           <div className="top-actions">
-            {result ? (
-              <>
-                <button className="primary-btn" onClick={() => void recheckAsFixed()}>
-                  <RefreshCw size={17} /> 수정본 재검토
-                </button>
-                <button className="ghost-btn" onClick={downloadReport}>
-                  <Download size={17} /> 리포트
-                </button>
-                <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
-                  <UserRoundCheck size={17} /> 승인 요청
-                </button>
-              </>
-            ) : (
-              hasReviewWorkspace && (
-                <button className="ghost-btn" onClick={() => setToast("초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")} disabled={!inputReadiness.labelReady && !inputReadiness.productReady}>
-                  <Database size={17} /> 초안 저장
-                </button>
-              )
-            )}
+            <button
+              className="ghost-btn"
+              onClick={() => setToast(result ? "현재 검토 버전은 보관함에 저장되어 있습니다." : "초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")}
+              disabled={!hasReviewWorkspace || (!result && !inputReadiness.labelReady && !inputReadiness.productReady)}
+            >
+              <Database size={17} /> 저장
+            </button>
+            <button className={result ? "primary-btn" : "ghost-btn"} onClick={() => void recheckAsFixed()} disabled={!result}>
+              <RefreshCw size={17} /> 재검토
+            </button>
+            <button className="ghost-btn" onClick={downloadReport} disabled={!result}>
+              <Download size={17} /> 내보내기
+            </button>
+            <button className="ghost-btn" onClick={() => setShowExpertModal(true)} disabled={!result}>
+              <UserRoundCheck size={17} /> 승인 요청
+            </button>
           </div>
         </header>
         <input
@@ -851,37 +848,24 @@ export default function Home() {
                 <p>전성분, 번체 라벨, 표시문구, 통관 자료를 한 흐름에서 보고 성분명 별칭과 현지 규정 근거를 함께 연결합니다.</p>
               </div>
 
-              <div className="start-primary-grid">
+              <div className="start-action-panel">
                 <button className="start-primary-action start-primary-action-main" onClick={() => { setReviewStarted(true); fileInputRef.current?.click(); }}>
-                  <Upload size={19} />
+                  <Upload size={21} />
                   <span>
-                    <b>라벨 파일 올리기</b>
-                    <small>PDF, 이미지, OCR 결과</small>
+                    <b>검토 자료 추가</b>
+                    <small>라벨 파일, 전성분, OCR 결과를 넣고 1차 위험도를 봅니다</small>
                   </span>
                 </button>
-                <button className="start-primary-action" onClick={focusInputPane}>
-                  <FileText size={19} />
-                  <span>
-                    <b>성분·문구 직접 입력</b>
-                    <small>전성분, 번체 라벨, 경고문</small>
-                  </span>
-                </button>
-                <button className="start-primary-action start-primary-action-muted" onClick={() => fillSample("food-additive")}>
-                  <Sparkles size={19} />
-                  <span>
-                    <b>샘플로 1분 체험</b>
-                    <small>대만 식품첨가물 예시</small>
-                  </span>
-                </button>
-              </div>
-
-              <div className="start-progress-card" aria-live="polite">
-                <div>
-                  <span>현재 준비도</span>
-                  <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
+                <div className="start-secondary-links" aria-label="다른 시작 방법">
+                  <button type="button" onClick={focusInputPane}>
+                    <FileText size={15} />
+                    직접 입력
+                  </button>
+                  <button type="button" onClick={() => fillSample("food-additive")}>
+                    <Sparkles size={15} />
+                    샘플 보기
+                  </button>
                 </div>
-                <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
-                <small>{inputReadiness.missing.length > 0 ? `${inputReadiness.missing.slice(0, 2).join(" · ")}부터 넣으면 시작할 수 있습니다.` : "핵심 자료가 준비되었습니다. 검토를 실행하세요."}</small>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -1190,12 +1174,6 @@ export default function Home() {
                         <button className={filter === "all" ? "chip active" : "chip"} onClick={() => setFilter("all")}>
                           <Filter size={15} /> 전체
                         </button>
-                        <button className="ghost-btn" onClick={downloadReport}>
-                          <Download size={16} /> PDF
-                        </button>
-                        <button className="ghost-btn" onClick={() => void recheckAsFixed()}>
-                          <RefreshCw size={16} /> 재검토
-                        </button>
                       </div>
                     </div>
 
@@ -1211,43 +1189,11 @@ export default function Home() {
                       ))}
                     </div>
 
-                    <div className="next-actions">
-                      <button onClick={() => setShowExpertModal(true)}>
-                        <UserRoundCheck size={18} />
-                        <span>
-                          <b>전문가 검수 요청</b>
-                          <small>위반/자료필요 항목만 묶어서 전달</small>
-                        </span>
-                      </button>
-                      <button onClick={() => setScreen("products")}>
-                        <Archive size={18} />
-                        <span>
-                          <b>보관함에서 버전 관리</b>
-                          <small>v1 → v2 수정 이력 비교</small>
-                        </span>
-                      </button>
-                      <button onClick={() => setShowLogisticsModal(true)}>
-                        <Ship size={18} />
-                        <span>
-                          <b>통관·물류 견적</b>
-                          <small>서류 체크 후 파트너 비교</small>
-                        </span>
-                      </button>
-                    </div>
-
                     <div className="report-footer">
                       <div className="report-footer-head">
                         <div>
                           <b>리포트 처리 순서</b>
                           <span>체크리스트와 근거 묶음을 같은 버전으로 보관</span>
-                        </div>
-                        <div className="report-footer-actions">
-                          <button onClick={() => void recheckAsFixed()}>
-                            <RefreshCw size={15} /> 수정본 재검토
-                          </button>
-                          <button onClick={downloadReport}>
-                            <Download size={15} /> PDF
-                          </button>
                         </div>
                       </div>
                       <div className="report-footer-flow">
@@ -1607,15 +1553,8 @@ function ResultFocusPanel({
         )}
       </div>
 
-      <div className="result-focus-buttons">
-        <button onClick={onExpert}>
-          <UserRoundCheck size={16} />
-          전문가 검수
-        </button>
-        <button onClick={onLogistics}>
-          <Ship size={16} />
-          통관·물류
-        </button>
+      <div className="result-focus-note">
+        <small>승인 요청과 리포트 내보내기는 화면 상단의 고정 액션에서 처리합니다.</small>
       </div>
     </div>
   );
