@@ -20,9 +20,11 @@ pnpm crawl:knowledge
 pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm build:alias-queue
+pnpm export:knowledge-memory
 pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
+pnpm check:knowledge-memory
 pnpm check:knowledge-drift
 pnpm preflight:supabase-knowledge
 ```
@@ -30,9 +32,10 @@ pnpm preflight:supabase-knowledge
 Use `pnpm report:knowledge-ops` for a read-only operational snapshot before deciding whether a crawl or seed rebuild is actually needed. Use `pnpm report:knowledge-ops:write` when the generated Markdown report in `docs/knowledge-operations-report.md` should be refreshed for handoff or review.
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
 Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` and `build:alias-queue` automatically.
+Use `pnpm export:knowledge-memory` after a crawl or seed rebuild to fold the current source index, term aliases, coverage groups, alias queue, and refresh queue into `data/knowledge/knowledge-memory.json` and `docs/wiki/knowledge-memory.md` for LLM/Obsidian reuse.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
 Use `pnpm audit:aliases` after term edits or a seed rebuild to inspect normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Use `pnpm build:alias-queue` when those audit findings should be written to the persistent review queue. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
-Use `pnpm check:knowledge-drift` before committing a knowledge update. It rebuilds the generated term index, update queue, alias review queue, and Supabase seed, then fails if those tracked artifacts were not committed.
+Use `pnpm check:knowledge-memory` when only the LLM/Obsidian memory layer is being checked. Use `pnpm check:knowledge-drift` before committing a knowledge update. It rebuilds the generated term index, update queue, alias review queue, reusable memory, and Supabase seed, then fails if those tracked artifacts were not committed.
 Use `pnpm preflight:supabase-knowledge` before any cloud DB apply. It regenerates ignored SQL chunks, then chains knowledge validation, coverage validation, alias search audit, operations reporting, freshness gates, generated SQL format checks, target project checks, and a dry-run Supabase apply plan.
 
 ## Regulatory Update Queue
@@ -66,11 +69,11 @@ The operating loop is:
 
 Current alias queue baseline:
 
-- Review items: 1,097
+- Review items: 1,092
 - High-confidence collisions: 46
-- Mojibake/damaged aliases: 2
+- Mojibake/damaged aliases: 0
 - Strict blockers: 0
-- Regulated terms needing readable local aliases: 1,040
+- Regulated terms needing readable local aliases: 1,037
 
 ## Manual Browser Capture
 
@@ -95,13 +98,17 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `data/knowledge/term-index.json`: generated search index linking aliases to TFDA rules.
 - `data/knowledge/alias-review-queue.json`: generated alias collision, damaged-text, short-alias, and missing-local-name review queue.
 - `data/knowledge/regulatory-update-queue.json`: generated source-change and freshness candidates requiring human review before rule changes.
+- `data/knowledge/knowledge-memory.json`: generated LLM/Obsidian retrieval memory with coverage cards, selected source cards, selected term cards, alias ambiguity, refresh queue, and retrieval playbooks.
+- `docs/wiki/knowledge-memory.md`: generated human-readable memory map for operators and agent handoffs.
 - `supabase/knowledge-schema.sql`: reusable knowledge tables.
 - `supabase/knowledge-seed.sql`: generated Supabase data seed.
 - `supabase/migrations/202606260002_public_knowledge_search.sql`: read-only public policies and RPC functions for cloud knowledge search through a Supabase publishable key.
 - `supabase/migrations/202606260003_tokenized_public_source_search.sql`: token-based source search scoring so date and keyphrase queries still find official sources.
 - `supabase/migrations/202606260004_public_source_candidate_limit.sql`: direct source candidate limit alignment with the app's requested result count.
 - `supabase/generated/knowledge-seed-chunks/`: temporary SQL chunks created by `pnpm split:knowledge-seed` when the Supabase SQL editor cannot accept the full seed at once.
-- `pnpm check:knowledge-drift`: rebuilds tracked generated knowledge artifacts and fails if `term-index`, `regulatory-update-queue`, `alias-review-queue`, or `supabase/knowledge-seed.sql` are stale.
+- `pnpm export:knowledge-memory`: folds existing generated knowledge artifacts into reusable memory files without recrawling.
+- `pnpm check:knowledge-memory`: regenerates the tracked memory files and fails if they are stale.
+- `pnpm check:knowledge-drift`: rebuilds tracked generated knowledge artifacts and fails if `term-index`, `regulatory-update-queue`, `alias-review-queue`, reusable memory, or `supabase/knowledge-seed.sql` are stale.
 - `pnpm preflight:supabase-knowledge`: regenerates ignored SQL chunks, validates the generated knowledge base, and dry-runs the Supabase apply plan before any DB write.
 - `pnpm apply:supabase-knowledge`: runs the Supabase preflight, then applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set. Real applies require `SUPABASE_APPLY_CONFIRM=APPLY_LABELPASS_KNOWLEDGE` and the DB URL must include the expected project ref unless `SUPABASE_EXPECTED_PROJECT_REF` or `SUPABASE_ALLOW_UNKNOWN_PROJECT=1` is set intentionally.
 - `pnpm verify:supabase-knowledge`: compares Supabase table counts and probe aliases with the generated local knowledge base after a seed apply.
@@ -129,12 +136,12 @@ Current generated counts:
 
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
-- `knowledge_terms`: 1,175
-- `term_aliases`: 4,013
-- `searchable_aliases`: 6,492
-- `term_rule_links`: 1,099
+- `knowledge_terms`: 1,178
+- `term_aliases`: 4,138
+- `searchable_aliases`: 6,619
+- `term_rule_links`: 1,082
 - `regulatory_update_candidates`: 57
-- `alias_review_queue`: 1,097
+- `alias_review_queue`: 1,092
 - `rules`: 1,081
 
 Authoritative current counts are generated by `pnpm report:knowledge-ops`; update this section only after regenerating and reviewing `docs/knowledge-operations-report.md`.

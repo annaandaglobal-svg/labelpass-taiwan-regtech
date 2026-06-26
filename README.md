@@ -38,6 +38,7 @@ pnpm build:supabase-seed
 pnpm crawl:knowledge
 pnpm detect:updates
 pnpm build:knowledge-seed
+pnpm export:knowledge-memory
 ```
 
 The TFDA raw cache is stored under `data/tfda/`. Built rule data lives in `data/rules/tw-cosmetics-rules.json`.
@@ -51,6 +52,8 @@ Reusable regulatory memory is managed through:
 - `data/knowledge/term-index.json`
 - `data/knowledge/regulatory-update-queue.json`
 - `data/knowledge/alias-review-queue.json`
+- `data/knowledge/knowledge-memory.json`
+- `docs/wiki/knowledge-memory.md`
 - `supabase/knowledge-schema.sql`
 - `supabase/knowledge-seed.sql`
 
@@ -65,10 +68,11 @@ Before deploying a knowledge update, run:
 
 ```bash
 pnpm check:knowledge-drift
+pnpm check:knowledge-memory
 pnpm preflight:supabase-knowledge
 ```
 
-`preflight:deploy` includes both gates, plus type checks, rule verification, build, and production API checks.
+`check:knowledge-drift` already regenerates the reusable memory files; `check:knowledge-memory` is useful when only the LLM/Obsidian memory layer is being reviewed. `preflight:deploy` includes the drift gate, Supabase knowledge preflight, type checks, rule verification, build, and production API checks.
 
 Persistent review history is deliberately opt-in. A database URL plus the archive flag only makes the server capable of database storage; read/write access still needs either a server-side archive token for checks or explicit public demo flags:
 
@@ -102,6 +106,8 @@ pnpm smoke:api
 - `supabase/seed.sql`: official Taiwan TFDA cosmetic rule seed.
 - `supabase/knowledge-schema.sql`: reusable source, snapshot, term, alias, and rule-link schema.
 - `supabase/knowledge-seed.sql`: generated source and term knowledge seed.
+- `data/knowledge/knowledge-memory.json`: generated structured retrieval memory for LLM/agent reuse.
+- `docs/wiki/knowledge-memory.md`: generated human-readable knowledge memory for operators and Obsidian-style review.
 - `vercel.json`: Vercel deployment config.
 - `.github/workflows/ci.yml`: typecheck, data drift checks, and production build.
 - `scripts/audit-production-env.mjs`: no-secret production readiness audit for Vercel/Supabase/archive storage.

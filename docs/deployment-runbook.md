@@ -29,7 +29,7 @@ For the current production URL, the single operator gate is:
 pnpm preflight:deploy
 ```
 
-`preflight:deploy` runs type checks, rule verification, generated knowledge drift checks, Supabase knowledge dry-run preflight, a production build, and `preflight:deployment`. The knowledge drift gate rebuilds the term index, regulatory update queue, alias review queue, and `supabase/knowledge-seed.sql`, then fails if those generated artifacts differ from the committed versions. The Supabase knowledge preflight regenerates the ignored SQL chunk files, validates Taiwan food/cosmetics coverage, audits searchable aliases, checks seed freshness/format, and dry-runs the apply plan. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
+`preflight:deploy` runs type checks, rule verification, generated knowledge drift checks, Supabase knowledge dry-run preflight, a production build, and `preflight:deployment`. The knowledge drift gate rebuilds the term index, regulatory update queue, alias review queue, reusable knowledge memory, and `supabase/knowledge-seed.sql`, then fails if those generated artifacts differ from the committed versions. The Supabase knowledge preflight regenerates the ignored SQL chunk files, validates Taiwan food/cosmetics coverage, audits searchable aliases, checks seed freshness/format, and dry-runs the apply plan. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
 
 For a no-secret readiness snapshot before or after deployment, run:
 
@@ -151,10 +151,12 @@ Expected counts after the current seed:
 - current `rule_versions`: 1,081
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
-- `knowledge_terms`: 1,175
-- `term_aliases`: 4,019
-- `searchable_aliases`: 6,498 (`term_aliases` plus CAS, INCI, and color-index identifiers used by bundled search)
-- `term_rule_links`: 1,099
+- `knowledge_terms`: 1,178
+- `knowledge_memory_json`: generated at `data/knowledge/knowledge-memory.json`
+- `knowledge_memory_markdown`: generated at `docs/wiki/knowledge-memory.md`
+- `term_aliases`: 4,138
+- `searchable_aliases`: 6,619 (`term_aliases` plus CAS, INCI, and color-index identifiers used by bundled search)
+- `term_rule_links`: 1,082
 - `regulatory_update_candidates`: 57
 
 Recommended verification query:
