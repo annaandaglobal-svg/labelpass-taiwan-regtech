@@ -636,6 +636,54 @@
       "tags": ["food", "ghp", "hygiene", "manufacturing", "storage", "transportation", "food-additives", "traceability"]
     },
     {
+      "id": "tw-moj-health-food-governing-act",
+      "title": "Health Food Governing Act",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040012",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "health_food",
+      "source_type": "law",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["health-food", "functional-claims", "permit", "labeling", "advertising", "logo", "import"]
+    },
+    {
+      "id": "tw-tfda-health-food-enforcement-rules",
+      "title": "Enforcement Rules of Health Food Control Act",
+      "url": "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=552",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "health_food",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["health-food", "labeling", "warning", "recommended-intake", "permit", "food-safety-act"]
+    },
+    {
+      "id": "tw-tfda-formula-for-certain-disease-labeling-2025",
+      "title": "Formula for Certain Disease labeling requirements",
+      "url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "special_dietary_food",
+      "source_type": "notice",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["formula-for-certain-disease", "special-dietary-food", "labeling", "warning", "2025", "premarket-review"]
+    },
+    {
+      "id": "tw-tfda-food-ingredient-integration-query-platform",
+      "title": "Food Ingredient Integration Query Platform",
+      "url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=30794",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "database_notice",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["food-ingredients", "ingredient-safety", "usage-limit", "caution", "scientific-name", "query-platform"]
+    },
+    {
       "id": "tw-trade-import-export-regulations",
       "title": "Taiwan import and export related laws and regulations",
       "url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",

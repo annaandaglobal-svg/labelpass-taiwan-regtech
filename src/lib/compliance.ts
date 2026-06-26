@@ -68,6 +68,14 @@ const SOURCE_FOOD_NUTRITION = "TFDA Regulations on Nutrition Labeling for Prepac
 const SOURCE_FOOD_NUTRITION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1633";
 const SOURCE_FOOD_NUTRITION_CLAIM = "TFDA Revised Regulations on Nutrition Claim for Prepackaged Food Products";
 const SOURCE_FOOD_NUTRITION_CLAIM_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3522";
+const SOURCE_HEALTH_FOOD_ACT = "Health Food Governing Act, Articles 6, 7, 13, and 14";
+const SOURCE_HEALTH_FOOD_ACT_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040012";
+const SOURCE_HEALTH_FOOD_ENFORCEMENT = "TFDA Enforcement Rules of Health Food Control Act";
+const SOURCE_HEALTH_FOOD_ENFORCEMENT_URL = "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=552";
+const SOURCE_FORMULA_CERTAIN_DISEASE = "TFDA Formula for Certain Disease labeling requirements";
+const SOURCE_FORMULA_CERTAIN_DISEASE_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233";
+const SOURCE_FOOD_INGREDIENT_PLATFORM = "TFDA Food Ingredient Integration Query Platform";
+const SOURCE_FOOD_INGREDIENT_PLATFORM_URL = "https://www.fda.gov.tw/eng/newsContent.aspx?id=30794";
 const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
 const SOURCE_FOOD_ALLERGEN_URL = "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315";
 const SOURCE_FOOD_RECOMMENDED_ALLERGEN = "TFDA Regulations Governing Food Allergen Labeling on the Recommended Labeling Allergens";
@@ -331,7 +339,7 @@ function fixOptions(rule: RegulatoryRule, limit?: number) {
 }
 
 function isFoodProduct(input: ReviewInput) {
-  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|shellfish|mollusk|mollusc|clam|oyster|mussel|scallop|abalone|식품|음료|과자|소스|분말|차|커피|건강기능|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|조개|굴|홍합|가리비|전복|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|魷魚|奇異果|貝類|貝|牡蠣|蛤|扇貝|鮑魚/i.test(
+  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|capsule|tablet|probiotic|functional food|health food|formula for certain disease|special dietary|medical nutrition|medical food|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|shellfish|mollusk|mollusc|clam|oyster|mussel|scallop|abalone|식품|음료|과자|소스|분말|차|커피|건강기능|건강식품|기능성 식품|프로바이오틱스|캡슐|정제|특정 질환용 조제식품|특수의료용도식품|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|조개|굴|홍합|가리비|전복|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|健康食品|保健食品|保健功效|膠囊|錠劑|益生菌|特定疾病配方食品|特殊營養食品|魷魚|奇異果|貝類|貝|牡蠣|蛤|扇貝|鮑魚/i.test(
     `${input.productName} ${input.productType} ${input.labelText}`
   );
 }
@@ -488,6 +496,64 @@ function hasFoodBusinessRegistration(input: ReviewInput) {
 
 function hasProductLiabilityInsurance(input: ReviewInput) {
   return /product liability insurance|PL insurance|liability insurance|產品責任保險|产品责任保险|製造物責任|제조물책임보험|생산물배상책임|PL보험/i.test(
+    reviewText(input)
+  );
+}
+
+function hasHealthFoodSignal(input: ReviewInput) {
+  return /health food|functional food|health care effect|approved health care effect|supplement|dietary supplement|probiotic|immune support|supports immunity|cholesterol|blood sugar|body fat|gut health|건강식품|기능성\s*식품|기능성\s*표시|건강기능|프로바이오틱스|면역|콜레스테롤|혈당|체지방|健康食品|保健食品|保健功效|機能性|益生菌|免疫|膽固醇|血糖|體脂肪/i.test(
+    reviewText(input)
+  );
+}
+
+function hasHealthFoodPermitSignal(input: ReviewInput) {
+  return /health food permit|product registration permit|inspection and registration|permit number|registration permit|permit no\.?|license no\.?|衛部健食字|衛署健食字|健康食品許可證|許可證|許可字號|건강식품\s*허가|허가번호|등록허가|등록번호/i.test(
+    reviewText(input)
+  );
+}
+
+function hasHealthFoodLogoSignal(input: ReviewInput) {
+  return /standard logo|health food logo|health food legend|health food mark|健康食品標章|健康食品字樣|健康食品標準圖樣|標章|標準圖樣|건강식품\s*표준로고|건강식품\s*문구|로고/i.test(
+    reviewText(input)
+  );
+}
+
+function hasHealthFoodIntakeWarningSignal(input: ReviewInput) {
+  return /recommended intake|daily intake|serving recommendation|important message|warning|possible health risk|建議攝取量|每日攝取量|重要訊息|警語|注意事項|권장섭취량|일일섭취량|섭취\s*주의|경고|주의/i.test(
+    reviewText(input)
+  );
+}
+
+function hasApprovedHealthCareEffectSignal(input: ReviewInput) {
+  return /approved health care effect|approved effect|registered claim|approval scope|保健功效|核准功效|核准範圍|승인\s*효능|허가\s*효능|승인\s*기능성/i.test(
+    reviewText(input)
+  );
+}
+
+function hasFormulaForCertainDiseaseSignal(input: ReviewInput) {
+  return /formula for certain disease|formula food for certain disease|special dietary food|medical nutrition|renal formula|diabetic formula|oncology nutrition|特定疾病配方食品|特殊營養食品|腎臟病配方|糖尿病配方|특정\s*질환용\s*조제식품|특수의료용도식품|환자용\s*식품|질환용\s*식품|신장\s*환자|당뇨\s*환자/i.test(
+    reviewText(input)
+  );
+}
+
+function hasFormulaLabelPhrase(input: ReviewInput) {
+  return /formula for certain disease|特定疾病配方食品|특정\s*질환용\s*조제식품/i.test(input.labelText);
+}
+
+function hasFormulaWarningSignal(input: ReviewInput) {
+  return /not suitable for the general population|doctor or registered dietitian|not for intravenous use|increasing the dosage will not help|physician|dietitian|不適合一般人|醫師|營養師|不得供靜脈注射|增加使用量|일반인에게\s*적합하지|의사|영양사|정맥\s*주사용|섭취량을\s*늘려도/i.test(
+    input.labelText
+  );
+}
+
+function hasFoodMedicalEfficacySignal(input: ReviewInput) {
+  return /\b(?:cure|treat|treatment|heals?|therapeutic)\b|medical efficacy|prevent diabetes|cancer|hypertension|renal failure|kidney disease|eczema|acne cure|治療|療效|治癒|醫療效能|癌症|糖尿病|高血壓|腎臟病|치료|완치|의학적\s*효능|암|당뇨|고혈압|신장병|아토피|여드름\s*치료/i.test(
+    reviewText(input)
+  );
+}
+
+function hasIngredientSafetyReviewSignal(input: ReviewInput) {
+  return /extract|botanical|herbal|probiotic|strain|enzyme|novel ingredient|new ingredient|萃取|草本|益生菌|菌株|酵素|新原料|추출|허브|균주|효소|신규\s*원료/i.test(
     reviewText(input)
   );
 }
@@ -1108,6 +1174,141 @@ const nutritionClaimPatterns = [
   }
 ];
 
+function addHealthFoodFindings(input: ReviewInput, findings: Finding[]) {
+  const healthFood = hasHealthFoodSignal(input);
+  const formulaForCertainDisease = hasFormulaForCertainDiseaseSignal(input);
+
+  if (healthFood) {
+    if (hasHealthFoodPermitSignal(input)) {
+      findings.push({
+        id: "health-food-permit-present",
+        status: "pass",
+        area: "서류",
+        title: "대만 건강식품 허가번호 신호 확인",
+        severity: "low",
+        why: "대만 건강식품은 제조 또는 수입 전에 검사·등록과 허가가 필요하며, 라벨에는 허가번호가 표시되어야 합니다.",
+        fix: ["허가번호가 실제 TFDA 등록 제품과 일치하는지 원문 허가증, 라벨 시안, 광고 문안을 함께 대조하세요."],
+        source: SOURCE_HEALTH_FOOD_ACT,
+        sourceUrl: SOURCE_HEALTH_FOOD_ACT_URL,
+        evidence: "health food permit / permit number"
+      });
+    } else {
+      findings.push({
+        id: "health-food-permit-needed",
+        status: "needs_info",
+        area: "서류",
+        title: "대만 건강식품 허가번호 확인 필요",
+        severity: "medium",
+        why: "건강식품 또는 기능성 효능 표현 신호가 있지만, 대만 건강식품 허가번호나 검사·등록 근거가 입력되지 않았습니다.",
+        fix: [
+          "TFDA 건강식품 허가증 또는 제품등록 허가번호를 확보하세요.",
+          "허가가 없는 제품은 라벨·광고에서 건강식품, 승인 효능, 표준로고를 사용하지 않도록 문안을 분리하세요.",
+          "수입 전 성분, 규격, 효능, 제조공정 요약, 시험자료, 라벨 시안 제출 범위를 확인하세요."
+        ],
+        source: SOURCE_HEALTH_FOOD_ACT,
+        sourceUrl: SOURCE_HEALTH_FOOD_ACT_URL,
+        evidence: "health food / functional claim signal without permit number"
+      });
+    }
+
+    if (!hasHealthFoodLogoSignal(input) || !hasHealthFoodIntakeWarningSignal(input) || !hasApprovedHealthCareEffectSignal(input)) {
+      findings.push({
+        id: "health-food-label-items-review",
+        status: "warn",
+        area: "식품표시",
+        title: "건강식품 필수 라벨 항목 검토 필요",
+        severity: "medium",
+        why: "건강식품 라벨은 일반 포장식품 표시 외에 승인 보건효능, 허가번호, 건강식품 문구와 표준로고, 권장섭취량, 경고문, 영양성분을 함께 확인해야 합니다.",
+        fix: [
+          "허가번호, 건강식품 문구, 표준로고, 승인 효능 범위, 권장섭취량, 주의·경고문, 영양성분을 라벨 시안에 매핑하세요.",
+          "승인 효능과 광고 문안이 등록 범위를 넘지 않는지 별도 검토하세요.",
+          "Article 13 항목 중 일반 식품 표시와 겹치는 항목은 포장식품 표시 규정과 함께 대조하세요."
+        ],
+        source: SOURCE_HEALTH_FOOD_ENFORCEMENT,
+        sourceUrl: SOURCE_HEALTH_FOOD_ENFORCEMENT_URL,
+        evidence: [
+          hasHealthFoodLogoSignal(input) ? "logo/legend present" : "logo/legend missing",
+          hasApprovedHealthCareEffectSignal(input) ? "approved effect present" : "approved effect missing",
+          hasHealthFoodIntakeWarningSignal(input) ? "intake/warning present" : "intake/warning missing"
+        ].join(" / ")
+      });
+    }
+
+    if (hasFoodMedicalEfficacySignal(input) && !formulaForCertainDisease) {
+      findings.push({
+        id: "health-food-medical-claim-prohibited",
+        status: "fail",
+        area: "효능표현",
+        title: "건강식품 의료 효능 암시 표현 삭제 필요",
+        severity: "high",
+        why: "대만 건강식품 라벨과 광고는 승인 효능 범위를 넘어서는 허위·과장 표현이나 의료 효능 암시를 사용할 수 없습니다.",
+        fix: [
+          "치료, 완치, 질병명 직접 개선, 의학적 효능 표현을 삭제하거나 승인된 보건효능 범위 안의 표현으로 재작성하세요.",
+          "광고 문안, 상세페이지, 수입자 제출 라벨을 같은 기준으로 일괄 정리하세요."
+        ],
+        source: SOURCE_HEALTH_FOOD_ACT,
+        sourceUrl: SOURCE_HEALTH_FOOD_ACT_URL,
+        evidence: "medical efficacy / disease treatment signal"
+      });
+    }
+  }
+
+  if (formulaForCertainDisease) {
+    if (hasFormulaLabelPhrase(input) && hasFormulaWarningSignal(input)) {
+      findings.push({
+        id: "formula-certain-disease-label-present",
+        status: "pass",
+        area: "식품표시",
+        title: "특수질환식품 핵심 표시 신호 확인",
+        severity: "low",
+        why: "특정 질환용 조제식품 문구와 의사 또는 등록영양사 지시 경고문 신호가 함께 확인되었습니다.",
+        fix: ["적용 대상, 개봉 전후 보관법, 사용·섭취방법, 정맥주사용 아님 등의 상세 경고문까지 최종 시안에서 확인하세요."],
+        source: SOURCE_FORMULA_CERTAIN_DISEASE,
+        sourceUrl: SOURCE_FORMULA_CERTAIN_DISEASE_URL,
+        evidence: "formula phrase / doctor or dietitian warning"
+      });
+    } else {
+      findings.push({
+        id: "formula-certain-disease-label-needed",
+        status: "needs_info",
+        area: "식품표시",
+        title: "특수질환식품 주표시면·경고문 확인 필요",
+        severity: "medium",
+        why: "특정 질환용 조제식품 신호가 있지만, 주표시면의 'Formula for Certain Disease' 표시 또는 의사·등록영양사 지시 경고문이 충분히 확인되지 않았습니다.",
+        fix: [
+          "주표시면에 Formula for Certain Disease 또는 현지 공식 문구를 눈에 띄게 배치하세요.",
+          "적용 대상, 개봉 전후 보관법, 사용·섭취방법, 의사/등록영양사 지시 경고, 정맥주사용 아님, 증량해도 질환 개선에 도움이 되지 않는다는 취지의 경고를 확인하세요.",
+          "사전 심사·등록 제품인지 허가 자료와 라벨 시안을 함께 검토하세요."
+        ],
+        source: SOURCE_FORMULA_CERTAIN_DISEASE,
+        sourceUrl: SOURCE_FORMULA_CERTAIN_DISEASE_URL,
+        evidence: [
+          hasFormulaLabelPhrase(input) ? "principal phrase present" : "principal phrase missing",
+          hasFormulaWarningSignal(input) ? "doctor/dietitian warning present" : "doctor/dietitian warning missing"
+        ].join(" / ")
+      });
+    }
+  }
+
+  if ((healthFood || formulaForCertainDisease) && hasIngredientSafetyReviewSignal(input)) {
+    findings.push({
+      id: "food-ingredient-platform-review",
+      status: "needs_info",
+      area: "성분",
+      title: "TFDA 식품 원료 통합 조회 필요",
+      severity: "medium",
+      why: "추출물, 균주, 효소, 신규 원료 또는 기능성 원료 신호가 있어 대만 식품 원료 통합 조회 플랫폼에서 허용 제품 유형, 사용 제한, 주의사항을 확인해야 합니다.",
+      fix: [
+        "중문명, 영문명, 학명, 균주명 등 가능한 모든 동의어로 TFDA Food Ingredient Integration Query Platform을 검색하세요.",
+        "사용량 제한, 허용 제품 유형, 주의문구가 있으면 라벨 경고와 배합 검토표에 반영하세요."
+      ],
+      source: SOURCE_FOOD_INGREDIENT_PLATFORM,
+      sourceUrl: SOURCE_FOOD_INGREDIENT_PLATFORM_URL,
+      evidence: "extract / probiotic / novel ingredient signal"
+    });
+  }
+}
+
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   for (const requirement of foodLabelRequirements) {
     if (!requirement.present(input)) {
@@ -1244,6 +1445,8 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
     }
     if (emittedAdditives.size >= 8) break;
   }
+
+  addHealthFoodFindings(input, findings);
 }
 
 export function evaluateReview(input: ReviewInput): ReviewResult {

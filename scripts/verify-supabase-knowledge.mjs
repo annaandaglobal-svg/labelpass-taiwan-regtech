@@ -79,7 +79,12 @@ const probeTermKeys = [
   "product-information-sheet",
   "business-use-food-intact-package-labeling",
   "advance-tariff-classification-ruling",
-  "import-export-permit"
+  "import-export-permit",
+  "health-food",
+  "health-food-permit",
+  "health-food-approved-claims",
+  "formula-for-certain-disease",
+  "food-ingredient-integration-query-platform"
 ];
 
 const probeAliases = [
@@ -122,7 +127,14 @@ const probeAliases = [
   "產品資訊表",
   "業務用食品標示",
   "進口貨物稅則預先審核",
-  "輸入許可證"
+  "輸入許可證",
+  "health food",
+  "健康食品",
+  "health food permit",
+  "approved health care effects",
+  "formula for certain disease",
+  "特定疾病配方食品",
+  "food ingredient integration query platform"
 ];
 
 if (dryRun || !databaseUrl) {

@@ -35,7 +35,7 @@ import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/com
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { buildReviewActionPlan, type ReviewActionPlan } from "@/lib/review-action-plan";
 import type { ReviewArchiveResponse, ReviewArchiveStorage, SavedReview } from "@/lib/review-types";
-import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
+import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, healthFoodSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
 import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 
 type Screen = "review" | "products" | "updates" | "partners";
@@ -115,12 +115,12 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; stamp: str
 };
 
 const knowledgeStats = {
-  sources: "115",
-  aliases: "3,460",
-  terms: "1,141",
-  reviewCases: "14",
-  knowledgeCases: "71",
-  sourceCases: "40"
+  sources: "119",
+  aliases: "3,510",
+  terms: "1,147",
+  reviewCases: "16",
+  knowledgeCases: "75",
+  sourceCases: "44"
 };
 
 const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {
@@ -513,7 +513,7 @@ export default function Home() {
       .catch(() => setArchiveState("unavailable"));
   }
 
-  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-import" | "food-additive" | "compound-additive" | "food-claim") {
+  function fillSample(kind: "risky" | "clean" | "food-risky" | "food-clean" | "food-import" | "food-additive" | "compound-additive" | "food-claim" | "health-food") {
     const samples = {
       risky: sampleReview,
       clean: cleanSampleReview,
@@ -522,7 +522,8 @@ export default function Home() {
       "food-import": foodImportShellfishSampleReview,
       "food-additive": foodAdditiveSampleReview,
       "compound-additive": compoundFoodAdditiveSampleReview,
-      "food-claim": foodClaimSampleReview
+      "food-claim": foodClaimSampleReview,
+      "health-food": healthFoodSampleReview
     };
     const messages = {
       risky: "화장품 위반 예시 샘플을 채웠습니다.",
@@ -532,7 +533,8 @@ export default function Home() {
       "food-import": "식품 수입검사 서류 예시 샘플을 채웠습니다.",
       "food-additive": "식품첨가물 확인 예시 샘플을 채웠습니다.",
       "compound-additive": "복방 식품첨가물 등록·수입서류 샘플을 채웠습니다.",
-      "food-claim": "식품 권장 알레르겐·강조표시 예시 샘플을 채웠습니다."
+      "food-claim": "식품 권장 알레르겐·강조표시 예시 샘플을 채웠습니다.",
+      "health-food": "건강식품 허가·효능표시 샘플을 채웠습니다."
     };
     const next = samples[kind];
     setInput(next);
@@ -549,7 +551,7 @@ export default function Home() {
 
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
-    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|compound food additive|food additive|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|식품첨가물|복방|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠|食品添加物|複方食品添加物/i.test(haystack);
+    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|compound food additive|food additive|health food|functional food|supplement|probiotic|formula for certain disease|special dietary|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|식품첨가물|복방|건강식품|기능성 식품|프로바이오틱스|특정 질환용 조제식품|특수의료용도식품|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠|食品添加物|複方食品添加物|健康食品|保健食品|益生菌|特定疾病配方食品/i.test(haystack);
 
     setInput((current) => ({
       ...current,
@@ -907,6 +909,7 @@ export default function Home() {
                     <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물</button>
                     <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물</button>
                     <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조</button>
+                    <button className="ghost-btn" onClick={() => fillSample("health-food")}>건강식품</button>
                     <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과</button>
                   </div>
                 </details>

@@ -3868,6 +3868,142 @@
       "notes": "SHTC import-control evidence concept, covering IC, WA, and DV documents used to verify intended use, customs clearance, and arrival/transfer obligations."
     },
     {
+      "id": "health-food",
+      "canonical_name": "Health Food",
+      "category": "health_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Health Food", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "health food", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "functional food", "type": "market_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
+        { "value": "health care effects", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "健康食品", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "保健食品", "type": "market_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.8 },
+        { "value": "保健功效", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "건강식품", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.95 },
+        { "value": "기능성 식품", "type": "market_term", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "健康食品", "type": "local_name", "language": "ja", "jurisdiction": "JP", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-health-food-governing-act", "tw-tfda-health-food-enforcement-rules", "tw-moj-food-safety-sanitation-act"],
+      "notes": "Taiwan health food is a regulated category: only registered products may use health-food wording, approved effects, the standard logo, and related advertising claims."
+    },
+    {
+      "id": "health-food-permit",
+      "canonical_name": "Health Food Permit",
+      "category": "health_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "health food permit", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "product registration permit", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "inspection and registration", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "permit number", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "registration permit", "type": "variant", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "許可證", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "健康食品許可證", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "衛部健食字", "type": "permit_prefix", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "衛署健食字", "type": "permit_prefix", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "건강식품 허가", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "허가번호", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-health-food-governing-act", "tw-tfda-health-food-enforcement-rules"],
+      "notes": "Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising."
+    },
+    {
+      "id": "health-food-approved-claims",
+      "canonical_name": "Approved Health Care Effects",
+      "category": "health_food_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "approved health care effects", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "health care effects", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "approved functional claims", "type": "market_term", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "functional claims", "type": "market_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
+        { "value": "保健功效", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "健康食品功效", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "효능 표시", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "기능성 표시", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-health-food-governing-act", "tw-tfda-health-food-enforcement-rules"],
+      "notes": "Taiwan health-food health care effects must stay within the approved registration scope and cannot imply medical efficacy."
+    },
+    {
+      "id": "health-food-logo-label",
+      "canonical_name": "Health Food Standard Logo and Legend",
+      "category": "health_food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "standard logo", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "health food legend", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "health food standard logo", "type": "official_term", "language": "en", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "健康食品標章", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "健康食品字樣", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "健康食品標準圖樣", "type": "official_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.95 },
+        { "value": "건강식품 표준로고", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "건강식품 문구", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-moj-health-food-governing-act", "tw-tfda-health-food-enforcement-rules"],
+      "notes": "Article 13 requires the permit number, health-food legend, standard logo, approved effects, intake instructions, warnings, and nutrition components on health-food labeling."
+    },
+    {
+      "id": "formula-for-certain-disease",
+      "canonical_name": "Formula for Certain Disease",
+      "category": "special_dietary_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Formula for Certain Disease", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "formula food for certain disease", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "special dietary food", "type": "related_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.85 },
+        { "value": "medical nutrition", "type": "market_term", "language": "en", "jurisdiction": "GLOBAL", "confidence": 0.75 },
+        { "value": "特定疾病配方食品", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "特殊營養食品", "type": "related_term", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "특정 질환용 조제식품", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.9 },
+        { "value": "특수의료용도식품", "type": "related_term", "language": "ko", "jurisdiction": "KR", "confidence": 0.8 }
+      ],
+      "source_keys": ["tw-tfda-formula-for-certain-disease-labeling-2025", "tw-moj-food-safety-sanitation-act"],
+      "notes": "Taiwan requires prominent principal-display-panel wording and doctor/dietitian warning statements for approved Formula for Certain Disease products from 2025-01-01."
+    },
+    {
+      "id": "food-ingredient-integration-query-platform",
+      "canonical_name": "Food Ingredient Integration Query Platform",
+      "category": "food_safety",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        { "value": "Food Ingredient Integration Query Platform", "type": "official_name", "language": "en", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "food ingredient platform", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "ingredient safety query", "type": "common_name", "language": "en", "jurisdiction": "TW", "confidence": 0.85 },
+        { "value": "食品原料整合查詢平台", "type": "official_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 1 },
+        { "value": "原料查詢平台", "type": "common_name", "language": "zh-Hant", "jurisdiction": "TW", "confidence": 0.9 },
+        { "value": "식품 원료 통합 조회", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 },
+        { "value": "식품 원료 안전성 조회", "type": "local_name", "language": "ko", "jurisdiction": "KR", "confidence": 0.85 }
+      ],
+      "source_keys": ["tw-tfda-food-ingredient-integration-query-platform"],
+      "notes": "Use this TFDA platform to confirm ingredient safety status, permitted product types, usage limits, and cautionary notes before final food label approval."
+    },
+    {
       "id": "end-use-end-user",
       "canonical_name": "End Use and End User",
       "category": "import_export_control",

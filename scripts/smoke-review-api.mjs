@@ -281,6 +281,92 @@ if (!foodClaimResult.findings?.some((finding) => finding.id === "food-nutrition-
   throw new Error("Food claim review: expected sugar nutrition claim finding");
 }
 
+const healthFoodResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Probiotic Health Capsule",
+    productType: "prepackaged food / health food / supplement",
+    ingredientsText: "Lactobacillus plantarum strain, inulin, vitamin C, botanical extract",
+    labelText: [
+      "Product name: Probiotic Health Capsule. Net weight 60 capsules.",
+      "Ingredients: Lactobacillus plantarum strain, inulin, vitamin C, botanical extract.",
+      "Made in Korea. EXP 2028-03-01.",
+      "Supports immunity and gut health. Helps manage cholesterol and blood sugar.",
+      "Nutrition facts pending. Taiwan importer pending."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Nutrients / Taiwan importer pending",
+    hsCode: "2106.90",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "1800"
+  })
+});
+
+if (!healthFoodResponse.ok) {
+  throw new Error(`Health food review: Review API returned ${healthFoodResponse.status}`);
+}
+
+const healthFoodResult = await healthFoodResponse.json();
+
+for (const findingId of [
+  "health-food-permit-needed",
+  "health-food-label-items-review",
+  "food-ingredient-platform-review"
+]) {
+  if (!healthFoodResult.findings?.some((finding) => finding.id === findingId)) {
+    throw new Error(`Health food review: expected ${findingId}`);
+  }
+}
+
+if (healthFoodResult.status === "fail") {
+  throw new Error("Health food review: expected non-fail status for permit and label information gaps");
+}
+
+if (!healthFoodResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "health-food-permit" && doc.status === "needed")) {
+  throw new Error("Health food review: expected needed health food permit checklist item");
+}
+
+const formulaFoodResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Renal Formula Drink",
+    productType: "formula for certain disease / special dietary food",
+    ingredientsText: "Maltodextrin, whey protein isolate, vegetable oil, vitamins, minerals",
+    labelText: [
+      "Product name: Renal Formula Drink.",
+      "Net volume 200ml. Made in Korea. EXP 2028-04-01.",
+      "For renal nutrition support. Storage instructions pending."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Medical Nutrition / Taiwan importer pending",
+    hsCode: "2106.90",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "2100"
+  })
+});
+
+if (!formulaFoodResponse.ok) {
+  throw new Error(`Formula food review: Review API returned ${formulaFoodResponse.status}`);
+}
+
+const formulaFoodResult = await formulaFoodResponse.json();
+
+if (!formulaFoodResult.findings?.some((finding) => finding.id === "formula-certain-disease-label-needed")) {
+  throw new Error("Formula food review: expected formula-certain-disease-label-needed");
+}
+
+if (formulaFoodResult.status === "fail") {
+  throw new Error("Formula food review: expected non-fail status for special dietary label information gaps");
+}
+
+if (!formulaFoodResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "formula-certain-disease-label" && doc.status === "needed")) {
+  throw new Error("Formula food review: expected needed formula label checklist item");
+}
+
 const foodImportMissingResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -497,6 +583,10 @@ const knowledgeCases = [
   { query: "查驗登記", expectedTerm: "Food Additive Inspection Registration", expectedFirst: "Food Additive Inspection Registration" },
   { query: "複方食品添加物", expectedTerm: "Compound Food Additive Import Documents", expectedFirst: "Compound Food Additive Import Documents" },
   { query: "官方衛生證明", expectedTerm: "Compound Food Additive Import Documents" },
+  { query: "Health Food", expectedTerm: "Health Food" },
+  { query: "health food permit", expectedTerm: "Health Food Permit" },
+  { query: "Formula for Certain Disease", expectedTerm: "Formula for Certain Disease" },
+  { query: "Food Ingredient Integration Query Platform", expectedTerm: "Food Ingredient Integration Query Platform" },
   { query: "化粧品GMP", expectedTerm: "Cosmetic Good Manufacturing Practice", expectedFirst: "Cosmetic Good Manufacturing Practice" },
   { query: "化粧品產品登錄", expectedTerm: "Cosmetic Product Notification", expectedFirst: "Cosmetic Product Notification" },
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
@@ -559,6 +649,10 @@ const sourceCases = [
   { query: "food business registration import business operators product liability insurance", expectedSource: "tw-tfda-food-business-registration-importers" },
   { query: "compound food additive composition report official health certificate", expectedSource: "tw-tfda-compound-food-additive-import-documents" },
   { query: "food additive inspection registration permit document", expectedSource: "tw-tfda-food-additive-registration-materials" },
+  { query: "Health Food Governing Act permit number standard logo approved health care effects", expectedSource: "tw-moj-health-food-governing-act" },
+  { query: "Enforcement Rules of Health Food Control Act Article 13 labeling", expectedSource: "tw-tfda-health-food-enforcement-rules" },
+  { query: "Formula for Certain Disease warning doctor dietitian principal display panel", expectedSource: "tw-tfda-formula-for-certain-disease-labeling-2025" },
+  { query: "Food Ingredient Integration Query Platform usage limits cautionary notes", expectedSource: "tw-tfda-food-ingredient-integration-query-platform" },
   { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
   { query: "Mercury CAS 7439 prohibited cosmetic ingredient", expectedSource: "tw-tfda-cosmetic-prohibited-ingredients" },
@@ -685,5 +779,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 10} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 12} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );

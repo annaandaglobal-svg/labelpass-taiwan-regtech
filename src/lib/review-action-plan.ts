@@ -119,6 +119,30 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
         ["food-importer-registration-needed", "food-importer-registration-present"].filter((id) => findingIds.has(id))
       ),
       documentItem(
+        "health-food-permit",
+        "건강식품 허가",
+        findingIds.has("health-food-permit-present")
+          ? "ready"
+          : findingIds.has("health-food-permit-needed")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("health-food-permit-needed") ? "warn" : findingIds.has("health-food-permit-present") ? "pass" : "info",
+        "규제 담당",
+        ["health-food-permit-needed", "health-food-permit-present", "health-food-label-items-review"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
+        "formula-certain-disease-label",
+        "특수질환식품 라벨",
+        findingIds.has("formula-certain-disease-label-present")
+          ? "ready"
+          : findingIds.has("formula-certain-disease-label-needed")
+            ? "needed"
+            : "not_applicable",
+        findingIds.has("formula-certain-disease-label-needed") ? "warn" : findingIds.has("formula-certain-disease-label-present") ? "pass" : "info",
+        "라벨 담당",
+        ["formula-certain-disease-label-needed", "formula-certain-disease-label-present"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
         "food-additive-registration",
         "식품첨가물 등록",
         findingIds.has("food-additive-inspection-registration-present")

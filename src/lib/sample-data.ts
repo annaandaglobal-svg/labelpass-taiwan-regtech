@@ -229,6 +229,31 @@ export const foodClaimSampleReview: ReviewInput = {
   ].join("\n")
 };
 
+export const healthFoodSampleReview: ReviewInput = {
+  productName: "Probiotic Health Capsule",
+  productType: "prepackaged food / health food / supplement / 건강식품",
+  origin: "Korea",
+  manufacturer: "ANNAANDA Nutrients, Seoul / Taiwan importer pending",
+  hsCode: "2106.90",
+  incoterms: "DAP Taipei",
+  shipmentPurpose: "commercial sale",
+  invoiceValue: "1800",
+  ingredientsText: [
+    "Lactobacillus plantarum strain",
+    "Inulin",
+    "Vitamin C",
+    "Botanical extract"
+  ].join(", "),
+  labelText: [
+    "Product name: Probiotic Health Capsule.",
+    "Net weight: 60 capsules.",
+    "Ingredients: Lactobacillus plantarum strain, inulin, vitamin C, botanical extract.",
+    "Made in Korea. EXP 2028-03-01.",
+    "Supports immunity and gut health. Helps manage cholesterol and blood sugar.",
+    "Nutrition facts pending. Taiwan importer pending."
+  ].join("\n")
+};
+
 export const sourceCards = [
   {
     title: "Taiwan CCC import/export regulations",
