@@ -259,6 +259,25 @@ a {
   backdrop-filter: blur(14px);
 }
 
+.topbar-compact {
+  grid-template-columns: minmax(220px, 1fr) auto;
+}
+
+.topbar-minimal {
+  position: static;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin: 6px 0 18px;
+  padding: 0;
+  border-bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.topbar-minimal h1 {
+  max-width: 720px;
+}
+
 .eyebrow {
   margin: 0 0 6px;
   color: var(--navy);
@@ -927,6 +946,39 @@ h2 {
   font-weight: 900;
 }
 
+.start-path-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.start-path-card span {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 7px;
+  align-items: center;
+  min-height: 34px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.start-path-card b {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 11px;
+}
+
 .start-support-card {
   align-self: start;
   overflow: hidden;
@@ -1572,8 +1624,8 @@ h2 {
 }
 
 .review-grid-start {
-  grid-template-columns: minmax(350px, 0.86fr) minmax(360px, 0.86fr);
-  max-width: 1120px;
+  grid-template-columns: minmax(0, 860px);
+  max-width: 900px;
 }
 
 .input-pane,
@@ -1710,7 +1762,7 @@ h2 {
 
 .start-shortcuts {
   display: grid;
-  grid-template-columns: 1.2fr repeat(2, minmax(92px, 0.7fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 7px;
 }
 
@@ -5306,6 +5358,20 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.knowledge-workbench.is-empty {
+  max-width: 900px;
+  padding: 22px;
+}
+
+.knowledge-workbench.is-empty .knowledge-searchbar {
+  min-height: 58px;
+  background: #fff;
+}
+
+.knowledge-workbench.is-empty .knowledge-examples {
+  margin-top: 14px;
+}
+
 .knowledge-searchbar {
   display: grid;
   grid-template-columns: 22px 1fr 22px;
@@ -6322,9 +6388,11 @@ h2 {
 }
 
 @media (max-width: 980px) {
-  .shell {
+  .shell,
+  .shell:not(.shell-console) {
     grid-template-columns: 1fr;
     align-content: start;
+    max-width: none;
   }
 
   .shell-console {
@@ -6405,7 +6473,7 @@ h2 {
   }
 
   .knowledge-detail-panel {
-    order: -1;
+    order: 0;
   }
 
   .result-pane {
@@ -6917,6 +6985,10 @@ h2 {
     padding: 14px;
   }
 
+  .knowledge-workbench.is-empty {
+    padding: 14px;
+  }
+
   .knowledge-health-grid,
   .knowledge-filter-row,
   .knowledge-ambiguity-panel {
@@ -6952,6 +7024,10 @@ h2 {
 
   .knowledge-row-more > div {
     display: grid;
+  }
+
+  .start-path-card {
+    grid-template-columns: 1fr;
   }
 }
 

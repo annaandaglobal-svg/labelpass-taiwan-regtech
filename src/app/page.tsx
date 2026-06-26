@@ -759,7 +759,15 @@ export default function Home() {
   const hasReviewWorkspace =
     reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
   const isStartOnly = screen === "review" && !result && !isAnalyzing && !showAssistantPanel && !hasReviewWorkspace;
-  const shellClassName = ["shell", "shell-console"].join(" ");
+  const showResultPane = Boolean(result) || isAnalyzing;
+  const showWorkPanel = screen === "review" && (showResultPane || showAssistantPanel);
+  const showGlobalSearch = !isStartOnly && (screen !== "review" || Boolean(result) || showAssistantPanel);
+  const shellClassName = [
+    "shell",
+    showWorkPanel ? "shell-console" : "shell-no-assistant",
+    isStartOnly ? "shell-start-empty" : "",
+    screen === "review" && hasReviewWorkspace && !showResultPane ? "shell-start-focus" : ""
+  ].filter(Boolean).join(" ");
   const primaryAction = result
     ? { label: "수정본 재검토", icon: <RefreshCw size={17} />, disabled: isAnalyzing, run: () => void recheckAsFixed() }
     : inputReadiness.canReview
@@ -793,43 +801,59 @@ export default function Home() {
       </aside>
 
       <section className="workspace">
-        <header className="topbar">
+        <header className={["topbar", isStartOnly ? "topbar-minimal" : !showGlobalSearch ? "topbar-compact" : ""].filter(Boolean).join(" ")}>
           <div>
             <p className="eyebrow">대만 · 식품/화장품 · 기준일 {nowTime()}</p>
             <h1>{screen === "review" ? "대만 수출 라벨·통관 검토" : screenTitle(screen)}</h1>
           </div>
-          <form className="global-search" onSubmit={(event) => { event.preventDefault(); void askAssistant(); }}>
-            <Search size={16} />
-            <input
-              value={assistantQuestion}
-              onChange={(event) => setAssistantQuestion(event.target.value)}
-              placeholder="원료, 표시문구, 대만 규정, 과거 검토 검색"
-            />
-            <button type="submit" disabled={!assistantQuestion.trim() || isAssistantThinking}>
-              검색
-            </button>
-          </form>
-          <div className="top-actions">
-            <button className="primary-btn" onClick={primaryAction.run} disabled={primaryAction.disabled}>
-              {primaryAction.icon} {primaryAction.label}
-            </button>
-            <button className="ghost-btn" onClick={() => { window.location.href = "/knowledge"; }}>
-              <Search size={17} /> 규정 검색
-            </button>
-            <button
-              className="ghost-btn"
-              onClick={() => setToast(result ? "현재 검토 버전은 보관함에 저장되어 있습니다." : "초안 저장은 Supabase DB 연결 후 서버 보관으로 확장됩니다.")}
-              disabled={!hasReviewWorkspace || (!result && !inputReadiness.labelReady && !inputReadiness.productReady)}
-            >
-              <Database size={17} /> 저장
-            </button>
-            <button className="ghost-btn" onClick={downloadReport} disabled={!result}>
-              <Download size={17} /> 내보내기
-            </button>
-            <button className="ghost-btn" onClick={() => setShowExpertModal(true)} disabled={!result}>
-              <UserRoundCheck size={17} /> 승인 요청
-            </button>
-          </div>
+          {showGlobalSearch && (
+            <form className="global-search" onSubmit={(event) => { event.preventDefault(); void askAssistant(); }}>
+              <Search size={16} />
+              <input
+                value={assistantQuestion}
+                onChange={(event) => setAssistantQuestion(event.target.value)}
+                placeholder="원료, 표시문구, 대만 규정, 과거 검토 검색"
+              />
+              <button type="submit" disabled={!assistantQuestion.trim() || isAssistantThinking}>
+                검색
+              </button>
+            </form>
+          )}
+          {!isStartOnly && (
+            <div className="top-actions">
+              {screen === "review" && result && (
+                <button className="primary-btn" onClick={primaryAction.run} disabled={primaryAction.disabled}>
+                  {primaryAction.icon} {primaryAction.label}
+                </button>
+              )}
+              {screen === "review" && !result && (
+                <button className="ghost-btn" onClick={() => { window.location.href = "/knowledge"; }}>
+                  <Search size={17} /> 규정 검색
+                </button>
+              )}
+              {screen !== "review" && (
+                <button className="primary-btn" onClick={() => setScreen("review")}>
+                  <Upload size={17} /> 검토 시작
+                </button>
+              )}
+              {result && (
+                <>
+                  <button
+                    className="ghost-btn"
+                    onClick={() => setToast("현재 검토 버전은 보관함에 저장되어 있습니다.")}
+                  >
+                    <Database size={17} /> 저장
+                  </button>
+                  <button className="ghost-btn" onClick={downloadReport}>
+                    <Download size={17} /> 내보내기
+                  </button>
+                  <button className="ghost-btn" onClick={() => setShowExpertModal(true)}>
+                    <UserRoundCheck size={17} /> 승인 요청
+                  </button>
+                </>
+              )}
+            </div>
+          )}
         </header>
         <input
           ref={fileInputRef}
@@ -871,21 +895,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="start-progress-card">
-                <div>
-                  <span>필수 입력 3가지</span>
-                  <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
-                </div>
-                <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
-                <small>제품명, 제품 유형, 성분 또는 라벨 문구만 있으면 첫 판정을 시작할 수 있습니다.</small>
-              </div>
-
-              <div className="start-scope-strip" aria-label="처음부터 함께 보는 검토 범위">
-                <span>식품 표시</span>
-                <span>화장품 성분</span>
-                <span>번체 라벨</span>
-                <span>클레임</span>
-                <span>통관 서류</span>
+              <div className="start-path-card" aria-label="검토 시작 순서">
+                <span><b>1</b> 자료 추가</span>
+                <span><b>2</b> 품목 선택</span>
+                <span><b>3</b> AI 1차 검토</span>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -926,7 +939,7 @@ export default function Home() {
           )}
 
           {hasReviewWorkspace && (
-          <div className={result || isAnalyzing ? "review-grid" : "review-grid review-grid-start"}>
+          <div className={showResultPane ? "review-grid" : "review-grid review-grid-start"}>
             <section className="input-pane">
               <div className="intake-rail" aria-label="검토 입력 단계">
                 <span className={inputReadiness.labelReady ? "done" : "now"}>1 자료</span>
@@ -959,8 +972,6 @@ export default function Home() {
                 )}
                 <div className="start-shortcuts">
                   <button onClick={() => fillSample("food-additive")}>샘플로 1분 체험</button>
-                  <button onClick={() => updateInput("productType", "cosmetic / leave-on")}>화장품</button>
-                  <button onClick={() => updateInput("productType", "prepackaged food / 식품")}>식품</button>
                 </div>
               </div>
 
@@ -1111,6 +1122,7 @@ export default function Home() {
               </div>
             </section>
 
+            {showResultPane && (
             <section className="result-pane">
               {isAnalyzing && <Analyzing />}
               {result && visibleStatus && currentActionPlan && (
@@ -1215,8 +1227,8 @@ export default function Home() {
                   </details>
                 </>
               )}
-              {!result && !isAnalyzing && <EmptyResult readiness={inputReadiness} />}
             </section>
+            )}
           </div>
           )}
           </>
@@ -1233,6 +1245,7 @@ export default function Home() {
         {screen === "partners" && <PartnersScreen onExpert={() => setShowExpertModal(true)} onLogistics={() => setShowLogisticsModal(true)} />}
       </section>
 
+      {showWorkPanel && (
       <aside className="work-panel" aria-label="LabelPass 작업 패널">
         <div className="work-panel-section work-panel-head">
           <span><ClipboardCheck size={18} /></span>
@@ -1357,6 +1370,7 @@ export default function Home() {
           </button>
         </div>
       </aside>
+      )}
 
       {showExpertModal && <ExpertModal onClose={() => setShowExpertModal(false)} />}
       {showLogisticsModal && <LogisticsModal onClose={() => setShowLogisticsModal(false)} />}

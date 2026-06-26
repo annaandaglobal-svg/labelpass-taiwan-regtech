@@ -277,7 +277,7 @@ export default function KnowledgeSearchClient() {
   }
 
   return (
-    <section className="knowledge-workbench">
+    <section className={["knowledge-workbench", trimmed ? "has-query" : "is-empty"].join(" ")}>
       <div className="knowledge-searchbar">
         <Search size={19} />
         <input
@@ -301,11 +301,13 @@ export default function KnowledgeSearchClient() {
 
       {error && <div className="knowledge-alert">{error}</div>}
 
-      <div className="knowledge-summary">
-        <span>{data ? `검색 결과 ${matchedCount.toLocaleString()}건` : "용어·별칭 검색"}</span>
-        <span>{data ? `용어 ${filteredTerms.length.toLocaleString()}` : "INCI·CAS·현지명"}</span>
-        <span>{data ? `출처 ${filteredSources.length.toLocaleString()}` : "공식 출처 연결"}</span>
-      </div>
+      {data && (
+        <div className="knowledge-summary">
+          <span>{`검색 결과 ${matchedCount.toLocaleString()}건`}</span>
+          <span>{`용어 ${filteredTerms.length.toLocaleString()}`}</span>
+          <span>{`출처 ${filteredSources.length.toLocaleString()}`}</span>
+        </div>
+      )}
 
       {data?.ambiguity && (
         <div className="knowledge-ambiguity-panel" role="status">
@@ -324,6 +326,7 @@ export default function KnowledgeSearchClient() {
         </div>
       )}
 
+      {data && (
       <details className="knowledge-filter-drawer">
         <summary>
           <Filter size={16} />
@@ -380,7 +383,9 @@ export default function KnowledgeSearchClient() {
           </div>
         </div>
       </details>
+      )}
 
+      {trimmed && (
       <div className="knowledge-results knowledge-results-unified">
         <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
@@ -431,6 +436,7 @@ export default function KnowledgeSearchClient() {
           </div>
         </section>
 
+        {data && (
         <aside className="knowledge-detail-panel" aria-label="선택한 근거">
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
@@ -451,7 +457,7 @@ export default function KnowledgeSearchClient() {
               <div className="knowledge-tray-actions">
                 <Link href={`/?screen=review&knowledge=${activeEvidenceParam}`}>
                   <PackageSearch size={15} />
-                  검토에 사용
+                  이 근거로 라벨 검토
                 </Link>
                 {activeEvidence.href && (
                   <a href={activeEvidence.href} target="_blank" rel="noreferrer">
@@ -483,7 +489,9 @@ export default function KnowledgeSearchClient() {
             </div>
           )}
         </aside>
+        )}
       </div>
+      )}
     </section>
   );
 }

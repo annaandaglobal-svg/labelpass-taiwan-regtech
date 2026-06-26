@@ -35,14 +35,8 @@ export default function KnowledgePage() {
       <details className="knowledge-ops" aria-label="지식베이스 운영 현황">
         <summary>
           <span>운영 현황</span>
-          <strong>
-            출처 {totals.sources.toLocaleString()}개 · 별칭 {totals.aliases.toLocaleString()}개 · 규칙{" "}
-            {totals.ruleLinks.toLocaleString()}개
-          </strong>
-          <small>
-            최근 수집 {latestFetched} · 갱신 필요 {overview.operations.staleSources.toLocaleString()}개 · 감시 중{" "}
-            {overview.operations.watchedUpdateSources.toLocaleString()}개
-          </small>
+          <strong>공식 출처 {totals.sources.toLocaleString()}개 운영 중</strong>
+          <small>별칭, 규칙, 갱신 감시 상태는 펼쳐서 확인합니다.</small>
         </summary>
         <div className="knowledge-ops-grid">
           <div>
