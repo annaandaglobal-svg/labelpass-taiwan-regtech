@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 122,
+  "curated_term_count": 139,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -9997,6 +9997,36 @@
           "source": "curated"
         },
         {
+          "value": "대만 화장품 PIF",
+          "normalized": "대만 화장품 pif",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 PIF",
+          "normalized": "화장품 pif",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.98,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 화장품 제품정보파일",
+          "normalized": "대만 화장품 제품정보파일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "cosmetic safety file",
           "normalized": "cosmetic safety file",
           "type": "common_name",
@@ -10071,6 +10101,8 @@
         "tw-moj-cosmetic-pif-management",
         "tw-tfda-pif-hub-zh",
         "tw-tfda-pif-implementation",
+        "tw-tfda-cosmetic-pif-category-implementation-2024",
+        "tw-tfda-cosmetic-product-registration-categories-2024",
         "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetics-business-area",
         "eu-cosmetics-regulation-1223-2009"
@@ -14691,6 +14723,2480 @@
         "tw-tfda-food-business-info-query-links"
       ],
       "notes": "Use this TFDA platform to confirm ingredient safety status, permitted product types, usage limits, and cautionary notes before final food label approval."
+    },
+    {
+      "id": "cosmetic-label-required-items",
+      "canonical_name": "Cosmetic Label Required Items",
+      "category": "cosmetic_compliance",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "cosmetic outer package, container, label and package insert marking",
+          "normalized": "cosmetic outer package container label and package insert marking",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic label mandatory items",
+          "normalized": "cosmetic label mandatory items",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "package insert",
+          "normalized": "package insert",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "INCI",
+          "normalized": "inci",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": "International Nomenclature of Cosmetic Ingredients in Taiwan cosmetic ingredient labeling context.",
+          "source": "curated"
+        },
+        {
+          "value": "CI",
+          "normalized": "ci",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": "Color Index abbreviation used for cosmetic colorants; confirm cosmetic ingredient-list context.",
+          "source": "curated"
+        },
+        {
+          "value": "Fragrance",
+          "normalized": "fragrance",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Parfum",
+          "normalized": "parfum",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Aroma",
+          "normalized": "aroma",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "may contain",
+          "normalized": "may contain",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品外包裝、容器、標籤或仿單之標示規定",
+          "normalized": "化粧品外包裝 容器 標籤或仿單之標示規定",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品標示",
+          "normalized": "化粧品標示",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "外包裝",
+          "normalized": "外包裝",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": "Cosmetic outer-packaging label field; ambiguous outside product-label context.",
+          "source": "curated"
+        },
+        {
+          "value": "容器",
+          "normalized": "容器",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Cosmetic container marking context.",
+          "source": "curated"
+        },
+        {
+          "value": "標籤",
+          "normalized": "標籤",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Cosmetic label context.",
+          "source": "curated"
+        },
+        {
+          "value": "仿單",
+          "normalized": "仿單",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "中文品名",
+          "normalized": "中文品名",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "用途",
+          "normalized": "用途",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Cosmetic label use/purpose field.",
+          "source": "curated"
+        },
+        {
+          "value": "用法",
+          "normalized": "用法",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Cosmetic label directions-for-use field.",
+          "source": "curated"
+        },
+        {
+          "value": "保存方法",
+          "normalized": "保存方法",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "全成分",
+          "normalized": "全成分",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "可能加入之色素",
+          "normalized": "可能加入之色素",
+          "type": "label_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "字體大小",
+          "normalized": "字體大小",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "40平方公分",
+          "normalized": "40平方公分",
+          "type": "threshold",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 표시 필수항목",
+          "normalized": "화장품 표시 필수항목",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 외포장 용기 라벨 첨부문서",
+          "normalized": "화장품 외포장 용기 라벨 첨부문서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-label-leaflet-packaging-marking"
+      ],
+      "notes": "Taiwan cosmetic labels must map outer package, container, label and package-insert fields, including ingredient nomenclature, colorant alternatives and small-package display rules."
+    },
+    {
+      "id": "cosmetic-pif-product-registration-categories",
+      "canonical_name": "Cosmetic PIF and Product Registration Categories",
+      "category": "cosmetic_compliance",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "cosmetic product registration",
+          "normalized": "cosmetic product registration",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "product notification",
+          "normalized": "product notification",
+          "type": "related_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "應建立產品資訊檔案之化粧品種類及實施日期",
+          "normalized": "應建立產品資訊檔案之化粧品種類及實施日期",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "應完成產品登錄之化粧品種類",
+          "normalized": "應完成產品登錄之化粧品種類",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產品登錄",
+          "normalized": "產品登錄",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "製造或輸入業者",
+          "normalized": "製造或輸入業者",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "免辦理工廠登記",
+          "normalized": "免辦理工廠登記",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防曬",
+          "normalized": "防曬",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "染髮",
+          "normalized": "染髮",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "燙髮",
+          "normalized": "燙髮",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "止汗制臭",
+          "normalized": "止汗制臭",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "居家使用牙齒美白",
+          "normalized": "居家使用牙齒美白",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒用",
+          "normalized": "嬰兒用",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "唇用",
+          "normalized": "唇用",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "眼部用",
+          "normalized": "眼部用",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "非藥用牙膏",
+          "normalized": "非藥用牙膏",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "漱口水",
+          "normalized": "漱口水",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "固態手工香皂",
+          "normalized": "固態手工香皂",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 화장품 제품등록",
+          "normalized": "대만 화장품 제품등록",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-pif-implementation",
+        "tw-tfda-cosmetic-pif-category-implementation-2024",
+        "tw-tfda-cosmetic-product-registration-categories-2024"
+      ],
+      "notes": "Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type."
+    },
+    {
+      "id": "specific-purpose-cosmetics-transition",
+      "canonical_name": "Specific Purpose Cosmetics Permit Transition",
+      "category": "cosmetic_compliance",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "specific purpose cosmetics",
+          "normalized": "specific purpose cosmetics",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "pre-marketing license",
+          "normalized": "pre-marketing license",
+          "type": "related_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "特定用途化粧品查驗登記",
+          "normalized": "特定用途化粧品查驗登記",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "特定用途化粧品",
+          "normalized": "特定用途化粧品",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "許可證核發辦法",
+          "normalized": "許可證核發辦法",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "廢止",
+          "normalized": "廢止",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Repeal/abolition term in the specific-purpose cosmetic permit transition notice.",
+          "source": "curated"
+        },
+        {
+          "value": "113年7月1日",
+          "normalized": "113年7月1日",
+          "type": "effective_date",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "특정용도 화장품",
+          "normalized": "특정용도 화장품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 사전허가 전환",
+          "normalized": "화장품 사전허가 전환",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024"
+      ],
+      "notes": "Taiwan's specific-purpose cosmetic permit vocabulary is needed for legacy products and transition checks after the 2024 regulatory change."
+    },
+    {
+      "id": "cosmetic-spray-aerosol-safety",
+      "canonical_name": "Spray and Aerosol Cosmetic Safety",
+      "category": "cosmetic_compliance",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "spray cosmetics",
+          "normalized": "spray cosmetics",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aerosol cosmetics",
+          "normalized": "aerosol cosmetics",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "spray warning",
+          "normalized": "spray warning",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "inhalation risk",
+          "normalized": "inhalation risk",
+          "type": "risk_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "噴霧狀化粧品",
+          "normalized": "噴霧狀化粧品",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "使用安全指引",
+          "normalized": "使用安全指引",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "吸入風險",
+          "normalized": "吸入風險",
+          "type": "risk_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "儲存安全",
+          "normalized": "儲存安全",
+          "type": "risk_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "스프레이 화장품",
+          "normalized": "스프레이 화장품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "에어로졸 화장품",
+          "normalized": "에어로졸 화장품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-spray-use-safety-guideline"
+      ],
+      "notes": "Use for cosmetic labels or product reviews where spray/aerosol format creates inhalation or storage-safety warning questions."
+    },
+    {
+      "id": "food-label-required-items",
+      "canonical_name": "Food Label Required Items",
+      "category": "food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "food labeling regulations handbook",
+          "normalized": "food labeling regulations handbook",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food label required items",
+          "normalized": "food label required items",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "prepackaged food labeling",
+          "normalized": "prepackaged food labeling",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品標示",
+          "normalized": "食品標示",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品標示手冊",
+          "normalized": "食品標示手冊",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品標示法規手冊",
+          "normalized": "食品標示法規手冊",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品標示法規指引手冊",
+          "normalized": "食品標示法規指引手冊",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品標示問答集",
+          "normalized": "食品標示問答集",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "品名",
+          "normalized": "品名",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Food label product-name field.",
+          "source": "curated"
+        },
+        {
+          "value": "內容物名稱",
+          "normalized": "內容物名稱",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "淨重",
+          "normalized": "淨重",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Food net-weight label field.",
+          "source": "curated"
+        },
+        {
+          "value": "容量",
+          "normalized": "容量",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Food net-content volume field.",
+          "source": "curated"
+        },
+        {
+          "value": "數量",
+          "normalized": "數量",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Food net-content quantity field.",
+          "source": "curated"
+        },
+        {
+          "value": "有效日期",
+          "normalized": "有效日期",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保存期限",
+          "normalized": "保存期限",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保存條件",
+          "normalized": "保存條件",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "國內負責廠商",
+          "normalized": "國內負責廠商",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原產地",
+          "normalized": "原產地",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 식품 표시 필수항목",
+          "normalized": "대만 식품 표시 필수항목",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 식품 라벨링 핸드북",
+          "normalized": "대만 식품 라벨링 핸드북",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search."
+    },
+    {
+      "id": "imported-food-inspection-forms",
+      "canonical_name": "Imported Food Inspection Forms",
+      "category": "food_import",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "imported food inspection application",
+          "normalized": "imported food inspection application",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "product data sheet",
+          "normalized": "product data sheet",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Chinese label undertaking",
+          "normalized": "chinese label undertaking",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品及相關產品輸入查驗申請書",
+          "normalized": "食品及相關產品輸入查驗申請書",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品及相關產品資料表",
+          "normalized": "食品及相關產品資料表",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產品資料表",
+          "normalized": "產品資料表",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入食品免貼中文標示具結書",
+          "normalized": "輸入食品免貼中文標示具結書",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "申請書號碼",
+          "normalized": "申請書號碼",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "報單號碼",
+          "normalized": "報單號碼",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "報驗義務人",
+          "normalized": "報驗義務人",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產品中英文品名",
+          "normalized": "產品中英文品名",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 수입식품 검사 신청서",
+          "normalized": "대만 수입식품 검사 신청서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수입식품 제품자료표",
+          "normalized": "수입식품 제품자료표",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-imported-food-inspection-regulations",
+        "tw-tfda-imported-food-inspection-forms",
+        "tw-tfda-imported-food-inspection-field-declaration-2024"
+      ],
+      "notes": "Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials."
+    },
+    {
+      "id": "import-regulation-f01-f02-508",
+      "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
+      "category": "food_import",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "F01",
+          "normalized": "f01",
+          "type": "permit_prefix",
+          "language": "und",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": "Taiwan import regulation code; confirm commodity-code routing before applying.",
+          "source": "curated"
+        },
+        {
+          "value": "F02",
+          "normalized": "f02",
+          "type": "permit_prefix",
+          "language": "und",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": "Taiwan import regulation code; confirm commodity-code routing before applying.",
+          "source": "curated"
+        },
+        {
+          "value": "508",
+          "normalized": "508",
+          "type": "permit_prefix",
+          "language": "und",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": "Taiwan import regulation code often used with single food additive/flavor permit-copy checks.",
+          "source": "curated"
+        },
+        {
+          "value": "import regulation F01",
+          "normalized": "import regulation f01",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import regulation F02",
+          "normalized": "import regulation f02",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import regulation 508",
+          "normalized": "import regulation 508",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food-related use",
+          "normalized": "food-related use",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "permit copy",
+          "normalized": "permit copy",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入規定F01",
+          "normalized": "輸入規定f01",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入規定F02",
+          "normalized": "輸入規定f02",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入規定508",
+          "normalized": "輸入規定508",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品相關用途",
+          "normalized": "食品相關用途",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品器具",
+          "normalized": "食品器具",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品容器或包裝",
+          "normalized": "食品容器或包裝",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品用洗潔劑",
+          "normalized": "食品用洗潔劑",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "單方食品添加物",
+          "normalized": "單方食品添加物",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "香料",
+          "normalized": "香料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "許可證影本",
+          "normalized": "許可證影本",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 수입규정 F01",
+          "normalized": "대만 수입규정 f01",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 수입규정 508",
+          "normalized": "대만 수입규정 508",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
+        "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "Routes Taiwan food, food contact material, cleanser, additive and flavor imports by import-regulation code before label or inspection workflow selection."
+    },
+    {
+      "id": "food-related-products-permit-documents",
+      "canonical_name": "Food and Related Products Permit Documents",
+      "category": "food_import",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "review and registration",
+          "normalized": "review and registration",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "permit documents",
+          "normalized": "permit documents",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food and related products permit document",
+          "normalized": "food and related products permit document",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品相關產品查驗登記",
+          "normalized": "食品相關產品查驗登記",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "許可文件",
+          "normalized": "許可文件",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "中文標籤",
+          "normalized": "中文標籤",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "包裝",
+          "normalized": "包裝",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "成分",
+          "normalized": "成分",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "申請人",
+          "normalized": "申請人",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "製造廠",
+          "normalized": "製造廠",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "infant formula",
+          "normalized": "infant formula",
+          "type": "product_category",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "follow-up infant formula",
+          "normalized": "follow-up infant formula",
+          "type": "product_category",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 관련 제품 허가문서",
+          "normalized": "식품 관련 제품 허가문서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-related-products-permit-document-management"
+      ],
+      "notes": "Use when Taiwan food-related products need review-and-registration permit documents, Chinese label/packaging/ingredient evidence or infant-formula permit checks."
+    },
+    {
+      "id": "health-food-application-permit",
+      "canonical_name": "Health Food Application Permit",
+      "category": "health_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "health food application permit",
+          "normalized": "health food application permit",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "health care effect assessment report",
+          "normalized": "health care effect assessment report",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "safety assessment report",
+          "normalized": "safety assessment report",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "package label product information sheet",
+          "normalized": "package label product information sheet",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "健康食品查驗登記",
+          "normalized": "健康食品查驗登記",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保健功效評估報告",
+          "normalized": "保健功效評估報告",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "安全評估報告",
+          "normalized": "安全評估報告",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保健功效成分",
+          "normalized": "保健功效成分",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保健功效含量",
+          "normalized": "保健功效含量",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "包裝標籤及產品說明書",
+          "normalized": "包裝標籤及產品說明書",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 건강식품 허가 신청",
+          "normalized": "대만 건강식품 허가 신청",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-application-permit-regulations"
+      ],
+      "notes": "Use for Taiwan health-food products that require application files, health-care-effect substantiation and safety assessment before claim or label approval."
+    },
+    {
+      "id": "health-food-label-required-items",
+      "canonical_name": "Health Food Label Required Items",
+      "category": "health_food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "health food labeling regulations",
+          "normalized": "health food labeling regulations",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "permit number",
+          "normalized": "permit number",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "approved health care claims",
+          "normalized": "approved health care claims",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "health food warning",
+          "normalized": "health food warning",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "健康食品標示",
+          "normalized": "健康食品標示",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "健康食品標示規定",
+          "normalized": "健康食品標示規定",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "許可證字號",
+          "normalized": "許可證字號",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "健康食品字樣",
+          "normalized": "健康食品字樣",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "標準圖樣",
+          "normalized": "標準圖樣",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保健功效",
+          "normalized": "保健功效",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "攝取量",
+          "normalized": "攝取量",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "注意事項",
+          "normalized": "注意事項",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "營養成分及含量",
+          "normalized": "營養成分及含量",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 건강식품 표시사항",
+          "normalized": "대만 건강식품 표시사항",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-labeling-regulations"
+      ],
+      "notes": "Extends the existing health-food logo term with label-completeness fields such as permit number, legend, standard logo, approved effect wording, intake and warnings."
+    },
+    {
+      "id": "health-food-approved-effect-vocabulary",
+      "canonical_name": "Health Food Approved Effect Vocabulary",
+      "category": "health_food_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "approved health care effects",
+          "normalized": "approved health care effects",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "health food effect assessment methods",
+          "normalized": "health food effect assessment methods",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "animal model",
+          "normalized": "animal model",
+          "type": "evidence_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "骨質保健",
+          "normalized": "骨質保健",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "調節血脂",
+          "normalized": "調節血脂",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "胃腸功能改善",
+          "normalized": "胃腸功能改善",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "免疫調節",
+          "normalized": "免疫調節",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "牙齒保健",
+          "normalized": "牙齒保健",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "護肝",
+          "normalized": "護肝",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "調節血糖",
+          "normalized": "調節血糖",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "延緩衰老",
+          "normalized": "延緩衰老",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抗疲勞",
+          "normalized": "抗疲勞",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輔助調節血鐵",
+          "normalized": "輔助調節血鐵",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輔助調節血壓",
+          "normalized": "輔助調節血壓",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "不易形成體脂肪",
+          "normalized": "不易形成體脂肪",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輔助調整過敏體質",
+          "normalized": "輔助調整過敏體質",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "膝關節保健",
+          "normalized": "膝關節保健",
+          "type": "approved_claim",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "건강식품 허가 효능",
+          "normalized": "건강식품 허가 효능",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-health-food-health-care-effect-items-2025",
+        "tw-tfda-health-food-effect-assessment-methods-hub",
+        "tw-moj-health-food-governing-act"
+      ],
+      "notes": "Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases."
+    },
+    {
+      "id": "novel-food-ingredient-safety-assessment",
+      "canonical_name": "Novel Food Ingredient Safety Assessment",
+      "category": "food_safety",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "novel food ingredient",
+          "normalized": "novel food ingredient",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "non-traditional food ingredient",
+          "normalized": "non-traditional food ingredient",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "safety assessment data sheet",
+          "normalized": "safety assessment data sheet",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "新興食品原料",
+          "normalized": "新興食品原料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "非傳統食品原料",
+          "normalized": "非傳統食品原料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "安全性評估資料表",
+          "normalized": "安全性評估資料表",
+          "type": "official_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "신규 식품원료",
+          "normalized": "신규 식품원료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비전통 식품원료 안전성 평가",
+          "normalized": "비전통 식품원료 안전성 평가",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+        "tw-tfda-food-ingredient-integration-query-platform"
+      ],
+      "notes": "Use before food-label approval when an ingredient may not be an ordinary edible ingredient in Taiwan."
+    },
+    {
+      "id": "crustacea-allergen",
+      "canonical_name": "Crustacea Allergen",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Crustacea",
+          "normalized": "crustacea",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "crustacean",
+          "normalized": "crustacean",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "shrimp",
+          "normalized": "shrimp",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "crab",
+          "normalized": "crab",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甲殼類",
+          "normalized": "甲殼類",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蝦",
+          "normalized": "蝦",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Shrimp; short ingredient name, use in Taiwan allergen context.",
+          "source": "curated"
+        },
+        {
+          "value": "蟹",
+          "normalized": "蟹",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Crab; short ingredient name, use in Taiwan allergen context.",
+          "source": "curated"
+        },
+        {
+          "value": "갑각류",
+          "normalized": "갑각류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "새우",
+          "normalized": "새우",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "게",
+          "normalized": "게",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "Taiwan mandatory allergen cluster for crustacea and crustacea products."
+    },
+    {
+      "id": "mango-allergen",
+      "canonical_name": "Mango Allergen",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Mango",
+          "normalized": "mango",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "mango products",
+          "normalized": "mango products",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "芒果",
+          "normalized": "芒果",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "망고",
+          "normalized": "망고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "Taiwan mandatory allergen cluster for mango and mango products."
+    },
+    {
+      "id": "tree-nuts-allergen",
+      "canonical_name": "Tree Nuts Allergen",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Tree Nuts",
+          "normalized": "tree nuts",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "nuts",
+          "normalized": "nuts",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "nut products",
+          "normalized": "nut products",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "堅果類",
+          "normalized": "堅果類",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "堅果",
+          "normalized": "堅果",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "견과류",
+          "normalized": "견과류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "Taiwan mandatory allergen cluster for tree nuts and tree-nut products."
+    },
+    {
+      "id": "fish-allergen",
+      "canonical_name": "Fish Allergen",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Fish",
+          "normalized": "fish",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "fish products",
+          "normalized": "fish products",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "魚類",
+          "normalized": "魚類",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "魚",
+          "normalized": "魚",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Short food name; use in Taiwan allergen context.",
+          "source": "curated"
+        },
+        {
+          "value": "어류",
+          "normalized": "어류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "생선",
+          "normalized": "생선",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "Taiwan mandatory allergen cluster for fish and fish products."
+    },
+    {
+      "id": "sulfites-allergen",
+      "canonical_name": "Sulphites Allergen",
+      "category": "food_allergen",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Sulphites",
+          "normalized": "sulphites",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sulfites",
+          "normalized": "sulfites",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SO2",
+          "normalized": "so2",
+          "type": "formula",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": "Sulfur dioxide expression in Taiwan sulphites allergen threshold context.",
+          "source": "curated"
+        },
+        {
+          "value": "sulfur dioxide",
+          "normalized": "sulfur dioxide",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sulphur dioxide",
+          "normalized": "sulphur dioxide",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "10 mg/kg",
+          "normalized": "10 mg kg",
+          "type": "threshold",
+          "language": "und",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "亞硫酸鹽類",
+          "normalized": "亞硫酸鹽類",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "亞硫酸鹽",
+          "normalized": "亞硫酸鹽",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "二氧化硫",
+          "normalized": "二氧化硫",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "10毫克",
+          "normalized": "10毫克",
+          "type": "threshold",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아황산염",
+          "normalized": "아황산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "이산화황",
+          "normalized": "이산화황",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "Taiwan mandatory allergen cluster for sulphites at the sulfur-dioxide residual threshold."
     },
     {
       "id": "end-use-end-user",
