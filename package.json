@@ -13,6 +13,7 @@
     "crawl:knowledge": "node scripts/crawl-knowledge-base.mjs",
     "detect:updates": "node scripts/detect-regulatory-updates.mjs",
     "build:terms": "node scripts/build-term-index.mjs",
+    "audit:aliases": "node scripts/audit-term-aliases.mjs",
     "build:knowledge-seed": "pnpm build:terms && pnpm detect:updates && node scripts/generate-knowledge-seed.mjs",
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",

@@ -96,7 +96,23 @@
       "source_type": "guidance",
       "priority": "high",
       "cache_days": 14,
+      "companion_source_ids": ["tw-tfda-cosmetic-adverse-event-qms-platform", "tw-moj-cosmetic-serious-adverse-reporting"],
       "tags": ["cosmetics", "adverse-event-reporting", "defective-product-reporting", "qms", "post-market-surveillance", "reporting-form"]
+    },
+    {
+      "id": "tw-tfda-cosmetic-adverse-event-qms-platform",
+      "title": "TFDA Post-Market Quality Management System",
+      "url": "https://qms.fda.gov.tw/",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "database",
+      "priority": "high",
+      "format": "manual",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-cosmetic-adverse-event-reporting-system", "tw-moj-cosmetic-serious-adverse-reporting"],
+      "manual_extract": "Official TFDA post-market quality management portal for cosmetics and related regulated products. Use this source when a Taiwan cosmetics review needs to confirm adverse-event reporting route, post-market surveillance workflow, defective product handling, or serious adverse effect escalation. The portal is operational and may require interactive browser access, account login, or form navigation, so the reusable knowledge record should be read together with the TFDA adverse-event reporting guidance and the MOJ serious adverse reporting regulation. For a product dossier, route checks include whether the responsible firm can identify the product, lot, importer or manufacturer, report date, event narrative, corrective action, recall linkage, and follow-up record. Label or claim screening should flag this source when product safety complaints, post-market incidents, recall triggers, or consumer injury wording appears in the file. Refresh by browser capture when the portal exposes downloadable forms or updated submission steps.",
+      "tags": ["cosmetics", "adverse-event-reporting", "post-market-surveillance", "quality-management", "portal", "system"]
     },
     {
       "id": "tw-moj-cosmetic-serious-adverse-reporting",
@@ -214,7 +230,36 @@
       "source_type": "guidance_index",
       "priority": "high",
       "cache_days": 14,
+      "companion_source_ids": ["tw-tfda-cosmetic-product-registration-system", "tw-tfda-cosmetic-fadenbook-platform", "tw-moj-cosmetic-product-notification", "tw-moj-cosmetic-pif-management"],
       "tags": ["cosmetics", "product-registration", "product-notification", "fadenbook", "platform"]
+    },
+    {
+      "id": "tw-tfda-cosmetic-product-registration-system",
+      "title": "TFDA Cosmetic Product Registration Platform",
+      "url": "https://cos.fda.gov.tw/TCAL/",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "database",
+      "priority": "high",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-cosmetic-product-registration-zone", "tw-moj-cosmetic-product-notification", "tw-moj-cosmetic-pif-management"],
+      "tags": ["cosmetics", "product-registration", "product-notification", "filing", "portal", "system"]
+    },
+    {
+      "id": "tw-tfda-cosmetic-fadenbook-platform",
+      "title": "TFDA Food and Drug Business Registration Platform",
+      "url": "http://fadenbook.fda.gov.tw/",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "database_index",
+      "priority": "high",
+      "format": "manual",
+      "cache_days": 14,
+      "companion_source_ids": ["tw-tfda-cosmetic-product-registration-system", "tw-tfda-cosmetic-product-registration-zone", "tw-tfda-pif-hub-zh"],
+      "manual_extract": "Official TFDA Food and Drug Business Registration Platform, commonly referenced as the fadenbook portal and 非登不可. Treat this as an operational companion source for Taiwan food, drug, and cosmetics business registration, operator account workflows, and product registration or filing support. For cosmetics review, use it with the TFDA cosmetic product registration platform, product notification rules, and PIF management evidence to confirm that importer, responsible firm, and filing responsibilities route through official TFDA systems.",
+      "tags": ["cosmetics", "product-registration", "filing", "pif", "portal", "platform"]
     },
     {
       "id": "tw-tfda-cosmetics-business-area",
@@ -807,6 +852,21 @@
       "tags": ["health-food", "labeling", "warning", "recommended-intake", "permit", "food-safety-act"]
     },
     {
+      "id": "tw-tfda-health-food-permit-query",
+      "title": "Health Food Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "health_food",
+      "source_type": "database",
+      "priority": "high",
+      "format": "manual",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-food-business-info-query-links"],
+      "manual_extract": "Official TFDA Consumer Knowledge Service Network page for health food permit lookup. Use it to confirm health food permit numbers, product names, registration status, approved health-care effect scope, and whether a product may lawfully present itself as health food in Taiwan. In review workflows, open this lookup before accepting label wording about health-food status, standard health-food logo use, permit number display, function claims, recommended intake, warning text, or supporting import documents. The lookup should be treated as an operational evidence source rather than a general guidance page: it links a label claim to a specific approved product record. If the product cannot be found or the permit scope does not match the label, route the case to health-food claim substantiation and false or exaggerated advertising review.",
+      "tags": ["health-food", "permit-query", "registration-number", "license-number", "database", "traditional-chinese"]
+    },
+    {
       "id": "tw-tfda-formula-for-certain-disease-labeling-2025",
       "title": "Formula for Certain Disease labeling requirements",
       "url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233",
@@ -817,6 +877,21 @@
       "priority": "high",
       "cache_days": 14,
       "tags": ["formula-for-certain-disease", "special-dietary-food", "labeling", "warning", "2025", "premarket-review"]
+    },
+    {
+      "id": "tw-tfda-special-disease-food-permit-query",
+      "title": "Special Disease Formula Food Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "special_dietary_food",
+      "source_type": "database",
+      "priority": "high",
+      "format": "manual",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-food-business-info-query-links"],
+      "manual_extract": "Official TFDA Consumer Knowledge Service Network page for special disease formula food permit lookup. Use it to verify permit numbers, product names, registered formula type, and registration status before relying on a Taiwan label, certificate, or import file for formula foods intended for certain diseases. In screening, this lookup is relevant when labels mention disease-specific nutrition, special medical or dietary use, controlled formula categories, patient-use instructions, or professional supervision. Treat the lookup as a permit-evidence source: if the product, permit number, or intended disease category cannot be matched, the review should require further registration evidence and should not rely only on packaging text. Pair this source with TFDA labeling requirements for formula for certain disease and imported-food inspection evidence.",
+      "tags": ["special-dietary-food", "formula-for-certain-disease", "permit-query", "registration-number", "license-number", "database", "traditional-chinese"]
     },
     {
       "id": "tw-tfda-food-ingredient-integration-query-platform",
@@ -853,8 +928,22 @@
       "source_type": "database_index",
       "priority": "medium",
       "cache_days": 7,
-      "companion_source_ids": ["tw-tfda-food-ingredient-query-platform-direct", "tw-tfda-food-additive-permit-query"],
+      "companion_source_ids": ["tw-tfda-food-ingredient-query-platform-direct", "tw-tfda-food-additive-permit-query", "tw-tfda-health-food-permit-query", "tw-tfda-special-disease-food-permit-query", "tw-tfda-illegal-advertising-query"],
       "tags": ["food", "food-business", "query-links", "ingredient-query", "permit-query", "database-index", "traditional-chinese"]
+    },
+    {
+      "id": "tw-tfda-illegal-advertising-query",
+      "title": "Illegal Food, Drug, and Cosmetics Advertising Query System",
+      "url": "http://pmds.fda.gov.tw/illegalad/",
+      "authority": "Taiwan Food and Drug Administration / PMDS",
+      "jurisdiction": "TW",
+      "domain": "food_labeling",
+      "source_type": "database",
+      "priority": "high",
+      "format": "manual",
+      "cache_days": 7,
+      "manual_extract": "Official TFDA / PMDS illegal food, drug, and cosmetics advertising query system for enforcement lookup. Use this as a companion source when screening Taiwan food or cosmetics label claims, health-food effects, medical-efficacy wording, false or exaggerated advertising, therapeutic implication, before-after claims, and missing substantiation. The system is operational rather than explanatory: reviewers should use it to compare risky wording against violation records and enforcement examples for food, drug, and cosmetics advertising. In LabelPass, route claim-heavy products here when the label or marketing draft mentions disease treatment, body-function improvement, slimming, whitening, anti-inflammatory, antibacterial, detox, immune, medical efficacy, or approved health-care effects. The review workflow should record the search keyword, product category, brand or product name, wording under review, and whether a similar violation appears in the query result. For Taiwan food, pair this lookup with false, exaggerated, misleading, or medical-efficacy claim rules, nutrition-claim guidance, sweetness-claim guidance, health-food permit checks, and special disease formula permit checks. For Taiwan cosmetics, pair it with cosmetic labeling and claims criteria, product notification, PIF substantiation, restricted ingredient evidence, and adverse-event or recall routing when safety claims are involved. The source should trigger a conservative result when marketing copy implies treatment, prevention, diagnosis, cure, body-structure change, disease-specific benefit, guaranteed effect, or government approval beyond the actual permit scope. It should also be used during Korean-to-Traditional-Chinese claim translation review, because the same Korean ingredient or efficacy wording may map to multiple Taiwan enforcement terms. Store search keywords and screenshots in the review file when a close precedent is found, then link the result back to the product claim, evidence document, and final label decision. If the portal is not reachable by automated collection, keep this manual record as the stable knowledge anchor and refresh by browser capture when the site is available.",
+      "tags": ["food", "drugs", "cosmetics", "advertising", "violation", "query", "consumer"]
     },
     {
       "id": "tw-trade-import-export-regulations",

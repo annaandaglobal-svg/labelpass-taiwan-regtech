@@ -218,10 +218,53 @@ function tokenScore(target: string, query: string, exactOnly = false) {
   return 0;
 }
 
+const queryStopwords = new Set([
+  "대만",
+  "타이완",
+  "taiwan",
+  "tw",
+  "臺灣",
+  "台灣",
+  "규정",
+  "규제",
+  "확인",
+  "검색",
+  "자료",
+  "관련"
+]);
+
+function queryTokensForFallback(query: string) {
+  return query
+    .split(" ")
+    .map((token) => token.trim())
+    .filter((token) => {
+      if (!token || queryStopwords.has(token)) return false;
+      if (isShortLatin(token)) return token.length >= 2;
+      if (hasCjkOrHangul(token)) return characterLength(token) >= 2;
+      return token.length > 2;
+    });
+}
+
+function tokenScoreWithQueryFallback(target: string, query: string, exactOnly = false) {
+  const directScore = tokenScore(target, query, exactOnly);
+  if (directScore) return directScore;
+  if (!hasCjkOrHangul(query)) return 0;
+
+  const queryTokens = queryTokensForFallback(query);
+  if (queryTokens.length <= 1) return 0;
+
+  return queryTokens.reduce((best, token) => {
+    const tokenExactOnly = exactOnly || isShortLatin(token);
+    const tokenScoreValue = tokenScore(target, token, tokenExactOnly);
+    if (!tokenScoreValue) return best;
+    return Math.max(best, Math.max(36, tokenScoreValue - 18));
+  }, 0);
+}
+
 function scoreAlias(alias: Alias, query: string) {
   const normalized = alias.normalized ?? normalize(alias.value);
   const exactOnly = isShortLatin(normalized) || isBroadOrAmbiguous(alias);
-  const base = tokenScore(normalized, query, exactOnly);
+  const base = tokenScoreWithQueryFallback(normalized, query, exactOnly);
   if (!base) return 0;
 
   const confidence = typeof alias.confidence === "number" ? alias.confidence : 0.85;
@@ -282,7 +325,7 @@ function scoreTerm(term: KnowledgeTerm, query: string) {
     .sort((a, b) => b.score - a.score);
 
   const normalizedCanonical = normalize(term.canonical_name);
-  const canonicalBase = tokenScore(normalizedCanonical, query);
+  const canonicalBase = tokenScoreWithQueryFallback(normalizedCanonical, query);
   const canonicalScore = canonicalBase
     ? canonicalBase + (normalizedCanonical === query ? 16 : 0) + (aliasScores.length ? 6 : 0)
     : 0;
@@ -308,7 +351,7 @@ function scoreSource(source: SourceResult, query: string) {
       ...(source.tags ?? [])
     ].join(" ")
   );
-  return tokenScore(haystack, query);
+  return tokenScoreWithQueryFallback(haystack, query);
 }
 
 function topCounts(values: string[], limit = 8) {
@@ -430,7 +473,7 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
     }))
     .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, Math.max(4, Math.floor(limit / 2)))
+    .slice(0, Math.max(8, limit))
     .map(({ source, score }) => ({
       id: source.id,
       title: source.title,

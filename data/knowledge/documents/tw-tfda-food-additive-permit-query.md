@@ -8,17 +8,17 @@ domain: food_additives
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-26T04:43:23.764Z
+fetched_at: 2026-06-26T06:24:07.617Z
 fetched_url: https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T04:43:23.764Z
+cache_expires_at: 2026-07-03T06:24:07.617Z
 cache_status: fresh
 content_hash: 1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb
 from_cache: false
 manual_fallback: true
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, food-additives, permit-query, registration-number, license-number, database, traditional-chinese
 ---
 

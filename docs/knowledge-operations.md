@@ -6,8 +6,8 @@ LabelPass treats regulatory information as reusable memory, not disposable searc
 
 ## Current Coverage
 
-- Taiwan cosmetics: TFDA restriction data, Cosmetic Hygiene and Safety Act, product notification, PIF management, PIF notices and guidance.
-- Taiwan product labeling and food import: Commodity Labeling Act, food safety law, allergen labeling, nutrition labeling, front-of-package nutrition guidance, small-package food rules, bulk-food labeling, food-additive common names, imported-food inspection, systematic inspection, shellfish HS 0307 health certificates, food importer registration, pesticide and veterinary drug residue limits, contaminants and toxins, microorganisms, traceability, food GHP, BSMI commodity inspection, origin/customs notices.
+- Taiwan cosmetics: TFDA restriction data, Cosmetic Hygiene and Safety Act, product notification, product registration systems, PIF management, PIF notices and guidance, QMS/adverse-event reporting, and post-market controls.
+- Taiwan product labeling and food import: Commodity Labeling Act, food safety law, allergen labeling, nutrition labeling, front-of-package nutrition guidance, small-package food rules, bulk-food labeling, food-additive common names, health-food and special disease formula permit lookups, illegal advertising lookup, imported-food inspection, systematic inspection, shellfish HS 0307 health certificates, food importer registration, pesticide and veterinary drug residue limits, contaminants and toxins, microorganisms, traceability, food GHP, BSMI commodity inspection, origin/customs notices.
 - Taiwan import/export controls: International Trade Administration import/export rules, SHTC notices, dual-use/common military list references.
 - Global terminology: WTO TBT, WCO HS, UNECE GHS, Codex food labeling, INCI, CAS, Wassenaar.
 - Comparison markets: EU, United States, Japan, Korea, China, and ASEAN official or high-trust sources.
@@ -25,6 +25,7 @@ pnpm audit:knowledge
 Use the crawler when source content may have changed. Use the seed builder after curation, alias updates, or a completed crawl.
 Use the update detector after crawling when you need a human-review queue for changed, stale, expiring, or high-priority watched sources. `pnpm build:knowledge-seed` runs `detect:updates` automatically.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
+Use `pnpm audit:aliases` after term edits or a seed rebuild to catch normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
 
 ## Regulatory Update Queue
 
@@ -38,10 +39,10 @@ LabelPass does not automatically mutate rules just because a crawler sees a new 
 
 Current queue baseline:
 
-- Update candidates: 25
-- Newly detected content changes: 0
-- Sources pending refresh: 5
-- Watched sources: 20
+- Update candidates: 45
+- Newly detected content changes: 1
+- Sources pending refresh: 13
+- Watched sources: 31
 
 ## Manual Browser Capture
 
@@ -93,19 +94,19 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 Current generated counts:
 
-- `knowledge_sources`: 133
-- `knowledge_snapshots`: 133
+- `knowledge_sources`: 139
+- `knowledge_snapshots`: 139
 - `knowledge_terms`: 1,158
 - `term_aliases`: 3,754
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 33
+- `regulatory_update_candidates`: 45
 - `rules`: 1,081
 
 Current freshness status:
 
 - Stale sources: 0
 - Sources expiring within 3 days: 0
-- Sources pending refresh within 7 days: 8
+- Sources pending refresh within 7 days: 13
 - Next scheduled source refresh: 2026-07-02 22:02 KST
 
 ## Alias Curation Rules
@@ -122,6 +123,7 @@ pnpm exec tsc --noEmit
 pnpm test:rules
 pnpm validate:knowledge
 pnpm audit:knowledge
+pnpm audit:aliases
 pnpm detect:updates
 pnpm build
 pnpm smoke:api

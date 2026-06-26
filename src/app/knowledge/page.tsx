@@ -8,10 +8,10 @@ export default function KnowledgePage() {
   const overview = getKnowledgeOverview();
   const latestFetched = overview.operations.latestFetchedAt
     ? new Intl.DateTimeFormat("ko-KR", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Seoul" }).format(new Date(overview.operations.latestFetchedAt))
-    : "pending";
+    : "대기 중";
   const nextRefresh = overview.operations.nextRefreshAt
     ? new Intl.DateTimeFormat("ko-KR", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Seoul" }).format(new Date(overview.operations.nextRefreshAt))
-    : "pending";
+    : "대기 중";
 
   return (
     <main className="knowledge-shell">
@@ -19,49 +19,46 @@ export default function KnowledgePage() {
         <div>
           <Link className="knowledge-back" href="/">
             <ArrowLeft size={17} />
-            검토 화면으로
+            대시보드로
           </Link>
-          <p className="eyebrow">Reusable regulatory memory</p>
-          <h1>규제 지식 컨트롤룸</h1>
+          <p className="eyebrow">재사용 규제 메모리</p>
+          <h1>규제 지식 검색</h1>
           <p>
-            INCI, CAS, 한국어, 번체중문, 간체중문, 일본어, 관용명, 약어, 대만 공식 규정 별칭을
-            하나의 검색 흐름으로 묶어 라벨 검토와 제품 재검토에 바로 연결합니다.
+            대만 화장품, 식품, 표시, 성분, 첨가물 규정을 한 화면에서 교차 검색합니다. INCI, CAS, 고시, 가이드,
+            번역 메모까지 묶어 실무자가 바로 다시 쓸 수 있게 정리합니다.
           </p>
         </div>
         <div className="knowledge-stats">
           <span>
             <Database size={18} />
-            {totals.sources.toLocaleString()} 공식 출처
+            {totals.sources.toLocaleString()}개 출처
           </span>
           <span>
             <Search size={18} />
-            {totals.aliases.toLocaleString()} 검색 별칭
+            {totals.aliases.toLocaleString()}개 검색 별칭
           </span>
           <span>
             <ShieldCheck size={18} />
-            {totals.ruleLinks.toLocaleString()} 룰 링크
+            {totals.ruleLinks.toLocaleString()}개 규칙 연결
           </span>
         </div>
       </section>
 
-      <section className="knowledge-ops" aria-label="지식베이스 운영 상태">
+      <section className="knowledge-ops" aria-label="지식베이스 운영 현황">
         <div>
-          <span>출처 최신성</span>
+          <span>최근 수집</span>
           <strong>{latestFetched}</strong>
           <small>
-            다음 갱신 {nextRefresh} · 만료 {overview.operations.staleSources.toLocaleString()} · 3일 내 갱신{" "}
-            {overview.operations.expiringSoonSources.toLocaleString()} · 캐시 재사용{" "}
-            {overview.operations.fromCache.toLocaleString()} · 브라우저 캡처{" "}
-            {overview.operations.browserCaptures.toLocaleString()} · 수동 보강{" "}
-            {overview.operations.manualFallbacks.toLocaleString()} · 변경 큐{" "}
-            {overview.operations.updateCandidates.toLocaleString()} · 갱신 대기{" "}
-            {overview.operations.pendingUpdateCandidates.toLocaleString()} · 감시{" "}
-            {overview.operations.watchedUpdateSources.toLocaleString()}
+            다음 갱신 {nextRefresh} · 갱신 필요 {overview.operations.staleSources.toLocaleString()}개 · 3일 내 만료 예상{" "}
+            {overview.operations.expiringSoonSources.toLocaleString()}개 · 캐시 반영 {overview.operations.fromCache.toLocaleString()}개 ·
+            브라우저 수집 {overview.operations.browserCaptures.toLocaleString()}개 · 수동 보완 {overview.operations.manualFallbacks.toLocaleString()}
+            개 · 업데이트 후보 {overview.operations.updateCandidates.toLocaleString()}개 · 대기 중 업데이트{" "}
+            {overview.operations.pendingUpdateCandidates.toLocaleString()}개 · 감시 중 {overview.operations.watchedUpdateSources.toLocaleString()}개
           </small>
         </div>
-        <OverviewGroup title="국가" items={overview.coverage.jurisdictions} />
-        <OverviewGroup title="영역" items={overview.coverage.domains} />
-        <OverviewGroup title="용어" items={overview.coverage.categories} />
+        <OverviewGroup title="관할" items={overview.coverage.jurisdictions} />
+        <OverviewGroup title="도메인" items={overview.coverage.domains} />
+        <OverviewGroup title="분류" items={overview.coverage.categories} />
         <OverviewGroup title="언어" items={overview.coverage.languages} />
       </section>
 
@@ -77,11 +74,41 @@ function OverviewGroup({ title, items }: { title: string; items: Array<{ key: st
       <div className="knowledge-mini-bars">
         {items.slice(0, 5).map((item) => (
           <small key={`${title}-${item.key}`}>
-            {item.key}
+            {labelFor(item.key)}
             <b>{item.count.toLocaleString()}</b>
           </small>
         ))}
       </div>
     </div>
   );
+}
+
+function labelFor(value: string) {
+  const labels: Record<string, string> = {
+    all: "전체",
+    TW: "대만",
+    KR: "한국",
+    JP: "일본",
+    CN: "중국",
+    US: "미국",
+    EU: "EU",
+    GLOBAL: "글로벌",
+    cosmetics: "화장품",
+    food: "식품",
+    trade: "통관",
+    general_labeling: "일반 표시",
+    customs: "관세",
+    law: "법령",
+    regulation: "규정",
+    notice: "고시",
+    guidance: "가이드",
+    dataset: "데이터셋",
+    cosmetic_ingredient: "화장품 성분",
+    food_ingredient: "식품 원료",
+    food_additive: "식품첨가물",
+    label_claim: "표시·광고",
+    allergen: "알레르겐"
+  };
+
+  return labels[value] ?? value.replaceAll("_", " ");
 }

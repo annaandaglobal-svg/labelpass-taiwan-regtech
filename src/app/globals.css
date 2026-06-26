@@ -3736,6 +3736,35 @@ h2 {
   text-decoration: none;
 }
 
+.knowledge-back:focus-visible,
+.knowledge-examples button:focus-visible,
+.knowledge-identifiers button:focus-visible,
+.knowledge-source-tags button:focus-visible,
+.knowledge-aliases button:focus-visible,
+.knowledge-rules button:focus-visible,
+.knowledge-filter-row button:focus-visible,
+.knowledge-action-row a:focus-visible,
+.knowledge-action-row button:focus-visible,
+.knowledge-tray-actions a:focus-visible,
+.knowledge-searchbar input:focus-visible {
+  outline: 2px solid var(--green-dark);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(20, 123, 92, 0.12);
+}
+
+.knowledge-examples button,
+.knowledge-identifiers button,
+.knowledge-source-tags button,
+.knowledge-aliases button,
+.knowledge-rules button,
+.knowledge-filter-row button,
+.knowledge-action-row a,
+.knowledge-action-row button,
+.knowledge-tray-actions a {
+  -webkit-tap-highlight-color: rgba(20, 123, 92, 0.14);
+  touch-action: manipulation;
+}
+
 .knowledge-workbench {
   max-width: 1280px;
   margin: 0 auto;
@@ -3798,6 +3827,18 @@ h2 {
 .knowledge-filter-row button:hover {
   border-color: var(--green);
   color: var(--green-dark);
+}
+
+.knowledge-examples button:active,
+.knowledge-identifiers button:active,
+.knowledge-source-tags button:active,
+.knowledge-aliases button:active,
+.knowledge-rules button:active,
+.knowledge-filter-row button:active,
+.knowledge-action-row a:active,
+.knowledge-action-row button:active,
+.knowledge-tray-actions a:active {
+  transform: translateY(0);
 }
 
 .knowledge-alert,
@@ -4008,6 +4049,16 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
+}
+
+.knowledge-term:focus-within,
+.knowledge-source:focus-within,
+.knowledge-health-card:focus-within,
+.knowledge-evidence-card:focus-within,
+.knowledge-filter-panel:focus-within,
+.knowledge-evidence-tray:focus-within {
+  border-color: var(--green-dark);
+  box-shadow: 0 0 0 3px rgba(20, 123, 92, 0.08), var(--shadow-tight);
 }
 
 .knowledge-term-head {

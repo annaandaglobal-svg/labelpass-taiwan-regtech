@@ -362,7 +362,7 @@ async function fetchSource(source, cacheDays) {
     `from_cache: ${fromCache}`,
     `manual_fallback: ${manualFallback}`,
     `browser_capture: ${browserCapture}`,
-    `parse_error: ${parsed.parse_error ?? ""}`,
+    `parse_error:${parsed.parse_error ? ` ${parsed.parse_error}` : ""}`,
     `tags: ${source.tags.join(", ")}`,
     "---",
     "",
