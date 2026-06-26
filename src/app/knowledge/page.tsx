@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Languages } from "lucide-react";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
+import { getAliasReviewQueue } from "@/lib/alias-review";
 import KnowledgeSearchClient from "./search-client";
 
 export default function KnowledgePage() {
   const totals = searchKnowledge("").totals;
   const overview = getKnowledgeOverview();
+  const aliasQueue = getAliasReviewQueue();
   const latestFetched = overview.operations.latestFetchedAt
     ? new Intl.DateTimeFormat("ko-KR", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Seoul" }).format(new Date(overview.operations.latestFetchedAt))
     : "대기 중";
@@ -39,6 +41,15 @@ export default function KnowledgePage() {
           <small>별칭, 규칙, 갱신 감시 상태는 펼쳐서 확인합니다.</small>
         </summary>
         <div className="knowledge-ops-grid">
+          <Link className="knowledge-ops-link" href="/knowledge/aliases">
+            <span><Languages size={16} /> 별칭 검수</span>
+            <strong>{aliasQueue.summary.review_items.toLocaleString()}건</strong>
+            <small>
+              고신뢰 충돌 {aliasQueue.summary.high_confidence_collisions.toLocaleString()}건 · 문자 깨짐{" "}
+              {aliasQueue.summary.mojibake_aliases.toLocaleString()}건 · 현지명 백로그{" "}
+              {aliasQueue.summary.regulated_terms_without_local_alias.toLocaleString()}건
+            </small>
+          </Link>
           <div>
             <span>최근 수집</span>
             <strong>{latestFetched}</strong>
