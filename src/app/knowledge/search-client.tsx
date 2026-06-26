@@ -336,7 +336,12 @@ export default function KnowledgeSearchClient() {
         <span className={selectedEvidence ? "ready" : ""}>
           <PackageSearch size={15} />
           <b>근거 확인</b>
-          <small>{selectedEvidence ? "검토 반영 가능" : "선택 전 대기"}</small>
+          <small>{selectedEvidence ? "선택한 근거 확인 중" : "선택 전 대기"}</small>
+        </span>
+        <span className={selectedEvidence ? "ready" : ""}>
+          <ClipboardCheck size={15} />
+          <b>검토 반영</b>
+          <small>{selectedEvidence ? "검토 화면으로 이동" : "근거 확인 후 가능"}</small>
         </span>
       </div>
 
@@ -501,6 +506,20 @@ export default function KnowledgeSearchClient() {
                 </div>
               </div>
 
+              <div className="knowledge-tray-actions" aria-label="검토 반영">
+                {selectedEvidence ? (
+                  <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`}>
+                    <PackageSearch size={15} />
+                    검토에 반영하기
+                  </Link>
+                ) : (
+                  <button type="button" disabled>
+                    <PackageSearch size={15} />
+                    결과 선택 후 검토 반영
+                  </button>
+                )}
+              </div>
+
               {selectedEvidence ? (
                 <div className="knowledge-evidence-card">
                   <div>
@@ -509,17 +528,13 @@ export default function KnowledgeSearchClient() {
                     <span>{selectedEvidence.subtitle}</span>
                   </div>
                   {typeof selectedEvidence.score === "number" && <b>{Math.round(selectedEvidence.score)}</b>}
-                  <div className="knowledge-tray-actions">
-                    <Link href={`/?screen=review&knowledge=${selectedEvidenceParam}`}>
-                      <PackageSearch size={15} />
-                      검토에 반영
-                    </Link>
-                    {selectedEvidence.href && (
+                  {selectedEvidence.href && (
+                    <div className="knowledge-tray-actions" aria-label="원문 확인">
                       <a href={selectedEvidence.href} target="_blank" rel="noreferrer">
                         원문 열기 <ExternalLink size={15} />
                       </a>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <p>{compact(selectedEvidence.detail, 240)}</p>
                   <div className="knowledge-evidence-chips">
                     {selectedEvidence.chips.slice(0, 8).map((chip) => (
@@ -540,13 +555,7 @@ export default function KnowledgeSearchClient() {
               ) : (
                 <div className="knowledge-evidence-empty">
                   <ClipboardCheck size={20} />
-                  <p>검색 결과를 하나 선택하면 근거 확인 단계가 열리고, 그 뒤에만 검토 반영 액션이 활성화됩니다.</p>
-                  <div className="knowledge-tray-actions" aria-label="비활성 검토 연결">
-                    <button type="button" disabled>
-                      <PackageSearch size={15} />
-                      결과 선택 후 검토 반영
-                    </button>
-                  </div>
+                  <p>왼쪽 검색 결과에서 항목을 선택하면 제목, 분류, 근거 상태를 바로 확인할 수 있습니다.</p>
                 </div>
               )}
             </aside>

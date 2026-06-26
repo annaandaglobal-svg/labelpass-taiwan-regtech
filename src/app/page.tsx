@@ -794,10 +794,14 @@ export default function Home() {
 
         <nav className={isStartOnly ? "nav-list nav-list-start" : "nav-list"}>
           <NavButton active={screen === "review"} icon={<ClipboardCheck />} label={result ? "라벨 검토" : "검토 시작"} onClick={() => setScreen("review")} />
-          <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
-          <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
-          <NavButton active={screen === "updates"} icon={<BookOpen />} label="업데이트" onClick={() => setScreen("updates")} />
-          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가" onClick={() => setScreen("partners")} />
+          {!isStartOnly && (
+            <>
+              <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
+              <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
+              <NavButton active={screen === "updates"} icon={<BookOpen />} label="업데이트" onClick={() => setScreen("updates")} />
+              <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가" onClick={() => setScreen("partners")} />
+            </>
+          )}
         </nav>
 
         <div className="side-panel">
@@ -867,8 +871,8 @@ export default function Home() {
             <div className="start-command-card">
               <div className="start-command-copy">
                 <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
-                <h2>라벨·전성분부터 넣으세요</h2>
-                <p>식품과 화장품 자료를 한 작업대에서 읽고, 성분명 별칭과 대만 규정 근거를 함께 연결합니다.</p>
+                <h2>자료를 넣으면 검토, 근거 검색, 이력 관리까지 이어집니다</h2>
+                <p>라벨·전성분을 먼저 읽고, 대만 식품·화장품 규정과 원료 별칭을 연결해 출고 전 조치만 정리합니다.</p>
                 <div className="start-assurance-row" aria-label="검토 범위">
                   <span>식품·화장품</span>
                   <span>TFDA·MOJ 근거</span>
@@ -914,11 +918,41 @@ export default function Home() {
               )}
             </div>
 
+            <div className="start-overview-panel" aria-label="LabelPass 작업 영역">
+              <div className="start-overview-head">
+                <span><ShieldCheck size={16} /></span>
+                <div>
+                  <b>작업 영역</b>
+                  <small>처음부터 전체 기능을 같은 구조로 보여줍니다.</small>
+                </div>
+              </div>
+              <button type="button" className="start-overview-row active" onClick={focusInputPane}>
+                <ClipboardCheck size={16} />
+                <span><b>1차 라벨 검토</b><small>라벨·성분 입력 후 위험 항목만 추립니다.</small></span>
+              </button>
+              <button type="button" className="start-overview-row" onClick={() => { window.location.href = "/knowledge"; }}>
+                <Search size={16} />
+                <span><b>규정 지식 검색</b><small>용어, CAS, 현지명, 공식 근거를 찾습니다.</small></span>
+              </button>
+              <button type="button" className="start-overview-row" onClick={() => setScreen("products")}>
+                <Archive size={16} />
+                <span><b>검토 이력</b><small>제품별 버전, 문서, 조치 상태를 봅니다.</small></span>
+              </button>
+              <button type="button" className="start-overview-row" onClick={() => setScreen("updates")}>
+                <BookOpen size={16} />
+                <span><b>규정 업데이트</b><small>수집된 변경 후보와 영향 범위를 확인합니다.</small></span>
+              </button>
+              <button type="button" className="start-overview-row" onClick={() => setScreen("partners")}>
+                <UserRoundCheck size={16} />
+                <span><b>전문가 연결</b><small>AI 검토 후 필요한 항목만 전달합니다.</small></span>
+              </button>
+            </div>
+
             <details className="start-support-card" aria-label="LabelPass 기능 범위">
               <summary>
                 <span><ShieldCheck size={16} /></span>
                 <div>
-                  <b>검토 범위 보기</b>
+                  <b>검토 범위와 샘플 보기</b>
                   <small>화장품, 식품, 통관, 클레임 검토 범위</small>
                 </div>
               </summary>
@@ -1028,24 +1062,15 @@ export default function Home() {
                 </div>
               ) : (
                 <>
-                  <div className="intake-command-head">
-                    <div className="step-row">
-                      <span>1</span>
-                      <div>
-                        <b>자료를 붙여 넣고 1차 검토를 시작하세요</b>
-                        <p>전성분이나 라벨 문구만 있어도 시작할 수 있고, 통관 자료는 있으면 추가합니다.</p>
-                      </div>
-                    </div>
-
-                    <div className="intake-command-actions">
-                      <button className="ghost-btn" type="button" onClick={() => fileInputRef.current?.click()}>
-                        <Upload size={15} /> 파일 추가
-                      </button>
-                      <button className="ghost-btn" type="button" onClick={() => fillSample("food-additive")}>
-                        <Sparkles size={15} /> 샘플
-                      </button>
+                <div className="intake-command-head">
+                  <div className="step-row">
+                    <span>1</span>
+                    <div>
+                        <b>핵심 자료 3가지만 먼저 채우세요</b>
+                        <p>제품명, 품목, 라벨·성분이 들어오면 1차 검토를 실행할 수 있습니다.</p>
                     </div>
                   </div>
+                </div>
 
                   <div className="input-completeness" aria-live="polite">
                     <div>
@@ -1063,12 +1088,6 @@ export default function Home() {
                       ))}
                     </div>
                   )}
-
-                  <div className="review-scope-strip" aria-label="검토 범위">
-                    <span><ShieldCheck size={14} /><b>대만 룰</b><small>화장품·식품</small></span>
-                    <span><Search size={14} /><b>용어 정규화</b><small>INCI·CAS·현지명</small></span>
-                    <span><Ship size={14} /><b>통관 자료</b><small>HS/CCC·송장</small></span>
-                  </div>
 
                   <div className={result ? "quick-review-bar" : "quick-review-bar quick-review-bar-start"}>
                     <div className="review-cta-stack">
@@ -1088,32 +1107,6 @@ export default function Home() {
                     </div>
                     )}
                   </div>
-
-                  <details className="intake-upload-drawer">
-                    <summary>
-                      <Upload size={15} />
-                      파일 업로드와 샘플 보기
-                    </summary>
-                    <div className="start-upload-card">
-                      <button className="start-upload-main" onClick={() => fileInputRef.current?.click()}>
-                        <Upload size={20} />
-                        <span>
-                          <b>라벨/PDF 올리기</b>
-                          <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "또는 아래에 전성분을 직접 붙여넣기"}</small>
-                        </span>
-                      </button>
-                      {uploadedFiles.length > 0 && (
-                        <div className="file-chip-row compact" aria-label="입력 패널 연결 파일">
-                          {uploadedFiles.map((file) => (
-                            <span key={file}><FileText size={13} />{file}</span>
-                          ))}
-                        </div>
-                      )}
-                      <div className="start-shortcuts">
-                        <button onClick={() => fillSample("food-additive")}>샘플로 1분 체험</button>
-                      </div>
-                    </div>
-                  </details>
 
               <div className="form-section">
                 <div className="section-title">
@@ -1151,15 +1144,47 @@ export default function Home() {
                     value={input.ingredientsText}
                     onChange={(event) => updateInput("ingredientsText", event.target.value)}
                     placeholder="Water, Glycerin 4%, Triclosan 0.5% ..."
-                    rows={6}
+                    rows={4}
                   />
                 </label>
 
                 <label className="field">
                   <span>라벨 문구 또는 OCR 결과</span>
-                  <textarea value={input.labelText} onChange={(event) => updateInput("labelText", event.target.value)} placeholder="品名, 用途, 全成分, 原產地, 批號..." rows={7} />
+                  <textarea value={input.labelText} onChange={(event) => updateInput("labelText", event.target.value)} placeholder="品名, 用途, 全成分, 原產地, 批號..." rows={4} />
                 </label>
               </div>
+
+              <details className="intake-tools-drawer">
+                <summary>
+                  <Upload size={15} />
+                  보조 입력: 파일, 샘플, 검토 범위
+                </summary>
+                <div className="intake-tools-grid">
+                  <button className="start-upload-main" type="button" onClick={() => fileInputRef.current?.click()}>
+                    <Upload size={20} />
+                    <span>
+                      <b>라벨/PDF 추가</b>
+                      <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "파일명만 먼저 연결하고 텍스트는 아래 입력값을 사용합니다."}</small>
+                    </span>
+                  </button>
+                  <div className="review-scope-strip" aria-label="검토 범위">
+                    <span><ShieldCheck size={14} /><b>대만 룰</b><small>화장품·식품</small></span>
+                    <span><Search size={14} /><b>용어 정규화</b><small>INCI·CAS·현지명</small></span>
+                    <span><Ship size={14} /><b>통관 자료</b><small>HS/CCC·송장</small></span>
+                  </div>
+                  <div className="sample-grid">
+                    <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물</button>
+                    <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조</button>
+                    <button className="ghost-btn" onClick={() => fillSample("health-food")}>건강식품</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-contact")}>포장재</button>
+                    <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과</button>
+                  </div>
+                </div>
+              </details>
 
               <details className="optional-section">
                 <summary>
@@ -1206,26 +1231,6 @@ export default function Home() {
                 </div>
               </div>
               </details>
-
-              <div className="action-row">
-                <details className="sample-drawer">
-                  <summary>
-                    <Sparkles size={15} />
-                    샘플 불러오기
-                  </summary>
-                  <div className="sample-grid">
-                    <button className="ghost-btn" onClick={() => fillSample("risky")}>화장품 위반</button>
-                    <button className="ghost-btn" onClick={() => fillSample("food-risky")}>식품 알레르겐</button>
-                    <button className="ghost-btn" onClick={() => fillSample("food-import")}>식품 수입검사</button>
-                    <button className="ghost-btn" onClick={() => fillSample("food-additive")}>식품첨가물</button>
-                    <button className="ghost-btn" onClick={() => fillSample("compound-additive")}>복방첨가물</button>
-                    <button className="ghost-btn" onClick={() => fillSample("food-claim")}>권장·강조</button>
-                    <button className="ghost-btn" onClick={() => fillSample("health-food")}>건강식품</button>
-                    <button className="ghost-btn" onClick={() => fillSample("food-contact")}>포장재</button>
-                    <button className="ghost-btn" onClick={() => fillSample("food-clean")}>식품 통과</button>
-                  </div>
-                </details>
-              </div>
                 </>
               )}
             </section>
