@@ -42,6 +42,26 @@
       "requiredAliases": ["Potassium sorbate", "山梨酸鉀", "소르빈산칼륨", "소르빈산 칼륨"]
     },
     {
+      "id": "sorbate-calcium-zh",
+      "query": "山梨酸鈣",
+      "expectedTermId": "sorbates-food-additives",
+      "requiredAliases": ["Calcium sorbate", "山梨酸鈣", "소르빈산칼슘"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+    },
+    {
+      "id": "sodium-bicarbonate-simplified",
+      "query": "碳酸氢钠",
+      "expectedTermId": "sodium-bicarbonate-food-additive",
+      "requiredAliases": ["Sodium bicarbonate", "碳酸氫鈉", "碳酸氢钠", "小蘇打", "小苏打"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+    },
+    {
+      "id": "sodium-bicarbonate-formula",
+      "query": "NaHCO3",
+      "expectedTermId": "sodium-bicarbonate-food-additive",
+      "requiredAliases": ["NaHCO3", "Sodium bicarbonate", "탄산수소나트륨", "중탄산나트륨"]
+    },
+    {
       "id": "xanthan-taiwan-name",
       "query": "三仙膠",
       "expectedTermId": "xanthan-gum-food-additive",
@@ -78,6 +98,45 @@
       "query": "아황산염",
       "expectedTermId": "sulfites-allergen",
       "requiredAliases": ["아황산염", "이산화황", "Sulfites", "二氧化硫"]
+    },
+    {
+      "id": "sulfites-threshold-zh",
+      "query": "二氧化硫殘留量",
+      "expectedTermId": "sulfites-allergen",
+      "requiredAliases": ["二氧化硫殘留量", "二氧化硫", "每公斤10毫克", "total SO2"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+    },
+    {
+      "id": "sulfites-total-so2",
+      "query": "total SO2",
+      "expectedTermId": "sulfites-allergen",
+      "requiredAliases": ["total SO2", "SO2", "SO₂", "二氧化硫"]
+    },
+    {
+      "id": "pantothenate-calcium-zh",
+      "query": "本多酸鈣",
+      "expectedTermId": "pantothenate-food-additives",
+      "requiredAliases": ["Calcium pantothenate", "Sodium pantothenate", "本多酸鈣", "泛酸鈣"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+    },
+    {
+      "id": "pantothenate-sodium-zh",
+      "query": "本多酸鈉",
+      "expectedTermId": "pantothenate-food-additives",
+      "requiredAliases": ["本多酸鈉", "泛酸鈉", "판토텐산나트륨"]
+    },
+    {
+      "id": "methionine-dl-zh",
+      "query": "DL-蛋胺酸",
+      "expectedTermId": "methionine-food-additive",
+      "requiredAliases": ["DL-Methionine", "DL-蛋胺酸", "DL-甲硫胺酸", "메티오닌"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+    },
+    {
+      "id": "methionine-l-zh-variant",
+      "query": "L-甲硫胺酸",
+      "expectedTermId": "methionine-food-additive",
+      "requiredAliases": ["L-Methionine", "L-蛋胺酸", "L-甲硫胺酸"]
     },
     {
       "id": "cosmetic-pif-abbreviation",
@@ -127,6 +186,40 @@
       "query": "過敏原標示",
       "expectedTermId": "food-allergen-labeling",
       "requiredAliases": ["過敏原標示", "allergen labeling", "알레르겐 표시", "致過敏性內容物"]
+    },
+    {
+      "id": "food-allergen-contains-phrase",
+      "query": "本產品含有",
+      "expectedTermId": "food-allergen-labeling",
+      "requiredAliases": ["本產品含有", "不適合對其過敏體質者食用", "致過敏性內容物名稱"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling", "tw-tfda-food-allergen-labeling-consumer-notice"]
+    },
+    {
+      "id": "gluten-cereals-official-phrase",
+      "query": "含麩質之穀物",
+      "expectedTermId": "gluten-cereals-allergen",
+      "requiredAliases": ["含麩質之穀物", "黑麥", "燕麥", "글루텐 함유 곡물"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+    },
+    {
+      "id": "gluten-cereals-rye-zh",
+      "query": "黑麥",
+      "expectedTermId": "gluten-cereals-allergen",
+      "requiredAliases": ["黑麥", "燕麥", "Rye", "Oat"]
+    },
+    {
+      "id": "cephalopods-official-zh",
+      "query": "頭足類",
+      "expectedTermId": "cephalopods-advisory-allergen",
+      "requiredAliases": ["頭足類", "Cephalopods", "魷魚", "章魚"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling-consumer-notice"]
+    },
+    {
+      "id": "mollusks-official-zh",
+      "query": "螺貝類",
+      "expectedTermId": "mollusks-advisory-allergen",
+      "requiredAliases": ["螺貝類", "Mollusks", "Molluscs", "貝類"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling-consumer-notice"]
     },
     {
       "id": "cosmetic-product-notification-zh",

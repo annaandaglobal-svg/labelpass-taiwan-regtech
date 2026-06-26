@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 139,
+  "curated_term_count": 141,
   "generated_term_count": 1038,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -1021,7 +1021,7 @@
         },
         {
           "value": "视黄醇",
-          "normalized": "视黄醇",
+          "normalized": "视黃醇",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -1235,16 +1235,6 @@
           "source": "curated"
         },
         {
-          "value": "过氧化氢",
-          "normalized": "過氧化氢",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.95,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "과산화수소",
           "normalized": "과산화수소",
           "type": "local_name",
@@ -1433,31 +1423,11 @@
           "source": "curated"
         },
         {
-          "value": "氢氧化钾",
-          "normalized": "氢氧化鉀",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.95,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "氫氧化鈉",
           "normalized": "氫氧化鈉",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "curated"
-        },
-        {
-          "value": "氢氧化钠",
-          "normalized": "氢氧化鈉",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
           "confidence": 0.95,
           "note": null,
           "source": "curated"
@@ -3049,12 +3019,32 @@
           "source": "curated"
         },
         {
+          "value": "Cereals containing gluten",
+          "normalized": "cereals containing gluten",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "麩質",
           "normalized": "麩質",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "含麩質之穀物",
+          "normalized": "含麩質之穀物",
+          "type": "official_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
           "note": null,
           "source": "curated"
         },
@@ -3079,12 +3069,52 @@
           "source": "curated"
         },
         {
+          "value": "黑麥",
+          "normalized": "黑麥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "燕麥",
+          "normalized": "燕麥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "含麸质之谷物",
+          "normalized": "含麩質之谷物",
+          "type": "simplified_variant",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "글루텐",
           "normalized": "글루텐",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "글루텐 함유 곡물",
+          "normalized": "글루텐 함유 곡물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },
@@ -3105,6 +3135,26 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "호밀",
+          "normalized": "호밀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "귀리",
+          "normalized": "귀리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         }
@@ -3712,6 +3762,16 @@
           "source": "curated"
         },
         {
+          "value": "Calcium sorbate",
+          "normalized": "calcium sorbate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "山梨酸",
           "normalized": "山梨酸",
           "type": "local_name",
@@ -3738,6 +3798,16 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山梨酸鈣",
+          "normalized": "山梨酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
           "note": null,
           "source": "curated"
         },
@@ -3790,6 +3860,26 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "소르빈산칼슘",
+          "normalized": "소르빈산칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소르빈산 칼슘",
+          "normalized": "소르빈산 칼슘",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -3832,6 +3922,16 @@
           "source": "curated"
         },
         {
+          "value": "NaHCO3",
+          "normalized": "nahco3",
+          "type": "formula",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "碳酸氫鈉",
           "normalized": "碳酸氫鈉",
           "type": "local_name",
@@ -3862,6 +3962,36 @@
           "source": "curated"
         },
         {
+          "value": "탄산수소 나트륨",
+          "normalized": "탄산수소 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "중탄산나트륨",
+          "normalized": "중탄산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "중탄산 나트륨",
+          "normalized": "중탄산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "베이킹소다",
           "normalized": "베이킹소다",
           "type": "common_name",
@@ -3877,6 +4007,290 @@
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Common food additive and common-name alias."
+    },
+    {
+      "id": "pantothenate-food-additives",
+      "canonical_name": "Pantothenates",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Calcium pantothenate",
+          "normalized": "calcium pantothenate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium pantothenate",
+          "normalized": "sodium pantothenate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Pantothenate",
+          "normalized": "pantothenate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "本多酸鈣",
+          "normalized": "本多酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "本多酸鈉",
+          "normalized": "本多酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "泛酸鈣",
+          "normalized": "泛酸鈣",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "泛酸鈉",
+          "normalized": "泛酸鈉",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "판토텐산칼슘",
+          "normalized": "판토텐산칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "판토텐산 칼슘",
+          "normalized": "판토텐산 칼슘",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "판토텐산나트륨",
+          "normalized": "판토텐산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "판토텐산 나트륨",
+          "normalized": "판토텐산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Vitamin-related food additive common names; use additive standards for scope and limitations."
+    },
+    {
+      "id": "methionine-food-additive",
+      "canonical_name": "Methionine",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Methionine",
+          "normalized": "methionine",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-Methionine",
+          "normalized": "dl-methionine",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-Methionine",
+          "normalized": "l-methionine",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-蛋胺酸",
+          "normalized": "dl-蛋胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-蛋胺酸",
+          "normalized": "l-蛋胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-甲硫胺酸",
+          "normalized": "dl-甲硫胺酸",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-甲硫胺酸",
+          "normalized": "l-甲硫胺酸",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-蛋氨酸",
+          "normalized": "dl-蛋氨酸",
+          "type": "simplified_variant",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-蛋氨酸",
+          "normalized": "l-蛋氨酸",
+          "type": "simplified_variant",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-甲硫氨酸",
+          "normalized": "dl-甲硫氨酸",
+          "type": "simplified_variant",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-甲硫氨酸",
+          "normalized": "l-甲硫氨酸",
+          "type": "simplified_variant",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "메티오닌",
+          "normalized": "메티오닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-메티오닌",
+          "normalized": "dl-메티오닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-메티오닌",
+          "normalized": "l-메티오닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Food additive common-name aliases for methionine forms; verify product-specific permission before use."
     },
     {
       "id": "xanthan-gum-food-additive",
@@ -4722,6 +5136,16 @@
           "source": "curated"
         },
         {
+          "value": "頭足類",
+          "normalized": "頭足類",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "烏賊",
           "normalized": "烏賊",
           "type": "local_name",
@@ -4845,6 +5269,36 @@
           "jurisdiction": "GLOBAL",
           "confidence": 0.85,
           "note": "Broad shellfish term; crustacea are regulated separately.",
+          "source": "curated"
+        },
+        {
+          "value": "Molluscs",
+          "normalized": "molluscs",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "螺貝類",
+          "normalized": "螺貝類",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "貝類",
+          "normalized": "貝類",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Broad shellfish-like alias; verify crustacea versus mollusk context.",
           "source": "curated"
         },
         {
@@ -5227,7 +5681,7 @@
         },
         {
           "value": "全球化学品统一分类和标签制度",
-          "normalized": "全球化学品统一分类和標籤制度",
+          "normalized": "全球化学品统一分類和標籤制度",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
@@ -10242,16 +10696,6 @@
           "source": "curated"
         },
         {
-          "value": "防晒成分",
-          "normalized": "防晒成分",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "日焼け止め成分",
           "normalized": "日焼け止め成分",
           "type": "local_name",
@@ -10710,6 +11154,16 @@
           "source": "curated"
         },
         {
+          "value": "This product contains",
+          "normalized": "this product contains",
+          "type": "label_phrase",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "알레르기 표시",
           "normalized": "알레르기 표시",
           "type": "local_name",
@@ -10750,12 +11204,52 @@
           "source": "curated"
         },
         {
+          "value": "致過敏性內容物名稱",
+          "normalized": "致過敏性內容物名稱",
+          "type": "official_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "本產品含有",
+          "normalized": "本產品含有",
+          "type": "label_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "不適合對其過敏體質者食用",
+          "normalized": "不適合對其過敏體質者食用",
+          "type": "label_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "过敏原标识",
           "normalized": "過敏原標识",
           "type": "local_name",
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "致过敏性内容物名称",
+          "normalized": "致過敏性内容物名称",
+          "type": "simplified_variant",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         },
@@ -17883,6 +18377,26 @@
           "source": "curated"
         },
         {
+          "value": "SO 2",
+          "normalized": "so 2",
+          "type": "formula_variant",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Spaced formula variant often seen in copied regulatory text.",
+          "source": "curated"
+        },
+        {
+          "value": "total SO2",
+          "normalized": "total so2",
+          "type": "threshold_phrase",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "sulfur dioxide",
           "normalized": "sulfur dioxide",
           "type": "official_term",
@@ -17939,6 +18453,26 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "二氧化硫殘留量",
+          "normalized": "二氧化硫殘留量",
+          "type": "threshold_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "每公斤10毫克",
+          "normalized": "每公斤10毫克",
+          "type": "threshold_phrase",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         },
@@ -91039,16 +91573,6 @@
           "source": "cas"
         },
         {
-          "value": "过氧化氢",
-          "normalized": "過氧化氢",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.95,
-          "note": null,
-          "source": "cas"
-        },
-        {
           "value": "과산화수소",
           "normalized": "과산화수소",
           "type": "local_name",
@@ -94483,31 +95007,11 @@
           "source": "cas"
         },
         {
-          "value": "氢氧化钾",
-          "normalized": "氢氧化鉀",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
-          "confidence": 0.95,
-          "note": null,
-          "source": "cas"
-        },
-        {
           "value": "氫氧化鈉",
           "normalized": "氫氧化鈉",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "cas"
-        },
-        {
-          "value": "氢氧化钠",
-          "normalized": "氢氧化鈉",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
           "confidence": 0.95,
           "note": null,
           "source": "cas"
@@ -100322,16 +100826,6 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "cas"
-        },
-        {
-          "value": "过氧化氢",
-          "normalized": "過氧化氢",
-          "type": "local_name",
-          "language": "zh-Hans",
-          "jurisdiction": "CN",
           "confidence": 0.95,
           "note": null,
           "source": "cas"
@@ -108700,6 +109194,16 @@
           "source": "cas"
         },
         {
+          "value": "Calcium sorbate",
+          "normalized": "calcium sorbate",
+          "type": "additive_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "山梨酸",
           "normalized": "山梨酸",
           "type": "local_name",
@@ -108726,6 +109230,16 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 1,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "山梨酸鈣",
+          "normalized": "山梨酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
           "note": null,
           "source": "cas"
         },
@@ -108772,6 +109286,26 @@
         {
           "value": "소르빈산 나트륨",
           "normalized": "소르빈산 나트륨",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산칼슘",
+          "normalized": "소르빈산칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소르빈산 칼슘",
+          "normalized": "소르빈산 칼슘",
           "type": "spacing_variant",
           "language": "ko",
           "jurisdiction": "KR",

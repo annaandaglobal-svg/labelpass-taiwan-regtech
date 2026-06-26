@@ -191,6 +191,7 @@ const termNamesById = new Map(terms.map((term) => [term.id, term.canonical_name]
 const regulatoryVariantFoldMap: Record<string, string> = {
   "妆": "粧",
   "妝": "粧",
+  "氢": "氫",
   "钠": "鈉",
   "钾": "鉀",
   "钙": "鈣",
@@ -199,6 +200,19 @@ const regulatoryVariantFoldMap: Record<string, string> = {
   "铁": "鐵",
   "铜": "銅",
   "铝": "鋁",
+  "苏": "蘇",
+  "胶": "膠",
+  "壳": "殼",
+  "类": "類",
+  "虾": "蝦",
+  "鱼": "魚",
+  "贝": "貝",
+  "麦": "麥",
+  "麸": "麩",
+  "质": "質",
+  "坚": "堅",
+  "黄": "黃",
+  "晒": "曬",
   "盐": "鹽",
   "亚": "亞",
   "剂": "劑",
@@ -220,7 +234,7 @@ const regulatoryVariantFoldMap: Record<string, string> = {
 };
 
 function foldRegulatoryVariants(value: string) {
-  return value.replace(/[妆妝钠钾钙镁锌铁铜铝盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => {
+  return value.replace(/[妆妝氢钠钾钙镁锌铁铜铝苏胶壳类虾鱼贝麦麸质坚黄晒盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => {
     return regulatoryVariantFoldMap[character] ?? character;
   });
 }

@@ -19,6 +19,7 @@ function normalizeText(value) {
   const regulatoryVariantFoldMap = {
     "妆": "粧",
     "妝": "粧",
+    "氢": "氫",
     "钠": "鈉",
     "钾": "鉀",
     "钙": "鈣",
@@ -27,6 +28,19 @@ function normalizeText(value) {
     "铁": "鐵",
     "铜": "銅",
     "铝": "鋁",
+    "苏": "蘇",
+    "胶": "膠",
+    "壳": "殼",
+    "类": "類",
+    "虾": "蝦",
+    "鱼": "魚",
+    "贝": "貝",
+    "麦": "麥",
+    "麸": "麩",
+    "质": "質",
+    "坚": "堅",
+    "黄": "黃",
+    "晒": "曬",
     "盐": "鹽",
     "亚": "亞",
     "剂": "劑",
@@ -55,7 +69,7 @@ function normalizeText(value) {
     .replace(/[^\p{Letter}\p{Number}%.+-]+/gu, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/[妆妝钠钾钙镁锌铁铜铝盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => regulatoryVariantFoldMap[character] ?? character);
+    .replace(/[妆妝氢钠钾钙镁锌铁铜铝苏胶壳类虾鱼贝麦麸质坚黄晒盐亚剂标签营养过产资讯档录验证许湾臺]/g, (character) => regulatoryVariantFoldMap[character] ?? character);
 }
 
 function slug(value) {
