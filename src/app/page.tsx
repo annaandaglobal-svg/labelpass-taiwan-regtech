@@ -86,11 +86,33 @@ type RegulatoryUpdateCandidate = {
   candidate_key: string;
   source_key: string;
   title: string;
+  source_url?: string;
+  authority?: string;
+  domain?: string;
+  source_type?: string;
+  source_priority?: string;
   change_type: string;
   severity: string;
   status: string;
+  detected_at?: string;
+  fetched_at?: string;
   cache_expires_at?: string | null;
+  affected_domains?: string[];
+  affected_terms?: Array<{
+    term_key?: string;
+    canonical_name?: string;
+    category?: string;
+  }>;
   affected_products?: string[];
+  evidence?: {
+    document_path?: string;
+    text_chars?: number;
+    format?: string;
+    from_cache?: boolean;
+    browser_capture?: boolean;
+    manual_fallback?: boolean;
+    excerpt?: string;
+  };
   next_action?: string | null;
 };
 
@@ -1889,7 +1911,53 @@ function ProductsScreen({ savedReviews, onOpen, onRecheck }: { savedReviews: Sav
 }
 
 function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof sourceCards)[number]; onSelect: (source: (typeof sourceCards)[number]) => void }) {
-  const queueItems = regulatoryUpdateQueue.items.slice(0, 5);
+  const [queueQuery, setQueueQuery] = useState("");
+  const [queueStatus, setQueueStatus] = useState("all");
+  const [queueSeverity, setQueueSeverity] = useState("all");
+  const [selectedCandidateKey, setSelectedCandidateKey] = useState(regulatoryUpdateQueue.items[0]?.candidate_key ?? "");
+  const filteredQueueItems = useMemo(() => {
+    const query = queueQuery.trim().toLowerCase();
+    return regulatoryUpdateQueue.items.filter((item) => {
+      if (queueStatus !== "all" && item.status !== queueStatus) return false;
+      if (queueSeverity !== "all" && item.severity !== queueSeverity) return false;
+      if (!query) return true;
+
+      const haystack = [
+        item.title,
+        item.source_key,
+        item.authority,
+        item.domain,
+        item.source_type,
+        item.source_priority,
+        item.change_type,
+        item.status,
+        item.severity,
+        item.next_action,
+        ...(item.affected_domains ?? []),
+        ...(item.affected_products ?? []),
+        ...(item.affected_terms ?? []).flatMap((term) => [term.term_key, term.canonical_name, term.category])
+      ].filter(Boolean).join(" ").toLowerCase();
+
+      return haystack.includes(query);
+    });
+  }, [queueQuery, queueSeverity, queueStatus]);
+  const selectedCandidate =
+    filteredQueueItems.find((item) => item.candidate_key === selectedCandidateKey) ??
+    filteredQueueItems[0] ??
+    null;
+  const queueStatusOptions = [
+    { value: "all", label: "전체", count: regulatoryUpdateQueue.summary.total },
+    { value: "detected", label: "변경 탐지", count: regulatoryUpdateQueue.summary.detected },
+    { value: "pending_refresh", label: "캐시 갱신 대기", count: regulatoryUpdateQueue.summary.pending_refresh },
+    { value: "watching", label: "상시 감시", count: regulatoryUpdateQueue.summary.watching }
+  ];
+  const queueSeverityOptions = [
+    { value: "all", label: "전체" },
+    { value: "high", label: "높음", count: regulatoryUpdateQueue.summary.high },
+    { value: "medium", label: "중간", count: regulatoryUpdateQueue.summary.medium },
+    { value: "low", label: "낮음", count: regulatoryUpdateQueue.summary.low }
+  ];
+
   return (
     <div className="screen-grid updates-grid">
       <section className="detail-pane">
@@ -1907,19 +1975,47 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
         <div className="update-queue">
           <div className="queue-head">
             <div>
-              <span>승인 게이트</span>
-              <h2>{regulatoryUpdateQueue.summary.total}개 후보 관리 중</h2>
+              <span>검토 큐</span>
+              <h2>{filteredQueueItems.length}개 표시 · 전체 {regulatoryUpdateQueue.summary.total}개</h2>
             </div>
             <ShieldCheck size={23} />
           </div>
           <div className="queue-metrics">
             <span><b>{regulatoryUpdateQueue.summary.detected}</b>변경 탐지</span>
-            <span><b>{regulatoryUpdateQueue.summary.pending_refresh}</b>갱신 대기</span>
+            <span><b>{regulatoryUpdateQueue.summary.pending_refresh}</b>캐시 갱신 대기</span>
             <span><b>{regulatoryUpdateQueue.summary.watching}</b>핵심 감시</span>
           </div>
+          <div className="queue-controls">
+            <label className="queue-search">
+              <span className="sr-only">업데이트 후보 검색</span>
+              <Search size={15} />
+              <input value={queueQuery} onChange={(event) => setQueueQuery(event.target.value)} placeholder="출처, 용어, 제품 영향 검색" />
+            </label>
+            <div className="queue-filter-row" aria-label="업데이트 상태 필터">
+              {queueStatusOptions.map((option) => (
+                <button key={option.value} aria-pressed={queueStatus === option.value} className={queueStatus === option.value ? "active" : ""} type="button" onClick={() => setQueueStatus(option.value)}>
+                  {option.label}{option.count !== undefined ? ` ${option.count}` : ""}
+                </button>
+              ))}
+            </div>
+            <div className="queue-filter-row" aria-label="업데이트 중요도 필터">
+              {queueSeverityOptions.map((option) => (
+                <button key={option.value} aria-pressed={queueSeverity === option.value} className={queueSeverity === option.value ? "active" : ""} type="button" onClick={() => setQueueSeverity(option.value)}>
+                  {option.label}{option.count !== undefined ? ` ${option.count}` : ""}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="queue-list">
-            {queueItems.map((item) => (
-              <div key={item.candidate_key} className={`queue-item ${item.severity}`}>
+            {filteredQueueItems.map((item) => (
+              <button
+                key={item.candidate_key}
+                className={selectedCandidate?.candidate_key === item.candidate_key ? `queue-item ${item.severity} active` : `queue-item ${item.severity}`}
+                type="button"
+                aria-pressed={selectedCandidate?.candidate_key === item.candidate_key}
+                aria-controls="queue-detail-panel"
+                onClick={() => setSelectedCandidateKey(item.candidate_key)}
+              >
                 <span>{updateStatusLabel(item.status)}</span>
                 <div>
                   <b>{item.title}</b>
@@ -1927,10 +2023,60 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
                   {item.next_action && <p>{item.next_action}</p>}
                 </div>
                 <em>{severityLabel(item.severity)}</em>
-              </div>
+              </button>
             ))}
+            {filteredQueueItems.length === 0 && (
+              <div className="queue-empty">
+                <Search size={17} />
+                <b>조건에 맞는 후보가 없습니다</b>
+                <small>검색어 또는 필터를 줄이면 전체 큐를 다시 볼 수 있습니다.</small>
+              </div>
+            )}
           </div>
         </div>
+
+        {selectedCandidate && (
+          <div className="queue-detail-panel" id="queue-detail-panel">
+            <div className="queue-detail-head">
+              <div>
+                <span>{updateStatusLabel(selectedCandidate.status)} · {severityLabel(selectedCandidate.severity)}</span>
+                <h2>{selectedCandidate.title}</h2>
+                <p>{selectedCandidate.source_key} · {updateChangeLabel(selectedCandidate.change_type)}</p>
+              </div>
+              {selectedCandidate.source_url && (
+                <a href={selectedCandidate.source_url} target="_blank" rel="noreferrer">
+                  원문 <ExternalLink size={15} />
+                </a>
+              )}
+            </div>
+            <div className="queue-detail-grid">
+              <span><b>탐지일</b>{formatQueueDate(selectedCandidate.detected_at)}</span>
+              <span><b>캐시 만료</b>{formatQueueDate(selectedCandidate.cache_expires_at)}</span>
+              <span><b>근거 길이</b>{selectedCandidate.evidence?.text_chars?.toLocaleString() ?? "미확인"}자</span>
+              <span><b>수집 방식</b>{evidenceModeLabel(selectedCandidate)}</span>
+            </div>
+            <p>{selectedCandidate.next_action ?? "원문과 영향 용어를 확인한 뒤 승인 여부를 기록합니다."}</p>
+            <div className="queue-chip-block">
+              <b>영향 제품</b>
+              <div>
+                {(selectedCandidate.affected_products?.length ? selectedCandidate.affected_products : ["미분류"]).map((item) => (
+                  <span key={`product-${item}`}>{labelForQueueValue(item)}</span>
+                ))}
+              </div>
+            </div>
+            <div className="queue-chip-block">
+              <b>영향 용어</b>
+              <div>
+                {(selectedCandidate.affected_terms?.length ? selectedCandidate.affected_terms.slice(0, 8) : [{ canonical_name: "검토 후 연결" }]).map((term) => (
+                  <span key={`term-${term.term_key ?? term.canonical_name}`}>{term.canonical_name ?? term.term_key}</span>
+                ))}
+              </div>
+            </div>
+            {selectedCandidate.evidence?.excerpt && (
+              <blockquote>{compact(selectedCandidate.evidence.excerpt, 260)}</blockquote>
+            )}
+          </div>
+        )}
 
         <div className="impact-matrix">
           {productImpactItems.map((item) => (
@@ -1973,7 +2119,7 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
         <div className="source-library-head">
           <div>
             <h2>공식 자료 소스</h2>
-            <p className="muted">PDF보다 오픈데이터를 우선 ingest하고, 공지/법령은 변경분 리뷰 대상으로 둡니다.</p>
+            <p className="muted">PDF보다 오픈데이터를 우선 수집하고, 공지/법령은 변경분 리뷰 대상으로 둡니다.</p>
           </div>
           <span>{sourceCards.length}개</span>
         </div>
@@ -1998,12 +2144,46 @@ function UpdatesScreen({ selectedSource, onSelect }: { selectedSource: (typeof s
 }
 
 function updateStatusLabel(status: string) {
-  if (status === "pending_refresh") return "갱신";
-  if (status === "watching") return "감시";
-  if (status === "detected") return "탐지";
+  if (status === "pending_refresh") return "캐시 갱신 대기";
+  if (status === "watching") return "상시 감시";
+  if (status === "detected") return "변경 탐지";
   if (status === "approved") return "승인";
   if (status === "rejected") return "보류";
   return status;
+}
+
+function formatQueueDate(value?: string | null) {
+  const date = new Date(String(value ?? ""));
+  if (Number.isNaN(date.getTime())) return "대기 중";
+  return new Intl.DateTimeFormat("ko-KR", { month: "short", day: "numeric", timeZone: "Asia/Seoul" }).format(date);
+}
+
+function evidenceModeLabel(candidate: RegulatoryUpdateCandidate) {
+  const evidence = candidate.evidence;
+  if (!evidence) return "미확인";
+  if (evidence.browser_capture) return "브라우저 수집";
+  if (evidence.manual_fallback) return "수동 보강";
+  if (evidence.from_cache) return "캐시";
+  return evidence.format ? evidence.format.toUpperCase() : "자동 수집";
+}
+
+function labelForQueueValue(value?: string) {
+  const labels: Record<string, string> = {
+    cosmetics: "화장품",
+    food: "식품",
+    import_export: "수출입",
+    food_labeling: "식품 표시",
+    health_food: "건강식품",
+    customs: "통관",
+    chemical_labeling: "화학물질 표시"
+  };
+  return labels[value ?? ""] ?? String(value ?? "미분류").replaceAll("_", " ");
+}
+
+function compact(value: string, maxLength: number) {
+  const normalized = value.replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, Math.max(0, maxLength - 1)).trim()}…`;
 }
 
 function updateChangeLabel(changeType: string) {
