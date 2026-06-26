@@ -62,6 +62,10 @@ for (const testCase of cases) {
   if (!result.findings.some((finding) => String(finding.source).includes("InfoId"))) {
     throw new Error(`${testCase.name}: expected at least one TFDA InfoId source in findings`);
   }
+
+  if (!result.findings.some((finding) => String(finding.evidence ?? "").includes("matched alias:"))) {
+    throw new Error(`${testCase.name}: expected matched alias trace in finding evidence`);
+  }
 }
 
 const foodResponse = await fetch(`${baseUrl}/api/review`, {

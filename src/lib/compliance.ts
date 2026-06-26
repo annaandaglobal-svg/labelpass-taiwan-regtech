@@ -240,25 +240,6 @@ function aliasesForRule(rule: RegulatoryRule): IndexedAlias[] {
   });
 }
 
-function hasAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
-  const value = normalizeForMatch(`${ingredient.raw} ${ingredient.name}`);
-
-  return aliases.some((alias) => {
-    const normalizedAlias = alias.normalized ?? normalizeForMatch(alias.value);
-    if (!normalizedAlias) return false;
-
-    const isLatinShortAlias = /^[a-z0-9.+-]+$/i.test(normalizedAlias) && normalizedAlias.length <= 3;
-    const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
-
-    if (isLatinShortAlias || isLowConfidence) {
-      return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
-    }
-
-    if (normalizedAlias.length < 2) return false;
-    return value.includes(normalizedAlias) || hasFoldedAlias(value, normalizedAlias);
-  });
-}
-
 function matchedAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
   const value = normalizeForMatch(`${ingredient.raw} ${ingredient.name}`);
 
@@ -313,6 +294,19 @@ function isRinseOnlyRule(rule: RegulatoryRule) {
 
 function sourceLabel(rule: RegulatoryRule) {
   return `${rule.source_title} InfoId ${rule.source_info_id}, row ${rule.source_record_id || rule.id}`;
+}
+
+function ingredientEvidence(ingredient: ParsedIngredient, rule: RegulatoryRule, alias?: IndexedAlias) {
+  const parts = [
+    `input: ${ingredient.raw}`,
+    alias?.value ? `matched alias: ${alias.value}` : "",
+    rule.ingredient_name ? `official: ${rule.ingredient_name}` : "",
+    rule.inci_names?.[0] ? `INCI: ${rule.inci_names[0]}` : "",
+    rule.cas_numbers?.[0] ? `CAS: ${rule.cas_numbers[0]}` : "",
+    rule.color_index_numbers?.[0] ? `CI: ${rule.color_index_numbers[0]}` : ""
+  ].filter(Boolean);
+
+  return parts.join(" / ");
 }
 
 function fixOptions(rule: RegulatoryRule, limit?: number) {
@@ -1259,10 +1253,12 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
 
   if (!foodProduct) {
   for (const ingredient of parsedIngredients) {
-    const matchedRules = officialRules.filter((rule) => hasAlias(ingredient, aliasesForRule(rule)));
+    const matchedRules = officialRules
+      .map((rule) => ({ rule, alias: matchedAlias(ingredient, aliasesForRule(rule)) }))
+      .filter((entry): entry is { rule: RegulatoryRule; alias: IndexedAlias } => Boolean(entry.alias));
     const emitted = new Set<string>();
 
-    for (const rule of matchedRules) {
+    for (const { rule, alias } of matchedRules) {
       if (emitted.has(rule.id)) continue;
       emitted.add(rule.id);
 
@@ -1277,7 +1273,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
           fix: fixOptions(rule),
           source: sourceLabel(rule),
           sourceUrl: rule.source_url,
-          evidence: ingredient.raw
+          evidence: ingredientEvidence(ingredient, rule, alias)
         });
         continue;
       }
@@ -1294,7 +1290,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
           fix: fixOptions(rule, limit),
           source: sourceLabel(rule),
           sourceUrl: rule.source_url,
-          evidence: ingredient.raw
+          evidence: ingredientEvidence(ingredient, rule, alias)
         });
       } else if (typeof limit === "number" && ingredient.percent > limit) {
         findings.push({
@@ -1307,7 +1303,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
           fix: fixOptions(rule, limit),
           source: sourceLabel(rule),
           sourceUrl: rule.source_url,
-          evidence: ingredient.raw
+          evidence: ingredientEvidence(ingredient, rule, alias)
         });
       } else if (isRinseOnlyRule(rule) && isLeaveOn(input)) {
         findings.push({
@@ -1320,7 +1316,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
           fix: fixOptions(rule, limit),
           source: sourceLabel(rule),
           sourceUrl: rule.source_url,
-          evidence: ingredient.raw
+          evidence: ingredientEvidence(ingredient, rule, alias)
         });
       } else if (typeof limit === "number") {
         findings.push({
@@ -1333,7 +1329,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
           fix: ["조성표와 라벨 전성분명이 일치하는지 확인", "원료명/INCI/CAS 식별자를 함께 보관"],
           source: sourceLabel(rule),
           sourceUrl: rule.source_url,
-          evidence: ingredient.raw
+          evidence: ingredientEvidence(ingredient, rule, alias)
         });
       }
     }
