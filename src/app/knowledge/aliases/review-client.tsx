@@ -15,6 +15,21 @@ import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { AliasReviewItem, AliasReviewPriority, AliasReviewQueue } from "@/lib/alias-review";
 
 const ALL = "all";
+const STATUS_STORAGE_KEY = "labelpass-alias-review-status";
+
+type AliasReviewWorkStatus = "review" | "reviewed" | "deferred" | "recrawl";
+
+type AliasReviewLocalState = Record<
+  string,
+  {
+    status: AliasReviewWorkStatus;
+    updatedAt: string;
+    alias: string;
+    issue: string;
+    priority: string;
+    note?: string;
+  }
+>;
 
 const priorityLabels: Record<AliasReviewPriority, string> = {
   blocker: "차단",
@@ -43,6 +58,13 @@ const laneOptions = [
   { value: "backlog", label: "현지명 백로그" },
   { value: ALL, label: "전체" }
 ];
+
+const workStatusLabels: Record<AliasReviewWorkStatus, string> = {
+  review: "검수 대기",
+  reviewed: "검수 완료",
+  deferred: "보류",
+  recrawl: "재수집 필요"
+};
 
 function labelForIssue(issue: string) {
   return issueLabels[issue] ?? issue.replaceAll("-", " ");
@@ -75,13 +97,33 @@ function patchTextFor(item: AliasReviewItem) {
   ].join("\n");
 }
 
+function readLocalState(): AliasReviewLocalState {
+  try {
+    const raw = window.localStorage.getItem(STATUS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) as AliasReviewLocalState : {};
+  } catch {
+    window.localStorage.removeItem(STATUS_STORAGE_KEY);
+    return {};
+  }
+}
+
+function writeLocalState(state: AliasReviewLocalState) {
+  window.localStorage.setItem(STATUS_STORAGE_KEY, JSON.stringify(state));
+}
+
 export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }) {
   const [query, setQuery] = useState("");
   const [priority, setPriority] = useState<string>("high");
   const [issue, setIssue] = useState<string>(ALL);
+  const [workStatus, setWorkStatus] = useState<string>(ALL);
   const [lane, setLane] = useState("active");
   const [selectedId, setSelectedId] = useState(queue.items[0]?.id ?? "");
   const [copied, setCopied] = useState("");
+  const [localState, setLocalState] = useState<AliasReviewLocalState>({});
+
+  useEffect(() => {
+    setLocalState(readLocalState());
+  }, []);
 
   const priorityCounts = useMemo(() => {
     return queue.items.reduce<Record<string, number>>((counts, item) => {
@@ -107,15 +149,18 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
     const normalizedQuery = query.trim().toLowerCase();
     return queue.items
       .filter((item) => {
+        const itemWorkStatus = localState[item.id]?.status ?? "review";
         if (lane === "active" && item.priority === "backlog") return false;
         if (lane === "backlog" && item.priority !== "backlog") return false;
         if (priority !== ALL && item.priority !== priority) return false;
         if (issue !== ALL && item.issue !== issue) return false;
+        if (workStatus !== ALL && itemWorkStatus !== workStatus) return false;
         if (!normalizedQuery) return true;
         const haystack = [
           item.alias,
           item.issue,
           item.priority,
+          itemWorkStatus,
           item.recommended_action,
           ...item.terms.flatMap((term) => [
             term.term_id,
@@ -129,7 +174,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
         return haystack.includes(normalizedQuery);
       })
       .sort((left, right) => left.sort_order - right.sort_order);
-  }, [issue, lane, priority, query, queue.items]);
+  }, [issue, lane, localState, priority, query, queue.items, workStatus]);
 
   useEffect(() => {
     if (filteredItems.length && !filteredItems.some((item) => item.id === selectedId)) {
@@ -142,6 +187,54 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
   const damagedCount = queue.items.filter(looksDamaged).length;
   const selectedLanguages = selected ? unique(selected.terms.map((term) => term.language)) : [];
   const selectedAliasTypes = selected ? unique(selected.terms.map((term) => term.alias_type)) : [];
+  const localStatusCounts = useMemo(() => {
+    return queue.items.reduce<Record<AliasReviewWorkStatus, number>>(
+      (counts, item) => {
+        const status = localState[item.id]?.status ?? "review";
+        counts[status] += 1;
+        return counts;
+      },
+      { review: 0, reviewed: 0, deferred: 0, recrawl: 0 }
+    );
+  }, [localState, queue.items]);
+  const selectedWorkStatus = selected ? localState[selected.id]?.status ?? "review" : "review";
+
+  function setItemStatus(item: AliasReviewItem, status: AliasReviewWorkStatus, note?: string) {
+    const next = {
+      ...localState,
+      [item.id]: {
+        status,
+        updatedAt: new Date().toISOString(),
+        alias: item.alias,
+        issue: item.issue,
+        priority: item.priority,
+        note
+      }
+    };
+    if (status === "review") {
+      delete next[item.id];
+    }
+    setLocalState(next);
+    writeLocalState(next);
+  }
+
+  function exportLocalState() {
+    const payload = {
+      exported_at: new Date().toISOString(),
+      source_queue_generated_at: queue.generated_at,
+      registry_version: queue.summary.registry_version,
+      storage: "browser",
+      counts: localStatusCounts,
+      items: Object.entries(localState).map(([id, state]) => ({ id, ...state }))
+    };
+    const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `labelpass-alias-review-state-${new Date().toISOString().slice(0, 10)}.json`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  }
 
   async function copyPatch(item: AliasReviewItem) {
     const text = patchTextFor(item);
@@ -161,6 +254,17 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
         <HealthTile icon={<AlertTriangle size={17} />} label="고신뢰 충돌" value={queue.summary.high_confidence_collisions} detail="우선 문맥 보강" tone="gold" />
         <HealthTile icon={<Languages size={17} />} label="현지명 백로그" value={queue.summary.regulated_terms_without_local_alias} detail="공식 zh-Hant/ko/ja 보강" tone="blue" />
         <HealthTile icon={<CheckCircle2 size={17} />} label="엄격 차단" value={queue.summary.strict_blockers} detail={damagedCount ? `문자 깨짐 ${damagedCount}건 별도 확인` : "차단 항목 없음"} tone={queue.summary.strict_blockers ? "red" : "neutral"} />
+      </div>
+
+      <div className="alias-progress-strip" aria-label="로컬 검수 진행률">
+        <span><b>{localStatusCounts.review.toLocaleString()}</b>대기</span>
+        <span><b>{localStatusCounts.reviewed.toLocaleString()}</b>완료</span>
+        <span><b>{localStatusCounts.deferred.toLocaleString()}</b>보류</span>
+        <span><b>{localStatusCounts.recrawl.toLocaleString()}</b>재수집</span>
+        <button type="button" onClick={exportLocalState}>
+          <Clipboard size={15} />
+          상태 내보내기
+        </button>
       </div>
 
       <div className="alias-control-bar">
@@ -204,6 +308,14 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
             formatter={(value) => value === ALL ? "전체" : labelForIssue(value)}
             onChange={setIssue}
           />
+          <FilterGroup
+            label="검수 상태"
+            value={workStatus}
+            options={[ALL, "review", "reviewed", "deferred", "recrawl"]}
+            counts={localStatusCounts}
+            formatter={(value) => value === ALL ? "전체" : workStatusLabels[value as AliasReviewWorkStatus]}
+            onChange={setWorkStatus}
+          />
           <div className="alias-filter-hints">
             <b>빠른 힌트</b>
             <span>언어: {filterOptions.languages.join(" · ") || "대기"}</span>
@@ -235,6 +347,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
                   <p>{compact(item.recommended_action, 130)}</p>
                   <div className="alias-card-meta">
                     <span>{labelForIssue(item.issue)}</span>
+                    <span>{workStatusLabels[localState[item.id]?.status ?? "review"]}</span>
                     <span>{item.term_count}개 term</span>
                     <span>{Math.round(item.max_confidence * 100)}%</span>
                     {looksDamaged(item) && <span>문자 확인</span>}
@@ -267,6 +380,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
               <div className="alias-action-card">
                 <b>권장 조치</b>
                 <p>{selected.recommended_action}</p>
+                <span className={`alias-work-status ${selectedWorkStatus}`}>{workStatusLabels[selectedWorkStatus]}</span>
                 <div>
                   <Link href={`/knowledge?q=${encodeURIComponent(selected.alias)}`}>
                     <Search size={15} />
@@ -275,6 +389,23 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
                   <button type="button" onClick={() => void copyPatch(selected)}>
                     <Clipboard size={15} />
                     {copied === selected.id ? "복사됨" : "검수 메모 복사"}
+                  </button>
+                </div>
+                <div className="alias-status-actions" aria-label="검수 상태 변경">
+                  <button type="button" onClick={() => setItemStatus(selected, "reviewed", "source-backed context reviewed")}>
+                    <CheckCircle2 size={15} />
+                    완료
+                  </button>
+                  <button type="button" onClick={() => setItemStatus(selected, "deferred", "needs later source confirmation")}>
+                    <ShieldCheck size={15} />
+                    보류
+                  </button>
+                  <button type="button" onClick={() => setItemStatus(selected, "recrawl", "needs recrawl or manual browser capture")}>
+                    <AlertTriangle size={15} />
+                    재수집
+                  </button>
+                  <button type="button" onClick={() => setItemStatus(selected, "review")}>
+                    초기화
                   </button>
                 </div>
               </div>

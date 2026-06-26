@@ -890,14 +890,6 @@ export default function Home() {
                     <FileText size={15} />
                     직접 입력
                   </button>
-                  <button type="button" onClick={() => { window.location.href = "/knowledge"; }}>
-                    <Search size={15} />
-                    규정만 검색
-                  </button>
-                  <button type="button" onClick={() => fillSample("food-additive")}>
-                    <Sparkles size={15} />
-                    샘플 보기
-                  </button>
                 </div>
               </div>
 
@@ -943,6 +935,10 @@ export default function Home() {
                 <button onClick={focusInputPane}>
                   <MessageSquare size={16} />
                   <span><b>효능·클레임 표현</b><small>광고성 문구와 번체 라벨 문안</small></span>
+                </button>
+                <button onClick={() => fillSample("food-additive")}>
+                  <Sparkles size={16} />
+                  <span><b>샘플 검토</b><small>식품첨가물 예시로 흐름 확인</small></span>
                 </button>
               </div>
             </details>

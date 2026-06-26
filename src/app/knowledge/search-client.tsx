@@ -249,6 +249,7 @@ export default function KnowledgeSearchClient() {
       : "검색 후 범위를 좁힙니다";
   const resultCountLabel = hasResults ? unifiedResults.length.toLocaleString() : loading ? "검색 중" : "대기";
   const moreResultCount = Math.max(0, filteredTerms.length - visibleTerms.length) + Math.max(0, filteredSources.length - visibleSources.length);
+  const hasActiveWorkspace = hasQuery || hasResults;
 
   function buildTermEvidence(term: TermItem): EvidenceItem {
     const chips = uniqueCompact([
@@ -324,11 +325,31 @@ export default function KnowledgeSearchClient() {
 
       {error && <div className="knowledge-alert">{error}</div>}
 
-      <div className="knowledge-summary" aria-live="polite">
-        <span>{hasResults ? `${isRefreshing ? "검색 갱신 중 · " : ""}검색 결과 ${matchedCount.toLocaleString()}건` : hasQuery ? "검색 준비 중" : "검색 전 대기"}</span>
-        <span>{hasResults ? `용어 ${filteredTerms.length.toLocaleString()}` : "용어 대기"}</span>
-        <span>{hasResults ? `출처 ${filteredSources.length.toLocaleString()}` : "출처 대기"}</span>
+      <div className="knowledge-flow-strip" aria-label="검색 작업 순서">
+        <span className={hasQuery ? "ready" : ""}>
+          <Search size={15} />
+          <b>검색</b>
+          <small>원료·CAS·표시문구</small>
+        </span>
+        <span className={hasResults ? "ready" : ""}>
+          <ClipboardCheck size={15} />
+          <b>후보 선택</b>
+          <small>{hasResults ? `${unifiedResults.length.toLocaleString()}개 우선 후보` : "결과 대기"}</small>
+        </span>
+        <span className={activeEvidence ? "ready" : ""}>
+          <PackageSearch size={15} />
+          <b>검토 연결</b>
+          <small>{activeEvidence ? "근거 준비됨" : "후보 선택 후 활성"}</small>
+        </span>
       </div>
+
+      {hasActiveWorkspace && (
+        <div className="knowledge-summary" aria-live="polite">
+          <span>{hasResults ? `${isRefreshing ? "검색 갱신 중 · " : ""}검색 결과 ${matchedCount.toLocaleString()}건` : "검색 준비 중"}</span>
+          <span>{hasResults ? `용어 ${filteredTerms.length.toLocaleString()}` : "용어 대기"}</span>
+          <span>{hasResults ? `출처 ${filteredSources.length.toLocaleString()}` : "출처 대기"}</span>
+        </div>
+      )}
 
       {data?.ambiguity && (
         <div className="knowledge-ambiguity-panel" role="status">
@@ -347,6 +368,7 @@ export default function KnowledgeSearchClient() {
         </div>
       )}
 
+      {hasActiveWorkspace && (
       <details className="knowledge-filter-drawer">
         <summary>
           <Filter size={16} />
@@ -401,7 +423,9 @@ export default function KnowledgeSearchClient() {
           </div>
         </div>
       </details>
+      )}
 
+      {hasActiveWorkspace ? (
       <div className="knowledge-results knowledge-results-unified">
         <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
@@ -520,6 +544,20 @@ export default function KnowledgeSearchClient() {
           )}
         </aside>
       </div>
+      ) : (
+        <div className="knowledge-start-guide" aria-label="검색 시작 안내">
+          <div>
+            <ShieldCheck size={18} />
+            <b>검색어 하나로 시작하세요</b>
+            <span>결과가 준비되면 같은 화면에서 후보 선택, 필터, 라벨 검토 연결 순서로 이어집니다.</span>
+          </div>
+          <div>
+            <BookOpen size={18} />
+            <b>운영 지표는 아래로 분리했습니다</b>
+            <span>출처 수, 캐시, 별칭 검수 같은 내부 정보는 검색 흐름을 방해하지 않게 접어 두었습니다.</span>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
