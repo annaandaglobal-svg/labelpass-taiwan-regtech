@@ -13,7 +13,7 @@ export type ParsedIngredient = {
 export type Finding = {
   id: string;
   status: ReviewStatus;
-  area: "성분" | "라벨" | "효능표현" | "서류" | "통관" | "식품표시" | "알레르겐" | "영양표시";
+  area: "성분" | "라벨" | "효능표현" | "서류" | "통관" | "식품표시" | "식품접촉재" | "알레르겐" | "영양표시";
   title: string;
   severity: "낮음" | "중간" | "높음" | "low" | "medium" | "high";
   why: string;
@@ -564,10 +564,25 @@ function hasIngredientSafetyReviewSignal(input: ReviewInput) {
   );
 }
 
-function isFoodContactMaterialProduct(input: ReviewInput) {
-  return /food contact|food-contact|food utensil|food container|food packaging|food wrap|lunch box|cup|straw|tableware|tray|bottle|plastic container|microwave container|食品器具|食品容器|食品包裝|食品器具容器包裝|餐具|便當盒|杯|吸管|托盤|保鮮膜|食物容器|식품\s*접촉|식품용\s*기구|식품용\s*용기|식품\s*포장재|식품접촉재|도시락\s*용기|컵|빨대|트레이|랩|비닐랩|전자레인지\s*용기/i.test(
+function hasNonFoodContactUseSignal(input: ReviewInput) {
+  return /not\s+(?:for|intended for)\s+food[-\s]?contact|not food safe|non[-\s]?food|非食品用|不得接觸食品|식품용\s*아님|비식품용/i.test(
     `${input.productName} ${input.productType} ${input.labelText}`
   );
+}
+
+function isFoodContactMaterialProduct(input: ReviewInput) {
+  const primaryText = `${input.productName} ${input.productType}`;
+  const fullText = `${primaryText} ${input.labelText}`;
+  if (hasNonFoodContactUseSignal(input)) return false;
+  const directFoodContactSignal =
+    /food[-\s]?contact|food utensil|food container|food packaging|food wrap|food storage|food service ware|tableware|lunch box|bento box|microwave container|食品器具|食品容器|食品包裝|食品器具容器包裝|餐具|便當盒|保鮮膜|食物容器|식품\s*접촉|식품용\s*(?:기구|용기|포장|포장재)|식품\s*포장재|식품접촉재|도시락\s*용기|비닐랩|전자레인지\s*용기/i.test(fullText);
+  const genericContainerSignal =
+    /\b(?:cup|straw|tray|bottle|container|wrap|film|packaging|utensil|fork|spoon|knife|chopsticks|lid|box|bag|pouch)\b|杯|吸管|托盤|瓶|容器|包裝|袋|盒|컵|빨대|트레이|병|용기|랩|포장재|포장|봉투|파우치/i.test(primaryText);
+  const foodUseContext =
+    /\b(?:food|meal|beverage|drink|soup|lunch|microwave|oven|freezer|dishwasher)\b|食品|食物|餐|微波|식품|음식|식사용|전자레인지|냉동/i.test(fullText) ||
+    hasFoodContactUsePhrase(input);
+
+  return directFoodContactSignal || (genericContainerSignal && foodUseContext);
 }
 
 function hasFoodContactUsePhrase(input: ReviewInput) {
@@ -1364,7 +1379,7 @@ function addHealthFoodFindings(input: ReviewInput, findings: Finding[]) {
 }
 
 function addFoodContactMaterialFindings(input: ReviewInput, findings: Finding[]) {
-  if (!isFoodContactMaterialProduct(input) && !hasPvcPvdcSignal(input) && !hasFoodContactHighHeatUseSignal(input)) return;
+  if (!isFoodContactMaterialProduct(input)) return;
 
   const plastic = hasPlasticFoodContactSignal(input);
 
@@ -1599,8 +1614,8 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
 export function evaluateReview(input: ReviewInput): ReviewResult {
   const parsedIngredients = parseIngredients(input.ingredientsText);
   const findings: Finding[] = [];
-  const foodProduct = isFoodProduct(input);
   const foodContactMaterialProduct = isFoodContactMaterialProduct(input);
+  const foodProduct = !foodContactMaterialProduct && !hasNonFoodContactUseSignal(input) && isFoodProduct(input);
 
   if (!foodProduct && !foodContactMaterialProduct) {
   for (const ingredient of parsedIngredients) {
@@ -1805,6 +1820,17 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
       source: foodProduct || foodContactMaterialProduct ? SOURCE_FOOD_ACT : SOURCE_OPEN_DATA,
       sourceUrl: foodProduct || foodContactMaterialProduct ? SOURCE_FOOD_ACT_URL : SOURCE_OPEN_DATA_URL
     });
+    if (foodContactMaterialProduct && !foodProduct) {
+      findings[0] = {
+        ...findings[0],
+        area: "식품접촉재",
+        title: "대만 식품용 기구·용기·포장재 표시 1차 필수 항목에서 즉시 탐지된 문제 없음",
+        why: "식품접촉재로 분류된 품목 기준으로 food contact use, 재사용·일회용, PVC/PVDC 고지방·고온 경고 신호를 1차 확인했습니다.",
+        fix: ["라벨 원문/OCR과 재질·내열온도·사용조건을 보관하고, 실제 수입 전 TFDA 원문 기준으로 2차 검수하세요."],
+        source: SOURCE_FOOD_CONTACT_LABELING,
+        sourceUrl: SOURCE_FOOD_CONTACT_LABELING_URL
+      };
+    }
   }
 
   const summary = {

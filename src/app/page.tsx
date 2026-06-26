@@ -553,14 +553,22 @@ export default function Home() {
 
   function classifyProduct() {
     const haystack = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
-    const looksFood = /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|compound food additive|food additive|health food|functional food|supplement|probiotic|formula for certain disease|special dietary|food contact|food container|food packaging|food wrap|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|식품첨가물|복방|건강식품|기능성 식품|프로바이오틱스|특정 질환용 조제식품|특수의료용도식품|식품용 용기|식품 포장재|식품접촉재|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠|食品添加物|複方食品添加物|健康食品|保健食品|益生菌|特定疾病配方食品|食品器具|食品容器|食品包裝/i.test(haystack);
+    const looksNonFoodContact = /not\s+(?:for|intended for)\s+food[-\s]?contact|not food safe|non[-\s]?food|非食品用|不得接觸食品|식품용\s*아님|비식품용/i.test(haystack);
+    const looksFoodContact = !looksNonFoodContact && /food[-\s]?contact|food container|food packaging|food wrap|food utensil|tableware|microwave container|식품\s*접촉|식품용\s*(?:기구|용기|포장|포장재)|식품\s*포장재|식품접촉재|食品器具|食品容器|食品包裝|食品器具容器包裝/i.test(haystack);
+    const looksFood = !looksFoodContact && !looksNonFoodContact && /food|snack|tea|cookie|beverage|rice|cracker|protein|low sugar|sugar free|squid|kiwi|shellfish|oyster|mollusk|msg|sodium benzoate|xanthan|compound food additive|food additive|health food|functional food|supplement|probiotic|formula for certain disease|special dietary|식품|과자|차|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|굴|조개|식품첨가물|복방|건강식품|기능성 식품|프로바이오틱스|특정 질환용 조제식품|특수의료용도식품|食品|餅乾|茶|米餅|花生|小麥|高蛋白|低糖|無糖|魷魚|奇異果|貝類|牡蠣|味精|苯甲酸鈉|三仙膠|食品添加物|複方食品添加物|健康食品|保健食品|益生菌|特定疾病配方食品/i.test(haystack);
 
     setInput((current) => ({
       ...current,
-      productType: current.productType || (looksFood ? "prepackaged food / 식품" : "leave-on toner / 일반 화장품"),
-      ingredientsText: current.ingredientsText || (looksFood ? foodAdditiveSampleReview.ingredientsText : sampleReview.ingredientsText)
+      productType: current.productType || (looksFoodContact ? "food contact packaging / 식품접촉재" : looksFood ? "prepackaged food / 식품" : "leave-on toner / 일반 화장품"),
+      ingredientsText: current.ingredientsText || (looksFoodContact ? "" : looksFood ? foodAdditiveSampleReview.ingredientsText : sampleReview.ingredientsText)
     }));
-    setToast(looksFood ? "AI 품목 추정: 대만 사전포장식품 기준으로 분류했습니다." : "AI 품목 추정: 일반 화장품, leave-on 제품으로 분류했습니다.");
+    setToast(
+      looksFoodContact
+        ? "AI 품목 추정: 대만 식품접촉 포장재 기준으로 분류했습니다."
+        : looksFood
+          ? "AI 품목 추정: 대만 사전포장식품 기준으로 분류했습니다."
+          : "AI 품목 추정: 일반 화장품, leave-on 제품으로 분류했습니다."
+    );
   }
 
   async function runReview(nextInput = input) {

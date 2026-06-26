@@ -414,6 +414,54 @@ if (!foodContactResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "
   throw new Error("Food contact review: expected needed PVC/PVDC warning checklist item");
 }
 
+const foodContactFindingIds = new Set((foodContactResult.findings ?? []).map((finding) => finding.id));
+for (const ordinaryFoodFindingId of foodContactFindingIds) {
+  if (
+    ordinaryFoodFindingId.startsWith("food-label-") ||
+    ordinaryFoodFindingId.startsWith("food-allergen-") ||
+    ordinaryFoodFindingId.startsWith("food-nutrition-claim-") ||
+    ordinaryFoodFindingId.startsWith("food-additive-")
+  ) {
+    throw new Error(`Food contact review: should not include ordinary food finding ${ordinaryFoodFindingId}`);
+  }
+}
+
+const cosmeticPvcBottleResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Glow Repair Serum in PVC Bottle",
+    productType: "leave-on cosmetic serum / cosmetic packaging",
+    ingredientsText: "Water, Glycerin, Niacinamide",
+    labelText: [
+      "Product name: Glow Repair Serum.",
+      "Cosmetic package: PVC bottle.",
+      "Not intended for food contact.",
+      "Made in Korea. Taiwan importer pending."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Cosmetics / Taiwan importer pending",
+    hsCode: "3304.99",
+    incoterms: "DAP Taipei",
+    shipmentPurpose: "commercial sale",
+    invoiceValue: "900"
+  })
+});
+
+if (!cosmeticPvcBottleResponse.ok) {
+  throw new Error(`Cosmetic PVC bottle review: Review API returned ${cosmeticPvcBottleResponse.status}`);
+}
+
+const cosmeticPvcBottleResult = await cosmeticPvcBottleResponse.json();
+
+if (cosmeticPvcBottleResult.findings?.some((finding) => finding.id.startsWith("food-contact-"))) {
+  throw new Error("Cosmetic PVC bottle review: should not trigger food-contact packaging findings");
+}
+
+if (!String(cosmeticPvcBottleResult.ruleVersion ?? "").includes("TW-COS")) {
+  throw new Error(`Cosmetic PVC bottle review: expected cosmetics rule version, got ${cosmeticPvcBottleResult.ruleVersion}`);
+}
+
 const foodImportMissingResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -832,5 +880,5 @@ if (archiveSave.storage === "database" && archiveSave.review?.id !== archiveSmok
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 13} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
+  `API smoke test passed: ${cases.length + 14} review cases, ${knowledgeCases.length} knowledge cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases.`
 );
