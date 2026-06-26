@@ -27,6 +27,12 @@ function mergeKnowledgeResult(
 
   return {
     ...primary,
+    totals: {
+      sources: Math.max(primary.totals.sources, fallback.totals.sources),
+      terms: Math.max(primary.totals.terms, fallback.totals.terms),
+      aliases: Math.max(primary.totals.aliases, fallback.totals.aliases),
+      ruleLinks: Math.max(primary.totals.ruleLinks, fallback.totals.ruleLinks)
+    },
     terms: terms.slice(0, limit),
     sources: [
       ...primary.sources,
