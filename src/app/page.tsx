@@ -652,6 +652,11 @@ export default function Home() {
     }, 60);
   }
 
+  function beginWithUpload() {
+    setReviewStarted(true);
+    window.setTimeout(() => fileInputRef.current?.click(), 0);
+  }
+
   function openKnowledgeSearch(query = startKnowledgeQuery) {
     const trimmed = query.trim();
     window.location.href = trimmed ? `/knowledge?q=${encodeURIComponent(trimmed)}` : "/knowledge";
@@ -769,16 +774,18 @@ export default function Home() {
   const archiveStatus = archiveCopy[archiveState];
   const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
   const hasReviewWorkspace =
-    screen === "review" || reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
+    reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
   const reviewMode = isAnalyzing ? "analyzing" : result ? "result" : hasReviewWorkspace ? "intake" : "start";
   const isFocusedIntake = screen === "review" && reviewMode === "intake" && !showAssistantPanel;
+  const isStartReview = screen === "review" && reviewMode === "start";
+  const isQuietReview = isFocusedIntake || isStartReview;
   const showResultPane = Boolean(result) || isAnalyzing;
   const showWorkPanel = screen === "review" && showAssistantPanel && reviewMode !== "result";
-  const showGlobalSearch = !isFocusedIntake && (screen !== "review" || Boolean(result) || showAssistantPanel);
+  const showGlobalSearch = !isQuietReview && (screen !== "review" || Boolean(result) || showAssistantPanel);
   const shellClassName = [
     "shell",
     showWorkPanel ? "shell-console" : "shell-no-assistant",
-    isFocusedIntake ? "shell-start-empty" : "",
+    isQuietReview ? "shell-start-empty" : "",
     screen === "review" && hasReviewWorkspace && !showResultPane ? "shell-start-focus" : ""
   ].filter(Boolean).join(" ");
   const primaryAction = result
@@ -815,7 +822,7 @@ export default function Home() {
           </div>
         </div>
 
-        <nav className={isFocusedIntake ? "nav-list nav-list-start" : "nav-list"}>
+        <nav className={isQuietReview ? "nav-list nav-list-start" : "nav-list"}>
           <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="검토 시작" onClick={() => setScreen("review")} />
           <NavButton active={false} icon={<Search />} label="규정·성분" onClick={() => openKnowledgeSearch()} />
           <NavButton active={screen === "products"} icon={<Archive />} label="내 제품" onClick={() => setScreen("products")} />
@@ -831,7 +838,7 @@ export default function Home() {
       </aside>
 
       <section className="workspace">
-        <header className={["topbar", isFocusedIntake ? "topbar-minimal" : !showGlobalSearch ? "topbar-compact" : ""].filter(Boolean).join(" ")}>
+        <header className={["topbar", isQuietReview ? "topbar-minimal" : !showGlobalSearch ? "topbar-compact" : ""].filter(Boolean).join(" ")}>
           <div>
             <p className="eyebrow">대만 · 식품/화장품 · 기준일 {nowTime()}</p>
             <h1>{screen === "review" ? "대만 수출 라벨 1차 검토" : screenTitle(screen)}</h1>
@@ -849,7 +856,7 @@ export default function Home() {
               </button>
             </form>
           )}
-          {!isFocusedIntake && (
+          {!isQuietReview && (
             <div className="top-actions">
               {screen === "review" && result && (
                 <button className="primary-btn" onClick={primaryAction.run} disabled={primaryAction.disabled}>
@@ -885,6 +892,60 @@ export default function Home() {
 
         {screen === "review" && (
           <>
+          {!hasReviewWorkspace && (
+            <section className="start-command-shell start-command-shell-focused start-hub-shell" aria-label="LabelPass 시작">
+              <div className="start-command-card start-hub-card">
+                <div className="start-command-copy start-hub-copy">
+                  <span className="start-kicker">대만 식품·화장품 작업대</span>
+                  <h2>라벨 검토는 자료를 넣는 곳부터 시작합니다</h2>
+                  <p>처음에는 업로드, 직접 입력, 규정 검색 중 하나만 고르면 됩니다. 이후 화면에서 제품명, 품목, 라벨·성분을 차례대로 받아 대만 기준의 차단 항목과 보완 자료만 먼저 정리합니다.</p>
+                </div>
+
+                <div className="start-hub-actions" aria-label="검토 시작 방법">
+                  <button className="start-path-action primary" type="button" onClick={beginWithUpload}>
+                    <Upload size={22} />
+                    <span>
+                      <b>라벨/PDF 업로드</b>
+                      <small>이미지, PDF, 텍스트 파일을 먼저 연결하고 OCR 문구나 전성분은 다음 화면에서 확인합니다.</small>
+                    </span>
+                  </button>
+
+                  <button className="start-path-action" type="button" onClick={focusInputPane}>
+                    <ClipboardCheck size={22} />
+                    <span>
+                      <b>직접 입력</b>
+                      <small>제품명, 품목, 전성분 또는 라벨 문구를 붙여넣어 바로 1차 검토를 준비합니다.</small>
+                    </span>
+                  </button>
+
+                  <form className="start-path-action start-search-action" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
+                    <Search size={22} />
+                    <span>
+                      <b>규정·성분 먼저 검색</b>
+                      <small>INCI, CAS, 알레르겐, HS/CCC처럼 이름이 여러 개인 표현을 공식 근거와 연결합니다.</small>
+                    </span>
+                    <div className="start-search-box">
+                      <input
+                        value={startKnowledgeQuery}
+                        onChange={(event) => setStartKnowledgeQuery(event.target.value)}
+                        placeholder="예: INCI, allergen, HS 3304"
+                        aria-label="시작 전 규정 또는 성분 검색"
+                      />
+                      <button type="submit">검색</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div className="start-workflow-strip" aria-label="검토 흐름">
+                  <span className="active"><b>1</b><small>자료 선택</small></span>
+                  <span><b>2</b><small>제품·품목 입력</small></span>
+                  <span><b>3</b><small>위험 항목 판정</small></span>
+                  <span><b>4</b><small>근거·리포트 저장</small></span>
+                </div>
+              </div>
+            </section>
+          )}
+
           {hasReviewWorkspace && (
           <div className={showResultPane ? "review-grid" : "review-grid review-grid-start"}>
             <section className="input-pane">

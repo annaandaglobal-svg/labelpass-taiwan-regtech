@@ -577,6 +577,15 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
               <ClipboardCheck size={20} />
               <b>{hasQuery ? "왼쪽 결과를 선택하면 근거가 열립니다." : "검색어를 입력하면 공식 근거를 좁혀드립니다."}</b>
               <p>{hasQuery ? "결과를 직접 선택한 뒤 공식 출처, 별칭, 원문 링크를 확인하고 검토 화면에 반영할 수 있습니다." : "성분명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드 중 하나로 시작하세요."}</p>
+              <div className="knowledge-tray-actions knowledge-tray-actions-disabled" aria-label="근거 작업 대기">
+                <button type="button" className="primary" disabled>
+                  <PackageSearch size={15} />
+                  근거 선택 후 검토에 반영
+                </button>
+                <button type="button" disabled>
+                  원문 확인 <ExternalLink size={15} />
+                </button>
+              </div>
             </div>
           )}
         </aside>

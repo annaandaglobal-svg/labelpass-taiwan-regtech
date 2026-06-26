@@ -7983,7 +7983,8 @@ h2 {
 }
 
 .knowledge-primary-cta,
-.knowledge-tray-actions a.primary {
+.knowledge-tray-actions a.primary,
+.knowledge-tray-actions button.primary {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -7999,7 +8000,8 @@ h2 {
 }
 
 .knowledge-primary-cta:hover,
-.knowledge-tray-actions a.primary:hover {
+.knowledge-tray-actions a.primary:hover,
+.knowledge-tray-actions button.primary:hover:not(:disabled) {
   border-color: #0e5f48;
   background: #0e5f48;
   color: #fff;
@@ -8642,6 +8644,14 @@ h2 {
   min-height: 148px;
 }
 
+.start-hub-actions .start-path-action.primary {
+  grid-row: span 2;
+}
+
+.start-hub-actions .start-search-action {
+  min-height: 118px;
+}
+
 .start-path-action.primary svg,
 .start-path-action.primary small {
   color: rgba(255, 255, 255, 0.86);
@@ -8927,14 +8937,39 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .start-evidence-preview {
-    grid-column: auto;
-    grid-row: auto;
-    position: static;
+  .start-hub-card.start-command-card,
+  .start-command-shell-focused .start-hub-card.start-command-card {
+    gap: 14px;
+    padding: 20px;
   }
 
   .start-hub-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .start-hub-actions .start-path-action.primary {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .start-path-action {
+    min-height: 88px;
+    padding: 12px;
+  }
+
+  .start-path-action.primary {
+    min-height: 104px;
+  }
+
+  .start-hub-actions .start-search-action {
+    min-height: 112px;
+  }
+
+  .start-evidence-preview {
+    grid-column: auto;
+    grid-row: auto;
+    position: static;
   }
 
   .start-hub-actions .start-path-action:last-child {
@@ -8973,6 +9008,7 @@ h2 {
   }
 
   .start-path-action.primary {
+    grid-column: auto;
     min-height: 118px;
   }
 
@@ -9969,7 +10005,11 @@ h2 {
 
 @media (max-width: 640px) {
   .shell-start-empty .nav-list-start {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+  }
+
+  .shell-start-empty .nav-list-start .nav-btn:not(.active) {
+    display: none;
   }
 
   .nav-list-start .nav-btn,
@@ -9978,6 +10018,37 @@ h2 {
     min-height: 38px;
     white-space: nowrap;
     word-break: keep-all;
+  }
+
+  .shell-start-empty .sidebar {
+    gap: 10px;
+    padding-bottom: 8px;
+  }
+
+  .start-hub-card.start-command-card,
+  .start-command-shell-focused .start-hub-card.start-command-card {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .start-hub-copy h2 {
+    font-size: 21px;
+  }
+
+  .start-hub-copy p {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .start-path-action,
+  .start-path-action.primary,
+  .start-hub-actions .start-search-action {
+    min-height: 92px;
+    padding: 11px;
+  }
+
+  .start-search-box {
+    margin-top: 6px;
   }
 }
 
