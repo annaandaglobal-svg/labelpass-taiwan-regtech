@@ -61,7 +61,10 @@ export const cleanSampleReview: ReviewInput = {
     "批號：C26TW02",
     "製造日期：2026.06.01 / 有效日期：2029.06.01",
     "化粧品產品登錄字號 TW-COS-2026-00021. PIF 產品資訊檔案與 safety assessment 已備妥.",
-    "化粧品GMP / ISO 22716 certificate for ANNAANDA Beauty Lab manufacturing site."
+    "化粧品GMP / ISO 22716 certificate for ANNAANDA Beauty Lab manufacturing site.",
+    "Post-market surveillance SOP: adverse event reporting within 15 days, consumer complaint intake, and safety alert monitoring are assigned to Taiwan Importer Co.",
+    "Recall SOP and CAPA plan prepared with seller notification, recall quantity log, and completion report template.",
+    "Source and flow traceability ledger keeps lot C26TW02, import declaration number, receiver, quantity, delivery date, and five-year retention owner."
   ].join("\n")
 };
 

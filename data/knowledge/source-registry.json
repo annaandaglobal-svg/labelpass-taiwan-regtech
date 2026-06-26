@@ -63,6 +63,66 @@
       "tags": ["cosmetics", "announcements", "pif", "gmp", "ingredient-restrictions", "product-registration"]
     },
     {
+      "id": "tw-tfda-cosmetics-management-framework",
+      "title": "TFDA Cosmetics Management Framework",
+      "url": "https://www.fda.gov.tw/eng/siteContent.aspx?sid=10347",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "post-market-surveillance", "adverse-event-reporting", "pif", "gmp"]
+    },
+    {
+      "id": "tw-tfda-cosmetic-adverse-event-reporting-system",
+      "title": "TFDA National Cosmetics Adverse Event Reporting System",
+      "url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=4244",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance",
+      "priority": "high",
+      "cache_days": 14,
+      "tags": ["cosmetics", "adverse-event-reporting", "defective-product-reporting", "qms", "post-market-surveillance", "reporting-form"]
+    },
+    {
+      "id": "tw-moj-cosmetic-serious-adverse-reporting",
+      "title": "Regulations for Reporting Cosmetics Serious Adverse Effects and Hazards to Hygiene and Safety",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030090",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "serious-adverse-effects", "adverse-event-reporting", "hygiene-safety-hazard", "15-day-reporting", "records"]
+    },
+    {
+      "id": "tw-moj-cosmetics-recall-regulations",
+      "title": "Regulations for Cosmetics Recall",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030091",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "recall", "class-1", "class-2", "class-3", "recall-plan", "seller-notification", "capa"]
+    },
+    {
+      "id": "tw-moj-cosmetic-source-flow-data",
+      "title": "Regulations Governing the Source and the Flow Data of Cosmetic Products",
+      "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030089",
+      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "regulation",
+      "priority": "high",
+      "cache_days": 30,
+      "tags": ["cosmetics", "traceability", "source-flow-data", "lot-number", "import-declaration", "five-year-retention"]
+    },
+    {
       "id": "tw-tfda-cosmetic-prohibited-ingredients",
       "title": "Cosmetics Prohibited Ingredients Open Data",
       "url": "https://data.gov.tw/dataset/173684",

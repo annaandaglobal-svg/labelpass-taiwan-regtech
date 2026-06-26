@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 114,
+  "curated_term_count": 118,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -11566,6 +11566,453 @@
         "tw-tfda-food-contact-packaging-labeling-regulations"
       ],
       "notes": "Taiwan requires PVC or PVDC food-contact surfaces to carry a warning against direct contact with high-fat and high-temperature foods."
+    },
+    {
+      "id": "cosmetic-post-market-surveillance",
+      "canonical_name": "Cosmetic Post-market Surveillance",
+      "category": "cosmetic_postmarket",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "post-market surveillance",
+          "normalized": "post-market surveillance",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "quality monitoring plan",
+          "normalized": "quality monitoring plan",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cosmetic adverse event reporting system",
+          "normalized": "cosmetic adverse event reporting system",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "上市後品質管理",
+          "normalized": "上市後品質管理",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品不良事件通報",
+          "normalized": "化粧品不良事件通報",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시판 후 감시",
+          "normalized": "시판 후 감시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 이상사례 보고",
+          "normalized": "화장품 이상사례 보고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetics-management-framework",
+        "tw-tfda-cosmetic-adverse-event-reporting-system"
+      ],
+      "notes": "Taiwan cosmetics management includes post-market quality monitoring, adverse event reporting, domestic/global safety alert monitoring and consumer safety awareness."
+    },
+    {
+      "id": "cosmetic-serious-adverse-effect-reporting",
+      "canonical_name": "Cosmetic Serious Adverse Effect Reporting",
+      "category": "cosmetic_postmarket",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "serious adverse effects",
+          "normalized": "serious adverse effects",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hygiene and safety hazards",
+          "normalized": "hygiene and safety hazards",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "report within 15 days",
+          "normalized": "report within 15 days",
+          "type": "compliance_deadline",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "15-day adverse event reporting",
+          "normalized": "15-day adverse event reporting",
+          "type": "search_phrase",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嚴重不良反應",
+          "normalized": "嚴重不良反應",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "衛生安全危害",
+          "normalized": "衛生安全危害",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "十五日內通報",
+          "normalized": "十五日內通報",
+          "type": "compliance_deadline",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "중대한 이상반응",
+          "normalized": "중대한 이상반응",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "15일 이내 보고",
+          "normalized": "15일 이내 보고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-serious-adverse-reporting",
+        "tw-tfda-cosmetic-adverse-event-reporting-system"
+      ],
+      "notes": "Cosmetic businesses must report serious adverse effects or hygiene/safety hazards through the competent-authority network system within 15 days after becoming aware, with immediate emergency reporting."
+    },
+    {
+      "id": "cosmetic-recall",
+      "canonical_name": "Cosmetic Recall",
+      "category": "cosmetic_postmarket",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "cosmetics recall",
+          "normalized": "cosmetics recall",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "recall operation procedure",
+          "normalized": "recall operation procedure",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "recall operation proposal",
+          "normalized": "recall operation proposal",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Class 1 recall",
+          "normalized": "class 1 recall",
+          "type": "classification",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Class 2 recall",
+          "normalized": "class 2 recall",
+          "type": "classification",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Class 3 recall",
+          "normalized": "class 3 recall",
+          "type": "classification",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "化粧品回收",
+          "normalized": "化粧品回收",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "回收作業程序",
+          "normalized": "回收作業程序",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "回收作業計畫書",
+          "normalized": "回收作業計畫書",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 회수",
+          "normalized": "화장품 회수",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "리콜 계획서",
+          "normalized": "리콜 계획서",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetics-recall-regulations"
+      ],
+      "notes": "Taiwan cosmetics recall rules classify recalls into three risk classes and require recall procedures, seller notification, recall proposals, records and completion reports."
+    },
+    {
+      "id": "cosmetic-source-flow-records",
+      "canonical_name": "Cosmetic Source and Flow Records",
+      "category": "cosmetic_postmarket",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "source and flow data",
+          "normalized": "source and flow data",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "direct supply sources and destinations",
+          "normalized": "direct supply sources and destinations",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "lot number",
+          "normalized": "lot number",
+          "type": "traceability_field",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import declaration form number",
+          "normalized": "import declaration form number",
+          "type": "traceability_field",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "five-year retention",
+          "normalized": "five-year retention",
+          "type": "compliance_deadline",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "供應來源及流向資料",
+          "normalized": "供應來源及流向資料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "批號",
+          "normalized": "批號",
+          "type": "traceability_field",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "進口報單號碼",
+          "normalized": "進口報單號碼",
+          "type": "traceability_field",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保存五年",
+          "normalized": "保存五年",
+          "type": "compliance_deadline",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화장품 공급원 및 유통흐름 자료",
+          "normalized": "화장품 공급원 및 유통흐름 자료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "5년 보관",
+          "normalized": "5년 보관",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-source-flow-data",
+        "tw-moj-cosmetics-recall-regulations"
+      ],
+      "notes": "Taiwan cosmetics businesses must maintain manufacture/import, supply source and destination data with lot, quantity, receiver and import declaration details for at least five years."
     },
     {
       "id": "health-food",

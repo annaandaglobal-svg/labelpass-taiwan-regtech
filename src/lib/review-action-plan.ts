@@ -231,6 +231,30 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
       "제조사",
       ["cosmetic-gmp-readiness-needed", "cosmetic-gmp-readiness-present"].filter((id) => findingIds.has(id))
     ),
+    documentItem(
+      "cosmetic-adverse-reporting",
+      "이상반응 보고 SOP",
+      findingIds.has("cosmetic-adverse-reporting-present") ? "ready" : "needed",
+      findingIds.has("cosmetic-adverse-reporting-present") ? "pass" : "warn",
+      "서류 담당",
+      ["cosmetic-adverse-reporting-needed", "cosmetic-adverse-reporting-present"].filter((id) => findingIds.has(id))
+    ),
+    documentItem(
+      "cosmetic-recall-procedure",
+      "회수·리콜 절차",
+      findingIds.has("cosmetic-recall-procedure-present") ? "ready" : "needed",
+      findingIds.has("cosmetic-recall-procedure-present") ? "pass" : "warn",
+      "PM",
+      ["cosmetic-recall-procedure-needed", "cosmetic-recall-procedure-present"].filter((id) => findingIds.has(id))
+    ),
+    documentItem(
+      "cosmetic-source-flow-records",
+      "공급원·유통흐름",
+      findingIds.has("cosmetic-source-flow-records-present") ? "ready" : "needed",
+      findingIds.has("cosmetic-source-flow-records-present") ? "pass" : "warn",
+      "수입자",
+      ["cosmetic-source-flow-records-needed", "cosmetic-source-flow-records-present"].filter((id) => findingIds.has(id))
+    ),
     documentItem("cosmetic-coa", "COA / 조성표", needsConcentration ? "needed" : "ready", needsConcentration ? "warn" : "pass", "제조사", findings.filter((finding) => finding.id.includes("missing-concentration")).map((finding) => finding.id)),
     documentItem("cosmetic-chinese-label", "중문 라벨", needsLabel ? "review" : "ready", needsLabel ? "warn" : "pass", "라벨 담당", findings.filter((finding) => finding.area === "라벨").map((finding) => finding.id)),
     documentItem("trade-invoice-packing", "인보이스 / 패킹리스트", needsTrade ? "review" : "ready", needsTrade ? "info" : "pass", "수입자", findings.filter((finding) => finding.area === "통관").map((finding) => finding.id))

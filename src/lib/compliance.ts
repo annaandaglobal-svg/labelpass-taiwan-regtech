@@ -60,6 +60,14 @@ const SOURCE_COSMETIC_PRODUCT_NOTIFICATION = "TFDA cosmetic product registration
 const SOURCE_COSMETIC_PRODUCT_NOTIFICATION_URL = "https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435";
 const SOURCE_COSMETIC_GMP = "TFDA cosmetics announcements and GMP implementation information";
 const SOURCE_COSMETIC_GMP_URL = "https://www.fda.gov.tw/TC/sitelist.aspx?sid=1894";
+const SOURCE_COSMETIC_POSTMARKET = "TFDA cosmetics management framework";
+const SOURCE_COSMETIC_POSTMARKET_URL = "https://www.fda.gov.tw/eng/siteContent.aspx?sid=10347";
+const SOURCE_COSMETIC_ADVERSE_REPORTING = "Regulations for Reporting Cosmetics Serious Adverse Effects and Hazards to Hygiene and Safety";
+const SOURCE_COSMETIC_ADVERSE_REPORTING_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030090";
+const SOURCE_COSMETIC_RECALL = "Regulations for Cosmetics Recall";
+const SOURCE_COSMETIC_RECALL_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030091";
+const SOURCE_COSMETIC_SOURCE_FLOW = "Regulations Governing the Source and the Flow Data of Cosmetic Products";
+const SOURCE_COSMETIC_SOURCE_FLOW_URL = "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030089";
 const SOURCE_OPEN_DATA = "TFDA cosmetics open datasets, InfoId 199-203";
 const SOURCE_OPEN_DATA_URL = "https://data.gov.tw/dataset/173684";
 const SOURCE_FOOD_ACT = "Act Governing Food Safety and Sanitation, Articles 3 and 22";
@@ -415,6 +423,23 @@ function hasCosmeticPifEvidence(input: ReviewInput) {
 
 function hasCosmeticGmpEvidence(input: ReviewInput) {
   return /\bGMP\b|good manufacturing practice|ISO\s*22716|化粧品GMP|化妝品GMP|化妆品GMP|優良製造準則|优良制造准则|화장품\s*GMP|우수\s*화장품\s*제조|제조\s*품질\s*관리/i.test(reviewText(input));
+}
+
+function hasCosmeticAdverseReportingReadiness(input: ReviewInput) {
+  return /adverse event|serious adverse|adverse effect|hygiene and safety hazard|defective product report|qms|15[-\s]?day|within 15 days|consumer complaint|safety alert|不良事件|嚴重不良反應|衛生安全危害|十五日|15日|通報|客訴|安全警訊|이상사례|중대한\s*이상반응|위생안전|15일|보고\s*SOP|소비자\s*불만|안전성\s*모니터링/i.test(reviewText(input));
+}
+
+function hasCosmeticRecallReadiness(input: ReviewInput) {
+  return /recall|recall SOP|recall procedure|recall plan|recall operation|seller notification|CAPA|corrective action|Class\s*[123]\s*recall|回收|回收作業|回收計畫|通知販賣者|矯正措施|預防措施|一級回收|二級回收|三級回收|리콜|회수\s*SOP|회수\s*계획|판매자\s*통지|시정조치|예방조치/i.test(reviewText(input));
+}
+
+function hasCosmeticSourceFlowRecords(input: ReviewInput) {
+  const text = reviewText(input);
+  if (/source and flow|source-flow|traceability ledger|direct supply sources and destinations|five[-\s]?year retention|supply chain records|供應來源及流向資料|供應來源|流向資料|保存五年|화장품\s*공급원|유통흐름|5년\s*보관|추적관리\s*대장/i.test(text)) return true;
+
+  const hasLotSignal = /lot|batch|批號|批号|제조번호|로트|lot\s*no\.?|batch\s*no\.?/i.test(text);
+  const hasFlowSignal = /receiver|recipient|destination|delivery date|shipment date|import declaration|customs declaration|invoice no|purchase order|供應|流向|收貨|交貨|進口報單|報單號碼|수령처|납품처|공급처|수입신고|통관번호|보관/i.test(text);
+  return hasLotSignal && hasFlowSignal;
 }
 
 function hasHsClassification(input: ReviewInput) {
@@ -1143,6 +1168,91 @@ function addCosmeticMarketAccessFindings(input: ReviewInput, findings: Finding[]
   }
 }
 
+function addCosmeticPostMarketFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isCosmeticProduct(input)) return;
+
+  if (hasCosmeticAdverseReportingReadiness(input)) {
+    findings.push({
+      id: "cosmetic-adverse-reporting-present",
+      status: "pass",
+      area: "서류",
+      title: "화장품 이상반응·위생안전 위해 통보 체계 신호가 확인되었습니다",
+      severity: "low",
+      why: "입력 자료에서 이상사례/중대한 이상반응, 15일 내 보고, QMS 또는 소비자 불만 모니터링 신호가 확인되어 판매 후 감시 축이 잡혀 있습니다.",
+      fix: ["대만 수입자와 보고 책임자, 접수 채널, 15일 내 통보 기준, 긴급 위해 시 즉시 통보 흐름을 운영 SOP에 연결"],
+      source: SOURCE_COSMETIC_ADVERSE_REPORTING,
+      sourceUrl: SOURCE_COSMETIC_ADVERSE_REPORTING_URL,
+      evidence: "adverse event / reporting procedure"
+    });
+  } else {
+    findings.push({
+      id: "cosmetic-adverse-reporting-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "화장품 이상반응·위생안전 위해 통보 절차 확인 필요",
+      severity: "medium",
+      why: "대만 화장품 영업자는 중대한 이상반응이나 위생안전 위해를 알게 된 경우 관할 시스템으로 통보하고 관련 기록을 관리해야 합니다.",
+      fix: ["소비자 불만/이상사례 접수 SOP, 중대한 이상반응 판단 기준, 15일 내 보고 책임자, 긴급 위해 즉시 통보 연락망을 수입자와 확정"],
+      source: SOURCE_COSMETIC_ADVERSE_REPORTING,
+      sourceUrl: SOURCE_COSMETIC_ADVERSE_REPORTING_URL
+    });
+  }
+
+  if (hasCosmeticRecallReadiness(input)) {
+    findings.push({
+      id: "cosmetic-recall-procedure-present",
+      status: "pass",
+      area: "서류",
+      title: "화장품 회수·리콜 절차 신호가 확인되었습니다",
+      severity: "low",
+      why: "입력 자료에서 회수 SOP, 회수 계획, 판매자 통지 또는 CAPA 신호가 확인되어 위해 발생 시 회수 실행 구조를 연결할 수 있습니다.",
+      fix: ["회수 등급, 대상 로트, 판매처 통보, 회수 수량 집계, 완료보고서 양식을 제품별 운영 파일에 묶어 두세요."],
+      source: SOURCE_COSMETIC_RECALL,
+      sourceUrl: SOURCE_COSMETIC_RECALL_URL,
+      evidence: "recall procedure / CAPA"
+    });
+  } else {
+    findings.push({
+      id: "cosmetic-recall-procedure-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "화장품 회수·리콜 운영 절차 확인 필요",
+      severity: "medium",
+      why: "대만 화장품 회수 규정은 위해 등급별 회수 조치, 판매자 통지, 회수 계획·기록·완료보고 흐름을 요구합니다.",
+      fix: ["Class 1/2/3 회수 판단 기준, 회수 책임자, 판매처 통지 문안, 회수 계획서와 완료보고서 템플릿을 제품 출시 전에 준비"],
+      source: SOURCE_COSMETIC_RECALL,
+      sourceUrl: SOURCE_COSMETIC_RECALL_URL
+    });
+  }
+
+  if (hasCosmeticSourceFlowRecords(input)) {
+    findings.push({
+      id: "cosmetic-source-flow-records-present",
+      status: "pass",
+      area: "서류",
+      title: "공급원·유통흐름 추적 기록 신호가 확인되었습니다",
+      severity: "low",
+      why: "로트/배치, 수입신고, 공급처 또는 납품처 기록 신호가 있어 대만 공급원·유통흐름 자료 보관 요구에 연결할 수 있습니다.",
+      fix: ["제조·수입·출고 로트, 수량, 수령자, 수입신고 번호, 거래일자를 5년 보관 기준으로 정리"],
+      source: SOURCE_COSMETIC_SOURCE_FLOW,
+      sourceUrl: SOURCE_COSMETIC_SOURCE_FLOW_URL,
+      evidence: "source-flow / lot traceability"
+    });
+  } else {
+    findings.push({
+      id: "cosmetic-source-flow-records-needed",
+      status: "needs_info",
+      area: "서류",
+      title: "공급원·유통흐름 자료 5년 보관 확인 필요",
+      severity: "medium",
+      why: "대만 화장품 영업자는 제조·수입·공급원·직접 공급 대상 자료를 로트와 수량 단위로 관리하고 5년 이상 보관해야 합니다.",
+      fix: ["제품명, 제조/수입일자, 수량, 로트번호, 공급처·수령처, 수입신고번호와 보관 책임자를 출고 자료에 추가"],
+      source: SOURCE_COSMETIC_SOURCE_FLOW,
+      sourceUrl: SOURCE_COSMETIC_SOURCE_FLOW_URL
+    });
+  }
+}
+
 const foodLabelRequirements = [
   {
     id: "food-name",
@@ -1779,6 +1889,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   }
 
   addCosmeticMarketAccessFindings(input, findings);
+  addCosmeticPostMarketFindings(input, findings);
 
   if (isCosmeticProduct(input) && Date.now() >= PIF_EFFECTIVE_AT && !hasCosmeticPifEvidence(input)) {
     findings.push({

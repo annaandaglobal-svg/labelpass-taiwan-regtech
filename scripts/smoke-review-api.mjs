@@ -590,7 +590,10 @@ const tradeCompleteResponse = await fetch(`${baseUrl}/api/review`, {
       "品名：積雪草修護霜. 容量：50ml. 全成分：Water, Glycerin, Panthenol, Phenoxyethanol.",
       "原產地：韓國. 進口商：Taiwan Importer Co. 製造日期：2026-06-01. 有效日期：2029-06-01.",
       "化粧品產品登錄字號 TW-COS-2026-00021. PIF product information file and safety assessment prepared.",
-      "化粧品GMP / ISO 22716 certificate for manufacturing site."
+      "化粧品GMP / ISO 22716 certificate for manufacturing site.",
+      "Post-market surveillance SOP: adverse event reporting within 15 days, consumer complaint intake, and safety alert monitoring.",
+      "Recall SOP and CAPA plan prepared with seller notification, recall quantity log, and completion report template.",
+      "Source and flow traceability ledger keeps lot C26TW02, import declaration number, receiver, quantity, delivery date, and five-year retention owner."
     ].join(" "),
     origin: "Korea",
     manufacturer: "Annaanda Beauty Lab / Taiwan Importer Co.",
@@ -616,7 +619,10 @@ for (const findingId of ["trade-hs-present", "trade-incoterms-present", "trade-s
 for (const findingId of [
   "cosmetic-product-notification-present",
   "cosmetic-pif-readiness-present",
-  "cosmetic-gmp-readiness-present"
+  "cosmetic-gmp-readiness-present",
+  "cosmetic-adverse-reporting-present",
+  "cosmetic-recall-procedure-present",
+  "cosmetic-source-flow-records-present"
 ]) {
   if (!tradeCompleteResult.findings?.some((finding) => finding.id === findingId && finding.status === "pass")) {
     throw new Error(`Trade complete review: expected cosmetic pass finding ${findingId}`);
@@ -625,6 +631,12 @@ for (const findingId of [
 
 if (!tradeCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "cosmetic-pif" && doc.status === "ready")) {
   throw new Error("Trade complete review: expected ready cosmetic PIF checklist item");
+}
+
+for (const checklistId of ["cosmetic-adverse-reporting", "cosmetic-recall-procedure", "cosmetic-source-flow-records"]) {
+  if (!tradeCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === checklistId && doc.status === "ready")) {
+    throw new Error(`Trade complete review: expected ready checklist item ${checklistId}`);
+  }
 }
 
 if (!Array.isArray(tradeCompleteResult.actionPlan?.ownerSummary)) {
@@ -686,6 +698,9 @@ const knowledgeCases = [
   { query: "plastic food contact surface reusable disposable", expectedTerm: "Plastic Food Contact Labeling" },
   { query: "PVC high-fat high-temperature food warning", expectedTerm: "PVC/PVDC Food Contact Warning" },
   { query: "化粧品GMP", expectedTerm: "Cosmetic Good Manufacturing Practice", expectedFirst: "Cosmetic Good Manufacturing Practice" },
+  { query: "15-day adverse event reporting cosmetics", expectedTerm: "Cosmetic Serious Adverse Effect Reporting" },
+  { query: "化粧品回收 回收作業計畫書", expectedTerm: "Cosmetic Recall" },
+  { query: "source and flow data lot number five-year retention cosmetic", expectedTerm: "Cosmetic Source and Flow Records" },
   { query: "化粧品產品登錄", expectedTerm: "Cosmetic Product Notification", expectedFirst: "Cosmetic Product Notification" },
   { query: "進口貨物稅則預先審核", expectedTerm: "Advance Tariff Classification Ruling" },
   { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
@@ -756,6 +771,10 @@ const sourceCases = [
   { query: "food containers heat resistance microwave safe material use properly", expectedSource: "tw-tfda-food-container-smart-use-2026" },
   { query: "cosmetic product registration platform fadenbook", expectedSource: "tw-tfda-cosmetic-product-registration-zone" },
   { query: "cosmetic GMP product information file latest announcement", expectedSource: "tw-tfda-cosmetic-announcements" },
+  { query: "cosmetics post-market surveillance quality monitoring adverse event reporting system", expectedSource: "tw-tfda-cosmetics-management-framework" },
+  { query: "cosmetic serious adverse effects hygiene safety hazards report within 15 days", expectedSource: "tw-moj-cosmetic-serious-adverse-reporting" },
+  { query: "cosmetics recall class 1 class 2 class 3 seller notification recall proposal", expectedSource: "tw-moj-cosmetics-recall-regulations" },
+  { query: "cosmetic source and flow data lot import declaration five-year retention", expectedSource: "tw-moj-cosmetic-source-flow-data" },
   { query: "Mercury CAS 7439 prohibited cosmetic ingredient", expectedSource: "tw-tfda-cosmetic-prohibited-ingredients" },
   { query: "化粧品成分使用限制 限量標準", expectedSource: "tw-tfda-cosmetic-restricted-ingredients" },
   { query: "CI 77891 colorant usage restriction", expectedSource: "tw-tfda-cosmetic-colorants" },

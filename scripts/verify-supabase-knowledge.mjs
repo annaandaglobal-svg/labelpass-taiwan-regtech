@@ -87,7 +87,11 @@ const probeTermKeys = [
   "food-ingredient-integration-query-platform",
   "food-contact-packaging",
   "food-contact-plastic-label",
-  "pvc-pvdc-food-contact-warning"
+  "pvc-pvdc-food-contact-warning",
+  "cosmetic-post-market-surveillance",
+  "cosmetic-serious-adverse-effect-reporting",
+  "cosmetic-recall",
+  "cosmetic-source-flow-records"
 ];
 
 const probeAliases = [
@@ -141,7 +145,11 @@ const probeAliases = [
   "food contact packaging",
   "食品器具容器包裝",
   "plastic food contact surface",
-  "pvc"
+  "pvc",
+  "post-market surveillance",
+  "十五日內通報",
+  "化粧品回收",
+  "供應來源及流向資料"
 ];
 
 if (dryRun || !databaseUrl) {
