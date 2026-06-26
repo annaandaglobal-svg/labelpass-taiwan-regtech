@@ -22,10 +22,40 @@ pnpm validate:knowledge
 pnpm build
 ```
 
-With the app running, also run:
+For the current production URL, the single operator gate is:
 
 ```bash
-pnpm smoke:api
+pnpm preflight:deploy
+```
+
+`preflight:deploy` runs type checks, rule verification, knowledge validation, a production build, and `preflight:deployment`. The archive check expects `disabled` unless a database URL is set locally. Override this when production is already configured for server-side archive storage:
+
+```bash
+LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment
+LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm smoke:api
+```
+
+PowerShell equivalent:
+
+```powershell
+$env:LABELPASS_EXPECT_ARCHIVE_STORAGE="database"; pnpm preflight:deployment
+$env:LABELPASS_EXPECT_ARCHIVE_STORAGE="database"; pnpm smoke:api
+Remove-Item Env:\LABELPASS_EXPECT_ARCHIVE_STORAGE -ErrorAction SilentlyContinue
+```
+
+With a local app running, point the same checks at that app:
+
+```bash
+LABELPASS_BASE_URL=http://127.0.0.1:3023 pnpm preflight:deployment
+LABELPASS_BASE_URL=http://127.0.0.1:3023 pnpm smoke:api
+```
+
+PowerShell equivalent:
+
+```powershell
+$env:LABELPASS_BASE_URL="http://127.0.0.1:3023"; pnpm preflight:deployment
+$env:LABELPASS_BASE_URL="http://127.0.0.1:3023"; pnpm smoke:api
+Remove-Item Env:\LABELPASS_BASE_URL -ErrorAction SilentlyContinue
 ```
 
 ## Supabase
@@ -64,14 +94,16 @@ Then apply every file in `supabase/generated/knowledge-seed-chunks/` in filename
 If a Supabase Postgres connection string is available, the browser SQL editor can be skipped:
 
 ```bash
+SUPABASE_APPLY_DRY_RUN=1 pnpm apply:supabase-knowledge
 SUPABASE_DB_URL="postgresql://..." pnpm apply:supabase-knowledge
 ```
 
-The script applies the base schema, TFDA rule seed, knowledge schema, and knowledge seed in safe batches, then prints the verification counts.
+The dry run prints the file sizes, statement counts, and batch plan before any write. The real run applies the base schema, TFDA rule seed, knowledge schema, and knowledge seed in safe batches, then prints the verification counts.
 
 After applying the seed, verify that Supabase matches the generated local knowledge base:
 
 ```bash
+SUPABASE_VERIFY_DRY_RUN=1 pnpm verify:supabase-knowledge
 SUPABASE_DB_URL="postgresql://..." pnpm verify:supabase-knowledge
 ```
 
@@ -83,6 +115,15 @@ To validate the generated seed size before connecting to Supabase:
 SUPABASE_APPLY_DRY_RUN=1 pnpm apply:supabase-knowledge
 SUPABASE_VERIFY_DRY_RUN=1 pnpm verify:supabase-knowledge
 ```
+
+After the base schema exists and `SUPABASE_DB_URL` is available, validate product/review/finding writes without leaving test data behind:
+
+```bash
+REVIEW_ARCHIVE_PROBE_DRY_RUN=1 pnpm probe:review-archive
+SUPABASE_DB_URL="postgresql://..." pnpm probe:review-archive
+```
+
+The real probe inserts one product, one review, and one finding inside a transaction, forces a rollback, and then confirms the probe review ID is absent.
 
 Expected counts after the current seed:
 
@@ -121,18 +162,22 @@ git push
 
 1. Import `annaandaglobal-svg/labelpass-taiwan-regtech`.
 2. Use the Next.js framework preset.
-3. Add this environment variable:
+3. Add these public environment variables:
 
 ```text
 NEXT_PUBLIC_SUPABASE_URL=https://zqmpvveneqdkrojtqxhi.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 ```
 
+The runtime also accepts `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` as server-side fallback names for knowledge search, but the `NEXT_PUBLIC_*` names are recommended for Vercel clarity.
+
 Recommended server-only environment variable for production review history:
 
 ```text
 SUPABASE_DB_URL=postgresql://...
 ```
+
+The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep this value server-only; never expose it as a `NEXT_PUBLIC_*` variable.
 
 The runtime review engine still uses bundled generated rule JSON. Knowledge search uses Supabase public RPCs when the URL and publishable key are present, then falls back to the bundled generated JSON cache. `SUPABASE_DB_URL` enables `/api/reviews` to store products, review outcomes, and finding evidence in Supabase. Without it, the app falls back to the browser-side archive and the UI shows local storage status.
 
@@ -144,3 +189,4 @@ The runtime review engine still uses bundled generated rule JSON. Knowledge sear
 4. Run the food import sample with HS `0307.12` and confirm findings include `food-import-inspection-docs-needed`, `food-importer-registration-needed`, and `food-import-hs0307-health-certificate-needed`.
 5. Confirm findings include source identifiers and rule evidence.
 6. Open `/knowledge` and confirm searches such as `輸入食品查驗`, `HS 0307 health certificate`, `食品業者登錄`, `잔류농약 기준`, `食品中污染物質及毒素`, and `食品追溯追蹤` return the expected Taiwan food-import and food-safety concepts.
+7. Run `LABELPASS_EXPECT_ARCHIVE_STORAGE=database pnpm preflight:deployment` when `SUPABASE_DB_URL` is configured in Vercel. Run it without that override when production is intentionally still using browser/local archive fallback.

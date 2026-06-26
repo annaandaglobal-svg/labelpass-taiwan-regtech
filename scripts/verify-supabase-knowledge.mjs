@@ -172,7 +172,24 @@ const probeAliases = [
   "供應來源及流向資料"
 ];
 
-if (dryRun || !databaseUrl) {
+if (!databaseUrl && !dryRun) {
+  console.error(
+    JSON.stringify(
+      {
+        ok: false,
+        dryRun: false,
+        hasDatabaseUrl: false,
+        expectedCounts,
+        error: "Set SUPABASE_DB_URL, POSTGRES_URL, or DATABASE_URL, or run with SUPABASE_VERIFY_DRY_RUN=1."
+      },
+      null,
+      2
+    )
+  );
+  process.exit(1);
+}
+
+if (dryRun) {
   console.log(
     JSON.stringify(
       {
@@ -186,10 +203,6 @@ if (dryRun || !databaseUrl) {
       2
     )
   );
-
-  if (!databaseUrl && !dryRun) {
-    process.exitCode = 1;
-  }
   process.exit(0);
 }
 

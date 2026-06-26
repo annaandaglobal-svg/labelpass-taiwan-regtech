@@ -18,8 +18,11 @@
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
     "split:knowledge-seed": "node scripts/split-knowledge-seed.mjs",
+    "preflight:deployment": "node scripts/preflight-deployment.mjs",
+    "preflight:deploy": "pnpm exec tsc --noEmit && pnpm test:rules && pnpm validate:knowledge && pnpm build && pnpm preflight:deployment",
     "apply:supabase-knowledge": "node scripts/apply-supabase-knowledge.mjs",
     "verify:supabase-knowledge": "node scripts/verify-supabase-knowledge.mjs",
+    "probe:review-archive": "node scripts/probe-review-archive.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
     "test:rules": "node scripts/verify-rules.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs"

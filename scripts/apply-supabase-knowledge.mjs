@@ -18,6 +18,16 @@ const knowledgeSchemaPath = path.join(root, "supabase", "knowledge-schema.sql");
 const knowledgeSeedPath = path.join(root, "supabase", "knowledge-seed.sql");
 const maxStatementsPerBatch = Number(process.env.SUPABASE_SQL_BATCH_SIZE ?? 250);
 
+function connectionSummary(value) {
+  if (!value) return { present: false };
+  try {
+    const url = new URL(value);
+    return { present: true, host: url.host, database: url.pathname.replace(/^\//, "") || null };
+  } catch {
+    return { present: true, detail: "set" };
+  }
+}
+
 function parseGeneratedSeed(source) {
   return source
     .split(/\r?\n/)
@@ -32,6 +42,40 @@ function chunk(items, size) {
     chunks.push(items.slice(index, index + size));
   }
   return chunks;
+}
+
+async function buildPlan() {
+  const [baseSchema, baseSeed, knowledgeSchema, knowledgeSeed] = await Promise.all([
+    readFile(baseSchemaPath, "utf8"),
+    readFile(baseSeedPath, "utf8"),
+    readFile(knowledgeSchemaPath, "utf8"),
+    readFile(knowledgeSeedPath, "utf8")
+  ]);
+  const baseSeedStatements = parseGeneratedSeed(baseSeed).length;
+  const knowledgeSeedStatements = parseGeneratedSeed(knowledgeSeed).length;
+  return {
+    connection: connectionSummary(databaseUrl),
+    dryRun,
+    maxStatementsPerBatch,
+    files: [
+      { label: "base schema", path: path.relative(root, baseSchemaPath), bytes: baseSchema.length },
+      {
+        label: "TFDA rule seed",
+        path: path.relative(root, baseSeedPath),
+        bytes: baseSeed.length,
+        statements: baseSeedStatements,
+        batches: Math.ceil(baseSeedStatements / maxStatementsPerBatch)
+      },
+      { label: "knowledge schema", path: path.relative(root, knowledgeSchemaPath), bytes: knowledgeSchema.length },
+      {
+        label: "knowledge seed",
+        path: path.relative(root, knowledgeSeedPath),
+        bytes: knowledgeSeed.length,
+        statements: knowledgeSeedStatements,
+        batches: Math.ceil(knowledgeSeedStatements / maxStatementsPerBatch)
+      }
+    ]
+  };
 }
 
 const sql = dryRun
@@ -81,18 +125,16 @@ async function applyGeneratedSeed(label, filePath) {
 }
 
 try {
-  if (dryRun) {
-    const [baseSeed, knowledgeSeed] = await Promise.all([
-      readFile(baseSeedPath, "utf8"),
-      readFile(knowledgeSeedPath, "utf8")
-    ]);
+  const plan = await buildPlan();
+  console.log(JSON.stringify({ applyPlan: plan }, null, 2));
 
+  if (dryRun) {
     console.log(
       JSON.stringify(
         {
           dryRun: true,
-          baseSeedStatements: parseGeneratedSeed(baseSeed).length,
-          knowledgeSeedStatements: parseGeneratedSeed(knowledgeSeed).length,
+          baseSeedStatements: plan.files.find((file) => file.label === "TFDA rule seed")?.statements,
+          knowledgeSeedStatements: plan.files.find((file) => file.label === "knowledge seed")?.statements,
           maxStatementsPerBatch
         },
         null,

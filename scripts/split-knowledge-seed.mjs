@@ -5,6 +5,8 @@ const root = process.cwd();
 const inputPath = path.join(root, "supabase", "knowledge-seed.sql");
 const outputDir = path.join(root, "supabase", "generated", "knowledge-seed-chunks");
 const maxBytes = Number(process.env.KNOWLEDGE_SQL_CHUNK_BYTES ?? 225_000);
+const chunkWrapperReserveBytes = 192;
+const statementBudgetBytes = Math.max(1, maxBytes - chunkWrapperReserveBytes);
 
 const source = await readFile(inputPath, "utf8");
 const statements = source
@@ -27,7 +29,7 @@ function statementBytes(statement) {
 
 for (const statement of statements) {
   const size = statementBytes(statement);
-  const wouldExceed = current.length > 0 && currentBytes + size > maxBytes;
+  const wouldExceed = current.length > 0 && currentBytes + size > statementBudgetBytes;
 
   if (wouldExceed) {
     chunks.push(current);
@@ -50,6 +52,7 @@ const manifest = {
   input: "supabase/knowledge-seed.sql",
   output_dir: "supabase/generated/knowledge-seed-chunks",
   max_bytes: maxBytes,
+  statement_budget_bytes: statementBudgetBytes,
   chunk_count: chunks.length,
   statement_count: statements.length,
   chunks: []
