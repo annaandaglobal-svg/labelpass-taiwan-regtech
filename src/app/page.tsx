@@ -884,11 +884,14 @@ export default function Home() {
                     <small>PDF·이미지·전성분 텍스트 모두 가능</small>
                   </span>
                 </button>
-                <div className="start-secondary-links" aria-label="다른 시작 방법">
-                  <span className="start-secondary-label">자료가 아직 없으면</span>
+                <div className="start-secondary-links start-secondary-links-home" aria-label="다른 시작 방법">
                   <button type="button" onClick={focusInputPane}>
                     <FileText size={15} />
                     직접 입력
+                  </button>
+                  <button type="button" onClick={() => fillSample("food-additive")}>
+                    <Sparkles size={15} />
+                    샘플 보기
                   </button>
                 </div>
               </div>
@@ -1025,67 +1028,92 @@ export default function Home() {
                 </div>
               ) : (
                 <>
-              <div className="step-row">
-                <span>1</span>
-                <div>
-                  <b>라벨·전성분 자료 올리기</b>
-                  <p>파일이 있으면 올리고, 지금은 전성분이나 라벨 문구를 붙여넣어도 됩니다.</p>
-                </div>
-              </div>
+                  <div className="intake-command-head">
+                    <div className="step-row">
+                      <span>1</span>
+                      <div>
+                        <b>자료를 붙여 넣고 1차 검토를 시작하세요</b>
+                        <p>전성분이나 라벨 문구만 있어도 시작할 수 있고, 통관 자료는 있으면 추가합니다.</p>
+                      </div>
+                    </div>
 
-              <div className="start-upload-card">
-                <button className="start-upload-main" onClick={() => fileInputRef.current?.click()}>
-                  <Upload size={20} />
-                  <span>
-                    <b>라벨/PDF 올리기</b>
-                    <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "또는 아래에 전성분을 직접 붙여넣기"}</small>
-                  </span>
-                </button>
-                {uploadedFiles.length > 0 && (
-                  <div className="file-chip-row compact" aria-label="입력 패널 연결 파일">
-                    {uploadedFiles.map((file) => (
-                      <span key={file}><FileText size={13} />{file}</span>
-                    ))}
+                    <div className="intake-command-actions">
+                      <button className="ghost-btn" type="button" onClick={() => fileInputRef.current?.click()}>
+                        <Upload size={15} /> 파일 추가
+                      </button>
+                      <button className="ghost-btn" type="button" onClick={() => fillSample("food-additive")}>
+                        <Sparkles size={15} /> 샘플
+                      </button>
+                    </div>
                   </div>
-                )}
-                <div className="start-shortcuts">
-                  <button onClick={() => fillSample("food-additive")}>샘플로 1분 체험</button>
-                </div>
-              </div>
 
-              <div className={result ? "quick-review-bar" : "quick-review-bar quick-review-bar-start"}>
-                <div className="review-cta-stack">
-                  <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
-                    {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
-                    {inputReadiness.canReview ? "AI 1차 검토 시작" : "필수 입력 후 검토"}
-                  </button>
-                  <small>{inputReadiness.canReview ? "필수 입력 완료 · 통관 자료가 있으면 판정 정확도가 올라갑니다." : `${inputReadiness.missing.slice(0, 2).join(", ")} 입력 시 판정 품질이 좋아집니다.`}</small>
-                </div>
-                {result && (
-                <div className={`archive-status ${archiveStatus.tone}`} aria-live="polite">
-                  <Database size={15} />
-                  <div>
-                    <b>{archiveStatus.label}</b>
-                    <small>{archiveStatus.detail}</small>
+                  <div className="input-completeness" aria-live="polite">
+                    <div>
+                      <span>입력 준비도</span>
+                      <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
+                    </div>
+                    <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
+                    <p>{inputReadiness.missing.length > 0 ? `남은 확인: ${inputReadiness.missing.join(" · ")}` : "핵심 자료가 들어왔습니다. 바로 1차 검토를 돌릴 수 있습니다."}</p>
                   </div>
-                </div>
-                )}
-              </div>
 
-              <div className="input-completeness" aria-live="polite">
-                <div>
-                  <span>입력 준비도</span>
-                  <b>{inputReadiness.readyCount}/{inputReadiness.total}</b>
-                </div>
-                <i><span style={{ width: `${(inputReadiness.readyCount / inputReadiness.total) * 100}%` }} /></i>
-                <p>{inputReadiness.missing.length > 0 ? `남은 확인: ${inputReadiness.missing.join(" · ")}` : "핵심 자료가 들어왔습니다. 바로 1차 검토를 돌릴 수 있습니다."}</p>
-              </div>
+                  {uploadedFiles.length > 0 && (
+                    <div className="file-chip-row compact intake-file-row" aria-label="입력 패널 연결 파일">
+                      {uploadedFiles.map((file) => (
+                        <span key={file}><FileText size={13} />{file}</span>
+                      ))}
+                    </div>
+                  )}
 
-              <div className="review-scope-strip" aria-label="검토 범위">
-                <span><ShieldCheck size={14} /><b>대만 룰</b><small>화장품·식품</small></span>
-                <span><Search size={14} /><b>용어 정규화</b><small>INCI·CAS·현지명</small></span>
-                <span><Ship size={14} /><b>통관 자료</b><small>HS/CCC·송장</small></span>
-              </div>
+                  <div className="review-scope-strip" aria-label="검토 범위">
+                    <span><ShieldCheck size={14} /><b>대만 룰</b><small>화장품·식품</small></span>
+                    <span><Search size={14} /><b>용어 정규화</b><small>INCI·CAS·현지명</small></span>
+                    <span><Ship size={14} /><b>통관 자료</b><small>HS/CCC·송장</small></span>
+                  </div>
+
+                  <div className={result ? "quick-review-bar" : "quick-review-bar quick-review-bar-start"}>
+                    <div className="review-cta-stack">
+                      <button className="primary-btn" onClick={() => void runReview()} disabled={isAnalyzing || !inputReadiness.canReview}>
+                        {isAnalyzing ? <RefreshCw className="spin" size={17} /> : <ArrowRight size={17} />}
+                        {inputReadiness.canReview ? "AI 1차 검토 시작" : "필수 입력 후 검토"}
+                      </button>
+                      <small>{inputReadiness.canReview ? "필수 입력 완료 · 통관 자료가 있으면 판정 정확도가 올라갑니다." : `${inputReadiness.missing.slice(0, 2).join(", ")} 입력 시 판정 품질이 좋아집니다.`}</small>
+                    </div>
+                    {result && (
+                    <div className={`archive-status ${archiveStatus.tone}`} aria-live="polite">
+                      <Database size={15} />
+                      <div>
+                        <b>{archiveStatus.label}</b>
+                        <small>{archiveStatus.detail}</small>
+                      </div>
+                    </div>
+                    )}
+                  </div>
+
+                  <details className="intake-upload-drawer">
+                    <summary>
+                      <Upload size={15} />
+                      파일 업로드와 샘플 보기
+                    </summary>
+                    <div className="start-upload-card">
+                      <button className="start-upload-main" onClick={() => fileInputRef.current?.click()}>
+                        <Upload size={20} />
+                        <span>
+                          <b>라벨/PDF 올리기</b>
+                          <small>{uploadedFiles.length > 0 ? `${uploadedFiles.length}개 파일 연결됨` : "또는 아래에 전성분을 직접 붙여넣기"}</small>
+                        </span>
+                      </button>
+                      {uploadedFiles.length > 0 && (
+                        <div className="file-chip-row compact" aria-label="입력 패널 연결 파일">
+                          {uploadedFiles.map((file) => (
+                            <span key={file}><FileText size={13} />{file}</span>
+                          ))}
+                        </div>
+                      )}
+                      <div className="start-shortcuts">
+                        <button onClick={() => fillSample("food-additive")}>샘플로 1분 체험</button>
+                      </div>
+                    </div>
+                  </details>
 
               <div className="form-section">
                 <div className="section-title">
@@ -1514,7 +1542,7 @@ function NavButton({ active, icon, label, onClick }: { active: boolean; icon: Re
   return (
     <button className={active ? "nav-btn active" : "nav-btn"} onClick={onClick}>
       {icon}
-      {label}
+      <span>{label}</span>
     </button>
   );
 }
