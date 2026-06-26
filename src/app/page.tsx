@@ -758,9 +758,10 @@ export default function Home() {
   const showAssistantPanel = Boolean(assistantEvidence || assistantQuestion.trim());
   const hasReviewWorkspace =
     reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
-  const isStartOnly = screen === "review" && !result && !isAnalyzing && !showAssistantPanel && !hasReviewWorkspace;
+  const reviewMode = isAnalyzing ? "analyzing" : result ? "result" : hasReviewWorkspace ? "intake" : "start";
+  const isStartOnly = screen === "review" && reviewMode === "start";
   const showResultPane = Boolean(result) || isAnalyzing;
-  const showWorkPanel = screen === "review" && (showResultPane || showAssistantPanel);
+  const showWorkPanel = screen === "review" && (reviewMode === "result" || (showAssistantPanel && !isStartOnly));
   const showGlobalSearch = !isStartOnly && (screen !== "review" || Boolean(result) || showAssistantPanel);
   const shellClassName = [
     "shell",
@@ -785,7 +786,7 @@ export default function Home() {
           </div>
         </div>
 
-        <nav className="nav-list">
+        <nav className={isStartOnly ? "nav-list nav-list-start" : "nav-list"}>
           <NavButton active={screen === "review"} icon={<ClipboardCheck />} label={result ? "라벨 검토" : "검토 시작"} onClick={() => setScreen("review")} />
           <NavButton active={false} icon={<Search />} label="규정 검색" onClick={() => { window.location.href = "/knowledge"; }} />
           <NavButton active={screen === "products"} icon={<Archive />} label="검토 이력" onClick={() => setScreen("products")} />
@@ -824,11 +825,6 @@ export default function Home() {
               {screen === "review" && result && (
                 <button className="primary-btn" onClick={primaryAction.run} disabled={primaryAction.disabled}>
                   {primaryAction.icon} {primaryAction.label}
-                </button>
-              )}
-              {screen === "review" && !result && (
-                <button className="ghost-btn" onClick={() => { window.location.href = "/knowledge"; }}>
-                  <Search size={17} /> 규정 검색
                 </button>
               )}
               {screen !== "review" && (
@@ -871,8 +867,13 @@ export default function Home() {
             <div className="start-command-card">
               <div className="start-command-copy">
                 <span className="start-kicker">대만 식품·화장품 라벨 검토</span>
-                <h2>자료 하나만 넣으면 먼저 위험도와 다음 행동을 정리합니다</h2>
-                <p>전성분, 번체 라벨, 표시문구, 통관 자료를 한 흐름에서 보고 성분명 별칭과 현지 규정 근거를 함께 연결합니다.</p>
+                <h2>제품 자료를 넣으면 검토 흐름이 열립니다</h2>
+                <p>전성분, 번체 라벨, 표시문구, 통관 자료를 한 작업대에서 보고 성분명 별칭과 현지 규정 근거를 함께 연결합니다.</p>
+                <div className="start-assurance-row" aria-label="검토 범위">
+                  <span>식품·화장품</span>
+                  <span>TFDA·MOJ 근거</span>
+                  <span>INCI·CAS·현지명</span>
+                </div>
               </div>
 
               <div className="start-action-panel">
@@ -888,6 +889,10 @@ export default function Home() {
                     <FileText size={15} />
                     직접 입력
                   </button>
+                  <button type="button" onClick={() => { window.location.href = "/knowledge"; }}>
+                    <Search size={15} />
+                    규정만 검색
+                  </button>
                   <button type="button" onClick={() => fillSample("food-additive")}>
                     <Sparkles size={15} />
                     샘플 보기
@@ -896,9 +901,10 @@ export default function Home() {
               </div>
 
               <div className="start-path-card" aria-label="검토 시작 순서">
-                <span><b>1</b> 자료 추가</span>
-                <span><b>2</b> 품목 선택</span>
-                <span><b>3</b> AI 1차 검토</span>
+                <span><b>1</b> 자료 입력</span>
+                <span><b>2</b> 품목 확인</span>
+                <span><b>3</b> 근거 연결</span>
+                <span><b>4</b> 리포트·후속</span>
               </div>
 
               {uploadedFiles.length > 0 && (
@@ -910,31 +916,33 @@ export default function Home() {
               )}
             </div>
 
-            <details className="start-support-card">
-              <summary>
-                <span><Search size={16} /></span>
-                <b>보조 도구</b>
-                <small>규정 검색, 이전 검토, 업데이트 감시는 여기서 열 수 있습니다.</small>
-              </summary>
-              <div className="start-support-grid">
-                <button onClick={() => { window.location.href = "/knowledge"; }}>
-                  <Search size={16} />
-                  <span><b>규정 검색</b><small>원료·표시문구·대만 용어</small></span>
+            <section className="start-capability-map" aria-label="LabelPass 기능 범위">
+              <div className="start-capability-head">
+                <span><ShieldCheck size={16} /></span>
+                <div>
+                  <b>전체 흐름</b>
+                  <small>검토 시작 후에도 같은 작업대에서 이어집니다.</small>
+                </div>
+              </div>
+              <div className="start-capability-grid">
+                <button onClick={() => { setReviewStarted(true); updateInput("productType", "cosmetic / leave-on"); }}>
+                  <FlaskConical size={16} />
+                  <span><b>화장품 성분/PIF</b><small>금지·제한·방부제·등록 자료</small></span>
                 </button>
-                <button onClick={() => setScreen("products")}>
-                  <Archive size={16} />
-                  <span><b>기존 제품</b><small>이전 검토 이어서 실행</small></span>
+                <button onClick={() => { setReviewStarted(true); updateInput("productType", "prepackaged food / 식품"); }}>
+                  <BadgeCheck size={16} />
+                  <span><b>식품 라벨/알레르겐</b><small>첨가물·영양·강조표시·알레르겐</small></span>
                 </button>
-                <button onClick={() => setScreen("updates")}>
-                  <BookOpen size={16} />
-                  <span><b>업데이트 감시</b><small>TFDA·MOJ·CCC 변경 큐</small></span>
+                <button onClick={focusInputPane}>
+                  <Ship size={16} />
+                  <span><b>수입·통관 서류</b><small>HS/CCC, 원산지, 수입자 자료</small></span>
                 </button>
-                <button onClick={() => setScreen("partners")}>
-                  <UserRoundCheck size={16} />
-                  <span><b>승인/업무함</b><small>전문가·통관 파트너 연결</small></span>
+                <button onClick={focusInputPane}>
+                  <MessageSquare size={16} />
+                  <span><b>효능·클레임 표현</b><small>광고성 문구와 번체 라벨 문안</small></span>
                 </button>
               </div>
-            </details>
+            </section>
           </section>
           )}
 
@@ -944,8 +952,7 @@ export default function Home() {
               <div className="intake-rail" aria-label="검토 입력 단계">
                 <span className={inputReadiness.labelReady ? "done" : "now"}>1 자료</span>
                 <span className={inputReadiness.productReady ? "done" : inputReadiness.labelReady ? "now" : ""}>2 품목</span>
-                <span className={inputReadiness.tradeReady ? "done" : ""}>3 선택자료</span>
-                <span className={result ? "done" : inputReadiness.canReview ? "now" : ""}>4 리포트</span>
+                <span className={result ? "done" : inputReadiness.canReview ? "now" : ""}>3 리포트</span>
               </div>
               <div className="step-row">
                 <span>1</span>

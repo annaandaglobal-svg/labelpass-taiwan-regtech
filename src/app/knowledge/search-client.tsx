@@ -83,6 +83,8 @@ const fixedFreshnessOptions: Option[] = [
   { value: "cache", label: "캐시 반영" }
 ];
 
+const onboardingExamples = examples.slice(0, 4);
+
 export default function KnowledgeSearchClient() {
   const [query, setQuery] = useState("");
   const [data, setData] = useState<KnowledgeSearchResult | null>(null);
@@ -104,30 +106,43 @@ export default function KnowledgeSearchClient() {
 
   useEffect(() => {
     const controller = new AbortController();
-    const timer = window.setTimeout(() => {
-      if (!trimmed) {
-        setData(null);
-        setError("");
-        return;
-      }
+    let active = true;
+    if (!trimmed) {
+      setData(null);
+      setError("");
+      setEvidence(null);
+      setLoading(false);
+      return () => {
+        active = false;
+        controller.abort();
+      };
+    }
 
+    const timer = window.setTimeout(() => {
       setLoading(true);
       setError("");
+      setData(null);
+      setEvidence(null);
       fetch(`/api/knowledge/search?q=${encodeURIComponent(trimmed)}&limit=12`, { signal: controller.signal })
         .then((response) => {
           if (!response.ok) throw new Error("search_failed");
           return response.json();
         })
-        .then((result: KnowledgeSearchResult) => setData(result))
+        .then((result: KnowledgeSearchResult) => {
+          if (active) setData(result);
+        })
         .catch((searchError) => {
-          if ((searchError as Error).name !== "AbortError") {
+          if (active && (searchError as Error).name !== "AbortError") {
             setError("지식 검색에 실패했습니다. 잠시 후 다시 시도해 주세요.");
           }
         })
-        .finally(() => setLoading(false));
+        .finally(() => {
+          if (active) setLoading(false);
+        });
     }, 180);
 
     return () => {
+      active = false;
       controller.abort();
       window.clearTimeout(timer);
     };
@@ -180,6 +195,8 @@ export default function KnowledgeSearchClient() {
   const visibleSources = filteredSources.slice(0, 4);
   const primaryTerm = filteredTerms[0];
   const primarySource = filteredSources[0];
+  const hasQuery = Boolean(trimmed);
+  const hasResults = Boolean(data);
   const highPriorityCount = filteredSources.filter((source) => source.priority === "high").length;
   const watchCount = filteredSources.filter((source) => source.manualFallback || source.cacheStatus === "stale").length;
   const browserCount = filteredSources.filter((source) => source.browserCapture).length;
@@ -226,6 +243,13 @@ export default function KnowledgeSearchClient() {
   }, [visibleSources, visibleTerms]);
   const activeEvidence = evidence ?? (primaryTerm ? buildTermEvidence(primaryTerm) : primarySource ? buildSourceEvidence(primarySource) : null);
   const activeEvidenceParam = encodeURIComponent(activeEvidence?.reviewParam || activeEvidence?.title || trimmed || "PIF");
+  const controlSummary = hasResults
+    ? `우선 검토 ${highPriorityCount.toLocaleString()} · 감시 ${watchCount.toLocaleString()}`
+    : hasQuery
+      ? "결과가 준비되면 활성화됩니다"
+      : "검색 후 범위를 좁힙니다";
+  const resultCountLabel = hasResults ? unifiedResults.length.toLocaleString() : loading ? "검색 중" : "대기";
+  const moreResultCount = Math.max(0, filteredTerms.length - visibleTerms.length) + Math.max(0, filteredSources.length - visibleSources.length);
 
   function buildTermEvidence(term: TermItem): EvidenceItem {
     const chips = uniqueCompact([
@@ -277,7 +301,7 @@ export default function KnowledgeSearchClient() {
   }
 
   return (
-    <section className={["knowledge-workbench", trimmed ? "has-query" : "is-empty"].join(" ")}>
+    <section className={["knowledge-workbench", hasQuery ? "has-query" : "is-awaiting"].join(" ")}>
       <div className="knowledge-searchbar">
         <Search size={19} />
         <input
@@ -289,25 +313,13 @@ export default function KnowledgeSearchClient() {
         {loading && <Loader2 className="spin" size={18} />}
       </div>
 
-      {!trimmed && (
-        <div className="knowledge-examples">
-          {examples.map((example) => (
-            <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
-              {example.label}
-            </button>
-          ))}
-        </div>
-      )}
-
       {error && <div className="knowledge-alert">{error}</div>}
 
-      {data && (
-        <div className="knowledge-summary">
-          <span>{`검색 결과 ${matchedCount.toLocaleString()}건`}</span>
-          <span>{`용어 ${filteredTerms.length.toLocaleString()}`}</span>
-          <span>{`출처 ${filteredSources.length.toLocaleString()}`}</span>
-        </div>
-      )}
+      <div className="knowledge-summary" aria-live="polite">
+        <span>{hasResults ? `검색 결과 ${matchedCount.toLocaleString()}건` : hasQuery ? "검색 준비 중" : "검색 전 대기"}</span>
+        <span>{hasResults ? `용어 ${filteredTerms.length.toLocaleString()}` : "용어 대기"}</span>
+        <span>{hasResults ? `출처 ${filteredSources.length.toLocaleString()}` : "출처 대기"}</span>
+      </div>
 
       {data?.ambiguity && (
         <div className="knowledge-ambiguity-panel" role="status">
@@ -326,14 +338,11 @@ export default function KnowledgeSearchClient() {
         </div>
       )}
 
-      {data && (
       <details className="knowledge-filter-drawer">
         <summary>
           <Filter size={16} />
           고급 필터
-          <span>
-            {data ? `우선 검토 ${highPriorityCount} · 감시 ${watchCount}` : "검색 후 범위를 좁힙니다"}
-          </span>
+          <span>{controlSummary}</span>
         </summary>
         <div className="knowledge-control-room" aria-label="검색 결과 제어판">
           <div className="knowledge-filter-panel">
@@ -341,59 +350,57 @@ export default function KnowledgeSearchClient() {
               <Filter size={17} />
               <div>
                 <b>검색 필터</b>
-                <span>관할, 도메인, 출처 유형, 분류, 신선도로 검색 범위를 좁힙니다.</span>
+                <span>{hasResults ? "관할, 도메인, 출처 유형, 분류, 신선도로 검색 범위를 좁힙니다." : "검색 전에는 위치만 유지하고, 결과가 들어오면 같은 자리에서 활성화됩니다."}</span>
               </div>
             </div>
-            <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!data} />
-            <FilterGroup title="도메인" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!data} />
-            <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!data} />
-            <FilterGroup title="분류" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!data} />
-            <FilterGroup title="신선도" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!data} />
+            <FilterGroup title="관할" value={jurisdiction} options={filterOptions.jurisdictions} onChange={setJurisdiction} disabled={!hasResults} />
+            <FilterGroup title="도메인" value={domain} options={filterOptions.domains} onChange={setDomain} disabled={!hasResults} />
+            <FilterGroup title="출처 유형" value={sourceType} options={filterOptions.sourceTypes} onChange={setSourceType} disabled={!hasResults} />
+            <FilterGroup title="분류" value={category} options={filterOptions.categories} onChange={setCategory} disabled={!hasResults} />
+            <FilterGroup title="신선도" value={freshness} options={fixedFreshnessOptions} onChange={setFreshness} disabled={!hasResults} />
           </div>
 
           <div className="knowledge-health-grid">
             <StatusTile
               icon={<ShieldCheck size={17} />}
               label="일치한 항목"
-              value={data ? matchedCount.toLocaleString() : "대기"}
-              detail={data ? `용어 ${filteredTerms.length.toLocaleString()}개 · 출처 ${filteredSources.length.toLocaleString()}개` : "검색어를 넣으면 결과 기준으로 갱신됩니다"}
+              value={hasResults ? matchedCount.toLocaleString() : loading ? "검색 중" : "대기"}
+              detail={hasResults ? `용어 ${filteredTerms.length.toLocaleString()}개 · 출처 ${filteredSources.length.toLocaleString()}개` : "검색어를 넣으면 결과 기준으로 갱신됩니다"}
               tone="green"
             />
             <StatusTile
               icon={<Database size={17} />}
               label="우선 검토 자료"
-              value={data ? highPriorityCount.toLocaleString() : "대기"}
+              value={hasResults ? highPriorityCount.toLocaleString() : "대기"}
               detail="우선 검토가 필요한 공식 자료"
               tone="blue"
             />
             <StatusTile
               icon={<RefreshCw size={17} />}
               label="갱신 감시"
-              value={data ? watchCount.toLocaleString() : "대기"}
+              value={hasResults ? watchCount.toLocaleString() : "대기"}
               detail="갱신 필요 또는 수동 보완 상태"
-              tone={watchCount ? "gold" : "green"}
+              tone={watchCount && hasResults ? "gold" : "green"}
             />
             <StatusTile
               icon={<BookOpen size={17} />}
               label="브라우저 수집"
-              value={data ? browserCount.toLocaleString() : "대기"}
+              value={hasResults ? browserCount.toLocaleString() : "대기"}
               detail="브라우저에서 확보한 보조 근거"
               tone="neutral"
             />
           </div>
         </div>
       </details>
-      )}
 
-      {trimmed && (
       <div className="knowledge-results knowledge-results-unified">
         <section className="knowledge-result-feed">
           <div className="knowledge-section-title">
-            <h2>검토에 쓸 후보</h2>
-            <span>{data ? unifiedResults.length.toLocaleString() : "0"}</span>
+            <h2>검토 후보</h2>
+            <span>{resultCountLabel}</span>
           </div>
           <div className="knowledge-row-list">
-            {data && unifiedResults.map((item) => (
+            {hasResults && unifiedResults.map((item) => (
               <article className={`knowledge-row ${item.kind}`} key={item.id}>
                 <button
                   type="button"
@@ -415,34 +422,40 @@ export default function KnowledgeSearchClient() {
               </article>
             ))}
 
-            {!data && !trimmed && (
+            {!hasResults && !hasQuery && (
               <div className="knowledge-search-empty">
                 <Search size={20} />
                 <b>원료명, 현지 용어, CAS, 표시문구를 검색하세요.</b>
-                <span>대만 식품·화장품 규정과 연결된 용어, 공식 출처, 업데이트 감시 상태를 한 번에 정리합니다.</span>
+                <span>후보 목록, 고급 필터, 근거 액션은 같은 자리에서 열립니다. 먼저 자주 쓰는 검색으로 시작해도 됩니다.</span>
+                <div className="knowledge-examples" aria-label="예시 검색">
+                  {onboardingExamples.map((example) => (
+                    <button key={example.label} type="button" onClick={() => setQuery(example.query)}>
+                      {example.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
-            {!data && trimmed && (
+            {!hasResults && hasQuery && (
               <div className="knowledge-search-empty">
                 <Loader2 className={loading ? "spin" : undefined} size={20} />
                 <b>{loading ? "검색 중입니다." : "검색 결과를 기다리고 있습니다."}</b>
                 <span>후보가 준비되면 이 목록에서 하나만 선택하고, 실행은 오른쪽 근거 패널에서 이어갑니다.</span>
               </div>
             )}
-            {data && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 후보가 없습니다.</div>}
-            {data && (filteredTerms.length > visibleTerms.length || filteredSources.length > visibleSources.length) && (
-              <div className="knowledge-more-note">상위 후보만 먼저 보여줍니다. 고급 필터로 관할, 도메인, 출처 유형을 좁히면 나머지 후보를 더 정확히 볼 수 있습니다.</div>
+            {hasResults && unifiedResults.length === 0 && <div className="knowledge-empty">현재 필터에 맞는 후보가 없습니다.</div>}
+            {hasResults && moreResultCount > 0 && (
+              <div className="knowledge-more-note">{`상위 후보 ${unifiedResults.length.toLocaleString()}개만 먼저 보여줍니다. 고급 필터로 범위를 좁히면 숨은 후보 ${moreResultCount.toLocaleString()}개를 더 정확히 볼 수 있습니다.`}</div>
             )}
           </div>
         </section>
 
-        {data && (
         <aside className="knowledge-detail-panel" aria-label="선택한 근거">
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
             <div>
               <h2>근거 상세</h2>
-              <span>후보를 선택하면 검토에 넘길 근거만 따로 확인합니다.</span>
+              <span>{activeEvidence ? "선택한 후보에서 검토에 넘길 근거만 따로 확인합니다." : "검색 전부터 액션 위치를 유지하고, 후보 선택 후 활성화합니다."}</span>
             </div>
           </div>
 
@@ -485,13 +498,21 @@ export default function KnowledgeSearchClient() {
           ) : (
             <div className="knowledge-evidence-empty">
               <ClipboardCheck size={20} />
-              <p>{trimmed ? "후보를 선택하면 검토 액션이 이곳에서 활성화됩니다." : "검색 전에는 검토 액션이 비활성 상태로 대기합니다."}</p>
+              <p>{hasQuery ? "후보를 선택하면 라벨 검토와 원문 확인 액션이 이곳에서 활성화됩니다." : "검색 전에는 검토 액션이 비활성 상태로 대기합니다."}</p>
+              <div className="knowledge-tray-actions" aria-label="대기 중인 근거 액션">
+                <button type="button" disabled>
+                  <PackageSearch size={15} />
+                  라벨 검토 대기
+                </button>
+                <button type="button" disabled>
+                  <ExternalLink size={15} />
+                  원문 보기 대기
+                </button>
+              </div>
             </div>
           )}
         </aside>
-        )}
       </div>
-      )}
     </section>
   );
 }
@@ -615,12 +636,6 @@ function freshnessMeta(source: SourceItem) {
   if (source.cacheStatus === "stale") return { label: "갱신 필요", tone: "stale" };
   if (source.cacheStatus === "fresh") return { label: source.fromCache ? "캐시 최신" : "최신", tone: "fresh" };
   return { label: source.cacheStatus || "상태 미정", tone: "unknown" };
-}
-
-function formatDate(value: string) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "대기 중";
-  return new Intl.DateTimeFormat("ko-KR", { month: "short", day: "numeric", timeZone: "Asia/Seoul" }).format(date);
 }
 
 function compact(value: string, maxLength: number) {
