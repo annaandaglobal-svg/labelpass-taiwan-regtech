@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-26",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 121,
+  "curated_term_count": 122,
   "generated_term_count": 1037,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -10575,6 +10575,46 @@
           "source": "curated"
         },
         {
+          "value": "food additive permit query",
+          "normalized": "food additive permit query",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food additive permit number",
+          "normalized": "food additive permit number",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food additive license number",
+          "normalized": "food additive license number",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food additive registration number",
+          "normalized": "food additive registration number",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "single food additive registration",
           "normalized": "single food additive registration",
           "type": "official_term",
@@ -10591,6 +10631,36 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품첨가물 허가 조회",
+          "normalized": "식품첨가물 허가 조회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품첨가물 허가번호",
+          "normalized": "식품첨가물 허가번호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품첨가물 등록번호",
+          "normalized": "식품첨가물 등록번호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },
@@ -10668,6 +10738,7 @@
       "source_keys": [
         "tw-tfda-food-additive-registration-materials",
         "tw-tfda-food-additive-registration-announcements",
+        "tw-tfda-food-additive-permit-query",
         "tw-tfda-food-registration-permit-management-rule",
         "tw-tfda-food-additive-standards"
       ],
@@ -10850,6 +10921,375 @@
         "tw-tfda-food-additive-registration-announcements"
       ],
       "notes": "Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates."
+    },
+    {
+      "id": "food-additive-functional-classes",
+      "canonical_name": "Food Additive Functional Classes",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "food additive functional class",
+          "normalized": "food additive functional class",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "food additive function",
+          "normalized": "food additive function",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sweetener",
+          "normalized": "sweetener",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "preservative",
+          "normalized": "preservative",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "flavour enhancer",
+          "normalized": "flavour enhancer",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "flavor enhancer",
+          "normalized": "flavor enhancer",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "thickener",
+          "normalized": "thickener",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "emulsifier",
+          "normalized": "emulsifier",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "acidulant",
+          "normalized": "acidulant",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "antioxidant",
+          "normalized": "antioxidant",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "colorant",
+          "normalized": "colorant",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "colourant",
+          "normalized": "colourant",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "quality improver",
+          "normalized": "quality improver",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "raising agent",
+          "normalized": "raising agent",
+          "type": "functional_class",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품첨가물 기능군",
+          "normalized": "식품첨가물 기능군",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "감미료",
+          "normalized": "감미료",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "보존료",
+          "normalized": "보존료",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "향미증진제",
+          "normalized": "향미증진제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "증점제",
+          "normalized": "증점제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유화제",
+          "normalized": "유화제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산미료",
+          "normalized": "산미료",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산화방지제",
+          "normalized": "산화방지제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "착색료",
+          "normalized": "착색료",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "품질개량제",
+          "normalized": "품질개량제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "팽창제",
+          "normalized": "팽창제",
+          "type": "functional_class",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甜味劑",
+          "normalized": "甜味劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防腐劑",
+          "normalized": "防腐劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "調味劑",
+          "normalized": "調味劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "增稠劑",
+          "normalized": "增稠劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "膨脹劑",
+          "normalized": "膨脹劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乳化劑",
+          "normalized": "乳化劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酸味劑",
+          "normalized": "酸味劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抗氧化劑",
+          "normalized": "抗氧化劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "著色劑",
+          "normalized": "著色劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "品質改良劑",
+          "normalized": "品質改良劑",
+          "type": "functional_class",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table",
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-food-additive-permit-query"
+      ],
+      "notes": "Functional-class search bridge for Taiwan food additives. Use alongside the additive standards and permit query to map broad function terms such as sweetener, preservative, thickener, emulsifier, antioxidant, and colorant to specific permitted additive names and limits."
     },
     {
       "id": "foreign-trade-act",
@@ -13415,6 +13855,146 @@
           "source": "curated"
         },
         {
+          "value": "food ingredient direct query",
+          "normalized": "food ingredient direct query",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "scientific name ingredient search",
+          "normalized": "scientific name ingredient search",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "usage limit cautionary note",
+          "normalized": "usage limit cautionary note",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "permitted product type",
+          "normalized": "permitted product type",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품원료 통합조회",
+          "normalized": "식품원료 통합조회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품원료 안전성 조회",
+          "normalized": "식품원료 안전성 조회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 원료 사용제한",
+          "normalized": "식품 원료 사용제한",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식품 원료 주의사항",
+          "normalized": "식품 원료 주의사항",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食材查詢",
+          "normalized": "食材查詢",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "原料安全性",
+          "normalized": "原料安全性",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "可供食品使用原料",
+          "normalized": "可供食品使用原料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "未確認安全性尚不得使用原料",
+          "normalized": "未確認安全性尚不得使用原料",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "使用限制",
+          "normalized": "使用限制",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "注意事項",
+          "normalized": "注意事項",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "食品原料整合查詢平台",
           "normalized": "食品原料整合查詢平台",
           "type": "official_name",
@@ -13456,7 +14036,9 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-food-ingredient-integration-query-platform"
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-food-business-info-query-links"
       ],
       "notes": "Use this TFDA platform to confirm ingredient safety status, permitted product types, usage limits, and cautionary notes before final food label approval."
     },

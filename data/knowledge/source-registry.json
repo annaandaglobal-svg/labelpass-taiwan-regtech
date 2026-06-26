@@ -350,6 +350,21 @@
       "tags": ["food", "food-additives", "inspection-registration", "single-additive", "compound-additive", "permit-number"]
     },
     {
+      "id": "tw-tfda-food-additive-permit-query",
+      "title": "Food Additive Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "database",
+      "priority": "high",
+      "format": "manual",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-food-additive-registration-materials", "tw-tfda-food-additive-registration-announcements"],
+      "manual_extract": "Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. The practical workflow is to search the TFDA permit data by additive or product name and permit-style identifiers, confirm whether the additive product appears in the TFDA permit dataset, and reconcile the result with the food additive standards, inspection-registration materials, and registration announcements before approving Taiwan import or label wording. This source is a database routing and evidence source, not a substitute for checking the applicable additive scope, specification, application, limitation, and product-category conditions.",
+      "tags": ["food", "food-additives", "permit-query", "registration-number", "license-number", "database", "traditional-chinese"]
+    },
+    {
       "id": "tw-tfda-food-registration-permit-management-rule",
       "title": "Food and Related Products Registration and Permit Document Management Rule Notice",
       "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=30862",
@@ -814,6 +829,32 @@
       "priority": "high",
       "cache_days": 14,
       "tags": ["food-ingredients", "ingredient-safety", "usage-limit", "caution", "scientific-name", "query-platform"]
+    },
+    {
+      "id": "tw-tfda-food-ingredient-query-platform-direct",
+      "title": "Food Ingredient Integration Query Platform Direct Query",
+      "url": "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "database",
+      "priority": "high",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-food-ingredient-integration-query-platform"],
+      "tags": ["food-ingredients", "ingredient-safety", "usage-limit", "caution", "scientific-name", "query-platform", "database", "traditional-chinese"]
+    },
+    {
+      "id": "tw-tfda-food-business-info-query-links",
+      "title": "TFDA Food Business Information Query Links",
+      "url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=51",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "database_index",
+      "priority": "medium",
+      "cache_days": 7,
+      "companion_source_ids": ["tw-tfda-food-ingredient-query-platform-direct", "tw-tfda-food-additive-permit-query"],
+      "tags": ["food", "food-business", "query-links", "ingredient-query", "permit-query", "database-index", "traditional-chinese"]
     },
     {
       "id": "tw-trade-import-export-regulations",

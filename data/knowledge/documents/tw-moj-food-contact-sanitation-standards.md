@@ -8,14 +8,14 @@ domain: food_contact_materials
 source_type: sanitation_standard
 priority: high
 format: html
-fetched_at: 2026-06-26T03:00:43.748Z
+fetched_at: 2026-06-26T03:00:44.102Z
 fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040019
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T03:00:43.748Z
+cache_expires_at: 2026-07-26T03:00:44.102Z
 cache_status: fresh
 content_hash: bebe9f12d2367f114a5611ddf5948a99c713454e8afa7a2c80dba2ff81475a79
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

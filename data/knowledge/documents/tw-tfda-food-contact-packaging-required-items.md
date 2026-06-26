@@ -8,14 +8,14 @@ domain: food_contact_materials
 source_type: notice
 priority: high
 format: html
-fetched_at: 2026-06-26T00:43:44.856Z
+fetched_at: 2026-06-26T00:43:45.283Z
 fetched_url: https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3089
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T00:43:44.856Z
+cache_expires_at: 2026-07-26T00:43:45.283Z
 cache_status: fresh
 content_hash: 348a7fa9eec97bacfec154a689589d7d659cf0e80fa4b693cb92cc4f68986723
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

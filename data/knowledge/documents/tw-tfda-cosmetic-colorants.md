@@ -8,14 +8,14 @@ domain: cosmetics
 source_type: dataset
 priority: high
 format: json
-fetched_at: 2026-06-25T22:28:07.369Z
+fetched_at: 2026-06-25T22:28:17.131Z
 fetched_url: https://data.gov.tw/dataset/173686
-extra_fetched_urls: https://data.fda.gov.tw/data/opendata/export/200/json
+extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-09T22:28:07.369Z
+cache_expires_at: 2026-07-09T22:28:17.131Z
 cache_status: fresh
 content_hash: 45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

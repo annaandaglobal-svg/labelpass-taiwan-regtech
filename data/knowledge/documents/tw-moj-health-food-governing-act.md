@@ -8,14 +8,14 @@ domain: health_food
 source_type: law
 priority: high
 format: html
-fetched_at: 2026-06-26T00:19:13.351Z
+fetched_at: 2026-06-26T00:19:13.785Z
 fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040012
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T00:19:13.351Z
+cache_expires_at: 2026-07-26T00:19:13.785Z
 cache_status: fresh
 content_hash: cb441ac2bdcfcbca401bba14d4fc3de52e5d9c53185f7d4c0acd0ffffb049bf1
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

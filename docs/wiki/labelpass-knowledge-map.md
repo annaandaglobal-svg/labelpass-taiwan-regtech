@@ -38,6 +38,7 @@ LabelPass knowledge is managed as a reusable regulatory memory, not as one-off w
 - Taiwan general labeling: Commodity Labeling Act, customs origin notices, MOEA trade notices.
 - Taiwan cosmetics: Cosmetic Hygiene and Safety Act, cosmetic claim criteria, TFDA ingredient datasets, PIF notices, PIF guidance, and cosmetics safety requirements.
 - Taiwan food and product labeling: TFDA food/nutrition labeling, BSMI commodity inspection, inspection marks, and origin rules.
+- Taiwan food ingredient/additive lookup: TFDA Food Ingredient Integration Query Platform, food-additive permit query, food-additive standards, common-name tables, registration materials, and registration announcements.
 - Taiwan trade/export control: International Trade Administration import/export regulations, SHTC regulations, and dual-use list notices.
 - Global terminology: WTO TBT, WCO Harmonized System, UNECE GHS, Codex food labeling, INCI, CAS, and Wassenaar.
 - Comparison markets: EU, United States, Japan, Korea, China, and ASEAN source families for terminology and regulatory alignment.
@@ -45,6 +46,7 @@ LabelPass knowledge is managed as a reusable regulatory memory, not as one-off w
 ## Refresh Policy
 
 - TFDA ingredient open data: refresh when the ruleset needs release or scheduled weekly crawler detects changes.
+- TFDA dynamic food ingredient and additive permit query pages: refresh every 7-14 days, and keep slim markdown summaries plus raw/browser captures where automated extraction is noisy.
 - Taiwan law pages: refresh monthly or before production rule release.
 - Customs/trade notices: refresh weekly for origin and export/import operational changes.
 - Global terminology references: refresh quarterly unless a source announces a major update.

@@ -8,11 +8,11 @@ domain: chemical_labeling
 source_type: standard
 priority: high
 format: manual
-fetched_at: 2026-06-25T22:28:07.369Z
+fetched_at: 2026-06-26T04:43:23.764Z
 fetched_url: https://unece.org/sites/default/files/2025-09/GHS%20Rev11e.pdf
 extra_fetched_urls:
 cache_days: 180
-cache_expires_at: 2026-12-22T22:28:07.369Z
+cache_expires_at: 2026-12-23T04:43:23.764Z
 cache_status: fresh
 content_hash: 486b2ad4eff864354c0090c77729393da3fbcae2c56b06b7661517067c8dabd5
 from_cache: false

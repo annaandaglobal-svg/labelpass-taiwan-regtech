@@ -8,14 +8,14 @@ domain: special_dietary_food
 source_type: notice
 priority: high
 format: html
-fetched_at: 2026-06-26T00:19:13.351Z
+fetched_at: 2026-06-26T00:19:14.248Z
 fetched_url: https://www.fda.gov.tw/eng/newsContent.aspx?id=31233
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T00:19:13.351Z
+cache_expires_at: 2026-07-10T00:19:14.248Z
 cache_status: fresh
 content_hash: 2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

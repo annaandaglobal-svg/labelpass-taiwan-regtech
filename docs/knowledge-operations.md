@@ -93,19 +93,19 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 
 Current generated counts:
 
-- `knowledge_sources`: 115
-- `knowledge_snapshots`: 115
-- `knowledge_terms`: 1,141
-- `term_aliases`: 3,670
+- `knowledge_sources`: 133
+- `knowledge_snapshots`: 133
+- `knowledge_terms`: 1,158
+- `term_aliases`: 3,726
 - `term_rule_links`: 1,099
-- `regulatory_update_candidates`: 25
+- `regulatory_update_candidates`: 34
 - `rules`: 1,081
 
 Current freshness status:
 
 - Stale sources: 0
 - Sources expiring within 3 days: 0
-- Sources pending refresh within 7 days: 5
+- Sources pending refresh within 7 days: 8
 - Next scheduled source refresh: 2026-07-02 22:02 KST
 
 ## Alias Curation Rules

@@ -8,11 +8,11 @@ domain: customs
 source_type: tariff_database
 priority: high
 format: manual
-fetched_at: 2026-06-25T22:28:07.369Z
+fetched_at: 2026-06-26T04:43:23.764Z
 fetched_url: https://portal.sw.nat.gov.tw/APGQ/GC453
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-02T22:28:07.369Z
+cache_expires_at: 2026-07-03T04:43:23.764Z
 cache_status: fresh
 content_hash: 0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719
 from_cache: false

@@ -8,14 +8,14 @@ domain: food_safety
 source_type: database_notice
 priority: high
 format: html
-fetched_at: 2026-06-26T00:19:13.351Z
+fetched_at: 2026-06-26T00:19:14.352Z
 fetched_url: https://www.fda.gov.tw/eng/newsContent.aspx?id=30794
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T00:19:13.351Z
+cache_expires_at: 2026-07-10T00:19:14.352Z
 cache_status: fresh
 content_hash: 80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

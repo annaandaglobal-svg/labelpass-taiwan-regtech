@@ -8,14 +8,14 @@ domain: cosmetics
 source_type: guidance
 priority: high
 format: html
-fetched_at: 2026-06-26T01:28:17.978Z
+fetched_at: 2026-06-26T01:28:18.296Z
 fetched_url: https://www.fda.gov.tw/eng/siteContent.aspx?sid=10347
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T01:28:17.978Z
+cache_expires_at: 2026-07-26T01:28:18.296Z
 cache_status: fresh
 content_hash: b42a98b5504998fe687fa9bc97a75111cb0264f3cf237d1f4e5c7c5657626236
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

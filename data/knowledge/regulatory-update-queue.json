@@ -1,21 +1,96 @@
 {
-  "generated_at": "2026-06-26T03:48:14.081Z",
+  "generated_at": "2026-06-26T04:43:23.764Z",
   "source_registry_version": "2026-06-26",
-  "crawl_generated_at": "2026-06-26T03:48:14.081Z",
+  "crawl_generated_at": "2026-06-26T04:43:23.764Z",
   "expiring_soon_days": 7,
   "summary": {
-    "total": 28,
-    "detected": 0,
-    "pending_refresh": 5,
-    "watching": 23,
+    "total": 34,
+    "detected": 1,
+    "pending_refresh": 8,
+    "watching": 25,
     "approved": 0,
-    "high": 0,
-    "medium": 27,
-    "low": 1
+    "high": 1,
+    "medium": 31,
+    "low": 2
   },
   "items": [
     {
-      "candidate_key": "tw-customs-tariff-database-download:source_expiring_soon:2026-07-02",
+      "candidate_key": "tw-tfda-food-additive-permit-query:content_changed:1a221e19211bc1c2",
+      "source_key": "tw-tfda-food-additive-permit-query",
+      "title": "Food Additive Permit Data Query",
+      "source_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "content_changed",
+      "severity": "high",
+      "status": "detected",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
+      "previous_hash": "1648765936757f5dfa7bc59b68f9a560c505228336fe4fec30aacafa9c4bbcd4",
+      "current_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
+      "affected_domains": [
+        "food_additives",
+        "food",
+        "food-additives",
+        "permit-query",
+        "registration-number",
+        "license-number",
+        "database",
+        "traditional-chinese"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "food-additive-inspection-registration",
+          "canonical_name": "Food Additive Inspection Registration",
+          "category": "food_import"
+        },
+        {
+          "term_key": "food-additive-functional-classes",
+          "canonical_name": "Food Additive Functional Classes",
+          "category": "food_additive"
+        }
+      ],
+      "affected_products": [
+        "food",
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md",
+        "fetched_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+        "extra_fetched_urls": [],
+        "text_chars": 1250,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. "
+      },
+      "next_action": "원문 변경분을 확인하고 영향 용어·룰 후보를 승인 큐에서 분류합니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food",
+          "food-additives",
+          "permit-query",
+          "registration-number",
+          "license-number",
+          "database",
+          "traditional-chinese"
+        ],
+        "compact_title": "food-additive-permit-data-query"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-tariff-database-download:source_expiring_soon:2026-07-03",
       "source_key": "tw-customs-tariff-database-download",
       "title": "GC453 Tariff Database Download",
       "source_url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
@@ -27,9 +102,9 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-02T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "current_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "affected_domains": [
@@ -112,7 +187,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T17:40:28.203Z",
       "cache_expires_at": "2026-07-02T17:40:28.203Z",
       "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
@@ -197,6 +272,152 @@
       }
     },
     {
+      "candidate_key": "tw-tfda-food-additive-permit-query:source_expiring_soon:2026-07-03",
+      "source_key": "tw-tfda-food-additive-permit-query",
+      "title": "Food Additive Permit Data Query",
+      "source_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
+      "previous_hash": "1648765936757f5dfa7bc59b68f9a560c505228336fe4fec30aacafa9c4bbcd4",
+      "current_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
+      "affected_domains": [
+        "food_additives",
+        "food",
+        "food-additives",
+        "permit-query",
+        "registration-number",
+        "license-number",
+        "database",
+        "traditional-chinese"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "food-additive-inspection-registration",
+          "canonical_name": "Food Additive Inspection Registration",
+          "category": "food_import"
+        },
+        {
+          "term_key": "food-additive-functional-classes",
+          "canonical_name": "Food Additive Functional Classes",
+          "category": "food_additive"
+        }
+      ],
+      "affected_products": [
+        "food",
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md",
+        "fetched_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+        "extra_fetched_urls": [],
+        "text_chars": 1250,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. "
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food",
+          "food-additives",
+          "permit-query",
+          "registration-number",
+          "license-number",
+          "database",
+          "traditional-chinese"
+        ],
+        "compact_title": "food-additive-permit-data-query"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-food-ingredient-query-platform-direct:source_expiring_soon:2026-07-03",
+      "source_key": "tw-tfda-food-ingredient-query-platform-direct",
+      "title": "Food Ingredient Integration Query Platform Direct Query",
+      "source_url": "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:36:05.584Z",
+      "cache_expires_at": "2026-07-03T04:36:05.584Z",
+      "previous_hash": "91b69ce78bb655a9c717e10215ac484e77820e7e36f19c2f830cf24d931f5e4e",
+      "current_hash": "91b69ce78bb655a9c717e10215ac484e77820e7e36f19c2f830cf24d931f5e4e",
+      "affected_domains": [
+        "food_safety",
+        "food-ingredients",
+        "ingredient-safety",
+        "usage-limit",
+        "caution",
+        "scientific-name",
+        "query-platform",
+        "database",
+        "traditional-chinese"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "food-ingredient-integration-query-platform",
+          "canonical_name": "Food Ingredient Integration Query Platform",
+          "category": "food_safety"
+        }
+      ],
+      "affected_products": [
+        "food"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md",
+        "fetched_url": "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160",
+        "extra_fetched_urls": [],
+        "text_chars": 2715,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "食品原料整合查詢平臺_消費者專區 跳到主要內容區塊 專區首頁 食品藥物管理署 ::: 專區首頁 網站導覽 食品藥物管理署 食品 核可資料查詢 食品原料整合查詢平臺 邊境檢驗不符合食品資訊查詢 食品法規查詢 HACCP 查詢 吃的健康 食品相關法規暨解釋彙編查詢 西藥 產品回收 通過GMP核准之國外藥廠名單 檢驗方法查詢 食品藥物管理署官網業務專區 食品藥物管理署官網法規資訊 化粧品禁限用成分管理規定 人體器官保存庫 保存庫許可通過名單查詢 【暫停服務公告】 為配合本署資訊機房資安設備更換及網路架構調整作業，預計自109年12月13日(日)8時至19時，暫停本專區各項服務，造成不便，敬請見諒。 --> ::: 首頁 > 整合查詢服務 > 食品 > 食品原料整合查詢平臺 食品原料整合查詢平臺 ► 展開 本平臺非正面表列，並非平臺未載列品項即不得供為食品原料使用！ 使用前請詳閱以下使用說明及注意事項 1. 本平臺匯集歷年之原料食用安全性評估結果、為民服務信箱之常見問題及相關解釋令函等資訊，於 111 年 6 月 21 日將原「可供食品使用原料彙整一覽表」改版為「食品原料整合查詢平臺」，新增「草木本植物類 (3) 辛香調味料」以及「未確認安全性尚不得使用之原料」等分類，供各界人士查閱參考。 2. 本平臺為查詢資料庫，提供食品原料相關資料檢索，惟無法逐一羅列所有傳統食品原料 ( 如雞鴨魚肉、蔬菜水果及五穀雜糧等 ) ，其所列載品項，未來若科學研究顯示有食用安全疑慮時，本署將重新評估審核其食用安全性。 3. 使用 本平臺 時，建請多加利用原料之中、英文名稱或學名等部分關鍵字進行搜尋，如有搜"
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food-ingredients",
+          "ingredient-safety",
+          "usage-limit",
+          "caution",
+          "scientific-name",
+          "query-platform",
+          "database",
+          "traditional-chinese"
+        ],
+        "compact_title": "food-ingredient-integration-query-platform-direct-query"
+      }
+    },
+    {
       "candidate_key": "tw-tfda-pif-hub-zh:source_expiring_soon:2026-07-02",
       "source_key": "tw-tfda-pif-hub-zh",
       "title": "TFDA PIF laws and guidance hub",
@@ -209,7 +430,7 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T13:02:09.360Z",
       "cache_expires_at": "2026-07-02T13:02:09.360Z",
       "previous_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
@@ -270,7 +491,7 @@
       }
     },
     {
-      "candidate_key": "tw-trade-ccc-import-export-regulations:source_expiring_soon:2026-07-02",
+      "candidate_key": "tw-trade-ccc-import-export-regulations:source_expiring_soon:2026-07-03",
       "source_key": "tw-trade-ccc-import-export-regulations",
       "title": "Import and Export Regulations by CCC Code",
       "source_url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
@@ -282,9 +503,9 @@
       "change_type": "source_expiring_soon",
       "severity": "medium",
       "status": "pending_refresh",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-02T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "current_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "affected_domains": [
@@ -372,7 +593,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T15:09:22.209Z",
       "cache_expires_at": "2026-07-09T15:09:22.209Z",
       "previous_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
@@ -437,9 +658,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-02T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "current_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
       "affected_domains": [
@@ -522,7 +743,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T15:09:18.698Z",
       "cache_expires_at": "2026-07-09T15:09:18.698Z",
       "previous_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
@@ -587,7 +808,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T19:02:20.296Z",
       "cache_expires_at": "2026-07-09T19:02:20.296Z",
       "previous_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
@@ -655,7 +876,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T13:02:21.869Z",
       "cache_expires_at": "2026-07-09T13:02:21.869Z",
       "previous_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
@@ -718,9 +939,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-26T01:28:17.978Z",
-      "cache_expires_at": "2026-07-10T01:28:17.978Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T01:28:19.382Z",
+      "cache_expires_at": "2026-07-10T01:28:19.382Z",
       "previous_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
       "current_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
       "affected_domains": [
@@ -753,7 +974,7 @@
         "extra_fetched_urls": [],
         "text_chars": 5442,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -790,7 +1011,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T17:40:28.203Z",
       "cache_expires_at": "2026-07-02T17:40:28.203Z",
       "previous_hash": "0db7d4a530ef4a814c61f3a496fe041721d4e3fa94d4a80429aafc4d3dae8c2c",
@@ -887,9 +1108,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-25T22:28:17.131Z",
+      "cache_expires_at": "2026-07-09T22:28:17.131Z",
       "previous_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
       "current_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
       "affected_domains": [
@@ -914,12 +1135,10 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md",
         "fetched_url": "https://data.gov.tw/dataset/173686",
-        "extra_fetched_urls": [
-          "https://data.fda.gov.tw/data/opendata/export/200/json"
-        ],
+        "extra_fetched_urls": [],
         "text_chars": 21737,
         "format": "json",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -956,9 +1175,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-25T22:28:17.829Z",
+      "cache_expires_at": "2026-07-09T22:28:17.829Z",
       "previous_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
       "current_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
       "affected_domains": [
@@ -985,12 +1204,10 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md",
         "fetched_url": "https://data.gov.tw/dataset/173682",
-        "extra_fetched_urls": [
-          "https://data.fda.gov.tw/data/opendata/export/201/json"
-        ],
+        "extra_fetched_urls": [],
         "text_chars": 17307,
         "format": "json",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1029,7 +1246,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T17:40:28.519Z",
       "cache_expires_at": "2026-07-09T17:40:28.519Z",
       "previous_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
@@ -1094,9 +1311,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-25T22:28:10.345Z",
+      "cache_expires_at": "2026-07-09T22:28:10.345Z",
       "previous_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
       "current_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
       "affected_domains": [
@@ -1121,12 +1338,10 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md",
         "fetched_url": "https://data.gov.tw/dataset/173684",
-        "extra_fetched_urls": [
-          "https://data.fda.gov.tw/data/opendata/export/203/json"
-        ],
+        "extra_fetched_urls": [],
         "text_chars": 70334,
         "format": "json",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1163,9 +1378,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-25T22:28:16.201Z",
+      "cache_expires_at": "2026-07-09T22:28:16.201Z",
       "previous_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
       "current_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
       "affected_domains": [
@@ -1202,12 +1417,10 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md",
         "fetched_url": "https://data.gov.tw/dataset/173685",
-        "extra_fetched_urls": [
-          "https://data.fda.gov.tw/data/opendata/export/199/json"
-        ],
+        "extra_fetched_urls": [],
         "text_chars": 47885,
         "format": "json",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1246,9 +1459,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-25T22:28:23.502Z",
+      "cache_expires_at": "2026-07-09T22:28:23.502Z",
       "previous_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
       "current_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
       "affected_domains": [
@@ -1275,12 +1488,10 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md",
         "fetched_url": "https://data.gov.tw/dataset/173683",
-        "extra_fetched_urls": [
-          "https://data.fda.gov.tw/data/opendata/export/202/json"
-        ],
+        "extra_fetched_urls": [],
         "text_chars": 7232,
         "format": "json",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1307,6 +1518,81 @@
       }
     },
     {
+      "candidate_key": "tw-tfda-food-additive-permit-query:baseline_watch",
+      "source_key": "tw-tfda-food-additive-permit-query",
+      "title": "Food Additive Permit Data Query",
+      "source_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_additives",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
+      "previous_hash": "1648765936757f5dfa7bc59b68f9a560c505228336fe4fec30aacafa9c4bbcd4",
+      "current_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
+      "affected_domains": [
+        "food_additives",
+        "food",
+        "food-additives",
+        "permit-query",
+        "registration-number",
+        "license-number",
+        "database",
+        "traditional-chinese"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "food-additive-inspection-registration",
+          "canonical_name": "Food Additive Inspection Registration",
+          "category": "food_import"
+        },
+        {
+          "term_key": "food-additive-functional-classes",
+          "canonical_name": "Food Additive Functional Classes",
+          "category": "food_additive"
+        }
+      ],
+      "affected_products": [
+        "food",
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md",
+        "fetched_url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+        "extra_fetched_urls": [],
+        "text_chars": 1250,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": false,
+        "manual_fallback": true,
+        "parse_error": null,
+        "excerpt": "Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. "
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food",
+          "food-additives",
+          "permit-query",
+          "registration-number",
+          "license-number",
+          "database",
+          "traditional-chinese"
+        ],
+        "compact_title": "food-additive-permit-data-query"
+      }
+    },
+    {
       "candidate_key": "tw-tfda-food-additive-registration-announcements:baseline_watch",
       "source_key": "tw-tfda-food-additive-registration-announcements",
       "title": "Food Additive Registration Legal Announcements",
@@ -1319,7 +1605,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T17:40:29.677Z",
       "cache_expires_at": "2026-07-09T17:40:29.677Z",
       "previous_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
@@ -1392,7 +1678,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T17:40:29.382Z",
       "cache_expires_at": "2026-07-09T17:40:29.382Z",
       "previous_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
@@ -1458,9 +1744,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-26T00:19:13.351Z",
-      "cache_expires_at": "2026-07-10T00:19:13.351Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T00:19:14.352Z",
+      "cache_expires_at": "2026-07-10T00:19:14.352Z",
       "previous_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
       "current_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
       "affected_domains": [
@@ -1488,7 +1774,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3687,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1513,6 +1799,77 @@
       }
     },
     {
+      "candidate_key": "tw-tfda-food-ingredient-query-platform-direct:baseline_watch",
+      "source_key": "tw-tfda-food-ingredient-query-platform-direct",
+      "title": "Food Ingredient Integration Query Platform Direct Query",
+      "source_url": "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "database",
+      "source_priority": "high",
+      "change_type": "baseline_watch",
+      "severity": "medium",
+      "status": "watching",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:36:05.584Z",
+      "cache_expires_at": "2026-07-03T04:36:05.584Z",
+      "previous_hash": "91b69ce78bb655a9c717e10215ac484e77820e7e36f19c2f830cf24d931f5e4e",
+      "current_hash": "91b69ce78bb655a9c717e10215ac484e77820e7e36f19c2f830cf24d931f5e4e",
+      "affected_domains": [
+        "food_safety",
+        "food-ingredients",
+        "ingredient-safety",
+        "usage-limit",
+        "caution",
+        "scientific-name",
+        "query-platform",
+        "database",
+        "traditional-chinese"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "food-ingredient-integration-query-platform",
+          "canonical_name": "Food Ingredient Integration Query Platform",
+          "category": "food_safety"
+        }
+      ],
+      "affected_products": [
+        "food"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md",
+        "fetched_url": "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160",
+        "extra_fetched_urls": [],
+        "text_chars": 2715,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "食品原料整合查詢平臺_消費者專區 跳到主要內容區塊 專區首頁 食品藥物管理署 ::: 專區首頁 網站導覽 食品藥物管理署 食品 核可資料查詢 食品原料整合查詢平臺 邊境檢驗不符合食品資訊查詢 食品法規查詢 HACCP 查詢 吃的健康 食品相關法規暨解釋彙編查詢 西藥 產品回收 通過GMP核准之國外藥廠名單 檢驗方法查詢 食品藥物管理署官網業務專區 食品藥物管理署官網法規資訊 化粧品禁限用成分管理規定 人體器官保存庫 保存庫許可通過名單查詢 【暫停服務公告】 為配合本署資訊機房資安設備更換及網路架構調整作業，預計自109年12月13日(日)8時至19時，暫停本專區各項服務，造成不便，敬請見諒。 --> ::: 首頁 > 整合查詢服務 > 食品 > 食品原料整合查詢平臺 食品原料整合查詢平臺 ► 展開 本平臺非正面表列，並非平臺未載列品項即不得供為食品原料使用！ 使用前請詳閱以下使用說明及注意事項 1. 本平臺匯集歷年之原料食用安全性評估結果、為民服務信箱之常見問題及相關解釋令函等資訊，於 111 年 6 月 21 日將原「可供食品使用原料彙整一覽表」改版為「食品原料整合查詢平臺」，新增「草木本植物類 (3) 辛香調味料」以及「未確認安全性尚不得使用之原料」等分類，供各界人士查閱參考。 2. 本平臺為查詢資料庫，提供食品原料相關資料檢索，惟無法逐一羅列所有傳統食品原料 ( 如雞鴨魚肉、蔬菜水果及五穀雜糧等 ) ，其所列載品項，未來若科學研究顯示有食用安全疑慮時，本署將重新評估審核其食用安全性。 3. 使用 本平臺 時，建請多加利用原料之中、英文名稱或學名等部分關鍵字進行搜尋，如有搜"
+      },
+      "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food-ingredients",
+          "ingredient-safety",
+          "usage-limit",
+          "caution",
+          "scientific-name",
+          "query-platform",
+          "database",
+          "traditional-chinese"
+        ],
+        "compact_title": "food-ingredient-integration-query-platform-direct-query"
+      }
+    },
+    {
       "candidate_key": "tw-tfda-formula-for-certain-disease-labeling-2025:baseline_watch",
       "source_key": "tw-tfda-formula-for-certain-disease-labeling-2025",
       "title": "Formula for Certain Disease labeling requirements",
@@ -1525,9 +1882,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-26T00:19:13.351Z",
-      "cache_expires_at": "2026-07-10T00:19:13.351Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T00:19:14.248Z",
+      "cache_expires_at": "2026-07-10T00:19:14.248Z",
       "previous_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
       "current_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
       "affected_domains": [
@@ -1555,7 +1912,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3293,
         "format": "html",
-        "from_cache": false,
+        "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -1592,7 +1949,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T13:02:09.360Z",
       "cache_expires_at": "2026-07-02T13:02:09.360Z",
       "previous_hash": "9b729e9ed47ec03a0647aa3befd82dd01de232f51d02631836a2ed1c3b5e3207",
@@ -1665,7 +2022,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T13:02:08.995Z",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
       "previous_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
@@ -1726,9 +2083,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-02T22:28:07.369Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "current_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
       "affected_domains": [
@@ -1816,7 +2173,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T19:47:37.922Z",
       "cache_expires_at": "2026-07-09T19:47:37.922Z",
       "previous_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
@@ -1877,7 +2234,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T15:09:16.612Z",
       "cache_expires_at": "2026-07-09T15:09:16.612Z",
       "previous_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
@@ -1947,7 +2304,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T13:02:14.387Z",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
       "previous_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
@@ -2037,7 +2394,7 @@
       "change_type": "source_expiring_soon",
       "severity": "low",
       "status": "pending_refresh",
-      "detected_at": "2026-06-26T03:48:14.081Z",
+      "detected_at": "2026-06-26T04:43:23.764Z",
       "fetched_at": "2026-06-25T13:02:19.641Z",
       "cache_expires_at": "2026-07-02T13:02:19.641Z",
       "previous_hash": "ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2",
@@ -2080,6 +2437,76 @@
         ],
         "compact_title": "kaohsiung-customs-origin-packaging-notice"
       }
+    },
+    {
+      "candidate_key": "tw-tfda-food-business-info-query-links:source_expiring_soon:2026-07-03",
+      "source_key": "tw-tfda-food-business-info-query-links",
+      "title": "TFDA Food Business Information Query Links",
+      "source_url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=51",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "source_type": "database_index",
+      "source_priority": "medium",
+      "change_type": "source_expiring_soon",
+      "severity": "low",
+      "status": "pending_refresh",
+      "detected_at": "2026-06-26T04:43:23.764Z",
+      "fetched_at": "2026-06-26T04:36:06.006Z",
+      "cache_expires_at": "2026-07-03T04:36:06.006Z",
+      "previous_hash": "aff5922f982a4d80fb36ec18f063ac0fb3993ef196089842a159faf2a004902f",
+      "current_hash": "aff5922f982a4d80fb36ec18f063ac0fb3993ef196089842a159faf2a004902f",
+      "affected_domains": [
+        "food_safety",
+        "food",
+        "food-business",
+        "query-links",
+        "ingredient-query",
+        "permit-query",
+        "database-index",
+        "traditional-chinese"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "food-ingredient-integration-query-platform",
+          "canonical_name": "Food Ingredient Integration Query Platform",
+          "category": "food_safety"
+        }
+      ],
+      "affected_products": [
+        "food",
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md",
+        "fetched_url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=51",
+        "extra_fetched_urls": [],
+        "text_chars": 2686,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "食品業務資訊查詢連結 - 食品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資訊公開 法規資訊 施政計畫及施"
+      },
+      "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food",
+          "food-business",
+          "query-links",
+          "ingredient-query",
+          "permit-query",
+          "database-index",
+          "traditional-chinese"
+        ],
+        "compact_title": "tfda-food-business-information-query-links"
+      }
     }
   ],
   "source_states": {
@@ -2104,8 +2531,8 @@
     "tw-moj-cosmetic-claims-criteria": {
       "title": "Regulations Governing Criteria for the Label, Promotion, Advertisement with Deception, Exaggeration, or Medical efficacy of Cosmetic Products",
       "content_hash": "5a5ebddfdb945f0c04882a78283c86b34caa3228faa1e0fce8367a2978f2d833",
-      "fetched_at": "2026-06-26T03:48:14.081Z",
-      "cache_expires_at": "2026-07-26T03:48:14.081Z",
+      "fetched_at": "2026-06-26T03:48:14.598Z",
+      "cache_expires_at": "2026-07-26T03:48:14.598Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-cosmetic-claims-criteria.md"
@@ -2140,8 +2567,8 @@
     "tw-tfda-cosmetics-management-framework": {
       "title": "TFDA Cosmetics Management Framework",
       "content_hash": "b42a98b5504998fe687fa9bc97a75111cb0264f3cf237d1f4e5c7c5657626236",
-      "fetched_at": "2026-06-26T01:28:17.978Z",
-      "cache_expires_at": "2026-07-26T01:28:17.978Z",
+      "fetched_at": "2026-06-26T01:28:18.296Z",
+      "cache_expires_at": "2026-07-26T01:28:18.296Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetics-management-framework.md"
@@ -2149,8 +2576,8 @@
     "tw-tfda-cosmetic-adverse-event-reporting-system": {
       "title": "TFDA National Cosmetics Adverse Event Reporting System",
       "content_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
-      "fetched_at": "2026-06-26T01:28:17.978Z",
-      "cache_expires_at": "2026-07-10T01:28:17.978Z",
+      "fetched_at": "2026-06-26T01:28:19.382Z",
+      "cache_expires_at": "2026-07-10T01:28:19.382Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-reporting-system.md"
@@ -2158,8 +2585,8 @@
     "tw-moj-cosmetic-serious-adverse-reporting": {
       "title": "Regulations for Reporting Cosmetics Serious Adverse Effects and Hazards to Hygiene and Safety",
       "content_hash": "71432d9bc10f10e3de44a130d251de3bddcdc1209d8764ba18008895d3aca39e",
-      "fetched_at": "2026-06-26T01:28:17.978Z",
-      "cache_expires_at": "2026-07-26T01:28:17.978Z",
+      "fetched_at": "2026-06-26T01:28:18.603Z",
+      "cache_expires_at": "2026-07-26T01:28:18.603Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-cosmetic-serious-adverse-reporting.md"
@@ -2167,8 +2594,8 @@
     "tw-moj-cosmetics-recall-regulations": {
       "title": "Regulations for Cosmetics Recall",
       "content_hash": "86353c6db875607651ffadfc5ec54fbccb8e35021a1028ebbe55178e3b94cf5b",
-      "fetched_at": "2026-06-26T01:28:17.978Z",
-      "cache_expires_at": "2026-07-26T01:28:17.978Z",
+      "fetched_at": "2026-06-26T01:28:18.819Z",
+      "cache_expires_at": "2026-07-26T01:28:18.819Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-cosmetics-recall-regulations.md"
@@ -2176,8 +2603,8 @@
     "tw-moj-cosmetic-source-flow-data": {
       "title": "Regulations Governing the Source and the Flow Data of Cosmetic Products",
       "content_hash": "9a0551c706ed9258d29908af22fa5b0681a76f64ff58aee77b4719be06b9c5cb",
-      "fetched_at": "2026-06-26T01:28:17.978Z",
-      "cache_expires_at": "2026-07-26T01:28:17.978Z",
+      "fetched_at": "2026-06-26T01:28:18.992Z",
+      "cache_expires_at": "2026-07-26T01:28:18.992Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-cosmetic-source-flow-data.md"
@@ -2185,8 +2612,8 @@
     "tw-tfda-cosmetic-prohibited-ingredients": {
       "title": "Cosmetics Prohibited Ingredients Open Data",
       "content_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:10.345Z",
+      "cache_expires_at": "2026-07-09T22:28:10.345Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md"
@@ -2194,8 +2621,8 @@
     "tw-tfda-cosmetic-restricted-ingredients": {
       "title": "Cosmetics Restricted Ingredients Open Data",
       "content_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:16.201Z",
+      "cache_expires_at": "2026-07-09T22:28:16.201Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md"
@@ -2203,8 +2630,8 @@
     "tw-tfda-cosmetic-colorants": {
       "title": "Cosmetics Colorants Use Restrictions Open Data",
       "content_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:17.131Z",
+      "cache_expires_at": "2026-07-09T22:28:17.131Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md"
@@ -2212,8 +2639,8 @@
     "tw-tfda-cosmetic-preservatives": {
       "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
       "content_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:17.829Z",
+      "cache_expires_at": "2026-07-09T22:28:17.829Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md"
@@ -2221,8 +2648,8 @@
     "tw-tfda-cosmetic-sunscreen-ingredients": {
       "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
       "content_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-09T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:23.502Z",
+      "cache_expires_at": "2026-07-09T22:28:23.502Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md"
@@ -2335,6 +2762,15 @@
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-announcements.md"
     },
+    "tw-tfda-food-additive-permit-query": {
+      "title": "Food Additive Permit Data Query",
+      "content_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md"
+    },
     "tw-tfda-food-registration-permit-management-rule": {
       "title": "Food and Related Products Registration and Permit Document Management Rule Notice",
       "content_hash": "01d661cba2d8d6bb9eb9d67b30d1a6ed0b3221552514f0693286c4fafd73716d",
@@ -2356,8 +2792,8 @@
     "tw-tfda-food-false-exaggerated-medical-efficacy-claims": {
       "title": "Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy",
       "content_hash": "e6161a6bd8217b10cb0060168d7f91dfbbbbfd3a0a329b1851d4d0987a2e0434",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:24.985Z",
+      "cache_expires_at": "2026-07-25T22:28:24.985Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-false-exaggerated-medical-efficacy-claims.md"
@@ -2365,8 +2801,8 @@
     "tw-tfda-sweetness-claim-prepackaged-food": {
       "title": "Regulation for the Labeling of Slightly Sweet, Not Sweet or Other Sweetness Claim on Prepackaged Food",
       "content_hash": "07dbc6e0ffd3252efb0a1da8c2134b7f8f6e1ee4c5cf8b56241077924a9376c1",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-25T22:28:07.369Z",
+      "fetched_at": "2026-06-25T22:28:25.104Z",
+      "cache_expires_at": "2026-07-25T22:28:25.104Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-sweetness-claim-prepackaged-food.md"
@@ -2590,8 +3026,8 @@
     "tw-moj-food-recall-destruction": {
       "title": "Regulations of Recall and Destruction for Food and Related Products",
       "content_hash": "eb7f2f8149278db88361e36e3cf7de772130555775dca54d750d25e59bf8f79e",
-      "fetched_at": "2026-06-26T02:12:44.504Z",
-      "cache_expires_at": "2026-07-26T02:12:44.504Z",
+      "fetched_at": "2026-06-26T02:12:44.868Z",
+      "cache_expires_at": "2026-07-26T02:12:44.868Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-food-recall-destruction.md"
@@ -2608,8 +3044,8 @@
     "tw-tfda-food-contact-packaging-labeling-regulations": {
       "title": "Regulations on the Labeling of Food Utensils, Food Containers, or Packaging",
       "content_hash": "0a0fec5b3ecbe51d2d3f311e509cc717c4177b1abaa73866bf32e0e570dbb1b3",
-      "fetched_at": "2026-06-26T00:43:44.856Z",
-      "cache_expires_at": "2026-07-26T00:43:44.856Z",
+      "fetched_at": "2026-06-26T00:43:45.169Z",
+      "cache_expires_at": "2026-07-26T00:43:45.169Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-contact-packaging-labeling-regulations.md"
@@ -2617,8 +3053,8 @@
     "tw-tfda-food-contact-packaging-required-items": {
       "title": "Items of Food Utensils, Food Containers or Packaging Required to Be Labelled",
       "content_hash": "348a7fa9eec97bacfec154a689589d7d659cf0e80fa4b693cb92cc4f68986723",
-      "fetched_at": "2026-06-26T00:43:44.856Z",
-      "cache_expires_at": "2026-07-26T00:43:44.856Z",
+      "fetched_at": "2026-06-26T00:43:45.283Z",
+      "cache_expires_at": "2026-07-26T00:43:45.283Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-contact-packaging-required-items.md"
@@ -2626,8 +3062,8 @@
     "tw-moj-food-contact-sanitation-standards": {
       "title": "Sanitation Standards for Food Utensils, Containers and Packages",
       "content_hash": "bebe9f12d2367f114a5611ddf5948a99c713454e8afa7a2c80dba2ff81475a79",
-      "fetched_at": "2026-06-26T03:00:43.748Z",
-      "cache_expires_at": "2026-07-26T03:00:43.748Z",
+      "fetched_at": "2026-06-26T03:00:44.102Z",
+      "cache_expires_at": "2026-07-26T03:00:44.102Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-food-contact-sanitation-standards.md"
@@ -2635,8 +3071,8 @@
     "tw-tfda-food-container-smart-use-2026": {
       "title": "Check, Read and Properly Use: Three Tips for Smart Using Food Containers",
       "content_hash": "fb3ec874159e5842e7cbb55fa84df86fa7acff14ab5a5bb277e69d60617533e6",
-      "fetched_at": "2026-06-26T00:43:44.856Z",
-      "cache_expires_at": "2026-07-10T00:43:44.856Z",
+      "fetched_at": "2026-06-26T00:43:45.392Z",
+      "cache_expires_at": "2026-07-10T00:43:45.392Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-container-smart-use-2026.md"
@@ -2644,8 +3080,8 @@
     "tw-moj-health-food-governing-act": {
       "title": "Health Food Governing Act",
       "content_hash": "cb441ac2bdcfcbca401bba14d4fc3de52e5d9c53185f7d4c0acd0ffffb049bf1",
-      "fetched_at": "2026-06-26T00:19:13.351Z",
-      "cache_expires_at": "2026-07-26T00:19:13.351Z",
+      "fetched_at": "2026-06-26T00:19:13.785Z",
+      "cache_expires_at": "2026-07-26T00:19:13.785Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-health-food-governing-act.md"
@@ -2653,8 +3089,8 @@
     "tw-tfda-health-food-enforcement-rules": {
       "title": "Enforcement Rules of Health Food Control Act",
       "content_hash": "2dc952758b079ecf4a0f897d2cecb219ebda764d6e36f7093f497887979294b6",
-      "fetched_at": "2026-06-26T00:19:13.351Z",
-      "cache_expires_at": "2026-07-26T00:19:13.351Z",
+      "fetched_at": "2026-06-26T00:19:14.113Z",
+      "cache_expires_at": "2026-07-26T00:19:14.113Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-health-food-enforcement-rules.md"
@@ -2662,8 +3098,8 @@
     "tw-tfda-formula-for-certain-disease-labeling-2025": {
       "title": "Formula for Certain Disease labeling requirements",
       "content_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
-      "fetched_at": "2026-06-26T00:19:13.351Z",
-      "cache_expires_at": "2026-07-10T00:19:13.351Z",
+      "fetched_at": "2026-06-26T00:19:14.248Z",
+      "cache_expires_at": "2026-07-10T00:19:14.248Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-formula-for-certain-disease-labeling-2025.md"
@@ -2671,11 +3107,29 @@
     "tw-tfda-food-ingredient-integration-query-platform": {
       "title": "Food Ingredient Integration Query Platform",
       "content_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
-      "fetched_at": "2026-06-26T00:19:13.351Z",
-      "cache_expires_at": "2026-07-10T00:19:13.351Z",
+      "fetched_at": "2026-06-26T00:19:14.352Z",
+      "cache_expires_at": "2026-07-10T00:19:14.352Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-integration-query-platform.md"
+    },
+    "tw-tfda-food-ingredient-query-platform-direct": {
+      "title": "Food Ingredient Integration Query Platform Direct Query",
+      "content_hash": "91b69ce78bb655a9c717e10215ac484e77820e7e36f19c2f830cf24d931f5e4e",
+      "fetched_at": "2026-06-26T04:36:05.584Z",
+      "cache_expires_at": "2026-07-03T04:36:05.584Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md"
+    },
+    "tw-tfda-food-business-info-query-links": {
+      "title": "TFDA Food Business Information Query Links",
+      "content_hash": "aff5922f982a4d80fb36ec18f063ac0fb3993ef196089842a159faf2a004902f",
+      "fetched_at": "2026-06-26T04:36:06.006Z",
+      "cache_expires_at": "2026-07-03T04:36:06.006Z",
+      "cache_status": "fresh",
+      "parse_error": null,
+      "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md"
     },
     "tw-trade-import-export-regulations": {
       "title": "Taiwan import and export related laws and regulations",
@@ -2734,8 +3188,8 @@
     "tw-trade-ccc-import-export-regulations": {
       "title": "Import and Export Regulations by CCC Code",
       "content_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-02T22:28:07.369Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md"
@@ -2752,8 +3206,8 @@
     "tw-customs-tariff-database-download": {
       "title": "GC453 Tariff Database Download",
       "content_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-07-02T22:28:07.369Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-07-03T04:43:23.764Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md"
@@ -2914,8 +3368,8 @@
     "global-unece-ghs-rev11": {
       "title": "Globally Harmonized System of Classification and Labelling of Chemicals Rev. 11",
       "content_hash": "d003b83f5a695efbc362bf8b65d814289c4fa04e74e877a92a31c6f747ab4762",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-09-23T22:28:07.369Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-09-24T04:43:23.764Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/global-unece-ghs-rev11.md"
@@ -2923,8 +3377,8 @@
     "global-unece-ghs-rev11-pdf": {
       "title": "GHS Rev. 11 English PDF",
       "content_hash": "486b2ad4eff864354c0090c77729393da3fbcae2c56b06b7661517067c8dabd5",
-      "fetched_at": "2026-06-25T22:28:07.369Z",
-      "cache_expires_at": "2026-12-22T22:28:07.369Z",
+      "fetched_at": "2026-06-26T04:43:23.764Z",
+      "cache_expires_at": "2026-12-23T04:43:23.764Z",
       "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/global-unece-ghs-rev11-pdf.md"

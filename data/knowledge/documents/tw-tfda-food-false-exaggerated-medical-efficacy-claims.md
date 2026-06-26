@@ -8,14 +8,14 @@ domain: food_labeling
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-25T22:28:07.369Z
+fetched_at: 2026-06-25T22:28:24.985Z
 fetched_url: https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3424
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-25T22:28:07.369Z
+cache_expires_at: 2026-07-25T22:28:24.985Z
 cache_status: fresh
 content_hash: e6161a6bd8217b10cb0060168d7f91dfbbbbfd3a0a329b1851d4d0987a2e0434
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 
@@ -25,16 +25,6 @@ tags: food, claims, advertising, medical-efficacy, false-exaggerated-misleading,
 # Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy
 
 Source: https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3424
-
-## Manual Article Summary
-
-Official TFDA page and linked file verified on 2026-06-26. This regulation implements Article 28 of the Act Governing Food Safety and Sanitation for food and food-product labels, promotion, and advertisements.
-
-- Claim review is based on the overall presentation, including product name, description, image, symbols, audio, visual design, and consumer-facing messages.
-- A food claim can be considered false, exaggerated, or misleading when it does not conform to facts, lacks evidence, has insufficient evidence, implies maintaining or changing human physiology, organs, tissues, or appearance outside the permitted scope, or improperly cites official correspondence.
-- A product name using health-related wording such as "health" can be misleading unless the product has the required health-food permit context.
-- A food claim can be considered medical efficacy when it refers to preventing, improving, mitigating, diagnosing, or treating disease, disease-related symptoms, or similar medical effects.
-- Operational aliases: food claim substantiation, food advertising evidence, false exaggerated misleading food claim, medical efficacy food claim, health food name, physiological function claim, scientific evidence, test report, inspection report, COA, 佐證資料, 虛偽誇張易生誤解, 醫療效能, 食品標示廣告.
 
 ## Extract
 

@@ -8,14 +8,14 @@ domain: food_contact_materials
 source_type: consumer_notice
 priority: medium
 format: html
-fetched_at: 2026-06-26T00:43:44.856Z
+fetched_at: 2026-06-26T00:43:45.392Z
 fetched_url: https://www.fda.gov.tw/eng/newsContent.aspx?id=31513
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T00:43:44.856Z
+cache_expires_at: 2026-07-10T00:43:45.392Z
 cache_status: fresh
 content_hash: fb3ec874159e5842e7cbb55fa84df86fa7acff14ab5a5bb277e69d60617533e6
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

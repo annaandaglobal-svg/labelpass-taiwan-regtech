@@ -8,18 +8,18 @@ domain: cosmetics
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-26T01:28:17.978Z
+fetched_at: 2026-06-26T01:28:18.819Z
 fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0030091
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T01:28:17.978Z
+cache_expires_at: 2026-07-26T01:28:18.819Z
 cache_status: fresh
 content_hash: 86353c6db875607651ffadfc5ec54fbccb8e35021a1028ebbe55178e3b94cf5b
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 
-tags: cosmetics, recall, class-1, class-2, class-3, recall-plan, seller-notification, capA
+tags: cosmetics, recall, class-1, class-2, class-3, recall-plan, seller-notification, capa
 ---
 
 # Regulations for Cosmetics Recall

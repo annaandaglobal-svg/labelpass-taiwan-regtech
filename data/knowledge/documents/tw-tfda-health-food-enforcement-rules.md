@@ -8,14 +8,14 @@ domain: health_food
 source_type: regulation
 priority: high
 format: html
-fetched_at: 2026-06-26T00:19:13.351Z
+fetched_at: 2026-06-26T00:19:14.113Z
 fetched_url: https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=552
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T00:19:13.351Z
+cache_expires_at: 2026-07-26T00:19:14.113Z
 cache_status: fresh
 content_hash: 2dc952758b079ecf4a0f897d2cecb219ebda764d6e36f7093f497887979294b6
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error: 

@@ -456,6 +456,18 @@ export const sourceCards = [
     tag: "첨가물등록"
   },
   {
+    title: "Food additive permit query",
+    detail: "Direct TFDA consumer query page for food-additive permits, registration numbers, and license-number checks.",
+    url: "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+    tag: "허가조회"
+  },
+  {
+    title: "Food ingredient direct query",
+    detail: "Direct TFDA ingredient platform for Chinese, English, or scientific-name lookup with usage limits and cautionary notes.",
+    url: "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160",
+    tag: "원료조회"
+  },
+  {
     title: "Compound food additive import documents",
     detail: "TFDA notice for compound food-additive import document review, including product composition reports and official health-certificate evidence.",
     url: "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=19405",
