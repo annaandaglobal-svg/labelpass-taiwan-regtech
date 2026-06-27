@@ -14,6 +14,10 @@ function compareStable(left: string, right: string) {
   return 0;
 }
 
+function uniqueValues(values: string[]) {
+  return [...new Set(values.filter(Boolean))];
+}
+
 function mergeKnowledgeResult(
   primary: KnowledgeSearchResult,
   fallback: KnowledgeSearchResult,
@@ -27,6 +31,12 @@ function mergeKnowledgeResult(
   for (const fallbackTerm of fallback.terms) {
     const primaryTerm = termsById.get(fallbackTerm.id);
     if (primaryTerm) {
+      primaryTerm.sourceKeys = uniqueValues([...(primaryTerm.sourceKeys ?? []), ...(fallbackTerm.sourceKeys ?? [])]);
+      primaryTerm.rules = primaryTerm.rules.length
+        ? [...primaryTerm.rules, ...fallbackTerm.rules].filter(
+            (rule, index, list) => list.findIndex((candidate) => candidate.ruleCode === rule.ruleCode) === index
+          )
+        : fallbackTerm.rules;
       if (fallbackTerm.score > primaryTerm.score) {
         primaryTerm.score = fallbackTerm.score;
         primaryTerm.aliases = fallbackTerm.aliases;
