@@ -4,6 +4,8 @@ import { buildSourceOpsMetadata } from "./source-ops-metadata.mjs";
 
 const root = process.cwd();
 const writeReport = process.argv.includes("--write-report");
+const maxExpiringSoonDays = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_DAYS ?? 7);
+const expiringSoonFraction = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_FRACTION ?? 0.25);
 
 const paths = {
   sourceRegistry: path.join(root, "data", "knowledge", "source-registry.json"),
@@ -33,6 +35,25 @@ function daysUntil(value, now = new Date()) {
   const date = new Date(value);
   if (!Number.isFinite(date.getTime())) return null;
   return Math.ceil((date.getTime() - now.getTime()) / 86_400_000);
+}
+
+function cacheDaysFor(source, registry) {
+  const days = Number(source?.cache_days ?? registry.default_cache_days ?? 14);
+  return Number.isFinite(days) && days > 0 ? days : 14;
+}
+
+function expiringSoonWindowDays(source, registry) {
+  const cacheDays = cacheDaysFor(source, registry);
+  const fraction = Number.isFinite(expiringSoonFraction) && expiringSoonFraction > 0 ? expiringSoonFraction : 0.25;
+  const maxWindow = Number.isFinite(maxExpiringSoonDays) && maxExpiringSoonDays > 0 ? maxExpiringSoonDays : 7;
+  return Math.max(1, Math.min(maxWindow, Math.ceil(cacheDays * fraction)));
+}
+
+function isInsideRefreshWindow(result, source, registry, now = new Date()) {
+  const expiresAt = new Date(result.cache_expires_at);
+  if (!Number.isFinite(expiresAt.getTime()) || expiresAt < now) return false;
+  const threshold = new Date(now.getTime() + expiringSoonWindowDays(source, registry) * 86_400_000);
+  return expiresAt <= threshold;
 }
 
 async function readJson(filePath) {
@@ -302,6 +323,7 @@ const sourceOpsMetadata = persistedSourceOpsMetadata ?? derivedSourceOpsMetadata
 const sourceOpsById = new Map((sourceOpsMetadata.sources ?? []).map((source) => [source.id, source]));
 const terms = termIndex.terms ?? [];
 const coverageRoutesBySource = buildCoverageRoutesBySource(coverage.groups);
+const sourcesById = new Map(sources.map((source) => [source.id, source]));
 const storedAliases = countAliases(terms);
 const searchableAliasCounts = terms.reduce(
   (counts, term) => {
@@ -316,8 +338,7 @@ const identifierAliases = searchableAliasCounts.identifierAliases;
 const searchableAliases = searchableAliasCounts.aliases;
 const staleSources = results.filter((source) => source.cache_status === "stale");
 const dueSoonSources = results.filter((source) => {
-  const days = daysUntil(source.cache_expires_at);
-  return days !== null && days >= 0 && days <= 7;
+  return isInsideRefreshWindow(source, sourcesById.get(source.id) ?? source, registry);
 });
 const expiredSources = results.filter((source) => {
   const days = daysUntil(source.cache_expires_at);
@@ -390,7 +411,9 @@ const summary = {
   high_priority_sources: highPrioritySources.length,
   stale_sources: staleSources.length,
   expired_sources: expiredSources.length,
-  due_within_7_days: dueSoonSources.length,
+  sources_in_refresh_window: dueSoonSources.length,
+  expiring_soon_max_days: maxExpiringSoonDays,
+  expiring_soon_fraction: expiringSoonFraction,
   manual_fallback_sources: manualFallbackSources.length,
   manual_fallback_with_browser_evidence_sources: manualFallbackWithEvidenceSources.length,
   manual_fallback_without_browser_evidence_sources: manualFallbackWithoutEvidenceSources.length,
@@ -450,7 +473,7 @@ if (writeReport) {
     "",
     `- Stale sources: ${formatNumber(summary.stale_sources)}`,
     `- Expired sources: ${formatNumber(summary.expired_sources)}`,
-    `- Sources due within 7 days: ${formatNumber(summary.due_within_7_days)}`,
+    `- Sources in refresh window: ${formatNumber(summary.sources_in_refresh_window)} (last ${formatNumber(Math.round(summary.expiring_soon_fraction * 100))}% of cache period, max ${formatNumber(summary.expiring_soon_max_days)} days)`,
     `- Next scheduled refresh: ${formatDate(summary.next_refresh_at)}`,
     `- Manual fallback sources: ${formatNumber(summary.manual_fallback_sources)}`,
     `- Manual fallback with browser evidence: ${formatNumber(summary.manual_fallback_with_browser_evidence_sources)}`,

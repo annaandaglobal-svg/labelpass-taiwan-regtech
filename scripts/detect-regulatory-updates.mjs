@@ -9,7 +9,9 @@ const paths = {
   queue: path.join(root, "data", "knowledge", "regulatory-update-queue.json")
 };
 
-const expiringSoonDays = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_DAYS ?? 7);
+const maxExpiringSoonDays = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_DAYS ?? 7);
+const expiringSoonFraction = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_FRACTION ?? 0.25);
+const msPerDay = 24 * 60 * 60 * 1000;
 
 function compareStable(left, right) {
   const a = String(left ?? "");
@@ -39,6 +41,24 @@ function compact(value) {
 function toDate(value) {
   const time = Date.parse(String(value ?? ""));
   return Number.isFinite(time) ? new Date(time) : null;
+}
+
+function cacheDaysFor(source, registry) {
+  const days = Number(source.cache_days ?? registry.default_cache_days ?? 14);
+  return Number.isFinite(days) && days > 0 ? days : 14;
+}
+
+function expiringSoonWindowDays(source, registry) {
+  const cacheDays = cacheDaysFor(source, registry);
+  const fraction = Number.isFinite(expiringSoonFraction) && expiringSoonFraction > 0 ? expiringSoonFraction : 0.25;
+  const maxWindow = Number.isFinite(maxExpiringSoonDays) && maxExpiringSoonDays > 0 ? maxExpiringSoonDays : 7;
+  return Math.max(1, Math.min(maxWindow, Math.ceil(cacheDays * fraction)));
+}
+
+function isExpiringSoon(expiresAt, source, registry, detectionTime) {
+  if (!expiresAt || expiresAt <= detectionTime) return false;
+  const threshold = new Date(detectionTime.getTime() + expiringSoonWindowDays(source, registry) * msPerDay);
+  return expiresAt <= threshold;
 }
 
 function severityFor(source, changeType) {
@@ -135,7 +155,6 @@ const sourcesById = new Map((registry.sources ?? []).map((source) => [source.id,
 const previousByKey = new Map((previousQueue.items ?? []).map((item) => [item.candidate_key, item]));
 const previousStates = previousQueue.source_states ?? {};
 const detectionTime = toDate(process.env.LABELPASS_UPDATE_NOW) ?? toDate(index.generated_at) ?? new Date();
-const expiringSoonAt = new Date(detectionTime.getTime() + expiringSoonDays * 24 * 60 * 60 * 1000);
 const items = [];
 
 for (const result of index.results ?? []) {
@@ -158,7 +177,7 @@ for (const result of index.results ?? []) {
 
   if (result.cache_status === "stale") {
     changeTypes.push("source_stale");
-  } else if (expiresAt && expiresAt > detectionTime && expiresAt <= expiringSoonAt) {
+  } else if (isExpiringSoon(expiresAt, source, registry, detectionTime)) {
     changeTypes.push("source_expiring_soon");
   }
 
@@ -209,6 +228,7 @@ for (const result of index.results ?? []) {
         generated_by: "scripts/detect-regulatory-updates.mjs",
         source_registry_version: index.source_registry_version ?? registry.version ?? null,
         source_tags: result.tags ?? [],
+        expiring_soon_window_days: changeType === "source_expiring_soon" ? expiringSoonWindowDays(source, registry) : null,
         compact_title: compact(result.title)
       }
     };
@@ -289,7 +309,8 @@ const queue = {
   generated_at: detectionTime.toISOString(),
   source_registry_version: index.source_registry_version ?? registry.version ?? null,
   crawl_generated_at: index.generated_at ?? null,
-  expiring_soon_days: expiringSoonDays,
+  expiring_soon_days: maxExpiringSoonDays,
+  expiring_soon_fraction: expiringSoonFraction,
   summary: {
     total: items.length,
     detected: items.filter((item) => item.status === "detected").length,
@@ -298,7 +319,9 @@ const queue = {
     approved: items.filter((item) => item.status === "approved").length,
     high: items.filter((item) => item.severity === "high").length,
     medium: items.filter((item) => item.severity === "medium").length,
-    low: items.filter((item) => item.severity === "low").length
+    low: items.filter((item) => item.severity === "low").length,
+    expiring_soon_max_days: maxExpiringSoonDays,
+    expiring_soon_fraction: expiringSoonFraction
   },
   items,
   source_states: sourceStates

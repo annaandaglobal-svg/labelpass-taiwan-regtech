@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T00:19:40.111Z",
+  "generated_at": "2026-06-27T12:38:34.227Z",
   "generated_from": {
-    "knowledge_memory_generated_at": "2026-06-27T00:19:40.111Z",
+    "knowledge_memory_generated_at": "2026-06-27T12:38:34.227Z",
     "source_registry_version": "2026-06-26",
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -213,7 +213,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-announcements.md"
         },
         {
@@ -261,7 +261,7 @@
         "no Chinese label text"
       ],
       "next_action": "Run the cosmetic review, then attach PIF/notification and ingredient evidence before expert approval.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_food_label_allergen_evidence_bundle",
@@ -517,7 +517,7 @@
         "missing importer/responsible firm"
       ],
       "next_action": "Run food label review and resolve allergen/nutrition/claim blockers before shipment release.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_food_additive_ingredient_evidence_bundle",
@@ -696,7 +696,7 @@
           "domain": "food_safety",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md"
         },
         {
@@ -706,7 +706,7 @@
           "domain": "food_safety",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md"
         },
         {
@@ -774,7 +774,7 @@
         "compound additive status unclear"
       ],
       "next_action": "Confirm additive/common-name status before treating the substance as allowed on a food label.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_food_import_inspection_evidence_bundle",
@@ -1021,7 +1021,7 @@
         "commercial shipment without importer registration"
       ],
       "next_action": "Route to food import inspection checklist before final label or logistics approval.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_health_food_claims_evidence_bundle",
@@ -1269,7 +1269,7 @@
         "medical claim wording present"
       ],
       "next_action": "Confirm permit scope before allowing any health-food wording or approved-effect claim.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_food_contact_packaging_evidence_bundle",
@@ -1513,7 +1513,7 @@
         "test report missing for regulated material"
       ],
       "next_action": "Classify food-contact status before applying ordinary food label or customs routing.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_customs_origin_hs_evidence_bundle",
@@ -1694,7 +1694,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -1762,7 +1762,7 @@
         "trade restriction signal unresolved"
       ],
       "next_action": "Resolve HS/CCC and origin before final Taiwan label or import/export document release.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     },
     {
       "id": "tw_trade_control_shtc_evidence_bundle",
@@ -1940,7 +1940,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -1998,7 +1998,7 @@
         "permit applicability unknown"
       ],
       "next_action": "Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals.",
-      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
+      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
     }
   ]
 }

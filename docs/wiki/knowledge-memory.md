@@ -5,14 +5,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ## Snapshot
 
 - Source registry version: `2026-06-26`
-- Crawl snapshot: `2026-06-27T00:19:40.111Z`
+- Crawl snapshot: `2026-06-27T12:38:34.227Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
 - Terms: 1,178
 - Stored aliases: 4,212
 - Searchable aliases including identifiers: 6,693
 - Term-rule links: 1,082
-- Regulatory update candidates: 57
+- Regulatory update candidates: 41
 - Alias review items: 1,042
 
 ## How To Use This Memory
@@ -46,7 +46,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | tw-moj-cosmetics-recall-regulations | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations for Cosmetics Recall |
 | tw-tfda-cosmetic-adverse-event-qms-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Post-Market Quality Management System |
 | tw-tfda-cosmetic-adverse-event-reporting-system | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA National Cosmetics Adverse Event Reporting System |
-| tw-tfda-cosmetic-announcements | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetic Latest Announcements |
+| tw-tfda-cosmetic-announcements | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | TFDA Cosmetic Latest Announcements |
 | tw-tfda-cosmetic-colorants | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Colorants Use Restrictions Open Data |
 | tw-tfda-cosmetic-fadenbook-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Food and Drug Business Registration Platform |
 | tw-tfda-cosmetic-label-leaflet-packaging-marking | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | pdf | Cosmetic Outer Package, Container, Label and Package Insert Marking Rules |
@@ -61,7 +61,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | tw-tfda-cosmetics-gmp-regulations | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | Cosmetics Good Manufacturing Practice Regulations |
 | tw-tfda-cosmetics-law-regulations-index | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | TFDA Cosmetics Guidance, Law and Regulations Index |
 | tw-tfda-cosmetics-management-framework | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetics Management Framework |
-| tw-tfda-pif-hub-zh | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA PIF laws and guidance hub |
+| tw-tfda-pif-hub-zh | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | TFDA PIF laws and guidance hub |
 | tw-tfda-pif-implementation | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Product Information Files to Be Implemented in Phases |
 | tw-tfda-specific-purpose-cosmetics-permit-repeal-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | Specific Purpose Cosmetics Permit Transition Notice |
 | tw-customs-import-cargo-clearance | Customs | customs-origin-classification | high | fresh | html | Import Cargo Clearance |
@@ -478,18 +478,18 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 | Source | Status | Severity | Due in | Title |
 | --- | --- | --- | --- | --- |
-| tw-customs-export-origin-packaging | pending_refresh | low | 6d | Kaohsiung Customs origin packaging notice |
-| tw-tfda-cosmetic-announcements | pending_refresh | medium | 6d | TFDA Cosmetic Latest Announcements |
-| tw-tfda-cosmetic-announcements | watching | medium | 6d | TFDA Cosmetic Latest Announcements |
-| tw-tfda-pif-hub-zh | pending_refresh | medium | 6d | TFDA PIF laws and guidance hub |
-| tw-tfda-pif-hub-zh | watching | medium | 6d | TFDA PIF laws and guidance hub |
-| tw-customs-tariff-database-download | pending_refresh | medium | 7d | GC453 Tariff Database Download |
 | tw-customs-tariff-database-download | watching | medium | 7d | GC453 Tariff Database Download |
-| tw-tfda-cosmetic-adverse-event-qms-platform | pending_refresh | medium | 7d | TFDA Post-Market Quality Management System |
 | tw-tfda-cosmetic-adverse-event-qms-platform | watching | medium | 7d | TFDA Post-Market Quality Management System |
-| tw-tfda-cosmetic-product-registration-system | pending_refresh | medium | 7d | TFDA Cosmetic Product Registration Platform |
+| tw-tfda-cosmetic-announcements | watching | medium | 7d | TFDA Cosmetic Latest Announcements |
 | tw-tfda-cosmetic-product-registration-system | watching | medium | 7d | TFDA Cosmetic Product Registration Platform |
-| tw-tfda-cosmetics-law-regulations-index | pending_refresh | medium | 7d | TFDA Cosmetics Guidance, Law and Regulations Index |
+| tw-tfda-cosmetics-law-regulations-index | watching | medium | 7d | TFDA Cosmetics Guidance, Law and Regulations Index |
+| tw-tfda-food-additive-permit-query | watching | medium | 7d | Food Additive Permit Data Query |
+| tw-tfda-food-ingredient-query-platform-direct | watching | medium | 7d | Food Ingredient Integration Query Platform Direct Query |
+| tw-tfda-food-law-regulations-index | watching | medium | 7d | TFDA Food Guidance, Law and Regulations Index |
+| tw-tfda-health-food-permit-query | watching | medium | 7d | Health Food Permit Data Query |
+| tw-tfda-illegal-advertising-query | watching | medium | 7d | Illegal Food, Drug, and Cosmetics Advertising Query System |
+| tw-tfda-inspections-law-regulations-index | watching | medium | 7d | TFDA Inspections Guidance, Law and Regulations Index |
+| tw-tfda-pif-hub-zh | watching | medium | 7d | TFDA PIF laws and guidance hub |
 
 
 ## Retrieval Playbook

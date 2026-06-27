@@ -8,17 +8,17 @@ domain: customs
 source_type: notice
 priority: medium
 format: html
-fetched_at: 2026-06-25T13:02:19.641Z
+fetched_at: 2026-06-27T12:38:34.227Z
 fetched_url: https://web.customs.gov.tw/ekaohsiung/singlehtml/3071?cntId=9efc8e5829ff4cbe9c1ded1a6c22302e
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-02T13:02:19.641Z
+cache_expires_at: 2026-07-04T12:38:34.227Z
 cache_status: fresh
-content_hash: ea27610608617420371fe36325dfbef08859f7f613e6ea2c5ac8c9dfe5eb36c2
-from_cache: true
+content_hash: b67c1e1cdfdf221ed18086601d7411b8a84cd661b10e9cf40b5bdd6a1c4332b7
+from_cache: false
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: customs, export, origin, packaging
 ---
 

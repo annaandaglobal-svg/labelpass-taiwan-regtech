@@ -143,6 +143,12 @@ const aliases = terms.flatMap((term) => term.aliases ?? []);
 const links = termIndex.term_rule_links ?? [];
 const updateItems = updateQueue.items ?? [];
 const aliasItems = aliasQueue.items ?? [];
+const highConfidenceAliasCollisions = aliasItems.filter((item) => item.high_confidence_collision);
+const highConfidenceAliasCollisionsWithoutContext = highConfidenceAliasCollisions.filter(
+  (item) =>
+    !item.recommended_action ||
+    !(item.terms ?? []).every((term) => String(term.notes ?? "").trim().length >= 20)
+);
 const coverageGroups = coverage.groups ?? [];
 const routes = routing.product_routes ?? [];
 const evidenceTemplates = templates.templates ?? [];
@@ -278,8 +284,8 @@ if ((aliasQueue.summary?.mojibake_aliases ?? 0) > 0) fail("alias review queue ha
 if ((aliasQueue.summary?.short_ambiguous_aliases_without_notes ?? 0) > 0) {
   fail("alias review queue has short ambiguous aliases without notes");
 }
-if ((aliasQueue.summary?.high_confidence_collisions ?? 0) > 0) {
-  warn(`${aliasQueue.summary.high_confidence_collisions} high-confidence alias collisions remain reviewable`);
+if (highConfidenceAliasCollisionsWithoutContext.length > 0) {
+  warn(`${highConfidenceAliasCollisionsWithoutContext.length} high-confidence alias collision(s) need context notes`);
 }
 if ((updateQueue.summary?.pending_refresh ?? 0) > 0) {
   warn(`${updateQueue.summary.pending_refresh} source(s) are due soon and queued for refresh review`);
@@ -334,6 +340,8 @@ const summary = {
   evidenceTemplates: evidenceTemplates.length,
   terms: terms.length,
   aliases: aliases.length,
+  highConfidenceAliasCollisions: highConfidenceAliasCollisions.length,
+  highConfidenceAliasCollisionsWithoutContext: highConfidenceAliasCollisionsWithoutContext.length,
   seedCounts,
   warnings,
   errors

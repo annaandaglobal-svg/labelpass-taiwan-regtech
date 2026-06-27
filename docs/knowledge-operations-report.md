@@ -1,7 +1,7 @@
 # Knowledge Operations Report
 
-Generated: 2026-06-27T05:26:13.627Z
-Crawl index: 2026-06-27T00:19:40.111Z
+Generated: 2026-06-27T12:42:53.772Z
+Crawl index: 2026-06-27T12:38:34.227Z
 Term index: 2026-06-25T07:47:54.729Z
 
 This file is generated from the current LabelPass knowledge artifacts. Use it to decide whether to reuse the cached memory, refresh selected official sources, rebuild Supabase seed data, or triage alias collisions.
@@ -19,24 +19,24 @@ This file is generated from the current LabelPass knowledge artifacts. Use it to
 - Knowledge sources: 166
 - High-priority sources: 130
 - Knowledge terms: 1,178
-- Stored term aliases: 4,138
+- Stored term aliases: 4,212
 - Identifier aliases: 2,481
-- Searchable aliases: 6,619
+- Searchable aliases: 6,693
 - Term-rule links: 1,082
-- Regulatory update candidates: 57
-- Alias review items: 1,092
+- Regulatory update candidates: 41
+- Alias review items: 1,042
 
 ## Freshness
 
 - Stale sources: 0
 - Expired sources: 0
-- Sources due within 7 days: 16
-- Next scheduled refresh: 2026-07-02T13:02:19.641Z
+- Sources in refresh window: 0 (last 25% of cache period, max 7 days)
+- Next scheduled refresh: 2026-07-04T12:38:34.227Z
 - Manual fallback sources: 10
 - Manual fallback with browser evidence: 10
 - Manual fallback without browser evidence: 0
 - Browser capture sources: 12
-- Reused from raw cache: 126
+- Reused from raw cache: 121
 
 ## Browser Capture Evidence
 
@@ -76,18 +76,18 @@ These checks make crawler operations explicit. Core fields, refresh strategy, an
 
 | Days | Source | Domain | Priority | Expires |
 | ---: | --- | --- | --- | --- |
-| 6 | tw-customs-export-origin-packaging | customs | medium | 2026-07-02T13:02:19.641Z |
-| 6 | tw-tfda-cosmetic-announcements | cosmetics | high | 2026-07-02T17:40:28.203Z |
-| 6 | tw-tfda-food-business-info-query-links | food_safety | medium | 2026-07-03T04:36:06.006Z |
-| 6 | tw-tfda-food-ingredient-query-platform-direct | food_safety | high | 2026-07-03T04:36:05.584Z |
-| 6 | tw-tfda-pif-hub-zh | cosmetics | high | 2026-07-02T13:02:09.360Z |
+| 7 | tw-customs-export-origin-packaging | customs | medium | 2026-07-04T12:38:34.227Z |
 | 7 | tw-customs-tariff-database-download | customs | high | 2026-07-03T19:43:04.752Z |
 | 7 | tw-tfda-cosmetic-adverse-event-qms-platform | cosmetics | high | 2026-07-03T19:21:16.738Z |
-| 7 | tw-tfda-cosmetic-product-registration-system | cosmetics | high | 2026-07-03T06:24:07.617Z |
-| 7 | tw-tfda-cosmetics-law-regulations-index | cosmetics | high | 2026-07-03T07:32:31.721Z |
+| 7 | tw-tfda-cosmetic-announcements | cosmetics | high | 2026-07-04T12:38:34.227Z |
+| 7 | tw-tfda-cosmetic-product-registration-system | cosmetics | high | 2026-07-04T12:38:34.227Z |
+| 7 | tw-tfda-cosmetics-law-regulations-index | cosmetics | high | 2026-07-04T12:38:34.227Z |
 | 7 | tw-tfda-food-additive-permit-query | food_additives | high | 2026-07-03T19:43:04.749Z |
-| 7 | tw-tfda-food-law-regulations-index | food_labeling | high | 2026-07-03T07:32:31.721Z |
+| 7 | tw-tfda-food-business-info-query-links | food_safety | medium | 2026-07-04T12:38:34.227Z |
+| 7 | tw-tfda-food-ingredient-query-platform-direct | food_safety | high | 2026-07-04T12:38:34.227Z |
+| 7 | tw-tfda-food-law-regulations-index | food_labeling | high | 2026-07-04T12:38:34.227Z |
 | 7 | tw-tfda-health-food-permit-query | health_food | high | 2026-07-03T19:43:04.750Z |
+| 7 | tw-tfda-illegal-advertising-query | food_labeling | high | 2026-07-03T19:43:04.751Z |
 
 
 ## Source Mix
@@ -116,8 +116,8 @@ These checks make crawler operations explicit. Core fields, refresh strategy, an
 
 ## Queues
 
-- Update queue: 16 pending refresh, 41 watching, 0 detected changes.
-- Alias triage backlog: 46 high-confidence collisions, 0 mojibake aliases, 1,037 regulated terms without readable local aliases; 0 strict blockers.
+- Update queue: 0 pending refresh, 41 watching, 0 detected changes.
+- Alias triage backlog: 46 high-confidence collisions, 0 mojibake aliases, 987 regulated terms without readable local aliases; 0 strict blockers.
 - Impact gap candidates: 0 pending/high update candidates have empty affected terms or no mapped coverage route.
 
 ### Impact Gap Candidates
@@ -127,10 +127,10 @@ No rows.
 
 ## Supabase Seed Readiness
 
-- Seed term aliases: 4,138
-- Seed update candidates: 57
-- SQL editor chunks: 23 chunks / 6,793 statements
-- Largest chunk bytes: 224,910
+- Seed term aliases: 4,212
+- Seed update candidates: 41
+- SQL editor chunks: 23 chunks / 6,867 statements
+- Largest chunk bytes: 224,915
 
 ## Operating Commands
 

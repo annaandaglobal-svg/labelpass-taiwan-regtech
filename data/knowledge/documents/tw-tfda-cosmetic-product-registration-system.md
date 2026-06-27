@@ -8,11 +8,11 @@ domain: cosmetics
 source_type: database
 priority: high
 format: html
-fetched_at: 2026-06-26T06:24:07.617Z
+fetched_at: 2026-06-27T12:38:34.227Z
 fetched_url: https://cos.fda.gov.tw/TCAL/
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T06:24:07.617Z
+cache_expires_at: 2026-07-04T12:38:34.227Z
 cache_status: fresh
 content_hash: efa60e95ae2b859223768368ee60f35c5fcfd8ba0e9513940bce497c1a8967db
 from_cache: false

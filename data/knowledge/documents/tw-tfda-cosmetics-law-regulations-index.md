@@ -8,13 +8,13 @@ domain: cosmetics
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-26T07:32:31.721Z
+fetched_at: 2026-06-27T12:38:34.227Z
 fetched_url: https://www.fda.gov.tw/eng/law.aspx?cid=5062
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T07:32:31.721Z
+cache_expires_at: 2026-07-04T12:38:34.227Z
 cache_status: fresh
-content_hash: 6f4088fd8b7ffeda9ea014a961cdc5cb15779fc8de16b8a08d157963eedf9bff
+content_hash: eeb5a91034868debb8a26a0a62cd4d9c88ac045665185e9be6320da82313e32c
 from_cache: false
 manual_fallback: false
 browser_capture: false

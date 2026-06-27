@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T00:19:40.111Z",
+  "generated_at": "2026-06-27T12:38:34.227Z",
   "generated_from": {
-    "knowledge_memory_generated_at": "2026-06-27T00:19:40.111Z",
+    "knowledge_memory_generated_at": "2026-06-27T12:38:34.227Z",
     "source_registry_version": "2026-06-26",
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -146,7 +146,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-announcements.md"
         },
         {
@@ -867,7 +867,7 @@
           "domain": "food_safety",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md"
         },
         {
@@ -877,7 +877,7 @@
           "domain": "food_safety",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md"
         },
         {
@@ -1315,7 +1315,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -2000,7 +2000,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         }
       ],
@@ -2298,7 +2298,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -2664,7 +2664,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
+          "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
