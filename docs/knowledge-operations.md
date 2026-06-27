@@ -138,7 +138,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 ## Supabase Tables
 
 - `knowledge_sources`: canonical source registry.
-- `knowledge_snapshots`: hashed crawled or captured source snapshots.
+- `knowledge_snapshots`: hashed crawled or captured source snapshots, including source operations metadata in the `metadata` JSON for language, owner, selector, date-tracking, refresh, and evidence policies.
 - `knowledge_terms`: canonical ingredient or regulatory terms.
 - `term_aliases`: stored multilingual, local-language, and regulatory phrase aliases for search.
 - `term_rule_links`: links from normalized terms to official TFDA rule codes.

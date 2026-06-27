@@ -17,7 +17,7 @@
     "audit:aliases": "node scripts/audit-term-aliases.mjs",
     "audit:search-aliases": "node scripts/audit-search-alias-coverage.mjs",
     "build:alias-queue": "node scripts/audit-term-aliases.mjs --write-queue",
-    "build:knowledge-seed": "pnpm build:terms && pnpm detect:updates && node scripts/generate-knowledge-seed.mjs && pnpm build:alias-queue",
+    "build:knowledge-seed": "pnpm build:source-ops-metadata && pnpm build:terms && pnpm detect:updates && node scripts/generate-knowledge-seed.mjs && pnpm build:alias-queue",
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
     "validate:coverage": "node scripts/validate-knowledge-coverage.mjs",
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
