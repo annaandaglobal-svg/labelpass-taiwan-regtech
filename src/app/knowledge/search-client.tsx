@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {
+  AlertTriangle,
   ArrowRight,
   BookOpen,
   ClipboardCheck,
@@ -63,6 +64,7 @@ type EvidenceItem = {
   chips: string[];
   href?: string;
   aliases?: string[];
+  aliasWarnings?: TermItem["ambiguousAliases"];
   reviewParam?: string;
 };
 
@@ -300,6 +302,7 @@ export default function KnowledgeSearchClient({
       detail: term.notes || "공식 용어, 별칭, CAS/INCI, 연결 규칙을 함께 확인하세요.",
       score: term.score,
       chips: uniqueCompact([
+        ...(term.ambiguousAliases.length ? [`문맥 확인 ${term.ambiguousAliases.length}`] : []),
         ...term.identifiers.cas.slice(0, 1).map((value) => `CAS ${value}`),
         ...term.identifiers.inci.slice(0, 1).map((value) => `INCI ${value}`),
         ...term.aliases.slice(0, 2).map((alias) => alias.value),
@@ -514,6 +517,24 @@ export default function KnowledgeSearchClient({
                   ))}
                 </div>
               ) : null}
+              {activeEvidence.aliasWarnings?.length ? (
+                <div className="kb-alias-warning">
+                  <div>
+                    <AlertTriangle size={15} />
+                    <b>별칭 문맥 확인</b>
+                  </div>
+                  {activeEvidence.aliasWarnings.slice(0, 3).map((warning) => (
+                    <span key={`${activeEvidence.title}-${warning.normalized}`}>
+                      <b>{warning.value}</b>
+                      <small>{warning.otherTerms.join(" / ")}</small>
+                    </span>
+                  ))}
+                  <Link href={`/knowledge/aliases?alias=${encodeURIComponent(activeEvidence.aliasWarnings[0].value)}&issue=alias-collision-high-confidence&priority=high&lane=active`}>
+                    별칭 검수 큐에서 보기
+                    <ArrowRight size={13} />
+                  </Link>
+                </div>
+              ) : null}
               <div className="kb-detail-actions">
                 <Link href={reviewHref}>
                   <PackageSearch size={15} />
@@ -577,6 +598,7 @@ export default function KnowledgeSearchClient({
         `${term.sourceKeys.length}개 소스`
       ]),
       aliases: uniqueCompact(term.aliases.map((alias) => alias.value).filter((value) => value !== term.canonicalName)).slice(0, 8),
+      aliasWarnings: term.ambiguousAliases,
       reviewParam: term.canonicalName
     };
   }
@@ -718,6 +740,9 @@ function freshnessMeta(source: SourceItem) {
 
 function decisionForResult(item: UnifiedResult) {
   if (item.kind === "term") {
+    if (item.term.ambiguousAliases.length) {
+      return { label: "문맥 확인", detail: "같은 별칭이 다른 규제 용어에도 연결됩니다. 품목과 용도를 함께 확인하세요.", tone: "gold" };
+    }
     if (item.score >= 95) {
       return { label: "강한 매칭", detail: "입력어가 공식 용어 또는 높은 신뢰도 별칭과 직접 연결됩니다.", tone: "green" };
     }

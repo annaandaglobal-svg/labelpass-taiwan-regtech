@@ -123,7 +123,22 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
 
   useEffect(() => {
     setLocalState(readLocalState());
-  }, []);
+    const params = new URLSearchParams(window.location.search);
+    const initialAlias = params.get("alias")?.trim();
+    const initialIssue = params.get("issue")?.trim();
+    const initialPriority = params.get("priority")?.trim();
+    const initialLane = params.get("lane")?.trim();
+    if (initialIssue && (initialIssue === ALL || queue.items.some((item) => item.issue === initialIssue))) setIssue(initialIssue);
+    if (initialPriority && (initialPriority === ALL || ["blocker", "high", "medium", "low", "backlog"].includes(initialPriority))) {
+      setPriority(initialPriority);
+    }
+    if (initialLane && laneOptions.some((option) => option.value === initialLane)) setLane(initialLane);
+    if (initialAlias) {
+      setQuery(initialAlias);
+      const exactMatch = queue.items.find((item) => item.alias === initialAlias);
+      if (exactMatch) setSelectedId(exactMatch.id);
+    }
+  }, [queue.items]);
 
   const priorityCounts = useMemo(() => {
     return queue.items.reduce<Record<string, number>>((counts, item) => {
@@ -250,10 +265,10 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
   return (
     <section className="alias-review-workbench">
       <div className="alias-health-grid" aria-label="별칭 큐 요약">
-        <HealthTile icon={<ShieldCheck size={17} />} label="검수 항목" value={queue.summary.review_items} detail="전체 별칭 운영 큐" tone="green" />
-        <HealthTile icon={<AlertTriangle size={17} />} label="고신뢰 충돌" value={queue.summary.high_confidence_collisions} detail="우선 문맥 보강" tone="gold" />
-        <HealthTile icon={<Languages size={17} />} label="현지명 백로그" value={queue.summary.regulated_terms_without_local_alias} detail="공식 zh-Hant/ko/ja 보강" tone="blue" />
-        <HealthTile icon={<CheckCircle2 size={17} />} label="엄격 차단" value={queue.summary.strict_blockers} detail={damagedCount ? `문자 깨짐 ${damagedCount}건 별도 확인` : "차단 항목 없음"} tone={queue.summary.strict_blockers ? "red" : "neutral"} />
+        <HealthTile icon={<ShieldCheck size={17} />} label="검수 항목" value={queue.summary.review_items} detail="전체 별칭 운영 큐" tone="green" href="/knowledge/aliases?lane=active&priority=high" />
+        <HealthTile icon={<AlertTriangle size={17} />} label="고신뢰 충돌" value={queue.summary.high_confidence_collisions} detail="우선 문맥 보강" tone="gold" href="/knowledge/aliases?issue=alias-collision-high-confidence&priority=high&lane=active" />
+        <HealthTile icon={<Languages size={17} />} label="현지명 백로그" value={queue.summary.regulated_terms_without_local_alias} detail="공식 zh-Hant/ko/ja 보강" tone="blue" href="/knowledge/aliases?issue=missing-local-alias&priority=backlog&lane=backlog" />
+        <HealthTile icon={<CheckCircle2 size={17} />} label="엄격 차단" value={queue.summary.strict_blockers} detail={damagedCount ? `문자 깨짐 ${damagedCount}건 별도 확인` : "차단 항목 없음"} tone={queue.summary.strict_blockers ? "red" : "neutral"} href="/knowledge/aliases?priority=blocker&lane=all" />
       </div>
 
       <div className="alias-progress-strip" aria-label="로컬 검수 진행률">
@@ -295,7 +310,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
           <FilterGroup
             label="우선순위"
             value={priority}
-            options={[ALL, "high", "medium", "low", "backlog"]}
+            options={[ALL, "blocker", "high", "medium", "low", "backlog"]}
             counts={priorityCounts}
             formatter={(value) => value === ALL ? "전체" : labelForPriority(value as AliasReviewPriority)}
             onChange={setPriority}
@@ -461,22 +476,38 @@ function HealthTile({
   label,
   value,
   detail,
-  tone
+  tone,
+  href
 }: {
   icon: ReactNode;
   label: string;
   value: number;
   detail: string;
   tone: "green" | "gold" | "blue" | "red" | "neutral";
+  href?: string;
 }) {
-  return (
-    <div className={`alias-health-card ${tone}`}>
+  const content = (
+    <>
       <div>
         {icon}
         <span>{label}</span>
       </div>
       <strong>{value.toLocaleString()}</strong>
       <small>{detail}</small>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link className={`alias-health-card ${tone}`} href={href}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={`alias-health-card ${tone}`}>
+      {content}
     </div>
   );
 }
