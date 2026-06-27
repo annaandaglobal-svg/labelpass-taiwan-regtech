@@ -95,15 +95,23 @@ const appShellSource = read("src/components/app-shell.tsx");
 requireIncludes(appShellSource, "AppSidebar", "src/components/app-shell.tsx sidebar ownership");
 requireIncludes(appShellSource, "type AppNavKey", "src/components/app-shell.tsx typed active nav");
 requireIncludes(appShellSource, '["lp-shell", className].filter(Boolean).join(" ")', "src/components/app-shell.tsx stable shell class composition");
+requireIncludes(appShellSource, 'data-app-shell="persistent"', "src/components/app-shell.tsx persistent shell contract");
 
 const reviewHomeSource = read("src/app/page.tsx");
 requireIncludes(reviewHomeSource, "actionPlanStats", "src/app/page.tsx review action plan summary");
 requireIncludes(reviewHomeSource, "handoffCards", "src/app/page.tsx review operational handoff cards");
+requireIncludes(reviewHomeSource, "function handoffCards(result: ReviewResult | null", "src/app/page.tsx handoff cards visible before and after review");
+requireIncludes(reviewHomeSource, "const routeHandoffCards = handoffCards(result, selectedRoute);", "src/app/page.tsx steady handoff card source");
 requireIncludes(reviewHomeSource, 'className={`lp-action-plan', "src/app/page.tsx review action plan panel");
+requireIncludes(reviewHomeSource, 'data-steady-handoff="true"', "src/app/page.tsx stable pre/post review handoff area");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
 requireIncludes(reviewHomeSource, 'href: "/workspace#review-queue"', "src/app/page.tsx customer review status handoff link");
 requireIncludes(reviewHomeSource, 'href: "/workspace#expert-cases"', "src/app/page.tsx customer expert status handoff link");
 requireIncludes(reviewHomeSource, 'href: "/workspace#shipment-events"', "src/app/page.tsx customer shipment status handoff link");
+requireIncludes(reviewHomeSource, 'className="lp-route-summary"', "src/app/page.tsx compact selected route summary");
+if (reviewHomeSource.includes("<small>{route.description}</small>")) {
+  fail("src/app/page.tsx: route selector must stay compact; selected route detail belongs in lp-route-summary");
+}
 if (/href\s*:\s*"\/admin\//.test(reviewHomeSource) || /href="\/admin\//.test(reviewHomeSource)) {
   fail("src/app/page.tsx: customer review screen must not deep-link directly into admin routes");
 }
@@ -201,12 +209,14 @@ requireIncludes(sidebarRule, "overflow-y: auto", "src/app/globals.css .lp-sideba
 
 const appSidebarSource = read("src/components/app-sidebar.tsx");
 requireNoMojibake(appSidebarSource, "src/components/app-sidebar.tsx");
+requireIncludes(appSidebarSource, 'data-shell-sidebar="persistent"', "src/components/app-sidebar.tsx persistent sidebar contract");
 requireIncludes(appSidebarSource, 'data-shell-nav="primary"', "src/components/app-sidebar.tsx primary shell nav contract");
 requireIncludes(appSidebarSource, "primaryNavItems", "src/components/app-sidebar.tsx primary nav items");
 requireIncludes(appSidebarSource, "utilityNavItems", "src/components/app-sidebar.tsx utility nav items");
 requireIncludes(appSidebarSource, "data-shell-nav-count={primaryNavItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
 requireIncludes(appSidebarSource, 'data-shell-nav="utility"', "src/components/app-sidebar.tsx utility nav contract");
 requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/components/app-sidebar.tsx stable nav item ids");
+requireIncludes(appSidebarSource, 'className="lp-utility-label"', "src/components/app-sidebar.tsx internal utility label");
 for (const navLabel of ["워크스페이스", "검토", "지식 검색"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
@@ -221,6 +231,12 @@ requireIncludes(lpNavLink, "min-width: 0", "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "min-height", 36, "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "font-size", 13, "src/app/globals.css .lp-nav a");
 requireIncludes(css, ".lp-utility-nav", "src/app/globals.css admin utility nav treatment");
+const lpUtilityNav = cssRule(css, ".lp-utility-nav");
+requireIncludes(lpUtilityNav, "grid-template-columns: repeat(2, minmax(0, 1fr))", "src/app/globals.css compact utility nav grid");
+const lpUtilityNavLink = cssRule(css, ".lp-sidebar .lp-utility-nav a");
+requireMaxPx(lpUtilityNavLink, "min-height", 30, "src/app/globals.css .lp-sidebar .lp-utility-nav a");
+requireMaxPx(lpUtilityNavLink, "font-size", 11, "src/app/globals.css .lp-sidebar .lp-utility-nav a");
+requireIncludes(css, ".lp-utility-label", "src/app/globals.css internal utility label");
 requireIncludes(css, ".lp-utility-nav a.active", "src/app/globals.css admin utility active treatment");
 requireIncludes(css, ".admin-pipeline-rail", "src/app/globals.css consultation pipeline rail");
 requireIncludes(css, ".admin-pipeline-step", "src/app/globals.css consultation pipeline step");
@@ -234,6 +250,19 @@ if (css.includes('.lp-nav a[data-shell-nav-item="admin"]')) {
 const lpButton = cssRule(css, ".lp-button");
 requireMaxPx(lpButton, "min-height", 36, "src/app/globals.css .lp-button");
 requireMaxPx(lpButton, "font-size", 13, "src/app/globals.css .lp-button");
+
+const routeGrid = cssRule(css, ".lp-route-grid");
+requireIncludes(routeGrid, "grid-template-columns: repeat(7, minmax(0, 1fr))", "src/app/globals.css compact route segmented grid");
+const routeCard = cssRule(css, ".lp-route-card");
+requireIncludes(routeCard, "display: inline-flex", "src/app/globals.css compact route segmented controls");
+requireIncludes(routeCard, "text-align: center", "src/app/globals.css centered compact route labels");
+requireMaxPx(routeCard, "min-height", 44, "src/app/globals.css .lp-route-card");
+requireMaxPx(routeCard, "padding", 8, "src/app/globals.css .lp-route-card");
+requireIncludes(css, ".lp-route-summary", "src/app/globals.css selected route summary");
+const handoffGrid = cssRule(css, ".lp-handoff-grid");
+requireIncludes(handoffGrid, "grid-template-columns: repeat(2, minmax(0, 1fr))", "src/app/globals.css result handoff grid must not compress into four columns");
+const handoffCard = cssRule(css, ".lp-handoff-card");
+requireMaxPx(handoffCard, "min-height", 76, "src/app/globals.css .lp-handoff-card");
 
 const reviewWorkbench = cssRule(css, ".lp-workbench");
 requireIncludes(
@@ -269,13 +298,13 @@ requireCompactIncludes(
 );
 requireCompactIncludes(
   mobileCss,
-  "@media (max-width: 680px) { .lp-nav { grid-template-columns: 1fr; } .lp-nav a, .lp-utility-nav a { flex-direction: row; justify-content: flex-start;",
-  "src/app/globals.css narrow mobile primary nav wrap"
+  "@media (max-width: 680px) { .lp-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); } .lp-nav a { flex-direction: column; justify-content: center;",
+  "src/app/globals.css narrow mobile primary nav stability"
 );
 requireCompactIncludes(mobileCss, ".lp-nav a { justify-content: center;", "src/app/globals.css mobile primary nav links");
 requireCompactIncludes(
   mobileCss,
-  ".admin-section-nav { display: flex; flex-wrap: nowrap; overflow-x: auto;",
+  ".admin-section-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow-x: visible;",
   "src/app/globals.css mobile admin secondary nav"
 );
 
@@ -327,9 +356,19 @@ requireIncludes(css, ".workspace-handoff-strip", "src/app/globals.css workspace 
 requireIncludes(css, ".workspace-handoff-step", "src/app/globals.css workspace customer request flow cards");
 requireIncludes(css, ".workspace-action-list", "src/app/globals.css workspace action list");
 requireIncludes(css, ".workspace-shipment-grid", "src/app/globals.css workspace shipment grid");
+requireIncludes(css, ".workspace-action-item p", "src/app/globals.css compact workspace action copy");
+requireIncludes(css, ".workspace-action-item small", "src/app/globals.css compact workspace action metadata");
 requireIncludes(css, ".admin-queue-link", "src/app/globals.css linked admin queue card");
 requireIncludes(css, ".admin-queue-item.review > span", "src/app/globals.css admin queue review tone");
 requireIncludes(css, ".admin-queue-item.waiting > span", "src/app/globals.css admin queue waiting tone");
+const workspaceActionCopy = cssRule(css, ".workspace-action-item p");
+requireIncludes(workspaceActionCopy, "-webkit-line-clamp: 1", "src/app/globals.css workspace action rows must stay compact");
+const workspaceAction = cssRule(css, ".workspace-action-item");
+requireIncludes(workspaceAction, "grid-template-columns: 76px minmax(0, 1fr)", "src/app/globals.css workspace action rows must use compact row layout");
+const adminQueueCopy = cssRule(css, ".admin-queue-item p");
+requireIncludes(adminQueueCopy, "-webkit-line-clamp: 1", "src/app/globals.css admin queue rows must stay compact");
+const adminQueueItem = cssRule(css, ".admin-queue-item");
+requireIncludes(adminQueueItem, "grid-template-columns: 74px minmax(0, 1fr)", "src/app/globals.css admin queue rows must use compact row layout");
 
 const adminOpsDryRun = cssRule(css, ".admin-ops-dry-run button");
 requireMaxPx(adminOpsDryRun, "min-height", 38, "src/app/globals.css .admin-ops-dry-run button");

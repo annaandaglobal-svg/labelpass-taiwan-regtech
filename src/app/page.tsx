@@ -7,7 +7,6 @@ import {
   BookOpen,
   CheckCircle2,
   ClipboardCheck,
-  Database,
   ExternalLink,
   FileText,
   FlaskConical,
@@ -668,12 +667,12 @@ function actionPlanStats(result: ReviewResult) {
   };
 }
 
-function handoffCards(result: ReviewResult, route: RoutePreset) {
-  const stats = actionPlanStats(result);
-  const hasCustomsOrImport = result.findings.some((finding) =>
-    /통관|수입|customs|import|hs|ccc/i.test(`${finding.area} ${finding.id} ${finding.title}`)
-  );
-  const hasExpertNeed = result.status !== "pass" || result.actionPlan.actionItems.length > 0;
+function handoffCards(result: ReviewResult | null, route: RoutePreset) {
+  const stats = result ? actionPlanStats(result) : null;
+  const hasCustomsOrImport = result
+    ? result.findings.some((finding) => /통관|수입|customs|import|hs|ccc/i.test(`${finding.area} ${finding.id} ${finding.title}`))
+    : route.family === "trade";
+  const hasExpertNeed = result ? result.status !== "pass" || result.actionPlan.actionItems.length > 0 : true;
   const logisticsDetail = hasCustomsOrImport
     ? "통관 보류·수입검사 자료를 물류 큐에서 같이 확인합니다."
     : route.family === "cosmetics"
@@ -685,16 +684,16 @@ function handoffCards(result: ReviewResult, route: RoutePreset) {
       href: "/workspace#review-queue",
       icon: <ClipboardCheck size={16} />,
       label: "리뷰 상태",
-      title: `${stats.actionCount}개 조치 확인`,
-      detail: result.actionPlan.nextAction,
-      tone: actionPlanCopy[result.actionPlan.priority].tone
+      title: result ? `${stats?.actionCount ?? 0}개 조치 확인` : "검토 큐 고정",
+      detail: result ? result.actionPlan.nextAction : `${route.shortLabel} 자료를 넣으면 우선 조치가 이 위치에서 갱신됩니다.`,
+      tone: result ? actionPlanCopy[result.actionPlan.priority].tone : "info"
     },
     {
       href: "/workspace#expert-cases",
       icon: <Handshake size={16} />,
       label: "상담 요청",
       title: hasExpertNeed ? "상담 인계 준비" : "필요 시 상담 예약",
-      detail: stats.owners[0] ? `${stats.owners[0].owner} 담당 항목 ${stats.owners[0].count}개` : "전문가 검토가 필요한 항목은 없습니다.",
+      detail: stats?.owners[0] ? `${stats.owners[0].owner} 담당 항목 ${stats.owners[0].count}개` : "상담 범위와 결제 상태를 같은 흐름에서 확인합니다.",
       tone: hasExpertNeed ? "info" : "pass"
     },
     {
@@ -709,9 +708,9 @@ function handoffCards(result: ReviewResult, route: RoutePreset) {
       href: "/knowledge",
       icon: <BookOpen size={16} />,
       label: "근거",
-      title: `${stats.evidenceCount}개 공식 근거`,
-      detail: `${stats.neededDocs}개 증빙 항목을 보강 대상으로 표시했습니다.`,
-      tone: stats.neededDocs > 0 ? "warn" : "pass"
+      title: result ? `${stats?.evidenceCount ?? 0}개 공식 근거` : "지식베이스 연결",
+      detail: result ? `${stats?.neededDocs ?? 0}개 증빙 항목을 보강 대상으로 표시했습니다.` : "검색과 검토가 같은 공식 근거 묶음을 재사용합니다.",
+      tone: (stats?.neededDocs ?? 0) > 0 ? "warn" : "pass"
     }
   ];
 }
@@ -861,7 +860,7 @@ export default function Home() {
     { label: "통과", value: result?.summary.pass ?? 0, tone: "pass" }
   ];
   const planStats = result ? actionPlanStats(result) : null;
-  const routeHandoffCards = result ? handoffCards(result, selectedRoute) : [];
+  const routeHandoffCards = handoffCards(result, selectedRoute);
 
   return (
     <AppShell active="review">
@@ -876,10 +875,6 @@ export default function Home() {
               <PackageCheck size={16} />
               워크스페이스
             </Link>
-            <Link className="lp-button secondary" href="/knowledge">
-              <Database size={16} />
-              지식베이스
-            </Link>
             <a className="lp-button secondary" href="#intake">
               <ClipboardCheck size={16} />
               자료 입력
@@ -891,7 +886,7 @@ export default function Home() {
           <div className="lp-section-head">
             <div>
               <span>시작 경로</span>
-              <h2>제품군을 먼저 고르면 필요한 입력과 증빙 목록이 바로 좁혀집니다.</h2>
+              <h2>제품군을 고르면 입력과 증빙만 조용히 좁혀집니다.</h2>
             </div>
             <small>{selectedRoute.primaryQuestion}</small>
           </div>
@@ -906,9 +901,12 @@ export default function Home() {
               >
                 <span>{routeIcon(route.icon)}</span>
                 <b>{route.shortLabel}</b>
-                <small>{route.description}</small>
               </button>
             ))}
+          </div>
+          <div className="lp-route-summary">
+            <b>{selectedRoute.label}</b>
+            <span>{selectedRoute.description}</span>
           </div>
         </section>
 
@@ -1028,7 +1026,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={`lp-action-plan ${actionPlanCopy[result.actionPlan.priority].tone}`}>
+                <div className={`lp-action-plan ${actionPlanCopy[result.actionPlan.priority].tone}`} data-steady-handoff="true">
                   <div className="lp-action-plan-head">
                     <span>{statusIcon(result.status)}</span>
                     <div>
@@ -1108,7 +1106,33 @@ export default function Home() {
               <div className="lp-empty-state">
                 <ShieldCheck size={28} />
                 <b>자료를 넣고 검토를 시작하세요.</b>
-                <span>처음부터 모든 경로가 보이지만, 선택한 경로의 필수 입력과 증빙만 먼저 정리됩니다.</span>
+                <span>사이드바와 업무 흐름은 그대로 두고, 선택한 경로의 필수 입력과 증빙만 정리됩니다.</span>
+              </div>
+            )}
+
+            {!result && (
+              <div className="lp-action-plan info lp-action-plan-pending" data-steady-handoff="true">
+                <div className="lp-action-plan-head">
+                  <span>
+                    <ClipboardCheck size={20} />
+                  </span>
+                  <div>
+                    <b>검토 후 이어질 업무 흐름</b>
+                    <p>버튼이 새로 생기지 않도록 리뷰, 상담, 선적, 근거 흐름을 같은 위치에 먼저 고정해 둡니다.</p>
+                  </div>
+                </div>
+                <div className="lp-handoff-grid" aria-label="운영 인계">
+                  {routeHandoffCards.map((card) => (
+                    <Link key={card.href} className={`lp-handoff-card ${card.tone}`} href={card.href}>
+                      <span>{card.icon}</span>
+                      <div>
+                        <em>{card.label}</em>
+                        <b>{card.title}</b>
+                        <small>{card.detail}</small>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </section>
