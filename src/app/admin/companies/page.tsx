@@ -28,8 +28,8 @@ const fallbackCompanyRows = [
 
 export default async function AdminCompaniesPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const companyRows = snapshot.companyRows.length ? snapshot.companyRows : fallbackCompanyRows;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 실데이터" : "설계 데이터";
+  const companyRows = snapshot.companyRows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 실데이터" : "운영 프리뷰 데이터";
 
   return (
     <>

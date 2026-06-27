@@ -60,8 +60,8 @@ function EnabledPill({ enabled, label }: { enabled: boolean; label: string }) {
 
 export default async function AdminSettingsPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const settings = snapshot.settings.length ? snapshot.settings : fallbackSettings;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 설정 데이터" : "운영 설계 데이터";
+  const settings = snapshot.settings;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 설정 데이터" : "운영 프리뷰 데이터";
   const expertEnabled = settings.filter((item) => item.expertMatchingEnabled).length;
   const logisticsEnabled = settings.filter((item) => item.logisticsMatchingEnabled).length;
   const archiveEnabled = settings.filter((item) => item.reviewArchiveEnabled).length;

@@ -100,8 +100,8 @@ function paymentTone(status: string) {
 
 export default async function AdminPaymentsPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const payments = snapshot.payments.length ? snapshot.payments : fallbackPayments;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 결제 데이터" : "운영 설계 데이터";
+  const payments = snapshot.payments;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 결제 데이터" : "운영 프리뷰 데이터";
   const pendingCount = payments.filter((payment) => payment.status === "pending").length;
   const paidOrAuthorizedCount = payments.filter((payment) => ["authorized", "paid"].includes(payment.status)).length;
   const blockedChatCount = payments.filter((payment) => payment.chatThreadStatus === "payment_required").length;

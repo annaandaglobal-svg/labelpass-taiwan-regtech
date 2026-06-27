@@ -32,8 +32,8 @@ const fallbackReviewFlows = [
 
 export default async function AdminReviewsPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const reviewFlows = snapshot.reviewFlows.length ? snapshot.reviewFlows : fallbackReviewFlows;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 리뷰 데이터" : "운영 설계 데이터";
+  const reviewFlows = snapshot.reviewFlows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 리뷰 데이터" : "운영 프리뷰 데이터";
 
   return (
     <>

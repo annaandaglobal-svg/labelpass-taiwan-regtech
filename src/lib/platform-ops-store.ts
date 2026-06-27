@@ -309,19 +309,6 @@ const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? p
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
 let client: DbClient | null = null;
 
-const zeroCounts: PlatformOpsCounts = {
-  organizations: 0,
-  activeMembers: 0,
-  reviews: 0,
-  expertProfiles: 0,
-  expertMatches: 0,
-  logisticsCompanies: 0,
-  shipmentRequests: 0,
-  activeShipments: 0,
-  customsHolds: 0,
-  payments: 0
-};
-
 export function isPlatformOpsDatabaseConfigured() {
   return Boolean(databaseUrl && adminDbPreviewEnabled);
 }
@@ -424,23 +411,485 @@ function roleCan(role: string, count: number) {
   return `제품 등록, 문서 업로드, 리뷰 요청 (${count}명)`;
 }
 
-function emptySnapshot(storage: PlatformOpsStorage, warnings: string[]): PlatformOpsSnapshot {
+const previewCounts: PlatformOpsCounts = {
+  organizations: 3,
+  activeMembers: 9,
+  reviews: 4,
+  expertProfiles: 3,
+  expertMatches: 6,
+  logisticsCompanies: 3,
+  shipmentRequests: 3,
+  activeShipments: 3,
+  customsHolds: 1,
+  payments: 4
+};
+
+const previewCompanyRows: PlatformCompanyRow[] = [
+  {
+    name: "Annaanda Global",
+    market: "TW",
+    status: "trial / launch-readiness",
+    modules: "제품 4, 리뷰 4, 전문가 매칭 3, 물류 요청 2",
+    next: "Cica Barrier Cream과 Soy Corn Protein Bar의 증빙 보완을 먼저 닫습니다."
+  },
+  {
+    name: "Expert Partner Pool",
+    market: "TW / KR",
+    status: "active / marketplace",
+    modules: "전문가 3, 상담방 5, 결제 4, 정산 2",
+    next: "화장품 PIF와 식품 표시 전문가의 수임 가능 시간을 확인합니다."
+  },
+  {
+    name: "Logistics Partner Pool",
+    market: "KR -> TW",
+    status: "active / forwarding",
+    modules: "물류사 3, 견적 3, 선적 3, 통관보류 1",
+    next: "냉장 식품과 화장품 항공 발송의 통관 이벤트 소유자를 지정합니다."
+  }
+];
+
+const previewRoleRows: PlatformRoleRow[] = [
+  {
+    role: "profiles.role = admin",
+    scope: "플랫폼 전체",
+    can: "지식 소스, 운영 큐, 결제, audit 로그를 관리",
+    caution: "쓰기 권한은 관리자 토큰과 DB write flag가 모두 켜질 때만 사용"
+  },
+  {
+    role: "organization_members.owner",
+    scope: "회사 설정",
+    can: "회사 설정, 멤버 초대, 제품·리뷰·문서 관리",
+    caution: "청구 상태와 기능 토글 변경 전 승인 로그 필요"
+  },
+  {
+    role: "organization_members.operator",
+    scope: "회사 운영",
+    can: "제품 등록, 증빙 업로드, 리뷰 요청, 물류 요청 생성",
+    caution: "전문가 결제와 환불은 운영 관리자 승인이 필요"
+  },
+  {
+    role: "organization_members.expert",
+    scope: "상담 스레드",
+    can: "배정된 상담과 첨부문서 검토",
+    caution: "회사 전체 데이터는 볼 수 없고 배정 건만 접근"
+  },
+  {
+    role: "organization_members.logistics",
+    scope: "선적 요청",
+    can: "견적, 예약, tracking event, 통관 보류 메모 입력",
+    caution: "라벨 판정과 결제 정보는 읽기 제한"
+  }
+];
+
+const previewReviewFlows: PlatformReviewFlow[] = [
+  {
+    title: "화장품 PIF 보강",
+    product: "Cica Barrier Cream",
+    route: "TW 화장품",
+    status: "evidence_gap",
+    next: "PIF 목차, GMP 증빙, INCI 대조표를 전문가에게 넘기기 전 확인",
+    handoff: "Dr. Mei-Lin Chen 상담 요청"
+  },
+  {
+    title: "자외선 차단 표시 확인",
+    product: "Tinted Sunscreen SPF50",
+    route: "TW 화장품",
+    status: "expert_quote",
+    next: "효능 표현과 특수용도 화장품 해당 여부를 결제 전 확정",
+    handoff: "결제 승인 후 상담방 active"
+  },
+  {
+    title: "식품 중문 라벨 수정",
+    product: "Soy Corn Protein Bar",
+    route: "TW 식품",
+    status: "label_revision",
+    next: "알레르겐, 영양성분, GMO/non-GMO 증빙을 Jason Wu에게 전달",
+    handoff: "식품 전문가 상담 진행"
+  },
+  {
+    title: "수입검사·물류 handoff",
+    product: "Shelf-stable Tea Beverage",
+    route: "TW 식품 / 통관",
+    status: "customs_hold",
+    next: "성분표 번역본과 첨가물 용도 설명을 통관 이벤트에 첨부",
+    handoff: "Kaohsiung Trade Bridge 통관 보류 대응"
+  }
+];
+
+const previewExpertProfiles: PlatformExpertProfileRow[] = [
+  {
+    name: "Dr. Mei-Lin Chen",
+    firm: "Taipei Cosmetic Safety Office",
+    base: "Taipei",
+    discipline: "cosmetics",
+    languages: ["zh-TW", "en", "ko"],
+    specialties: ["PIF 준비도", "INCI 제한성분 대조", "효능 표현 근거"],
+    credential: "전 TFDA 화장품 검토 담당",
+    availability: "2건 수임 가능",
+    activeCases: 4
+  },
+  {
+    name: "Jason Wu",
+    firm: "Formosa Food Compliance",
+    base: "Taichung",
+    discipline: "food",
+    languages: ["zh-TW", "en"],
+    specialties: ["영양성분 표시", "첨가물 검토", "건강식품 표현 선별"],
+    credential: "식품위생관리법 실무 전문가",
+    availability: "대기 명단",
+    activeCases: 6
+  },
+  {
+    name: "Hana Park",
+    firm: "Korea-Taiwan Market Access Desk",
+    base: "Seoul / Taipei",
+    discipline: "dual",
+    languages: ["ko", "zh-TW", "en"],
+    specialties: ["양국 증빙팩", "수입자 handoff", "화장품·식품 초기 분류"],
+    credential: "크로스보더 dossier 리드",
+    availability: "1건 수임 가능",
+    activeCases: 3
+  }
+];
+
+const previewExpertCases: PlatformExpertCaseRow[] = [
+  {
+    id: "10000000-0000-4000-8000-000000000101",
+    displayId: "EXP-2418",
+    company: "Annaanda Global",
+    product: "Cica Barrier Cream",
+    category: "화장품",
+    expert: "Dr. Mei-Lin Chen",
+    state: "requested",
+    chatReady: "범위 확인 질문지 미완료",
+    payment: "견적 전",
+    reviewHandoff: "PIF와 INCI 제한성분 검토",
+    next: "전성분 파일 접근 권한과 대만 출시 희망일을 확인합니다.",
+    sla: "오늘 운영자 배정 필요",
+    queueTone: "blocked"
+  },
+  {
+    id: "10000000-0000-4000-8000-000000000102",
+    displayId: "EXP-2420",
+    company: "Bloom Lab Korea",
+    product: "Tinted Sunscreen SPF50",
+    category: "화장품",
+    expert: "Dr. Mei-Lin Chen",
+    state: "matched",
+    chatReady: "payment_required 상담방 준비",
+    payment: "420 USD 견적 승인 대기",
+    reviewHandoff: "특수용도 화장품 해당성 확인",
+    next: "결제 승인 후 상담방을 active로 전환합니다.",
+    sla: "6시간 내 구매자 follow-up",
+    queueTone: "ready"
+  },
+  {
+    id: "10000000-0000-4000-8000-000000000103",
+    displayId: "EXP-2422",
+    company: "Green Spoon Co.",
+    product: "Soy Corn Protein Bar",
+    category: "식품",
+    expert: "Jason Wu",
+    state: "paid",
+    chatReady: "active 상담방",
+    payment: "580 USD 결제 완료",
+    reviewHandoff: "알레르겐·영양성분·첨가물 표시 검토",
+    next: "전문가 작업공간에 식품 라벨 체크리스트를 공개합니다.",
+    sla: "내일 1차 메모",
+    queueTone: "ready"
+  },
+  {
+    id: "10000000-0000-4000-8000-000000000104",
+    displayId: "EXP-2426",
+    company: "Han River Foods",
+    product: "Ginseng Jelly Stick",
+    category: "식품",
+    expert: "Jason Wu",
+    state: "in_progress",
+    chatReady: "운영자·전문가 상담방 진행",
+    payment: "1차 milestone 보류",
+    reviewHandoff: "건강식품 claim 위험 문구 정리",
+    next: "번역 원료표와 기능성 표현 근거를 보완합니다.",
+    sla: "전문가 회신 오늘",
+    queueTone: "default"
+  },
+  {
+    id: "10000000-0000-4000-8000-000000000105",
+    displayId: "EXP-2411",
+    company: "Nuri Beauty",
+    product: "Low-pH Gel Cleanser",
+    category: "화장품",
+    expert: "Hana Park",
+    state: "completed",
+    chatReady: "상담방 보관",
+    payment: "정산 완료",
+    reviewHandoff: "화장품 라벨·성분 검토 완료",
+    next: "완료 산출물을 문서 보관함에 고정합니다.",
+    sla: "종료",
+    queueTone: "ready"
+  },
+  {
+    id: "10000000-0000-4000-8000-000000000106",
+    displayId: "EXP-2407",
+    company: "Morning Farm",
+    product: "Enzyme Drink",
+    category: "식품",
+    expert: "Hana Park",
+    state: "refunded",
+    chatReady: "상담방 잠금",
+    payment: "260 USD 환불 완료",
+    reviewHandoff: "식품 claim 검토 취소",
+    next: "환불 사유와 재요청 trail을 audit에 남깁니다.",
+    sla: "사유 확인",
+    queueTone: "blocked"
+  }
+];
+
+const previewPayments: PlatformPaymentRow[] = [
+  {
+    id: "20000000-0000-4000-8000-000000000201",
+    displayId: "PAY-2420",
+    company: "Bloom Lab Korea",
+    product: "Tinted Sunscreen SPF50",
+    expert: "Dr. Mei-Lin Chen",
+    amount: "420 USD",
+    status: "pending",
+    provider: "Stripe quote draft",
+    expertMatchState: "matched",
+    chatThreadStatus: "payment_required",
+    chatThreadId: "30000000-0000-4000-8000-000000000301",
+    next: "구매자가 상담 범위를 승인하면 결제 링크를 보냅니다."
+  },
+  {
+    id: "20000000-0000-4000-8000-000000000202",
+    displayId: "PAY-2422",
+    company: "Green Spoon Co.",
+    product: "Soy Corn Protein Bar",
+    expert: "Jason Wu",
+    amount: "580 USD",
+    status: "paid",
+    provider: "Stripe / pi_escrow_ready",
+    expertMatchState: "paid",
+    chatThreadStatus: "active",
+    chatThreadId: "30000000-0000-4000-8000-000000000302",
+    next: "전문가 작업공간에 식품 표시 증빙 체크리스트를 공개합니다."
+  },
+  {
+    id: "20000000-0000-4000-8000-000000000203",
+    displayId: "PAY-2426",
+    company: "Han River Foods",
+    product: "Ginseng Jelly Stick",
+    expert: "Jason Wu",
+    amount: "310 USD",
+    status: "authorized",
+    provider: "manual invoice",
+    expertMatchState: "in_progress",
+    chatThreadStatus: "active",
+    chatThreadId: "30000000-0000-4000-8000-000000000303",
+    next: "milestone 지급 전 번역 원료표 보완 여부를 확인합니다."
+  },
+  {
+    id: "20000000-0000-4000-8000-000000000204",
+    displayId: "PAY-2407",
+    company: "Morning Farm",
+    product: "Enzyme Drink",
+    expert: "Hana Park",
+    amount: "260 USD",
+    status: "refunded",
+    provider: "Stripe / re_refund_sent",
+    expertMatchState: "refunded",
+    chatThreadStatus: "archived",
+    chatThreadId: "30000000-0000-4000-8000-000000000304",
+    next: "환불 사유와 상담방 잠금 상태가 audit에 남았는지 확인합니다."
+  }
+];
+
+const previewLogisticsCompanies: PlatformLogisticsCompanyRow[] = [
+  {
+    name: "Formosa Cold Chain",
+    lane: "KR -> TW 냉장 식품",
+    modes: ["ocean", "air"],
+    strengths: "TFDA 검사 슬롯, reefer handoff, 보세창고 조율",
+    sla: "4시간 내 견적",
+    status: "preferred"
+  },
+  {
+    name: "Taipei Beauty Forwarding",
+    lane: "KR -> TW 화장품",
+    modes: ["air"],
+    strengths: "PIF dossier 동봉, 화장품 통관 메모, 소량 항공",
+    sla: "2시간 내 견적",
+    status: "quoting"
+  },
+  {
+    name: "Kaohsiung Trade Bridge",
+    lane: "Busan -> Kaohsiung 식품",
+    modes: ["ocean"],
+    strengths: "CCC 코드 확인, 통관 보류 대응, 항만 창고 운송",
+    sla: "반일 견적",
+    status: "standby"
+  }
+];
+
+const previewShipmentRequests: PlatformShipmentRequestRow[] = [
+  {
+    id: "40000000-0000-4000-8000-000000000401",
+    displayId: "LR-2408",
+    product: "Soy protein snack multipack",
+    importer: "Annaanda Global",
+    lane: "Incheon -> Taoyuan",
+    state: "quoted",
+    handoff: "식품 수입검사",
+    next: "냉장 항공 견적과 일반 항공 견적을 비교합니다."
+  },
+  {
+    id: "40000000-0000-4000-8000-000000000402",
+    displayId: "LR-2411",
+    product: "Cica barrier cream launch kit",
+    importer: "Taipei Select Retail",
+    lane: "Seoul -> Taipei",
+    state: "accepted",
+    handoff: "화장품 PIF + 통관 메모",
+    next: "PIF 증빙을 lock한 뒤 항공 예약을 확정합니다."
+  },
+  {
+    id: "40000000-0000-4000-8000-000000000403",
+    displayId: "LR-2415",
+    product: "Shelf-stable tea beverage",
+    importer: "Green Market TW",
+    lane: "Busan -> Kaohsiung",
+    state: "customs_hold",
+    handoff: "식품 첨가물 표시",
+    next: "보완 요청 사유와 성분 설명서를 통관 이벤트에 첨부합니다."
+  }
+];
+
+const previewActiveShipments: PlatformShipmentRow[] = [
+  {
+    id: "50000000-0000-4000-8000-000000000501",
+    reference: "SHP-TW-8831",
+    product: "Cica barrier cream launch kit",
+    mode: "air",
+    carrier: "Korean Air Cargo",
+    tracking: "KE-771-22910463",
+    vehicle: "KE691",
+    route: "ICN -> TPE",
+    state: "booked",
+    eta: "7월 2일 09:25",
+    customs: "화장품 통관 메모와 PIF handoff 완료"
+  },
+  {
+    id: "50000000-0000-4000-8000-000000000502",
+    reference: "SHP-TW-8794",
+    product: "Soy protein snack multipack",
+    mode: "ocean",
+    carrier: "Evergreen Marine",
+    tracking: "EGLV-15684022",
+    vehicle: "Ever Bliss / 084E",
+    route: "PUS -> KEL",
+    state: "in_transit",
+    eta: "7월 8일 16:00",
+    customs: "TFDA 수입검사 예약 대기"
+  },
+  {
+    id: "50000000-0000-4000-8000-000000000503",
+    reference: "SHP-TW-8720",
+    product: "Shelf-stable tea beverage",
+    mode: "ocean",
+    carrier: "Yang Ming",
+    tracking: "YMLU-4409128",
+    vehicle: "YM Continuity / 032S",
+    route: "PUS -> KHH",
+    state: "customs_hold",
+    eta: "보류",
+    customs: "첨가물 용도 설명과 라벨 번역본 보완 요청"
+  }
+];
+
+const previewShipmentEvents: PlatformShipmentEventRow[] = [
+  {
+    time: "6월 27일 14:35",
+    title: "통관 보류: 첨가물 용도 확인",
+    location: "Kaohsiung Customs",
+    detail: "운영자가 식품 성분표와 첨가물 용도 설명서를 요청했습니다.",
+    state: "customs_hold"
+  },
+  {
+    time: "6월 27일 11:20",
+    title: "해상 운송 출항",
+    location: "Busan Port",
+    detail: "선박 출항 후 TFDA 검사 예약은 수입자 확인을 기다립니다.",
+    state: "in_transit"
+  },
+  {
+    time: "6월 26일 18:10",
+    title: "항공 예약 확정",
+    location: "Incheon Cargo Terminal",
+    detail: "화장품 PIF handoff와 인보이스 파일을 운송사에 전달했습니다.",
+    state: "booked"
+  },
+  {
+    time: "6월 26일 09:45",
+    title: "우선 물류 견적 수락",
+    location: "LabelPass Admin",
+    detail: "화장품 항공 shortlist에서 운영자가 운송사를 선택했습니다.",
+    state: "accepted"
+  }
+];
+
+const previewSettings: PlatformSettingRow[] = [
+  {
+    organization: "Annaanda Global",
+    billingStatus: "trial",
+    locale: "ko-KR",
+    markets: ["TW"],
+    reviewArchiveEnabled: false,
+    expertMatchingEnabled: true,
+    logisticsMatchingEnabled: true,
+    notifications: ["email"],
+    next: "Supabase DB URL 연결 후 리뷰 아카이브와 운영 데이터 저장을 켭니다."
+  },
+  {
+    organization: "Expert Partner Pool",
+    billingStatus: "active",
+    locale: "zh-TW",
+    markets: ["TW", "KR"],
+    reviewArchiveEnabled: false,
+    expertMatchingEnabled: true,
+    logisticsMatchingEnabled: false,
+    notifications: ["email", "dashboard"],
+    next: "전문가 상담방과 정산 알림 채널을 확인합니다."
+  },
+  {
+    organization: "Logistics Partner Pool",
+    billingStatus: "active",
+    locale: "zh-TW",
+    markets: ["TW"],
+    reviewArchiveEnabled: false,
+    expertMatchingEnabled: false,
+    logisticsMatchingEnabled: true,
+    notifications: ["email", "webhook"],
+    next: "선적 이벤트 webhook과 통관 보류 알림을 연결합니다."
+  }
+];
+
+export function getPlatformOpsPreviewSnapshot(storage: PlatformOpsStorage, warnings: string[]): PlatformOpsSnapshot {
   return {
     storage,
     generatedAt: new Date().toISOString(),
     warnings,
-    counts: zeroCounts,
-    companyRows: [],
-    roleRows: [],
-    reviewFlows: [],
-    expertProfiles: [],
-    expertCases: [],
-    logisticsCompanies: [],
-    shipmentRequests: [],
-    activeShipments: [],
-    shipmentEvents: [],
-    payments: [],
-    settings: []
+    counts: previewCounts,
+    companyRows: previewCompanyRows,
+    roleRows: previewRoleRows,
+    reviewFlows: previewReviewFlows,
+    expertProfiles: previewExpertProfiles,
+    expertCases: previewExpertCases,
+    logisticsCompanies: previewLogisticsCompanies,
+    shipmentRequests: previewShipmentRequests,
+    activeShipments: previewActiveShipments,
+    shipmentEvents: previewShipmentEvents,
+    payments: previewPayments,
+    settings: previewSettings
   };
 }
 
@@ -843,19 +1292,23 @@ async function readSettings(sql: DbClient): Promise<PlatformSettingRow[]> {
 
 export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
   if (!databaseUrl) {
-    return emptySnapshot("disabled", [
-      "SUPABASE_DB_URL, POSTGRES_URL, DATABASE_URL 중 하나가 없어 관리자 DB 조회는 비활성화되어 있습니다."
+    return getPlatformOpsPreviewSnapshot("disabled", [
+      "Supabase DB URL이 없어 실제 운영 DB 대신 연결된 운영 프리뷰 데이터를 표시합니다."
     ]);
   }
 
   if (!adminDbPreviewEnabled) {
-    return emptySnapshot("preview_disabled", [
-      "서버 DB URL은 있지만 LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1이 없어 공개 관리자 경로에서 실데이터 조회를 막았습니다."
+    return getPlatformOpsPreviewSnapshot("preview_disabled", [
+      "서버 DB URL은 있지만 관리자 DB 미리보기가 꺼져 있어 운영 프리뷰 데이터를 표시합니다."
     ]);
   }
 
   const sql = getClient();
-  if (!sql) return emptySnapshot("disabled", ["관리자 DB 클라이언트를 만들 수 없습니다."]);
+  if (!sql) {
+    return getPlatformOpsPreviewSnapshot("disabled", [
+      "관리자 DB 클라이언트를 만들 수 없어 운영 프리뷰 데이터를 표시합니다."
+    ]);
+  }
 
   try {
     const [
@@ -904,8 +1357,9 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       settings
     };
   } catch (error) {
-    return emptySnapshot("error", [
-      error instanceof Error ? error.message : "관리자 운영 DB 조회 중 알 수 없는 오류가 발생했습니다."
+    return getPlatformOpsPreviewSnapshot("error", [
+      error instanceof Error ? error.message : "관리자 운영 DB 조회 중 알 수 없는 오류가 발생했습니다.",
+      "실데이터 조회 실패로 운영 프리뷰 데이터를 표시합니다."
     ]);
   }
 }

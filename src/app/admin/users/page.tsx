@@ -37,8 +37,8 @@ const fallbackRoleRows = [
 
 export default async function AdminUsersPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const roleRows = snapshot.roleRows.length ? snapshot.roleRows : fallbackRoleRows;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 멤버 데이터" : "RLS 설계 데이터";
+  const roleRows = snapshot.roleRows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 멤버 데이터" : "운영 프리뷰 데이터";
 
   return (
     <>

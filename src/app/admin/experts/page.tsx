@@ -214,9 +214,9 @@ function nextExpertState(state: MatchState): MatchState {
 
 export default async function AdminExpertsPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const expertProfiles = snapshot.expertProfiles.length ? snapshot.expertProfiles : fallbackExpertProfiles;
-  const matchingCases = snapshot.expertCases.length ? snapshot.expertCases : fallbackMatchingCases;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 매칭 데이터" : "운영 설계 데이터";
+  const expertProfiles = snapshot.expertProfiles;
+  const matchingCases = snapshot.expertCases;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 매칭 데이터" : "운영 프리뷰 데이터";
   const stateCounts = stateOrder.map((state) => ({
     state,
     count: matchingCases.filter((item) => item.state === state).length

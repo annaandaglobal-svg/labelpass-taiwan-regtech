@@ -288,11 +288,11 @@ function nextShipmentStatus(state: RequestState) {
 
 export default async function AdminLogisticsPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const logisticsCompanies = snapshot.logisticsCompanies.length ? snapshot.logisticsCompanies : fallbackLogisticsCompanies;
-  const shipmentRequests = snapshot.shipmentRequests.length ? snapshot.shipmentRequests : fallbackShipmentRequests;
-  const activeShipments = snapshot.activeShipments.length ? snapshot.activeShipments : fallbackActiveShipments;
-  const shipmentEvents = snapshot.shipmentEvents.length ? snapshot.shipmentEvents : fallbackShipmentEvents;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 물류 데이터" : "운영 설계 데이터";
+  const logisticsCompanies = snapshot.logisticsCompanies;
+  const shipmentRequests = snapshot.shipmentRequests;
+  const activeShipments = snapshot.activeShipments;
+  const shipmentEvents = snapshot.shipmentEvents;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 물류 데이터" : "운영 프리뷰 데이터";
   const activeRequestCount = shipmentRequests.filter((request) => !["delivered", "cancelled"].includes(request.state)).length;
   const customsHoldCount = activeShipments.filter((shipment) => shipment.state === "customs_hold").length;
   const inTransitCount = activeShipments.filter((shipment) => shipment.state === "in_transit" || shipment.state === "booked").length;

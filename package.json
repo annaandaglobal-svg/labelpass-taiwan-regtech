@@ -23,6 +23,7 @@
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
     "audit:knowledge-ops": "node scripts/audit-knowledge-ops-readiness.mjs",
     "audit:ui-shell": "node scripts/audit-ui-shell.mjs",
+    "audit:admin-preview": "node scripts/audit-admin-preview-data.mjs",
     "report:knowledge-ops": "node scripts/report-knowledge-operations.mjs",
     "report:knowledge-ops:write": "node scripts/report-knowledge-operations.mjs --write-report",
     "export:knowledge-memory": "pnpm build:source-ops-metadata && node scripts/export-knowledge-memory.mjs",
