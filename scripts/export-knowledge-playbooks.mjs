@@ -11,6 +11,14 @@ const paths = {
   bundleDir: path.join(root, "docs", "wiki", "evidence-bundles")
 };
 
+function compareStable(left, right) {
+  const a = String(left ?? "");
+  const b = String(right ?? "");
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+}
+
 const routeConfigs = [
   {
     id: "tw_cosmetic_label_pif",
@@ -268,7 +276,7 @@ function selectSources(memory, config, coverage) {
   return memory.source_cards
     .map((source) => ({ source, score: scoreSource(source, config, coverageSourceIds) }))
     .filter((item) => item.score > 0)
-    .sort((left, right) => right.score - left.score || left.source.id.localeCompare(right.source.id))
+    .sort((left, right) => right.score - left.score || compareStable(left.source.id, right.source.id))
     .slice(0, 9)
     .map((item) => ({
       id: item.source.id,
@@ -287,7 +295,7 @@ function selectTerms(memory, config, coverage) {
   return memory.term_cards
     .map((term) => ({ term, score: scoreTerm(term, config, coverageTermIds) }))
     .filter((item) => item.score > 0)
-    .sort((left, right) => right.score - left.score || left.term.id.localeCompare(right.term.id))
+    .sort((left, right) => right.score - left.score || compareStable(left.term.id, right.term.id))
     .slice(0, 10)
     .map((item) => ({
       id: item.term.id,

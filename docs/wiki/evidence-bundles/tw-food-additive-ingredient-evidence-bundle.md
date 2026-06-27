@@ -23,12 +23,12 @@
 
 ## Top Terms
 
-- **Food Labeling and Claims** (`food-labeling-claims`): 食品標示廣告; food claims; food labeling claims; 식품 표시광고
-- **Food Allergen Labeling** (`food-allergen-labeling`): 過敏原標示; allergen labeling; 알레르기 표시; 致過敏性內容物
-- **Food Label Required Items** (`food-label-required-items`): 食品標示; 食品標示手冊; 食品標示法規手冊; food labeling regulations handbook
-- **Nutrition Labeling** (`nutrition-labeling`): 營養標示; nutrition label; 영양성분표; 营养标签
-- **Food Additive Functional Classes** (`food-additive-functional-classes`): food additive functional class; 防腐劑; 甜味劑; food additive function
-- **Benzoic Acid and Benzoates** (`benzoates-food-additives`): CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; 苯甲酸
+- **Food Labeling and Claims** (`food-labeling-claims`): food claims; food labeling claims; 食品標示廣告; 식품 표시광고
+- **Food Allergen Labeling** (`food-allergen-labeling`): allergen labeling; 過敏原標示; 알레르기 표시; allergen warning
+- **Food Label Required Items** (`food-label-required-items`): food labeling regulations handbook; 食品標示; 食品標示手冊; 食品標示法規手冊
+- **Nutrition Labeling** (`nutrition-labeling`): nutrition label; 營養標示; 영양성분표; nutrition facts
+- **Food Additive Functional Classes** (`food-additive-functional-classes`): food additive functional class; food additive function; preservative; preservatives
+- **Benzoic Acid and Benzoates** (`benzoates-food-additives`): CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; Benzoic acid
 
 ## Required Sources
 

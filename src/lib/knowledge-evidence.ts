@@ -68,6 +68,12 @@ function unique(values: string[], limit: number) {
   return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean))).slice(0, limit);
 }
 
+function compareStable(left: string, right: string) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
 function overlapCount(left: string[], right: string[]) {
   const rightSet = new Set(right);
   return left.filter((value) => rightSet.has(value)).length;
@@ -141,7 +147,7 @@ function routeHintsFor(result: KnowledgeSearchResult, query: string, options: Ev
       };
     })
     .filter((hint): hint is EvidenceRouteHint => Boolean(hint))
-    .sort((left, right) => right.score - left.score || left.routeId.localeCompare(right.routeId))
+    .sort((left, right) => right.score - left.score || compareStable(left.routeId, right.routeId))
     .slice(0, 3);
 }
 

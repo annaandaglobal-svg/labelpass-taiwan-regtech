@@ -12,6 +12,14 @@ const paths = {
   aliasReviewQueue: path.join(root, "data", "knowledge", "alias-review-queue.json")
 };
 
+function compareStable(left, right) {
+  const a = String(left ?? "");
+  const b = String(right ?? "");
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+}
+
 function normalizeText(value) {
   return String(value ?? "")
     .normalize("NFKC")
@@ -95,7 +103,7 @@ function sortBySeverity(a, b) {
   if (a.priority !== b.priority) return a.priority - b.priority;
   if (a.maxConfidence !== b.maxConfidence) return b.maxConfidence - a.maxConfidence;
   if (a.termCount !== b.termCount) return b.termCount - a.termCount;
-  return a.alias.localeCompare(b.alias);
+  return compareStable(a.alias, b.alias);
 }
 
 function formatTermList(terms) {

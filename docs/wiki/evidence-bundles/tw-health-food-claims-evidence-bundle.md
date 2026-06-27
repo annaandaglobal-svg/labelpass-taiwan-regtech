@@ -23,12 +23,12 @@
 
 ## Top Terms
 
-- **Health Food Permit** (`health-food-permit`): 健康食品許可證; 許可證; health food permit; product registration permit
-- **Health Food** (`health-food`): 健康食品; Health Food; 保健功效; health care effects
-- **Health Food Application Permit** (`health-food-application-permit`): 健康食品查驗登記; health food application permit; 安全評估報告; 保健功效成分
-- **Health Food Approved Effect Vocabulary** (`health-food-approved-effect-vocabulary`): approved health care effects; 免疫調節; 胃腸功能改善; 骨質保健
-- **Health Food Label Required Items** (`health-food-label-required-items`): 健康食品字樣; 健康食品標示; 健康食品標示規定; health food labeling regulations
-- **Novel Food Ingredient Safety Assessment** (`novel-food-ingredient-safety-assessment`): 非傳統食品原料; 新興食品原料; 安全性評估資料表; non-traditional food ingredient
+- **Health Food Permit** (`health-food-permit`): health food permit; product registration permit; 健康食品許可證; 許可證
+- **Health Food** (`health-food`): Health Food; 健康食品; health care effects; 保健功效
+- **Health Food Application Permit** (`health-food-application-permit`): health food application permit; 健康食品查驗登記; health care effect assessment report; safety assessment report
+- **Health Food Approved Effect Vocabulary** (`health-food-approved-effect-vocabulary`): approved health care effects; health food effect assessment methods; 免疫調節; 胃腸功能改善
+- **Health Food Label Required Items** (`health-food-label-required-items`): health food labeling regulations; 健康食品字樣; 健康食品標示; 健康食品標示規定
+- **Novel Food Ingredient Safety Assessment** (`novel-food-ingredient-safety-assessment`): 新興食品原料; 非傳統食品原料; non-traditional food ingredient; novel food ingredient
 
 ## Required Sources
 

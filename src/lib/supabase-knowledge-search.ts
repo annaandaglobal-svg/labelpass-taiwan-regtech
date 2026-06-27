@@ -43,6 +43,12 @@ type RuleRow = {
   confidence: string | number;
 };
 
+function compareStable(left: string, right: string) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
 type SourceRow = {
   source_key: string;
   title: string;
@@ -482,7 +488,7 @@ function buildKnowledgeSearchResult(params: {
   }
 
   const sourceRows = [...sourceRowsByKey.values()]
-    .sort((a, b) => b.score - a.score || priorityRank(a.priority) - priorityRank(b.priority) || a.title.localeCompare(b.title))
+    .sort((a, b) => b.score - a.score || priorityRank(a.priority) - priorityRank(b.priority) || compareStable(a.title, b.title))
     .slice(0, Math.max(4, Math.floor(limit / 2)));
 
   return {

@@ -23,11 +23,11 @@
 
 ## Top Terms
 
-- **Import and Export Permit** (`import-export-permit`): 輸入許可證; 輸出許可證; export permit; import permit
-- **Customs Declaration** (`customs-declaration`): 出口報單; 進口報單; customs declaration; export declaration
-- **HS Code Classification** (`hs-code-classification`): CCC code; CCC碼; Harmonized System; HS code
-- **Shipment Purpose** (`shipment-purpose`): shipment purpose; 출하 목적; 自用; 進口目的
-- **Taiwan Importer and Responsible Firm** (`taiwan-importer-responsible-firm`): 進口商; Taiwan importer; 대만 수입자; 수입자
+- **Import and Export Permit** (`import-export-permit`): export permit; import permit; 輸入許可證; 輸出許可證
+- **Customs Declaration** (`customs-declaration`): customs declaration; export declaration; import declaration; 出口報單
+- **HS Code Classification** (`hs-code-classification`): CCC code; CCC碼; HS code; HS코드
+- **Shipment Purpose** (`shipment-purpose`): shipment purpose; 출하 목적; import purpose; 自用
+- **Taiwan Importer and Responsible Firm** (`taiwan-importer-responsible-firm`): Taiwan importer; 進口商; 대만 수입자; 수입자
 
 ## Required Sources
 

@@ -8,6 +8,12 @@ function sourcePriorityRank(priority: string) {
   return 2;
 }
 
+function compareStable(left: string, right: string) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
 function mergeKnowledgeResult(
   primary: KnowledgeSearchResult,
   fallback: KnowledgeSearchResult,
@@ -45,7 +51,7 @@ function mergeKnowledgeResult(
   }
 
   const mergedTerms = terms
-    .sort((a, b) => b.score - a.score || a.canonicalName.localeCompare(b.canonicalName))
+    .sort((a, b) => b.score - a.score || compareStable(a.canonicalName, b.canonicalName))
     .slice(0, limit);
 
   const query = primary.query || fallback.query;
@@ -74,7 +80,7 @@ function mergeKnowledgeResult(
       (a, b) =>
         b.score - a.score ||
         sourcePriorityRank(a.priority) - sourcePriorityRank(b.priority) ||
-        a.title.localeCompare(b.title)
+        compareStable(a.title, b.title)
     )
     .slice(0, limit);
 

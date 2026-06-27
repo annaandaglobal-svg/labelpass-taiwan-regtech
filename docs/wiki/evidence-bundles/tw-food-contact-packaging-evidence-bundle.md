@@ -23,12 +23,12 @@
 
 ## Top Terms
 
-- **Taiwan Import Regulation Codes F01, F02 and 508** (`import-regulation-f01-f02-508`): 508; 輸入規定508; 輸入規定F01; 輸入規定F02
-- **Food Business Registration for Importers** (`food-business-registration-importer`): 食品業者登錄; food business registration; 식품업자 등록; 產品責任保險
-- **Imported Food Inspection Forms** (`imported-food-inspection-forms`): 食品及相關產品資料表; 食品及相關產品輸入查驗申請書; 產品資料表; 報驗義務人
-- **Imported Food Inspection** (`imported-food-inspection`): 輸入食品查驗; imported food inspection; 수입식품 검사; food import inspection
-- **Product Information Sheet** (`product-information-sheet`): product information sheet; 產品資訊表; application form for inspection; declaration form of product information
-- **Systematic Inspection of Imported Food** (`systematic-imported-food-inspection`): systematic inspection of imported food; 系統性查核; document review; on-site inspection
+- **Taiwan Import Regulation Codes F01, F02 and 508** (`import-regulation-f01-f02-508`): 508; F01; F02; 輸入規定508
+- **Food Business Registration for Importers** (`food-business-registration-importer`): food business registration; 食品業者登錄; 식품업자 등록; food importer registration
+- **Imported Food Inspection Forms** (`imported-food-inspection-forms`): 食品及相關產品資料表; 食品及相關產品輸入查驗申請書; imported food inspection application; 報驗義務人
+- **Imported Food Inspection** (`imported-food-inspection`): imported food inspection; 輸入食品查驗; 수입식품 검사; food import inspection
+- **Product Information Sheet** (`product-information-sheet`): product information sheet; application form for inspection; declaration form of product information; 產品資訊表
+- **Systematic Inspection of Imported Food** (`systematic-imported-food-inspection`): systematic inspection of imported food; document review; on-site inspection; systematic inspection
 
 ## Required Sources
 

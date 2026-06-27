@@ -11,6 +11,14 @@ const paths = {
 
 const expiringSoonDays = Number(process.env.LABELPASS_UPDATE_EXPIRING_SOON_DAYS ?? 7);
 
+function compareStable(left, right) {
+  const a = String(left ?? "");
+  const b = String(right ?? "");
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+}
+
 async function readJson(filePath, fallback = null) {
   try {
     return JSON.parse(await readFile(filePath, "utf8"));
@@ -258,7 +266,7 @@ items.sort((a, b) => {
   return (
     (severityRank[a.severity] ?? 3) - (severityRank[b.severity] ?? 3) ||
     (statusRank[a.status] ?? 9) - (statusRank[b.status] ?? 9) ||
-    a.source_key.localeCompare(b.source_key)
+    compareStable(a.source_key, b.source_key)
   );
 });
 

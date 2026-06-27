@@ -253,6 +253,12 @@ export function normalizeKnowledgeQuery(value: string) {
 
 const normalize = normalizeKnowledgeQuery;
 
+function compareStable(left: string, right: string) {
+  if (left < right) return -1;
+  if (left > right) return 1;
+  return 0;
+}
+
 const aliasOwners = new Map<string, Set<string>>();
 for (const term of terms) {
   const aliases = [
@@ -489,7 +495,7 @@ function ambiguousAliasesForTerm(term: KnowledgeTerm, aliases: Alias[], matchedA
       const otherTerms = [...owners]
         .filter((termId) => termId !== term.id)
         .map((termId) => termNamesById.get(termId) ?? termId)
-        .sort((a, b) => a.localeCompare(b))
+        .sort((a, b) => compareStable(a, b))
         .slice(0, 5);
       if (!otherTerms.length) return null;
       return {
@@ -737,7 +743,7 @@ function topCounts(values: string[], limit = 8) {
 
   return [...counts.entries()]
     .map(([key, count]) => ({ key, count }))
-    .sort((a, b) => b.count - a.count || a.key.localeCompare(b.key))
+    .sort((a, b) => b.count - a.count || compareStable(a.key, b.key))
     .slice(0, limit);
 }
 
@@ -851,7 +857,7 @@ export function searchKnowledge(rawQuery: string, limit = 10): KnowledgeSearchRe
       (a, b) =>
         b.score - a.score ||
         sourcePriorityRank(a.source.priority) - sourcePriorityRank(b.source.priority) ||
-        a.source.title.localeCompare(b.source.title)
+        compareStable(a.source.title, b.source.title)
     )
     .slice(0, Math.max(8, limit))
     .map(({ source, score }) => ({

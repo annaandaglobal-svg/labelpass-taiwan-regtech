@@ -14,6 +14,14 @@ const paths = {
   memoryMarkdown: path.join(root, "docs", "wiki", "knowledge-memory.md")
 };
 
+function compareStable(left, right) {
+  const a = String(left ?? "");
+  const b = String(right ?? "");
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+}
+
 const domainPriority = [
   "cosmetics",
   "food",
@@ -203,7 +211,7 @@ function markdownTable(rows, columns) {
 function sortByPriority(left, right) {
   const leftPriority = left.priority === "high" ? 0 : left.priority === "medium" ? 1 : 2;
   const rightPriority = right.priority === "high" ? 0 : right.priority === "medium" ? 1 : 2;
-  return leftPriority - rightPriority || left.domain.localeCompare(right.domain) || left.id.localeCompare(right.id);
+  return leftPriority - rightPriority || compareStable(left.domain, right.domain) || compareStable(left.id, right.id);
 }
 
 function buildAliasList(term) {
@@ -214,7 +222,7 @@ function buildAliasList(term) {
   ];
   const aliases = (term.aliases ?? [])
     .filter((alias) => isReadableText(alias.value))
-    .sort((left, right) => (right.confidence ?? 0) - (left.confidence ?? 0) || String(left.value).localeCompare(String(right.value)))
+    .sort((left, right) => (right.confidence ?? 0) - (left.confidence ?? 0) || compareStable(left.value, right.value))
     .map((alias) => alias.value);
   return unique([...identifiers, ...aliases]).slice(0, 10);
 }
@@ -234,7 +242,7 @@ function buildTermCards(terms, coverageTermIds, selectedSourceIds) {
   const scored = terms
     .map((term) => ({ term, score: termScore(term, coverageTermIds, selectedSourceIds) }))
     .filter((item) => item.score > 0)
-    .sort((left, right) => right.score - left.score || left.term.id.localeCompare(right.term.id));
+    .sort((left, right) => right.score - left.score || compareStable(left.term.id, right.term.id));
 
   const selected = [];
   for (const item of scored) {
@@ -434,7 +442,7 @@ const refreshItems = (updateQueue.items ?? [])
   .sort((left, right) => {
     const leftDays = left.days_until_refresh ?? 9999;
     const rightDays = right.days_until_refresh ?? 9999;
-    return leftDays - rightDays || left.source_key.localeCompare(right.source_key);
+    return leftDays - rightDays || compareStable(left.source_key, right.source_key);
   })
   .slice(0, 32);
 

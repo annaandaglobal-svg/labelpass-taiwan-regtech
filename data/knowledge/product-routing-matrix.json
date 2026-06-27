@@ -206,12 +206,12 @@
           "canonical_name": "Cosmetic Product Information File",
           "category": "cosmetic_compliance",
           "aliases": [
-            "產品資訊檔案",
             "Product Information File",
+            "產品資訊檔案",
             "대만 화장품 PIF",
             "화장품 PIF",
-            "化粧品產品資訊檔案",
-            "PIF"
+            "PIF",
+            "化粧品產品資訊檔案"
           ],
           "source_keys": [
             "tw-moj-cosmetic-pif-management",
@@ -227,12 +227,12 @@
           "canonical_name": "Cosmetic Labeling and Claims",
           "category": "cosmetic_compliance",
           "aliases": [
-            "化粧品標示",
             "cosmetic labeling",
+            "化粧品標示",
             "화장품 표시",
-            "化粧品廣告",
-            "化粧品標示宣傳廣告",
-            "化粧品標籤"
+            "cosmetic advertising claims",
+            "cosmetic claim evidence",
+            "cosmetic claim substantiation"
           ],
           "source_keys": [
             "tw-moj-cosmetic-hygiene-safety-act",
@@ -248,12 +248,12 @@
           "canonical_name": "Cosmetic Product Notification",
           "category": "cosmetic_compliance",
           "aliases": [
-            "台灣化粧品產品登錄",
             "cosmetic product notification",
+            "台灣化粧品產品登錄",
             "化粧品產品登錄",
             "화장품 신고",
-            "化妆品备案",
-            "化粧品產品登錄平台系統"
+            "product notification",
+            "化妆品备案"
           ],
           "source_keys": [
             "tw-moj-cosmetic-product-notification",
@@ -269,12 +269,12 @@
           "canonical_name": "Cosmetic PIF and Product Registration Categories",
           "category": "cosmetic_compliance",
           "aliases": [
-            "產品登錄",
+            "cosmetic product registration",
             "應完成產品登錄之化粧品種類",
             "應建立產品資訊檔案之化粧品種類及實施日期",
-            "cosmetic product registration",
-            "止汗制臭",
-            "防曬"
+            "產品登錄",
+            "染髮",
+            "止汗制臭"
           ],
           "source_keys": [
             "tw-tfda-pif-implementation",
@@ -288,12 +288,12 @@
           "canonical_name": "Cosmetic Label Required Items",
           "category": "cosmetic_compliance",
           "aliases": [
-            "中文品名",
-            "化粧品外包裝、容器、標籤或仿單之標示規定",
-            "化粧品標示",
-            "全成分",
+            "INCI",
             "cosmetic outer package, container, label and package insert marking",
-            "INCI"
+            "中文品名",
+            "全成分",
+            "化粧品外包裝、容器、標籤或仿單之標示規定",
+            "化粧品標示"
           ],
           "source_keys": [
             "tw-tfda-cosmetic-label-leaflet-packaging-marking",
@@ -306,9 +306,9 @@
           "category": "cosmetic_compliance",
           "aliases": [
             "噴霧狀化粧品",
-            "使用安全指引",
             "aerosol cosmetics",
             "spray cosmetics",
+            "使用安全指引",
             "吸入風險",
             "스프레이 화장품"
           ],
@@ -321,12 +321,12 @@
           "canonical_name": "Specific Purpose Cosmetics Permit Transition",
           "category": "cosmetic_compliance",
           "aliases": [
-            "特定用途化粧品",
             "specific purpose cosmetics",
+            "特定用途化粧品",
             "113年7月1日",
             "特定用途化粧品查驗登記",
             "許可證核發辦法",
-            "廢止"
+            "pre-marketing license"
           ],
           "source_keys": [
             "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024"
@@ -337,12 +337,12 @@
           "canonical_name": "Cosmetic Claims Criteria",
           "category": "cosmetic_compliance",
           "aliases": [
-            "化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則",
             "cosmetic claims criteria",
+            "化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則",
             "화장품 효능표현 판단기준",
-            "化粧品標示宣傳廣告",
-            "虛偽誇大",
-            "醫療效能"
+            "cosmetic claim evidence",
+            "cosmetic claim substantiation",
+            "cosmetic medical efficacy claim"
           ],
           "source_keys": [
             "tw-moj-cosmetic-claims-criteria",
@@ -375,11 +375,11 @@
           "canonical_name": "Cosmetic Good Manufacturing Practice",
           "category": "cosmetic_compliance",
           "aliases": [
-            "化粧品優良製造準則",
             "cosmetic GMP",
-            "化粧品GMP",
-            "cosmetic good manufacturing practice",
+            "化粧品優良製造準則",
             "Good Manufacturing Practice for cosmetics",
+            "cosmetic good manufacturing practice",
+            "化粧品GMP",
             "화장품 GMP"
           ],
           "source_keys": [
@@ -585,12 +585,12 @@
           "canonical_name": "Food Labeling and Claims",
           "category": "food_labeling",
           "aliases": [
-            "食品標示廣告",
             "food claims",
             "food labeling claims",
+            "食品標示廣告",
             "식품 표시광고",
-            "食品宣稱",
-            "甜味宣稱"
+            "false exaggerated misleading food claim",
+            "food claim substantiation"
           ],
           "source_keys": [
             "tw-moj-food-safety-sanitation-act",
@@ -606,12 +606,12 @@
           "canonical_name": "Food Allergen Labeling",
           "category": "food_labeling",
           "aliases": [
-            "過敏原標示",
             "allergen labeling",
+            "過敏原標示",
             "알레르기 표시",
+            "allergen warning",
             "致過敏性內容物",
-            "致過敏性內容物名稱",
-            "allergen warning"
+            "致過敏性內容物名稱"
           ],
           "source_keys": [
             "tw-tfda-food-allergen-labeling",
@@ -625,12 +625,12 @@
           "canonical_name": "Food Label Required Items",
           "category": "food_labeling",
           "aliases": [
+            "food labeling regulations handbook",
             "食品標示",
             "食品標示手冊",
             "食品標示法規手冊",
-            "food labeling regulations handbook",
-            "內容物名稱",
-            "有效日期"
+            "food label required items",
+            "prepackaged food labeling"
           ],
           "source_keys": [
             "tw-tfda-food-labeling-handbook-2026",
@@ -643,11 +643,11 @@
           "canonical_name": "Nutrition Labeling",
           "category": "food_labeling",
           "aliases": [
-            "營養標示",
             "nutrition label",
+            "營養標示",
             "영양성분표",
-            "营养标签",
             "nutrition facts",
+            "营养标签",
             "영양표시"
           ],
           "source_keys": [
@@ -664,12 +664,12 @@
           "canonical_name": "Sulphites Allergen",
           "category": "food_allergen",
           "aliases": [
-            "亞硫酸鹽類",
             "Sulfites",
             "Sulphites",
+            "亞硫酸鹽類",
             "10 mg/kg",
-            "二氧化硫",
-            "亞硫酸鹽"
+            "SO2",
+            "sulfur dioxide"
           ],
           "source_keys": [
             "tw-tfda-food-allergen-labeling",
@@ -682,12 +682,12 @@
           "canonical_name": "Crustacea Allergen",
           "category": "food_allergen",
           "aliases": [
-            "甲殼類",
             "Crustacea",
+            "甲殼類",
             "crustacean",
             "갑각류",
-            "蝦",
-            "蟹"
+            "crab",
+            "shrimp"
           ],
           "source_keys": [
             "tw-tfda-food-allergen-labeling",
@@ -700,8 +700,8 @@
           "canonical_name": "Fish Allergen",
           "category": "food_allergen",
           "aliases": [
-            "魚類",
             "Fish",
+            "魚類",
             "fish products",
             "어류",
             "생선",
@@ -718,8 +718,8 @@
           "canonical_name": "Mango Allergen",
           "category": "food_allergen",
           "aliases": [
-            "芒果",
             "Mango",
+            "芒果",
             "mango products",
             "망고"
           ],
@@ -734,11 +734,11 @@
           "canonical_name": "Tree Nuts Allergen",
           "category": "food_allergen",
           "aliases": [
-            "堅果類",
             "Tree Nuts",
+            "堅果類",
             "견과류",
-            "堅果",
             "nut products",
+            "堅果",
             "nuts"
           ],
           "source_keys": [
@@ -753,11 +753,11 @@
           "category": "food_additive",
           "aliases": [
             "CAS 9000-71-9",
+            "Calcium caseinate",
+            "Casein",
+            "Sodium caseinate",
             "乾酪素",
-            "乾酪素鈉",
-            "乾酪素鈣",
-            "酪蛋白",
-            "酪蛋白鈉"
+            "乾酪素鈉"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -957,12 +957,12 @@
           "canonical_name": "Food Labeling and Claims",
           "category": "food_labeling",
           "aliases": [
-            "食品標示廣告",
             "food claims",
             "food labeling claims",
+            "食品標示廣告",
             "식품 표시광고",
-            "食品宣稱",
-            "甜味宣稱"
+            "false exaggerated misleading food claim",
+            "food claim substantiation"
           ],
           "source_keys": [
             "tw-moj-food-safety-sanitation-act",
@@ -978,12 +978,12 @@
           "canonical_name": "Food Allergen Labeling",
           "category": "food_labeling",
           "aliases": [
-            "過敏原標示",
             "allergen labeling",
+            "過敏原標示",
             "알레르기 표시",
+            "allergen warning",
             "致過敏性內容物",
-            "致過敏性內容物名稱",
-            "allergen warning"
+            "致過敏性內容物名稱"
           ],
           "source_keys": [
             "tw-tfda-food-allergen-labeling",
@@ -997,12 +997,12 @@
           "canonical_name": "Food Label Required Items",
           "category": "food_labeling",
           "aliases": [
+            "food labeling regulations handbook",
             "食品標示",
             "食品標示手冊",
             "食品標示法規手冊",
-            "food labeling regulations handbook",
-            "內容物名稱",
-            "有效日期"
+            "food label required items",
+            "prepackaged food labeling"
           ],
           "source_keys": [
             "tw-tfda-food-labeling-handbook-2026",
@@ -1015,11 +1015,11 @@
           "canonical_name": "Nutrition Labeling",
           "category": "food_labeling",
           "aliases": [
-            "營養標示",
             "nutrition label",
+            "營養標示",
             "영양성분표",
-            "营养标签",
             "nutrition facts",
+            "营养标签",
             "영양표시"
           ],
           "source_keys": [
@@ -1037,11 +1037,11 @@
           "category": "food_additive",
           "aliases": [
             "food additive functional class",
-            "防腐劑",
-            "甜味劑",
             "food additive function",
             "preservative",
-            "preservatives"
+            "preservatives",
+            "sweetener",
+            "sweeteners"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -1058,9 +1058,9 @@
             "CAS 65-85-0",
             "CAS 532-32-1",
             "CAS 582-25-2",
-            "苯甲酸",
-            "苯甲酸鈉",
-            "苯甲酸鉀"
+            "Benzoic acid",
+            "Potassium benzoate",
+            "Sodium benzoate"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -1076,9 +1076,9 @@
             "CAS 110-44-1",
             "CAS 24634-61-5",
             "CAS 7757-81-5",
-            "山梨酸",
-            "山梨酸鈉",
-            "山梨酸鉀"
+            "Potassium sorbate",
+            "Sodium sorbate",
+            "Sorbic acid"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -1093,10 +1093,10 @@
           "aliases": [
             "CAS 1305-62-0",
             "CAS 1305-78-8",
-            "生石灰",
+            "Calcium hydroxide",
+            "Calcium oxide",
             "氧化鈣",
-            "氫氧化鈣",
-            "熟石灰"
+            "氫氧化鈣"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -1110,11 +1110,11 @@
           "category": "food_additive",
           "aliases": [
             "CAS 9000-71-9",
+            "Calcium caseinate",
+            "Casein",
+            "Sodium caseinate",
             "乾酪素",
-            "乾酪素鈉",
-            "乾酪素鈣",
-            "酪蛋白",
-            "酪蛋白鈉"
+            "乾酪素鈉"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -1128,9 +1128,9 @@
           "category": "food_additive",
           "aliases": [
             "CAS 520-45-6",
+            "Dehydroacetic acid",
             "去水醋酸",
             "脫氫乙酸",
-            "Dehydroacetic acid",
             "데하이드로초산",
             "탈수초산"
           ],
@@ -1335,12 +1335,12 @@
           "canonical_name": "Imported Food Inspection",
           "category": "food_import",
           "aliases": [
-            "輸入食品查驗",
             "imported food inspection",
+            "輸入食品查驗",
             "수입식품 검사",
             "food import inspection",
-            "逐批查驗",
-            "輸入食品及相關產品查驗"
+            "batch-by-batch inspection",
+            "border inspection of imported food"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
@@ -1354,11 +1354,11 @@
           "category": "food_import",
           "aliases": [
             "product information sheet",
-            "產品資訊表",
             "application form for inspection",
             "declaration form of product information",
+            "產品資訊表",
             "제품정보표",
-            "查驗申請書"
+            "photocopy of import declaration"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations"
@@ -1370,10 +1370,10 @@
           "category": "food_import",
           "aliases": [
             "systematic inspection of imported food",
-            "系統性查核",
             "document review",
             "on-site inspection",
             "systematic inspection",
+            "系統性查核",
             "수입식품 체계적 검사"
           ],
           "source_keys": [
@@ -1387,10 +1387,10 @@
           "aliases": [
             "食品及相關產品資料表",
             "食品及相關產品輸入查驗申請書",
-            "產品資料表",
+            "imported food inspection application",
             "報驗義務人",
-            "輸入食品免貼中文標示具結書",
-            "imported food inspection application"
+            "產品資料表",
+            "輸入食品免貼中文標示具結書"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
@@ -1405,11 +1405,11 @@
           "category": "food_import",
           "aliases": [
             "508",
+            "F01",
+            "F02",
             "輸入規定508",
             "輸入規定F01",
-            "輸入規定F02",
-            "F01",
-            "F02"
+            "輸入規定F02"
           ],
           "source_keys": [
             "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
@@ -1422,12 +1422,12 @@
           "canonical_name": "Food Business Registration for Importers",
           "category": "food_import",
           "aliases": [
-            "食品業者登錄",
             "food business registration",
+            "食品業者登錄",
             "식품업자 등록",
-            "產品責任保險",
-            "輸入業者登錄",
-            "food importer registration"
+            "food importer registration",
+            "import business operator registration",
+            "product liability insurance"
           ],
           "source_keys": [
             "tw-tfda-food-business-registration-importers"
@@ -1438,10 +1438,10 @@
           "canonical_name": "Compound Food Additive Import Documents",
           "category": "food_import",
           "aliases": [
+            "compound food additive",
             "官方衛生證明",
             "產品成分報告",
             "複方食品添加物",
-            "compound food additive",
             "compound food additive import documents",
             "official health certificate"
           ],
@@ -1456,11 +1456,11 @@
           "canonical_name": "Customs Declaration",
           "category": "customs_document",
           "aliases": [
-            "出口報單",
-            "進口報單",
             "customs declaration",
             "export declaration",
             "import declaration",
+            "出口報單",
+            "進口報單",
             "수입신고"
           ],
           "source_keys": [
@@ -1476,10 +1476,10 @@
           "aliases": [
             "CCC code",
             "CCC碼",
-            "Harmonized System",
             "HS code",
             "HS코드",
-            "海關進口稅則"
+            "Harmonized System",
+            "HSコード"
           ],
           "source_keys": [
             "global-wco-harmonized-system",
@@ -1495,10 +1495,10 @@
           "canonical_name": "Import and Export Permit",
           "category": "import_export_control",
           "aliases": [
-            "輸入許可證",
-            "輸出許可證",
             "export permit",
             "import permit",
+            "輸入許可證",
+            "輸出許可證",
             "수입허가증",
             "수출허가증"
           ],
@@ -1700,12 +1700,12 @@
           "canonical_name": "Health Food Permit",
           "category": "health_food",
           "aliases": [
-            "健康食品許可證",
-            "許可證",
             "health food permit",
             "product registration permit",
-            "健康食品申請許可",
-            "健康食品查驗登記"
+            "健康食品許可證",
+            "許可證",
+            "inspection and registration",
+            "permit number"
           ],
           "source_keys": [
             "tw-moj-health-food-governing-act",
@@ -1718,10 +1718,10 @@
           "canonical_name": "Health Food",
           "category": "health_food",
           "aliases": [
-            "健康食品",
             "Health Food",
-            "保健功效",
+            "健康食品",
             "health care effects",
+            "保健功效",
             "건강식품",
             "기능성 식품"
           ],
@@ -1736,12 +1736,12 @@
           "canonical_name": "Health Food Application Permit",
           "category": "health_food",
           "aliases": [
-            "健康食品查驗登記",
             "health food application permit",
-            "安全評估報告",
-            "保健功效成分",
+            "健康食品查驗登記",
+            "health care effect assessment report",
+            "safety assessment report",
             "保健功效含量",
-            "保健功效評估報告"
+            "保健功效成分"
           ],
           "source_keys": [
             "tw-moj-health-food-governing-act",
@@ -1754,11 +1754,11 @@
           "category": "health_food_claim",
           "aliases": [
             "approved health care effects",
+            "health food effect assessment methods",
             "免疫調節",
             "胃腸功能改善",
-            "骨質保健",
-            "調節血脂",
-            "調節血糖"
+            "調節血糖",
+            "調節血脂"
           ],
           "source_keys": [
             "tw-tfda-health-food-health-care-effect-items-2025",
@@ -1772,12 +1772,12 @@
           "canonical_name": "Health Food Label Required Items",
           "category": "health_food_labeling",
           "aliases": [
+            "health food labeling regulations",
             "健康食品字樣",
             "健康食品標示",
             "健康食品標示規定",
-            "health food labeling regulations",
-            "保健功效",
-            "許可證字號"
+            "approved health care claims",
+            "保健功效"
           ],
           "source_keys": [
             "tw-moj-health-food-governing-act",
@@ -1790,11 +1790,11 @@
           "canonical_name": "Novel Food Ingredient Safety Assessment",
           "category": "food_safety",
           "aliases": [
-            "非傳統食品原料",
             "新興食品原料",
-            "安全性評估資料表",
+            "非傳統食品原料",
             "non-traditional food ingredient",
             "novel food ingredient",
+            "安全性評估資料表",
             "safety assessment data sheet"
           ],
           "source_keys": [
@@ -1807,12 +1807,12 @@
           "canonical_name": "Food Ingredient Integration Query Platform",
           "category": "food_safety",
           "aliases": [
-            "食品原料整合查詢平台",
             "Food Ingredient Integration Query Platform",
+            "食品原料整合查詢平台",
             "식품원료 통합조회",
-            "可供食品使用原料",
-            "未確認安全性尚不得使用原料",
-            "食材查詢"
+            "food ingredient direct query",
+            "food ingredient platform",
+            "原料查詢平台"
           ],
           "source_keys": [
             "tw-tfda-food-ingredient-integration-query-platform",
@@ -2011,11 +2011,11 @@
           "category": "food_import",
           "aliases": [
             "508",
+            "F01",
+            "F02",
             "輸入規定508",
             "輸入規定F01",
-            "輸入規定F02",
-            "F01",
-            "F02"
+            "輸入規定F02"
           ],
           "source_keys": [
             "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
@@ -2028,12 +2028,12 @@
           "canonical_name": "Food Business Registration for Importers",
           "category": "food_import",
           "aliases": [
-            "食品業者登錄",
             "food business registration",
+            "食品業者登錄",
             "식품업자 등록",
-            "產品責任保險",
-            "輸入業者登錄",
-            "food importer registration"
+            "food importer registration",
+            "import business operator registration",
+            "product liability insurance"
           ],
           "source_keys": [
             "tw-tfda-food-business-registration-importers"
@@ -2046,10 +2046,10 @@
           "aliases": [
             "食品及相關產品資料表",
             "食品及相關產品輸入查驗申請書",
-            "產品資料表",
+            "imported food inspection application",
             "報驗義務人",
-            "輸入食品免貼中文標示具結書",
-            "imported food inspection application"
+            "產品資料表",
+            "輸入食品免貼中文標示具結書"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
@@ -2063,12 +2063,12 @@
           "canonical_name": "Imported Food Inspection",
           "category": "food_import",
           "aliases": [
-            "輸入食品查驗",
             "imported food inspection",
+            "輸入食品查驗",
             "수입식품 검사",
             "food import inspection",
-            "逐批查驗",
-            "輸入食品及相關產品查驗"
+            "batch-by-batch inspection",
+            "border inspection of imported food"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
@@ -2082,11 +2082,11 @@
           "category": "food_import",
           "aliases": [
             "product information sheet",
-            "產品資訊表",
             "application form for inspection",
             "declaration form of product information",
+            "產品資訊表",
             "제품정보표",
-            "查驗申請書"
+            "photocopy of import declaration"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations"
@@ -2098,10 +2098,10 @@
           "category": "food_import",
           "aliases": [
             "systematic inspection of imported food",
-            "系統性查核",
             "document review",
             "on-site inspection",
             "systematic inspection",
+            "系統性查核",
             "수입식품 체계적 검사"
           ],
           "source_keys": [
@@ -2113,12 +2113,12 @@
           "canonical_name": "Food Labeling and Claims",
           "category": "food_labeling",
           "aliases": [
-            "食品標示廣告",
             "food claims",
             "food labeling claims",
+            "食品標示廣告",
             "식품 표시광고",
-            "食品宣稱",
-            "甜味宣稱"
+            "false exaggerated misleading food claim",
+            "food claim substantiation"
           ],
           "source_keys": [
             "tw-moj-food-safety-sanitation-act",
@@ -2134,12 +2134,12 @@
           "canonical_name": "Food Allergen Labeling",
           "category": "food_labeling",
           "aliases": [
-            "過敏原標示",
             "allergen labeling",
+            "過敏原標示",
             "알레르기 표시",
+            "allergen warning",
             "致過敏性內容物",
-            "致過敏性內容物名稱",
-            "allergen warning"
+            "致過敏性內容物名稱"
           ],
           "source_keys": [
             "tw-tfda-food-allergen-labeling",
@@ -2153,12 +2153,12 @@
           "canonical_name": "Food Label Required Items",
           "category": "food_labeling",
           "aliases": [
+            "food labeling regulations handbook",
             "食品標示",
             "食品標示手冊",
             "食品標示法規手冊",
-            "food labeling regulations handbook",
-            "內容物名稱",
-            "有效日期"
+            "food label required items",
+            "prepackaged food labeling"
           ],
           "source_keys": [
             "tw-tfda-food-labeling-handbook-2026",
@@ -2171,11 +2171,11 @@
           "canonical_name": "Nutrition Labeling",
           "category": "food_labeling",
           "aliases": [
-            "營養標示",
             "nutrition label",
+            "營養標示",
             "영양성분표",
-            "营养标签",
             "nutrition facts",
+            "营养标签",
             "영양표시"
           ],
           "source_keys": [
@@ -2378,12 +2378,12 @@
           "canonical_name": "Imported Food Inspection",
           "category": "food_import",
           "aliases": [
-            "輸入食品查驗",
             "imported food inspection",
+            "輸入食品查驗",
             "수입식품 검사",
             "food import inspection",
-            "逐批查驗",
-            "輸入食品及相關產品查驗"
+            "batch-by-batch inspection",
+            "border inspection of imported food"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
@@ -2396,12 +2396,12 @@
           "canonical_name": "Food Business Registration for Importers",
           "category": "food_import",
           "aliases": [
-            "食品業者登錄",
             "food business registration",
+            "食品業者登錄",
             "식품업자 등록",
-            "產品責任保險",
-            "輸入業者登錄",
-            "food importer registration"
+            "food importer registration",
+            "import business operator registration",
+            "product liability insurance"
           ],
           "source_keys": [
             "tw-tfda-food-business-registration-importers"
@@ -2414,10 +2414,10 @@
           "aliases": [
             "食品及相關產品資料表",
             "食品及相關產品輸入查驗申請書",
-            "產品資料表",
+            "imported food inspection application",
             "報驗義務人",
-            "輸入食品免貼中文標示具結書",
-            "imported food inspection application"
+            "產品資料表",
+            "輸入食品免貼中文標示具結書"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
@@ -2432,11 +2432,11 @@
           "category": "food_import",
           "aliases": [
             "508",
+            "F01",
+            "F02",
             "輸入規定508",
             "輸入規定F01",
-            "輸入規定F02",
-            "F01",
-            "F02"
+            "輸入規定F02"
           ],
           "source_keys": [
             "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
@@ -2450,11 +2450,11 @@
           "category": "food_import",
           "aliases": [
             "product information sheet",
-            "產品資訊表",
             "application form for inspection",
             "declaration form of product information",
+            "產品資訊表",
             "제품정보표",
-            "查驗申請書"
+            "photocopy of import declaration"
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations"
@@ -2466,10 +2466,10 @@
           "category": "food_import",
           "aliases": [
             "systematic inspection of imported food",
-            "系統性查核",
             "document review",
             "on-site inspection",
             "systematic inspection",
+            "系統性查核",
             "수입식품 체계적 검사"
           ],
           "source_keys": [
@@ -2481,11 +2481,11 @@
           "canonical_name": "Customs Declaration",
           "category": "customs_document",
           "aliases": [
-            "出口報單",
-            "進口報單",
             "customs declaration",
             "export declaration",
             "import declaration",
+            "出口報單",
+            "進口報單",
             "수입신고"
           ],
           "source_keys": [
@@ -2501,10 +2501,10 @@
           "aliases": [
             "CCC code",
             "CCC碼",
-            "Harmonized System",
             "HS code",
             "HS코드",
-            "海關進口稅則"
+            "Harmonized System",
+            "HSコード"
           ],
           "source_keys": [
             "global-wco-harmonized-system",
@@ -2520,10 +2520,10 @@
           "canonical_name": "Import and Export Permit",
           "category": "import_export_control",
           "aliases": [
-            "輸入許可證",
-            "輸出許可證",
             "export permit",
             "import permit",
+            "輸入許可證",
+            "輸出許可證",
             "수입허가증",
             "수출허가증"
           ],
@@ -2540,9 +2540,9 @@
           "aliases": [
             "shipment purpose",
             "출하 목적",
+            "import purpose",
             "自用",
             "進口目的",
-            "import purpose",
             "수입 목적"
           ],
           "source_keys": [
@@ -2734,10 +2734,10 @@
           "canonical_name": "Import and Export Permit",
           "category": "import_export_control",
           "aliases": [
-            "輸入許可證",
-            "輸出許可證",
             "export permit",
             "import permit",
+            "輸入許可證",
+            "輸出許可證",
             "수입허가증",
             "수출허가증"
           ],
@@ -2752,11 +2752,11 @@
           "canonical_name": "Customs Declaration",
           "category": "customs_document",
           "aliases": [
-            "出口報單",
-            "進口報單",
             "customs declaration",
             "export declaration",
             "import declaration",
+            "出口報單",
+            "進口報單",
             "수입신고"
           ],
           "source_keys": [
@@ -2772,10 +2772,10 @@
           "aliases": [
             "CCC code",
             "CCC碼",
-            "Harmonized System",
             "HS code",
             "HS코드",
-            "海關進口稅則"
+            "Harmonized System",
+            "HSコード"
           ],
           "source_keys": [
             "global-wco-harmonized-system",
@@ -2793,9 +2793,9 @@
           "aliases": [
             "shipment purpose",
             "출하 목적",
+            "import purpose",
             "自用",
             "進口目的",
-            "import purpose",
             "수입 목적"
           ],
           "source_keys": [
@@ -2809,12 +2809,12 @@
           "canonical_name": "Taiwan Importer and Responsible Firm",
           "category": "trade_operator",
           "aliases": [
-            "進口商",
             "Taiwan importer",
+            "進口商",
             "대만 수입자",
             "수입자",
-            "國內負責廠商",
-            "責任業者"
+            "importer of record",
+            "local responsible firm"
           ],
           "source_keys": [
             "tw-moj-cosmetic-hygiene-safety-act",

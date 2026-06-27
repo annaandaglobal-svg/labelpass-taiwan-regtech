@@ -23,12 +23,12 @@
 
 ## Top Terms
 
-- **Food Labeling and Claims** (`food-labeling-claims`): 食品標示廣告; food claims; food labeling claims; 식품 표시광고
-- **Food Allergen Labeling** (`food-allergen-labeling`): 過敏原標示; allergen labeling; 알레르기 표시; 致過敏性內容物
-- **Food Label Required Items** (`food-label-required-items`): 食品標示; 食品標示手冊; 食品標示法規手冊; food labeling regulations handbook
-- **Nutrition Labeling** (`nutrition-labeling`): 營養標示; nutrition label; 영양성분표; 营养标签
-- **Sulphites Allergen** (`sulfites-allergen`): 亞硫酸鹽類; Sulfites; Sulphites; 10 mg/kg
-- **Crustacea Allergen** (`crustacea-allergen`): 甲殼類; Crustacea; crustacean; 갑각류
+- **Food Labeling and Claims** (`food-labeling-claims`): food claims; food labeling claims; 食品標示廣告; 식품 표시광고
+- **Food Allergen Labeling** (`food-allergen-labeling`): allergen labeling; 過敏原標示; 알레르기 표시; allergen warning
+- **Food Label Required Items** (`food-label-required-items`): food labeling regulations handbook; 食品標示; 食品標示手冊; 食品標示法規手冊
+- **Nutrition Labeling** (`nutrition-labeling`): nutrition label; 營養標示; 영양성분표; nutrition facts
+- **Sulphites Allergen** (`sulfites-allergen`): Sulfites; Sulphites; 亞硫酸鹽類; 10 mg/kg
+- **Crustacea Allergen** (`crustacea-allergen`): Crustacea; 甲殼類; crustacean; 갑각류
 
 ## Required Sources
 
