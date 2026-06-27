@@ -129,6 +129,10 @@ for (const testCase of cases) {
   if (!result.findings.some((finding) => String(finding.evidence ?? "").includes("matched alias:"))) {
     throw new Error(`${testCase.name}: expected matched alias trace in finding evidence`);
   }
+
+  if (!result.findings.some((finding) => finding.id === "label-chinese-text-needed" && finding.status === "warn")) {
+    throw new Error(`${testCase.name}: expected Chinese cosmetic label warning`);
+  }
 }
 
 const mojibakeReviewResponse = await fetch(`${baseUrl}/api/review`, {
@@ -191,9 +195,44 @@ if (!foodResult.findings?.some((finding) => finding.id === "food-allergen-peanut
   throw new Error("Food review: expected peanut allergen failure");
 }
 
+if (!foodResult.findings?.some((finding) => finding.id === "food-label-chinese-text-needed" && finding.status === "warn")) {
+  throw new Error("Food review: expected Chinese food label warning");
+}
+
 for (const findingId of ["food-traceability-records-needed", "food-recall-destruction-plan-needed"]) {
   if (!foodResult.findings?.some((finding) => finding.id === findingId)) {
     throw new Error(`Food review: expected post-market readiness finding ${findingId}`);
+  }
+}
+
+const partialAllergenWarningResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Peanut Milk Wheat Cookie",
+    productType: "prepackaged food / snack",
+    ingredientsText: "Wheat flour, peanut, milk powder, sugar",
+    labelText: "Product name: Peanut Milk Wheat Cookie. Ingredients: wheat flour, peanut, milk powder, sugar. Net weight 120g. Made in Korea. Contains milk only. EXP 2027-01-01. Nutrition facts: 500 kcal, protein 5g, fat 20g, carbohydrate 60g, sodium 300mg.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods"
+  })
+});
+
+if (!partialAllergenWarningResponse.ok) {
+  throw new Error(`Partial allergen warning review: Review API returned ${partialAllergenWarningResponse.status}`);
+}
+
+const partialAllergenWarningResult = await partialAllergenWarningResponse.json();
+assertCleanPresentation("Partial allergen warning review", partialAllergenWarningResult);
+assertCleanReviewSurface("Partial allergen warning review", partialAllergenWarningResult);
+
+if (!partialAllergenWarningResult.findings?.some((finding) => finding.id === "food-allergen-milk" && finding.status === "pass")) {
+  throw new Error("Partial allergen warning review: expected milk allergen pass");
+}
+
+for (const findingId of ["food-allergen-peanut", "food-allergen-gluten"]) {
+  if (!partialAllergenWarningResult.findings?.some((finding) => finding.id === findingId && finding.status === "fail")) {
+    throw new Error(`Partial allergen warning review: expected ${findingId} failure`);
   }
 }
 
@@ -226,6 +265,10 @@ if (foodCleanResult.ruleVersion !== "TW-FOOD-2026.06-draft") {
 
 if (foodCleanResult.status === "fail") {
   throw new Error("Food clean review: expected non-fail status");
+}
+
+if (foodCleanResult.findings?.some((finding) => finding.id === "food-label-chinese-text-needed")) {
+  throw new Error("Food clean review: did not expect Chinese label warning");
 }
 
 for (const findingId of ["food-traceability-records-present", "food-recall-destruction-plan-present"]) {
@@ -505,6 +548,73 @@ if (!foodClaimEvidenceResult.findings?.some((finding) => finding.id === "food-cl
 
 if (!foodClaimEvidenceResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-claim-substantiation" && doc.status === "ready")) {
   throw new Error("Food claim evidence review: expected ready claim substantiation checklist item");
+}
+
+const gmoMissingResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Soy Corn Protein Bar",
+    productType: "prepackaged food / snack",
+    ingredientsText: "Soy protein isolate, corn syrup, canola oil, cocoa powder, salt",
+    labelText: [
+      "Product name: Soy Corn Protein Bar. Net weight 45g.",
+      "Ingredients: soy protein isolate, corn syrup, canola oil, cocoa powder, salt.",
+      "Made in Korea. Nutrition facts: 180 kcal, protein 12g, fat 5g, carbohydrate 20g, sugars 6g, sodium 120mg. EXP 2028-09-01."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!gmoMissingResponse.ok) {
+  throw new Error(`GMO missing review: Review API returned ${gmoMissingResponse.status}`);
+}
+
+const gmoMissingResult = await gmoMissingResponse.json();
+assertCleanPresentation("GMO missing review", gmoMissingResult);
+assertCleanReviewSurface("GMO missing review", gmoMissingResult);
+
+if (!gmoMissingResult.findings?.some((finding) => finding.id === "food-gmo-label-needed" && finding.status === "needs_info")) {
+  throw new Error("GMO missing review: expected GMO label review finding");
+}
+
+if (!gmoMissingResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-gmo-label-evidence" && doc.status === "review")) {
+  throw new Error("GMO missing review: expected GMO label evidence checklist review item");
+}
+
+const gmoPresentResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Non-GMO Soy Drink",
+    productType: "prepackaged food / beverage",
+    ingredientsText: "Non-GMO soybeans, water, cane sugar, sea salt",
+    labelText: [
+      "Product name: Non-GMO Soy Drink. Net volume 250ml.",
+      "Ingredients: non-GMO soybeans, water, cane sugar, sea salt.",
+      "Non-GMO supplier specification and identity-preserved soybean statement retained.",
+      "Made in Korea. Nutrition facts: 95 kcal, protein 6g, fat 3g, carbohydrate 11g, sugars 7g, sodium 80mg. EXP 2028-10-01."
+    ].join(" "),
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!gmoPresentResponse.ok) {
+  throw new Error(`GMO present review: Review API returned ${gmoPresentResponse.status}`);
+}
+
+const gmoPresentResult = await gmoPresentResponse.json();
+assertCleanPresentation("GMO present review", gmoPresentResult);
+assertCleanReviewSurface("GMO present review", gmoPresentResult);
+
+if (!gmoPresentResult.findings?.some((finding) => finding.id === "food-gmo-label-present" && finding.status === "pass")) {
+  throw new Error("GMO present review: expected GMO label pass finding");
+}
+
+if (!gmoPresentResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "food-gmo-label-evidence" && doc.status === "ready")) {
+  throw new Error("GMO present review: expected ready GMO label evidence checklist item");
 }
 
 const healthFoodResponse = await fetch(`${baseUrl}/api/review`, {
@@ -988,6 +1098,7 @@ const tradeCompleteResponse = await fetch(`${baseUrl}/api/review`, {
     ingredientsText: "Water, Glycerin 5%, Panthenol 1%, Phenoxyethanol 0.7%",
     labelText: [
       "品名：積雪草修護霜. 容量：50ml. 全成分：Water, Glycerin, Panthenol, Phenoxyethanol.",
+      "用途：肌膚保濕. 注意事項：僅供外用，如有不適請停止使用. 批號：C26TW02.",
       "原產地：韓國. 進口商：Taiwan Importer Co. 製造日期：2026-06-01. 有效日期：2029-06-01.",
       "化粧品產品登錄字號 TW-COS-2026-00021. PIF product information file and safety assessment prepared.",
       "Claim substantiation file: hydration efficacy test and dermatologist test report linked to 修護 and 保濕 claims.",
@@ -1045,6 +1156,14 @@ if (!tradeCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id ===
   throw new Error("Trade complete review: expected ready cosmetic claim substantiation checklist item");
 }
 
+if (tradeCompleteResult.findings?.some((finding) => finding.id === "label-chinese-text-needed")) {
+  throw new Error("Trade complete review: did not expect Chinese cosmetic label warning");
+}
+
+if (!tradeCompleteResult.actionPlan?.documentChecklist?.some((doc) => doc.id === "cosmetic-chinese-label" && doc.status === "ready")) {
+  throw new Error("Trade complete review: expected ready cosmetic Chinese label checklist item");
+}
+
 if (!Array.isArray(tradeCompleteResult.actionPlan?.ownerSummary)) {
   throw new Error("Trade complete review: expected action plan owner summary");
 }
@@ -1071,6 +1190,10 @@ if (!cosmeticNoDocsResponse.ok) {
 }
 
 const cosmeticNoDocsResult = await cosmeticNoDocsResponse.json();
+
+if (!cosmeticNoDocsResult.findings?.some((finding) => finding.id === "label-chinese-text-needed" && finding.status === "warn")) {
+  throw new Error("Cosmetic no-docs review: expected Chinese label warning");
+}
 
 for (const findingId of [
   "cosmetic-product-notification-needed",
@@ -1202,7 +1325,12 @@ const knowledgeCases = [
   { query: "땅콩", expectedTerm: "Peanut" },
   { query: "花生", expectedTerm: "Peanut" },
   { query: "味精", expectedTerm: "Monosodium Glutamate" },
+  { query: "INS 621", expectedTerm: "Monosodium Glutamate" },
+  { query: "E621", expectedTerm: "Monosodium Glutamate" },
   { query: "벤조산나트륨", expectedTerm: "Benzoic Acid and Benzoates" },
+  { query: "E211", expectedTerm: "Benzoic Acid and Benzoates" },
+  { query: "INS211", expectedTerm: "Benzoic Acid and Benzoates" },
+  { query: "INS202", expectedTerm: "Sorbic Acid and Sorbates" },
   { query: "카제인나트륨", expectedTerm: "Casein and Caseinates" },
   { query: "스테비아", expectedTerm: "Steviol Glycosides" },
   { query: "魷魚", expectedTerm: "Cephalopods" },
@@ -1289,6 +1417,8 @@ const knowledgeCases = [
   { query: "Gly", expectedTerm: "Glycine" },
   { query: "methyl-isothiazolinone", expectedTerm: "Methylisothiazolinone" },
   { query: "CI-77891", expectedTerm: "Titanium Dioxide" },
+  { query: "INS 171", expectedTerm: "Titanium Dioxide" },
+  { query: "E171", expectedTerm: "Titanium Dioxide" },
   { query: "CCC-code", expectedTerm: "HS Code Classification" },
   { query: "잔류농약 기준", expectedTerm: "Food Pesticide Residue Limits" },
   { query: "農藥殘留容許量", expectedTerm: "Food Pesticide Residue Limits" },
@@ -1586,5 +1716,5 @@ if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeI
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 25} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

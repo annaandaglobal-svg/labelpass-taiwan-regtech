@@ -18,6 +18,7 @@ const documentNameById: Record<string, string> = {
   "health-food-permit": "건강식품 허가자료",
   "food-claim-substantiation": "식품 표시·광고 근거자료",
   "formula-certain-disease-label": "특정질환용 식품 라벨",
+  "food-gmo-label-evidence": "GMO 원료 표시 근거",
   "food-contact-packaging-label": "식품용 포장재 라벨",
   "food-contact-sanitation-evidence": "식품용 포장재 위생·용출 시험",
   "food-contact-pvc-pvdc-warning": "PVC/PVDC 주의문구",
@@ -143,6 +144,16 @@ export function presentFinding(finding: Finding): PresentedFinding {
     };
   }
 
+  if (id === "label-chinese-text-needed" || id === "food-label-chinese-text-needed") {
+    return {
+      area: "라벨",
+      title: "중문 라벨 초안 필요",
+      why: "대만 판매·수입 검토에서는 소비자용 중문 표시 항목이 실제 라벨이나 수입 스티커에 반영되어야 합니다.",
+      fixes: ["중문 라벨 OCR 또는 시안 추가", "품명·성분·내용량·수입자·원산지·일자 항목 대조", "원문 라벨과 중문 스티커 버전 맞춤"],
+      severity: "medium"
+    };
+  }
+
   if (id.startsWith("label-")) {
     return {
       area: "라벨",
@@ -220,6 +231,16 @@ export function presentFinding(finding: Finding): PresentedFinding {
       why: "대만 필수 또는 권고 알레르기 원료가 포함될 수 있습니다.",
       fixes: ["중문 알레르기 경고문 추가", "교차오염 가능성 확인", "원재료명과 강조표시 일치 확인"],
       severity: finding.status === "fail" ? "high" : "medium"
+    };
+  }
+
+  if (id.includes("food-gmo-label")) {
+    return {
+      area: "식품표시",
+      title: "GMO 원료 표시 확인",
+      why: "대두, 옥수수, 카놀라 등 GMO 관리 대상이 될 수 있는 원료는 대만 포장식품 라벨에서 유전자변형 관련 표시와 공급자 증빙을 함께 확인해야 합니다.",
+      fixes: ["GMO/non-GMO 사양서 확보", "중국어 라벨 문구와 원료 증빙 일치 확인", "대만 표시 대상 원료인지 재확인"],
+      severity: finding.status === "pass" ? "low" : "medium"
     };
   }
 

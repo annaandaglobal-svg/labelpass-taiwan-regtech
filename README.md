@@ -16,6 +16,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Generates a regulatory update queue so source changes, stale caches, and high-priority Taiwan notices require human approval before rules are changed.
 - Archives review history through `/api/reviews` only when a server DB URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are configured; otherwise the app keeps an immediate browser-side review archive.
+- Tracks the next platform layer in `docs/platform-roadmap.md`: admin operations, company/user data, paid expert matching, logistics partner matching, shipment execution, and tracking.
 
 ## Local Setup
 

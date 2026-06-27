@@ -102,6 +102,8 @@ const SOURCE_FOOD_ALLERGEN = "TFDA Regulation of Food Allergen Labeling";
 const SOURCE_FOOD_ALLERGEN_URL = "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636826556478322315";
 const SOURCE_FOOD_RECOMMENDED_ALLERGEN = "TFDA Regulations Governing Food Allergen Labeling on the Recommended Labeling Allergens";
 const SOURCE_FOOD_RECOMMENDED_ALLERGEN_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3407";
+const SOURCE_FOOD_GMO_LABELING = "TFDA Labelling Requirements for Prepackaged Food Containing Ingredients of GMOs";
+const SOURCE_FOOD_GMO_LABELING_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=3136";
 const SOURCE_FOOD_ADDITIVE = "TFDA Standards for Specification, Scope, Application and Limitation of Food Additives";
 const SOURCE_FOOD_ADDITIVE_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=308";
 const SOURCE_FOOD_ADDITIVE_COMMON_NAMES = "TFDA Common Names of Food Additives";
@@ -1432,12 +1434,42 @@ const foodLabelRequirements = [
   }
 ];
 
+const foodChineseLabelMarkers = [
+  /品名|食品名稱/i,
+  /成分|原料/i,
+  /內容量|净含量|淨重|重量/i,
+  /有效日期|保存期限|賞味期限/i,
+  /原產地|原产地|產地/i,
+  /製造|進口商|輸入|地址|電話/i,
+  /營養|熱量|蛋白質|脂肪|碳水化合物|糖|鈉/i
+];
+
+const cosmeticChineseLabelMarkers = [
+  /品名|產品名/i,
+  /用途|用法/i,
+  /全成分|成分/i,
+  /容量|淨重|內容量/i,
+  /注意|警語/i,
+  /製造商|進口商|地址|電話/i,
+  /原產地|產地/i,
+  /批號|製造日期|有效日期|保存期限/i
+];
+
+function chineseCharacterCount(text: string) {
+  return text.match(/[\u3400-\u9fff]/gu)?.length ?? 0;
+}
+
+function hasTaiwanChineseLabelText(labelText: string, markers: RegExp[]) {
+  const matchedMarkers = markers.filter((marker) => marker.test(labelText)).length;
+  return matchedMarkers >= 2 || (matchedMarkers >= 1 && chineseCharacterCount(labelText) >= 12);
+}
+
 const taiwanFoodAllergens = [
   { id: "crustacea", label: "crustacea", pattern: /crustacea|shrimp|crab|shellfish|갑각류|새우|게|甲殼|蝦|蟹/i },
   { id: "mango", label: "mango", pattern: /mango|망고|芒果/i },
   { id: "peanut", label: "peanut", pattern: /peanut|땅콩|花生|落花生/i },
   { id: "milk", label: "milk", pattern: /milk|goat milk|casein|lactose|우유|유청|카제인|乳|牛奶|羊奶|酪蛋白/i },
-  { id: "egg", label: "egg", pattern: /egg|albumin|난류|계란|달걀|雞蛋|蛋類|蛋黃|蛋白(?!質)|卵白|(?:^|[、,，;；\s])蛋(?:$|[、,，;；\s])/i },
+  { id: "egg", label: "egg", pattern: /egg|albumin|난류|계란|달걀|난백|雞蛋|雞蛋白|蛋類|蛋黃|卵白|(?:^|[、,，;；\s])蛋(?:$|[、,，;；\s])/i },
   { id: "nuts", label: "tree nuts", pattern: /almond|walnut|cashew|hazelnut|pistachio|macadamia|견과|아몬드|호두|캐슈|堅果|杏仁|核桃|腰果/i },
   { id: "sesame", label: "sesame", pattern: /sesame|참깨|芝麻/i },
   { id: "gluten", label: "gluten cereals", pattern: /\b(?:wheat|barley|rye|oats?|gluten)\b|밀|보리|호밀|귀리|글루텐|小麥|大麥|黑麥|燕麥|麩質/i },
@@ -1445,6 +1477,13 @@ const taiwanFoodAllergens = [
   { id: "fish", label: "fish", pattern: /fish|gelatine|gelatin|생선|어류|魚|明膠/i },
   { id: "sulphites", label: "sulphites", pattern: /sulphite|sulfite|so2|sulfur dioxide|아황산|이산화황|亞硫酸|二氧化硫/i }
 ];
+
+function allergenWarningText(labelText: string) {
+  return labelText
+    .split(/[.\n;；。]/)
+    .filter((segment) => /allergen|contains|may contain|本產品含|含有|過敏|알레르기|함유|주의/i.test(segment))
+    .join(" ");
+}
 
 const nutritionClaimPatterns = [
   {
@@ -1478,6 +1517,65 @@ const nutritionClaimPatterns = [
     pattern: /\b(?:low|reduced|less)\s+(?:calorie|calories|kcal)\b|\blight\b|低熱量|低卡|減熱量|저칼로리|라이트/i
   }
 ];
+
+function gmoIngredientSignals(input: ReviewInput) {
+  const combinedText = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText}`;
+  const candidates = [
+    { id: "soybean", label: "soybean", pattern: /\b(?:soy|soybean|soya)\b|대두|콩|大豆|黃豆|黄豆/i },
+    { id: "corn", label: "corn", pattern: /\b(?:corn|maize)\b|옥수수|玉米|玉蜀黍/i },
+    { id: "canola", label: "canola/rapeseed", pattern: /\b(?:canola|rapeseed)\b|카놀라|유채|芥花|油菜/i },
+    { id: "cottonseed", label: "cottonseed", pattern: /\b(?:cottonseed|cotton seed)\b|면실|棉籽|棉子/i },
+    { id: "sugar-beet", label: "sugar beet", pattern: /\b(?:sugar beet|beet sugar)\b|사탕무|甜菜/i },
+    { id: "papaya", label: "papaya", pattern: /\bpapaya\b|파파야|木瓜/i },
+    { id: "potato", label: "potato", pattern: /\bpotato(?:es)?\b|감자|馬鈴薯|马铃薯|土豆/i }
+  ];
+
+  return candidates.filter((candidate) => candidate.pattern.test(combinedText));
+}
+
+function hasGmoLabelStatement(input: ReviewInput) {
+  return /genetically\s+modified|genetically\s+engineered|\bGMO\b|non[-\s]?GMO|not\s+genetically\s+modified|contains\s+genetically\s+modified|基因改造|基因轉殖|非基因改造|含基因改造|유전자\s*변형|유전자\s*재조합|비유전자\s*변형|GMO\s*표시/i.test(
+    input.labelText
+  );
+}
+
+function addFoodGmoFindings(input: ReviewInput, findings: Finding[]) {
+  const signals = gmoIngredientSignals(input);
+  if (signals.length === 0) return;
+
+  if (hasGmoLabelStatement(input)) {
+    findings.push({
+      id: "food-gmo-label-present",
+      status: "pass",
+      area: "식품표시",
+      title: "GMO 관련 원료 표시 확인됨",
+      severity: "low",
+      why: "대만은 GMO 원료가 포함된 포장식품에 대해 유전자변형 관련 표시 여부를 원료와 표시문구 기준으로 확인해야 합니다.",
+      fix: ["GMO 또는 non-GMO 문구가 원료 사양서와 일치하는지 확인", "중국어 표시문구와 공급자 원료 증빙을 함께 보관"],
+      source: SOURCE_FOOD_GMO_LABELING,
+      sourceUrl: SOURCE_FOOD_GMO_LABELING_URL,
+      evidence: signals.map((signal) => signal.label).join(", ")
+    });
+    return;
+  }
+
+  findings.push({
+    id: "food-gmo-label-needed",
+    status: "needs_info",
+    area: "식품표시",
+    title: "GMO 원료 표시 여부 확인 필요",
+    severity: "medium",
+    why: "대두, 옥수수, 카놀라 등 GMO 관리 대상이 될 수 있는 원료가 보이지만 라벨에서 유전자변형 또는 non-GMO 표시 근거가 확인되지 않았습니다.",
+    fix: [
+      "원료 공급자에게 GMO/non-GMO 사양서 또는 원산지·품종 증빙 요청",
+      "해당 원료가 대만 GMO 표시 대상인지 확인",
+      "필요하면 중국어 라벨에 유전자변형 관련 문구를 추가"
+    ],
+    source: SOURCE_FOOD_GMO_LABELING,
+    sourceUrl: SOURCE_FOOD_GMO_LABELING_URL,
+    evidence: signals.map((signal) => signal.label).join(", ")
+  });
+}
 
 function addFoodClaimFindings(input: ReviewInput, findings: Finding[]) {
   const medicalClaim = foodMedicalEfficacyMatch(input);
@@ -1947,6 +2045,21 @@ function addFoodPostMarketFindings(input: ReviewInput, findings: Finding[]) {
 }
 
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
+  if (!hasTaiwanChineseLabelText(input.labelText, foodChineseLabelMarkers)) {
+    findings.push({
+      id: "food-label-chinese-text-needed",
+      status: "warn",
+      area: "식품표시",
+      title: "대만 중문 식품 라벨 문구 확인 필요",
+      severity: "medium",
+      why: "대만 식품 라벨은 소비자가 읽을 수 있는 중문 표시와 수입 스티커 기준을 맞춰야 합니다. 입력 라벨에서 중문 핵심 표시 항목이 충분히 확인되지 않았습니다.",
+      fix: ["품명, 성분, 내용량, 유효일자, 원산지, 수입자, 영양표시를 중문 라벨 초안으로 정리", "원문 라벨과 중문 수입 스티커의 항목·수량·일자를 대조"],
+      source: SOURCE_FOOD_ACT,
+      sourceUrl: SOURCE_FOOD_ACT_URL,
+      evidence: "Chinese label markers not detected"
+    });
+  }
+
   for (const requirement of foodLabelRequirements) {
     if (!requirement.present(input)) {
       findings.push({
@@ -1966,11 +2079,14 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
     }
   }
 
+  addFoodGmoFindings(input, findings);
+
   const combinedText = `${input.ingredientsText} ${input.labelText}`;
   const matchedAllergens = taiwanFoodAllergens.filter((allergen) => allergen.pattern.test(combinedText));
-  const hasAllergenWarning = /allergen|contains|may contain|本產品含|含有|過敏|알레르기|함유|주의/i.test(input.labelText);
+  const warningText = allergenWarningText(input.labelText);
 
   for (const allergen of matchedAllergens) {
+    const hasAllergenWarning = warningText.length > 0 && allergen.pattern.test(warningText);
     findings.push({
       id: `food-allergen-${allergen.id}`,
       status: hasAllergenWarning ? "pass" : "fail",
@@ -2177,6 +2293,21 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
         });
       }
     }
+  }
+
+  if (!hasTaiwanChineseLabelText(input.labelText, cosmeticChineseLabelMarkers)) {
+    findings.push({
+      id: "label-chinese-text-needed",
+      status: "warn",
+      area: "라벨",
+      title: "대만 중문 화장품 라벨 문구 확인 필요",
+      severity: "medium",
+      why: "대만 화장품 라벨은 제품명, 용도, 전성분, 주의사항, 책임업체, 원산지, 날짜와 로트 정보를 중문 표시 기준으로 확인해야 합니다.",
+      fix: ["중문 라벨 OCR 또는 시안을 입력해 필수 항목을 재검토", "대만 수입자·책임업체 정보와 원산지, LOT, EXP를 같은 버전으로 정리"],
+      source: SOURCE_ACT,
+      sourceUrl: SOURCE_ACT_URL,
+      evidence: "Chinese label markers not detected"
+    });
   }
 
   for (const requirement of labelRequirements) {

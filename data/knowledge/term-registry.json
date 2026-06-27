@@ -530,6 +530,38 @@
           "confidence": 1
         },
         {
+          "value": "INS 171",
+          "type": "additive_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.82,
+          "note": "Food-additive code seen in supplier specs; Taiwan cosmetic use must still be checked against colorant/UV-filter context."
+        },
+        {
+          "value": "INS171",
+          "type": "compact_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.82,
+          "note": "Compact import-document spelling of INS 171."
+        },
+        {
+          "value": "E171",
+          "type": "e_number",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.78,
+          "note": "EU-style E-number seen on legacy supplier data; verify current market-specific acceptability."
+        },
+        {
+          "value": "E 171",
+          "type": "e_number_spacing_variant",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.78,
+          "note": "Spacing variant of E171."
+        },
+        {
           "value": "二氧化鈦",
           "type": "local_name",
           "language": "zh-Hant",
@@ -560,7 +592,9 @@
       ],
       "source_keys": [
         "global-pcpc-inci",
-        "global-cas-registry"
+        "global-cas-registry",
+        "tw-tfda-cosmetic-colorants",
+        "tw-tfda-cosmetic-sunscreen-ingredients"
       ],
       "notes": "Can be colorant or UV filter depending on function and product context."
     },
@@ -2721,6 +2755,38 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "INS 621",
+          "type": "additive_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "International food-additive code used in import documents; verify Taiwan additive use context."
+        },
+        {
+          "value": "INS621",
+          "type": "compact_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Compact import-document spelling of INS 621."
+        },
+        {
+          "value": "E621",
+          "type": "e_number",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "EU-style E-number often appears on supplier specifications; verify Taiwan label/common-name requirements."
+        },
+        {
+          "value": "E 621",
+          "type": "e_number_spacing_variant",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "Spacing variant of E621."
         }
       ],
       "source_keys": [
@@ -2897,6 +2963,38 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85
+        },
+        {
+          "value": "INS 211",
+          "type": "additive_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "International food-additive code used in import documents; verify Taiwan additive use context."
+        },
+        {
+          "value": "INS211",
+          "type": "compact_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Compact import-document spelling of INS 211."
+        },
+        {
+          "value": "E211",
+          "type": "e_number",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "EU-style E-number often appears on supplier specifications; verify Taiwan label/common-name requirements."
+        },
+        {
+          "value": "E 211",
+          "type": "e_number_spacing_variant",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "Spacing variant of E211."
         }
       ],
       "source_keys": [
@@ -3030,6 +3128,38 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85
+        },
+        {
+          "value": "INS 202",
+          "type": "additive_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "International food-additive code used in import documents; verify Taiwan additive use context."
+        },
+        {
+          "value": "INS202",
+          "type": "compact_code",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Compact import-document spelling of INS 202."
+        },
+        {
+          "value": "E202",
+          "type": "e_number",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "EU-style E-number often appears on supplier specifications; verify Taiwan label/common-name requirements."
+        },
+        {
+          "value": "E 202",
+          "type": "e_number_spacing_variant",
+          "language": "und",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "Spacing variant of E202."
         }
       ],
       "source_keys": [

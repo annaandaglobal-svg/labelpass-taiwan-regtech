@@ -109,6 +109,8 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
           finding.id === "food-sweetness-claim-misleading-review" ||
           finding.id === "food-claim-substantiation-needed" ||
           finding.id === "food-claim-substantiation-present" ||
+          finding.id === "food-gmo-label-needed" ||
+          finding.id === "food-gmo-label-present" ||
           finding.id.startsWith("food-nutrition-claim-")
       )
       .map((finding) => finding.id);
@@ -187,6 +189,18 @@ function documentChecklist(findings: Finding[], ruleVersion: string): ReviewDocu
         findingIds.has("formula-certain-disease-label-needed") ? "warn" : findingIds.has("formula-certain-disease-label-present") ? "pass" : "info",
         "라벨 담당",
         ["formula-certain-disease-label-needed", "formula-certain-disease-label-present"].filter((id) => findingIds.has(id))
+      ),
+      documentItem(
+        "food-gmo-label-evidence",
+        "GMO 원료 표시 근거",
+        findingIds.has("food-gmo-label-present")
+          ? "ready"
+          : findingIds.has("food-gmo-label-needed")
+            ? "review"
+            : "not_applicable",
+        findingIds.has("food-gmo-label-needed") ? "warn" : findingIds.has("food-gmo-label-present") ? "pass" : "info",
+        "라벨 담당",
+        ["food-gmo-label-needed", "food-gmo-label-present"].filter((id) => findingIds.has(id))
       ),
       documentItem(
         "food-contact-packaging-label",

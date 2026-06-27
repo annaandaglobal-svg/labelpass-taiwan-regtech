@@ -9,8 +9,8 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
 - Terms: 1,178
-- Stored aliases: 4,196
-- Searchable aliases including identifiers: 6,677
+- Stored aliases: 4,212
+- Searchable aliases including identifiers: 6,693
 - Term-rule links: 1,082
 - Regulatory update candidates: 57
 - Alias review items: 1,042
@@ -267,14 +267,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 520-45-6; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 탈수초산; DHA
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸.
-- **Methionine** (`methionine-food-additive`)
-  - Aliases: DL-Methionine; DL-蛋胺酸; L-Methionine; L-蛋胺酸; Methionine; DL-甲硫胺酸; L-甲硫胺酸; 메티오닌; DL-甲硫氨酸; DL-蛋氨酸
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Food additive common-name aliases for methionine forms; verify product-specific permission before use.
 - **Monosodium Glutamate** (`monosodium-glutamate`)
   - Aliases: CAS 142-47-2; Monosodium Glutamate; 味精; 글루탐산나트륨; Monosodium L-glutamate; Monosodium glutamate (MSG); Sodium glutamate; 麩胺酸鈉; 麩酸鈉; 글루탐산 나트륨
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Representative food additive alias set from Taiwan common-name material.
+- **Methionine** (`methionine-food-additive`)
+  - Aliases: DL-Methionine; DL-蛋胺酸; L-Methionine; L-蛋胺酸; Methionine; DL-甲硫胺酸; L-甲硫胺酸; 메티오닌; DL-甲硫氨酸; DL-蛋氨酸
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Food additive common-name aliases for methionine forms; verify product-specific permission before use.
 - **Pantothenates** (`pantothenate-food-additives`)
   - Aliases: Calcium pantothenate; Sodium pantothenate; 本多酸鈉; 本多酸鈣; 泛酸鈉; 泛酸鈣; 판토텐산칼슘; Pantothenate; 판토텐산 칼슘; 판토텐산나트륨
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`

@@ -13,8 +13,8 @@
     "sources": 166,
     "source_registry_sources": 166,
     "terms": 1178,
-    "stored_aliases": 4196,
-    "searchable_aliases": 6677,
+    "stored_aliases": 4212,
+    "searchable_aliases": 6693,
     "identifier_aliases": 2481,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 57,
@@ -4155,7 +4155,7 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup.",
-      "score": 230
+      "score": 238
     },
     {
       "id": "calcium-lime-food-additives",
@@ -4230,6 +4230,30 @@
       "score": 212
     },
     {
+      "id": "monosodium-glutamate",
+      "canonical_name": "Monosodium Glutamate",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 142-47-2",
+        "Monosodium Glutamate",
+        "味精",
+        "글루탐산나트륨",
+        "Monosodium L-glutamate",
+        "Monosodium glutamate (MSG)",
+        "Sodium glutamate",
+        "麩胺酸鈉",
+        "麩酸鈉",
+        "글루탐산 나트륨"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Representative food additive alias set from Taiwan common-name material.",
+      "score": 211
+    },
+    {
       "id": "cosmetic-gmp",
       "canonical_name": "Cosmetic Good Manufacturing Practice",
       "category": "cosmetic_compliance",
@@ -4276,30 +4300,6 @@
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Food additive common-name aliases for methionine forms; verify product-specific permission before use.",
-      "score": 203
-    },
-    {
-      "id": "monosodium-glutamate",
-      "canonical_name": "Monosodium Glutamate",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "CAS 142-47-2",
-        "Monosodium Glutamate",
-        "味精",
-        "글루탐산나트륨",
-        "Monosodium L-glutamate",
-        "Monosodium glutamate (MSG)",
-        "Sodium glutamate",
-        "麩胺酸鈉",
-        "麩酸鈉",
-        "글루탐산 나트륨"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
-      ],
-      "notes": "Representative food additive alias set from Taiwan common-name material.",
       "score": 203
     },
     {
@@ -5457,8 +5457,8 @@
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
       "terms_scanned": 1178,
-      "aliases_scanned": 4196,
-      "alias_rows_scanned": 4191,
+      "aliases_scanned": 4212,
+      "alias_rows_scanned": 4207,
       "collision_groups": 55,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,

@@ -23,6 +23,14 @@
       "requiredAliases": ["味精", "味素", "麩酸鈉", "谷氨酸鈉"]
     },
     {
+      "id": "msg-ins-code",
+      "query": "INS 621",
+      "expectedTermId": "monosodium-glutamate",
+      "requiredAliases": ["INS 621", "INS621", "E621", "MSG", "Monosodium L-glutamate"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
+      "note": "Supplier specs and import documents often use additive codes instead of local common names."
+    },
+    {
       "id": "benzoate-sodium-zh",
       "query": "苯甲酸鈉",
       "expectedTermId": "benzoates-food-additives",
@@ -36,10 +44,24 @@
       "requiredAliases": ["안식향산나트륨", "안식향산 나트륨", "벤조산나트륨", "벤조산 나트륨", "Sodium benzoate", "苯甲酸鈉"]
     },
     {
+      "id": "benzoate-e-number",
+      "query": "E211",
+      "expectedTermId": "benzoates-food-additives",
+      "requiredAliases": ["E211", "INS 211", "Sodium benzoate", "苯甲酸鈉", "安息香酸鈉"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+    },
+    {
       "id": "sorbate-potassium-zh",
       "query": "山梨酸鉀",
       "expectedTermId": "sorbates-food-additives",
       "requiredAliases": ["Potassium sorbate", "山梨酸鉀", "소르빈산칼륨", "소르빈산 칼륨"]
+    },
+    {
+      "id": "sorbate-ins-code",
+      "query": "INS202",
+      "expectedTermId": "sorbates-food-additives",
+      "requiredAliases": ["INS202", "INS 202", "E202", "Potassium sorbate", "山梨酸鉀"],
+      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
     },
     {
       "id": "sorbate-calcium-zh",
@@ -294,6 +316,13 @@
       "query": "CI77891",
       "expectedTermId": "titanium-dioxide",
       "requiredAliases": ["CI 77891", "Titanium Dioxide", "TiO2"],
+      "requiredSourceKeys": ["tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-sunscreen-ingredients"]
+    },
+    {
+      "id": "titanium-dioxide-ins-code",
+      "query": "INS 171",
+      "expectedTermId": "titanium-dioxide",
+      "requiredAliases": ["INS 171", "E171", "Titanium Dioxide", "二氧化鈦", "CI 77891"],
       "requiredSourceKeys": ["tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-sunscreen-ingredients"]
     },
     {
