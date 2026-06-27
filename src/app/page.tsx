@@ -874,6 +874,10 @@ export default function Home() {
             <h1>자료를 넣으면 리스크, 증빙, 다음 작업을 한 화면에서 정리합니다.</h1>
           </div>
           <div className="lp-top-actions">
+            <Link className="lp-button" href="/workspace">
+              <PackageCheck size={16} />
+              워크스페이스
+            </Link>
             <Link className="lp-button secondary" href="/knowledge">
               <Database size={16} />
               지식베이스

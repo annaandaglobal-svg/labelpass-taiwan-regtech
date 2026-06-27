@@ -196,6 +196,7 @@ if (reviewWorkbenchBreakpoint < 0) {
 }
 
 const homePageSource = read("src/app/page.tsx");
+requireIncludes(homePageSource, 'href="/workspace"', "src/app/page.tsx workspace top action");
 requireIncludes(homePageSource, 'href="#intake"', "src/app/page.tsx top action");
 requireIncludes(homePageSource, 'className="lp-button secondary" href="#intake"', "src/app/page.tsx intake top action visual weight");
 requireIncludes(homePageSource, 'className="lp-intake-panel" id="intake"', "src/app/page.tsx intake anchor");

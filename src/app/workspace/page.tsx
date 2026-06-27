@@ -31,9 +31,9 @@ const productRows = [
     next: "PIF 목차, INCI 제한성분 대조표, 중문 라벨 표현을 전문가 상담 전 확정합니다.",
     docs: ["PIF", "GMP", "COA", "중문 라벨"],
     links: [
-      { href: "/", label: "검토" },
-      { href: "/admin/experts", label: "전문가" },
-      { href: "/admin/logistics", label: "물류" }
+      { href: "/#intake", label: "1차 검토" },
+      { href: "/admin/experts", label: "전문가 요청" },
+      { href: "/admin/logistics", label: "물류 연결" }
     ]
   },
   {
@@ -48,9 +48,9 @@ const productRows = [
     next: "알레르겐, 영양성분, 원재료 별칭, GMO/non-GMO 증빙을 한 묶음으로 정리합니다.",
     docs: ["중문 라벨", "영양성분", "알레르겐", "원산지"],
     links: [
-      { href: "/", label: "검토" },
+      { href: "/#intake", label: "1차 검토" },
       { href: "/knowledge?q=allergen", label: "근거" },
-      { href: "/admin/experts", label: "식품 전문가" }
+      { href: "/admin/experts", label: "전문가 요청" }
     ]
   },
   {
