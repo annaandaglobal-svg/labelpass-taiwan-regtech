@@ -304,7 +304,7 @@ export default async function AdminLogisticsPage() {
           <p>물류사 매칭·선적 추적</p>
           <h1>대만 수입 선적을 검증된 물류사에 매칭하고, 항공·해상 tracking과 식품·화장품 통관 handoff를 한 화면에서 관리합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/reviews">
+        <Link className="admin-secondary-action" href="/admin/reviews">
           수입 증빙 검토
           <ArrowRight size={16} />
         </Link>

@@ -13339,7 +13339,7 @@ h2 {
   color: var(--ink);
 }
 
-.admin-primary-action {
+.admin-secondary-action {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -13376,16 +13376,16 @@ h2 {
 }
 
 .admin-section-nav {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 12;
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.94);
+  gap: 3px;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
   box-shadow: none;
 }
 
@@ -13395,14 +13395,13 @@ h2 {
   justify-content: center;
   gap: 5px;
   min-width: 0;
-  min-height: 28px;
-  padding: 4px 6px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  border-color: var(--line);
-  background: var(--panel);
+  min-height: 26px;
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 850;
   text-decoration: none;
 }
@@ -13445,11 +13444,11 @@ h2 {
 }
 
 .admin-section-nav a:hover {
-  background: var(--green-soft);
+  background: #f6faf8;
 }
 
 .admin-section-nav a.active {
-  border-color: var(--green-dark);
+  border-color: #cfe0d8;
   background: var(--green-soft);
   color: var(--green-dark);
 }
@@ -13483,15 +13482,15 @@ h2 {
   letter-spacing: 0;
 }
 
-.admin-primary-action {
+.admin-secondary-action {
   justify-self: end;
-  min-height: 30px;
-  padding: 0 9px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--panel);
+  min-height: 28px;
+  padding: 0 8px;
+  border: 1px solid #d9e5df;
+  border-radius: 6px;
+  background: #f8fbfa;
   color: var(--green-dark);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -14411,7 +14410,7 @@ h2 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .admin-primary-action {
+  .admin-secondary-action {
     justify-self: start;
   }
 

@@ -281,7 +281,7 @@ export default async function AdminExpertsPage() {
           <p>전문가 매칭·결제</p>
           <h1>대만 화장품·식품 리뷰를 전문가 상담, 결제, 채팅, 완료·환불 감사까지 한 흐름으로 관리합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/reviews">
+        <Link className="admin-secondary-action" href="/admin/reviews">
           리뷰 큐 열기
           <ArrowRight size={16} />
         </Link>
@@ -293,7 +293,7 @@ export default async function AdminExpertsPage() {
             <span>상담 파이프라인</span>
             <h2>범위 확인부터 결제, 상담방, 완료·환불까지 같은 단계로 봅니다</h2>
           </div>
-          <Link className="admin-primary-action" href="/admin/payments">
+          <Link className="admin-secondary-action" href="/admin/payments">
             결제 게이트 보기
             <ArrowRight size={16} />
           </Link>

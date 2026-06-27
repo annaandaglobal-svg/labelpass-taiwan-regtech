@@ -74,7 +74,7 @@ export default async function AdminSettingsPage() {
           <p>회사별 설정</p>
           <h1>시장, 언어, 리뷰 저장, 전문가 매칭, 물류 매칭, 알림 채널을 조직 단위로 관리합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/companies">
+        <Link className="admin-secondary-action" href="/admin/companies">
           회사 관리 보기
           <ArrowRight size={16} />
         </Link>

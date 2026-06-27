@@ -166,7 +166,9 @@ const adminUiFiles = [
 ];
 for (const filePath of adminUiFiles) {
   const label = relative(repoRoot, filePath).replaceAll("\\", "/");
-  requireNoMojibake(read(label), label);
+  const source = read(label);
+  requireNoMojibake(source, label);
+  if (source.includes("admin-primary-action")) fail(`${label}: admin hero actions must use compact admin-secondary-action`);
 }
 for (const href of requiredAdminRoutes) {
   requireIncludes(adminNavSource, `href: "${href}"`, "src/lib/platform-admin.ts adminNav");
@@ -312,10 +314,11 @@ requireCompactIncludes(
   "src/app/globals.css mobile admin secondary nav"
 );
 
-const adminPrimaryAction = cssRule(css, ".admin-primary-action");
-requireMaxPx(adminPrimaryAction, "min-height", 32, "src/app/globals.css .admin-primary-action");
-requireMaxPx(adminPrimaryAction, "font-size", 12, "src/app/globals.css .admin-primary-action");
-if (/width\s*:\s*100%/i.test(adminPrimaryAction)) fail("src/app/globals.css .admin-primary-action: must stay compact, not full-width");
+if (css.includes(".admin-primary-action")) fail("src/app/globals.css: admin-primary-action must not return");
+const adminSecondaryAction = cssRule(css, ".admin-secondary-action");
+requireMaxPx(adminSecondaryAction, "min-height", 30, "src/app/globals.css .admin-secondary-action");
+requireMaxPx(adminSecondaryAction, "font-size", 12, "src/app/globals.css .admin-secondary-action");
+if (/width\s*:\s*100%/i.test(adminSecondaryAction)) fail("src/app/globals.css .admin-secondary-action: must stay compact, not full-width");
 
 const adminSectionNav = cssRule(css, ".admin-section-nav");
 if (/admin-sidebar|admin-brand|admin-back|admin-nav/.test(css)) fail("src/app/globals.css: legacy separate admin sidebar/nav styles must not return");
@@ -324,14 +327,15 @@ if (adminSectionNavSource.includes("admin-nav admin-section-nav")) fail("src/com
 requireIncludes(adminSectionNavSource, 'data-shell-nav="admin-secondary"', "src/components/admin-section-nav.tsx secondary shell nav contract");
 requireIncludes(adminSectionNavSource, "admin-section-badge", "src/components/admin-section-nav.tsx compact nav badges");
 requireIncludes(adminSectionNavSource, "data-admin-section-has-badge", "src/components/admin-section-nav.tsx stable badge marker");
-requireIncludes(adminSectionNav, "position: sticky", "src/app/globals.css .admin-section-nav");
+requireIncludes(adminSectionNav, "position: relative", "src/app/globals.css .admin-section-nav");
 requireIncludes(adminSectionNav, "display: grid", "src/app/globals.css .admin-section-nav");
 requireIncludes(adminSectionNav, "grid-template-columns: repeat(8, minmax(0, 1fr))", "src/app/globals.css .admin-section-nav");
+requireIncludes(adminSectionNav, "background: transparent", "src/app/globals.css .admin-section-nav");
 requireIncludes(adminSectionNav, "box-shadow: none", "src/app/globals.css .admin-section-nav");
 requireMaxPx(adminSectionNav, "padding", 8, "src/app/globals.css .admin-section-nav");
 
 const adminSectionNavLink = cssRule(css, ".admin-section-nav a");
-requireMaxPx(adminSectionNavLink, "min-height", 30, "src/app/globals.css .admin-section-nav a");
+requireMaxPx(adminSectionNavLink, "min-height", 28, "src/app/globals.css .admin-section-nav a");
 requireMaxPx(adminSectionNavLink, "font-size", 12, "src/app/globals.css .admin-section-nav a");
 const adminSectionBadge = cssRule(css, ".admin-section-badge");
 requireMaxPx(adminSectionBadge, "height", 18, "src/app/globals.css .admin-section-badge");

@@ -47,7 +47,7 @@ export default async function AdminUsersPage() {
           <p>사용자·권한</p>
           <h1>플랫폼 관리자와 회사 내부 역할을 분리해 데이터 노출 범위를 제어합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/reviews">
+        <Link className="admin-secondary-action" href="/admin/reviews">
           리뷰 큐 보기
           <ArrowRight size={16} />
         </Link>

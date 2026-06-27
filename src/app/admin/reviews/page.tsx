@@ -42,7 +42,7 @@ export default async function AdminReviewsPage() {
           <p>리뷰 운영 큐</p>
           <h1>라벨 검토 결과를 문서 회수, 전문가 상담, 물류 요청으로 넘기는 운영 화면입니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/knowledge">
+        <Link className="admin-secondary-action" href="/knowledge">
           지식베이스 확인
           <ArrowRight size={16} />
         </Link>

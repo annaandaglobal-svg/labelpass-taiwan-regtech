@@ -156,7 +156,7 @@ export default async function AdminPaymentsPage() {
           <p>결제·상담 게이트</p>
           <h1>전문가 매칭의 견적, 결제, 상담방 접근, 정산, 환불 증빙을 한 화면에서 관리합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/experts">
+        <Link className="admin-secondary-action" href="/admin/experts">
           전문가 매칭 보기
           <ArrowRight size={16} />
         </Link>
@@ -168,7 +168,7 @@ export default async function AdminPaymentsPage() {
             <span>상담 파이프라인</span>
             <h2>견적과 결제 상태가 상담방 접근을 어떻게 여는지 한 줄로 봅니다</h2>
           </div>
-          <Link className="admin-primary-action" href="/admin/experts">
+          <Link className="admin-secondary-action" href="/admin/experts">
             매칭 단계 보기
             <ArrowRight size={16} />
           </Link>

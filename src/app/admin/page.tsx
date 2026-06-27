@@ -81,7 +81,7 @@ export default async function AdminPage() {
           <p>운영 관리</p>
           <h1>회사 데이터, 리뷰 큐, 전문가 매칭, 결제, 물류/선적을 한 흐름으로 관리합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/companies">
+        <Link className="admin-secondary-action" href="/admin/companies">
           회사 관리 시작
           <ArrowRight size={16} />
         </Link>

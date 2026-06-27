@@ -38,7 +38,7 @@ export default async function AdminCompaniesPage() {
           <p>회사 관리</p>
           <h1>조직별 제품, 리뷰, 문서, 전문가·물류 매칭을 분리해서 운영합니다.</h1>
         </div>
-        <Link className="admin-primary-action" href="/admin/users">
+        <Link className="admin-secondary-action" href="/admin/users">
           사용자 권한 보기
           <ArrowRight size={16} />
         </Link>
