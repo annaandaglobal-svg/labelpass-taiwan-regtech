@@ -1,4 +1,4 @@
-import { Database, KeyRound, LockKeyhole, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Database, KeyRound, ListChecks, LockKeyhole, ShieldCheck } from "lucide-react";
 import { platformOpsActionReadiness } from "@/lib/platform-ops-actions";
 import { AdminOpsDryRunButton } from "./admin-ops-dry-run-button";
 
@@ -39,6 +39,24 @@ export function AdminOpsReadinessCard() {
   ];
 
   const supportedCount = Object.values(readiness.supportedActions).reduce((sum, actions) => sum + actions.length, 0);
+  const connectionChecks = [
+    {
+      label: "DB 연결 문자열",
+      detail: "Vercel Production에 SUPABASE_DB_URL, POSTGRES_URL, DATABASE_URL 중 하나를 저장",
+      ready: readiness.databaseUrlPresent
+    },
+    {
+      label: "관리자 읽기 게이트",
+      detail: "LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1로 Supabase 운영 데이터를 읽기 허용",
+      ready: readiness.databaseUrlPresent && readiness.adminDbPreviewEnabled
+    },
+    {
+      label: "상태 변경 게이트",
+      detail: "LABELPASS_ENABLE_ADMIN_DB_WRITES=1과 LABELPASS_ADMIN_OPS_TOKEN 설정 후 live 적용",
+      ready: readiness.writesReady
+    }
+  ];
+  const readyCount = connectionChecks.filter((item) => item.ready).length;
 
   return (
     <article className="admin-panel admin-ops-panel">
@@ -57,6 +75,23 @@ export function AdminOpsReadinessCard() {
             ? "전문가, 결제, 채팅, 물류, 선적 상태 변경이 감사 로그와 함께 적용됩니다."
             : "실제 운영 데이터 변경은 잠겨 있고 dry-run만 가능합니다."}
         </small>
+      </div>
+
+      <div className="admin-connection-checklist" aria-label="Supabase 운영 연결 체크리스트">
+        <div className="admin-connection-checklist-head">
+          <span>
+            <ListChecks size={15} />
+            Live 운영 연결
+          </span>
+          <b>{readyCount}/{connectionChecks.length}</b>
+        </div>
+        {connectionChecks.map((item) => (
+          <span key={item.label} className={item.ready ? "ready" : "locked"}>
+            <CheckCircle2 size={14} aria-hidden="true" />
+            <b>{item.label}</b>
+            <small>{item.detail}</small>
+          </span>
+        ))}
       </div>
 
       <details className="admin-ops-disclosure">
