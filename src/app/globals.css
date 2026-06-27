@@ -12578,6 +12578,134 @@ h2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.admin-ops-panel {
+  align-content: start;
+}
+
+.admin-ops-status {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.admin-ops-status b {
+  font-size: 15px;
+}
+
+.admin-ops-status small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.admin-ops-status.ready {
+  border-color: rgba(33, 112, 74, 0.32);
+  background: var(--green-soft);
+}
+
+.admin-ops-status.locked {
+  border-color: rgba(182, 123, 0, 0.28);
+  background: rgba(255, 247, 229, 0.76);
+}
+
+.admin-ops-flags {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.admin-ops-flags span {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 3px 7px;
+  align-items: center;
+  min-height: 58px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.admin-ops-flags svg {
+  grid-row: span 2;
+}
+
+.admin-ops-flags b {
+  font-size: 12px;
+}
+
+.admin-ops-flags small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.admin-ops-flags .ready svg {
+  color: var(--green-dark);
+}
+
+.admin-ops-flags .locked svg {
+  color: var(--gold);
+}
+
+.admin-ops-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.admin-ops-foot code {
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.admin-ops-dry-run {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.admin-ops-dry-run button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid var(--green-dark);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.admin-ops-dry-run button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.admin-ops-dry-run > span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.admin-ops-dry-run.success > span {
+  color: var(--green-dark);
+}
+
+.admin-ops-dry-run.error > span {
+  color: var(--red);
+}
+
 .admin-health-list span {
   display: grid;
   gap: 5px;

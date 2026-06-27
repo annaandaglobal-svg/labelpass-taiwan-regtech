@@ -12,6 +12,7 @@ import {
   Truck,
   Users
 } from "lucide-react";
+import { AdminOpsReadinessCard } from "@/components/admin-ops-readiness-card";
 import { getAliasReviewQueue } from "@/lib/alias-review";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { adminMetrics, adminQueue, platformModules } from "@/lib/platform-admin";
@@ -157,6 +158,8 @@ export default async function AdminPage() {
             </span>
           </div>
         </article>
+
+        <AdminOpsReadinessCard />
 
         <article className="admin-panel admin-panel-wide">
           <div className="admin-panel-head">
