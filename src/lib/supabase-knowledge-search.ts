@@ -168,6 +168,86 @@ function sourceBoostsFor(termRows: TermRow[]) {
   return sourceBoosts;
 }
 
+function matchedAliasForQuery(alias: AliasRow, query: string) {
+  const normalized = normalizeKnowledgeQuery(alias.alias_value || alias.normalized_alias || "");
+  const foldedAlias = foldKnowledgeSeparators(normalized);
+  const foldedQuery = foldKnowledgeSeparators(query);
+  if (!normalized || !query) return false;
+  if (normalized === query) return true;
+  if (foldedAlias && foldedAlias === foldedQuery) return true;
+  if (normalized.length > 4 && query.includes(normalized)) return true;
+  if (query.length > 4 && normalized.includes(query)) return true;
+  return false;
+}
+
+function remoteAmbiguousAliasesForTerm(params: {
+  termKey: string;
+  query: string;
+  aliases: AliasRow[];
+  aliasOwners: Map<string, Set<string>>;
+  termNamesByKey: Map<string, string>;
+}) {
+  const { termKey, query, aliases, aliasOwners, termNamesByKey } = params;
+
+  return aliases
+    .map((alias) => {
+      const normalized = normalizeKnowledgeQuery(alias.alias_value || alias.normalized_alias || "");
+      if (!matchedAliasForQuery(alias, query)) return null;
+      const owners = aliasOwners.get(normalized);
+      if (!owners || owners.size <= 1) return null;
+      const otherTerms = [...owners]
+        .filter((owner) => owner !== termKey)
+        .map((owner) => termNamesByKey.get(owner) ?? owner)
+        .sort((a, b) => compareStable(a, b))
+        .slice(0, 5);
+      if (!otherTerms.length) return null;
+
+      return {
+        value: alias.alias_value,
+        normalized,
+        otherTerms,
+        note: "같은 별칭이 여러 규제 용어에 연결됩니다. 품목, 관할, 사용 목적을 함께 확인하세요."
+      };
+    })
+    .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
+    .filter((entry, index, list) => list.findIndex((candidate) => candidate.normalized === entry.normalized) === index)
+    .slice(0, 4);
+}
+
+function remoteAmbiguitySummary(
+  query: string,
+  termResults: KnowledgeSearchResult["terms"]
+): KnowledgeSearchResult["ambiguity"] {
+  const ambiguousTerms = termResults.filter((term) =>
+    term.ambiguousAliases.some((alias) => alias.normalized === query || matchedAliasForQuery({
+      term_key: term.id,
+      alias_value: alias.value,
+      normalized_alias: alias.normalized,
+      alias_type: "alias",
+      language: "und",
+      jurisdiction: "GLOBAL",
+      confidence: 1,
+      source: null,
+      note: alias.note
+    }, query))
+  );
+
+  if (ambiguousTerms.length < 2) return null;
+
+  return {
+    query,
+    normalized: query,
+    termCount: ambiguousTerms.length,
+    terms: ambiguousTerms.slice(0, 6).map((term) => ({
+      id: term.id,
+      canonicalName: term.canonicalName,
+      category: term.category,
+      notes: term.notes
+    })),
+    message: "같은 검색어가 여러 규제 용어에 연결됩니다. 품목군, 관할, 사용 목적을 먼저 좁혀야 합니다."
+  };
+}
+
 async function readTotals(sql: DbClient): Promise<KnowledgeSearchResult["totals"]> {
   const now = Date.now();
   if (totalsCache && totalsCache.expiresAt > now) return totalsCache.value;
@@ -472,6 +552,14 @@ function buildKnowledgeSearchResult(params: {
     aliasesByTerm.set(alias.term_key, [...(aliasesByTerm.get(alias.term_key) ?? []), alias]);
   }
 
+  const termNamesByKey = new Map(termRows.map((term) => [term.term_key, term.canonical_name]));
+  const aliasOwners = new Map<string, Set<string>>();
+  for (const alias of aliasRows) {
+    const normalized = normalizeKnowledgeQuery(alias.alias_value || alias.normalized_alias || "");
+    if (!normalized) continue;
+    aliasOwners.set(normalized, (aliasOwners.get(normalized) ?? new Set()).add(alias.term_key));
+  }
+
   const rulesByTerm = new Map<string, RuleRow[]>();
   for (const rule of ruleRows) {
     rulesByTerm.set(rule.term_key, [...(rulesByTerm.get(rule.term_key) ?? []), rule]);
@@ -491,11 +579,10 @@ function buildKnowledgeSearchResult(params: {
     .sort((a, b) => b.score - a.score || priorityRank(a.priority) - priorityRank(b.priority) || compareStable(a.title, b.title))
     .slice(0, Math.max(4, Math.floor(limit / 2)));
 
-  return {
-    query,
-    totals,
-    ambiguity: null,
-    terms: termRows.map((term) => ({
+  const terms = termRows.map((term) => {
+    const aliases = aliasesByTerm.get(term.term_key) ?? [];
+
+    return {
       id: term.term_key,
       canonicalName: term.canonical_name,
       category: term.category ?? "term",
@@ -505,7 +592,7 @@ function buildKnowledgeSearchResult(params: {
         inci: jsonArray(term.identifiers?.inci),
         colorIndex: jsonArray(term.identifiers?.color_index)
       },
-      aliases: (aliasesByTerm.get(term.term_key) ?? []).slice(0, 8).map((alias) => ({
+      aliases: aliases.slice(0, 8).map((alias) => ({
         value: alias.alias_value,
         normalized: alias.normalized_alias,
         type: alias.alias_type,
@@ -515,8 +602,14 @@ function buildKnowledgeSearchResult(params: {
         note: alias.note,
         source: alias.source ?? undefined
       })),
-      aliasCount: aliasesByTerm.get(term.term_key)?.length ?? 0,
-      ambiguousAliases: [],
+      aliasCount: aliases.length,
+      ambiguousAliases: remoteAmbiguousAliasesForTerm({
+        termKey: term.term_key,
+        query,
+        aliases,
+        aliasOwners,
+        termNamesByKey
+      }),
       sourceKeys: jsonArray(term.source_keys),
       notes: term.notes ?? "",
       rules: (rulesByTerm.get(term.term_key) ?? []).slice(0, 12).map((rule) => ({
@@ -525,7 +618,14 @@ function buildKnowledgeSearchResult(params: {
         basis: rule.match_basis,
         confidence: numeric(rule.confidence)
       }))
-    })),
+    };
+  }) satisfies KnowledgeSearchResult["terms"];
+
+  return {
+    query,
+    totals,
+    ambiguity: remoteAmbiguitySummary(query, terms),
+    terms,
     sources: sourceRows.map((source) => {
       const fetchedAt = timestamp(source.fetched_at);
       const cacheExpiresAt = cacheExpiry(fetchedAt, source.cache_days);
