@@ -1,7 +1,7 @@
 const baseUrl = process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000";
 const foodAdditivePermitQueryUrl = "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162";
 const foodIngredientDirectQueryUrl = "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160";
-const mojibakePattern = /窶|諤|鴗|貐|賱|�|[\uE000-\uF8FF]|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈/;
+const mojibakePattern = /窶|諤|鴗|貐|賱|�|[\uE000-\uF8FF]|銁|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈/;
 
 function collectStrings(value, path = "$", output = []) {
   if (typeof value === "string") {

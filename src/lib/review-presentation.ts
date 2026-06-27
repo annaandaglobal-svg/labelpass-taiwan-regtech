@@ -45,8 +45,8 @@ function compact(value: string, maxLength = 120) {
   return `${normalized.slice(0, Math.max(0, maxLength - 3)).trim()}...`;
 }
 
-const mojibakePattern = /[\uFFFD\uE000-\uF8FF]|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈|撖||||||||||||||||||||||||||||||||||||/u;
-const mojibakeChars = /[\uFFFD\uE000-\uF8FF]|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈|撖||||||||||||||||||||||||||||||||||||/gu;
+const mojibakePattern = /[\uFFFD\uE000-\uF8FF]|銁|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈|撖||||||||||||||||||||||||||||||||||||/u;
+const mojibakeChars = /[\uFFFD\uE000-\uF8FF]|銁|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈|撖||||||||||||||||||||||||||||||||||||/gu;
 
 function hasMojibake(value?: string | null) {
   return mojibakePattern.test(String(value ?? ""));
