@@ -177,6 +177,36 @@ function buildAdminOpsDryRunPayload() {
   };
 }
 
+function buildHandoffDryRunPayload() {
+  return {
+    draft: {
+      id: `preflight-handoff-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+      productName: "Preflight PIF Cream",
+      productType: "leave-on cosmetic cream",
+      routeId: "tw_cosmetic",
+      routeLabel: "대만 화장품",
+      status: "needs_info",
+      score: 64,
+      priority: "collect_documents",
+      nextAction: "PIF, INCI, GMP 증빙을 전문가 상담 전에 보강",
+      expertScope: ["자료 보강", "PIF 목차 확인", "INCI 제한성분 대조"],
+      paymentGate: {
+        label: "견적·결제 준비",
+        detail: "보강 증빙 확인 후 상담방을 엽니다."
+      },
+      logistics: {
+        trigger: "라벨·증빙 버전 고정 후 선적 연결",
+        documents: ["중문 라벨", "PIF", "GMP 증빙"]
+      },
+      evidenceCount: 5,
+      neededDocuments: 3
+    },
+    requestId: `preflight-handoff-request-${Date.now()}`,
+    metadata: { preflight: true }
+  };
+}
+
 async function fetchJson(label, url, options) {
   const response = await fetch(url, {
     ...options,
@@ -330,6 +360,13 @@ try {
       body: JSON.stringify(buildAdminOpsDryRunPayload())
     })
   );
+  remoteChecks.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?preflight=${Date.now()}`));
+  remoteChecks.push(
+    await fetchJson("handoff dry run", `${baseUrl}/api/handoff/requests?dryRun=1&preflight=${Date.now()}`, {
+      method: "POST",
+      body: JSON.stringify(buildHandoffDryRunPayload())
+    })
+  );
   remoteChecks.push(await fetchJson("review archive list", `${baseUrl}/api/reviews?limit=1&preflight=${Date.now()}`, {
     headers: archiveHeaders
   }));
@@ -378,6 +415,8 @@ const archiveList = remoteChecks.find((check) => check.label === "review archive
 const archiveDryRun = remoteChecks.find((check) => check.label === "review archive dry run")?.body;
 const adminOpsReadiness = remoteChecks.find((check) => check.label === "admin ops readiness")?.body;
 const adminOpsDryRun = remoteChecks.find((check) => check.label === "admin ops dry run")?.body;
+const handoffReadiness = remoteChecks.find((check) => check.label === "handoff readiness")?.body;
+const handoffDryRun = remoteChecks.find((check) => check.label === "handoff dry run")?.body;
 
 if (archiveList && !validArchiveStates.has(archiveList.storage)) {
   errors.push(`Unexpected archive list storage state: ${archiveList.storage}`);
@@ -399,6 +438,12 @@ if (!Array.isArray(adminOpsReadiness?.supportedActions?.expert_match_status)) {
 }
 if (adminOpsDryRun?.dryRun !== true || adminOpsDryRun?.applied !== false) {
   errors.push("Admin ops dry run did not return a safe dry-run response");
+}
+if (!handoffReadiness?.targetTables?.includes("shipment_requests")) {
+  errors.push("Handoff readiness did not expose shipment request target table");
+}
+if (handoffDryRun?.dryRun !== true || handoffDryRun?.applied !== false || !handoffDryRun?.plannedRecords?.payment) {
+  errors.push("Handoff dry run did not return a safe planned-record response");
 }
 
 const report = {
@@ -429,6 +474,8 @@ const report = {
     action: check.body?.action,
     dryRun: check.body?.dryRun,
     applied: check.body?.applied,
+    targetTables: check.body?.targetTables,
+    plannedRecordKeys: check.body?.plannedRecords ? Object.keys(check.body.plannedRecords) : undefined,
     totals: check.body?.totals,
     terms: check.body?.terms?.length,
     sources: check.body?.sources?.length

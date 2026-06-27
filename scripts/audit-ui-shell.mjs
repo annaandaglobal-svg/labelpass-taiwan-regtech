@@ -106,6 +106,8 @@ requireIncludes(reviewHomeSource, 'className={`lp-action-plan', "src/app/page.ts
 requireIncludes(reviewHomeSource, 'data-steady-handoff="true"', "src/app/page.tsx stable pre/post review handoff area");
 requireIncludes(reviewHomeSource, "HANDOFF_DRAFTS_STORAGE_KEY", "src/app/page.tsx handoff draft storage key");
 requireIncludes(reviewHomeSource, "saveHandoffDraft", "src/app/page.tsx handoff draft save action");
+requireIncludes(reviewHomeSource, '"/api/handoff/requests?dryRun=1"', "src/app/page.tsx handoff server dry-run bridge");
+requireIncludes(reviewHomeSource, "isSubmittingHandoff", "src/app/page.tsx handoff duplicate submit guard");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-draft-row"', "src/app/page.tsx compact handoff draft save row");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
 requireIncludes(reviewHomeSource, 'href: "/workspace#review-queue"', "src/app/page.tsx customer review status handoff link");
@@ -429,6 +431,21 @@ if (/href\s*=\s*"\/admin\//.test(handoffDraftSource)) {
 const handoffDraftModelSource = read("src/lib/handoff-drafts.ts");
 requireIncludes(handoffDraftModelSource, "HANDOFF_DRAFTS_STORAGE_KEY", "src/lib/handoff-drafts.ts storage key");
 requireIncludes(handoffDraftModelSource, "parseHandoffDrafts", "src/lib/handoff-drafts.ts parser");
+const handoffRequestSource = read("src/lib/handoff-requests.ts");
+requireNoMojibake(handoffRequestSource, "src/lib/handoff-requests.ts");
+requireIncludes(handoffRequestSource, "applyHandoffRequest", "src/lib/handoff-requests.ts operational handoff writer");
+requireIncludes(handoffRequestSource, "handoffRequestReadiness", "src/lib/handoff-requests.ts readiness contract");
+requireIncludes(handoffRequestSource, "public.expert_matches", "src/lib/handoff-requests.ts expert queue insert");
+requireIncludes(handoffRequestSource, "public.chat_threads", "src/lib/handoff-requests.ts consultation thread insert");
+requireIncludes(handoffRequestSource, "public.payments", "src/lib/handoff-requests.ts payment gate insert");
+requireIncludes(handoffRequestSource, "public.shipment_requests", "src/lib/handoff-requests.ts logistics request insert");
+requireIncludes(handoffRequestSource, "customer_handoff_request.create", "src/lib/handoff-requests.ts audit log action");
+requireIncludes(handoffRequestSource, "handoff_draft_id", "src/lib/handoff-requests.ts idempotency key");
+const handoffRequestRouteSource = read("src/app/api/handoff/requests/route.ts");
+requireNoMojibake(handoffRequestRouteSource, "src/app/api/handoff/requests/route.ts");
+requireIncludes(handoffRequestRouteSource, "admin_ops_token_required", "src/app/api/handoff/requests/route.ts token gate");
+requireIncludes(handoffRequestRouteSource, "dryRun", "src/app/api/handoff/requests/route.ts dry-run support");
+requireIncludes(handoffRequestRouteSource, "MAX_BODY_BYTES", "src/app/api/handoff/requests/route.ts body limit");
 
 if (failures.length) {
   console.error("UI shell audit failed:");

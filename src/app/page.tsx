@@ -773,6 +773,7 @@ export default function Home() {
   const [knowledgeQuery, setKnowledgeQuery] = useState("");
   const [isReviewing, setIsReviewing] = useState(false);
   const [isSearchingEvidence, setIsSearchingEvidence] = useState(false);
+  const [isSubmittingHandoff, setIsSubmittingHandoff] = useState(false);
   const [toast, setToast] = useState("");
   const [activeFindingId, setActiveFindingId] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -906,7 +907,7 @@ export default function Home() {
     }
   }
 
-  function saveHandoffDraft() {
+  async function saveHandoffDraft() {
     if (!result) return;
     const draft = handoffDraftFor(input, result, selectedRoute);
     const nextDrafts = [
@@ -915,7 +916,29 @@ export default function Home() {
     ].slice(0, MAX_HANDOFF_DRAFTS);
     setHandoffDrafts(nextDrafts);
     window.localStorage.setItem(HANDOFF_DRAFTS_STORAGE_KEY, JSON.stringify(nextDrafts));
-    setToast("전문가·결제·물류 의뢰 초안을 워크스페이스에 저장했습니다.");
+    setIsSubmittingHandoff(true);
+    try {
+      const response = await fetch("/api/handoff/requests?dryRun=1", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          draft,
+          requestId: `handoff-draft-${draft.id}`,
+          metadata: { source_screen: "review_result" }
+        })
+      });
+      const body = await response.json().catch(() => null);
+      if (response.ok && body?.ok) {
+        const previewOnly = Array.isArray(body.warnings) && body.warnings.length > 0;
+        setToast(previewOnly ? "의뢰 초안을 저장했습니다. 운영 큐는 아직 프리뷰 모드입니다." : "의뢰 초안을 저장했고 운영 큐 dry-run도 통과했습니다.");
+      } else {
+        setToast("의뢰 초안은 저장했습니다. 운영 큐 연결 상태는 관리자 설정에서 다시 확인합니다.");
+      }
+    } catch {
+      setToast("의뢰 초안은 저장했습니다. 운영 큐 연결은 네트워크 복구 후 다시 확인합니다.");
+    } finally {
+      setIsSubmittingHandoff(false);
+    }
   }
 
   const currentStatus = result ? statusCopy[result.status] : null;
@@ -1132,9 +1155,9 @@ export default function Home() {
                     ))}
                   </div>
                   <div className="lp-handoff-draft-row">
-                    <button type="button" onClick={saveHandoffDraft}>
+                    <button type="button" onClick={() => void saveHandoffDraft()} disabled={isSubmittingHandoff}>
                       <PackageCheck size={14} />
-                      의뢰 초안 저장
+                      {isSubmittingHandoff ? "운영 큐 확인 중" : "의뢰 초안 저장"}
                     </button>
                     <small>워크스페이스에서 상담 범위, 결제 gate, 물류 증빙으로 이어집니다.</small>
                   </div>

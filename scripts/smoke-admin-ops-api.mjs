@@ -40,6 +40,33 @@ const chatDryRunPayload = {
   requestId: `smoke-admin-chat-${Date.now()}`,
   note: "chat gate dry-run smoke check"
 };
+const handoffPayload = {
+  draft: {
+    id: `smoke-handoff-${Date.now()}`,
+    createdAt: new Date().toISOString(),
+    productName: "Smoke PIF Cream",
+    productType: "leave-on cosmetic cream",
+    routeId: "tw_cosmetic",
+    routeLabel: "대만 화장품",
+    status: "needs_info",
+    score: 62,
+    priority: "collect_documents",
+    nextAction: "PIF, INCI, GMP 증빙을 전문가 상담 전에 보강",
+    expertScope: ["자료 보강", "PIF 목차 확인", "INCI 제한성분 대조"],
+    paymentGate: {
+      label: "견적·결제 준비",
+      detail: "보강 증빙 확인 후 상담방을 엽니다."
+    },
+    logistics: {
+      trigger: "라벨·증빙 버전 고정 후 선적 연결",
+      documents: ["중문 라벨", "PIF", "GMP 증빙"]
+    },
+    evidenceCount: 5,
+    neededDocuments: 3
+  },
+  requestId: `smoke-handoff-request-${Date.now()}`,
+  metadata: { smoke: true }
+};
 
 const checks = [];
 checks.push(await fetchJson("admin ops readiness", `${baseUrl}/api/admin/ops/actions?smoke=${Date.now()}`));
@@ -67,6 +94,19 @@ checks.push(
     body: JSON.stringify(chatDryRunPayload)
   })
 );
+checks.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?smoke=${Date.now()}`));
+checks.push(
+  await fetchJson("handoff dry run", `${baseUrl}/api/handoff/requests?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(handoffPayload)
+  })
+);
+checks.push(
+  await fetchJson("handoff write without token", `${baseUrl}/api/handoff/requests?smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(handoffPayload)
+  })
+);
 
 const errors = [];
 const readiness = checks[0];
@@ -74,6 +114,9 @@ const dryRun = checks[1];
 const unauthorized = checks[2];
 const paymentDryRun = checks[3];
 const chatDryRun = checks[4];
+const handoffReadiness = checks[5];
+const handoffDryRun = checks[6];
+const handoffUnauthorized = checks[7];
 
 if (!readiness.ok) errors.push(`Readiness endpoint returned ${readiness.status}`);
 if (!readiness.body?.supportedActions?.expert_match_status?.includes("matched")) {
@@ -94,8 +137,23 @@ if (!paymentDryRun.ok || paymentDryRun.body?.dryRun !== true || paymentDryRun.bo
 if (!chatDryRun.ok || chatDryRun.body?.dryRun !== true || chatDryRun.body?.applied !== false || chatDryRun.body?.action !== "chat_thread_status") {
   errors.push(`Chat dry-run endpoint returned unexpected response ${chatDryRun.status}`);
 }
+if (!handoffReadiness.ok || !handoffReadiness.body?.targetTables?.includes("expert_matches")) {
+  errors.push(`Handoff readiness endpoint returned unexpected response ${handoffReadiness.status}`);
+}
+if (
+  !handoffDryRun.ok ||
+  handoffDryRun.body?.dryRun !== true ||
+  handoffDryRun.body?.applied !== false ||
+  !handoffDryRun.body?.plannedRecords?.expertMatch ||
+  !handoffDryRun.body?.entityIds?.shipmentRequestId
+) {
+  errors.push(`Handoff dry-run endpoint returned unexpected response ${handoffDryRun.status}`);
+}
 if (unauthorized.status !== 401) {
   errors.push(`Write without token should return 401, got ${unauthorized.status}`);
+}
+if (handoffUnauthorized.status !== 401) {
+  errors.push(`Handoff write without token should return 401, got ${handoffUnauthorized.status}`);
 }
 
 if (errors.length) {
