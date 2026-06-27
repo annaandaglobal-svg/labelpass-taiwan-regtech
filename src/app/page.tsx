@@ -286,7 +286,7 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; detail: st
 
 const knowledgeStats = [
   { label: "공식 소스", value: "166" },
-  { label: "검색 별칭", value: "6,677" },
+  { label: "검색 별칭", value: "6,693" },
   { label: "규제 용어", value: "1,178" }
 ];
 
@@ -793,10 +793,10 @@ export default function Home() {
               <Database size={16} />
               지식베이스
             </Link>
-            <button className="lp-button" type="button" onClick={() => void runReview()} disabled={!readiness.canReview || isReviewing}>
-              {isReviewing ? <Loader2 className="lp-spin" size={16} /> : <ShieldCheck size={16} />}
-              1차 검토
-            </button>
+            <a className="lp-button" href="#intake">
+              <ClipboardCheck size={16} />
+              자료 입력
+            </a>
           </div>
         </header>
 
@@ -814,10 +814,11 @@ export default function Home() {
                 key={route.id}
                 className={route.id === selectedRoute.id ? "lp-route-card active" : "lp-route-card"}
                 type="button"
+                aria-label={route.label}
                 onClick={() => selectRoute(route)}
               >
                 <span>{routeIcon(route.icon)}</span>
-                <b>{route.label}</b>
+                <b>{route.shortLabel}</b>
                 <small>{route.description}</small>
               </button>
             ))}
@@ -825,7 +826,7 @@ export default function Home() {
         </section>
 
         <div className="lp-workbench">
-          <section className="lp-intake-panel">
+          <section className="lp-intake-panel" id="intake">
             <div className="lp-panel-head">
               <div>
                 <span>입력</span>

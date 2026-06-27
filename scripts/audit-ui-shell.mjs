@@ -123,6 +123,27 @@ const sidebarRule = cssRule(css, ".lp-sidebar");
 requireIncludes(sidebarRule, "position: sticky", "src/app/globals.css .lp-sidebar");
 requireIncludes(sidebarRule, "height: 100vh", "src/app/globals.css .lp-sidebar");
 
+const reviewWorkbench = cssRule(css, ".lp-workbench");
+requireIncludes(
+  reviewWorkbench,
+  "grid-template-columns: minmax(300px, 0.92fr) minmax(360px, 1fr) minmax(270px, 0.72fr)",
+  "src/app/globals.css .lp-workbench"
+);
+
+const reviewWorkbenchBreakpoint = css.indexOf("@media (max-width: 1220px)");
+if (reviewWorkbenchBreakpoint < 0) {
+  fail("src/app/globals.css: review console must keep the three-column workbench until the 1220px breakpoint");
+}
+
+const homePageSource = read("src/app/page.tsx");
+requireIncludes(homePageSource, 'href="#intake"', "src/app/page.tsx top action");
+requireIncludes(homePageSource, 'className="lp-intake-panel" id="intake"', "src/app/page.tsx intake anchor");
+requireIncludes(homePageSource, "aria-label={route.label}", "src/app/page.tsx route card accessible label");
+requireIncludes(homePageSource, "<b>{route.shortLabel}</b>", "src/app/page.tsx compact route card label");
+if (homePageSource.includes('onClick={() => void runReview()} disabled={!readiness.canReview || isReviewing}>\n              {isReviewing ? <Loader2 className="lp-spin" size={16} /> : <ShieldCheck size={16} />}\n              1차 검토')) {
+  fail("src/app/page.tsx: topbar must not duplicate a disabled review action before intake");
+}
+
 const mobileStart = css.indexOf("@media (max-width: 980px)");
 const mobileCss = mobileStart >= 0 ? css.slice(mobileStart) : "";
 requireCompactIncludes(mobileCss, ".lp-shell { grid-template-columns: 1fr; }", "src/app/globals.css mobile shell");
