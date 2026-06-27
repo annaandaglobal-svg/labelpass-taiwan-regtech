@@ -94,7 +94,12 @@ function labelState(value: string) {
 
 export default async function WorkspacePage() {
   const [opsSnapshot] = await Promise.all([getPlatformOpsSnapshot()]);
-  const actionQueue = buildPlatformOpsActionQueue(opsSnapshot, 5);
+  const workspaceActionQueue = buildPlatformOpsActionQueue(opsSnapshot, 8)
+    .filter((item) => {
+      const searchableText = `${item.label} ${item.title} ${item.detail} ${item.next} ${item.owner}`;
+      return item.href !== "/admin/settings" && !/관리자 DB|운영 설정|DB URL|storage|Supabase/i.test(searchableText);
+    })
+    .slice(0, 5);
   const knowledgeTotals = searchKnowledge("").totals;
   const overview = getKnowledgeOverview();
   const blockedProducts = productRows.filter((item) => item.tone === "blocked").length;
@@ -224,7 +229,7 @@ export default async function WorkspacePage() {
               <AlertTriangle size={18} />
             </div>
             <div className="workspace-action-list">
-              {actionQueue.map((item) => (
+              {workspaceActionQueue.map((item) => (
                 <Link key={item.id} className={`workspace-action-item ${item.tone}`} href={item.href}>
                   <span>{item.label}</span>
                   <b>{item.title}</b>

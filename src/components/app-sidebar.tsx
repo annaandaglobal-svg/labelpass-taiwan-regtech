@@ -3,16 +3,21 @@ import { BadgeCheck, Boxes, ClipboardCheck, Languages, Search } from "lucide-rea
 
 type AppNavKey = "review" | "workspace" | "knowledge" | "aliases" | "admin";
 
-const navItems: Array<{
+type AppNavItem = {
   key: AppNavKey;
   href: string;
   label: string;
   icon: typeof ClipboardCheck;
-}> = [
-  { key: "review", href: "/", label: "검토", icon: ClipboardCheck },
+};
+
+const primaryNavItems: AppNavItem[] = [
   { key: "workspace", href: "/workspace", label: "워크스페이스", icon: Boxes },
+  { key: "review", href: "/", label: "검토", icon: ClipboardCheck },
   { key: "knowledge", href: "/knowledge", label: "지식 검색", icon: Search },
-  { key: "aliases", href: "/knowledge/aliases", label: "용어 정리", icon: Languages },
+  { key: "aliases", href: "/knowledge/aliases", label: "용어 정리", icon: Languages }
+];
+
+const utilityNavItems: AppNavItem[] = [
   { key: "admin", href: "/admin", label: "운영 관리", icon: BadgeCheck }
 ];
 
@@ -31,8 +36,8 @@ export function AppSidebar({ active }: AppSidebarProps) {
         </div>
       </div>
 
-      <nav className="lp-nav" aria-label="핵심 업무" data-shell-nav-count={navItems.length}>
-        {navItems.map((item) => {
+      <nav className="lp-nav" aria-label="핵심 업무" data-shell-nav-count={primaryNavItems.length}>
+        {primaryNavItems.map((item) => {
           const Icon = item.icon;
           const className = item.key === active ? "active" : undefined;
 
@@ -45,6 +50,26 @@ export function AppSidebar({ active }: AppSidebarProps) {
               aria-current={item.key === active ? "page" : undefined}
             >
               <Icon size={17} />
+              {item.label}
+            </Link>
+          );
+        })}
+      </nav>
+
+      <nav className="lp-utility-nav" aria-label="운영 업무" data-shell-nav="utility" data-shell-nav-count={utilityNavItems.length}>
+        {utilityNavItems.map((item) => {
+          const Icon = item.icon;
+          const className = item.key === active ? "active" : undefined;
+
+          return (
+            <Link
+              key={item.key}
+              className={className}
+              href={item.href}
+              data-shell-nav-item={item.key}
+              aria-current={item.key === active ? "page" : undefined}
+            >
+              <Icon size={16} />
               {item.label}
             </Link>
           );

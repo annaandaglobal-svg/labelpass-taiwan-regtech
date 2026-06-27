@@ -109,6 +109,8 @@ const workspaceSource = read("src/app/workspace/page.tsx");
 requireNoMojibake(workspaceSource, "src/app/workspace/page.tsx");
 requireIncludes(workspaceSource, "getPlatformOpsSnapshot", "src/app/workspace/page.tsx workspace ops data");
 requireIncludes(workspaceSource, "buildPlatformOpsActionQueue", "src/app/workspace/page.tsx workspace action queue");
+requireIncludes(workspaceSource, "workspaceActionQueue", "src/app/workspace/page.tsx customer action queue");
+requireIncludes(workspaceSource, 'item.href !== "/admin/settings"', "src/app/workspace/page.tsx filters internal admin settings");
 requireIncludes(workspaceSource, 'className="workspace-dashboard"', "src/app/workspace/page.tsx workspace layout");
 requireIncludes(workspaceSource, 'className="workspace-action-list"', "src/app/workspace/page.tsx workspace action queue UI");
 requireIncludes(workspaceSource, 'href="/admin/experts"', "src/app/workspace/page.tsx expert handoff");
@@ -166,18 +168,28 @@ requireIncludes(sidebarRule, "overflow-y: auto", "src/app/globals.css .lp-sideba
 const appSidebarSource = read("src/components/app-sidebar.tsx");
 requireNoMojibake(appSidebarSource, "src/components/app-sidebar.tsx");
 requireIncludes(appSidebarSource, 'data-shell-nav="primary"', "src/components/app-sidebar.tsx primary shell nav contract");
-requireIncludes(appSidebarSource, "data-shell-nav-count={navItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
+requireIncludes(appSidebarSource, "primaryNavItems", "src/components/app-sidebar.tsx primary nav items");
+requireIncludes(appSidebarSource, "utilityNavItems", "src/components/app-sidebar.tsx utility nav items");
+requireIncludes(appSidebarSource, "data-shell-nav-count={primaryNavItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
+requireIncludes(appSidebarSource, 'data-shell-nav="utility"', "src/components/app-sidebar.tsx utility nav contract");
 requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/components/app-sidebar.tsx stable nav item ids");
-for (const navLabel of ["검토", "워크스페이스", "지식 검색", "용어 정리", "운영 관리"]) {
+for (const navLabel of ["워크스페이스", "검토", "지식 검색", "용어 정리"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
+}
+requireIncludes(appSidebarSource, 'label: "운영 관리"', "src/components/app-sidebar.tsx utility nav label");
+if (appSidebarSource.indexOf('key: "workspace"') > appSidebarSource.indexOf('key: "review"')) {
+  fail("src/components/app-sidebar.tsx: workspace must be the first primary navigation item");
 }
 
 const lpNavLink = cssRule(css, ".lp-nav a");
 requireIncludes(lpNavLink, "min-width: 0", "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "min-height", 36, "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "font-size", 13, "src/app/globals.css .lp-nav a");
-requireIncludes(css, '.lp-nav a[data-shell-nav-item="admin"]', "src/app/globals.css admin utility nav treatment");
-requireIncludes(css, '.lp-nav a[data-shell-nav-item="admin"].active', "src/app/globals.css admin utility active treatment");
+requireIncludes(css, ".lp-utility-nav", "src/app/globals.css admin utility nav treatment");
+requireIncludes(css, ".lp-utility-nav a.active", "src/app/globals.css admin utility active treatment");
+if (css.includes('.lp-nav a[data-shell-nav-item="admin"]')) {
+  fail('src/app/globals.css: admin must not be styled as a primary .lp-nav tab');
+}
 
 const lpButton = cssRule(css, ".lp-button");
 requireMaxPx(lpButton, "min-height", 36, "src/app/globals.css .lp-button");
@@ -212,12 +224,12 @@ requireCompactIncludes(mobileCss, ".lp-shell { grid-template-columns: 1fr; }", "
 requireCompactIncludes(mobileCss, ".lp-sidebar { position: sticky; top: 0; z-index: 20; height: auto;", "src/app/globals.css mobile sidebar");
 requireCompactIncludes(
   mobileCss,
-  ".lp-nav { grid-template-columns: repeat(5, minmax(0, 1fr));",
+  ".lp-nav { grid-template-columns: repeat(4, minmax(0, 1fr));",
   "src/app/globals.css mobile primary nav"
 );
 requireCompactIncludes(
   mobileCss,
-  "@media (max-width: 680px) { .lp-nav { grid-template-columns: 1fr; } .lp-nav a { flex-direction: row; justify-content: flex-start;",
+  "@media (max-width: 680px) { .lp-nav { grid-template-columns: 1fr; } .lp-nav a, .lp-utility-nav a { flex-direction: row; justify-content: flex-start;",
   "src/app/globals.css narrow mobile primary nav wrap"
 );
 requireCompactIncludes(mobileCss, ".lp-nav a { justify-content: center;", "src/app/globals.css mobile primary nav links");
