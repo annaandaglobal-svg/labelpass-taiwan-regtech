@@ -13,3 +13,5 @@ supabase/generated/
 이전 시안/
 *.tsbuildinfo
 dev-server.*.log
+dev-ui-audit.*.log
+prod-ui-audit.*.log

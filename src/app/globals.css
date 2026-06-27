@@ -14488,6 +14488,22 @@ h2 {
     padding: 12px;
   }
 
+  .admin-hero,
+  .admin-section-hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    min-height: 0;
+    padding: 3px 0 5px;
+  }
+
+  .admin-hero p,
+  .admin-section-hero p {
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .admin-metrics,
   .admin-health-list,
   .admin-flow,
@@ -14526,7 +14542,20 @@ h2 {
 
   .admin-hero h1,
   .admin-section-hero h1 {
-    font-size: 14.5px;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 13.5px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .admin-hero .admin-secondary-action,
+  .admin-section-hero .admin-secondary-action {
+    justify-self: end;
+    align-self: start;
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
 }
