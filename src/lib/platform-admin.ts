@@ -1,4 +1,5 @@
 export type AdminMetric = {
+  id: string;
   label: string;
   value: string;
   detail: string;
@@ -25,27 +26,31 @@ export type PlatformModule = {
 
 export const adminMetrics: AdminMetric[] = [
   {
-    label: "대만 우선 워크플로",
+    id: "market_coverage",
+    label: "대만 우선 규제 범위",
     value: "7",
-    detail: "화장품, 식품, 첨가물, 수입검사, 건강식품, 포장재, HS/CCC",
+    detail: "화장품, 식품, 상품표시, 통관, HS/CCC, 물류, 결제",
     tone: "good"
   },
   {
-    label: "공식 지식 소스",
+    id: "knowledge_sources",
+    label: "공식 출처",
     value: "166",
     detail: "TFDA, MOJ, BSMI, Customs, global terminology",
     tone: "good"
   },
   {
-    label: "운영 테이블",
+    id: "ops_records",
+    label: "운영 데이터",
     value: "14",
-    detail: "조직, 문서, 전문가, 물류, 선적, 채팅, 결제",
+    detail: "회사, 문서, 전문가, 결제, 물류, 선적, 감사",
     tone: "info"
   },
   {
-    label: "남은 연결",
+    id: "storage_status",
+    label: "저장소 연결",
     value: "DB URL",
-    detail: "서버 DB URL 설정 전까지 archive는 브라우저 fallback",
+    detail: "Supabase DB URL 설정 전에는 읽기 전용 preview로 운영합니다.",
     tone: "warn"
   }
 ];
@@ -53,96 +58,96 @@ export const adminMetrics: AdminMetric[] = [
 export const adminQueue: AdminQueueItem[] = [
   {
     id: "admin-org-setup",
-    title: "조직/멤버 권한 모델 검수",
+    title: "회사/사용자 권한 구조 정리",
     owner: "운영 관리자",
     status: "ready",
-    due: "이번 스프린트",
-    note: "profiles.role과 organization_members.role을 분리해 플랫폼 권한과 회사 권한을 따로 관리합니다."
+    due: "다음 연결 대상",
+    note: "플랫폼 운영 권한과 고객 회사 내부 권한을 분리해 데이터 노출 범위를 통제합니다."
   },
   {
     id: "expert-marketplace",
-    title: "전문가 매칭 결제 흐름",
-    owner: "PM / 결제 담당",
+    title: "전문가 매칭/상담 플로우 설계",
+    owner: "PM / 전문가 운영",
     status: "review",
-    due: "다음 조각",
-    note: "requested, matched, paid, in_progress, completed, refunded 상태가 expert_matches에 준비됐습니다."
+    due: "실데이터 연동 전",
+    note: "requested, matched, paid, in_progress, completed, refunded 상태를 expert_matches 기준으로 감시합니다."
   },
   {
     id: "logistics-tracking",
-    title: "물류사 매칭과 선적 이벤트",
+    title: "물류사 매칭/선적 추적 플로우",
     owner: "물류 운영",
     status: "review",
-    due: "다음 조각",
-    note: "shipment_requests, logistics_matches, shipments, shipment_events로 트래킹 흐름을 분리했습니다."
+    due: "실데이터 연동 전",
+    note: "shipment_requests, logistics_matches, shipments, shipment_events를 한 흐름으로 연결합니다."
   },
   {
     id: "archive-db-url",
-    title: "Supabase 서버 DB URL 연결",
-    owner: "인프라",
+    title: "Supabase 관리자 DB URL 연결",
+    owner: "보안 설정",
     status: "waiting",
-    due: "배포 설정",
-    note: "연결 후 review archive와 관리자 실제 데이터 조회를 Supabase로 이동합니다."
+    due: "승인 후",
+    note: "연결 전에는 review archive와 운영 데이터가 안전하게 읽기 전용 preview로 동작합니다."
   }
 ];
 
 export const platformModules: PlatformModule[] = [
   {
     id: "organizations",
-    label: "회사·사용자 관리",
-    purpose: "회사별 제품, 리뷰, 문서, 설정을 분리하고 초대/권한을 관리합니다.",
+    label: "회사/사용자 관리",
+    purpose: "회사 프로필, 멤버 권한, 제품/문서 접근 범위와 조직별 설정을 관리합니다.",
     tables: ["organizations", "organization_members", "organization_settings"],
-    nextAction: "/admin/companies와 /admin/users에 실제 Supabase 목록 연결",
+    nextAction: "/admin/companies와 /admin/users를 Supabase 실데이터에 연결",
     status: "schema_ready"
   },
   {
     id: "documents",
     label: "제품 문서 관리",
-    purpose: "라벨, PIF, COA, 인보이스, 패킹리스트, 선적 서류를 제품과 리뷰에 붙입니다.",
+    purpose: "성분표, PIF, COA, 라벨 시안, 통관/검토 증빙을 제품별로 보관하고 리뷰와 연결합니다.",
     tables: ["product_documents"],
-    nextAction: "업로드 스토리지 정책과 문서 상태 변경 audit 로그 추가",
+    nextAction: "제품별 문서 상태와 라벨 검토 이력을 audit 로그에 연결",
     status: "schema_ready"
   },
   {
     id: "experts",
-    label: "전문가 유료 매칭",
-    purpose: "전문가 프로필, 견적, 결제, 상담 스레드를 리뷰 케이스에 연결합니다.",
+    label: "전문가 매칭",
+    purpose: "전문가 프로필, 견적, 상담방, 완료/환불 상태를 리뷰 건별로 추적합니다.",
     tables: ["expert_profiles", "expert_matches", "chat_threads", "chat_messages", "payments"],
-    nextAction: "결제 전/후 상담 상태와 환불 상태를 UI에 연결",
+    nextAction: "결제 이후 상담방 접근 권한과 완료 상태 UI 연결",
     status: "schema_ready"
   },
   {
     id: "payments",
-    label: "결제·정산 관리",
-    purpose: "견적 승인, 결제 상태, 상담방 접근, 정산, 환불 증빙을 운영자가 한 곳에서 확인합니다.",
+    label: "상담/결제 관리",
+    purpose: "견적, 결제 승인, 상담방 접근, 정산, 환불 증빙을 한 흐름으로 관리합니다.",
     tables: ["payments", "expert_matches", "chat_threads", "audit_logs"],
-    nextAction: "/admin/payments에서 결제와 상담방 게이트를 분리 확인",
+    nextAction: "/admin/payments에서 결제 상태별 감사 로그 저장",
     status: "schema_ready"
   },
   {
     id: "logistics",
-    label: "물류사 매칭·선적 추적",
-    purpose: "검토가 끝난 제품을 물류 요청, 견적, 선적, 이벤트 타임라인으로 이어줍니다.",
+    label: "물류 매칭/선적 추적",
+    purpose: "대만 수입 건의 물류사 추천, 견적, 선적 이벤트, 통관 handoff를 추적합니다.",
     tables: ["logistics_companies", "shipment_requests", "logistics_matches", "shipments", "shipment_events"],
-    nextAction: "운송 요청 생성 버튼과 추적 이벤트 수집 API 연결",
+    nextAction: "tracking API와 물류사별 선적 이벤트 동기화",
     status: "schema_ready"
   },
   {
     id: "settings",
-    label: "회사별 설정",
-    purpose: "시장, 언어, 리뷰 아카이브, 전문가 매칭, 물류 매칭, 알림 채널을 회사 단위로 제어합니다.",
+    label: "조직 설정",
+    purpose: "시장, 언어, 리뷰 저장, 전문가 매칭, 물류 매칭, 알림 채널을 조직 단위로 제어합니다.",
     tables: ["organization_settings", "organizations", "organization_members"],
-    nextAction: "/admin/settings에서 기능 토글과 DB readiness를 확인",
+    nextAction: "/admin/settings에서 조직별 기본값과 DB readiness 표시",
     status: "schema_ready"
   }
 ];
 
 export const adminNav = [
-  { href: "/admin", label: "운영 홈" },
+  { href: "/admin", label: "운영" },
   { href: "/admin/companies", label: "회사" },
-  { href: "/admin/users", label: "사용자" },
+  { href: "/admin/users", label: "권한" },
   { href: "/admin/reviews", label: "리뷰 큐" },
   { href: "/admin/experts", label: "전문가" },
   { href: "/admin/payments", label: "결제" },
-  { href: "/admin/logistics", label: "물류·선적" },
+  { href: "/admin/logistics", label: "물류/선적" },
   { href: "/admin/settings", label: "설정" }
 ];

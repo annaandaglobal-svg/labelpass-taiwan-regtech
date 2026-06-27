@@ -12877,6 +12877,35 @@ h2 {
   color: var(--green-dark);
 }
 
+.admin-row-action-note {
+  display: grid;
+  gap: 3px;
+  width: min(100%, 260px);
+}
+
+.admin-row-action-note span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.admin-row-action-note input {
+  width: 100%;
+  min-height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.admin-row-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
 .admin-row-action button {
   display: inline-flex;
   align-items: center;
@@ -12895,6 +12924,11 @@ h2 {
 .admin-row-action button:disabled {
   cursor: wait;
   opacity: 0.68;
+}
+
+.admin-row-action button.admin-row-action-lock {
+  color: var(--muted);
+  cursor: not-allowed;
 }
 
 .admin-row-action small {

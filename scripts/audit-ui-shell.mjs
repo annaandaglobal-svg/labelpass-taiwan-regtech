@@ -17,6 +17,13 @@ function requireIncludes(source, needle, label) {
   if (!source.includes(needle)) fail(`${label}: missing ${needle}`);
 }
 
+const mojibakePattern = /[�\uE000-\uF8FF]|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔|渥|庖)/u;
+
+function requireNoMojibake(source, label) {
+  const match = source.match(mojibakePattern);
+  if (match) fail(`${label}: contains mojibake token ${match[0]}`);
+}
+
 function compact(value) {
   return value.replace(/\s+/g, " ").trim();
 }
@@ -105,6 +112,15 @@ const requiredAdminRoutes = [
 ];
 const adminNavSource = read("src/lib/platform-admin.ts");
 const adminSectionNavSource = read("src/components/admin-section-nav.tsx");
+const adminUiFiles = [
+  ...walk(join(repoRoot, "src/app/admin")).filter((filePath) => filePath.endsWith(".tsx")),
+  ...walk(join(repoRoot, "src/components")).filter((filePath) => /admin-.*\.tsx$/.test(relative(repoRoot, filePath).replaceAll("\\", "/"))),
+  join(repoRoot, "src/lib/platform-admin.ts")
+];
+for (const filePath of adminUiFiles) {
+  const label = relative(repoRoot, filePath).replaceAll("\\", "/");
+  requireNoMojibake(read(label), label);
+}
 for (const href of requiredAdminRoutes) {
   requireIncludes(adminNavSource, `href: "${href}"`, "src/lib/platform-admin.ts adminNav");
   requireIncludes(adminSectionNavSource, `"${href}"`, "src/components/admin-section-nav.tsx icons");
@@ -236,7 +252,12 @@ requireIncludes(css, ".admin-ops-disclosure:not([open]) > :not(summary)", "src/a
 const rowActionSource = read("src/components/admin-row-action-dry-run.tsx");
 requireIncludes(rowActionSource, "<details", "src/components/admin-row-action-dry-run.tsx row action disclosure");
 requireIncludes(rowActionSource, "<summary>", "src/components/admin-row-action-dry-run.tsx row action disclosure");
+requireIncludes(rowActionSource, 'className="admin-row-action-note"', "src/components/admin-row-action-dry-run.tsx operator note capture");
+requireIncludes(rowActionSource, 'className="admin-row-action-lock"', "src/components/admin-row-action-dry-run.tsx locked live apply state");
+requireIncludes(rowActionSource, "operator_note_required", "src/components/admin-row-action-dry-run.tsx audit metadata");
 requireIncludes(css, ".admin-row-action:not([open]) > :not(summary)", "src/app/globals.css closed row action disclosure");
+requireIncludes(css, ".admin-row-action-note input", "src/app/globals.css row action note input");
+requireIncludes(css, ".admin-row-action button.admin-row-action-lock", "src/app/globals.css row action locked button");
 
 if (failures.length) {
   console.error("UI shell audit failed:");

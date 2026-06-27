@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { CheckCircle2, Loader2, Play, TriangleAlert } from "lucide-react";
+import { CheckCircle2, Loader2, LockKeyhole, Play, TriangleAlert } from "lucide-react";
 
 type AdminOpsAction =
   | "expert_match_status"
@@ -49,9 +49,11 @@ export function AdminRowActionDryRun({
   const [isPending, startTransition] = useTransition();
   const [state, setState] = useState<DryRunState>("idle");
   const [summary, setSummary] = useState(isUuid(id ?? shipmentId) ? "실제 행 ID로 안전 확인" : "샘플 행은 dry-run 전용");
+  const [auditNote, setAuditNote] = useState(note ?? "");
   const rawTargetId = id ?? shipmentId;
   const usingSyntheticTarget = !isUuid(rawTargetId);
   const targetId = usingSyntheticTarget ? fallbackUuid : rawTargetId ?? fallbackUuid;
+  const normalizedNote = auditNote.trim() || note || `${action} ${status ?? eventType} dry-run`;
 
   function runDryRun() {
     startTransition(async () => {
@@ -61,8 +63,13 @@ export function AdminRowActionDryRun({
       const basePayload = {
         action,
         requestId,
-        note,
-        metadata: { source: "admin_row_action", syntheticTarget: usingSyntheticTarget, ui: "compact" }
+        note: normalizedNote,
+        metadata: {
+          source: "admin_row_action",
+          syntheticTarget: usingSyntheticTarget,
+          ui: "compact",
+          confirmation: "operator_note_required"
+        }
       };
       const payload =
         action === "shipment_event"
@@ -97,12 +104,32 @@ export function AdminRowActionDryRun({
     <details className={`admin-row-action ${state}`}>
       <summary>
         <Icon size={12} aria-hidden="true" />
-        <span>{state === "idle" ? "검증" : summary}</span>
+        <span>{state === "idle" ? "액션 검증" : summary}</span>
       </summary>
-      <button type="button" onClick={runDryRun} disabled={isPending} aria-label={label}>
-        <Icon size={13} aria-hidden="true" />
-        {label}
-      </button>
+      <label className="admin-row-action-note">
+        <span>운영 메모</span>
+        <input
+          value={auditNote}
+          onChange={(event) => setAuditNote(event.target.value)}
+          maxLength={180}
+          placeholder="변경 사유 또는 확인 메모"
+        />
+      </label>
+      <div className="admin-row-action-buttons">
+        <button type="button" onClick={runDryRun} disabled={isPending} aria-label={label}>
+          <Icon size={13} aria-hidden="true" />
+          {label}
+        </button>
+        <button
+          className="admin-row-action-lock"
+          type="button"
+          disabled
+          aria-label="실제 반영은 관리자 DB 쓰기와 토큰 설정 후 활성화됩니다"
+        >
+          <LockKeyhole size={13} aria-hidden="true" />
+          실제 반영 잠김
+        </button>
+      </div>
       <small>{summary}</small>
     </details>
   );
