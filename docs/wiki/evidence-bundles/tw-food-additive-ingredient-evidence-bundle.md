@@ -32,18 +32,18 @@
 
 ## Required Sources
 
+- **Food Ingredient Integration Query Platform Direct Query** (`tw-tfda-food-ingredient-query-platform-direct`) - Taiwan Food and Drug Administration / Consumer Knowledge Service Network; fresh; cache
+- **TFDA Food Business Information Query Links** (`tw-tfda-food-business-info-query-links`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy** (`tw-tfda-food-false-exaggerated-medical-efficacy-claims`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA Food Guidance, Law and Regulations Index** (`tw-tfda-food-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; html
 - **Regulations on Nutrition Labeling for Prepackaged Food Products** (`tw-tfda-food-nutrition-labeling`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulation of Food Allergen Labeling English Page** (`tw-tfda-food-allergen-labeling-en`) - Taiwan Food and Drug Administration; fresh; cache
-- **Act Governing Food Safety and Sanitation** (`tw-moj-food-safety-sanitation-act`) - Ministry of Health and Welfare / MOJ Laws and Regulations Database; fresh; cache
-- **Regulation of Food Allergen Labeling** (`tw-tfda-food-allergen-labeling`) - Taiwan Food and Drug Administration; fresh; cache
-- **Prepackaged Food Allergen Labeling Notice** (`tw-tfda-food-allergen-labeling-consumer-notice`) - Taiwan Food and Drug Administration; fresh; cache
 
 ## Answer Skeleton
 
 - Classify the product as food_additive and confirm the routing assumptions.
 - Normalize key names with the selected term cards: Food Labeling and Claims, Food Allergen Labeling, Food Label Required Items.
-- Cite the strongest Taiwan sources: tw-tfda-food-false-exaggerated-medical-efficacy-claims, tw-tfda-food-nutrition-labeling, tw-tfda-food-allergen-labeling-en.
+- Cite the strongest Taiwan sources: tw-tfda-food-ingredient-query-platform-direct, tw-tfda-food-business-info-query-links, tw-tfda-food-false-exaggerated-medical-efficacy-claims.
 - Return blockers first, then required documents, then optional follow-up checks.
 
 ## Caveats

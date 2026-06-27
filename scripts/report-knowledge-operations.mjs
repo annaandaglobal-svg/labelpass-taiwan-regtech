@@ -128,6 +128,136 @@ function topDueSources(results, limit = 12) {
     .slice(0, limit);
 }
 
+function buildCoverageRoutesBySource(coverageGroups) {
+  const routes = new Map();
+  for (const group of coverageGroups ?? []) {
+    for (const sourceId of group.sourceIds ?? group.source_ids ?? []) {
+      if (!routes.has(sourceId)) routes.set(sourceId, []);
+      routes.get(sourceId).push(group.label ?? group.id);
+    }
+  }
+  return routes;
+}
+
+function buildMetadataQualityRows(sources, results, coverageRoutesBySource) {
+  const resultById = new Map(results.map((result) => [result.id, result]));
+  const fieldChecks = [
+    {
+      id: "core",
+      label: "Core registry fields",
+      hasValue: (source) =>
+        Boolean(
+          source.id &&
+            source.title &&
+            source.url &&
+            source.authority &&
+            source.jurisdiction &&
+            source.domain &&
+            source.source_type &&
+            source.priority &&
+            source.cache_days &&
+            source.tags?.length
+        )
+    },
+    {
+      id: "language",
+      label: "Explicit language/locale",
+      hasValue: (source) => Boolean(source.language || source.locale || source.languages?.length)
+    },
+    {
+      id: "effective_date",
+      label: "Effective/amended date",
+      hasValue: (source) => Boolean(source.effective_date || source.amended_at || source.version_date)
+    },
+    {
+      id: "last_verified",
+      label: "Last verified timestamp",
+      hasValue: (source) => Boolean(source.last_verified_at || resultById.get(source.id)?.fetched_at)
+    },
+    {
+      id: "refresh_strategy",
+      label: "Refresh strategy",
+      hasValue: (source) => Boolean(source.refresh_strategy || source.cache_days)
+    },
+    {
+      id: "owner",
+      label: "Internal owner",
+      hasValue: (source) => Boolean(source.owner || source.review_owner)
+    },
+    {
+      id: "selector_strategy",
+      label: "Selector/capture strategy",
+      hasValue: (source) =>
+        Boolean(
+          source.selector_strategy ||
+            source.selectors ||
+            source.ecfr ||
+            source.manual_extract ||
+            source.format === "pdf" ||
+            source.browser_capture_path ||
+            source.screenshot_path
+        )
+    },
+    {
+      id: "coverage_route",
+      label: "Mapped coverage route",
+      hasValue: (source) => Boolean(coverageRoutesBySource.get(source.id)?.length)
+    }
+  ];
+
+  return fieldChecks.map((check) => {
+    const present = sources.filter(check.hasValue).length;
+    return {
+      id: check.id,
+      label: check.label,
+      present,
+      missing: sources.length - present,
+      coverage_pct: sources.length ? Math.round((present / sources.length) * 100) : 0
+    };
+  });
+}
+
+function buildManualFallbackRows(sources, results, coverageRoutesBySource) {
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  return results
+    .filter((source) => source.manual_fallback)
+    .map((result) => {
+      const registrySource = sourceById.get(result.id) ?? {};
+      return {
+        id: result.id,
+        domain: result.domain,
+        priority: result.priority,
+        routes: coverageRoutesBySource.get(result.id) ?? [],
+        capture: result.browser_capture_path || registrySource.browser_capture_path || "",
+        screenshot: result.screenshot_path || registrySource.screenshot_path || ""
+      };
+    })
+    .sort((a, b) => a.domain.localeCompare(b.domain) || a.id.localeCompare(b.id));
+}
+
+function buildUpdateImpactRows(updateItems, coverageRoutesBySource, limit = 12) {
+  return [...(updateItems ?? [])]
+    .filter((item) => item.status === "pending_refresh" || item.severity === "high")
+    .map((item) => ({
+      source_key: item.source_key,
+      title: item.title,
+      severity: item.severity,
+      status: item.status,
+      affected_terms: item.affected_terms?.length ?? 0,
+      affected_products: item.affected_products?.length ?? 0,
+      routes: coverageRoutesBySource.get(item.source_key) ?? [],
+      cache_expires_at: item.cache_expires_at
+    }))
+    .filter((item) => item.affected_terms === 0 || item.routes.length === 0)
+    .sort(
+      (a, b) =>
+        a.affected_terms - b.affected_terms ||
+        b.severity.localeCompare(a.severity) ||
+        a.source_key.localeCompare(b.source_key)
+    )
+    .slice(0, limit);
+}
+
 function markdownTable(rows, columns) {
   if (!rows.length) return "No rows.\n";
   const header = `| ${columns.map((column) => column.label).join(" | ")} |\n`;
@@ -154,6 +284,7 @@ const [registry, index, termIndex, aliasQueue, updateQueue, coverage, seedSql, c
 const sources = registry.sources ?? [];
 const results = index.results ?? [];
 const terms = termIndex.terms ?? [];
+const coverageRoutesBySource = buildCoverageRoutesBySource(coverage.groups);
 const storedAliases = countAliases(terms);
 const searchableAliasCounts = terms.reduce(
   (counts, term) => {
@@ -186,6 +317,19 @@ const manualFallbackWithoutEvidenceSources = manualFallbackSources.filter(
 );
 const fromCacheSources = results.filter((source) => source.from_cache);
 const nextRefresh = topDueSources(results, 1)[0] ?? null;
+const metadataQualityRows = buildMetadataQualityRows(sources, results, coverageRoutesBySource);
+const manualFallbackRows = buildManualFallbackRows(sources, results, coverageRoutesBySource);
+const updateImpactGapRows = buildUpdateImpactRows(updateQueue.items, coverageRoutesBySource);
+const metadataQualityById = Object.fromEntries(
+  metadataQualityRows.map((row) => [
+    row.id,
+    {
+      present: row.present,
+      missing: row.missing,
+      coverage_pct: row.coverage_pct
+    }
+  ])
+);
 
 const seedCounts = {
   knowledge_sources: countInserts(seedSql, "knowledge_sources"),
@@ -238,6 +382,8 @@ const summary = {
   update_candidates: updateQueue.summary ?? {},
   alias_queue: aliasQueue.summary ?? {},
   coverage_groups: coverage.groups?.length ?? 0,
+  source_metadata_quality: metadataQualityById,
+  impact_gap_candidates: updateImpactGapRows.length,
   seed_counts: seedCounts,
   chunk_manifest: {
     chunks: chunkManifest.chunk_count,
@@ -292,6 +438,30 @@ if (writeReport) {
     `- Browser capture sources: ${formatNumber(summary.browser_capture_sources)}`,
     `- Reused from raw cache: ${formatNumber(summary.from_cache_sources)}`,
     "",
+    "## Browser Capture Evidence",
+    "",
+    "Manual fallback sources are official pages that need a browser-oriented or structured extract path. All high-priority manual fallback sources should have a capture text file, and screenshot evidence is kept where the page state is visually important.",
+    "",
+    markdownTable(manualFallbackRows, [
+      { label: "Source", value: (row) => row.id },
+      { label: "Domain", value: (row) => row.domain },
+      { label: "Priority", value: (row) => row.priority },
+      { label: "Routes", value: (row) => row.routes.join("; ") || "unmapped" },
+      { label: "Capture", value: (row) => row.capture ? "yes" : "no" },
+      { label: "Screenshot", value: (row) => row.screenshot ? "yes" : "no" }
+    ]),
+    "",
+    "## Source Metadata Quality",
+    "",
+    "These checks make crawler operations explicit. Core fields, refresh strategy, and last verification are already covered by the registry/crawl index; language, effective-date, owner, selector strategy, and route mapping remain useful metadata-hardening backlog.",
+    "",
+    markdownTable(metadataQualityRows, [
+      { label: "Check", value: (row) => row.label },
+      { label: "Present", align: "right", value: (row) => formatNumber(row.present) },
+      { label: "Missing", align: "right", value: (row) => formatNumber(row.missing) },
+      { label: "Coverage", align: "right", value: (row) => `${row.coverage_pct}%` }
+    ]),
+    "",
     "## Next Sources Due",
     "",
     markdownTable(dueRows, [
@@ -318,6 +488,19 @@ if (writeReport) {
     "",
     `- Update queue: ${formatNumber(summary.update_candidates.pending_refresh)} pending refresh, ${formatNumber(summary.update_candidates.watching)} watching, ${formatNumber(summary.update_candidates.detected)} detected changes.`,
     `- Alias triage backlog: ${formatNumber(summary.alias_queue.high_confidence_collisions)} high-confidence collisions, ${formatNumber(summary.alias_queue.mojibake_aliases)} mojibake aliases, ${formatNumber(summary.alias_queue.regulated_terms_without_local_alias)} regulated terms without readable local aliases; ${formatNumber(summary.alias_queue.strict_blockers)} strict blockers.`,
+    `- Impact gap candidates: ${formatNumber(summary.impact_gap_candidates)} pending/high update candidates have empty affected terms or no mapped coverage route.`,
+    "",
+    "### Impact Gap Candidates",
+    "",
+    markdownTable(updateImpactGapRows, [
+      { label: "Source", value: (row) => row.source_key },
+      { label: "Severity", value: (row) => row.severity },
+      { label: "Status", value: (row) => row.status },
+      { label: "Terms", align: "right", value: (row) => formatNumber(row.affected_terms) },
+      { label: "Products", align: "right", value: (row) => formatNumber(row.affected_products) },
+      { label: "Routes", value: (row) => row.routes.join("; ") || "unmapped" },
+      { label: "Expires", value: (row) => formatDate(row.cache_expires_at) }
+    ]),
     "",
     "## Supabase Seed Readiness",
     "",

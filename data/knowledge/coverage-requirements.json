@@ -15,6 +15,10 @@
         "tw-tfda-pif-implementation",
         "tw-tfda-cosmetic-pif-category-implementation-2024",
         "tw-tfda-cosmetic-product-registration-categories-2024",
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetic-fadenbook-platform",
+        "tw-tfda-cosmetic-adverse-event-qms-platform",
+        "tw-tfda-cosmetics-law-regulations-index",
         "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
         "tw-tfda-cosmetic-spray-use-safety-guideline",
         "tw-moj-cosmetic-product-notification"
@@ -47,7 +51,11 @@
         "tw-tfda-food-allergen-labeling-en",
         "tw-tfda-food-allergen-labeling-consumer-notice",
         "tw-tfda-food-nutrition-labeling",
-        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+        "tw-tfda-food-law-regulations-index",
+        "tw-tfda-illegal-advertising-query",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-food-business-info-query-links"
       ],
       "termIds": [
         "food-label-required-items",
@@ -81,6 +89,10 @@
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
         "tw-trade-import-regulation-code-instruction",
+        "tw-trade-ccc-import-export-regulations",
+        "tw-customs-tariff-database-download",
+        "tw-customs-export-origin-packaging",
+        "tw-tfda-food-additive-permit-query",
         "tw-tfda-systematic-inspection-imported-food",
         "tw-tfda-food-business-registration-importers"
       ],
@@ -109,8 +121,10 @@
         "tw-tfda-health-food-enforcement-rules",
         "tw-tfda-health-food-application-permit-regulations",
         "tw-tfda-health-food-labeling-regulations",
+        "tw-tfda-health-food-permit-query",
         "tw-tfda-health-food-health-care-effect-items-2025",
         "tw-tfda-health-food-effect-assessment-methods-hub",
+        "tw-tfda-special-disease-food-permit-query",
         "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026"
       ],
       "termIds": [

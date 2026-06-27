@@ -28,22 +28,21 @@
 - **HS Code Classification** (`hs-code-classification`): CCC code; CCC碼; Harmonized System; HS code
 - **Shipment Purpose** (`shipment-purpose`): shipment purpose; 출하 목적; 自用; 進口目的
 - **Taiwan Importer and Responsible Firm** (`taiwan-importer-responsible-firm`): 進口商; Taiwan importer; 대만 수입자; 수입자
-- **Exporter and Importer Registration** (`exporter-importer-registration`): 出進口廠商登記; exporter and importer registration; registration of exporters and importers; 수출입업자 등록
 
 ## Required Sources
 
+- **GC453 Tariff Database Download** (`tw-customs-tariff-database-download`) - Customs Administration / CPT Single Window; fresh; browser_capture
+- **Import and Export Regulations by CCC Code** (`tw-trade-ccc-import-export-regulations`) - International Trade Administration, MOEA; fresh; browser_capture
+- **Kaohsiung Customs origin packaging notice** (`tw-customs-export-origin-packaging`) - Taiwan Customs Administration; fresh; cache
 - **Taiwan Import Regulation Code Search Instructions** (`tw-trade-import-regulation-code-instruction`) - International Trade Administration, Ministry of Economic Affairs; fresh; html
+- **Food Additive Permit Data Query** (`tw-tfda-food-additive-permit-query`) - Taiwan Food and Drug Administration / Consumer Knowledge Service Network; fresh; browser_capture
 - **TFDA Import Regulation 508 Food Additive Commodity List Notice** (`tw-tfda-import-regulation-508-food-additive-commodity-list-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **TFDA F01 and F02 Import Regulation Commodity Table Notice** (`tw-tfda-import-regulation-f01-f02-commodity-table-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **TFDA Imported Food Inspection Application Forms** (`tw-tfda-imported-food-inspection-forms`) - Taiwan Food and Drug Administration; fresh; html
-- **Regulations of Inspection of Imported Foods and Related Products** (`tw-tfda-imported-food-inspection-regulations`) - Taiwan Food and Drug Administration; fresh; cache
-- **Regulations for Systematic Inspection of Imported Food** (`tw-tfda-systematic-inspection-imported-food`) - Taiwan Food and Drug Administration; fresh; cache
 
 ## Answer Skeleton
 
 - Classify the product as trade_control and confirm the routing assumptions.
 - Normalize key names with the selected term cards: Import and Export Permit, Customs Declaration, HS Code Classification.
-- Cite the strongest Taiwan sources: tw-trade-import-regulation-code-instruction, tw-tfda-import-regulation-508-food-additive-commodity-list-2026, tw-tfda-import-regulation-f01-f02-commodity-table-2026.
+- Cite the strongest Taiwan sources: tw-customs-tariff-database-download, tw-trade-ccc-import-export-regulations, tw-customs-export-origin-packaging.
 - Return blockers first, then required documents, then optional follow-up checks.
 
 ## Caveats

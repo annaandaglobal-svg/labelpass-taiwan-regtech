@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-26T20:07:58.580Z",
+  "generated_at": "2026-06-27T00:19:40.111Z",
   "generated_from": {
-    "knowledge_memory_generated_at": "2026-06-26T20:07:58.580Z",
+    "knowledge_memory_generated_at": "2026-06-27T00:19:40.111Z",
     "source_registry_version": "2026-06-26",
-    "selected_source_cards": 91,
+    "selected_source_cards": 94,
     "selected_term_cards": 90
   },
   "templates": [
@@ -14,8 +14,7 @@
       "product_route_id": "tw_cosmetic_label_pif",
       "product_family": "cosmetic",
       "match_domains": [
-        "cosmetics",
-        "general_labeling"
+        "cosmetics"
       ],
       "match_categories": [
         "cosmetic_compliance",
@@ -24,8 +23,8 @@
       "match_terms": [
         "cosmetic-product-information-file",
         "cosmetic-labeling-claims",
-        "cosmetic-pif-product-registration-categories",
         "cosmetic-product-notification",
+        "cosmetic-pif-product-registration-categories",
         "cosmetic-label-required-items",
         "cosmetic-spray-aerosol-safety",
         "specific-purpose-cosmetics-transition",
@@ -36,13 +35,13 @@
       "match_sources": [
         "tw-moj-cosmetic-hygiene-safety-act",
         "tw-moj-cosmetic-product-notification",
+        "tw-tfda-cosmetic-adverse-event-qms-platform",
+        "tw-tfda-cosmetic-fadenbook-platform",
         "tw-tfda-cosmetic-label-leaflet-packaging-marking",
         "tw-tfda-cosmetic-pif-category-implementation-2024",
         "tw-tfda-cosmetic-product-registration-categories-2024",
-        "tw-tfda-pif-implementation",
-        "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
-        "tw-tfda-cosmetic-spray-use-safety-guideline",
-        "tw-moj-commodity-labeling-act"
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetics-law-regulations-index"
       ],
       "query_examples": [
         "PIF",
@@ -103,24 +102,6 @@
           ]
         },
         {
-          "id": "cosmetic-pif-product-registration-categories",
-          "canonical_name": "Cosmetic PIF and Product Registration Categories",
-          "category": "cosmetic_compliance",
-          "aliases": [
-            "產品登錄",
-            "應完成產品登錄之化粧品種類",
-            "應建立產品資訊檔案之化粧品種類及實施日期",
-            "cosmetic product registration",
-            "止汗制臭",
-            "防曬"
-          ],
-          "source_keys": [
-            "tw-tfda-pif-implementation",
-            "tw-tfda-cosmetic-pif-category-implementation-2024",
-            "tw-tfda-cosmetic-product-registration-categories-2024"
-          ]
-        },
-        {
           "id": "cosmetic-product-notification",
           "canonical_name": "Cosmetic Product Notification",
           "category": "cosmetic_compliance",
@@ -142,6 +123,25 @@
           ]
         },
         {
+          "id": "cosmetic-pif-product-registration-categories",
+          "canonical_name": "Cosmetic PIF and Product Registration Categories",
+          "category": "cosmetic_compliance",
+          "aliases": [
+            "產品登錄",
+            "應完成產品登錄之化粧品種類",
+            "應建立產品資訊檔案之化粧品種類及實施日期",
+            "cosmetic product registration",
+            "止汗制臭",
+            "防曬"
+          ],
+          "source_keys": [
+            "tw-tfda-pif-implementation",
+            "tw-tfda-cosmetic-pif-category-implementation-2024",
+            "tw-tfda-cosmetic-product-registration-categories-2024",
+            "tw-tfda-cosmetic-product-registration-system"
+          ]
+        },
+        {
           "id": "cosmetic-label-required-items",
           "canonical_name": "Cosmetic Label Required Items",
           "category": "cosmetic_compliance",
@@ -154,7 +154,8 @@
             "INCI"
           ],
           "source_keys": [
-            "tw-tfda-cosmetic-label-leaflet-packaging-marking"
+            "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+            "tw-tfda-cosmetics-law-regulations-index"
           ]
         },
         {
@@ -196,6 +197,26 @@
           "document_path": "data/knowledge/documents/tw-moj-cosmetic-product-notification.md"
         },
         {
+          "id": "tw-tfda-cosmetic-adverse-event-qms-platform",
+          "title": "TFDA Post-Market Quality Management System",
+          "authority": "Taiwan Food and Drug Administration",
+          "domain": "cosmetics",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-qms-platform.md"
+        },
+        {
+          "id": "tw-tfda-cosmetic-fadenbook-platform",
+          "title": "TFDA Food and Drug Business Registration Platform",
+          "authority": "Taiwan Food and Drug Administration",
+          "domain": "cosmetics",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-tfda-cosmetic-fadenbook-platform.md"
+        },
+        {
           "id": "tw-tfda-cosmetic-label-leaflet-packaging-marking",
           "title": "Cosmetic Outer Package, Container, Label and Package Insert Marking Rules",
           "authority": "Taiwan Food and Drug Administration",
@@ -214,26 +235,6 @@
           "cache_status": "fresh",
           "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-pif-category-implementation-2024.md"
-        },
-        {
-          "id": "tw-tfda-cosmetic-product-registration-categories-2024",
-          "title": "Cosmetic Product Registration Category Notice",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "cosmetics",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "html",
-          "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-categories-2024.md"
-        },
-        {
-          "id": "tw-tfda-pif-implementation",
-          "title": "Cosmetic Product Information Files to Be Implemented in Phases",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "cosmetics",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md"
         }
       ],
       "citation_slots": [
@@ -244,8 +245,8 @@
       ],
       "answer_skeleton": [
         "Classify the product as cosmetic and confirm the routing assumptions.",
-        "Normalize key names with the selected term cards: Cosmetic Product Information File, Cosmetic Labeling and Claims, Cosmetic PIF and Product Registration Categories.",
-        "Cite the strongest Taiwan sources: tw-moj-cosmetic-hygiene-safety-act, tw-moj-cosmetic-product-notification, tw-tfda-cosmetic-label-leaflet-packaging-marking.",
+        "Normalize key names with the selected term cards: Cosmetic Product Information File, Cosmetic Labeling and Claims, Cosmetic Product Notification.",
+        "Cite the strongest Taiwan sources: tw-moj-cosmetic-hygiene-safety-act, tw-moj-cosmetic-product-notification, tw-tfda-cosmetic-adverse-event-qms-platform.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
       "caveats": [
@@ -260,7 +261,7 @@
         "no Chinese label text"
       ],
       "next_action": "Run the cosmetic review, then attach PIF/notification and ingredient evidence before expert approval.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_food_label_allergen_evidence_bundle",
@@ -278,12 +279,12 @@
       "match_terms": [
         "food-labeling-claims",
         "food-allergen-labeling",
+        "food-label-required-items",
+        "nutrition-labeling",
         "sulfites-allergen",
         "crustacea-allergen",
         "fish-allergen",
-        "food-label-required-items",
         "mango-allergen",
-        "nutrition-labeling",
         "tree-nuts-allergen",
         "caseinates-food-additives"
       ],
@@ -293,10 +294,10 @@
         "tw-tfda-food-allergen-labeling-consumer-notice",
         "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
         "tw-tfda-food-labeling-handbook-2026",
+        "tw-tfda-food-law-regulations-index",
         "tw-tfda-food-nutrition-labeling",
-        "tw-tfda-food-allergen-labeling-en",
-        "tw-tfda-food-additive-standards",
-        "tw-tfda-food-enforcement-rules"
+        "tw-tfda-illegal-advertising-query",
+        "tw-tfda-food-allergen-labeling-en"
       ],
       "query_examples": [
         "allergen labeling",
@@ -331,7 +332,8 @@
             "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
             "tw-tfda-sweetness-claim-prepackaged-food",
             "tw-tfda-nutrition-claim-prepackaged-food",
-            "global-codex-prepackaged-food-labeling"
+            "global-codex-prepackaged-food-labeling",
+            "tw-tfda-food-law-regulations-index"
           ]
         },
         {
@@ -351,6 +353,45 @@
             "tw-tfda-food-allergen-labeling-en",
             "tw-tfda-food-allergen-labeling-consumer-notice",
             "global-codex-prepackaged-food-labeling"
+          ]
+        },
+        {
+          "id": "food-label-required-items",
+          "canonical_name": "Food Label Required Items",
+          "category": "food_labeling",
+          "aliases": [
+            "食品標示",
+            "食品標示手冊",
+            "食品標示法規手冊",
+            "food labeling regulations handbook",
+            "內容物名稱",
+            "有效日期"
+          ],
+          "source_keys": [
+            "tw-tfda-food-labeling-handbook-2026",
+            "tw-moj-food-safety-sanitation-act",
+            "tw-tfda-food-law-regulations-index"
+          ]
+        },
+        {
+          "id": "nutrition-labeling",
+          "canonical_name": "Nutrition Labeling",
+          "category": "food_labeling",
+          "aliases": [
+            "營養標示",
+            "nutrition label",
+            "영양성분표",
+            "营养标签",
+            "nutrition facts",
+            "영양표시"
+          ],
+          "source_keys": [
+            "tw-tfda-food-nutrition-labeling",
+            "tw-tfda-nutrition-claim-prepackaged-food",
+            "tw-tfda-sweetness-claim-prepackaged-food",
+            "global-codex-nutrition-labeling",
+            "us-ecfr-food-labeling-21-cfr-101",
+            "tw-tfda-food-law-regulations-index"
           ]
         },
         {
@@ -387,41 +428,6 @@
             "tw-tfda-food-allergen-labeling",
             "tw-tfda-food-allergen-labeling-en",
             "tw-tfda-food-allergen-labeling-consumer-notice"
-          ]
-        },
-        {
-          "id": "fish-allergen",
-          "canonical_name": "Fish Allergen",
-          "category": "food_allergen",
-          "aliases": [
-            "魚類",
-            "Fish",
-            "fish products",
-            "어류",
-            "생선",
-            "魚"
-          ],
-          "source_keys": [
-            "tw-tfda-food-allergen-labeling",
-            "tw-tfda-food-allergen-labeling-en",
-            "tw-tfda-food-allergen-labeling-consumer-notice"
-          ]
-        },
-        {
-          "id": "food-label-required-items",
-          "canonical_name": "Food Label Required Items",
-          "category": "food_labeling",
-          "aliases": [
-            "食品標示",
-            "食品標示手冊",
-            "食品標示法規手冊",
-            "food labeling regulations handbook",
-            "內容物名稱",
-            "有效日期"
-          ],
-          "source_keys": [
-            "tw-tfda-food-labeling-handbook-2026",
-            "tw-moj-food-safety-sanitation-act"
           ]
         }
       ],
@@ -477,14 +483,14 @@
           "document_path": "data/knowledge/documents/tw-tfda-food-labeling-handbook-2026.md"
         },
         {
-          "id": "tw-tfda-food-nutrition-labeling",
-          "title": "Regulations on Nutrition Labeling for Prepackaged Food Products",
+          "id": "tw-tfda-food-law-regulations-index",
+          "title": "TFDA Food Guidance, Law and Regulations Index",
           "authority": "Taiwan Food and Drug Administration",
           "domain": "food_labeling",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-food-nutrition-labeling.md"
+          "evidence_mode": "html",
+          "document_path": "data/knowledge/documents/tw-tfda-food-law-regulations-index.md"
         }
       ],
       "citation_slots": [
@@ -495,7 +501,7 @@
       ],
       "answer_skeleton": [
         "Classify the product as food and confirm the routing assumptions.",
-        "Normalize key names with the selected term cards: Food Labeling and Claims, Food Allergen Labeling, Sulphites Allergen.",
+        "Normalize key names with the selected term cards: Food Labeling and Claims, Food Allergen Labeling, Food Label Required Items.",
         "Cite the strongest Taiwan sources: tw-moj-food-safety-sanitation-act, tw-tfda-food-allergen-labeling, tw-tfda-food-allergen-labeling-consumer-notice.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
@@ -511,7 +517,7 @@
         "missing importer/responsible firm"
       ],
       "next_action": "Run food label review and resolve allergen/nutrition/claim blockers before shipment release.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_food_additive_ingredient_evidence_bundle",
@@ -519,8 +525,8 @@
       "product_route_id": "tw_food_additive_ingredient",
       "product_family": "food_additive",
       "match_domains": [
-        "food_labeling",
-        "food_additives"
+        "food_safety",
+        "food_labeling"
       ],
       "match_categories": [
         "food_labeling",
@@ -539,15 +545,15 @@
         "dehydroacetic-acid-food-additive"
       ],
       "match_sources": [
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-food-business-info-query-links",
         "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+        "tw-tfda-food-law-regulations-index",
         "tw-tfda-food-nutrition-labeling",
         "tw-tfda-food-allergen-labeling-en",
         "tw-moj-food-safety-sanitation-act",
         "tw-tfda-food-allergen-labeling",
-        "tw-tfda-food-allergen-labeling-consumer-notice",
-        "tw-tfda-food-labeling-handbook-2026",
-        "tw-tfda-food-additive-permit-query",
-        "tw-tfda-food-additive-registration-announcements"
+        "tw-tfda-food-allergen-labeling-consumer-notice"
       ],
       "query_examples": [
         "food additive",
@@ -582,7 +588,8 @@
             "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
             "tw-tfda-sweetness-claim-prepackaged-food",
             "tw-tfda-nutrition-claim-prepackaged-food",
-            "global-codex-prepackaged-food-labeling"
+            "global-codex-prepackaged-food-labeling",
+            "tw-tfda-food-law-regulations-index"
           ]
         },
         {
@@ -618,7 +625,8 @@
           ],
           "source_keys": [
             "tw-tfda-food-labeling-handbook-2026",
-            "tw-moj-food-safety-sanitation-act"
+            "tw-moj-food-safety-sanitation-act",
+            "tw-tfda-food-law-regulations-index"
           ]
         },
         {
@@ -638,7 +646,8 @@
             "tw-tfda-nutrition-claim-prepackaged-food",
             "tw-tfda-sweetness-claim-prepackaged-food",
             "global-codex-nutrition-labeling",
-            "us-ecfr-food-labeling-21-cfr-101"
+            "us-ecfr-food-labeling-21-cfr-101",
+            "tw-tfda-food-law-regulations-index"
           ]
         },
         {
@@ -681,6 +690,26 @@
       ],
       "required_sources": [
         {
+          "id": "tw-tfda-food-ingredient-query-platform-direct",
+          "title": "Food Ingredient Integration Query Platform Direct Query",
+          "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+          "domain": "food_safety",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "cache",
+          "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md"
+        },
+        {
+          "id": "tw-tfda-food-business-info-query-links",
+          "title": "TFDA Food Business Information Query Links",
+          "authority": "Taiwan Food and Drug Administration",
+          "domain": "food_safety",
+          "priority": "medium",
+          "cache_status": "fresh",
+          "evidence_mode": "cache",
+          "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md"
+        },
+        {
           "id": "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
           "title": "Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy",
           "authority": "Taiwan Food and Drug Administration",
@@ -689,6 +718,16 @@
           "cache_status": "fresh",
           "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-false-exaggerated-medical-efficacy-claims.md"
+        },
+        {
+          "id": "tw-tfda-food-law-regulations-index",
+          "title": "TFDA Food Guidance, Law and Regulations Index",
+          "authority": "Taiwan Food and Drug Administration",
+          "domain": "food_labeling",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "html",
+          "document_path": "data/knowledge/documents/tw-tfda-food-law-regulations-index.md"
         },
         {
           "id": "tw-tfda-food-nutrition-labeling",
@@ -709,36 +748,6 @@
           "cache_status": "fresh",
           "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-en.md"
-        },
-        {
-          "id": "tw-moj-food-safety-sanitation-act",
-          "title": "Act Governing Food Safety and Sanitation",
-          "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
-          "domain": "food_labeling",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-moj-food-safety-sanitation-act.md"
-        },
-        {
-          "id": "tw-tfda-food-allergen-labeling",
-          "title": "Regulation of Food Allergen Labeling",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_labeling",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling.md"
-        },
-        {
-          "id": "tw-tfda-food-allergen-labeling-consumer-notice",
-          "title": "Prepackaged Food Allergen Labeling Notice",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_labeling",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-consumer-notice.md"
         }
       ],
       "citation_slots": [
@@ -750,7 +759,7 @@
       "answer_skeleton": [
         "Classify the product as food_additive and confirm the routing assumptions.",
         "Normalize key names with the selected term cards: Food Labeling and Claims, Food Allergen Labeling, Food Label Required Items.",
-        "Cite the strongest Taiwan sources: tw-tfda-food-false-exaggerated-medical-efficacy-claims, tw-tfda-food-nutrition-labeling, tw-tfda-food-allergen-labeling-en.",
+        "Cite the strongest Taiwan sources: tw-tfda-food-ingredient-query-platform-direct, tw-tfda-food-business-info-query-links, tw-tfda-food-false-exaggerated-medical-efficacy-claims.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
       "caveats": [
@@ -765,7 +774,7 @@
         "compound additive status unclear"
       ],
       "next_action": "Confirm additive/common-name status before treating the substance as allowed on a food label.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_food_import_inspection_evidence_bundle",
@@ -773,9 +782,8 @@
       "product_route_id": "tw_food_import_inspection",
       "product_family": "food_import",
       "match_domains": [
-        "food_import",
-        "trade",
-        "customs"
+        "customs",
+        "food_import"
       ],
       "match_categories": [
         "food_import",
@@ -787,8 +795,8 @@
         "imported-food-inspection",
         "product-information-sheet",
         "systematic-imported-food-inspection",
-        "import-regulation-f01-f02-508",
         "imported-food-inspection-forms",
+        "import-regulation-f01-f02-508",
         "food-business-registration-importer",
         "compound-food-additive-import-documents",
         "customs-declaration",
@@ -796,15 +804,15 @@
         "import-export-permit"
       ],
       "match_sources": [
+        "tw-customs-tariff-database-download",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-imported-food-inspection-forms",
         "tw-tfda-imported-food-inspection-regulations",
         "tw-tfda-systematic-inspection-imported-food",
+        "tw-customs-export-origin-packaging",
         "tw-tfda-food-business-registration-importers",
-        "tw-tfda-imported-food-inspection-field-declaration-2024",
-        "tw-trade-import-regulation-code-instruction",
-        "tw-customs-import-cargo-clearance"
+        "tw-tfda-imported-food-inspection-field-declaration-2024"
       ],
       "query_examples": [
         "HS 0307 health certificate",
@@ -837,7 +845,8 @@
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
-            "tw-tfda-food-import-inspection-exemptions"
+            "tw-tfda-food-import-inspection-exemptions",
+            "tw-tfda-inspections-law-regulations-index"
           ]
         },
         {
@@ -873,6 +882,25 @@
           ]
         },
         {
+          "id": "imported-food-inspection-forms",
+          "canonical_name": "Imported Food Inspection Forms",
+          "category": "food_import",
+          "aliases": [
+            "食品及相關產品資料表",
+            "食品及相關產品輸入查驗申請書",
+            "產品資料表",
+            "報驗義務人",
+            "輸入食品免貼中文標示具結書",
+            "imported food inspection application"
+          ],
+          "source_keys": [
+            "tw-tfda-imported-food-inspection-regulations",
+            "tw-tfda-imported-food-inspection-forms",
+            "tw-tfda-imported-food-inspection-field-declaration-2024",
+            "tw-tfda-inspections-law-regulations-index"
+          ]
+        },
+        {
           "id": "import-regulation-f01-f02-508",
           "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
           "category": "food_import",
@@ -888,24 +916,6 @@
             "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
             "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
             "tw-trade-import-regulation-code-instruction"
-          ]
-        },
-        {
-          "id": "imported-food-inspection-forms",
-          "canonical_name": "Imported Food Inspection Forms",
-          "category": "food_import",
-          "aliases": [
-            "食品及相關產品資料表",
-            "食品及相關產品輸入查驗申請書",
-            "產品資料表",
-            "報驗義務人",
-            "輸入食品免貼中文標示具結書",
-            "imported food inspection application"
-          ],
-          "source_keys": [
-            "tw-tfda-imported-food-inspection-regulations",
-            "tw-tfda-imported-food-inspection-forms",
-            "tw-tfda-imported-food-inspection-field-declaration-2024"
           ]
         },
         {
@@ -926,6 +936,16 @@
         }
       ],
       "required_sources": [
+        {
+          "id": "tw-customs-tariff-database-download",
+          "title": "GC453 Tariff Database Download",
+          "authority": "Customs Administration / CPT Single Window",
+          "domain": "customs",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md"
+        },
         {
           "id": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
           "title": "TFDA Import Regulation 508 Food Additive Commodity List Notice",
@@ -975,16 +995,6 @@
           "cache_status": "fresh",
           "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md"
-        },
-        {
-          "id": "tw-tfda-food-business-registration-importers",
-          "title": "Regulations Governing the Registration of Food Business",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "medium",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-food-business-registration-importers.md"
         }
       ],
       "citation_slots": [
@@ -996,7 +1006,7 @@
       "answer_skeleton": [
         "Classify the product as food_import and confirm the routing assumptions.",
         "Normalize key names with the selected term cards: Imported Food Inspection, Product Information Sheet, Systematic Inspection of Imported Food.",
-        "Cite the strongest Taiwan sources: tw-tfda-import-regulation-508-food-additive-commodity-list-2026, tw-tfda-import-regulation-f01-f02-commodity-table-2026, tw-tfda-imported-food-inspection-forms.",
+        "Cite the strongest Taiwan sources: tw-customs-tariff-database-download, tw-tfda-import-regulation-508-food-additive-commodity-list-2026, tw-tfda-import-regulation-f01-f02-commodity-table-2026.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
       "caveats": [
@@ -1011,7 +1021,7 @@
         "commercial shipment without importer registration"
       ],
       "next_action": "Route to food import inspection checklist before final label or logistics approval.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_health_food_claims_evidence_bundle",
@@ -1020,8 +1030,8 @@
       "product_family": "health_food",
       "match_domains": [
         "health_food",
-        "food_safety",
-        "food_labeling"
+        "special_dietary_food",
+        "food_safety"
       ],
       "match_categories": [
         "health_food",
@@ -1030,12 +1040,13 @@
         "food_safety"
       ],
       "match_terms": [
+        "health-food-permit",
         "health-food",
         "health-food-application-permit",
-        "health-food-permit",
         "health-food-approved-effect-vocabulary",
         "health-food-label-required-items",
-        "novel-food-ingredient-safety-assessment"
+        "novel-food-ingredient-safety-assessment",
+        "food-ingredient-integration-query-platform"
       ],
       "match_sources": [
         "tw-moj-health-food-governing-act",
@@ -1043,10 +1054,10 @@
         "tw-tfda-health-food-enforcement-rules",
         "tw-tfda-health-food-health-care-effect-items-2025",
         "tw-tfda-health-food-labeling-regulations",
+        "tw-tfda-health-food-permit-query",
         "tw-tfda-health-food-effect-assessment-methods-hub",
-        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
-        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
-        "tw-tfda-food-law-regulations-index"
+        "tw-tfda-special-disease-food-permit-query",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026"
       ],
       "query_examples": [
         "健康食品",
@@ -1064,6 +1075,24 @@
         "dosage/use instructions"
       ],
       "top_terms": [
+        {
+          "id": "health-food-permit",
+          "canonical_name": "Health Food Permit",
+          "category": "health_food",
+          "aliases": [
+            "健康食品許可證",
+            "許可證",
+            "health food permit",
+            "product registration permit",
+            "健康食品申請許可",
+            "健康食品查驗登記"
+          ],
+          "source_keys": [
+            "tw-moj-health-food-governing-act",
+            "tw-tfda-health-food-enforcement-rules",
+            "tw-tfda-health-food-permit-query"
+          ]
+        },
         {
           "id": "health-food",
           "canonical_name": "Health Food",
@@ -1100,23 +1129,6 @@
           ]
         },
         {
-          "id": "health-food-permit",
-          "canonical_name": "Health Food Permit",
-          "category": "health_food",
-          "aliases": [
-            "健康食品許可證",
-            "許可證",
-            "health food permit",
-            "product registration permit",
-            "健康食品申請許可",
-            "健康食品查驗登記"
-          ],
-          "source_keys": [
-            "tw-moj-health-food-governing-act",
-            "tw-tfda-health-food-enforcement-rules"
-          ]
-        },
-        {
           "id": "health-food-approved-effect-vocabulary",
           "canonical_name": "Health Food Approved Effect Vocabulary",
           "category": "health_food_claim",
@@ -1131,7 +1143,8 @@
           "source_keys": [
             "tw-tfda-health-food-health-care-effect-items-2025",
             "tw-tfda-health-food-effect-assessment-methods-hub",
-            "tw-moj-health-food-governing-act"
+            "tw-moj-health-food-governing-act",
+            "tw-tfda-health-food-permit-query"
           ]
         },
         {
@@ -1148,7 +1161,8 @@
           ],
           "source_keys": [
             "tw-moj-health-food-governing-act",
-            "tw-tfda-health-food-labeling-regulations"
+            "tw-tfda-health-food-labeling-regulations",
+            "tw-tfda-health-food-permit-query"
           ]
         },
         {
@@ -1221,14 +1235,14 @@
           "document_path": "data/knowledge/documents/tw-tfda-health-food-labeling-regulations.md"
         },
         {
-          "id": "tw-tfda-health-food-effect-assessment-methods-hub",
-          "title": "Health Food Effect Assessment Methods Hub",
-          "authority": "Taiwan Food and Drug Administration",
+          "id": "tw-tfda-health-food-permit-query",
+          "title": "Health Food Permit Data Query",
+          "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
           "domain": "health_food",
-          "priority": "medium",
+          "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
-          "document_path": "data/knowledge/documents/tw-tfda-health-food-effect-assessment-methods-hub.md"
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-tfda-health-food-permit-query.md"
         }
       ],
       "citation_slots": [
@@ -1239,7 +1253,7 @@
       ],
       "answer_skeleton": [
         "Classify the product as health_food and confirm the routing assumptions.",
-        "Normalize key names with the selected term cards: Health Food, Health Food Application Permit, Health Food Permit.",
+        "Normalize key names with the selected term cards: Health Food Permit, Health Food, Health Food Application Permit.",
         "Cite the strongest Taiwan sources: tw-moj-health-food-governing-act, tw-tfda-health-food-application-permit-regulations, tw-tfda-health-food-enforcement-rules.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
@@ -1255,7 +1269,7 @@
         "medical claim wording present"
       ],
       "next_action": "Confirm permit scope before allowing any health-food wording or approved-effect claim.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_food_contact_packaging_evidence_bundle",
@@ -1264,8 +1278,7 @@
       "product_family": "food_contact",
       "match_domains": [
         "food_import",
-        "trade",
-        "food_safety"
+        "customs"
       ],
       "match_categories": [
         "food_import",
@@ -1291,8 +1304,8 @@
         "tw-tfda-imported-food-inspection-regulations",
         "tw-tfda-systematic-inspection-imported-food",
         "tw-tfda-imported-food-inspection-field-declaration-2024",
-        "tw-trade-import-regulation-code-instruction",
-        "tw-moj-food-contaminants-toxins"
+        "tw-customs-export-origin-packaging",
+        "tw-customs-tariff-database-download"
       ],
       "query_examples": [
         "food contact packaging",
@@ -1359,7 +1372,8 @@
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
             "tw-tfda-imported-food-inspection-forms",
-            "tw-tfda-imported-food-inspection-field-declaration-2024"
+            "tw-tfda-imported-food-inspection-field-declaration-2024",
+            "tw-tfda-inspections-law-regulations-index"
           ]
         },
         {
@@ -1376,7 +1390,8 @@
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
-            "tw-tfda-food-import-inspection-exemptions"
+            "tw-tfda-food-import-inspection-exemptions",
+            "tw-tfda-inspections-law-regulations-index"
           ]
         },
         {
@@ -1498,7 +1513,7 @@
         "test report missing for regulated material"
       ],
       "next_action": "Classify food-contact status before applying ordinary food label or customs routing.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_customs_origin_hs_evidence_bundle",
@@ -1506,9 +1521,10 @@
       "product_route_id": "tw_customs_origin_hs",
       "product_family": "customs_trade",
       "match_domains": [
+        "customs",
         "trade",
         "food_import",
-        "customs"
+        "trade_controls"
       ],
       "match_categories": [
         "food_import",
@@ -1520,8 +1536,8 @@
       "match_terms": [
         "imported-food-inspection",
         "food-business-registration-importer",
-        "import-regulation-f01-f02-508",
         "imported-food-inspection-forms",
+        "import-regulation-f01-f02-508",
         "product-information-sheet",
         "systematic-imported-food-inspection",
         "customs-declaration",
@@ -1530,15 +1546,15 @@
         "shipment-purpose"
       ],
       "match_sources": [
+        "tw-customs-tariff-database-download",
+        "tw-customs-export-origin-packaging",
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-imported-food-inspection-forms",
         "tw-tfda-imported-food-inspection-regulations",
         "tw-tfda-systematic-inspection-imported-food",
-        "tw-tfda-food-business-registration-importers",
-        "tw-tfda-imported-food-inspection-field-declaration-2024",
-        "tw-customs-import-cargo-clearance"
+        "tw-trade-ccc-import-export-regulations"
       ],
       "query_examples": [
         "HS code",
@@ -1571,7 +1587,8 @@
           ],
           "source_keys": [
             "tw-tfda-imported-food-inspection-regulations",
-            "tw-tfda-food-import-inspection-exemptions"
+            "tw-tfda-food-import-inspection-exemptions",
+            "tw-tfda-inspections-law-regulations-index"
           ]
         },
         {
@@ -1591,6 +1608,25 @@
           ]
         },
         {
+          "id": "imported-food-inspection-forms",
+          "canonical_name": "Imported Food Inspection Forms",
+          "category": "food_import",
+          "aliases": [
+            "食品及相關產品資料表",
+            "食品及相關產品輸入查驗申請書",
+            "產品資料表",
+            "報驗義務人",
+            "輸入食品免貼中文標示具結書",
+            "imported food inspection application"
+          ],
+          "source_keys": [
+            "tw-tfda-imported-food-inspection-regulations",
+            "tw-tfda-imported-food-inspection-forms",
+            "tw-tfda-imported-food-inspection-field-declaration-2024",
+            "tw-tfda-inspections-law-regulations-index"
+          ]
+        },
+        {
           "id": "import-regulation-f01-f02-508",
           "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
           "category": "food_import",
@@ -1606,24 +1642,6 @@
             "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
             "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
             "tw-trade-import-regulation-code-instruction"
-          ]
-        },
-        {
-          "id": "imported-food-inspection-forms",
-          "canonical_name": "Imported Food Inspection Forms",
-          "category": "food_import",
-          "aliases": [
-            "食品及相關產品資料表",
-            "食品及相關產品輸入查驗申請書",
-            "產品資料表",
-            "報驗義務人",
-            "輸入食品免貼中文標示具結書",
-            "imported food inspection application"
-          ],
-          "source_keys": [
-            "tw-tfda-imported-food-inspection-regulations",
-            "tw-tfda-imported-food-inspection-forms",
-            "tw-tfda-imported-food-inspection-field-declaration-2024"
           ]
         },
         {
@@ -1660,6 +1678,26 @@
         }
       ],
       "required_sources": [
+        {
+          "id": "tw-customs-tariff-database-download",
+          "title": "GC453 Tariff Database Download",
+          "authority": "Customs Administration / CPT Single Window",
+          "domain": "customs",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md"
+        },
+        {
+          "id": "tw-customs-export-origin-packaging",
+          "title": "Kaohsiung Customs origin packaging notice",
+          "authority": "Taiwan Customs Administration",
+          "domain": "customs",
+          "priority": "medium",
+          "cache_status": "fresh",
+          "evidence_mode": "cache",
+          "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
+        },
         {
           "id": "tw-trade-import-regulation-code-instruction",
           "title": "Taiwan Import Regulation Code Search Instructions",
@@ -1699,26 +1737,6 @@
           "cache_status": "fresh",
           "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-forms.md"
-        },
-        {
-          "id": "tw-tfda-imported-food-inspection-regulations",
-          "title": "Regulations of Inspection of Imported Foods and Related Products",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-regulations.md"
-        },
-        {
-          "id": "tw-tfda-systematic-inspection-imported-food",
-          "title": "Regulations for Systematic Inspection of Imported Food",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md"
         }
       ],
       "citation_slots": [
@@ -1729,8 +1747,8 @@
       ],
       "answer_skeleton": [
         "Classify the product as customs_trade and confirm the routing assumptions.",
-        "Normalize key names with the selected term cards: Imported Food Inspection, Food Business Registration for Importers, Taiwan Import Regulation Codes F01, F02 and 508.",
-        "Cite the strongest Taiwan sources: tw-trade-import-regulation-code-instruction, tw-tfda-import-regulation-508-food-additive-commodity-list-2026, tw-tfda-import-regulation-f01-f02-commodity-table-2026.",
+        "Normalize key names with the selected term cards: Imported Food Inspection, Food Business Registration for Importers, Imported Food Inspection Forms.",
+        "Cite the strongest Taiwan sources: tw-customs-tariff-database-download, tw-customs-export-origin-packaging, tw-trade-import-regulation-code-instruction.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
       "caveats": [
@@ -1745,7 +1763,7 @@
         "trade restriction signal unresolved"
       ],
       "next_action": "Resolve HS/CCC and origin before final Taiwan label or import/export document release.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     },
     {
       "id": "tw_trade_control_shtc_evidence_bundle",
@@ -1753,7 +1771,10 @@
       "product_route_id": "tw_trade_control_shtc",
       "product_family": "trade_control",
       "match_domains": [
+        "customs",
+        "trade_controls",
         "trade",
+        "food_additives",
         "food_import"
       ],
       "match_categories": [
@@ -1768,19 +1789,18 @@
         "customs-declaration",
         "hs-code-classification",
         "shipment-purpose",
-        "taiwan-importer-responsible-firm",
-        "exporter-importer-registration"
+        "taiwan-importer-responsible-firm"
       ],
       "match_sources": [
+        "tw-customs-tariff-database-download",
+        "tw-trade-ccc-import-export-regulations",
+        "tw-customs-export-origin-packaging",
         "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-additive-permit-query",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-imported-food-inspection-forms",
-        "tw-tfda-imported-food-inspection-regulations",
-        "tw-tfda-systematic-inspection-imported-food",
-        "tw-tfda-food-business-registration-importers",
-        "tw-tfda-imported-food-inspection-field-declaration-2024",
-        "tw-moj-export-commodities-regulations"
+        "tw-tfda-imported-food-inspection-regulations"
       ],
       "query_examples": [
         "SHTC",
@@ -1891,27 +1911,39 @@
             "tw-moj-food-safety-sanitation-act",
             "tw-customs-origin-importers"
           ]
-        },
-        {
-          "id": "exporter-importer-registration",
-          "canonical_name": "Exporter and Importer Registration",
-          "category": "import_export_control",
-          "aliases": [
-            "出進口廠商登記",
-            "exporter and importer registration",
-            "registration of exporters and importers",
-            "수출입업자 등록",
-            "importer exporter registration",
-            "TITA exporter importer registration"
-          ],
-          "source_keys": [
-            "tw-moj-exporter-importer-registration",
-            "tw-moj-foreign-trade-act",
-            "tw-trade-import-export-administration"
-          ]
         }
       ],
       "required_sources": [
+        {
+          "id": "tw-customs-tariff-database-download",
+          "title": "GC453 Tariff Database Download",
+          "authority": "Customs Administration / CPT Single Window",
+          "domain": "customs",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md"
+        },
+        {
+          "id": "tw-trade-ccc-import-export-regulations",
+          "title": "Import and Export Regulations by CCC Code",
+          "authority": "International Trade Administration, MOEA",
+          "domain": "trade_controls",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md"
+        },
+        {
+          "id": "tw-customs-export-origin-packaging",
+          "title": "Kaohsiung Customs origin packaging notice",
+          "authority": "Taiwan Customs Administration",
+          "domain": "customs",
+          "priority": "medium",
+          "cache_status": "fresh",
+          "evidence_mode": "cache",
+          "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
+        },
         {
           "id": "tw-trade-import-regulation-code-instruction",
           "title": "Taiwan Import Regulation Code Search Instructions",
@@ -1923,6 +1955,16 @@
           "document_path": "data/knowledge/documents/tw-trade-import-regulation-code-instruction.md"
         },
         {
+          "id": "tw-tfda-food-additive-permit-query",
+          "title": "Food Additive Permit Data Query",
+          "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+          "domain": "food_additives",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "browser_capture",
+          "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md"
+        },
+        {
           "id": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
           "title": "TFDA Import Regulation 508 Food Additive Commodity List Notice",
           "authority": "Taiwan Food and Drug Administration",
@@ -1931,46 +1973,6 @@
           "cache_status": "fresh",
           "evidence_mode": "html",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-508-food-additive-commodity-list-2026.md"
-        },
-        {
-          "id": "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
-          "title": "TFDA F01 and F02 Import Regulation Commodity Table Notice",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "html",
-          "document_path": "data/knowledge/documents/tw-tfda-import-regulation-f01-f02-commodity-table-2026.md"
-        },
-        {
-          "id": "tw-tfda-imported-food-inspection-forms",
-          "title": "TFDA Imported Food Inspection Application Forms",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "html",
-          "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-forms.md"
-        },
-        {
-          "id": "tw-tfda-imported-food-inspection-regulations",
-          "title": "Regulations of Inspection of Imported Foods and Related Products",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-regulations.md"
-        },
-        {
-          "id": "tw-tfda-systematic-inspection-imported-food",
-          "title": "Regulations for Systematic Inspection of Imported Food",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "food_import",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md"
         }
       ],
       "citation_slots": [
@@ -1982,7 +1984,7 @@
       "answer_skeleton": [
         "Classify the product as trade_control and confirm the routing assumptions.",
         "Normalize key names with the selected term cards: Import and Export Permit, Customs Declaration, HS Code Classification.",
-        "Cite the strongest Taiwan sources: tw-trade-import-regulation-code-instruction, tw-tfda-import-regulation-508-food-additive-commodity-list-2026, tw-tfda-import-regulation-f01-f02-commodity-table-2026.",
+        "Cite the strongest Taiwan sources: tw-customs-tariff-database-download, tw-trade-ccc-import-export-regulations, tw-customs-export-origin-packaging.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
       "caveats": [
@@ -1997,7 +1999,7 @@
         "permit applicability unknown"
       ],
       "next_action": "Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals.",
-      "generated_from_memory_at": "2026-06-26T20:07:58.580Z"
+      "generated_from_memory_at": "2026-06-27T00:19:40.111Z"
     }
   ]
 }

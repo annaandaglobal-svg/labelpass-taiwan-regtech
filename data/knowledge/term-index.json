@@ -6286,7 +6286,8 @@
         "jp-customs-origin-verification",
         "tw-trade-origin-textiles-2023",
         "tw-moj-food-safety-sanitation-act",
-        "tw-us-ita-labeling-marking"
+        "tw-us-ita-labeling-marking",
+        "tw-customs-export-origin-packaging"
       ],
       "notes": "Concept term for import labeling, food and product origin statements, made-in wording, and customs origin evidence."
     },
@@ -6384,7 +6385,8 @@
       "source_keys": [
         "tw-customs-origin-importers",
         "jp-customs-origin-verification",
-        "asean-rules-of-origin-registry"
+        "asean-rules-of-origin-registry",
+        "tw-customs-export-origin-packaging"
       ],
       "notes": "Trade document concept for origin evidence. Keep separate from COA, which usually means certificate of analysis."
     },
@@ -8050,7 +8052,8 @@
       ],
       "source_keys": [
         "tw-tfda-imported-food-inspection-regulations",
-        "tw-tfda-food-import-inspection-exemptions"
+        "tw-tfda-food-import-inspection-exemptions",
+        "tw-tfda-inspections-law-regulations-index"
       ],
       "notes": "Taiwan border-inspection concept for imported food and related products, including inspection application timing, required documents, CCC-code batch grouping, and sampling methods."
     },
@@ -10809,7 +10812,8 @@
         "tw-tfda-nutrition-claim-prepackaged-food",
         "tw-tfda-sweetness-claim-prepackaged-food",
         "global-codex-nutrition-labeling",
-        "us-ecfr-food-labeling-21-cfr-101"
+        "us-ecfr-food-labeling-21-cfr-101",
+        "tw-tfda-food-law-regulations-index"
       ],
       "notes": "Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence."
     },
@@ -11109,7 +11113,9 @@
         "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
         "tw-tfda-sweetness-claim-prepackaged-food",
         "tw-tfda-nutrition-claim-prepackaged-food",
-        "global-codex-prepackaged-food-labeling"
+        "global-codex-prepackaged-food-labeling",
+        "tw-tfda-food-law-regulations-index",
+        "tw-tfda-illegal-advertising-query"
       ],
       "notes": "Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims."
     },
@@ -11401,7 +11407,9 @@
         "tw-tfda-cosmetic-product-registration-categories-2024",
         "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetics-business-area",
-        "eu-cosmetics-regulation-1223-2009"
+        "eu-cosmetics-regulation-1223-2009",
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetics-law-regulations-index"
       ],
       "notes": "Concept term for cosmetic product information file and safety documentation obligations, including Taiwan PIF implementation stages and TFDA PIF management principles."
     },
@@ -11532,7 +11540,9 @@
         "tw-tfda-cosmetic-product-registration-zone",
         "tw-tfda-cosmetics-business-area",
         "cn-nmpa-cosmetics-registration-filing",
-        "eu-cosmetics-regulation-1223-2009"
+        "eu-cosmetics-regulation-1223-2009",
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetic-fadenbook-platform"
       ],
       "notes": "Concept term for product notification, filing, and registration workflows before or around market entry."
     },
@@ -12001,7 +12011,9 @@
         "tw-moj-cosmetic-product-notification",
         "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetics-business-area",
-        "tw-us-ita-labeling-marking"
+        "tw-us-ita-labeling-marking",
+        "tw-tfda-cosmetics-law-regulations-index",
+        "tw-tfda-illegal-advertising-query"
       ],
       "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
     },
@@ -12208,7 +12220,9 @@
       ],
       "source_keys": [
         "tw-moj-cosmetic-claims-criteria",
-        "tw-moj-cosmetic-hygiene-safety-act"
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetics-law-regulations-index",
+        "tw-tfda-illegal-advertising-query"
       ],
       "notes": "Taiwan criteria for judging cosmetic labels, promotion, and advertisements by overall consumer presentation. False or exaggerated claims include content not conforming to facts, lacking evidence, having insufficient evidence, or exceeding cosmetic definition/category/scope; medical-efficacy claims relate to prevention, mitigation, diagnosis, or treatment of disease or similar drug/medical-equipment effects."
     },
@@ -14702,7 +14716,8 @@
       ],
       "source_keys": [
         "tw-tfda-cosmetics-management-framework",
-        "tw-tfda-cosmetic-adverse-event-reporting-system"
+        "tw-tfda-cosmetic-adverse-event-reporting-system",
+        "tw-tfda-cosmetic-adverse-event-qms-platform"
       ],
       "notes": "Taiwan cosmetics management includes post-market quality monitoring, adverse event reporting, domestic/global safety alert monitoring and consumer safety awareness."
     },
@@ -14829,7 +14844,8 @@
       ],
       "source_keys": [
         "tw-moj-cosmetic-serious-adverse-reporting",
-        "tw-tfda-cosmetic-adverse-event-reporting-system"
+        "tw-tfda-cosmetic-adverse-event-reporting-system",
+        "tw-tfda-cosmetic-adverse-event-qms-platform"
       ],
       "notes": "Cosmetic businesses must report serious adverse effects or hygiene/safety hazards through the competent-authority network system within 15 days after becoming aware, with immediate emergency reporting."
     },
@@ -15437,7 +15453,8 @@
       ],
       "source_keys": [
         "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-enforcement-rules"
+        "tw-tfda-health-food-enforcement-rules",
+        "tw-tfda-health-food-permit-query"
       ],
       "notes": "Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising."
     },
@@ -15534,7 +15551,8 @@
       ],
       "source_keys": [
         "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-enforcement-rules"
+        "tw-tfda-health-food-enforcement-rules",
+        "tw-tfda-health-food-permit-query"
       ],
       "notes": "Taiwan health-food health care effects must stay within the approved registration scope and cannot imply medical efficacy."
     },
@@ -15758,7 +15776,8 @@
       ],
       "source_keys": [
         "tw-tfda-formula-for-certain-disease-labeling-2025",
-        "tw-moj-food-safety-sanitation-act"
+        "tw-moj-food-safety-sanitation-act",
+        "tw-tfda-special-disease-food-permit-query"
       ],
       "notes": "Taiwan requires prominent principal-display-panel wording and doctor/dietitian warning statements for approved Formula for Certain Disease products from 2025-01-01."
     },
@@ -16262,7 +16281,8 @@
         }
       ],
       "source_keys": [
-        "tw-tfda-cosmetic-label-leaflet-packaging-marking"
+        "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+        "tw-tfda-cosmetics-law-regulations-index"
       ],
       "notes": "Taiwan cosmetic labels must map outer package, container, label and package-insert fields, including ingredient nomenclature, colorant alternatives and small-package display rules."
     },
@@ -16470,7 +16490,8 @@
       "source_keys": [
         "tw-tfda-pif-implementation",
         "tw-tfda-cosmetic-pif-category-implementation-2024",
-        "tw-tfda-cosmetic-product-registration-categories-2024"
+        "tw-tfda-cosmetic-product-registration-categories-2024",
+        "tw-tfda-cosmetic-product-registration-system"
       ],
       "notes": "Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type."
     },
@@ -16909,7 +16930,8 @@
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
-        "tw-moj-food-safety-sanitation-act"
+        "tw-moj-food-safety-sanitation-act",
+        "tw-tfda-food-law-regulations-index"
       ],
       "notes": "Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search."
     },
@@ -17057,7 +17079,8 @@
       "source_keys": [
         "tw-tfda-imported-food-inspection-regulations",
         "tw-tfda-imported-food-inspection-forms",
-        "tw-tfda-imported-food-inspection-field-declaration-2024"
+        "tw-tfda-imported-food-inspection-field-declaration-2024",
+        "tw-tfda-inspections-law-regulations-index"
       ],
       "notes": "Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials."
     },
@@ -17705,7 +17728,8 @@
       ],
       "source_keys": [
         "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-labeling-regulations"
+        "tw-tfda-health-food-labeling-regulations",
+        "tw-tfda-health-food-permit-query"
       ],
       "notes": "Extends the existing health-food logo term with label-completeness fields such as permit number, legend, standard logo, approved effect wording, intake and warnings."
     },
@@ -17903,7 +17927,8 @@
       "source_keys": [
         "tw-tfda-health-food-health-care-effect-items-2025",
         "tw-tfda-health-food-effect-assessment-methods-hub",
-        "tw-moj-health-food-governing-act"
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-permit-query"
       ],
       "notes": "Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases."
     },

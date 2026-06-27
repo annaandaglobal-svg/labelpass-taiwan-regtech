@@ -126,7 +126,18 @@
         "portal",
         "system"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-post-market-surveillance",
+          "canonical_name": "Cosmetic Post-market Surveillance",
+          "category": "cosmetic_postmarket"
+        },
+        {
+          "term_key": "cosmetic-serious-adverse-effect-reporting",
+          "canonical_name": "Cosmetic Serious Adverse Effect Reporting",
+          "category": "cosmetic_postmarket"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -284,7 +295,23 @@
         "portal",
         "system"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-product-notification",
+          "canonical_name": "Cosmetic Product Notification",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-pif-product-registration-categories",
+          "canonical_name": "Cosmetic PIF and Product Registration Categories",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -346,7 +373,28 @@
         "gmp",
         "manufactory-standards"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-labeling-claims",
+          "canonical_name": "Cosmetic Labeling and Claims",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-claims-criteria",
+          "canonical_name": "Cosmetic Claims Criteria",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-label-required-items",
+          "canonical_name": "Cosmetic Label Required Items",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -555,7 +603,23 @@
         "food-additives",
         "ingredient-labeling"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "nutrition-labeling",
+          "canonical_name": "Nutrition Labeling",
+          "category": "food_labeling"
+        },
+        {
+          "term_key": "food-labeling-claims",
+          "canonical_name": "Food Labeling and Claims",
+          "category": "food_labeling"
+        },
+        {
+          "term_key": "food-label-required-items",
+          "canonical_name": "Food Label Required Items",
+          "category": "food_labeling"
+        }
+      ],
       "affected_products": [
         "food"
       ],
@@ -617,7 +681,28 @@
         "database",
         "traditional-chinese"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "health-food-permit",
+          "canonical_name": "Health Food Permit",
+          "category": "health_food"
+        },
+        {
+          "term_key": "health-food-approved-claims",
+          "canonical_name": "Approved Health Care Effects",
+          "category": "health_food_claim"
+        },
+        {
+          "term_key": "health-food-label-required-items",
+          "canonical_name": "Health Food Label Required Items",
+          "category": "health_food_labeling"
+        },
+        {
+          "term_key": "health-food-approved-effect-vocabulary",
+          "canonical_name": "Health Food Approved Effect Vocabulary",
+          "category": "health_food_claim"
+        }
+      ],
       "affected_products": [
         "food",
         "import_export"
@@ -680,7 +765,23 @@
         "query",
         "consumer"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "food-labeling-claims",
+          "canonical_name": "Food Labeling and Claims",
+          "category": "food_labeling"
+        },
+        {
+          "term_key": "cosmetic-labeling-claims",
+          "canonical_name": "Cosmetic Labeling and Claims",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-claims-criteria",
+          "canonical_name": "Cosmetic Claims Criteria",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics",
         "food"
@@ -743,7 +844,18 @@
         "fees",
         "documents"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "imported-food-inspection",
+          "canonical_name": "Imported Food Inspection",
+          "category": "food_import"
+        },
+        {
+          "term_key": "imported-food-inspection-forms",
+          "canonical_name": "Imported Food Inspection Forms",
+          "category": "food_import"
+        }
+      ],
       "affected_products": [
         "food",
         "import_export"
@@ -879,7 +991,13 @@
         "database",
         "traditional-chinese"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "formula-for-certain-disease",
+          "canonical_name": "Formula for Certain Disease",
+          "category": "special_dietary_food"
+        }
+      ],
       "affected_products": [
         "food",
         "import_export"
@@ -1504,7 +1622,18 @@
         "portal",
         "system"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-post-market-surveillance",
+          "canonical_name": "Cosmetic Post-market Surveillance",
+          "category": "cosmetic_postmarket"
+        },
+        {
+          "term_key": "cosmetic-serious-adverse-effect-reporting",
+          "canonical_name": "Cosmetic Serious Adverse Effect Reporting",
+          "category": "cosmetic_postmarket"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -1896,7 +2025,13 @@
         "portal",
         "platform"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-notification",
+          "canonical_name": "Cosmetic Product Notification",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -2272,7 +2407,23 @@
         "portal",
         "system"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-product-notification",
+          "canonical_name": "Cosmetic Product Notification",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-pif-product-registration-categories",
+          "canonical_name": "Cosmetic PIF and Product Registration Categories",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -2893,7 +3044,28 @@
         "gmp",
         "manufactory-standards"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-labeling-claims",
+          "canonical_name": "Cosmetic Labeling and Claims",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-claims-criteria",
+          "canonical_name": "Cosmetic Claims Criteria",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-label-required-items",
+          "canonical_name": "Cosmetic Label Required Items",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics"
       ],
@@ -3313,7 +3485,23 @@
         "food-additives",
         "ingredient-labeling"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "nutrition-labeling",
+          "canonical_name": "Nutrition Labeling",
+          "category": "food_labeling"
+        },
+        {
+          "term_key": "food-labeling-claims",
+          "canonical_name": "Food Labeling and Claims",
+          "category": "food_labeling"
+        },
+        {
+          "term_key": "food-label-required-items",
+          "canonical_name": "Food Label Required Items",
+          "category": "food_labeling"
+        }
+      ],
       "affected_products": [
         "food"
       ],
@@ -3442,7 +3630,28 @@
         "database",
         "traditional-chinese"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "health-food-permit",
+          "canonical_name": "Health Food Permit",
+          "category": "health_food"
+        },
+        {
+          "term_key": "health-food-approved-claims",
+          "canonical_name": "Approved Health Care Effects",
+          "category": "health_food_claim"
+        },
+        {
+          "term_key": "health-food-label-required-items",
+          "canonical_name": "Health Food Label Required Items",
+          "category": "health_food_labeling"
+        },
+        {
+          "term_key": "health-food-approved-effect-vocabulary",
+          "canonical_name": "Health Food Approved Effect Vocabulary",
+          "category": "health_food_claim"
+        }
+      ],
       "affected_products": [
         "food",
         "import_export"
@@ -3505,7 +3714,23 @@
         "query",
         "consumer"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "food-labeling-claims",
+          "canonical_name": "Food Labeling and Claims",
+          "category": "food_labeling"
+        },
+        {
+          "term_key": "cosmetic-labeling-claims",
+          "canonical_name": "Cosmetic Labeling and Claims",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-claims-criteria",
+          "canonical_name": "Cosmetic Claims Criteria",
+          "category": "cosmetic_compliance"
+        }
+      ],
       "affected_products": [
         "cosmetics",
         "food"
@@ -3712,7 +3937,18 @@
         "fees",
         "documents"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "imported-food-inspection",
+          "canonical_name": "Imported Food Inspection",
+          "category": "food_import"
+        },
+        {
+          "term_key": "imported-food-inspection-forms",
+          "canonical_name": "Imported Food Inspection Forms",
+          "category": "food_import"
+        }
+      ],
       "affected_products": [
         "food",
         "import_export"
@@ -3914,7 +4150,13 @@
         "database",
         "traditional-chinese"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "formula-for-certain-disease",
+          "canonical_name": "Formula for Certain Disease",
+          "category": "special_dietary_food"
+        }
+      ],
       "affected_products": [
         "food",
         "import_export"
@@ -4354,7 +4596,18 @@
         "origin",
         "packaging"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "country-of-origin-marking",
+          "canonical_name": "Country of Origin Marking",
+          "category": "origin_marking"
+        },
+        {
+          "term_key": "certificate-of-origin",
+          "canonical_name": "Certificate of Origin",
+          "category": "origin_marking"
+        }
+      ],
       "affected_products": [
         "import_export"
       ],

@@ -25,10 +25,10 @@
 
 - **Food Labeling and Claims** (`food-labeling-claims`): 食品標示廣告; food claims; food labeling claims; 식품 표시광고
 - **Food Allergen Labeling** (`food-allergen-labeling`): 過敏原標示; allergen labeling; 알레르기 표시; 致過敏性內容物
+- **Food Label Required Items** (`food-label-required-items`): 食品標示; 食品標示手冊; 食品標示法規手冊; food labeling regulations handbook
+- **Nutrition Labeling** (`nutrition-labeling`): 營養標示; nutrition label; 영양성분표; 营养标签
 - **Sulphites Allergen** (`sulfites-allergen`): 亞硫酸鹽類; Sulfites; Sulphites; 10 mg/kg
 - **Crustacea Allergen** (`crustacea-allergen`): 甲殼類; Crustacea; crustacean; 갑각류
-- **Fish Allergen** (`fish-allergen`): 魚類; Fish; fish products; 어류
-- **Food Label Required Items** (`food-label-required-items`): 食品標示; 食品標示手冊; 食品標示法規手冊; food labeling regulations handbook
 
 ## Required Sources
 
@@ -37,12 +37,12 @@
 - **Prepackaged Food Allergen Labeling Notice** (`tw-tfda-food-allergen-labeling-consumer-notice`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy** (`tw-tfda-food-false-exaggerated-medical-efficacy-claims`) - Taiwan Food and Drug Administration; fresh; cache
 - **TFDA Food Labeling Manuals and Handbook Hub** (`tw-tfda-food-labeling-handbook-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **Regulations on Nutrition Labeling for Prepackaged Food Products** (`tw-tfda-food-nutrition-labeling`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA Food Guidance, Law and Regulations Index** (`tw-tfda-food-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; html
 
 ## Answer Skeleton
 
 - Classify the product as food and confirm the routing assumptions.
-- Normalize key names with the selected term cards: Food Labeling and Claims, Food Allergen Labeling, Sulphites Allergen.
+- Normalize key names with the selected term cards: Food Labeling and Claims, Food Allergen Labeling, Food Label Required Items.
 - Cite the strongest Taiwan sources: tw-moj-food-safety-sanitation-act, tw-tfda-food-allergen-labeling, tw-tfda-food-allergen-labeling-consumer-notice.
 - Return blockers first, then required documents, then optional follow-up checks.
 

@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-26T20:07:58.580Z",
+  "generated_at": "2026-06-27T00:19:40.111Z",
   "generated_from": {
     "source_registry_version": "2026-06-26",
-    "crawl_generated_at": "2026-06-26T20:07:58.580Z",
+    "crawl_generated_at": "2026-06-27T00:19:40.111Z",
     "term_index_generated_at": "2026-06-25T07:47:54.729Z",
     "alias_queue_generated_at": "2026-06-25T07:47:54.729Z",
-    "update_queue_generated_at": "2026-06-26T20:07:58.580Z"
+    "update_queue_generated_at": "2026-06-27T00:19:40.111Z"
   },
   "summary": {
     "sources": 166,
@@ -19,14 +19,14 @@
     "regulatory_update_candidates": 57,
     "alias_review_items": 1092,
     "coverage_groups": 4,
-    "selected_source_cards": 91,
+    "selected_source_cards": 94,
     "selected_term_cards": 90
   },
   "coverage_groups": [
     {
       "id": "tw_cosmetics_labeling_market_access",
       "label": "Taiwan cosmetics labeling, PIF and market access",
-      "source_count": 8,
+      "source_count": 12,
       "term_count": 7,
       "aliases": [
         "대만 화장품 PIF",
@@ -41,6 +41,10 @@
         "tw-tfda-pif-implementation",
         "tw-tfda-cosmetic-pif-category-implementation-2024",
         "tw-tfda-cosmetic-product-registration-categories-2024",
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetic-fadenbook-platform",
+        "tw-tfda-cosmetic-adverse-event-qms-platform",
+        "tw-tfda-cosmetics-law-regulations-index",
         "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
         "tw-tfda-cosmetic-spray-use-safety-guideline",
         "tw-moj-cosmetic-product-notification"
@@ -58,7 +62,7 @@
     {
       "id": "tw_food_labeling_allergen",
       "label": "Taiwan food labeling, allergens, nutrition and claims",
-      "source_count": 7,
+      "source_count": 11,
       "term_count": 9,
       "aliases": [
         "食品標示手冊",
@@ -76,7 +80,11 @@
         "tw-tfda-food-allergen-labeling-en",
         "tw-tfda-food-allergen-labeling-consumer-notice",
         "tw-tfda-food-nutrition-labeling",
-        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+        "tw-tfda-food-law-regulations-index",
+        "tw-tfda-illegal-advertising-query",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-food-business-info-query-links"
       ],
       "term_ids": [
         "food-label-required-items",
@@ -93,7 +101,7 @@
     {
       "id": "tw_food_import_routing",
       "label": "Taiwan food import inspection and regulation code routing",
-      "source_count": 8,
+      "source_count": 12,
       "term_count": 6,
       "aliases": [
         "食品及相關產品輸入查驗申請書",
@@ -109,6 +117,10 @@
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
         "tw-trade-import-regulation-code-instruction",
+        "tw-trade-ccc-import-export-regulations",
+        "tw-customs-tariff-database-download",
+        "tw-customs-export-origin-packaging",
+        "tw-tfda-food-additive-permit-query",
         "tw-tfda-systematic-inspection-imported-food",
         "tw-tfda-food-business-registration-importers"
       ],
@@ -124,7 +136,7 @@
     {
       "id": "tw_health_food_claims",
       "label": "Taiwan health food permits, labeling and approved effect vocabulary",
-      "source_count": 7,
+      "source_count": 9,
       "term_count": 6,
       "aliases": [
         "健康食品標示規定",
@@ -138,8 +150,10 @@
         "tw-tfda-health-food-enforcement-rules",
         "tw-tfda-health-food-application-permit-regulations",
         "tw-tfda-health-food-labeling-regulations",
+        "tw-tfda-health-food-permit-query",
         "tw-tfda-health-food-health-care-effect-items-2025",
         "tw-tfda-health-food-effect-assessment-methods-hub",
+        "tw-tfda-special-disease-food-permit-query",
         "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026"
       ],
       "term_ids": [
@@ -364,8 +378,8 @@
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-qms-platform.md",
-      "text_chars": 1037,
-      "excerpt": "Official TFDA post-market quality management portal for cosmetics and related regulated products. Use this source when a Taiwan cosmetics review needs to confirm adverse-event reporting route, post-market surveillance workflow, defective product handling, o..."
+      "text_chars": 1990,
+      "excerpt": "Official TFDA post-market quality management portal for cosmetics and related regulated products. Use this source when a Taiwan cosmetics review needs to confirm adverse-event reporting route, post-market surveillance workflow, defective product handling, r..."
     },
     {
       "id": "tw-tfda-cosmetic-adverse-event-reporting-system",
@@ -442,7 +456,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T22:28:17.131Z",
-      "days_until_refresh": 14,
+      "days_until_refresh": 13,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md",
       "text_chars": 21737,
@@ -472,8 +486,8 @@
       "days_until_refresh": 14,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-fadenbook-platform.md",
-      "text_chars": 539,
-      "excerpt": "Official TFDA Food and Drug Business Registration Platform, commonly referenced as the fadenbook portal and 非登不可. Treat this as an operational companion source for Taiwan food, drug, and cosmetics business registration, operator account workflows, and produ..."
+      "text_chars": 1836,
+      "excerpt": "Official TFDA Food and Drug Business Registration Platform, commonly referenced as the fadenbook portal and 非登不可. Treat this as an operational companion source for Taiwan food, drug, and cosmetics business registration, operator account workflows, product n..."
     },
     {
       "id": "tw-tfda-cosmetic-label-leaflet-packaging-marking",
@@ -556,7 +570,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T22:28:17.829Z",
-      "days_until_refresh": 14,
+      "days_until_refresh": 13,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md",
       "text_chars": 17307,
@@ -663,7 +677,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T22:28:10.345Z",
-      "days_until_refresh": 14,
+      "days_until_refresh": 13,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md",
       "text_chars": 70334,
@@ -692,7 +706,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T22:28:16.201Z",
-      "days_until_refresh": 14,
+      "days_until_refresh": 13,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md",
       "text_chars": 47885,
@@ -721,7 +735,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T22:28:23.502Z",
-      "days_until_refresh": 14,
+      "days_until_refresh": 13,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md",
       "text_chars": 7232,
@@ -1600,7 +1614,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T22:28:24.985Z",
-      "days_until_refresh": 30,
+      "days_until_refresh": 29,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-false-exaggerated-medical-efficacy-claims.md",
       "text_chars": 2355,
@@ -1815,7 +1829,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T22:28:25.104Z",
-      "days_until_refresh": 30,
+      "days_until_refresh": 29,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-sweetness-claim-prepackaged-food.md",
       "text_chars": 3248,
@@ -1953,7 +1967,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-10T00:19:14.352Z",
-      "days_until_refresh": 14,
+      "days_until_refresh": 13,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-integration-query-platform.md",
       "text_chars": 3687,
@@ -2087,7 +2101,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-26T00:19:13.785Z",
-      "days_until_refresh": 30,
+      "days_until_refresh": 29,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-health-food-governing-act.md",
       "text_chars": 20707,
@@ -2142,7 +2156,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-26T00:19:14.113Z",
-      "days_until_refresh": 30,
+      "days_until_refresh": 29,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-health-food-enforcement-rules.md",
       "text_chars": 5068,
@@ -2229,8 +2243,36 @@
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-health-food-permit-query.md",
-      "text_chars": 844,
-      "excerpt": "Official TFDA Consumer Knowledge Service Network page for health food permit lookup. Use it to confirm health food permit numbers, product names, registration status, approved health-care effect scope, and whether a product may lawfully present itself as he..."
+      "text_chars": 1792,
+      "excerpt": "Official TFDA Consumer Knowledge Service Network page for health food permit lookup. Use it to confirm health food permit numbers, product names, applicant or permit holder context, registration status, approved health-care effect scope, standard health-foo..."
+    },
+    {
+      "id": "tw-tfda-special-disease-food-permit-query",
+      "title": "Special Disease Formula Food Permit Data Query",
+      "url": "https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163",
+      "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
+      "jurisdiction": "TW",
+      "domain": "special_dietary_food",
+      "domain_label": "special dietary food",
+      "source_type": "database",
+      "source_type_label": "database",
+      "priority": "high",
+      "tags": [
+        "special-dietary-food",
+        "formula-for-certain-disease",
+        "permit-query",
+        "registration-number",
+        "license-number",
+        "database",
+        "traditional-chinese"
+      ],
+      "cache_status": "fresh",
+      "cache_expires_at": "2026-07-03T19:43:04.750Z",
+      "days_until_refresh": 7,
+      "evidence_mode": "browser_capture",
+      "document_path": "data/knowledge/documents/tw-tfda-special-disease-food-permit-query.md",
+      "text_chars": 1777,
+      "excerpt": "Official TFDA Consumer Knowledge Service Network page for special disease formula food permit lookup. Use it to verify permit numbers, product names, applicant or permit holder context, registered formula type, disease or medical nutrition category, registr..."
     },
     {
       "id": "tw-moj-export-commodities-regulations",
@@ -2468,6 +2510,31 @@
       "excerpt": "噴霧狀化粧品之使用安全指引 - 本署公告 - 公告資訊 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招..."
     },
     {
+      "id": "tw-customs-export-origin-packaging",
+      "title": "Kaohsiung Customs origin packaging notice",
+      "url": "https://web.customs.gov.tw/ekaohsiung/singlehtml/3071?cntId=9efc8e5829ff4cbe9c1ded1a6c22302e",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "domain_label": "Customs",
+      "source_type": "notice",
+      "source_type_label": "Notice",
+      "priority": "medium",
+      "tags": [
+        "customs",
+        "export",
+        "origin",
+        "packaging"
+      ],
+      "cache_status": "fresh",
+      "cache_expires_at": "2026-07-02T13:02:19.641Z",
+      "days_until_refresh": 6,
+      "evidence_mode": "cache",
+      "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md",
+      "text_chars": 4759,
+      "excerpt": "Exporters Must Label Country of Origin on Inner and Outer Packaging to Avoid Clearance Delays and Penalties-Kaohsiung Customs X message close ::: Skip to main content Sitemap Contact us 中文版 :: Popular search： x About KHC Director Organization & Functions Ju..."
+    },
+    {
       "id": "tw-tfda-food-business-registration-importers",
       "title": "Regulations Governing the Registration of Food Business",
       "url": "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1681",
@@ -2546,6 +2613,34 @@
       "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-en.md",
       "text_chars": 1938,
       "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: Guidan..."
+    },
+    {
+      "id": "tw-tfda-food-business-info-query-links",
+      "title": "TFDA Food Business Information Query Links",
+      "url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=51",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_safety",
+      "domain_label": "Food safety",
+      "source_type": "database_index",
+      "source_type_label": "database index",
+      "priority": "medium",
+      "tags": [
+        "food",
+        "food-business",
+        "query-links",
+        "ingredient-query",
+        "permit-query",
+        "database-index",
+        "traditional-chinese"
+      ],
+      "cache_status": "fresh",
+      "cache_expires_at": "2026-07-03T04:36:06.006Z",
+      "days_until_refresh": 7,
+      "evidence_mode": "cache",
+      "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md",
+      "text_chars": 2686,
+      "excerpt": "食品業務資訊查詢連結 - 食品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新..."
     },
     {
       "id": "tw-tfda-health-food-effect-assessment-methods-hub",
@@ -2629,10 +2724,12 @@
         "tw-tfda-cosmetic-product-registration-categories-2024",
         "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetics-business-area",
-        "eu-cosmetics-regulation-1223-2009"
+        "eu-cosmetics-regulation-1223-2009",
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetics-law-regulations-index"
       ],
       "notes": "Concept term for cosmetic product information file and safety documentation obligations, including Taiwan PIF implementation stages and TFDA PIF management principles.",
-      "score": 1302
+      "score": 1352
     },
     {
       "id": "cosmetic-labeling-claims",
@@ -2657,35 +2754,12 @@
         "tw-moj-cosmetic-product-notification",
         "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetics-business-area",
-        "tw-us-ita-labeling-marking"
+        "tw-us-ita-labeling-marking",
+        "tw-tfda-cosmetics-law-regulations-index",
+        "tw-tfda-illegal-advertising-query"
       ],
       "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening.",
-      "score": 1270
-    },
-    {
-      "id": "cosmetic-pif-product-registration-categories",
-      "canonical_name": "Cosmetic PIF and Product Registration Categories",
-      "category": "cosmetic_compliance",
-      "category_label": "Cosmetic compliance",
-      "aliases": [
-        "產品登錄",
-        "應完成產品登錄之化粧品種類",
-        "應建立產品資訊檔案之化粧品種類及實施日期",
-        "cosmetic product registration",
-        "止汗制臭",
-        "防曬",
-        "染髮",
-        "製造或輸入業者",
-        "免辦理工廠登記",
-        "固態手工香皂"
-      ],
-      "source_keys": [
-        "tw-tfda-pif-implementation",
-        "tw-tfda-cosmetic-pif-category-implementation-2024",
-        "tw-tfda-cosmetic-product-registration-categories-2024"
-      ],
-      "notes": "Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type.",
-      "score": 1243
+      "score": 1320
     },
     {
       "id": "cosmetic-product-notification",
@@ -2710,10 +2784,87 @@
         "tw-tfda-cosmetic-product-registration-zone",
         "tw-tfda-cosmetics-business-area",
         "cn-nmpa-cosmetics-registration-filing",
-        "eu-cosmetics-regulation-1223-2009"
+        "eu-cosmetics-regulation-1223-2009",
+        "tw-tfda-cosmetic-product-registration-system",
+        "tw-tfda-cosmetic-fadenbook-platform"
       ],
       "notes": "Concept term for product notification, filing, and registration workflows before or around market entry.",
-      "score": 1227
+      "score": 1277
+    },
+    {
+      "id": "cosmetic-pif-product-registration-categories",
+      "canonical_name": "Cosmetic PIF and Product Registration Categories",
+      "category": "cosmetic_compliance",
+      "category_label": "Cosmetic compliance",
+      "aliases": [
+        "產品登錄",
+        "應完成產品登錄之化粧品種類",
+        "應建立產品資訊檔案之化粧品種類及實施日期",
+        "cosmetic product registration",
+        "止汗制臭",
+        "防曬",
+        "染髮",
+        "製造或輸入業者",
+        "免辦理工廠登記",
+        "固態手工香皂"
+      ],
+      "source_keys": [
+        "tw-tfda-pif-implementation",
+        "tw-tfda-cosmetic-pif-category-implementation-2024",
+        "tw-tfda-cosmetic-product-registration-categories-2024",
+        "tw-tfda-cosmetic-product-registration-system"
+      ],
+      "notes": "Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type.",
+      "score": 1268
+    },
+    {
+      "id": "health-food-permit",
+      "canonical_name": "Health Food Permit",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "健康食品許可證",
+        "許可證",
+        "health food permit",
+        "product registration permit",
+        "健康食品申請許可",
+        "健康食品查驗登記",
+        "健康食品許可證字號",
+        "衛部健食字",
+        "衛部健食規字",
+        "衛署健食字"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules",
+        "tw-tfda-health-food-permit-query"
+      ],
+      "notes": "Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising.",
+      "score": 1232
+    },
+    {
+      "id": "cosmetic-label-required-items",
+      "canonical_name": "Cosmetic Label Required Items",
+      "category": "cosmetic_compliance",
+      "category_label": "Cosmetic compliance",
+      "aliases": [
+        "中文品名",
+        "化粧品外包裝、容器、標籤或仿單之標示規定",
+        "化粧品標示",
+        "全成分",
+        "cosmetic outer package, container, label and package insert marking",
+        "INCI",
+        "40平方公分",
+        "化粧品外包裝",
+        "可能加入之色素",
+        "外包裝"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+        "tw-tfda-cosmetics-law-regulations-index"
+      ],
+      "notes": "Taiwan cosmetic labels must map outer package, container, label and package-insert fields, including ingredient nomenclature, colorant alternatives and small-package display rules.",
+      "score": 1220
     },
     {
       "id": "health-food",
@@ -2739,51 +2890,33 @@
       "score": 1212
     },
     {
-      "id": "health-food-permit",
-      "canonical_name": "Health Food Permit",
-      "category": "health_food",
-      "category_label": "Health food",
+      "id": "food-labeling-claims",
+      "canonical_name": "Food Labeling and Claims",
+      "category": "food_labeling",
+      "category_label": "Food labeling",
       "aliases": [
-        "健康食品許可證",
-        "許可證",
-        "health food permit",
-        "product registration permit",
-        "健康食品申請許可",
-        "健康食品查驗登記",
-        "健康食品許可證字號",
-        "衛部健食字",
-        "衛部健食規字",
-        "衛署健食字"
+        "食品標示廣告",
+        "food claims",
+        "food labeling claims",
+        "식품 표시광고",
+        "食品宣稱",
+        "甜味宣稱",
+        "虛偽誇張易生誤解",
+        "醫療效能",
+        "false exaggerated misleading food claim",
+        "food claim substantiation"
       ],
       "source_keys": [
-        "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-enforcement-rules"
+        "tw-moj-food-safety-sanitation-act",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+        "tw-tfda-sweetness-claim-prepackaged-food",
+        "tw-tfda-nutrition-claim-prepackaged-food",
+        "global-codex-prepackaged-food-labeling",
+        "tw-tfda-food-law-regulations-index",
+        "tw-tfda-illegal-advertising-query"
       ],
-      "notes": "Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising.",
-      "score": 1207
-    },
-    {
-      "id": "cosmetic-label-required-items",
-      "canonical_name": "Cosmetic Label Required Items",
-      "category": "cosmetic_compliance",
-      "category_label": "Cosmetic compliance",
-      "aliases": [
-        "中文品名",
-        "化粧品外包裝、容器、標籤或仿單之標示規定",
-        "化粧品標示",
-        "全成分",
-        "cosmetic outer package, container, label and package insert marking",
-        "INCI",
-        "40平方公分",
-        "化粧品外包裝",
-        "可能加入之色素",
-        "外包裝"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-label-leaflet-packaging-marking"
-      ],
-      "notes": "Taiwan cosmetic labels must map outer package, container, label and package-insert fields, including ingredient nomenclature, colorant alternatives and small-package display rules.",
-      "score": 1195
+      "notes": "Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims.",
+      "score": 1200
     },
     {
       "id": "health-food-application-permit",
@@ -2855,31 +2988,107 @@
       "score": 1173
     },
     {
-      "id": "food-labeling-claims",
-      "canonical_name": "Food Labeling and Claims",
+      "id": "health-food-approved-effect-vocabulary",
+      "canonical_name": "Health Food Approved Effect Vocabulary",
+      "category": "health_food_claim",
+      "category_label": "health food claim",
+      "aliases": [
+        "approved health care effects",
+        "免疫調節",
+        "胃腸功能改善",
+        "骨質保健",
+        "調節血脂",
+        "調節血糖",
+        "health food effect assessment methods",
+        "不易形成體脂肪",
+        "牙齒保健",
+        "抗疲勞"
+      ],
+      "source_keys": [
+        "tw-tfda-health-food-health-care-effect-items-2025",
+        "tw-tfda-health-food-effect-assessment-methods-hub",
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-permit-query"
+      ],
+      "notes": "Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases.",
+      "score": 1146
+    },
+    {
+      "id": "imported-food-inspection-forms",
+      "canonical_name": "Imported Food Inspection Forms",
+      "category": "food_import",
+      "category_label": "Food import",
+      "aliases": [
+        "食品及相關產品資料表",
+        "食品及相關產品輸入查驗申請書",
+        "產品資料表",
+        "報驗義務人",
+        "輸入食品免貼中文標示具結書",
+        "imported food inspection application",
+        "申請書號碼",
+        "產品中英文品名",
+        "報單號碼",
+        "product data sheet"
+      ],
+      "source_keys": [
+        "tw-tfda-imported-food-inspection-regulations",
+        "tw-tfda-imported-food-inspection-forms",
+        "tw-tfda-imported-food-inspection-field-declaration-2024",
+        "tw-tfda-inspections-law-regulations-index"
+      ],
+      "notes": "Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials.",
+      "score": 1136
+    },
+    {
+      "id": "nutrition-labeling",
+      "canonical_name": "Nutrition Labeling",
       "category": "food_labeling",
       "category_label": "Food labeling",
       "aliases": [
-        "食品標示廣告",
-        "food claims",
-        "food labeling claims",
-        "식품 표시광고",
-        "食品宣稱",
-        "甜味宣稱",
-        "虛偽誇張易生誤解",
-        "醫療效能",
-        "false exaggerated misleading food claim",
-        "food claim substantiation"
+        "營養標示",
+        "nutrition label",
+        "영양성분표",
+        "营养标签",
+        "nutrition facts",
+        "영양표시",
+        "栄養成分表示",
+        "nutrition claim"
       ],
       "source_keys": [
-        "tw-moj-food-safety-sanitation-act",
-        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
-        "tw-tfda-sweetness-claim-prepackaged-food",
+        "tw-tfda-food-nutrition-labeling",
         "tw-tfda-nutrition-claim-prepackaged-food",
-        "global-codex-prepackaged-food-labeling"
+        "tw-tfda-sweetness-claim-prepackaged-food",
+        "global-codex-nutrition-labeling",
+        "us-ecfr-food-labeling-21-cfr-101",
+        "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims.",
-      "score": 1150
+      "notes": "Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence.",
+      "score": 1126
+    },
+    {
+      "id": "food-label-required-items",
+      "canonical_name": "Food Label Required Items",
+      "category": "food_labeling",
+      "category_label": "Food labeling",
+      "aliases": [
+        "食品標示",
+        "食品標示手冊",
+        "食品標示法規手冊",
+        "food labeling regulations handbook",
+        "內容物名稱",
+        "有效日期",
+        "保存條件",
+        "保存期限",
+        "食品標示法規指引手冊",
+        "食品標示問答集"
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search.",
+      "score": 1125
     },
     {
       "id": "import-regulation-f01-f02-508",
@@ -2907,29 +3116,29 @@
       "score": 1125
     },
     {
-      "id": "health-food-approved-effect-vocabulary",
-      "canonical_name": "Health Food Approved Effect Vocabulary",
-      "category": "health_food_claim",
-      "category_label": "health food claim",
+      "id": "imported-food-inspection",
+      "canonical_name": "Imported Food Inspection",
+      "category": "food_import",
+      "category_label": "Food import",
       "aliases": [
-        "approved health care effects",
-        "免疫調節",
-        "胃腸功能改善",
-        "骨質保健",
-        "調節血脂",
-        "調節血糖",
-        "health food effect assessment methods",
-        "不易形成體脂肪",
-        "牙齒保健",
-        "抗疲勞"
+        "輸入食品查驗",
+        "imported food inspection",
+        "수입식품 검사",
+        "food import inspection",
+        "逐批查驗",
+        "輸入食品及相關產品查驗",
+        "batch-by-batch inspection",
+        "border inspection of imported food",
+        "obligatory inspection applicant",
+        "randomly-selected batch inspection"
       ],
       "source_keys": [
-        "tw-tfda-health-food-health-care-effect-items-2025",
-        "tw-tfda-health-food-effect-assessment-methods-hub",
-        "tw-moj-health-food-governing-act"
+        "tw-tfda-imported-food-inspection-regulations",
+        "tw-tfda-food-import-inspection-exemptions",
+        "tw-tfda-inspections-law-regulations-index"
       ],
-      "notes": "Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases.",
-      "score": 1121
+      "notes": "Taiwan border-inspection concept for imported food and related products, including inspection application timing, required documents, CCC-code batch grouping, and sampling methods.",
+      "score": 1119
     },
     {
       "id": "sulfites-allergen",
@@ -2983,29 +3192,29 @@
       "score": 1113
     },
     {
-      "id": "imported-food-inspection-forms",
-      "canonical_name": "Imported Food Inspection Forms",
-      "category": "food_import",
-      "category_label": "Food import",
+      "id": "health-food-label-required-items",
+      "canonical_name": "Health Food Label Required Items",
+      "category": "health_food_labeling",
+      "category_label": "health food labeling",
       "aliases": [
-        "食品及相關產品資料表",
-        "食品及相關產品輸入查驗申請書",
-        "產品資料表",
-        "報驗義務人",
-        "輸入食品免貼中文標示具結書",
-        "imported food inspection application",
-        "申請書號碼",
-        "產品中英文品名",
-        "報單號碼",
-        "product data sheet"
+        "健康食品字樣",
+        "健康食品標示",
+        "健康食品標示規定",
+        "health food labeling regulations",
+        "保健功效",
+        "許可證字號",
+        "標準圖樣",
+        "approved health care claims",
+        "注意事項",
+        "營養成分及含量"
       ],
       "source_keys": [
-        "tw-tfda-imported-food-inspection-regulations",
-        "tw-tfda-imported-food-inspection-forms",
-        "tw-tfda-imported-food-inspection-field-declaration-2024"
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-labeling-regulations",
+        "tw-tfda-health-food-permit-query"
       ],
-      "notes": "Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials.",
-      "score": 1111
+      "notes": "Extends the existing health-food logo term with label-completeness fields such as permit number, legend, standard logo, approved effect wording, intake and warnings.",
+      "score": 1113
     },
     {
       "id": "crustacea-allergen",
@@ -3031,55 +3240,6 @@
       ],
       "notes": "Taiwan mandatory allergen cluster for crustacea and crustacea products.",
       "score": 1105
-    },
-    {
-      "id": "nutrition-labeling",
-      "canonical_name": "Nutrition Labeling",
-      "category": "food_labeling",
-      "category_label": "Food labeling",
-      "aliases": [
-        "營養標示",
-        "nutrition label",
-        "영양성분표",
-        "营养标签",
-        "nutrition facts",
-        "영양표시",
-        "栄養成分表示",
-        "nutrition claim"
-      ],
-      "source_keys": [
-        "tw-tfda-food-nutrition-labeling",
-        "tw-tfda-nutrition-claim-prepackaged-food",
-        "tw-tfda-sweetness-claim-prepackaged-food",
-        "global-codex-nutrition-labeling",
-        "us-ecfr-food-labeling-21-cfr-101"
-      ],
-      "notes": "Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence.",
-      "score": 1101
-    },
-    {
-      "id": "food-label-required-items",
-      "canonical_name": "Food Label Required Items",
-      "category": "food_labeling",
-      "category_label": "Food labeling",
-      "aliases": [
-        "食品標示",
-        "食品標示手冊",
-        "食品標示法規手冊",
-        "food labeling regulations handbook",
-        "內容物名稱",
-        "有效日期",
-        "保存條件",
-        "保存期限",
-        "食品標示法規指引手冊",
-        "食品標示問答集"
-      ],
-      "source_keys": [
-        "tw-tfda-food-labeling-handbook-2026",
-        "tw-moj-food-safety-sanitation-act"
-      ],
-      "notes": "Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search.",
-      "score": 1100
     },
     {
       "id": "fish-allergen",
@@ -3124,30 +3284,6 @@
       "score": 1097
     },
     {
-      "id": "imported-food-inspection",
-      "canonical_name": "Imported Food Inspection",
-      "category": "food_import",
-      "category_label": "Food import",
-      "aliases": [
-        "輸入食品查驗",
-        "imported food inspection",
-        "수입식품 검사",
-        "food import inspection",
-        "逐批查驗",
-        "輸入食品及相關產品查驗",
-        "batch-by-batch inspection",
-        "border inspection of imported food",
-        "obligatory inspection applicant",
-        "randomly-selected batch inspection"
-      ],
-      "source_keys": [
-        "tw-tfda-imported-food-inspection-regulations",
-        "tw-tfda-food-import-inspection-exemptions"
-      ],
-      "notes": "Taiwan border-inspection concept for imported food and related products, including inspection application timing, required documents, CCC-code batch grouping, and sampling methods.",
-      "score": 1094
-    },
-    {
       "id": "mango-allergen",
       "canonical_name": "Mango Allergen",
       "category": "food_allergen",
@@ -3165,30 +3301,6 @@
       ],
       "notes": "Taiwan mandatory allergen cluster for mango and mango products.",
       "score": 1093
-    },
-    {
-      "id": "health-food-label-required-items",
-      "canonical_name": "Health Food Label Required Items",
-      "category": "health_food_labeling",
-      "category_label": "health food labeling",
-      "aliases": [
-        "健康食品字樣",
-        "健康食品標示",
-        "健康食品標示規定",
-        "health food labeling regulations",
-        "保健功效",
-        "許可證字號",
-        "標準圖樣",
-        "approved health care claims",
-        "注意事項",
-        "營養成分及含量"
-      ],
-      "source_keys": [
-        "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-labeling-regulations"
-      ],
-      "notes": "Extends the existing health-food logo term with label-completeness fields such as permit number, legend, standard logo, approved effect wording, intake and warnings.",
-      "score": 1088
     },
     {
       "id": "novel-food-ingredient-safety-assessment",
@@ -3280,6 +3392,32 @@
       ],
       "notes": "Document concept for imported-food inspection applications, linking inspection forms, product information, and import declarations.",
       "score": 1061
+    },
+    {
+      "id": "cosmetic-claims-criteria",
+      "canonical_name": "Cosmetic Claims Criteria",
+      "category": "cosmetic_compliance",
+      "category_label": "Cosmetic compliance",
+      "aliases": [
+        "化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則",
+        "cosmetic claims criteria",
+        "화장품 효능표현 판단기준",
+        "化粧品標示宣傳廣告",
+        "虛偽誇大",
+        "醫療效能",
+        "cosmetic claim evidence",
+        "cosmetic claim substantiation",
+        "cosmetic medical efficacy claim",
+        "false exaggerated cosmetic label"
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-claims-criteria",
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetics-law-regulations-index",
+        "tw-tfda-illegal-advertising-query"
+      ],
+      "notes": "Taiwan criteria for judging cosmetic labels, promotion, and advertisements by overall consumer presentation. False or exaggerated claims include content not conforming to facts, lacking evidence, having insufficient evidence, or exceedin...",
+      "score": 268
     },
     {
       "id": "food-additive-functional-classes",
@@ -3406,30 +3544,6 @@
       ],
       "notes": "Food additive common-name set that also overlaps with milk allergen review.",
       "score": 224
-    },
-    {
-      "id": "cosmetic-claims-criteria",
-      "canonical_name": "Cosmetic Claims Criteria",
-      "category": "cosmetic_compliance",
-      "category_label": "Cosmetic compliance",
-      "aliases": [
-        "化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則",
-        "cosmetic claims criteria",
-        "화장품 효능표현 판단기준",
-        "化粧品標示宣傳廣告",
-        "虛偽誇大",
-        "醫療效能",
-        "cosmetic claim evidence",
-        "cosmetic claim substantiation",
-        "cosmetic medical efficacy claim",
-        "false exaggerated cosmetic label"
-      ],
-      "source_keys": [
-        "tw-moj-cosmetic-claims-criteria",
-        "tw-moj-cosmetic-hygiene-safety-act"
-      ],
-      "notes": "Taiwan criteria for judging cosmetic labels, promotion, and advertisements by overall consumer presentation. False or exaggerated claims include content not conforming to facts, lacking evidence, having insufficient evidence, or exceedin...",
-      "score": 218
     },
     {
       "id": "dehydroacetic-acid-food-additive",
@@ -4495,6 +4609,31 @@
       "score": 141
     },
     {
+      "id": "food-ingredient-integration-query-platform",
+      "canonical_name": "Food Ingredient Integration Query Platform",
+      "category": "food_safety",
+      "category_label": "Food safety",
+      "aliases": [
+        "食品原料整合查詢平台",
+        "Food Ingredient Integration Query Platform",
+        "식품원료 통합조회",
+        "可供食品使用原料",
+        "未確認安全性尚不得使用原料",
+        "食材查詢",
+        "原料查詢平台",
+        "food ingredient direct query",
+        "food ingredient platform",
+        "식품원료 안전성 조회"
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-food-business-info-query-links"
+      ],
+      "notes": "Use this TFDA platform to confirm ingredient safety status, permitted product types, usage limits, and cautionary notes before final food label approval.",
+      "score": 125
+    },
+    {
       "id": "hs-code-classification",
       "canonical_name": "HS Code Classification",
       "category": "customs_classification",
@@ -4649,31 +4788,6 @@
       ],
       "notes": "Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates.",
       "score": 117
-    },
-    {
-      "id": "exporter-importer-registration",
-      "canonical_name": "Exporter and Importer Registration",
-      "category": "import_export_control",
-      "category_label": "import export control",
-      "aliases": [
-        "出進口廠商登記",
-        "exporter and importer registration",
-        "registration of exporters and importers",
-        "수출입업자 등록",
-        "importer exporter registration",
-        "TITA exporter importer registration",
-        "出進口資格",
-        "English name availability review",
-        "export/import qualifications",
-        "수출자 수입자 등록"
-      ],
-      "source_keys": [
-        "tw-moj-exporter-importer-registration",
-        "tw-moj-foreign-trade-act",
-        "tw-trade-import-export-administration"
-      ],
-      "notes": "Taiwan operator-registration concept for companies or firms engaging in import/export business, including English-name review and qualification lookup.",
-      "score": 107
     }
   ],
   "alias_review": {
@@ -5569,7 +5683,10 @@
           "origin",
           "packaging"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Country of Origin Marking",
+          "Certificate of Origin"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -5746,7 +5863,10 @@
           "portal",
           "system"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Cosmetic Post-market Surveillance",
+          "Cosmetic Serious Adverse Effect Reporting"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -5767,7 +5887,10 @@
           "portal",
           "system"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Cosmetic Post-market Surveillance",
+          "Cosmetic Serious Adverse Effect Reporting"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -5788,7 +5911,11 @@
           "portal",
           "system"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Cosmetic Product Information File",
+          "Cosmetic Product Notification",
+          "Cosmetic PIF and Product Registration Categories"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -5809,7 +5936,11 @@
           "portal",
           "system"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Cosmetic Product Information File",
+          "Cosmetic Product Notification",
+          "Cosmetic PIF and Product Registration Categories"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -5831,7 +5962,12 @@
           "gmp",
           "manufactory-standards"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Cosmetic Product Information File",
+          "Cosmetic Labeling and Claims",
+          "Cosmetic Claims Criteria",
+          "Cosmetic Label Required Items"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -5853,7 +5989,12 @@
           "gmp",
           "manufactory-standards"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Cosmetic Product Information File",
+          "Cosmetic Labeling and Claims",
+          "Cosmetic Claims Criteria",
+          "Cosmetic Label Required Items"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -5999,7 +6140,11 @@
           "food-additives",
           "ingredient-labeling"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Nutrition Labeling",
+          "Food Labeling and Claims",
+          "Food Label Required Items"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -6021,7 +6166,11 @@
           "food-additives",
           "ingredient-labeling"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Nutrition Labeling",
+          "Food Labeling and Claims",
+          "Food Label Required Items"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -6042,7 +6191,12 @@
           "database",
           "traditional-chinese"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Health Food Permit",
+          "Approved Health Care Effects",
+          "Health Food Label Required Items",
+          "Health Food Approved Effect Vocabulary"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -6063,7 +6217,12 @@
           "database",
           "traditional-chinese"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Health Food Permit",
+          "Approved Health Care Effects",
+          "Health Food Label Required Items",
+          "Health Food Approved Effect Vocabulary"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -6085,7 +6244,11 @@
           "query",
           "consumer"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Food Labeling and Claims",
+          "Cosmetic Labeling and Claims",
+          "Cosmetic Claims Criteria"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -6107,7 +6270,11 @@
           "query",
           "consumer"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Food Labeling and Claims",
+          "Cosmetic Labeling and Claims",
+          "Cosmetic Claims Criteria"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -6128,7 +6295,10 @@
           "fees",
           "documents"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Imported Food Inspection",
+          "Imported Food Inspection Forms"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -6149,7 +6319,10 @@
           "fees",
           "documents"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Imported Food Inspection",
+          "Imported Food Inspection Forms"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -6171,7 +6344,9 @@
           "database",
           "traditional-chinese"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Formula for Certain Disease"
+        ],
         "next_action": "7일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
       },
       {
@@ -6193,7 +6368,9 @@
           "database",
           "traditional-chinese"
         ],
-        "affected_terms": [],
+        "affected_terms": [
+          "Formula for Certain Disease"
+        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {

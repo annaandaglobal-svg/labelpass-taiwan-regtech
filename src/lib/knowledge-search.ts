@@ -315,8 +315,12 @@ function tokenScore(target: string, query: string, exactOnly = false) {
   if (canUseFolded && targetFolded === queryFolded) return 94;
   if (isCasRegistryNumber(target) && query.replace(/^cas\s+/i, "") === target) return 94;
 
-  if (exactOnly && query.split(" ").includes(target)) return 86;
-  if (exactOnly) return 0;
+  if (exactOnly) {
+    const targetTokens = target.split(" ");
+    const queryTokensForExact = query.split(" ");
+    if (targetTokens.includes(query) || queryTokensForExact.includes(target)) return 86;
+    return 0;
+  }
   if (target.startsWith(query)) return 88;
   if (target.includes(query)) return 72;
 
@@ -500,6 +504,122 @@ function ambiguousAliasesForTerm(term: KnowledgeTerm, aliases: Alias[], matchedA
     .slice(0, 4);
 }
 
+const sourceTagExpansions: Record<string, string[]> = {
+  announcements: ["announcement", "notice", "latest notice", "regulatory update", "news"],
+  pif: ["product information file", "product information dossier", "cosmetic safety dossier"],
+  gmp: ["good manufacturing practice", "manufacturing quality system", "factory quality evidence"],
+  "product-registration": ["product registration", "product notification", "product filing"],
+  "product-notification": ["product notification", "product registration", "product filing"],
+  "ingredient-restrictions": ["restricted ingredient", "prohibited ingredient", "ingredient limit"],
+  "law-index": ["law regulations index", "guidance law regulations"],
+  "latest-regulations": ["latest regulation", "regulatory update", "law amendment"],
+  "food-additives": ["food additive", "additive permit", "composition report"],
+  "health-food": ["health food", "permit number", "approved health care effects"],
+  "import-inspection": ["imported food inspection", "border inspection", "document review"],
+  "permit-query": ["permit query", "permit data query", "license query", "official lookup", "registration lookup"],
+  "registration-number": ["registration number", "permit number", "license number"],
+  "license-number": ["license number", "permit number", "registration number"],
+  labeling: ["label", "labelling", "label required items", "mandatory label"],
+  claims: ["advertisement", "promotion", "false exaggerated misleading medical efficacy"],
+  ccc: ["ccc code", "commodity classification code", "import export regulation"],
+  shtc: ["strategic high tech commodities", "export permit", "international import certificate"]
+};
+
+const taiwanRouteIntentTokens = new Set([
+  "additive",
+  "allergen",
+  "ccc",
+  "cosmetic",
+  "cosmetics",
+  "food",
+  "gmp",
+  "health",
+  "ingredient",
+  "inspection",
+  "label",
+  "labeling",
+  "labelling",
+  "nutrition",
+  "packaging",
+  "permit",
+  "pif",
+  "registration",
+  "shtc",
+  "tfda",
+  "traceability"
+]);
+
+function sourceExpansionText(source: KnowledgeSourceScoringInput) {
+  const normalizedTags = (source.tags ?? []).map((tag) => normalize(tag));
+  const expansions = new Set<string>();
+
+  for (const tag of normalizedTags) {
+    expansions.add(tag);
+    sourceTagExpansions[tag]?.forEach((term) => expansions.add(term));
+  }
+
+  const authority = normalize(source.authority);
+  const domain = normalize(source.domain);
+  const sourceType = normalize(source.sourceType);
+
+  if (authority.includes("taiwan food and drug administration")) {
+    ["tfda", "taiwan fda", "food and drug administration taiwan"].forEach((term) => expansions.add(term));
+  }
+
+  if (source.jurisdiction === "TW") {
+    ["taiwan", "tw", "republic of china"].forEach((term) => expansions.add(term));
+  }
+
+  if (domain.includes("cosmetic")) {
+    ["cosmetic", "cosmetics", "cosmetic products"].forEach((term) => expansions.add(term));
+  }
+
+  if (domain.includes("food")) {
+    ["food", "foods", "food products", "food labeling"].forEach((term) => expansions.add(term));
+  }
+
+  if (sourceType.includes("notice")) {
+    ["announcement", "notice", "latest announcement", "regulatory update"].forEach((term) => expansions.add(term));
+  }
+
+  return [...expansions].join(" ");
+}
+
+function queryHasTaiwanRouteIntent(query: string) {
+  const tokens = queryTokensForFallback(query);
+  if (tokens.some((token) => taiwanRouteIntentTokens.has(token))) return true;
+  return [
+    "product information file",
+    "good manufacturing practice",
+    "food and drug administration",
+    "import export regulation"
+  ].some((phrase) => query.includes(phrase));
+}
+
+function sourceIntentBoost(source: KnowledgeSourceScoringInput, query: string) {
+  if (!queryHasTaiwanRouteIntent(query)) return 0;
+
+  const authority = normalize(source.authority);
+  const tags = (source.tags ?? []).map((tag) => normalize(tag));
+  const tagSet = new Set(tags);
+  const isTfda = authority.includes("taiwan food and drug administration");
+  const isTaiwan = source.jurisdiction === "TW";
+  const queryMentionsNotice = ["announcement", "announcements", "notice", "latest", "update"].some((term) =>
+    query.includes(term)
+  );
+  const queryMentionsTfdaDomain = ["tfda", "cosmetic", "cosmetics", "food", "pif", "gmp"].some((term) =>
+    query.includes(term)
+  );
+  const queryMentionsPermitLookup = query.includes("permit query") || query.includes("license query");
+
+  let boost = 0;
+  if (isTaiwan) boost += 8;
+  if (isTfda && queryMentionsTfdaDomain) boost += 6;
+  if (queryMentionsNotice && (tagSet.has("announcements") || normalize(source.sourceType).includes("notice"))) boost += 8;
+  if (queryMentionsPermitLookup && tagSet.has("permit-query")) boost += 10;
+  return boost;
+}
+
 function ambiguitySummary(query: string, termResults: KnowledgeSearchResult["terms"]): KnowledgeSearchResult["ambiguity"] {
   if (!query || termResults.length < 2) return null;
   const exactOwners = aliasOwners.get(query);
@@ -530,8 +650,9 @@ function ambiguitySummary(query: string, termResults: KnowledgeSearchResult["ter
 function scoreSourceFields(source: KnowledgeSourceScoringInput, query: string) {
   if (characterLength(query) <= 2 && !hasCjkOrHangul(query)) return 0;
 
+  const expansionText = sourceExpansionText(source);
   const titleScore = tokenScoreWithQueryFallback(normalize(source.title), query);
-  const tagScore = tokenScoreWithQueryFallback(normalize((source.tags ?? []).join(" ")), query);
+  const tagScore = tokenScoreWithQueryFallback(normalize([...(source.tags ?? []), expansionText].join(" ")), query);
   const urlScore = tokenScoreWithQueryFallback(
     normalize([source.url, source.fetchedUrl, ...(source.extraFetchedUrls ?? [])].join(" ")),
     query
@@ -541,6 +662,7 @@ function scoreSourceFields(source: KnowledgeSourceScoringInput, query: string) {
     query
   );
   const excerptScore = tokenScoreWithQueryFallback(normalize(source.excerpt ?? ""), query);
+  const expansionScore = tokenScoreWithQueryFallback(normalize(expansionText), query);
   const haystackScore = tokenScoreWithQueryFallback(
     normalize(
       [
@@ -554,23 +676,27 @@ function scoreSourceFields(source: KnowledgeSourceScoringInput, query: string) {
         source.sourceType,
         source.priority,
         source.excerpt,
+        expansionText,
         ...(source.tags ?? [])
       ].join(" ")
     ),
     query
   );
 
-  const matchedFields = [titleScore, tagScore, urlScore, metadataScore, excerptScore].filter((score) => score > 0).length;
+  const matchedFields = [titleScore, tagScore, urlScore, metadataScore, excerptScore, expansionScore].filter(
+    (score) => score > 0
+  ).length;
   const bestScore = Math.max(
     titleScore ? titleScore + 8 : 0,
     tagScore ? tagScore + 6 : 0,
     urlScore ? urlScore + 4 : 0,
     metadataScore,
     excerptScore ? Math.max(0, excerptScore - 2) : 0,
+    expansionScore ? expansionScore + 6 : 0,
     haystackScore
   );
 
-  return Math.min(100, bestScore + (matchedFields >= 2 ? 4 : 0));
+  return Math.min(100, bestScore + (matchedFields >= 2 ? 4 : 0) + sourceIntentBoost(source, query));
 }
 
 export function scoreKnowledgeSourceForQuery(source: KnowledgeSourceScoringInput, rawQuery: string) {

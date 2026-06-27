@@ -23,9 +23,9 @@
 
 ## Top Terms
 
+- **Health Food Permit** (`health-food-permit`): 健康食品許可證; 許可證; health food permit; product registration permit
 - **Health Food** (`health-food`): 健康食品; Health Food; 保健功效; health care effects
 - **Health Food Application Permit** (`health-food-application-permit`): 健康食品查驗登記; health food application permit; 安全評估報告; 保健功效成分
-- **Health Food Permit** (`health-food-permit`): 健康食品許可證; 許可證; health food permit; product registration permit
 - **Health Food Approved Effect Vocabulary** (`health-food-approved-effect-vocabulary`): approved health care effects; 免疫調節; 胃腸功能改善; 骨質保健
 - **Health Food Label Required Items** (`health-food-label-required-items`): 健康食品字樣; 健康食品標示; 健康食品標示規定; health food labeling regulations
 - **Novel Food Ingredient Safety Assessment** (`novel-food-ingredient-safety-assessment`): 非傳統食品原料; 新興食品原料; 安全性評估資料表; non-traditional food ingredient
@@ -37,12 +37,12 @@
 - **Enforcement Rules of Health Food Control Act** (`tw-tfda-health-food-enforcement-rules`) - Taiwan Food and Drug Administration; fresh; cache
 - **Health Food Health Care Effect Item Notice** (`tw-tfda-health-food-health-care-effect-items-2025`) - Taiwan Food and Drug Administration; fresh; html
 - **Health Food Labeling Regulations** (`tw-tfda-health-food-labeling-regulations`) - Taiwan Food and Drug Administration; fresh; pdf
-- **Health Food Effect Assessment Methods Hub** (`tw-tfda-health-food-effect-assessment-methods-hub`) - Taiwan Food and Drug Administration; fresh; html
+- **Health Food Permit Data Query** (`tw-tfda-health-food-permit-query`) - Taiwan Food and Drug Administration / Consumer Knowledge Service Network; fresh; browser_capture
 
 ## Answer Skeleton
 
 - Classify the product as health_food and confirm the routing assumptions.
-- Normalize key names with the selected term cards: Health Food, Health Food Application Permit, Health Food Permit.
+- Normalize key names with the selected term cards: Health Food Permit, Health Food, Health Food Application Permit.
 - Cite the strongest Taiwan sources: tw-moj-health-food-governing-act, tw-tfda-health-food-application-permit-regulations, tw-tfda-health-food-enforcement-rules.
 - Return blockers first, then required documents, then optional follow-up checks.
 

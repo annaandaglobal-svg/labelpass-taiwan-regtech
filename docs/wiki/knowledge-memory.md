@@ -5,7 +5,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ## Snapshot
 
 - Source registry version: `2026-06-26`
-- Crawl snapshot: `2026-06-26T20:07:58.580Z`
+- Crawl snapshot: `2026-06-27T00:19:40.111Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
 - Terms: 1,178
@@ -27,10 +27,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 | Coverage | Sources | Terms | Starter aliases |
 | --- | ---: | ---: | --- |
-| Taiwan cosmetics labeling, PIF and market access | 8 | 7 | 대만 화장품 PIF, 化粧品外包裝, 產品登錄, 噴霧狀化粧品, 特定用途化粧品 |
-| Taiwan food labeling, allergens, nutrition and claims | 7 | 9 | 食品標示手冊, 甲殼類, 芒果, 堅果類, 魚類 |
-| Taiwan food import inspection and regulation code routing | 8 | 6 | 食品及相關產品輸入查驗申請書, 產品資料表, 輸入規定F01, 輸入規定508, 報驗義務人 |
-| Taiwan health food permits, labeling and approved effect vocabulary | 7 | 6 | 健康食品標示規定, 健康食品查驗登記, 保健功效, 骨質保健, 新興食品原料 |
+| Taiwan cosmetics labeling, PIF and market access | 12 | 7 | 대만 화장품 PIF, 化粧品外包裝, 產品登錄, 噴霧狀化粧品, 特定用途化粧品 |
+| Taiwan food labeling, allergens, nutrition and claims | 11 | 9 | 食品標示手冊, 甲殼類, 芒果, 堅果類, 魚類 |
+| Taiwan food import inspection and regulation code routing | 12 | 6 | 食品及相關產品輸入查驗申請書, 產品資料表, 輸入規定F01, 輸入規定508, 報驗義務人 |
+| Taiwan health food permits, labeling and approved effect vocabulary | 9 | 6 | 健康食品標示規定, 健康食品查驗登記, 保健功效, 骨質保健, 新興食品原料 |
 
 
 ## Source Cards
@@ -87,17 +87,17 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 化粧品標示; cosmetic labeling; 화장품 표시; 化粧品廣告; 化粧品標示宣傳廣告; 化粧品標籤; 虛偽誇大; 醫療效能; cosmetic advertising claims; cosmetic claim evidence
   - Sources: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-claims-criteria`, `tw-moj-cosmetic-product-notification`, `tw-tfda-cosmetic-announcements`, `tw-tfda-cosmetics-business-area`
   - Note: Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening.
-- **Cosmetic PIF and Product Registration Categories** (`cosmetic-pif-product-registration-categories`)
-  - Aliases: 產品登錄; 應完成產品登錄之化粧品種類; 應建立產品資訊檔案之化粧品種類及實施日期; cosmetic product registration; 止汗制臭; 防曬; 染髮; 製造或輸入業者; 免辦理工廠登記; 固態手工香皂
-  - Sources: `tw-tfda-pif-implementation`, `tw-tfda-cosmetic-pif-category-implementation-2024`, `tw-tfda-cosmetic-product-registration-categories-2024`
-  - Note: Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type.
 - **Cosmetic Product Notification** (`cosmetic-product-notification`)
   - Aliases: 台灣化粧品產品登錄; cosmetic product notification; 化粧品產品登錄; 화장품 신고; 化妆品备案; 化粧品產品登錄平台系統; 化粧品登錄; product notification; 產品登錄; cosmetic filing
   - Sources: `tw-moj-cosmetic-product-notification`, `tw-tfda-pif-hub-zh`, `tw-tfda-cosmetic-product-registration-zone`, `tw-tfda-cosmetics-business-area`, `cn-nmpa-cosmetics-registration-filing`
   - Note: Concept term for product notification, filing, and registration workflows before or around market entry.
+- **Cosmetic PIF and Product Registration Categories** (`cosmetic-pif-product-registration-categories`)
+  - Aliases: 產品登錄; 應完成產品登錄之化粧品種類; 應建立產品資訊檔案之化粧品種類及實施日期; cosmetic product registration; 止汗制臭; 防曬; 染髮; 製造或輸入業者; 免辦理工廠登記; 固態手工香皂
+  - Sources: `tw-tfda-pif-implementation`, `tw-tfda-cosmetic-pif-category-implementation-2024`, `tw-tfda-cosmetic-product-registration-categories-2024`, `tw-tfda-cosmetic-product-registration-system`
+  - Note: Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type.
 - **Cosmetic Label Required Items** (`cosmetic-label-required-items`)
   - Aliases: 中文品名; 化粧品外包裝、容器、標籤或仿單之標示規定; 化粧品標示; 全成分; cosmetic outer package, container, label and package insert marking; INCI; 40平方公分; 化粧品外包裝; 可能加入之色素; 外包裝
-  - Sources: `tw-tfda-cosmetic-label-leaflet-packaging-marking`
+  - Sources: `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-tfda-cosmetics-law-regulations-index`
   - Note: Taiwan cosmetic labels must map outer package, container, label and package-insert fields, including ingredient nomenclature, colorant alternatives and small-package display rules.
 - **Spray and Aerosol Cosmetic Safety** (`cosmetic-spray-aerosol-safety`)
   - Aliases: 噴霧狀化粧品; 使用安全指引; aerosol cosmetics; spray cosmetics; 吸入風險; 스프레이 화장품; 에어로졸 화장품; 儲存安全; inhalation risk; spray warning
@@ -109,7 +109,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Note: Taiwan's specific-purpose cosmetic permit vocabulary is needed for legacy products and transition checks after the 2024 regulatory change.
 - **Cosmetic Claims Criteria** (`cosmetic-claims-criteria`)
   - Aliases: 化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則; cosmetic claims criteria; 화장품 효능표현 판단기준; 化粧品標示宣傳廣告; 虛偽誇大; 醫療效能; cosmetic claim evidence; cosmetic claim substantiation; cosmetic medical efficacy claim; false exaggerated cosmetic label
-  - Sources: `tw-moj-cosmetic-claims-criteria`, `tw-moj-cosmetic-hygiene-safety-act`
+  - Sources: `tw-moj-cosmetic-claims-criteria`, `tw-moj-cosmetic-hygiene-safety-act`, `tw-tfda-cosmetics-law-regulations-index`, `tw-tfda-illegal-advertising-query`
   - Note: Taiwan criteria for judging cosmetic labels, promotion, and advertisements by overall consumer presentation. False or exaggerated claims include content not conforming to facts, lacking evidence, having insufficient evidence, or exceedin...
 - **Cosmetic Good Manufacturing Practice** (`cosmetic-gmp`)
   - Aliases: 化粧品優良製造準則; cosmetic GMP; 化粧品GMP; cosmetic good manufacturing practice; Good Manufacturing Practice for cosmetics; 화장품 GMP; 化粧品製造場所GMP符合性檢查; 化粧品優良製造規範; 化粧品優良製造證明書; 화장품 우수제조관리기준
@@ -126,14 +126,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 ### Health food
 
+- **Health Food Permit** (`health-food-permit`)
+  - Aliases: 健康食品許可證; 許可證; health food permit; product registration permit; 健康食品申請許可; 健康食品查驗登記; 健康食品許可證字號; 衛部健食字; 衛部健食規字; 衛署健食字
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`, `tw-tfda-health-food-permit-query`
+  - Note: Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising.
 - **Health Food** (`health-food`)
   - Aliases: 健康食品; Health Food; 保健功效; health care effects; 건강식품; 기능성 식품; 保健食品; functional food
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`, `tw-moj-food-safety-sanitation-act`
   - Note: Taiwan health food is a regulated category: only registered products may use health-food wording, approved effects, the standard logo, and related advertising claims.
-- **Health Food Permit** (`health-food-permit`)
-  - Aliases: 健康食品許可證; 許可證; health food permit; product registration permit; 健康食品申請許可; 健康食品查驗登記; 健康食品許可證字號; 衛部健食字; 衛部健食規字; 衛署健食字
-  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
-  - Note: Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising.
 - **Health Food Application Permit** (`health-food-application-permit`)
   - Aliases: 健康食品查驗登記; health food application permit; 安全評估報告; 保健功效成分; 保健功效含量; 保健功效評估報告; health care effect assessment report; safety assessment report; 包裝標籤及產品說明書; package label product information sheet
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-application-permit-regulations`
@@ -145,32 +145,39 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 食品標示廣告; food claims; food labeling claims; 식품 표시광고; 食品宣稱; 甜味宣稱; 虛偽誇張易生誤解; 醫療效能; false exaggerated misleading food claim; food claim substantiation
   - Sources: `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`, `tw-tfda-sweetness-claim-prepackaged-food`, `tw-tfda-nutrition-claim-prepackaged-food`, `global-codex-prepackaged-food-labeling`
   - Note: Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims.
-- **Food Allergen Labeling** (`food-allergen-labeling`)
-  - Aliases: 過敏原標示; allergen labeling; 알레르기 표시; 致過敏性內容物; 致過敏性內容物名稱; allergen warning; 不適合對其過敏體質者食用; 本產品含有; 过敏原标识; 알레르겐 표시
-  - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`, `global-codex-prepackaged-food-labeling`
-  - Note: Concept term for mandatory and advisory allergen declarations on food labels.
 - **Nutrition Labeling** (`nutrition-labeling`)
   - Aliases: 營養標示; nutrition label; 영양성분표; 营养标签; nutrition facts; 영양표시; 栄養成分表示; nutrition claim
   - Sources: `tw-tfda-food-nutrition-labeling`, `tw-tfda-nutrition-claim-prepackaged-food`, `tw-tfda-sweetness-claim-prepackaged-food`, `global-codex-nutrition-labeling`, `us-ecfr-food-labeling-21-cfr-101`
   - Note: Concept term for mandatory nutrition panels, nutrition claims, and nutrient declaration evidence.
 - **Food Label Required Items** (`food-label-required-items`)
   - Aliases: 食品標示; 食品標示手冊; 食品標示法規手冊; food labeling regulations handbook; 內容物名稱; 有效日期; 保存條件; 保存期限; 食品標示法規指引手冊; 食品標示問答集
-  - Sources: `tw-tfda-food-labeling-handbook-2026`, `tw-moj-food-safety-sanitation-act`
+  - Sources: `tw-tfda-food-labeling-handbook-2026`, `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-law-regulations-index`
   - Note: Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search.
+- **Food Allergen Labeling** (`food-allergen-labeling`)
+  - Aliases: 過敏原標示; allergen labeling; 알레르기 표시; 致過敏性內容物; 致過敏性內容物名稱; allergen warning; 不適合對其過敏體質者食用; 本產品含有; 过敏原标识; 알레르겐 표시
+  - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`, `global-codex-prepackaged-food-labeling`
+  - Note: Concept term for mandatory and advisory allergen declarations on food labels.
+
+### health food claim
+
+- **Health Food Approved Effect Vocabulary** (`health-food-approved-effect-vocabulary`)
+  - Aliases: approved health care effects; 免疫調節; 胃腸功能改善; 骨質保健; 調節血脂; 調節血糖; health food effect assessment methods; 不易形成體脂肪; 牙齒保健; 抗疲勞
+  - Sources: `tw-tfda-health-food-health-care-effect-items-2025`, `tw-tfda-health-food-effect-assessment-methods-hub`, `tw-moj-health-food-governing-act`, `tw-tfda-health-food-permit-query`
+  - Note: Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases.
 
 ### Food import
 
+- **Imported Food Inspection Forms** (`imported-food-inspection-forms`)
+  - Aliases: 食品及相關產品資料表; 食品及相關產品輸入查驗申請書; 產品資料表; 報驗義務人; 輸入食品免貼中文標示具結書; imported food inspection application; 申請書號碼; 產品中英文品名; 報單號碼; product data sheet
+  - Sources: `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-field-declaration-2024`, `tw-tfda-inspections-law-regulations-index`
+  - Note: Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials.
 - **Taiwan Import Regulation Codes F01, F02 and 508** (`import-regulation-f01-f02-508`)
   - Aliases: 508; 輸入規定508; 輸入規定F01; 輸入規定F02; F01; F02; 食品用洗潔劑; 食品相關用途; 食品容器或包裝; 食品器具
   - Sources: `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-trade-import-regulation-code-instruction`
   - Note: Routes Taiwan food, food contact material, cleanser, additive and flavor imports by import-regulation code before label or inspection workflow selection.
-- **Imported Food Inspection Forms** (`imported-food-inspection-forms`)
-  - Aliases: 食品及相關產品資料表; 食品及相關產品輸入查驗申請書; 產品資料表; 報驗義務人; 輸入食品免貼中文標示具結書; imported food inspection application; 申請書號碼; 產品中英文品名; 報單號碼; product data sheet
-  - Sources: `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-field-declaration-2024`
-  - Note: Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials.
 - **Imported Food Inspection** (`imported-food-inspection`)
   - Aliases: 輸入食品查驗; imported food inspection; 수입식품 검사; food import inspection; 逐批查驗; 輸入食品及相關產品查驗; batch-by-batch inspection; border inspection of imported food; obligatory inspection applicant; randomly-selected batch inspection
-  - Sources: `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-food-import-inspection-exemptions`
+  - Sources: `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-food-import-inspection-exemptions`, `tw-tfda-inspections-law-regulations-index`
   - Note: Taiwan border-inspection concept for imported food and related products, including inspection application timing, required documents, CCC-code batch grouping, and sampling methods.
 - **Food Business Registration for Importers** (`food-business-registration-importer`)
   - Aliases: 食品業者登錄; food business registration; 식품업자 등록; 產品責任保險; 輸入業者登錄; food importer registration; import business operator registration; product liability insurance; 식품 수입업자 등록; category of products to be imported
@@ -192,13 +199,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 官方衛生證明; 產品成分報告; 複方食品添加物; compound food additive; compound food additive import documents; official health certificate; product composition report; 공식 위생증명서; 복방 식품첨가물; 제품성분보고서
   - Sources: `tw-tfda-compound-food-additive-import-documents`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-food-additive-registration-announcements`
   - Note: Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates.
-
-### health food claim
-
-- **Health Food Approved Effect Vocabulary** (`health-food-approved-effect-vocabulary`)
-  - Aliases: approved health care effects; 免疫調節; 胃腸功能改善; 骨質保健; 調節血脂; 調節血糖; health food effect assessment methods; 不易形成體脂肪; 牙齒保健; 抗疲勞
-  - Sources: `tw-tfda-health-food-health-care-effect-items-2025`, `tw-tfda-health-food-effect-assessment-methods-hub`, `tw-moj-health-food-governing-act`
-  - Note: Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases.
 
 ### food allergen
 
@@ -227,7 +227,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 - **Health Food Label Required Items** (`health-food-label-required-items`)
   - Aliases: 健康食品字樣; 健康食品標示; 健康食品標示規定; health food labeling regulations; 保健功效; 許可證字號; 標準圖樣; approved health care claims; 注意事項; 營養成分及含量
-  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-labeling-regulations`
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-labeling-regulations`, `tw-tfda-health-food-permit-query`
   - Note: Extends the existing health-food logo term with label-completeness fields such as permit number, legend, standard logo, approved effect wording, intake and warnings.
 
 ### Food safety
@@ -236,6 +236,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 非傳統食品原料; 新興食品原料; 安全性評估資料表; non-traditional food ingredient; novel food ingredient; safety assessment data sheet; 신규 식품원료; 비전통 식품원료 안전성 평가
   - Sources: `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-food-ingredient-integration-query-platform`
   - Note: Use before food-label approval when an ingredient may not be an ordinary edible ingredient in Taiwan.
+- **Food Ingredient Integration Query Platform** (`food-ingredient-integration-query-platform`)
+  - Aliases: 食品原料整合查詢平台; Food Ingredient Integration Query Platform; 식품원료 통합조회; 可供食品使用原料; 未確認安全性尚不得使用原料; 食材查詢; 原料查詢平台; food ingredient direct query; food ingredient platform; 식품원료 안전성 조회
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-food-business-info-query-links`
+  - Note: Use this TFDA platform to confirm ingredient safety status, permitted product types, usage limits, and cautionary notes before final food label approval.
 
 ### Food additive
 
@@ -430,10 +434,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 輸入許可證; 輸出許可證; export permit; import permit; 수입허가증; 수출허가증; 電子簽證; 輸出入許可; electronic licensing; export license
   - Sources: `tw-trade-import-export-administration`, `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`
   - Note: Trade-control concept for import/export permits, electronic licensing, and commodity restrictions that may appear by CCC code.
-- **Exporter and Importer Registration** (`exporter-importer-registration`)
-  - Aliases: 出進口廠商登記; exporter and importer registration; registration of exporters and importers; 수출입업자 등록; importer exporter registration; TITA exporter importer registration; 出進口資格; English name availability review; export/import qualifications; 수출자 수입자 등록
-  - Sources: `tw-moj-exporter-importer-registration`, `tw-moj-foreign-trade-act`, `tw-trade-import-export-administration`
-  - Note: Taiwan operator-registration concept for companies or firms engaging in import/export business, including English-name review and qualification lookup.
 
 ### trade document
 

@@ -11,4 +11,4 @@ Generated retrieval templates for LabelPass evidence bundles. Each template maps
 | [Taiwan health food permit, label and approved effect wording](./tw_health_food_claims_evidence_bundle.md) | health_food | 6 | 6 | Confirm permit scope before allowing any health-food wording or approved-effect claim. |
 | [Taiwan food-contact packaging and container labeling](./tw_food_contact_packaging_evidence_bundle.md) | food_contact | 6 | 6 | Classify food-contact status before applying ordinary food label or customs routing. |
 | [Taiwan customs, HS/CCC, origin and trade label routing](./tw_customs_origin_hs_evidence_bundle.md) | customs_trade | 6 | 6 | Resolve HS/CCC and origin before final Taiwan label or import/export document release. |
-| [Taiwan SHTC and import/export control screening](./tw_trade_control_shtc_evidence_bundle.md) | trade_control | 6 | 6 | Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals. |
+| [Taiwan SHTC and import/export control screening](./tw_trade_control_shtc_evidence_bundle.md) | trade_control | 5 | 6 | Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals. |
