@@ -25,7 +25,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Stop conditions: unknown product category; specific-purpose claim without registration context; unidentified ingredient over threshold; no Chinese label text
 - Required documents: Taiwan Chinese label; ingredient composition; PIF or safety file; COA/specification; GMP/manufacturer document; importer/responsible firm data
 - Evidence template IDs: `tw_cosmetic_label_pif_evidence_bundle`
-- Source IDs: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-product-notification`, `tw-tfda-cosmetic-adverse-event-qms-platform`, `tw-tfda-cosmetic-fadenbook-platform`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-tfda-cosmetic-pif-category-implementation-2024`, `tw-tfda-cosmetic-product-registration-categories-2024`, `tw-tfda-cosmetic-product-registration-system`, `tw-tfda-cosmetics-law-regulations-index`
+- Source IDs: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-product-notification`, `tw-tfda-cosmetic-adverse-event-qms-platform`, `tw-tfda-cosmetic-announcements`, `tw-tfda-cosmetic-fadenbook-platform`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-tfda-cosmetic-pif-category-implementation-2024`, `tw-tfda-cosmetic-product-registration-categories-2024`, `tw-tfda-cosmetic-product-registration-system`
 - Term IDs: `cosmetic-product-information-file`, `cosmetic-labeling-claims`, `cosmetic-product-notification`, `cosmetic-pif-product-registration-categories`, `cosmetic-label-required-items`, `cosmetic-spray-aerosol-safety`, `specific-purpose-cosmetics-transition`, `cosmetic-claims-criteria`, `benzalkonium-chloride-family`, `cosmetic-gmp`
 
 ### Entry Questions
@@ -103,7 +103,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Stop conditions: HS/CCC uncertain; origin/shipper inconsistency; health certificate missing for high-risk category; commercial shipment without importer registration
 - Required documents: invoice; packing list; product information sheet; import declaration; health certificate if required; origin evidence; importer registration
 - Evidence template IDs: `tw_food_import_inspection_evidence_bundle`
-- Source IDs: `tw-customs-tariff-database-download`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-systematic-inspection-imported-food`, `tw-customs-export-origin-packaging`, `tw-tfda-food-business-registration-importers`, `tw-tfda-imported-food-inspection-field-declaration-2024`
+- Source IDs: `tw-customs-tariff-database-download`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-inspections-law-regulations-index`, `tw-tfda-systematic-inspection-imported-food`, `tw-customs-export-origin-packaging`, `tw-tfda-food-business-registration-importers`
 - Term IDs: `imported-food-inspection`, `product-information-sheet`, `systematic-imported-food-inspection`, `imported-food-inspection-forms`, `import-regulation-f01-f02-508`, `food-business-registration-importer`, `compound-food-additive-import-documents`, `customs-declaration`, `hs-code-classification`, `import-export-permit`
 
 ### Entry Questions
@@ -155,7 +155,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Stop conditions: food-contact intent unclear; material unknown; no use-condition evidence; test report missing for regulated material
 - Required documents: material declaration; test report; label artwork; product information sheet; importer data
 - Evidence template IDs: `tw_food_contact_packaging_evidence_bundle`
-- Source IDs: `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-food-business-registration-importers`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-systematic-inspection-imported-food`, `tw-tfda-imported-food-inspection-field-declaration-2024`, `tw-customs-export-origin-packaging`, `tw-customs-tariff-database-download`
+- Source IDs: `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-food-business-registration-importers`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-inspections-law-regulations-index`, `tw-tfda-systematic-inspection-imported-food`, `tw-tfda-imported-food-inspection-field-declaration-2024`, `tw-customs-export-origin-packaging`
 - Term IDs: `import-regulation-f01-f02-508`, `food-business-registration-importer`, `imported-food-inspection-forms`, `imported-food-inspection`, `product-information-sheet`, `systematic-imported-food-inspection`, `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`
 
 ### Entry Questions
@@ -181,7 +181,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Stop conditions: HS/CCC uncertain; origin mismatch; shipment purpose unknown; trade restriction signal unresolved
 - Required documents: invoice; packing list; origin evidence; HS/CCC evidence; import/export permit if required; shipping terms
 - Evidence template IDs: `tw_customs_origin_hs_evidence_bundle`
-- Source IDs: `tw-customs-tariff-database-download`, `tw-customs-export-origin-packaging`, `tw-trade-import-regulation-code-instruction`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-systematic-inspection-imported-food`, `tw-trade-ccc-import-export-regulations`
+- Source IDs: `tw-customs-tariff-database-download`, `tw-customs-export-origin-packaging`, `tw-trade-import-regulation-code-instruction`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-inspections-law-regulations-index`, `tw-tfda-systematic-inspection-imported-food`
 - Term IDs: `imported-food-inspection`, `food-business-registration-importer`, `imported-food-inspection-forms`, `import-regulation-f01-f02-508`, `product-information-sheet`, `systematic-imported-food-inspection`, `customs-declaration`, `hs-code-classification`, `import-export-permit`, `shipment-purpose`
 
 ### Entry Questions

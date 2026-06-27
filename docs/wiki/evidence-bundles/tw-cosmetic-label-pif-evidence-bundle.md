@@ -35,9 +35,9 @@
 - **Taiwan Cosmetic Hygiene and Safety Act** (`tw-moj-cosmetic-hygiene-safety-act`) - Ministry of Health and Welfare / MOJ Laws and Regulations Database; fresh; cache
 - **Regulations Governing Notification of Cosmetic Products** (`tw-moj-cosmetic-product-notification`) - Ministry of Health and Welfare / MOJ Laws and Regulations Database; fresh; cache
 - **TFDA Post-Market Quality Management System** (`tw-tfda-cosmetic-adverse-event-qms-platform`) - Taiwan Food and Drug Administration; fresh; browser_capture
+- **TFDA Cosmetic Latest Announcements** (`tw-tfda-cosmetic-announcements`) - Taiwan Food and Drug Administration; fresh; cache
 - **TFDA Food and Drug Business Registration Platform** (`tw-tfda-cosmetic-fadenbook-platform`) - Taiwan Food and Drug Administration; fresh; browser_capture
 - **Cosmetic Outer Package, Container, Label and Package Insert Marking Rules** (`tw-tfda-cosmetic-label-leaflet-packaging-marking`) - Taiwan Food and Drug Administration; fresh; pdf
-- **Cosmetic PIF Category Implementation Notice** (`tw-tfda-cosmetic-pif-category-implementation-2024`) - Taiwan Food and Drug Administration; fresh; html
 
 ## Answer Skeleton
 

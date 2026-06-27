@@ -26,7 +26,7 @@
     {
       "id": "tw_cosmetics_labeling_market_access",
       "label": "Taiwan cosmetics labeling, PIF and market access",
-      "source_count": 12,
+      "source_count": 14,
       "term_count": 7,
       "aliases": [
         "대만 화장품 PIF",
@@ -39,6 +39,8 @@
         "tw-moj-cosmetic-hygiene-safety-act",
         "tw-tfda-cosmetic-label-leaflet-packaging-marking",
         "tw-tfda-pif-implementation",
+        "tw-tfda-pif-hub-zh",
+        "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetic-pif-category-implementation-2024",
         "tw-tfda-cosmetic-product-registration-categories-2024",
         "tw-tfda-cosmetic-product-registration-system",
@@ -101,7 +103,7 @@
     {
       "id": "tw_food_import_routing",
       "label": "Taiwan food import inspection and regulation code routing",
-      "source_count": 12,
+      "source_count": 13,
       "term_count": 6,
       "aliases": [
         "食品及相關產品輸入查驗申請書",
@@ -113,6 +115,7 @@
       "source_ids": [
         "tw-tfda-imported-food-inspection-regulations",
         "tw-tfda-imported-food-inspection-forms",
+        "tw-tfda-inspections-law-regulations-index",
         "tw-tfda-imported-food-inspection-field-declaration-2024",
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",

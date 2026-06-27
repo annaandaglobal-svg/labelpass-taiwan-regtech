@@ -1,6 +1,6 @@
 # Knowledge Operations Report
 
-Generated: 2026-06-27T04:35:42.428Z
+Generated: 2026-06-27T04:59:01.180Z
 Crawl index: 2026-06-27T00:19:40.111Z
 Term index: 2026-06-25T07:47:54.729Z
 
@@ -68,7 +68,7 @@ These checks make crawler operations explicit. Core fields, refresh strategy, an
 | Refresh strategy | 166 | 0 | 100% |
 | Internal owner | 0 | 166 | 0% |
 | Selector/capture strategy | 32 | 134 | 19% |
-| Mapped coverage route | 44 | 122 | 27% |
+| Mapped coverage route | 47 | 119 | 28% |
 
 
 ## Next Sources Due
@@ -77,14 +77,14 @@ These checks make crawler operations explicit. Core fields, refresh strategy, an
 | ---: | --- | --- | --- | --- |
 | 6 | tw-customs-export-origin-packaging | customs | medium | 2026-07-02T13:02:19.641Z |
 | 6 | tw-tfda-cosmetic-announcements | cosmetics | high | 2026-07-02T17:40:28.203Z |
+| 6 | tw-tfda-food-business-info-query-links | food_safety | medium | 2026-07-03T04:36:06.006Z |
+| 6 | tw-tfda-food-ingredient-query-platform-direct | food_safety | high | 2026-07-03T04:36:05.584Z |
 | 6 | tw-tfda-pif-hub-zh | cosmetics | high | 2026-07-02T13:02:09.360Z |
 | 7 | tw-customs-tariff-database-download | customs | high | 2026-07-03T19:43:04.752Z |
 | 7 | tw-tfda-cosmetic-adverse-event-qms-platform | cosmetics | high | 2026-07-03T19:21:16.738Z |
 | 7 | tw-tfda-cosmetic-product-registration-system | cosmetics | high | 2026-07-03T06:24:07.617Z |
 | 7 | tw-tfda-cosmetics-law-regulations-index | cosmetics | high | 2026-07-03T07:32:31.721Z |
 | 7 | tw-tfda-food-additive-permit-query | food_additives | high | 2026-07-03T19:43:04.749Z |
-| 7 | tw-tfda-food-business-info-query-links | food_safety | medium | 2026-07-03T04:36:06.006Z |
-| 7 | tw-tfda-food-ingredient-query-platform-direct | food_safety | high | 2026-07-03T04:36:05.584Z |
 | 7 | tw-tfda-food-law-regulations-index | food_labeling | high | 2026-07-03T07:32:31.721Z |
 | 7 | tw-tfda-health-food-permit-query | health_food | high | 2026-07-03T19:43:04.750Z |
 
@@ -117,15 +117,11 @@ These checks make crawler operations explicit. Core fields, refresh strategy, an
 
 - Update queue: 16 pending refresh, 41 watching, 0 detected changes.
 - Alias triage backlog: 46 high-confidence collisions, 0 mojibake aliases, 1,037 regulated terms without readable local aliases; 0 strict blockers.
-- Impact gap candidates: 3 pending/high update candidates have empty affected terms or no mapped coverage route.
+- Impact gap candidates: 0 pending/high update candidates have empty affected terms or no mapped coverage route.
 
 ### Impact Gap Candidates
 
-| Source | Severity | Status | Terms | Products | Routes | Expires |
-| --- | --- | --- | ---: | ---: | --- | --- |
-| tw-tfda-inspections-law-regulations-index | medium | pending_refresh | 2 | 2 | unmapped | 2026-07-03T07:32:31.721Z |
-| tw-tfda-pif-hub-zh | medium | pending_refresh | 3 | 1 | unmapped | 2026-07-02T13:02:09.360Z |
-| tw-tfda-cosmetic-announcements | medium | pending_refresh | 7 | 1 | unmapped | 2026-07-02T17:40:28.203Z |
+No rows.
 
 
 ## Supabase Seed Readiness

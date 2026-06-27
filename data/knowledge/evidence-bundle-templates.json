@@ -36,12 +36,12 @@
         "tw-moj-cosmetic-hygiene-safety-act",
         "tw-moj-cosmetic-product-notification",
         "tw-tfda-cosmetic-adverse-event-qms-platform",
+        "tw-tfda-cosmetic-announcements",
         "tw-tfda-cosmetic-fadenbook-platform",
         "tw-tfda-cosmetic-label-leaflet-packaging-marking",
         "tw-tfda-cosmetic-pif-category-implementation-2024",
         "tw-tfda-cosmetic-product-registration-categories-2024",
-        "tw-tfda-cosmetic-product-registration-system",
-        "tw-tfda-cosmetics-law-regulations-index"
+        "tw-tfda-cosmetic-product-registration-system"
       ],
       "query_examples": [
         "PIF",
@@ -207,6 +207,16 @@
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-qms-platform.md"
         },
         {
+          "id": "tw-tfda-cosmetic-announcements",
+          "title": "TFDA Cosmetic Latest Announcements",
+          "authority": "Taiwan Food and Drug Administration",
+          "domain": "cosmetics",
+          "priority": "high",
+          "cache_status": "fresh",
+          "evidence_mode": "cache",
+          "document_path": "data/knowledge/documents/tw-tfda-cosmetic-announcements.md"
+        },
+        {
           "id": "tw-tfda-cosmetic-fadenbook-platform",
           "title": "TFDA Food and Drug Business Registration Platform",
           "authority": "Taiwan Food and Drug Administration",
@@ -225,16 +235,6 @@
           "cache_status": "fresh",
           "evidence_mode": "pdf",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-label-leaflet-packaging-marking.md"
-        },
-        {
-          "id": "tw-tfda-cosmetic-pif-category-implementation-2024",
-          "title": "Cosmetic PIF Category Implementation Notice",
-          "authority": "Taiwan Food and Drug Administration",
-          "domain": "cosmetics",
-          "priority": "high",
-          "cache_status": "fresh",
-          "evidence_mode": "html",
-          "document_path": "data/knowledge/documents/tw-tfda-cosmetic-pif-category-implementation-2024.md"
         }
       ],
       "citation_slots": [
@@ -809,10 +809,10 @@
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-imported-food-inspection-forms",
         "tw-tfda-imported-food-inspection-regulations",
+        "tw-tfda-inspections-law-regulations-index",
         "tw-tfda-systematic-inspection-imported-food",
         "tw-customs-export-origin-packaging",
-        "tw-tfda-food-business-registration-importers",
-        "tw-tfda-imported-food-inspection-field-declaration-2024"
+        "tw-tfda-food-business-registration-importers"
       ],
       "query_examples": [
         "HS 0307 health certificate",
@@ -987,14 +987,14 @@
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-regulations.md"
         },
         {
-          "id": "tw-tfda-systematic-inspection-imported-food",
-          "title": "Regulations for Systematic Inspection of Imported Food",
+          "id": "tw-tfda-inspections-law-regulations-index",
+          "title": "TFDA Inspections Guidance, Law and Regulations Index",
           "authority": "Taiwan Food and Drug Administration",
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md"
+          "evidence_mode": "html",
+          "document_path": "data/knowledge/documents/tw-tfda-inspections-law-regulations-index.md"
         }
       ],
       "citation_slots": [
@@ -1302,10 +1302,10 @@
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
         "tw-tfda-imported-food-inspection-forms",
         "tw-tfda-imported-food-inspection-regulations",
+        "tw-tfda-inspections-law-regulations-index",
         "tw-tfda-systematic-inspection-imported-food",
         "tw-tfda-imported-food-inspection-field-declaration-2024",
-        "tw-customs-export-origin-packaging",
-        "tw-customs-tariff-database-download"
+        "tw-customs-export-origin-packaging"
       ],
       "query_examples": [
         "food contact packaging",
@@ -1479,14 +1479,14 @@
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-regulations.md"
         },
         {
-          "id": "tw-tfda-systematic-inspection-imported-food",
-          "title": "Regulations for Systematic Inspection of Imported Food",
+          "id": "tw-tfda-inspections-law-regulations-index",
+          "title": "TFDA Inspections Guidance, Law and Regulations Index",
           "authority": "Taiwan Food and Drug Administration",
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "cache",
-          "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md"
+          "evidence_mode": "html",
+          "document_path": "data/knowledge/documents/tw-tfda-inspections-law-regulations-index.md"
         }
       ],
       "citation_slots": [
@@ -1523,8 +1523,7 @@
       "match_domains": [
         "customs",
         "trade",
-        "food_import",
-        "trade_controls"
+        "food_import"
       ],
       "match_categories": [
         "food_import",
@@ -1553,8 +1552,8 @@
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
         "tw-tfda-imported-food-inspection-forms",
         "tw-tfda-imported-food-inspection-regulations",
-        "tw-tfda-systematic-inspection-imported-food",
-        "tw-trade-ccc-import-export-regulations"
+        "tw-tfda-inspections-law-regulations-index",
+        "tw-tfda-systematic-inspection-imported-food"
       ],
       "query_examples": [
         "HS code",

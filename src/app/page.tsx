@@ -890,9 +890,13 @@ export default function Home() {
         <nav className={isQuietReview ? "nav-list nav-list-start" : "nav-list"}>
           <NavButton active={screen === "review"} icon={<ClipboardCheck />} label="검토 시작" onClick={() => setScreen("review")} />
           <NavButton active={false} icon={<Search />} label="규정·성분" onClick={() => openKnowledgeSearch()} />
-          <NavButton active={screen === "products"} icon={<Archive />} label="내 제품" onClick={() => setScreen("products")} />
-          <NavButton active={screen === "updates"} icon={<BookOpen />} label="규제 업데이트" onClick={() => setScreen("updates")} />
-          <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가·통관" onClick={() => setScreen("partners")} />
+          {!isQuietReview && (
+            <>
+              <NavButton active={screen === "products"} icon={<Archive />} label="내 제품" onClick={() => setScreen("products")} />
+              <NavButton active={screen === "updates"} icon={<BookOpen />} label="규제 업데이트" onClick={() => setScreen("updates")} />
+              <NavButton active={screen === "partners"} icon={<UserRoundCheck />} label="전문가·통관" onClick={() => setScreen("partners")} />
+            </>
+          )}
         </nav>
 
         <div className="side-panel">

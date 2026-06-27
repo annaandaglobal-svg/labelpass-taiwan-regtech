@@ -27,9 +27,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 | Coverage | Sources | Terms | Starter aliases |
 | --- | ---: | ---: | --- |
-| Taiwan cosmetics labeling, PIF and market access | 12 | 7 | 대만 화장품 PIF, 化粧品外包裝, 產品登錄, 噴霧狀化粧品, 特定用途化粧品 |
+| Taiwan cosmetics labeling, PIF and market access | 14 | 7 | 대만 화장품 PIF, 化粧品外包裝, 產品登錄, 噴霧狀化粧品, 特定用途化粧品 |
 | Taiwan food labeling, allergens, nutrition and claims | 11 | 9 | 食品標示手冊, 甲殼類, 芒果, 堅果類, 魚類 |
-| Taiwan food import inspection and regulation code routing | 12 | 6 | 食品及相關產品輸入查驗申請書, 產品資料表, 輸入規定F01, 輸入規定508, 報驗義務人 |
+| Taiwan food import inspection and regulation code routing | 13 | 6 | 食品及相關產品輸入查驗申請書, 產品資料表, 輸入規定F01, 輸入規定508, 報驗義務人 |
 | Taiwan health food permits, labeling and approved effect vocabulary | 9 | 6 | 健康食品標示規定, 健康食品查驗登記, 保健功效, 骨質保健, 新興食品原料 |
 
 

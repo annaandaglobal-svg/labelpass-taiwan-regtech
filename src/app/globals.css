@@ -10666,6 +10666,12 @@ h2 {
   }
 }
 
+.shell-start-empty .start-secondary-search,
+.shell-start-empty .start-outcome-panel,
+.review-grid-start .intake-start-flow {
+  display: none !important;
+}
+
 @media (min-width: 821px) {
   .knowledge-results.knowledge-results-unified {
     grid-template-columns: minmax(0, 1fr) minmax(330px, 0.64fr);

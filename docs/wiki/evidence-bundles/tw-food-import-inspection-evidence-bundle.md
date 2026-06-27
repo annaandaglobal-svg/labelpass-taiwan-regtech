@@ -38,7 +38,7 @@
 - **TFDA F01 and F02 Import Regulation Commodity Table Notice** (`tw-tfda-import-regulation-f01-f02-commodity-table-2026`) - Taiwan Food and Drug Administration; fresh; html
 - **TFDA Imported Food Inspection Application Forms** (`tw-tfda-imported-food-inspection-forms`) - Taiwan Food and Drug Administration; fresh; html
 - **Regulations of Inspection of Imported Foods and Related Products** (`tw-tfda-imported-food-inspection-regulations`) - Taiwan Food and Drug Administration; fresh; cache
-- **Regulations for Systematic Inspection of Imported Food** (`tw-tfda-systematic-inspection-imported-food`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA Inspections Guidance, Law and Regulations Index** (`tw-tfda-inspections-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; html
 
 ## Answer Skeleton
 
