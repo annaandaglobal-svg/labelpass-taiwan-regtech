@@ -26,6 +26,20 @@ const dryRunPayload = {
   requestId: `smoke-admin-ops-${Date.now()}`,
   note: "dry-run smoke check"
 };
+const paymentDryRunPayload = {
+  action: "payment_status",
+  id: "00000000-0000-4000-8000-000000000002",
+  status: "paid",
+  requestId: `smoke-admin-payment-${Date.now()}`,
+  note: "payment dry-run smoke check"
+};
+const chatDryRunPayload = {
+  action: "chat_thread_status",
+  id: "00000000-0000-4000-8000-000000000003",
+  status: "active",
+  requestId: `smoke-admin-chat-${Date.now()}`,
+  note: "chat gate dry-run smoke check"
+};
 
 const checks = [];
 checks.push(await fetchJson("admin ops readiness", `${baseUrl}/api/admin/ops/actions?smoke=${Date.now()}`));
@@ -41,18 +55,44 @@ checks.push(
     body: JSON.stringify(dryRunPayload)
   })
 );
+checks.push(
+  await fetchJson("admin payment dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(paymentDryRunPayload)
+  })
+);
+checks.push(
+  await fetchJson("admin chat dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(chatDryRunPayload)
+  })
+);
 
 const errors = [];
 const readiness = checks[0];
 const dryRun = checks[1];
 const unauthorized = checks[2];
+const paymentDryRun = checks[3];
+const chatDryRun = checks[4];
 
 if (!readiness.ok) errors.push(`Readiness endpoint returned ${readiness.status}`);
 if (!readiness.body?.supportedActions?.expert_match_status?.includes("matched")) {
   errors.push("Readiness endpoint did not expose expected expert_match_status transitions");
 }
+if (!readiness.body?.supportedActions?.payment_status?.includes("paid")) {
+  errors.push("Readiness endpoint did not expose expected payment_status transitions");
+}
+if (!readiness.body?.supportedActions?.chat_thread_status?.includes("active")) {
+  errors.push("Readiness endpoint did not expose expected chat_thread_status transitions");
+}
 if (!dryRun.ok || dryRun.body?.dryRun !== true || dryRun.body?.applied !== false) {
   errors.push(`Dry-run endpoint returned unexpected response ${dryRun.status}`);
+}
+if (!paymentDryRun.ok || paymentDryRun.body?.dryRun !== true || paymentDryRun.body?.applied !== false || paymentDryRun.body?.action !== "payment_status") {
+  errors.push(`Payment dry-run endpoint returned unexpected response ${paymentDryRun.status}`);
+}
+if (!chatDryRun.ok || chatDryRun.body?.dryRun !== true || chatDryRun.body?.applied !== false || chatDryRun.body?.action !== "chat_thread_status") {
+  errors.push(`Chat dry-run endpoint returned unexpected response ${chatDryRun.status}`);
 }
 if (unauthorized.status !== 401) {
   errors.push(`Write without token should return 401, got ${unauthorized.status}`);

@@ -5,6 +5,8 @@ import { CheckCircle2, Loader2, Play, TriangleAlert } from "lucide-react";
 
 type AdminOpsAction =
   | "expert_match_status"
+  | "payment_status"
+  | "chat_thread_status"
   | "logistics_match_status"
   | "shipment_request_status"
   | "shipment_status"

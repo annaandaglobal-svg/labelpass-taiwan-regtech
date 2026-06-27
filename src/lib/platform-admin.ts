@@ -111,11 +111,27 @@ export const platformModules: PlatformModule[] = [
     status: "schema_ready"
   },
   {
+    id: "payments",
+    label: "결제·정산 관리",
+    purpose: "견적 승인, 결제 상태, 상담방 접근, 정산, 환불 증빙을 운영자가 한 곳에서 확인합니다.",
+    tables: ["payments", "expert_matches", "chat_threads", "audit_logs"],
+    nextAction: "/admin/payments에서 결제와 상담방 게이트를 분리 확인",
+    status: "schema_ready"
+  },
+  {
     id: "logistics",
     label: "물류사 매칭·선적 추적",
     purpose: "검토가 끝난 제품을 물류 요청, 견적, 선적, 이벤트 타임라인으로 이어줍니다.",
     tables: ["logistics_companies", "shipment_requests", "logistics_matches", "shipments", "shipment_events"],
     nextAction: "운송 요청 생성 버튼과 추적 이벤트 수집 API 연결",
+    status: "schema_ready"
+  },
+  {
+    id: "settings",
+    label: "회사별 설정",
+    purpose: "시장, 언어, 리뷰 아카이브, 전문가 매칭, 물류 매칭, 알림 채널을 회사 단위로 제어합니다.",
+    tables: ["organization_settings", "organizations", "organization_members"],
+    nextAction: "/admin/settings에서 기능 토글과 DB readiness를 확인",
     status: "schema_ready"
   }
 ];
@@ -126,5 +142,7 @@ export const adminNav = [
   { href: "/admin/users", label: "사용자" },
   { href: "/admin/reviews", label: "리뷰 큐" },
   { href: "/admin/experts", label: "전문가" },
-  { href: "/admin/logistics", label: "물류·선적" }
+  { href: "/admin/payments", label: "결제" },
+  { href: "/admin/logistics", label: "물류·선적" },
+  { href: "/admin/settings", label: "설정" }
 ];

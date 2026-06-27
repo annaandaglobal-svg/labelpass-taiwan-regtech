@@ -4,10 +4,12 @@ import {
   ArrowRight,
   BadgeCheck,
   Boxes,
+  CreditCard,
   Database,
   FileCheck2,
   Handshake,
   PlaneTakeoff,
+  Settings2,
   ShieldCheck,
   Truck,
   Users
@@ -22,7 +24,9 @@ const moduleIcons: Record<string, ReactNode> = {
   organizations: <Users size={18} />,
   documents: <FileCheck2 size={18} />,
   experts: <Handshake size={18} />,
-  logistics: <Truck size={18} />
+  payments: <CreditCard size={18} />,
+  logistics: <Truck size={18} />,
+  settings: <Settings2 size={18} />
 };
 
 export default async function AdminPage() {
@@ -173,6 +177,7 @@ export default async function AdminPage() {
             <span><Boxes size={16} /> 회사/제품</span>
             <span><ShieldCheck size={16} /> 라벨 검토</span>
             <span><Handshake size={16} /> 전문가 상담</span>
+            <span><CreditCard size={16} /> 결제·정산</span>
             <span><Truck size={16} /> 물류 매칭</span>
             <span><PlaneTakeoff size={16} /> 선적 추적</span>
           </div>

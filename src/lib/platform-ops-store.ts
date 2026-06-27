@@ -121,6 +121,33 @@ export type PlatformShipmentEventRow = {
   state: PlatformRequestState;
 };
 
+export type PlatformPaymentRow = {
+  id: string;
+  displayId?: string;
+  company: string;
+  product: string;
+  expert: string;
+  amount: string;
+  status: string;
+  provider: string;
+  expertMatchState: string;
+  chatThreadStatus: string;
+  chatThreadId?: string;
+  next: string;
+};
+
+export type PlatformSettingRow = {
+  organization: string;
+  billingStatus: string;
+  locale: string;
+  markets: string[];
+  reviewArchiveEnabled: boolean;
+  expertMatchingEnabled: boolean;
+  logisticsMatchingEnabled: boolean;
+  notifications: string[];
+  next: string;
+};
+
 export type PlatformOpsCounts = {
   organizations: number;
   activeMembers: number;
@@ -148,6 +175,8 @@ export type PlatformOpsSnapshot = {
   shipmentRequests: PlatformShipmentRequestRow[];
   activeShipments: PlatformShipmentRow[];
   shipmentEvents: PlatformShipmentEventRow[];
+  payments: PlatformPaymentRow[];
+  settings: PlatformSettingRow[];
 };
 
 type OrganizationRow = {
@@ -244,6 +273,35 @@ type ShipmentEventDbRow = {
   status: string | null;
   message: string | null;
   occurred_at: Date | string;
+  metadata: Record<string, unknown> | null;
+};
+
+type PaymentDbRow = {
+  id: string;
+  amount: string | number;
+  currency: string;
+  status: string;
+  provider: string | null;
+  provider_reference: string | null;
+  metadata: Record<string, unknown> | null;
+  organization_name: string | null;
+  product_name: string | null;
+  expert_name: string | null;
+  expert_match_status: string | null;
+  service_type: string | null;
+  chat_thread_id: string | null;
+  chat_thread_status: string | null;
+};
+
+type OrganizationSettingDbRow = {
+  organization_name: string;
+  billing_status: string;
+  default_locale: string;
+  markets: unknown;
+  review_archive_enabled: boolean;
+  expert_matching_enabled: boolean;
+  logistics_matching_enabled: boolean;
+  notification_channels: unknown;
   metadata: Record<string, unknown> | null;
 };
 
@@ -380,7 +438,9 @@ function emptySnapshot(storage: PlatformOpsStorage, warnings: string[]): Platfor
     logisticsCompanies: [],
     shipmentRequests: [],
     activeShipments: [],
-    shipmentEvents: []
+    shipmentEvents: [],
+    payments: [],
+    settings: []
   };
 }
 
@@ -701,6 +761,86 @@ async function readShipmentEvents(sql: DbClient): Promise<PlatformShipmentEventR
   }));
 }
 
+async function readPayments(sql: DbClient): Promise<PlatformPaymentRow[]> {
+  const rows = await sql<PaymentDbRow[]>`
+    select
+      pay.id,
+      pay.amount,
+      pay.currency,
+      pay.status,
+      pay.provider,
+      pay.provider_reference,
+      pay.metadata,
+      o.name as organization_name,
+      p.name as product_name,
+      ep.display_name as expert_name,
+      em.status as expert_match_status,
+      em.service_type,
+      ct.id as chat_thread_id,
+      ct.status as chat_thread_status
+    from public.payments pay
+    left join public.organizations o on o.id = pay.organization_id
+    left join public.expert_matches em on em.id = pay.expert_match_id
+    left join public.products p on p.id = em.product_id
+    left join public.expert_profiles ep on ep.id = em.expert_profile_id
+    left join lateral (
+      select id, status
+      from public.chat_threads
+      where expert_match_id = em.id
+      order by updated_at desc
+      limit 1
+    ) ct on true
+    order by pay.updated_at desc
+    limit 14
+  `;
+
+  return rows.map((row) => ({
+    id: row.id,
+    displayId: row.id.slice(0, 8),
+    company: row.organization_name ?? "조직 미지정",
+    product: row.product_name ?? metadataText(row.metadata, "product", "전문가 상담"),
+    expert: row.expert_name ?? "전문가 배정 전",
+    amount: numericLabel(row.amount, row.currency),
+    status: row.status,
+    provider: row.provider_reference ? `${row.provider ?? "provider"} / ${row.provider_reference}` : row.provider ?? "결제 제공자 미정",
+    expertMatchState: row.expert_match_status ?? "매칭 상태 미정",
+    chatThreadStatus: row.chat_thread_status ?? "상담방 준비 전",
+    chatThreadId: row.chat_thread_id ?? undefined,
+    next: row.service_type ?? metadataText(row.metadata, "next", "결제 상태와 상담방 접근 조건을 확인합니다.")
+  }));
+}
+
+async function readSettings(sql: DbClient): Promise<PlatformSettingRow[]> {
+  const rows = await sql<OrganizationSettingDbRow[]>`
+    select
+      o.name as organization_name,
+      o.billing_status,
+      os.default_locale,
+      os.markets,
+      os.review_archive_enabled,
+      os.expert_matching_enabled,
+      os.logistics_matching_enabled,
+      os.notification_channels,
+      os.metadata
+    from public.organization_settings os
+    join public.organizations o on o.id = os.organization_id
+    order by os.updated_at desc
+    limit 14
+  `;
+
+  return rows.map((row) => ({
+    organization: row.organization_name,
+    billingStatus: row.billing_status,
+    locale: row.default_locale,
+    markets: asArray(row.markets).length ? asArray(row.markets) : ["TW"],
+    reviewArchiveEnabled: row.review_archive_enabled,
+    expertMatchingEnabled: row.expert_matching_enabled,
+    logisticsMatchingEnabled: row.logistics_matching_enabled,
+    notifications: asArray(row.notification_channels).length ? asArray(row.notification_channels) : ["email"],
+    next: metadataText(row.metadata, "next", "회사별 기능 토글과 알림 채널을 운영 정책에 맞게 확인합니다.")
+  }));
+}
+
 export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
   if (!databaseUrl) {
     return emptySnapshot("disabled", [
@@ -728,7 +868,9 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       logisticsCompanies,
       shipmentRequests,
       activeShipments,
-      shipmentEvents
+      shipmentEvents,
+      payments,
+      settings
     ] = await Promise.all([
       readCounts(sql),
       readCompanyRows(sql),
@@ -739,7 +881,9 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       readLogisticsCompanies(sql),
       readShipmentRequests(sql),
       readActiveShipments(sql),
-      readShipmentEvents(sql)
+      readShipmentEvents(sql),
+      readPayments(sql),
+      readSettings(sql)
     ]);
 
     return {
@@ -755,7 +899,9 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       logisticsCompanies,
       shipmentRequests,
       activeShipments,
-      shipmentEvents
+      shipmentEvents,
+      payments,
+      settings
     };
   } catch (error) {
     return emptySnapshot("error", [

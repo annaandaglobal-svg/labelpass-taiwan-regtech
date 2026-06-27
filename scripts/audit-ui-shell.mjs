@@ -93,6 +93,27 @@ for (const filePath of walk(join(repoRoot, "src/app/admin"))) {
   if (source.includes('className="lp-shell')) fail(`${label}: admin pages must not create a second product shell`);
 }
 
+const requiredAdminRoutes = [
+  "/admin",
+  "/admin/companies",
+  "/admin/users",
+  "/admin/reviews",
+  "/admin/experts",
+  "/admin/payments",
+  "/admin/logistics",
+  "/admin/settings"
+];
+const adminNavSource = read("src/lib/platform-admin.ts");
+const adminSectionNavSource = read("src/components/admin-section-nav.tsx");
+for (const href of requiredAdminRoutes) {
+  requireIncludes(adminNavSource, `href: "${href}"`, "src/lib/platform-admin.ts adminNav");
+  requireIncludes(adminSectionNavSource, `"${href}"`, "src/components/admin-section-nav.tsx icons");
+  if (href !== "/admin") {
+    const pagePath = `src/app${href}/page.tsx`;
+    if (!existsSync(join(repoRoot, pagePath))) fail(`${pagePath}: missing admin route page`);
+  }
+}
+
 const css = read("src/app/globals.css");
 const shellRule = cssRule(css, ".lp-shell");
 requireIncludes(shellRule, "display: grid", "src/app/globals.css .lp-shell");
