@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BadgeCheck, Boxes, ClipboardCheck, Languages, Search } from "lucide-react";
 
-type AppNavKey = "review" | "workspace" | "knowledge" | "aliases" | "admin";
+export type AppNavKey = "review" | "workspace" | "knowledge" | "aliases" | "admin";
 
 type AppNavItem = {
   key: AppNavKey;

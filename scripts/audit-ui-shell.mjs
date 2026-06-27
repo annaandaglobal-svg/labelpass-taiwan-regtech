@@ -64,28 +64,23 @@ function walk(dir) {
 const routeShells = [
   {
     file: "src/app/page.tsx",
-    shell: '<main className="lp-shell">',
-    sidebar: '<AppSidebar active="review" />'
+    shell: '<AppShell active="review">'
   },
   {
     file: "src/app/workspace/page.tsx",
-    shell: '<main className="lp-shell workspace-shell">',
-    sidebar: '<AppSidebar active="workspace" />'
+    shell: '<AppShell active="workspace" className="workspace-shell">'
   },
   {
     file: "src/app/knowledge/page.tsx",
-    shell: '<main className="lp-shell">',
-    sidebar: '<AppSidebar active="knowledge" />'
+    shell: '<AppShell active="knowledge">'
   },
   {
     file: "src/app/knowledge/aliases/page.tsx",
-    shell: '<main className="lp-shell">',
-    sidebar: '<AppSidebar active="aliases" />'
+    shell: '<AppShell active="aliases">'
   },
   {
     file: "src/app/admin/layout.tsx",
-    shell: '<main className="lp-shell admin-shell">',
-    sidebar: '<AppSidebar active="admin" />',
+    shell: '<AppShell active="admin" className="admin-shell">',
     extra: '<AdminSectionNav badges={badges} />'
   }
 ];
@@ -93,9 +88,13 @@ const routeShells = [
 for (const route of routeShells) {
   const source = read(route.file);
   requireIncludes(source, route.shell, route.file);
-  requireIncludes(source, route.sidebar, route.file);
   if (route.extra) requireIncludes(source, route.extra, route.file);
 }
+
+const appShellSource = read("src/components/app-shell.tsx");
+requireIncludes(appShellSource, "AppSidebar", "src/components/app-shell.tsx sidebar ownership");
+requireIncludes(appShellSource, "type AppNavKey", "src/components/app-shell.tsx typed active nav");
+requireIncludes(appShellSource, '["lp-shell", className].filter(Boolean).join(" ")', "src/components/app-shell.tsx stable shell class composition");
 
 const reviewHomeSource = read("src/app/page.tsx");
 requireIncludes(reviewHomeSource, "actionPlanStats", "src/app/page.tsx review action plan summary");

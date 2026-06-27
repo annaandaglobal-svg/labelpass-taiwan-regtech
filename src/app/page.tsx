@@ -27,7 +27,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppShell } from "@/components/app-shell";
 
 type RouteId =
   | "tw_cosmetic"
@@ -864,9 +864,7 @@ export default function Home() {
   const routeHandoffCards = result ? handoffCards(result, selectedRoute) : [];
 
   return (
-    <main className="lp-shell">
-      <AppSidebar active="review" />
-
+    <AppShell active="review">
       <section className="lp-main" id="review">
         <header className="lp-topbar">
           <div>
@@ -1234,6 +1232,6 @@ export default function Home() {
       </section>
 
       {toast && <div className="lp-toast">{toast}</div>}
-    </main>
+    </AppShell>
   );
 }
