@@ -127,11 +127,38 @@ const mobileStart = css.indexOf("@media (max-width: 980px)");
 const mobileCss = mobileStart >= 0 ? css.slice(mobileStart) : "";
 requireCompactIncludes(mobileCss, ".lp-shell { grid-template-columns: 1fr; }", "src/app/globals.css mobile shell");
 requireCompactIncludes(mobileCss, ".lp-sidebar { position: static; height: auto;", "src/app/globals.css mobile sidebar");
+requireCompactIncludes(
+  mobileCss,
+  ".lp-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }",
+  "src/app/globals.css mobile primary nav"
+);
+requireCompactIncludes(mobileCss, ".lp-nav a { justify-content: center;", "src/app/globals.css mobile primary nav links");
 
 const adminPrimaryAction = cssRule(css, ".admin-primary-action");
 requireMaxPx(adminPrimaryAction, "min-height", 38, "src/app/globals.css .admin-primary-action");
 requireMaxPx(adminPrimaryAction, "font-size", 13, "src/app/globals.css .admin-primary-action");
 if (/width\s*:\s*100%/i.test(adminPrimaryAction)) fail("src/app/globals.css .admin-primary-action: must stay compact, not full-width");
+
+const adminSectionNav = cssRule(css, ".admin-section-nav");
+requireIncludes(adminSectionNav, "position: sticky", "src/app/globals.css .admin-section-nav");
+requireMaxPx(adminSectionNav, "padding", 8, "src/app/globals.css .admin-section-nav");
+
+const adminSectionNavLink = cssRule(css, ".admin-section-nav a");
+requireMaxPx(adminSectionNavLink, "min-height", 32, "src/app/globals.css .admin-section-nav a");
+requireMaxPx(adminSectionNavLink, "font-size", 12, "src/app/globals.css .admin-section-nav a");
+
+const adminHero = `${cssRule(css, ".admin-hero")} ${cssRule(css, ".admin-section-hero")}`;
+requireMaxPx(adminHero, "min-height", 80, "src/app/globals.css admin hero");
+
+const adminHeroTitle = `${cssRule(css, ".admin-hero h1")} ${cssRule(css, ".admin-section-hero h1")}`;
+requireMaxPx(adminHeroTitle, "font-size", 20, "src/app/globals.css admin hero title");
+
+const adminMetric = cssRule(css, ".admin-metric");
+requireMaxPx(adminMetric, "min-height", 100, "src/app/globals.css .admin-metric");
+requireMaxPx(adminMetric, "padding", 14, "src/app/globals.css .admin-metric");
+
+const adminMetricValue = cssRule(css, ".admin-metric strong");
+requireMaxPx(adminMetricValue, "font-size", 24, "src/app/globals.css .admin-metric strong");
 
 const adminOpsDryRun = cssRule(css, ".admin-ops-dry-run button");
 requireMaxPx(adminOpsDryRun, "min-height", 38, "src/app/globals.css .admin-ops-dry-run button");

@@ -12177,7 +12177,14 @@ h2 {
   }
 
   .lp-nav {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lp-nav a {
+    justify-content: center;
+    min-height: 36px;
+    padding: 7px 8px;
+    text-align: center;
   }
 
   .lp-route-grid,
@@ -12369,27 +12376,31 @@ h2 {
 
 .admin-main {
   display: grid;
-  gap: 18px;
+  gap: 12px;
   align-content: start;
   width: 100%;
-  max-width: 1480px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 16px 18px 60px;
+  padding: 12px 16px 52px;
 }
 
 .admin-section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 12;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 7px;
+  gap: 6px;
+  padding: 6px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 24px rgba(32, 48, 44, 0.06);
 }
 
 .admin-section-nav a {
-  min-height: 32px;
-  padding: 6px 9px;
+  min-height: 30px;
+  padding: 5px 8px;
   border-color: var(--line);
   background: var(--panel);
   color: var(--muted);
@@ -12410,26 +12421,28 @@ h2 {
 .admin-section-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
-  align-items: end;
-  padding-bottom: 18px;
+  gap: 12px;
+  align-items: center;
+  min-height: 72px;
+  padding: 10px 0 12px;
   border-bottom: 1px solid var(--line);
 }
 
 .admin-hero p,
 .admin-section-hero p {
-  margin: 0 0 8px;
+  margin: 0 0 5px;
   color: var(--green-dark);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 900;
+  text-transform: uppercase;
 }
 
 .admin-hero h1,
 .admin-section-hero h1 {
-  max-width: 880px;
+  max-width: 760px;
   margin: 0;
-  font-size: 24px;
-  line-height: 1.22;
+  font-size: 18px;
+  line-height: 1.28;
   letter-spacing: 0;
 }
 
@@ -12448,7 +12461,7 @@ h2 {
 .admin-metrics,
 .admin-grid {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .admin-metrics {
@@ -12465,13 +12478,13 @@ h2 {
 
 .admin-metric {
   display: grid;
-  gap: 8px;
-  min-height: 128px;
-  padding: 16px;
+  gap: 5px;
+  min-height: 92px;
+  padding: 12px;
 }
 
 .admin-metric strong {
-  font-size: 28px;
+  font-size: 22px;
   line-height: 1.16;
 }
 
@@ -12498,8 +12511,8 @@ h2 {
 
 .admin-panel {
   display: grid;
-  gap: 14px;
-  padding: 16px;
+  gap: 12px;
+  padding: 14px;
 }
 
 .admin-panel-wide {
@@ -12514,8 +12527,8 @@ h2 {
 }
 
 .admin-panel-head h2 {
-  margin: 4px 0 0;
-  font-size: 18px;
+  margin: 3px 0 0;
+  font-size: 16px;
   line-height: 1.25;
 }
 
@@ -12535,10 +12548,10 @@ h2 {
 
 .admin-module-card {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr) auto;
-  gap: 12px;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 10px;
   align-items: start;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
@@ -12546,8 +12559,8 @@ h2 {
 
 .admin-module-card > span {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   place-items: center;
   border-radius: 8px;
   background: var(--green-soft);
@@ -12562,9 +12575,9 @@ h2 {
 }
 
 .admin-module-card p {
-  margin: 5px 0;
+  margin: 4px 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -12598,8 +12611,8 @@ h2 {
 
 .admin-queue-item {
   display: grid;
-  gap: 6px;
-  padding: 12px;
+  gap: 5px;
+  padding: 10px;
 }
 
 .admin-queue-item > span {
@@ -12625,7 +12638,7 @@ h2 {
 .admin-queue-item p {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -12836,9 +12849,9 @@ h2 {
 .admin-chip-list span {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 42px;
-  padding: 10px;
+  gap: 7px;
+  min-height: 34px;
+  padding: 8px;
   font-weight: 800;
 }
 
@@ -12861,9 +12874,9 @@ h2 {
 .admin-table-row {
   display: grid;
   grid-template-columns: minmax(150px, 1fr) 88px 96px minmax(150px, 0.8fr);
-  gap: 10px;
+  gap: 8px;
   align-items: center;
-  padding: 11px 12px;
+  padding: 9px 10px;
 }
 
 .admin-table-head > *,
@@ -12962,9 +12975,9 @@ h2 {
 
 .admin-review-card {
   display: grid;
-  gap: 7px;
-  min-height: 168px;
-  padding: 13px;
+  gap: 6px;
+  min-height: 132px;
+  padding: 11px;
 }
 
 .admin-review-card > span {
@@ -12980,7 +12993,7 @@ h2 {
 .admin-review-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .admin-review-card em {
@@ -13011,7 +13024,7 @@ h2 {
 
 @media (max-width: 720px) {
   .admin-main {
-    padding: 16px;
+    padding: 12px;
   }
 
   .admin-nav,
@@ -13037,6 +13050,6 @@ h2 {
 
   .admin-hero h1,
   .admin-section-hero h1 {
-    font-size: 21px;
+    font-size: 17px;
   }
 }
