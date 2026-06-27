@@ -27,6 +27,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { AppShell } from "@/components/app-shell";
+import {
+  HANDOFF_DRAFTS_STORAGE_KEY,
+  MAX_HANDOFF_DRAFTS,
+  parseHandoffDrafts,
+  type HandoffDraft
+} from "@/lib/handoff-drafts";
 
 type RouteId =
   | "tw_cosmetic"
@@ -715,12 +721,55 @@ function handoffCards(result: ReviewResult | null, route: RoutePreset) {
   ];
 }
 
+function handoffDraftFor(input: ReviewInput, result: ReviewResult, route: RoutePreset): HandoffDraft {
+  const stats = actionPlanStats(result);
+  const docs = result.actionPlan.documentChecklist;
+  const neededDocuments = docs.filter((doc) => doc.status === "needed" || doc.status === "review").length;
+  const logisticsDocuments = docs
+    .filter((doc) => doc.status === "needed" || doc.status === "review")
+    .map((doc) => doc.name)
+    .slice(0, 4);
+  const hasCustomsOrImport = result.findings.some((finding) =>
+    /통관|수입|customs|import|hs|ccc/i.test(`${finding.area} ${finding.id} ${finding.title}`)
+  );
+  const expertScope = [
+    actionPlanCopy[result.actionPlan.priority].label,
+    ...result.actionPlan.actionItems.slice(0, 3).map((item) => `${item.owner}: ${item.title}`)
+  ];
+  const productName = input.productName.trim() || route.label;
+
+  return {
+    id: globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    createdAt: new Date().toISOString(),
+    productName,
+    productType: input.productType.trim() || route.productType,
+    routeId: route.id,
+    routeLabel: route.label,
+    status: result.status,
+    score: result.score,
+    priority: result.actionPlan.priority,
+    nextAction: result.actionPlan.nextAction,
+    expertScope,
+    paymentGate: {
+      label: result.status === "pass" ? "필요 시 견적" : "견적·결제 준비",
+      detail: neededDocuments > 0 ? `보강 증빙 ${neededDocuments}개 확인 후 상담방을 엽니다.` : "상담 범위 승인 후 결제 링크를 열 수 있습니다."
+    },
+    logistics: {
+      trigger: hasCustomsOrImport ? "통관 보류·수입검사 증빙 필요" : "라벨·증빙 버전 고정 후 선적 연결",
+      documents: logisticsDocuments.length ? logisticsDocuments : docs.slice(0, 3).map((doc) => doc.name)
+    },
+    evidenceCount: stats.evidenceCount,
+    neededDocuments
+  };
+}
+
 export default function Home() {
   const [selectedRouteId, setSelectedRouteId] = useState<RouteId>("tw_cosmetic");
   const [input, setInput] = useState<ReviewInput>(emptyInput);
   const [result, setResult] = useState<ReviewResult | null>(null);
   const [evidenceBundle, setEvidenceBundle] = useState<KnowledgeEvidenceBundle | null>(null);
   const [savedReviews, setSavedReviews] = useState<Array<{ id: string; input: ReviewInput; result: ReviewResult }>>([]);
+  const [handoffDrafts, setHandoffDrafts] = useState<HandoffDraft[]>([]);
   const [knowledgeQuery, setKnowledgeQuery] = useState("");
   const [isReviewing, setIsReviewing] = useState(false);
   const [isSearchingEvidence, setIsSearchingEvidence] = useState(false);
@@ -749,13 +798,18 @@ export default function Home() {
 
   useEffect(() => {
     const raw = window.localStorage.getItem("labelpass-reviews");
-    if (!raw) return;
+    const rawDrafts = window.localStorage.getItem(HANDOFF_DRAFTS_STORAGE_KEY);
     try {
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) setSavedReviews(parsed.slice(0, 5));
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) setSavedReviews(parsed.slice(0, 5));
+      }
     } catch {
       window.localStorage.removeItem("labelpass-reviews");
     }
+
+    const parsedDrafts = parseHandoffDrafts(rawDrafts);
+    setHandoffDrafts(parsedDrafts.slice(0, MAX_HANDOFF_DRAFTS));
   }, []);
 
   useEffect(() => {
@@ -850,6 +904,18 @@ export default function Home() {
     } finally {
       setIsReviewing(false);
     }
+  }
+
+  function saveHandoffDraft() {
+    if (!result) return;
+    const draft = handoffDraftFor(input, result, selectedRoute);
+    const nextDrafts = [
+      draft,
+      ...handoffDrafts.filter((item) => item.productName !== draft.productName || item.routeId !== draft.routeId)
+    ].slice(0, MAX_HANDOFF_DRAFTS);
+    setHandoffDrafts(nextDrafts);
+    window.localStorage.setItem(HANDOFF_DRAFTS_STORAGE_KEY, JSON.stringify(nextDrafts));
+    setToast("전문가·결제·물류 의뢰 초안을 워크스페이스에 저장했습니다.");
   }
 
   const currentStatus = result ? statusCopy[result.status] : null;
@@ -1064,6 +1130,13 @@ export default function Home() {
                         </div>
                       </Link>
                     ))}
+                  </div>
+                  <div className="lp-handoff-draft-row">
+                    <button type="button" onClick={saveHandoffDraft}>
+                      <PackageCheck size={14} />
+                      의뢰 초안 저장
+                    </button>
+                    <small>워크스페이스에서 상담 범위, 결제 gate, 물류 증빙으로 이어집니다.</small>
                   </div>
                 </div>
 

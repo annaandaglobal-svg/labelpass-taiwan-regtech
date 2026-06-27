@@ -16,6 +16,7 @@ import {
   Truck
 } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
+import { WorkspaceHandoffDrafts } from "@/components/workspace-handoff-drafts";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { buildPlatformOpsActionQueue, getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
@@ -227,6 +228,8 @@ export default async function WorkspacePage() {
         </section>
 
         <section className="workspace-dashboard">
+          <WorkspaceHandoffDrafts />
+
           <article className="workspace-panel workspace-panel-wide">
             <div className="workspace-panel-head">
               <div>

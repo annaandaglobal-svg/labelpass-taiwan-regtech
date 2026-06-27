@@ -104,6 +104,9 @@ requireIncludes(reviewHomeSource, "function handoffCards(result: ReviewResult | 
 requireIncludes(reviewHomeSource, "const routeHandoffCards = handoffCards(result, selectedRoute);", "src/app/page.tsx steady handoff card source");
 requireIncludes(reviewHomeSource, 'className={`lp-action-plan', "src/app/page.tsx review action plan panel");
 requireIncludes(reviewHomeSource, 'data-steady-handoff="true"', "src/app/page.tsx stable pre/post review handoff area");
+requireIncludes(reviewHomeSource, "HANDOFF_DRAFTS_STORAGE_KEY", "src/app/page.tsx handoff draft storage key");
+requireIncludes(reviewHomeSource, "saveHandoffDraft", "src/app/page.tsx handoff draft save action");
+requireIncludes(reviewHomeSource, 'className="lp-handoff-draft-row"', "src/app/page.tsx compact handoff draft save row");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
 requireIncludes(reviewHomeSource, 'href: "/workspace#review-queue"', "src/app/page.tsx customer review status handoff link");
 requireIncludes(reviewHomeSource, 'href: "/workspace#expert-cases"', "src/app/page.tsx customer expert status handoff link");
@@ -118,6 +121,7 @@ if (/href\s*:\s*"\/admin\//.test(reviewHomeSource) || /href="\/admin\//.test(rev
 
 const workspaceSource = read("src/app/workspace/page.tsx");
 requireNoMojibake(workspaceSource, "src/app/workspace/page.tsx");
+requireIncludes(workspaceSource, "WorkspaceHandoffDrafts", "src/app/workspace/page.tsx saved handoff draft panel");
 requireIncludes(workspaceSource, "getPlatformOpsSnapshot", "src/app/workspace/page.tsx workspace ops data");
 requireIncludes(workspaceSource, "buildPlatformOpsActionQueue", "src/app/workspace/page.tsx workspace action queue");
 requireIncludes(workspaceSource, "workspaceActionQueue", "src/app/workspace/page.tsx customer action queue");
@@ -350,12 +354,19 @@ requireIncludes(css, ".lp-action-plan", "src/app/globals.css review action plan 
 requireIncludes(css, ".lp-handoff-grid", "src/app/globals.css review handoff grid");
 requireIncludes(css, ".lp-handoff-card", "src/app/globals.css review handoff card");
 requireIncludes(css, ".lp-handoff-card:hover", "src/app/globals.css review handoff hover");
+requireIncludes(css, ".lp-handoff-draft-row", "src/app/globals.css review handoff draft save row");
 requireIncludes(css, ".workspace-dashboard", "src/app/globals.css workspace dashboard");
 requireIncludes(css, ".workspace-product-row", "src/app/globals.css workspace product rows");
 requireIncludes(css, ".workspace-handoff-strip", "src/app/globals.css workspace customer request flow");
 requireIncludes(css, ".workspace-handoff-step", "src/app/globals.css workspace customer request flow cards");
 requireIncludes(css, ".workspace-action-list", "src/app/globals.css workspace action list");
 requireIncludes(css, ".workspace-shipment-grid", "src/app/globals.css workspace shipment grid");
+requireIncludes(css, ".workspace-draft-panel", "src/app/globals.css workspace draft panel");
+requireIncludes(css, ".workspace-draft-row", "src/app/globals.css workspace draft rows");
+const workspaceDraftPanel = cssRule(css, ".workspace-draft-panel");
+requireIncludes(workspaceDraftPanel, "grid-column: 1 / -1", "src/app/globals.css workspace draft panel spans dashboard");
+const workspaceDraftRow = cssRule(css, ".workspace-draft-row");
+requireIncludes(workspaceDraftRow, "grid-template-columns: 58px minmax(0, 1fr) auto", "src/app/globals.css workspace draft rows stay compact");
 requireIncludes(css, ".workspace-action-item p", "src/app/globals.css compact workspace action copy");
 requireIncludes(css, ".workspace-action-item small", "src/app/globals.css compact workspace action metadata");
 requireIncludes(css, ".admin-queue-link", "src/app/globals.css linked admin queue card");
@@ -401,6 +412,19 @@ requireIncludes(rowActionSource, "operator_note_required", "src/components/admin
 requireIncludes(css, ".admin-row-action:not([open]) > :not(summary)", "src/app/globals.css closed row action disclosure");
 requireIncludes(css, ".admin-row-action-note input", "src/app/globals.css row action note input");
 requireIncludes(css, ".admin-row-action button.admin-row-action-lock", "src/app/globals.css row action locked button");
+
+const handoffDraftSource = read("src/components/workspace-handoff-drafts.tsx");
+requireNoMojibake(handoffDraftSource, "src/components/workspace-handoff-drafts.tsx");
+requireIncludes(handoffDraftSource, "parseHandoffDrafts", "src/components/workspace-handoff-drafts.tsx safe draft parsing");
+requireIncludes(handoffDraftSource, 'href="/workspace#expert-cases"', "src/components/workspace-handoff-drafts.tsx expert/payment customer anchors");
+requireIncludes(handoffDraftSource, 'href="/workspace#shipment-events"', "src/components/workspace-handoff-drafts.tsx logistics customer anchor");
+if (/href\s*=\s*"\/admin\//.test(handoffDraftSource)) {
+  fail("src/components/workspace-handoff-drafts.tsx: customer draft panel must not deep-link directly into admin routes");
+}
+
+const handoffDraftModelSource = read("src/lib/handoff-drafts.ts");
+requireIncludes(handoffDraftModelSource, "HANDOFF_DRAFTS_STORAGE_KEY", "src/lib/handoff-drafts.ts storage key");
+requireIncludes(handoffDraftModelSource, "parseHandoffDrafts", "src/lib/handoff-drafts.ts parser");
 
 if (failures.length) {
   console.error("UI shell audit failed:");
