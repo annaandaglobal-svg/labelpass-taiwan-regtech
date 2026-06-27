@@ -79,10 +79,11 @@ Before deploying a knowledge update, run:
 pnpm check:knowledge-drift
 pnpm check:knowledge-memory
 pnpm check:knowledge-playbooks
+pnpm audit:knowledge-ops
 pnpm preflight:supabase-knowledge
 ```
 
-`check:knowledge-drift` already regenerates the reusable memory and product routing files; `check:knowledge-memory` is useful when only the LLM/Obsidian memory layer is being reviewed, and `check:knowledge-playbooks` checks the generated routing/evidence template layer. `preflight:deploy` includes the drift gate, Supabase knowledge preflight, type checks, rule verification, build, and production API checks.
+`check:knowledge-drift` already regenerates the reusable memory and product routing files; `check:knowledge-memory` is useful when only the LLM/Obsidian memory layer is being reviewed, and `check:knowledge-playbooks` checks the generated routing/evidence template layer. `audit:knowledge-ops` fails if Taiwan cosmetics/food coverage, reusable memory, product routing, evidence bundles, browser-capture fallbacks, or Supabase seed counts drift out of sync. `preflight:deploy` includes the drift gate, Supabase knowledge preflight, type checks, rule verification, build, and production API checks.
 
 Persistent review history is deliberately opt-in. A database URL plus the archive flag only makes the server capable of database storage; read/write access still needs either a server-side archive token for checks or explicit public demo flags:
 

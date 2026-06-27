@@ -33,6 +33,9 @@ jobs:
       - name: Audit UI shell stability
         run: pnpm audit:ui-shell
 
+      - name: Audit knowledge operations readiness
+        run: pnpm audit:knowledge-ops
+
       - name: Verify regulatory rules
         run: pnpm test:rules
 
@@ -67,6 +70,7 @@ jobs:
           for attempt in {1..30}; do
             if curl -fsS http://127.0.0.1:3000 >/dev/null; then
               LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:api
+              LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:admin-ops
               exit 0
             fi
             sleep 1

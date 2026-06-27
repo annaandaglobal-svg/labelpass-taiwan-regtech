@@ -20,6 +20,7 @@ pnpm detect:updates
 pnpm build:knowledge-seed
 pnpm validate:knowledge
 pnpm validate:coverage
+pnpm audit:knowledge-ops
 pnpm build
 ```
 
@@ -29,7 +30,7 @@ For the current production URL, the single operator gate is:
 pnpm preflight:deploy
 ```
 
-`preflight:deploy` runs type checks, rule verification, generated knowledge drift checks, Supabase knowledge dry-run preflight, a production build, and `preflight:deployment`. The knowledge drift gate rebuilds the term index, regulatory update queue, alias review queue, reusable knowledge memory, product routing matrix, evidence bundle templates, and `supabase/knowledge-seed.sql`, then fails if those generated artifacts differ from the committed versions. The Supabase knowledge preflight regenerates the ignored SQL chunk files, validates Taiwan food/cosmetics coverage, audits searchable aliases, checks seed freshness/format, and dry-runs the apply plan. The deployment preflight also checks the guarded admin operations readiness and dry-run endpoint. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
+`preflight:deploy` runs type checks, rule verification, generated knowledge drift checks, Supabase knowledge dry-run preflight, a production build, and `preflight:deployment`. The knowledge drift gate rebuilds the term index, regulatory update queue, alias review queue, reusable knowledge memory, product routing matrix, evidence bundle templates, and `supabase/knowledge-seed.sql`, then fails if those generated artifacts differ from the committed versions. The Supabase knowledge preflight regenerates the ignored SQL chunk files, verifies knowledge operations readiness, validates Taiwan food/cosmetics coverage, audits searchable aliases, checks seed freshness/format, and dry-runs the apply plan. The deployment preflight also checks the guarded admin operations readiness and dry-run endpoint. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
 
 For a no-secret readiness snapshot before or after deployment, run:
 

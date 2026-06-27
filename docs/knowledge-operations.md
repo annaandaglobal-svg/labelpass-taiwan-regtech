@@ -26,6 +26,7 @@ pnpm export:knowledge-playbooks
 pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
+pnpm audit:knowledge-ops
 pnpm check:knowledge-memory
 pnpm check:knowledge-playbooks
 pnpm check:knowledge-drift
@@ -38,6 +39,7 @@ Use the update detector after crawling when you need a human-review queue for ch
 Use `pnpm export:knowledge-memory` after a crawl or seed rebuild to fold the current source index, source operations metadata, term aliases, coverage groups, alias queue, and refresh queue into `data/knowledge/knowledge-memory.json` and `docs/wiki/knowledge-memory.md` for LLM/Obsidian reuse.
 Use `pnpm export:knowledge-playbooks` after memory export to generate product routing and evidence bundle templates from the reusable memory. This adds workflow routing for Taiwan cosmetics, food labels, food additives, food import inspection, health food, food-contact packaging, customs/origin, and SHTC/trade controls.
 Use the audit command after crawling to surface shallow extracts, blocked browser captures, encoding damage, and PDF parsing gaps that need manual source rescue.
+Use `pnpm audit:knowledge-ops` as the stronger readiness gate for reusable operations. It fails when Taiwan cosmetics/food coverage groups, generated LLM/Obsidian memory, product routing, evidence bundle cards, browser-capture fallbacks, or Supabase seed row counts no longer agree.
 Use `pnpm audit:aliases` after term edits or a seed rebuild to inspect normalized alias collisions, high-confidence overlap, and short ambiguous aliases that still need notes. Use `pnpm build:alias-queue` when those audit findings should be written to the persistent review queue. Add `--strict` when you want the command to fail on unnoted high-confidence collisions.
 Use `pnpm check:knowledge-memory` when only the LLM/Obsidian memory layer is being checked. Use `pnpm check:knowledge-playbooks` when the routing and evidence templates are being reviewed. Use `pnpm check:knowledge-drift` before committing a knowledge update. It rebuilds source operations metadata, generated term index, update queue, alias review queue, reusable memory, product routing, evidence templates, and Supabase seed, then fails if those tracked artifacts were not committed.
 Use `pnpm preflight:supabase-knowledge` before any cloud DB apply. It regenerates ignored SQL chunks, then chains knowledge validation, coverage validation, alias search audit, operations reporting, freshness gates, generated SQL format checks, target project checks, and a dry-run Supabase apply plan.
@@ -120,6 +122,7 @@ The crawler records whether a source used an automated fetch, manual fallback, P
 - `pnpm export:knowledge-playbooks`: regenerates memory, product routing, and evidence bundle template files without recrawling.
 - `pnpm check:knowledge-memory`: regenerates the tracked memory files and fails if they are stale.
 - `pnpm check:knowledge-playbooks`: regenerates the tracked memory/playbook files and fails if they are stale.
+- `pnpm audit:knowledge-ops`: fails if Taiwan cosmetics/food coverage, reusable memory, product routing, evidence bundle cards, browser captures, or Supabase seed counts are not operationally aligned.
 - `pnpm check:knowledge-drift`: rebuilds tracked generated knowledge artifacts and fails if source operations metadata, `term-index`, `regulatory-update-queue`, `alias-review-queue`, reusable memory, product routing, evidence templates, or `supabase/knowledge-seed.sql` are stale.
 - `pnpm preflight:supabase-knowledge`: regenerates ignored SQL chunks, validates the generated knowledge base, and dry-runs the Supabase apply plan before any DB write.
 - `pnpm apply:supabase-knowledge`: runs the Supabase preflight, then applies the base schema, TFDA rules, knowledge schema, and knowledge seed directly when `SUPABASE_DB_URL`, `POSTGRES_URL`, or `DATABASE_URL` is set. Real applies require `SUPABASE_APPLY_CONFIRM=APPLY_LABELPASS_KNOWLEDGE` and the DB URL must include the expected project ref unless `SUPABASE_EXPECTED_PROJECT_REF` or `SUPABASE_ALLOW_UNKNOWN_PROJECT=1` is set intentionally.
@@ -150,8 +153,8 @@ Current generated counts:
 - `knowledge_sources`: 166
 - `knowledge_snapshots`: 166
 - `knowledge_terms`: 1,178
-- `term_aliases`: 4,196
-- `searchable_aliases`: 6,677
+- `term_aliases`: 4,212
+- `searchable_aliases`: 6,693
 - `term_rule_links`: 1,082
 - `regulatory_update_candidates`: 57
 - `alias_review_queue`: 1,042
@@ -184,6 +187,7 @@ pnpm test:rules
 pnpm validate:knowledge
 pnpm validate:coverage
 pnpm audit:knowledge
+pnpm audit:knowledge-ops
 pnpm audit:aliases
 pnpm build:alias-queue
 pnpm detect:updates
