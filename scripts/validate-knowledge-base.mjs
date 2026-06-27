@@ -1,11 +1,13 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
+import { buildSourceOpsMetadata } from "./source-ops-metadata.mjs";
 
 const root = process.cwd();
 
 const paths = {
   rules: path.join(root, "data", "rules", "tw-cosmetics-rules.json"),
   registry: path.join(root, "data", "knowledge", "source-registry.json"),
+  sourceOpsMetadata: path.join(root, "data", "knowledge", "source-ops-metadata.json"),
   termRegistry: path.join(root, "data", "knowledge", "term-registry.json"),
   index: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
@@ -74,9 +76,10 @@ function hasDamagedAliasText(value) {
   return /�|\?{2,}|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔)/u.test(String(value ?? ""));
 }
 
-const [rulesData, registry, termRegistry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
+const [rulesData, registry, sourceOpsMetadata, termRegistry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
+  readJson(paths.sourceOpsMetadata),
   readJson(paths.termRegistry),
   readJson(paths.index),
   readJson(paths.termIndex),
@@ -95,10 +98,12 @@ const links = termIndex.term_rule_links ?? [];
 const aliasQueueItems = aliasReviewQueue.items ?? [];
 const updateCandidates = updateQueue.items ?? [];
 const aliasCount = terms.reduce((count, term) => count + (term.aliases?.length ?? 0), 0);
+const expectedSourceOpsMetadata = buildSourceOpsMetadata(registry);
 
 const ruleIds = uniqueBy(rules, (rule) => rule.id, "rules");
 const ruleSourceIds = new Set(rules.map((rule) => `tfda-info-${rule.source_info_id}`).filter(Boolean));
 const sourceIds = uniqueBy(sources, (source) => source.id, "source-registry sources");
+const sourceOpsIds = uniqueBy(sourceOpsMetadata.sources ?? [], (source) => source.id, "source operations metadata sources");
 uniqueBy(sources, (source) => source.url, "source-registry source URLs");
 const resultIds = uniqueBy(results, (result) => result.id, "knowledge crawl results");
 uniqueBy(curatedTerms, (term) => term.id, "term-registry terms");
@@ -111,6 +116,10 @@ if (rulesData.rule_count !== rules.length) {
 
 if (index.source_count !== sources.length) {
   fail(`index.source_count is ${index.source_count}, but source registry has ${sources.length}`);
+}
+
+if (JSON.stringify(sourceOpsMetadata) !== JSON.stringify(expectedSourceOpsMetadata)) {
+  fail("source operations metadata is not aligned with source-registry.json; run pnpm build:source-ops-metadata");
 }
 
 if (index.success_count !== results.length) {
@@ -201,6 +210,23 @@ for (const source of sources) {
   for (const companionId of source.companion_source_ids ?? []) {
     if (!sourceIds.has(companionId)) {
       fail(`source ${source.id} references missing companion_source_id: ${companionId}`);
+    }
+  }
+
+  if (!sourceOpsIds.has(source.id)) {
+    fail(`source operations metadata is missing source: ${source.id}`);
+  }
+}
+
+for (const item of sourceOpsMetadata.sources ?? []) {
+  if (!sourceIds.has(item.id)) {
+    fail(`source operations metadata references unknown source: ${item.id}`);
+  }
+
+  for (const field of ["languages", "review_owner", "selector_strategy", "date_strategy", "refresh_strategy", "evidence_policy"]) {
+    const value = item[field];
+    if (Array.isArray(value) ? value.length === 0 : !value) {
+      fail(`source operations metadata ${item.id} is missing ${field}`);
     }
   }
 }
@@ -388,6 +414,7 @@ const summary = {
   term_aliases: aliasCount,
   term_rule_links: links.length,
   regulatory_update_candidates: updateCandidates.length,
+  source_ops_metadata_sources: sourceOpsMetadata.sources?.length ?? 0,
   alias_review_queue_items: aliasQueueItems.length,
   warnings: warnings.length,
   errors: errors.length

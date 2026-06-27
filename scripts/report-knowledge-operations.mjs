@@ -1,11 +1,13 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { buildSourceOpsMetadata } from "./source-ops-metadata.mjs";
 
 const root = process.cwd();
 const writeReport = process.argv.includes("--write-report");
 
 const paths = {
   sourceRegistry: path.join(root, "data", "knowledge", "source-registry.json"),
+  sourceOpsMetadata: path.join(root, "data", "knowledge", "source-ops-metadata.json"),
   crawlIndex: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
   aliasQueue: path.join(root, "data", "knowledge", "alias-review-queue.json"),
@@ -35,6 +37,14 @@ function daysUntil(value, now = new Date()) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+async function readOptionalJson(filePath) {
+  try {
+    return await readJson(filePath);
+  } catch {
+    return null;
+  }
 }
 
 function countInserts(sql, tableName) {
@@ -139,7 +149,7 @@ function buildCoverageRoutesBySource(coverageGroups) {
   return routes;
 }
 
-function buildMetadataQualityRows(sources, results, coverageRoutesBySource) {
+function buildMetadataQualityRows(sources, results, coverageRoutesBySource, sourceOpsById) {
   const resultById = new Map(results.map((result) => [result.id, result]));
   const fieldChecks = [
     {
@@ -161,13 +171,15 @@ function buildMetadataQualityRows(sources, results, coverageRoutesBySource) {
     },
     {
       id: "language",
-      label: "Explicit language/locale",
-      hasValue: (source) => Boolean(source.language || source.locale || source.languages?.length)
+      label: "Language/locale policy",
+      hasValue: (source) =>
+        Boolean(source.language || source.locale || source.languages?.length || sourceOpsById.get(source.id)?.languages?.length)
     },
     {
-      id: "effective_date",
-      label: "Effective/amended date",
-      hasValue: (source) => Boolean(source.effective_date || source.amended_at || source.version_date)
+      id: "date_strategy",
+      label: "Effective-date tracking",
+      hasValue: (source) =>
+        Boolean(source.effective_date || source.amended_at || source.version_date || sourceOpsById.get(source.id)?.date_strategy)
     },
     {
       id: "last_verified",
@@ -181,8 +193,8 @@ function buildMetadataQualityRows(sources, results, coverageRoutesBySource) {
     },
     {
       id: "owner",
-      label: "Internal owner",
-      hasValue: (source) => Boolean(source.owner || source.review_owner)
+      label: "Internal owner queue",
+      hasValue: (source) => Boolean(source.owner || source.review_owner || sourceOpsById.get(source.id)?.review_owner)
     },
     {
       id: "selector_strategy",
@@ -190,6 +202,7 @@ function buildMetadataQualityRows(sources, results, coverageRoutesBySource) {
       hasValue: (source) =>
         Boolean(
           source.selector_strategy ||
+            sourceOpsById.get(source.id)?.selector_strategy ||
             source.selectors ||
             source.ecfr ||
             source.manual_extract ||
@@ -270,8 +283,9 @@ function markdownTable(rows, columns) {
   return `${header}${divider}${body}\n`;
 }
 
-const [registry, index, termIndex, aliasQueue, updateQueue, coverage, seedSql, chunkManifest] = await Promise.all([
+const [registry, persistedSourceOpsMetadata, index, termIndex, aliasQueue, updateQueue, coverage, seedSql, chunkManifest] = await Promise.all([
   readJson(paths.sourceRegistry),
+  readOptionalJson(paths.sourceOpsMetadata),
   readJson(paths.crawlIndex),
   readJson(paths.termIndex),
   readJson(paths.aliasQueue),
@@ -283,6 +297,9 @@ const [registry, index, termIndex, aliasQueue, updateQueue, coverage, seedSql, c
 
 const sources = registry.sources ?? [];
 const results = index.results ?? [];
+const derivedSourceOpsMetadata = buildSourceOpsMetadata(registry);
+const sourceOpsMetadata = persistedSourceOpsMetadata ?? derivedSourceOpsMetadata;
+const sourceOpsById = new Map((sourceOpsMetadata.sources ?? []).map((source) => [source.id, source]));
 const terms = termIndex.terms ?? [];
 const coverageRoutesBySource = buildCoverageRoutesBySource(coverage.groups);
 const storedAliases = countAliases(terms);
@@ -317,7 +334,7 @@ const manualFallbackWithoutEvidenceSources = manualFallbackSources.filter(
 );
 const fromCacheSources = results.filter((source) => source.from_cache);
 const nextRefresh = topDueSources(results, 1)[0] ?? null;
-const metadataQualityRows = buildMetadataQualityRows(sources, results, coverageRoutesBySource);
+const metadataQualityRows = buildMetadataQualityRows(sources, results, coverageRoutesBySource, sourceOpsById);
 const manualFallbackRows = buildManualFallbackRows(sources, results, coverageRoutesBySource);
 const updateImpactGapRows = buildUpdateImpactRows(updateQueue.items, coverageRoutesBySource);
 const metadataQualityById = Object.fromEntries(
@@ -355,7 +372,8 @@ const health = {
     seedCounts.knowledge_terms === terms.length &&
     seedCounts.term_aliases === storedAliases &&
     seedCounts.term_rule_links === (termIndex.term_rule_links?.length ?? 0) &&
-    seedCounts.regulatory_update_candidates === (updateQueue.items?.length ?? 0)
+    seedCounts.regulatory_update_candidates === (updateQueue.items?.length ?? 0),
+  sourceOpsMetadataAligned: JSON.stringify(persistedSourceOpsMetadata) === JSON.stringify(derivedSourceOpsMetadata)
 };
 
 const summary = {
@@ -382,6 +400,7 @@ const summary = {
   update_candidates: updateQueue.summary ?? {},
   alias_queue: aliasQueue.summary ?? {},
   coverage_groups: coverage.groups?.length ?? 0,
+  source_ops_metadata_sources: sourceOpsMetadata.sources?.length ?? 0,
   source_metadata_quality: metadataQualityById,
   impact_gap_candidates: updateImpactGapRows.length,
   seed_counts: seedCounts,
@@ -413,6 +432,7 @@ if (writeReport) {
     `- Alias queue aligned with term index: ${health.aliasQueueAligned ? "yes" : "no"}`,
     `- Regulatory update queue aligned with crawl index: ${health.updateQueueAligned ? "yes" : "no"}`,
     `- Supabase knowledge seed aligned with generated counts: ${health.seedAligned ? "yes" : "no"}`,
+    `- Source operations metadata aligned with registry: ${health.sourceOpsMetadataAligned ? "yes" : "no"}`,
     "",
     "## Current Counts",
     "",
@@ -453,7 +473,7 @@ if (writeReport) {
     "",
     "## Source Metadata Quality",
     "",
-    "These checks make crawler operations explicit. Core fields, refresh strategy, and last verification are already covered by the registry/crawl index; language, effective-date, owner, selector strategy, and route mapping remain useful metadata-hardening backlog.",
+    "These checks make crawler operations explicit. Core fields, refresh strategy, and last verification are covered by the registry/crawl index; language, date-tracking, owner, and selector strategy are derived into `data/knowledge/source-ops-metadata.json` so crawler and review operations can reuse them without recrawling.",
     "",
     markdownTable(metadataQualityRows, [
       { label: "Check", value: (row) => row.label },
@@ -514,6 +534,7 @@ if (writeReport) {
     "```bash",
     "pnpm report:knowledge-ops",
     "pnpm crawl:knowledge",
+    "pnpm build:source-ops-metadata",
     "pnpm build:knowledge-seed",
     "pnpm validate:knowledge",
     "pnpm validate:coverage",

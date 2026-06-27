@@ -1,10 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { buildSourceOpsMetadata } from "./source-ops-metadata.mjs";
 
 const root = process.cwd();
 
 const paths = {
   sourceRegistry: path.join(root, "data", "knowledge", "source-registry.json"),
+  sourceOpsMetadata: path.join(root, "data", "knowledge", "source-ops-metadata.json"),
   crawlIndex: path.join(root, "data", "knowledge", "index.json"),
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
   aliasQueue: path.join(root, "data", "knowledge", "alias-review-queue.json"),
@@ -312,6 +314,7 @@ ${markdownTable(memory.coverage_groups, [
 ${markdownTable(sourceRows, [
   { label: "Source", value: (row) => row.id },
   { label: "Domain", value: (row) => row.domain_label },
+  { label: "Owner", value: (row) => row.review_owner },
   { label: "Priority", value: (row) => row.priority },
   { label: "Status", value: (row) => row.cache_status },
   { label: "Evidence", value: (row) => row.evidence_mode },
@@ -360,8 +363,9 @@ ${memory.search_playbook.map((item) => `- **${item.intent}**: ${item.query_examp
 `;
 }
 
-const [registry, crawlIndex, termIndex, aliasQueue, updateQueue, coverage] = await Promise.all([
+const [registry, persistedSourceOpsMetadata, crawlIndex, termIndex, aliasQueue, updateQueue, coverage] = await Promise.all([
   readJson(paths.sourceRegistry),
+  readJson(paths.sourceOpsMetadata),
   readJson(paths.crawlIndex),
   readJson(paths.termIndex),
   readJson(paths.aliasQueue),
@@ -370,6 +374,12 @@ const [registry, crawlIndex, termIndex, aliasQueue, updateQueue, coverage] = awa
 ]);
 
 const sourceRegistryById = new Map((registry.sources ?? []).map((source) => [source.id, source]));
+const expectedSourceOpsMetadata = buildSourceOpsMetadata(registry);
+const sourceOpsMetadata =
+  JSON.stringify(persistedSourceOpsMetadata) === JSON.stringify(expectedSourceOpsMetadata)
+    ? persistedSourceOpsMetadata
+    : expectedSourceOpsMetadata;
+const sourceOpsById = new Map((sourceOpsMetadata.sources ?? []).map((source) => [source.id, source]));
 const crawlResultsById = new Map((crawlIndex.results ?? []).map((source) => [source.id, source]));
 const terms = termIndex.terms ?? [];
 const coverageGroups = coverage.groups ?? [];
@@ -390,6 +400,7 @@ const sourceCards = [...selectedSourceIds]
   .map((id) => {
     const result = crawlResultsById.get(id) ?? {};
     const source = sourceRegistryById.get(id) ?? {};
+    const sourceOps = sourceOpsById.get(id) ?? {};
     return {
       id,
       title: result.title ?? source.title ?? id,
@@ -400,6 +411,11 @@ const sourceCards = [...selectedSourceIds]
       domain_label: labelFor(result.domain ?? source.domain),
       source_type: result.source_type ?? source.source_type ?? "",
       source_type_label: labelFor(result.source_type ?? source.source_type),
+      languages: sourceOps.languages ?? [],
+      review_owner: sourceOps.review_owner ?? "knowledge-ops",
+      selector_strategy: sourceOps.selector_strategy ?? "",
+      date_strategy: sourceOps.date_strategy ?? "",
+      evidence_policy: sourceOps.evidence_policy ?? "",
       priority: result.priority ?? source.priority ?? "medium",
       tags: unique([...(result.tags ?? []), ...(source.tags ?? [])]).slice(0, 8),
       cache_status: result.cache_status ?? "unknown",
@@ -475,6 +491,7 @@ const memory = {
     .at(-1),
   generated_from: {
     source_registry_version: registry.version,
+    source_ops_metadata_sources: sourceOpsMetadata.sources?.length ?? 0,
     crawl_generated_at: crawlIndex.generated_at,
     term_index_generated_at: termIndex.generated_at,
     alias_queue_generated_at: aliasQueue.generated_at,
@@ -516,17 +533,17 @@ const memory = {
   search_playbook: [
     {
       intent: "Cosmetic PIF or product registration",
-      query_examples: ["PIF", "產品資訊檔案", "대만 화장품 PIF", "product registration"],
+      query_examples: ["PIF", "產品資訊檔案", "化粧品產品登錄", "대만 화장품 PIF", "product registration"],
       route: "Start with cosmetics source cards, then term cards for PIF, notification, registration categories, and specific-purpose cosmetics transition."
     },
     {
       intent: "Food additive or ingredient status",
-      query_examples: ["food additive", "食品添加物", "permit number", "common name"],
+      query_examples: ["food additive", "食品添加物", "食品添加物許可證", "첨가물 허가번호", "common name"],
       route: "Search food additives and ingredient query sources before treating a common name as permitted."
     },
     {
       intent: "Allergen or nutrition labeling",
-      query_examples: ["allergen labeling", "甲殼類", "nutrition labeling", "SO2"],
+      query_examples: ["allergen labeling", "過敏原標示", "甲殼類", "nutrition labeling", "營養標示", "SO2"],
       route: "Use food labeling/allergen coverage first; ask for finished-product category and ingredient source when alias context is ambiguous."
     },
     {

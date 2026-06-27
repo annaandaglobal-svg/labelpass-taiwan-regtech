@@ -1,0 +1,1837 @@
+{
+  "schema_version": 1,
+  "generated_from": {
+    "source_registry_version": "2026-06-26",
+    "source_count": 166
+  },
+  "sources": [
+    {
+      "id": "tw-moj-commodity-labeling-act",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "consumer-goods-labeling",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-cosmetic-hygiene-safety-act",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-cosmetic-claims-criteria",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-pif-implementation",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-pif-hub-zh",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-announcements",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetics-management-framework",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetics-law-regulations-index",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetics-gmp-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetics-manufactory-standards",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-adverse-event-reporting-system",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-adverse-event-qms-platform",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "tw-moj-cosmetic-serious-adverse-reporting",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-cosmetics-recall-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-cosmetic-source-flow-data",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-prohibited-ingredients",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "open-data-json",
+      "date_strategy": "open-data-dataset-update-timestamp",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "structured-open-data-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-restricted-ingredients",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "open-data-json",
+      "date_strategy": "open-data-dataset-update-timestamp",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "structured-open-data-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-colorants",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "open-data-json",
+      "date_strategy": "open-data-dataset-update-timestamp",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "structured-open-data-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-preservatives",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "open-data-json",
+      "date_strategy": "open-data-dataset-update-timestamp",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "structured-open-data-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-sunscreen-ingredients",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "open-data-json",
+      "date_strategy": "open-data-dataset-update-timestamp",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "structured-open-data-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-product-registration-zone",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-product-registration-system",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-database-landing-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-fadenbook-platform",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-tfda-cosmetics-business-area",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-imported-cosmetics-inspection",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetics-management-transition-2021",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-cosmetic-product-notification",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-cosmetic-pif-management",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-food-safety-sanitation-act",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-nutrition-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-enforcement-rules",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-standards",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-registration-materials",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-additives",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-registration-announcements",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-additives",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-permit-query",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-additives",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-tfda-food-registration-permit-management-rule",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-additives",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-nutrition-claim-prepackaged-food",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-sweetness-claim-prepackaged-food",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-law-regulations-index",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-gmo-prepackaged-food-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-milk-product-name-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-nutrition-labeling-exemptions",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-specific-fish-species-name-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-allergen-labeling",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-allergen-labeling-en",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-recommended-allergen-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-common-names",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-common-names-en",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-additive-common-names-table",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-allergen-labeling-consumer-notice",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-front-of-package-nutrition-labeling",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-small-prepackaged-food-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-bulk-food-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-business-use-intact-package-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-import-inspection-exemptions",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-compound-food-additive-import-documents",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-imported-food-inspection-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-inspections-law-regulations-index",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-systematic-inspection-imported-food",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-shellfish-hs0307-health-certificate",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-business-registration-importers",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-food-pesticide-residue-limits",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-animal-product-pesticide-residue-limits",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-food-veterinary-drug-residue-limits",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-food-contaminants-toxins",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-microorganisms-standard",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-traceability",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-food-recall-destruction",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-ghp-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-contact-packaging-labeling-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-contact-materials",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-contact-packaging-required-items",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-contact-materials",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-food-contact-sanitation-standards",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-contact-materials",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-container-smart-use-2026",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-contact-materials",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-health-food-governing-act",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-health-food-enforcement-rules",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-health-food-permit-query",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-tfda-formula-for-certain-disease-labeling-2025",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-special-dietary-food",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-special-disease-food-permit-query",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-special-dietary-food",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-tfda-food-ingredient-integration-query-platform",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-database-landing-capture",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-ingredient-query-platform-direct",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-database-landing-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-business-info-query-links",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-illegal-advertising-query",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-trade-import-export-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-foreign-trade-act",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-import-commodities-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-export-commodities-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-exporter-importer-registration",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-trade-import-export-administration",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-trade-ccc-import-export-regulations",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-trade-commodity-classification-guide",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "official-database-landing-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-tariff-database-download",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "weekly-high-priority-watch",
+      "evidence_policy": "browser-visible-text"
+    },
+    {
+      "id": "tw-customs-tariff-system",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-advance-tariff-classification-ruling",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-imported-goods-advance-tariff-classification-ruling",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-trade-origin-textiles-2023",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "origin-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-origin-importers",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-export-origin-packaging",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-customs-act",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-import-cargo-clearance",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-customs-valuation",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-shtc-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moj-shtc-export-import-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "law-database-article-extract",
+      "date_strategy": "moj-law-amended-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-shtc-dual-use-list",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-trade-shtc-bilingual-glossary",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-bsmi-commodity-inspection-mark",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "product-certification",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-moea-commodity-inspection-mark-law",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "product-certification",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "tw-bsmi-commodity-inspection-schemes",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "product-certification",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-us-ita-labeling-marking",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "market-guide",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "global-wto-tbt-legal-text",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "terminology-alias-ops",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "global-wco-harmonized-system",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "terminology-alias-ops",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "global-unece-ghs-rev11",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "chemical-ghs-labeling",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "global-unece-ghs-rev11-pdf",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "chemical-ghs-labeling",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "global-codex-nutrition-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "global-codex-prepackaged-food-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "global-pcpc-inci",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "terminology-alias-ops",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "quarterly-or-stable-reference-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "global-cas-registry",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "terminology-alias-ops",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "quarterly-or-stable-reference-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "global-wassenaar-control-lists",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "eu-cosmetics-regulation-1223-2009",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "eu-clp-regulation-1272-2008",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "chemical-ghs-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "eu-echa-clp-overview",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "chemical-ghs-labeling",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "eu-food-information-regulation-1169-2011",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "eu-cosing-cosmetic-ingredients",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "terminology-alias-ops",
+      "selector_strategy": "official-database-landing-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "eu-dual-use-regulation-2021-821",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-ecfr-cosmetic-labeling-21-cfr-701",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "ecfr-xml-api",
+      "date_strategy": "ecfr-latest-issue-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-fda-cosmetic-labeling-guide",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-ecfr-food-labeling-21-cfr-101",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "ecfr-xml-api",
+      "date_strategy": "ecfr-latest-issue-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-ecfr-origin-marking-19-cfr-134",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "origin-labeling",
+      "selector_strategy": "ecfr-xml-api",
+      "date_strategy": "ecfr-latest-issue-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-osha-hazcom-29-cfr-1910-1200",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "chemical-ghs-labeling",
+      "selector_strategy": "ecfr-xml-api",
+      "date_strategy": "ecfr-latest-issue-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-bis-ear-overview",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "us-itc-harmonized-tariff",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "jp-customs-tariff-schedule",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "jp-customs-origin-verification",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "origin-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "jp-meti-security-export-control",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "jp-mhlw-standards-for-cosmetics",
+      "languages": [
+        "en",
+        "ja"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "kr-mfds-cosmetic-framework",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "kr-mfds-cosmetic-labeling-advertisement",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "kr-mfds-cosmetic-precautions-labeling",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "kr-customs-tariff-list",
+      "languages": [
+        "en",
+        "ko"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "cn-nmpa-cosmetics-hub",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "cn-nmpa-cosmetics-labeling-measures",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "cn-nmpa-cosmetics-registration-filing",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "cn-customs-import-export-tariff-regulations",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "customs-origin-classification",
+      "selector_strategy": "browser-visible-text-capture",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "browser-text-and-screenshot"
+    },
+    {
+      "id": "cn-mofcom-export-control-portal",
+      "languages": [
+        "zh-Hans"
+      ],
+      "review_owner": "export-control",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "asean-cosmetic-directive",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "asean-cosmetic-labeling-requirements",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "asean-cosmetic-claims-guideline",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "quarterly-or-stable-reference-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "asean-cosmetic-technical-documents",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "index-item-publication-date-scan",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "asean-rules-of-origin-registry",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "origin-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-pif-category-implementation-2024",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-product-registration-categories-2024",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-cosmetic-spray-use-safety-guideline",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-cosmetics-labeling-pif",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-food-labeling-handbook-2026",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-labeling",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-imported-food-inspection-forms",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-imported-food-inspection-field-declaration-2024",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "biweekly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-trade-import-regulation-code-instruction",
+      "languages": [
+        "en"
+      ],
+      "review_owner": "trade-import-export-controls",
+      "selector_strategy": "manual-operational-extract",
+      "date_strategy": "page-update-or-publication-date",
+      "refresh_strategy": "biweekly-watch",
+      "evidence_policy": "manual-extract-with-live-url-verification"
+    },
+    {
+      "id": "tw-tfda-food-related-products-permit-document-management",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-import",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-health-food-application-permit-regulations",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-health-food-labeling-regulations",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "pdf-text-extract",
+      "date_strategy": "pdf-frontmatter-or-notice-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "pdf-text-cache"
+    },
+    {
+      "id": "tw-tfda-health-food-health-care-effect-items-2025",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-health-food-effect-assessment-methods-hub",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-health-food",
+      "selector_strategy": "official-index-listing-extract",
+      "date_strategy": "tfda-index-item-date-scan",
+      "refresh_strategy": "monthly-watch",
+      "evidence_policy": "official-page-text-cache"
+    },
+    {
+      "id": "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+      "languages": [
+        "zh-Hant"
+      ],
+      "review_owner": "tw-food-safety",
+      "selector_strategy": "official-html-main-content",
+      "date_strategy": "tfda-update-announced-date",
+      "refresh_strategy": "monthly-high-priority-watch",
+      "evidence_policy": "official-page-text-cache"
+    }
+  ]
+}

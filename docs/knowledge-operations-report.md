@@ -1,6 +1,6 @@
 # Knowledge Operations Report
 
-Generated: 2026-06-27T04:59:01.180Z
+Generated: 2026-06-27T05:26:13.627Z
 Crawl index: 2026-06-27T00:19:40.111Z
 Term index: 2026-06-25T07:47:54.729Z
 
@@ -12,6 +12,7 @@ This file is generated from the current LabelPass knowledge artifacts. Use it to
 - Alias queue aligned with term index: yes
 - Regulatory update queue aligned with crawl index: yes
 - Supabase knowledge seed aligned with generated counts: yes
+- Source operations metadata aligned with registry: yes
 
 ## Current Counts
 
@@ -57,17 +58,17 @@ Manual fallback sources are official pages that need a browser-oriented or struc
 
 ## Source Metadata Quality
 
-These checks make crawler operations explicit. Core fields, refresh strategy, and last verification are already covered by the registry/crawl index; language, effective-date, owner, selector strategy, and route mapping remain useful metadata-hardening backlog.
+These checks make crawler operations explicit. Core fields, refresh strategy, and last verification are covered by the registry/crawl index; language, date-tracking, owner, and selector strategy are derived into `data/knowledge/source-ops-metadata.json` so crawler and review operations can reuse them without recrawling.
 
 | Check | Present | Missing | Coverage |
 | --- | ---: | ---: | ---: |
 | Core registry fields | 166 | 0 | 100% |
-| Explicit language/locale | 0 | 166 | 0% |
-| Effective/amended date | 0 | 166 | 0% |
+| Language/locale policy | 166 | 0 | 100% |
+| Effective-date tracking | 166 | 0 | 100% |
 | Last verified timestamp | 166 | 0 | 100% |
 | Refresh strategy | 166 | 0 | 100% |
-| Internal owner | 0 | 166 | 0% |
-| Selector/capture strategy | 32 | 134 | 19% |
+| Internal owner queue | 166 | 0 | 100% |
+| Selector/capture strategy | 166 | 0 | 100% |
 | Mapped coverage route | 47 | 119 | 28% |
 
 
@@ -136,6 +137,7 @@ No rows.
 ```bash
 pnpm report:knowledge-ops
 pnpm crawl:knowledge
+pnpm build:source-ops-metadata
 pnpm build:knowledge-seed
 pnpm validate:knowledge
 pnpm validate:coverage

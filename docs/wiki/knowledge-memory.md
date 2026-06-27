@@ -35,44 +35,44 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 ## Source Cards
 
-| Source | Domain | Priority | Status | Evidence | Title |
-| --- | --- | --- | --- | --- | --- |
-| tw-moj-cosmetic-claims-criteria | Cosmetics | high | fresh | cache | Regulations Governing Criteria for the Label, Promotion, Advertisement with Deception, Exaggeration, or Medical efficacy of Cosmetic Products |
-| tw-moj-cosmetic-hygiene-safety-act | Cosmetics | high | fresh | cache | Taiwan Cosmetic Hygiene and Safety Act |
-| tw-moj-cosmetic-pif-management | Cosmetics | high | fresh | cache | Regulations for Cosmetic Product Information File Management |
-| tw-moj-cosmetic-product-notification | Cosmetics | high | fresh | cache | Regulations Governing Notification of Cosmetic Products |
-| tw-moj-cosmetic-serious-adverse-reporting | Cosmetics | high | fresh | cache | Regulations for Reporting Cosmetics Serious Adverse Effects and Hazards to Hygiene and Safety |
-| tw-moj-cosmetic-source-flow-data | Cosmetics | high | fresh | cache | Regulations Governing the Source and the Flow Data of Cosmetic Products |
-| tw-moj-cosmetics-recall-regulations | Cosmetics | high | fresh | cache | Regulations for Cosmetics Recall |
-| tw-tfda-cosmetic-adverse-event-qms-platform | Cosmetics | high | fresh | browser_capture | TFDA Post-Market Quality Management System |
-| tw-tfda-cosmetic-adverse-event-reporting-system | Cosmetics | high | fresh | cache | TFDA National Cosmetics Adverse Event Reporting System |
-| tw-tfda-cosmetic-announcements | Cosmetics | high | fresh | cache | TFDA Cosmetic Latest Announcements |
-| tw-tfda-cosmetic-colorants | Cosmetics | high | fresh | cache | Cosmetics Colorants Use Restrictions Open Data |
-| tw-tfda-cosmetic-fadenbook-platform | Cosmetics | high | fresh | browser_capture | TFDA Food and Drug Business Registration Platform |
-| tw-tfda-cosmetic-label-leaflet-packaging-marking | Cosmetics | high | fresh | pdf | Cosmetic Outer Package, Container, Label and Package Insert Marking Rules |
-| tw-tfda-cosmetic-pif-category-implementation-2024 | Cosmetics | high | fresh | html | Cosmetic PIF Category Implementation Notice |
-| tw-tfda-cosmetic-preservatives | Cosmetics | high | fresh | cache | Cosmetics Preservatives Names and Use Restrictions Open Data |
-| tw-tfda-cosmetic-product-registration-categories-2024 | Cosmetics | high | fresh | html | Cosmetic Product Registration Category Notice |
-| tw-tfda-cosmetic-product-registration-system | Cosmetics | high | fresh | html | TFDA Cosmetic Product Registration Platform |
-| tw-tfda-cosmetic-product-registration-zone | Cosmetics | high | fresh | cache | Cosmetic Product Registration Zone |
-| tw-tfda-cosmetic-prohibited-ingredients | Cosmetics | high | fresh | cache | Cosmetics Prohibited Ingredients Open Data |
-| tw-tfda-cosmetic-restricted-ingredients | Cosmetics | high | fresh | cache | Cosmetics Restricted Ingredients Open Data |
-| tw-tfda-cosmetic-sunscreen-ingredients | Cosmetics | high | fresh | cache | Cosmetics Sunscreen Ingredients Use Restrictions Open Data |
-| tw-tfda-cosmetics-gmp-regulations | Cosmetics | high | fresh | html | Cosmetics Good Manufacturing Practice Regulations |
-| tw-tfda-cosmetics-law-regulations-index | Cosmetics | high | fresh | html | TFDA Cosmetics Guidance, Law and Regulations Index |
-| tw-tfda-cosmetics-management-framework | Cosmetics | high | fresh | cache | TFDA Cosmetics Management Framework |
-| tw-tfda-pif-hub-zh | Cosmetics | high | fresh | cache | TFDA PIF laws and guidance hub |
-| tw-tfda-pif-implementation | Cosmetics | high | fresh | cache | Cosmetic Product Information Files to Be Implemented in Phases |
-| tw-tfda-specific-purpose-cosmetics-permit-repeal-2024 | Cosmetics | high | fresh | html | Specific Purpose Cosmetics Permit Transition Notice |
-| tw-customs-import-cargo-clearance | Customs | high | fresh | html | Import Cargo Clearance |
-| tw-customs-imported-goods-advance-tariff-classification-ruling | Customs | high | fresh | cache | Introduction to Advance Tariff Classification Ruling on Imported Goods |
-| tw-customs-tariff-database-download | Customs | high | fresh | browser_capture | GC453 Tariff Database Download |
-| tw-customs-tariff-system | Customs | high | fresh | cache | Tariff System - Customs Administration |
-| tw-customs-valuation | Customs | high | fresh | html | Customs Valuation |
-| tw-moj-customs-act | Customs | high | fresh | cache | Customs Act |
-| tw-tfda-food-additive-permit-query | Food additives | high | fresh | browser_capture | Food Additive Permit Data Query |
-| tw-tfda-food-additive-registration-announcements | Food additives | high | fresh | cache | Food Additive Registration Legal Announcements |
-| tw-tfda-food-additive-registration-materials | Food additives | high | fresh | cache | Food Additive Inspection Registration Materials |
+| Source | Domain | Owner | Priority | Status | Evidence | Title |
+| --- | --- | --- | --- | --- | --- | --- |
+| tw-moj-cosmetic-claims-criteria | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations Governing Criteria for the Label, Promotion, Advertisement with Deception, Exaggeration, or Medical efficacy of Cosmetic Products |
+| tw-moj-cosmetic-hygiene-safety-act | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Taiwan Cosmetic Hygiene and Safety Act |
+| tw-moj-cosmetic-pif-management | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations for Cosmetic Product Information File Management |
+| tw-moj-cosmetic-product-notification | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations Governing Notification of Cosmetic Products |
+| tw-moj-cosmetic-serious-adverse-reporting | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations for Reporting Cosmetics Serious Adverse Effects and Hazards to Hygiene and Safety |
+| tw-moj-cosmetic-source-flow-data | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations Governing the Source and the Flow Data of Cosmetic Products |
+| tw-moj-cosmetics-recall-regulations | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations for Cosmetics Recall |
+| tw-tfda-cosmetic-adverse-event-qms-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Post-Market Quality Management System |
+| tw-tfda-cosmetic-adverse-event-reporting-system | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA National Cosmetics Adverse Event Reporting System |
+| tw-tfda-cosmetic-announcements | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetic Latest Announcements |
+| tw-tfda-cosmetic-colorants | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Colorants Use Restrictions Open Data |
+| tw-tfda-cosmetic-fadenbook-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Food and Drug Business Registration Platform |
+| tw-tfda-cosmetic-label-leaflet-packaging-marking | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | pdf | Cosmetic Outer Package, Container, Label and Package Insert Marking Rules |
+| tw-tfda-cosmetic-pif-category-implementation-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | Cosmetic PIF Category Implementation Notice |
+| tw-tfda-cosmetic-preservatives | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Preservatives Names and Use Restrictions Open Data |
+| tw-tfda-cosmetic-product-registration-categories-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | Cosmetic Product Registration Category Notice |
+| tw-tfda-cosmetic-product-registration-system | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | TFDA Cosmetic Product Registration Platform |
+| tw-tfda-cosmetic-product-registration-zone | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Product Registration Zone |
+| tw-tfda-cosmetic-prohibited-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Prohibited Ingredients Open Data |
+| tw-tfda-cosmetic-restricted-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Restricted Ingredients Open Data |
+| tw-tfda-cosmetic-sunscreen-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Sunscreen Ingredients Use Restrictions Open Data |
+| tw-tfda-cosmetics-gmp-regulations | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | Cosmetics Good Manufacturing Practice Regulations |
+| tw-tfda-cosmetics-law-regulations-index | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | TFDA Cosmetics Guidance, Law and Regulations Index |
+| tw-tfda-cosmetics-management-framework | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetics Management Framework |
+| tw-tfda-pif-hub-zh | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA PIF laws and guidance hub |
+| tw-tfda-pif-implementation | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Product Information Files to Be Implemented in Phases |
+| tw-tfda-specific-purpose-cosmetics-permit-repeal-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | html | Specific Purpose Cosmetics Permit Transition Notice |
+| tw-customs-import-cargo-clearance | Customs | customs-origin-classification | high | fresh | html | Import Cargo Clearance |
+| tw-customs-imported-goods-advance-tariff-classification-ruling | Customs | customs-origin-classification | high | fresh | cache | Introduction to Advance Tariff Classification Ruling on Imported Goods |
+| tw-customs-tariff-database-download | Customs | customs-origin-classification | high | fresh | browser_capture | GC453 Tariff Database Download |
+| tw-customs-tariff-system | Customs | customs-origin-classification | high | fresh | cache | Tariff System - Customs Administration |
+| tw-customs-valuation | Customs | customs-origin-classification | high | fresh | html | Customs Valuation |
+| tw-moj-customs-act | Customs | customs-origin-classification | high | fresh | cache | Customs Act |
+| tw-tfda-food-additive-permit-query | Food additives | tw-food-additives | high | fresh | browser_capture | Food Additive Permit Data Query |
+| tw-tfda-food-additive-registration-announcements | Food additives | tw-food-additives | high | fresh | cache | Food Additive Registration Legal Announcements |
+| tw-tfda-food-additive-registration-materials | Food additives | tw-food-additives | high | fresh | cache | Food Additive Inspection Registration Materials |
 
 
 ## Term Memory Cards
@@ -494,9 +494,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 ## Retrieval Playbook
 
-- **Cosmetic PIF or product registration**: PIF, 產品資訊檔案, 대만 화장품 PIF, product registration -> Start with cosmetics source cards, then term cards for PIF, notification, registration categories, and specific-purpose cosmetics transition.
-- **Food additive or ingredient status**: food additive, 食品添加物, permit number, common name -> Search food additives and ingredient query sources before treating a common name as permitted.
-- **Allergen or nutrition labeling**: allergen labeling, 甲殼類, nutrition labeling, SO2 -> Use food labeling/allergen coverage first; ask for finished-product category and ingredient source when alias context is ambiguous.
+- **Cosmetic PIF or product registration**: PIF, 產品資訊檔案, 化粧品產品登錄, 대만 화장품 PIF, product registration -> Start with cosmetics source cards, then term cards for PIF, notification, registration categories, and specific-purpose cosmetics transition.
+- **Food additive or ingredient status**: food additive, 食品添加物, 食品添加物許可證, 첨가물 허가번호, common name -> Search food additives and ingredient query sources before treating a common name as permitted.
+- **Allergen or nutrition labeling**: allergen labeling, 過敏原標示, 甲殼類, nutrition labeling, 營養標示, SO2 -> Use food labeling/allergen coverage first; ask for finished-product category and ingredient source when alias context is ambiguous.
 - **Import, HS/CCC, customs, origin**: HS code, CCC code, origin labeling, food importer registration -> Use customs and food import source cards; keep classification, importer registration, and labeling as separate checks.
 - **Same ingredient under many names**: INCI, CAS RN, Korean name, Traditional Chinese name -> Normalize via term aliases but confirm category and jurisdiction before final ranking when the alias review queue flags a collision.
 
