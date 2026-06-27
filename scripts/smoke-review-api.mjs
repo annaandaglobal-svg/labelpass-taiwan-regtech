@@ -1,6 +1,65 @@
 const baseUrl = process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000";
 const foodAdditivePermitQueryUrl = "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162";
 const foodIngredientDirectQueryUrl = "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160";
+const mojibakePattern = /窶|諤|鴗|貐|賱|�|[\uE000-\uF8FF]|銝|嚗|瑼|撟|靽|甈|摰|蝣|瘛|鞈/;
+
+function collectStrings(value, path = "$", output = []) {
+  if (typeof value === "string") {
+    output.push({ path, value });
+    return output;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectStrings(item, `${path}[${index}]`, output));
+    return output;
+  }
+  if (value && typeof value === "object") {
+    Object.entries(value).forEach(([key, item]) => collectStrings(item, `${path}.${key}`, output));
+  }
+  return output;
+}
+
+function presentationStrings(result) {
+  return [
+    ...(result.findings ?? []).flatMap((finding) => [
+      finding.area,
+      finding.title,
+      finding.why,
+      finding.source,
+      ...(finding.fix ?? [])
+    ]),
+    result.actionPlan?.nextAction,
+    ...(result.actionPlan?.ownerSummary ?? []).map((owner) => owner.owner),
+    ...(result.actionPlan?.actionItems ?? []).flatMap((item) => [
+      item.owner,
+      item.title,
+      item.impact,
+      item.eta,
+      item.primaryFix,
+      item.source
+    ]),
+    ...(result.actionPlan?.documentChecklist ?? []).flatMap((doc) => [doc.name, doc.owner]),
+    ...(result.actionPlan?.evidencePack ?? []).flatMap((item) => [item.title, item.source])
+  ].filter(Boolean).map(String);
+}
+
+function assertCleanPresentation(caseName, result) {
+  const broken = presentationStrings(result).find((value) => mojibakePattern.test(value));
+  if (broken) {
+    throw new Error(`${caseName}: review presentation contains mojibake: ${broken}`);
+  }
+}
+
+function assertCleanReviewSurface(caseName, result) {
+  const surface = {
+    parsedIngredients: result.parsedIngredients,
+    findings: result.findings,
+    actionPlan: result.actionPlan
+  };
+  const broken = collectStrings(surface).find(({ value }) => mojibakePattern.test(value) || /\?{2,}/.test(value));
+  if (broken) {
+    throw new Error(`${caseName}: review API surface contains mojibake at ${broken.path}: ${broken.value}`);
+  }
+}
 
 const baseInput = {
   productName: "Glow Repair Toner",
@@ -52,6 +111,8 @@ for (const testCase of cases) {
   }
 
   const result = await response.json();
+  assertCleanPresentation(testCase.name, result);
+  assertCleanReviewSurface(testCase.name, result);
 
   if (result.status !== "fail") {
     throw new Error(`${testCase.name}: expected fail status, got ${result.status}`);
@@ -68,6 +129,33 @@ for (const testCase of cases) {
   if (!result.findings.some((finding) => String(finding.evidence ?? "").includes("matched alias:"))) {
     throw new Error(`${testCase.name}: expected matched alias trace in finding evidence`);
   }
+}
+
+const mojibakeReviewResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    ...baseInput,
+    productName: "Mojibake Guard Toner",
+    ingredientsText: "Water, Glycerin, 銝嚗瑼 Triclosan 0.4%, �bad token, Phenoxyethanol 2%",
+    labelText: "Product name: Mojibake Guard Toner. Made in Korea. Claims: repairs acne. 銝嚗瑼"
+  })
+});
+
+if (!mojibakeReviewResponse.ok) {
+  throw new Error(`Mojibake review: Review API returned ${mojibakeReviewResponse.status}`);
+}
+
+const mojibakeReviewResult = await mojibakeReviewResponse.json();
+assertCleanPresentation("Mojibake review", mojibakeReviewResult);
+assertCleanReviewSurface("Mojibake review", mojibakeReviewResult);
+
+if (!mojibakeReviewResult.findings?.some((finding) => finding.id.includes("triclosan") && !mojibakePattern.test(finding.id))) {
+  throw new Error("Mojibake review: expected sanitized Triclosan finding id");
+}
+
+if (!mojibakeReviewResult.parsedIngredients?.every((ingredient) => !mojibakePattern.test(`${ingredient.raw} ${ingredient.name}`))) {
+  throw new Error("Mojibake review: expected sanitized parsed ingredients");
 }
 
 const foodResponse = await fetch(`${baseUrl}/api/review`, {
@@ -88,6 +176,8 @@ if (!foodResponse.ok) {
 }
 
 const foodResult = await foodResponse.json();
+assertCleanPresentation("Food review", foodResult);
+assertCleanReviewSurface("Food review", foodResult);
 
 if (foodResult.ruleVersion !== "TW-FOOD-2026.06-draft") {
   throw new Error(`Food review: expected TW food rule version, got ${foodResult.ruleVersion}`);
@@ -1496,5 +1586,5 @@ if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeI
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 24} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${cases.length + 25} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

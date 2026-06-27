@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { evaluateReview } from "@/lib/compliance";
+import { presentReviewResult } from "@/lib/review-presentation";
 
 export const runtime = "nodejs";
 
@@ -32,5 +33,5 @@ export async function POST(request: Request) {
   }
 
   const result = evaluateReview(parsed.data);
-  return NextResponse.json(result);
+  return NextResponse.json(presentReviewResult(parsed.data, result));
 }
