@@ -234,6 +234,10 @@ requireMaxPx(adminMetric, "padding", 12, "src/app/globals.css .admin-metric");
 const adminMetricValue = cssRule(css, ".admin-metric strong");
 requireMaxPx(adminMetricValue, "font-size", 21, "src/app/globals.css .admin-metric strong");
 
+requireIncludes(css, ".admin-queue-link", "src/app/globals.css linked admin queue card");
+requireIncludes(css, ".admin-queue-item.review > span", "src/app/globals.css admin queue review tone");
+requireIncludes(css, ".admin-queue-item.waiting > span", "src/app/globals.css admin queue waiting tone");
+
 const adminOpsDryRun = cssRule(css, ".admin-ops-dry-run button");
 requireMaxPx(adminOpsDryRun, "min-height", 38, "src/app/globals.css .admin-ops-dry-run button");
 requireMaxPx(adminOpsDryRun, "font-size", 13, "src/app/globals.css .admin-ops-dry-run button");

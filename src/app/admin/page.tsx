@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 import { getAliasReviewQueue } from "@/lib/alias-review";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
-import { adminMetrics, adminQueue, platformModules } from "@/lib/platform-admin";
-import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
+import { adminMetrics, platformModules } from "@/lib/platform-admin";
+import { buildPlatformOpsActionQueue, getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
 const moduleIcons: Record<string, ReactNode> = {
   organizations: <Users size={18} />,
@@ -39,6 +39,7 @@ export default async function AdminPage() {
   const totals = searchKnowledge("").totals;
   const aliasQueue = getAliasReviewQueue();
   const opsSnapshot = await getPlatformOpsSnapshot();
+  const actionQueue = buildPlatformOpsActionQueue(opsSnapshot);
   const visibleOpsCount =
     opsSnapshot.counts.organizations +
     opsSnapshot.counts.expertMatches +
@@ -125,20 +126,20 @@ export default async function AdminPage() {
           <div className="admin-panel-head">
             <div>
               <span>다음 작업</span>
-              <h2>운영 큐</h2>
+              <h2>오늘 처리할 큐</h2>
             </div>
             <ShieldCheck size={18} />
           </div>
           <div className="admin-queue-list">
-            {adminQueue.map((item) => (
-              <div key={item.id} className={`admin-queue-item ${item.status}`}>
-                <span>{item.status}</span>
+            {actionQueue.map((item) => (
+              <Link key={item.id} className={`admin-queue-item admin-queue-link ${item.tone}`} href={item.href}>
+                <span>{item.label}</span>
                 <b>{item.title}</b>
-                <p>{item.note}</p>
+                <p>{item.next}</p>
                 <small>
-                  {item.owner} / {item.due}
+                  {item.detail} / {item.owner}
                 </small>
-              </div>
+              </Link>
             ))}
           </div>
         </article>

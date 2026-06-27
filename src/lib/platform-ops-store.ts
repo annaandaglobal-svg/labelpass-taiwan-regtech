@@ -187,6 +187,19 @@ export type PlatformOpsNavBadge = {
 
 export type PlatformOpsNavBadges = Partial<Record<string, PlatformOpsNavBadge>>;
 
+export type PlatformOpsQueueTone = "ready" | "review" | "blocked" | "waiting";
+
+export type PlatformOpsActionQueueItem = {
+  id: string;
+  href: string;
+  tone: PlatformOpsQueueTone;
+  label: string;
+  title: string;
+  detail: string;
+  next: string;
+  owner: string;
+};
+
 type OrganizationRow = {
   name: string;
   primary_market: string;
@@ -905,19 +918,124 @@ function nonzeroBadge(count: number, tone: PlatformOpsNavBadge["tone"], label: s
   return count > 0 ? { count, tone, label } : undefined;
 }
 
+function isOpenReviewFlow(flow: PlatformReviewFlow) {
+  return !/completed|done|closed|완료|종료/i.test(flow.status);
+}
+
+function paymentNeedsAttention(payment: PlatformPaymentRow) {
+  return (
+    payment.status === "pending" ||
+    payment.status === "failed" ||
+    payment.status === "refunded" ||
+    payment.chatThreadStatus === "payment_required"
+  );
+}
+
+function queuePriority(tone: PlatformOpsQueueTone) {
+  if (tone === "blocked") return 0;
+  if (tone === "waiting") return 1;
+  if (tone === "review") return 2;
+  return 3;
+}
+
+export function buildPlatformOpsActionQueue(snapshot: PlatformOpsSnapshot, limit = 6): PlatformOpsActionQueueItem[] {
+  const items: PlatformOpsActionQueueItem[] = [];
+
+  for (const [index, flow] of snapshot.reviewFlows.entries()) {
+    if (!isOpenReviewFlow(flow)) continue;
+    items.push({
+      id: `review-${index}-${flow.product}`,
+      href: "/admin/reviews",
+      tone: "review",
+      label: "리뷰 후속",
+      title: flow.product,
+      detail: `${flow.route} / ${flow.status}`,
+      next: flow.next,
+      owner: flow.handoff
+    });
+  }
+
+  for (const item of snapshot.expertCases) {
+    if (item.state !== "requested" && item.state !== "matched" && item.queueTone !== "blocked") continue;
+    items.push({
+      id: `expert-${item.id}`,
+      href: "/admin/experts",
+      tone: item.queueTone === "blocked" ? "blocked" : item.state === "requested" ? "waiting" : "ready",
+      label: "전문가",
+      title: item.product,
+      detail: `${item.displayId ?? item.id} / ${item.company} / ${item.expert}`,
+      next: item.next,
+      owner: item.reviewHandoff
+    });
+  }
+
+  for (const payment of snapshot.payments) {
+    if (!paymentNeedsAttention(payment)) continue;
+    items.push({
+      id: `payment-${payment.id}`,
+      href: "/admin/payments",
+      tone: payment.status === "failed" || payment.status === "refunded" ? "blocked" : "waiting",
+      label: "결제/상담",
+      title: payment.product,
+      detail: `${payment.displayId ?? payment.id} / ${payment.amount} / ${payment.provider}`,
+      next: payment.next,
+      owner: `${payment.expert} / ${payment.chatThreadStatus}`
+    });
+  }
+
+  for (const request of snapshot.shipmentRequests) {
+    if (!["requested", "quoted", "customs_hold"].includes(request.state)) continue;
+    items.push({
+      id: `shipment-request-${request.id}`,
+      href: "/admin/logistics",
+      tone: request.state === "customs_hold" ? "blocked" : request.state === "quoted" ? "review" : "waiting",
+      label: "물류 요청",
+      title: request.product,
+      detail: `${request.displayId ?? request.id} / ${request.lane} / ${request.handoff}`,
+      next: request.next,
+      owner: request.importer
+    });
+  }
+
+  for (const shipment of snapshot.activeShipments) {
+    if (!["booked", "in_transit", "customs_hold"].includes(shipment.state)) continue;
+    items.push({
+      id: `shipment-${shipment.id ?? shipment.reference}`,
+      href: "/admin/logistics",
+      tone: shipment.state === "customs_hold" ? "blocked" : "review",
+      label: shipment.state === "customs_hold" ? "통관 보류" : "선적 추적",
+      title: shipment.product,
+      detail: `${shipment.reference} / ${shipment.carrier} / ${shipment.tracking}`,
+      next: `${shipment.route} / ETA ${shipment.eta}`,
+      owner: shipment.customs
+    });
+  }
+
+  if (snapshot.storage !== "database") {
+    items.push({
+      id: "settings-admin-db",
+      href: "/admin/settings",
+      tone: "blocked",
+      label: "설정",
+      title: "관리자 DB 연결",
+      detail: "현재 관리자 데이터는 읽기 전용 preview로 표시됩니다.",
+      next: snapshot.warnings[0] ?? "SUPABASE_DB_URL과 관리자 preview/write 플래그를 설정합니다.",
+      owner: "보안 설정"
+    });
+  }
+
+  return items
+    .sort((a, b) => queuePriority(a.tone) - queuePriority(b.tone) || a.href.localeCompare(b.href) || a.title.localeCompare(b.title))
+    .slice(0, limit);
+}
+
 export function buildPlatformOpsNavBadges(snapshot: PlatformOpsSnapshot): PlatformOpsNavBadges {
-  const reviewQueue = snapshot.reviewFlows.filter((flow) => !/completed|done|closed|완료|종료/i.test(flow.status)).length;
+  const reviewQueue = snapshot.reviewFlows.filter(isOpenReviewFlow).length;
   const expertQueue = snapshot.expertCases.filter(
     (item) => item.state === "requested" || item.state === "matched" || item.queueTone === "blocked"
   ).length;
   const expertBlocked = snapshot.expertCases.filter((item) => item.queueTone === "blocked").length;
-  const paymentQueue = snapshot.payments.filter(
-    (payment) =>
-      payment.status === "pending" ||
-      payment.status === "failed" ||
-      payment.status === "refunded" ||
-      payment.chatThreadStatus === "payment_required"
-  ).length;
+  const paymentQueue = snapshot.payments.filter(paymentNeedsAttention).length;
   const customsHolds = snapshot.activeShipments.filter((shipment) => shipment.state === "customs_hold").length;
   const logisticsQueue =
     customsHolds +

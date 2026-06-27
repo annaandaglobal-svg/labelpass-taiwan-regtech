@@ -76,10 +76,13 @@ function requireBadge(badges, href, expected) {
 
 requireIncludes(source, "export function getPlatformOpsPreviewSnapshot", "platform ops preview");
 requireIncludes(source, "export function buildPlatformOpsNavBadges", "platform ops nav badges");
+requireIncludes(source, "export function buildPlatformOpsActionQueue", "platform ops action queue");
 requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"disabled\"", "disabled DB fallback");
 requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"preview_disabled\"", "preview-disabled DB fallback");
 requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"error\"", "DB error fallback");
 requireIncludes(adminHome, "visibleOpsCount", "admin dashboard preview metric");
+requireIncludes(adminHome, "buildPlatformOpsActionQueue", "admin dashboard action queue");
+requireIncludes(adminHome, "admin-queue-link", "admin dashboard linked action queue");
 requireIncludes(source, "[\"/admin/reviews\", nonzeroBadge", "review nav badge");
 requireIncludes(source, "\"/admin/experts\"", "expert nav badge");
 requireIncludes(source, "[\"/admin/payments\", nonzeroBadge", "payment nav badge");
@@ -135,8 +138,21 @@ if (source.includes("return emptySnapshot")) {
   fail("getPlatformOpsSnapshot must not return an empty admin snapshot for non-live states");
 }
 
-const { buildPlatformOpsNavBadges, getPlatformOpsPreviewSnapshot } = loadPlatformOpsStore();
+const { buildPlatformOpsActionQueue, buildPlatformOpsNavBadges, getPlatformOpsPreviewSnapshot } = loadPlatformOpsStore();
 const previewSnapshot = getPlatformOpsPreviewSnapshot("disabled", ["preview warning"]);
+const previewActionQueue = buildPlatformOpsActionQueue(previewSnapshot);
+if (previewActionQueue.length !== 6) {
+  fail(`preview action queue: expected 6 items, got ${previewActionQueue.length}`);
+}
+for (const href of ["/admin/experts", "/admin/payments", "/admin/logistics", "/admin/settings"]) {
+  if (!previewActionQueue.some((item) => item.href === href)) fail(`preview action queue: missing ${href}`);
+}
+if (!previewActionQueue.some((item) => item.tone === "blocked")) {
+  fail("preview action queue: expected at least one blocked item");
+}
+if (!previewActionQueue.some((item) => item.label === "통관 보류")) {
+  fail("preview action queue: expected customs hold tracking item");
+}
 const previewBadges = buildPlatformOpsNavBadges(previewSnapshot);
 requireBadge(previewBadges, "/admin", { count: 13, tone: "danger", label: "13개 운영 대기" });
 requireBadge(previewBadges, "/admin/reviews", { count: 4, tone: "warn", label: "4개 리뷰 후속" });

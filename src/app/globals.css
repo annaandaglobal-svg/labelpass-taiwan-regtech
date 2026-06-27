@@ -12646,6 +12646,16 @@ h2 {
   padding: 10px;
 }
 
+.admin-queue-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.admin-queue-link:hover {
+  border-color: var(--green-dark);
+  background: #f7fbf5;
+}
+
 .admin-queue-item > span {
   justify-self: start;
   padding: 4px 7px;
@@ -12659,6 +12669,12 @@ h2 {
 .admin-queue-item.ready > span {
   background: var(--green-soft);
   color: var(--green-dark);
+}
+
+.admin-queue-item.review > span,
+.admin-queue-item.waiting > span {
+  background: #fff6da;
+  color: #8a5a00;
 }
 
 .admin-queue-item.blocked > span {
