@@ -59,22 +59,29 @@ export function AdminOpsReadinessCard() {
         </small>
       </div>
 
-      <div className="admin-ops-flags" aria-label="운영 액션 준비 상태">
-        {flags.map((flag) => (
-          <span key={flag.label} className={flag.ready ? "ready" : "locked"}>
-            {flag.icon}
-            <b>{flag.label}</b>
-            <small>{flag.value}</small>
-          </span>
-        ))}
-      </div>
+      <details className="admin-ops-disclosure">
+        <summary>
+          <span>세부 안전장치</span>
+          <em>{supportedCount}개 상태 전환</em>
+        </summary>
 
-      <div className="admin-ops-foot">
-        <span>{supportedCount}개 상태 전환 지원</span>
-        <code>/api/admin/ops/actions</code>
-      </div>
+        <div className="admin-ops-flags" aria-label="운영 액션 준비 상태">
+          {flags.map((flag) => (
+            <span key={flag.label} className={flag.ready ? "ready" : "locked"}>
+              {flag.icon}
+              <b>{flag.label}</b>
+              <small>{flag.value}</small>
+            </span>
+          ))}
+        </div>
 
-      <AdminOpsDryRunButton />
+        <div className="admin-ops-foot">
+          <span>{supportedCount}개 상태 전환 지원</span>
+          <code>/api/admin/ops/actions</code>
+        </div>
+
+        <AdminOpsDryRunButton />
+      </details>
     </article>
   );
 }

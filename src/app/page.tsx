@@ -793,7 +793,7 @@ export default function Home() {
               <Database size={16} />
               지식베이스
             </Link>
-            <a className="lp-button" href="#intake">
+            <a className="lp-button secondary" href="#intake">
               <ClipboardCheck size={16} />
               자료 입력
             </a>

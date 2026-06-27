@@ -117,11 +117,30 @@ for (const href of requiredAdminRoutes) {
 const css = read("src/app/globals.css");
 const shellRule = cssRule(css, ".lp-shell");
 requireIncludes(shellRule, "display: grid", "src/app/globals.css .lp-shell");
-requireIncludes(shellRule, "grid-template-columns: 236px minmax(0, 1fr)", "src/app/globals.css .lp-shell");
+requireIncludes(shellRule, "grid-template-columns: 224px minmax(0, 1fr)", "src/app/globals.css .lp-shell");
 
 const sidebarRule = cssRule(css, ".lp-sidebar");
 requireIncludes(sidebarRule, "position: sticky", "src/app/globals.css .lp-sidebar");
-requireIncludes(sidebarRule, "height: 100vh", "src/app/globals.css .lp-sidebar");
+requireIncludes(sidebarRule, "height: 100dvh", "src/app/globals.css .lp-sidebar");
+requireIncludes(sidebarRule, "overflow-y: auto", "src/app/globals.css .lp-sidebar");
+
+const appSidebarSource = read("src/components/app-sidebar.tsx");
+requireIncludes(appSidebarSource, 'data-shell-nav="primary"', "src/components/app-sidebar.tsx primary shell nav contract");
+requireIncludes(appSidebarSource, "data-shell-nav-count={navItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
+requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/components/app-sidebar.tsx stable nav item ids");
+for (const navLabel of ["검토 콘솔", "지식 검색", "용어 정리", "운영 관리"]) {
+  requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
+}
+
+const lpNavLink = cssRule(css, ".lp-nav a");
+requireMaxPx(lpNavLink, "min-height", 36, "src/app/globals.css .lp-nav a");
+requireMaxPx(lpNavLink, "font-size", 13, "src/app/globals.css .lp-nav a");
+requireIncludes(css, '.lp-nav a[data-shell-nav-item="admin"]', "src/app/globals.css admin utility nav treatment");
+requireIncludes(css, '.lp-nav a[data-shell-nav-item="admin"].active', "src/app/globals.css admin utility active treatment");
+
+const lpButton = cssRule(css, ".lp-button");
+requireMaxPx(lpButton, "min-height", 36, "src/app/globals.css .lp-button");
+requireMaxPx(lpButton, "font-size", 13, "src/app/globals.css .lp-button");
 
 const reviewWorkbench = cssRule(css, ".lp-workbench");
 requireIncludes(
@@ -137,6 +156,7 @@ if (reviewWorkbenchBreakpoint < 0) {
 
 const homePageSource = read("src/app/page.tsx");
 requireIncludes(homePageSource, 'href="#intake"', "src/app/page.tsx top action");
+requireIncludes(homePageSource, 'className="lp-button secondary" href="#intake"', "src/app/page.tsx intake top action visual weight");
 requireIncludes(homePageSource, 'className="lp-intake-panel" id="intake"', "src/app/page.tsx intake anchor");
 requireIncludes(homePageSource, "aria-label={route.label}", "src/app/page.tsx route card accessible label");
 requireIncludes(homePageSource, "<b>{route.shortLabel}</b>", "src/app/page.tsx compact route card label");
@@ -147,39 +167,51 @@ if (homePageSource.includes('onClick={() => void runReview()} disabled={!readine
 const mobileStart = css.indexOf("@media (max-width: 980px)");
 const mobileCss = mobileStart >= 0 ? css.slice(mobileStart) : "";
 requireCompactIncludes(mobileCss, ".lp-shell { grid-template-columns: 1fr; }", "src/app/globals.css mobile shell");
-requireCompactIncludes(mobileCss, ".lp-sidebar { position: static; height: auto;", "src/app/globals.css mobile sidebar");
+requireCompactIncludes(mobileCss, ".lp-sidebar { position: sticky; top: 0; z-index: 20; height: auto;", "src/app/globals.css mobile sidebar");
 requireCompactIncludes(
   mobileCss,
-  ".lp-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }",
+  ".lp-nav { grid-template-columns: repeat(4, minmax(0, 1fr));",
   "src/app/globals.css mobile primary nav"
 );
 requireCompactIncludes(mobileCss, ".lp-nav a { justify-content: center;", "src/app/globals.css mobile primary nav links");
+requireCompactIncludes(
+  mobileCss,
+  ".admin-section-nav { display: flex; flex-wrap: nowrap; overflow-x: auto;",
+  "src/app/globals.css mobile admin secondary nav"
+);
 
 const adminPrimaryAction = cssRule(css, ".admin-primary-action");
-requireMaxPx(adminPrimaryAction, "min-height", 38, "src/app/globals.css .admin-primary-action");
-requireMaxPx(adminPrimaryAction, "font-size", 13, "src/app/globals.css .admin-primary-action");
+requireMaxPx(adminPrimaryAction, "min-height", 32, "src/app/globals.css .admin-primary-action");
+requireMaxPx(adminPrimaryAction, "font-size", 12, "src/app/globals.css .admin-primary-action");
 if (/width\s*:\s*100%/i.test(adminPrimaryAction)) fail("src/app/globals.css .admin-primary-action: must stay compact, not full-width");
 
 const adminSectionNav = cssRule(css, ".admin-section-nav");
+if (/admin-sidebar|admin-brand|admin-back|admin-nav/.test(css)) fail("src/app/globals.css: legacy separate admin sidebar/nav styles must not return");
+requireIncludes(adminSectionNavSource, 'className="admin-section-nav"', "src/components/admin-section-nav.tsx isolated secondary nav class");
+if (adminSectionNavSource.includes("admin-nav admin-section-nav")) fail("src/components/admin-section-nav.tsx: secondary admin nav must not inherit oversized admin-nav styles");
+requireIncludes(adminSectionNavSource, 'data-shell-nav="admin-secondary"', "src/components/admin-section-nav.tsx secondary shell nav contract");
 requireIncludes(adminSectionNav, "position: sticky", "src/app/globals.css .admin-section-nav");
+requireIncludes(adminSectionNav, "display: grid", "src/app/globals.css .admin-section-nav");
+requireIncludes(adminSectionNav, "grid-template-columns: repeat(8, minmax(0, 1fr))", "src/app/globals.css .admin-section-nav");
+requireIncludes(adminSectionNav, "box-shadow: none", "src/app/globals.css .admin-section-nav");
 requireMaxPx(adminSectionNav, "padding", 8, "src/app/globals.css .admin-section-nav");
 
 const adminSectionNavLink = cssRule(css, ".admin-section-nav a");
-requireMaxPx(adminSectionNavLink, "min-height", 32, "src/app/globals.css .admin-section-nav a");
+requireMaxPx(adminSectionNavLink, "min-height", 30, "src/app/globals.css .admin-section-nav a");
 requireMaxPx(adminSectionNavLink, "font-size", 12, "src/app/globals.css .admin-section-nav a");
 
 const adminHero = `${cssRule(css, ".admin-hero")} ${cssRule(css, ".admin-section-hero")}`;
-requireMaxPx(adminHero, "min-height", 80, "src/app/globals.css admin hero");
+requireMaxPx(adminHero, "min-height", 60, "src/app/globals.css admin hero");
 
 const adminHeroTitle = `${cssRule(css, ".admin-hero h1")} ${cssRule(css, ".admin-section-hero h1")}`;
-requireMaxPx(adminHeroTitle, "font-size", 20, "src/app/globals.css admin hero title");
+requireMaxPx(adminHeroTitle, "font-size", 17, "src/app/globals.css admin hero title");
 
 const adminMetric = cssRule(css, ".admin-metric");
-requireMaxPx(adminMetric, "min-height", 100, "src/app/globals.css .admin-metric");
-requireMaxPx(adminMetric, "padding", 14, "src/app/globals.css .admin-metric");
+requireMaxPx(adminMetric, "min-height", 86, "src/app/globals.css .admin-metric");
+requireMaxPx(adminMetric, "padding", 12, "src/app/globals.css .admin-metric");
 
 const adminMetricValue = cssRule(css, ".admin-metric strong");
-requireMaxPx(adminMetricValue, "font-size", 24, "src/app/globals.css .admin-metric strong");
+requireMaxPx(adminMetricValue, "font-size", 21, "src/app/globals.css .admin-metric strong");
 
 const adminOpsDryRun = cssRule(css, ".admin-ops-dry-run button");
 requireMaxPx(adminOpsDryRun, "min-height", 38, "src/app/globals.css .admin-ops-dry-run button");
@@ -190,6 +222,16 @@ const adminRowAction = cssRule(css, ".admin-row-action button");
 requireMaxPx(adminRowAction, "min-height", 32, "src/app/globals.css .admin-row-action button");
 requireMaxPx(adminRowAction, "font-size", 12, "src/app/globals.css .admin-row-action button");
 if (/width\s*:\s*100%/i.test(adminRowAction)) fail("src/app/globals.css .admin-row-action button: must stay compact, not full-width");
+
+const adminHomeSource = read("src/app/admin/page.tsx");
+if (adminHomeSource.includes("AdminOpsReadinessCard")) fail("src/app/admin/page.tsx: operations readiness detail belongs in settings, not the admin landing screen");
+const adminOpsCardSource = read("src/components/admin-ops-readiness-card.tsx");
+requireIncludes(adminOpsCardSource, '<details className="admin-ops-disclosure">', "src/components/admin-ops-readiness-card.tsx compact disclosure");
+requireIncludes(css, ".admin-ops-disclosure:not([open]) > :not(summary)", "src/app/globals.css closed admin ops disclosure");
+const rowActionSource = read("src/components/admin-row-action-dry-run.tsx");
+requireIncludes(rowActionSource, "<details", "src/components/admin-row-action-dry-run.tsx row action disclosure");
+requireIncludes(rowActionSource, "<summary>", "src/components/admin-row-action-dry-run.tsx row action disclosure");
+requireIncludes(css, ".admin-row-action:not([open]) > :not(summary)", "src/app/globals.css closed row action disclosure");
 
 if (failures.length) {
   console.error("UI shell audit failed:");

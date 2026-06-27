@@ -94,12 +94,16 @@ export function AdminRowActionDryRun({
   const Icon = isPending ? Loader2 : state === "success" ? CheckCircle2 : state === "error" ? TriangleAlert : Play;
 
   return (
-    <span className={`admin-row-action ${state}`}>
+    <details className={`admin-row-action ${state}`}>
+      <summary>
+        <Icon size={12} aria-hidden="true" />
+        <span>{state === "idle" ? "검증" : summary}</span>
+      </summary>
       <button type="button" onClick={runDryRun} disabled={isPending} aria-label={label}>
         <Icon size={13} aria-hidden="true" />
         {label}
       </button>
       <small>{summary}</small>
-    </span>
+    </details>
   );
 }

@@ -21,7 +21,7 @@ export function AdminSectionNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="admin-nav admin-section-nav" aria-label="운영 관리 하위 화면">
+    <nav className="admin-section-nav" aria-label="운영 관리 하위 화면" data-shell-nav="admin-secondary" data-admin-section-count={adminNav.length}>
       {adminNav.map((item) => {
         const isActive = pathname === item.href;
 
@@ -30,10 +30,11 @@ export function AdminSectionNav() {
             key={item.href}
             className={isActive ? "active" : undefined}
             href={item.href}
+            data-admin-section={item.href}
             aria-current={isActive ? "page" : undefined}
           >
             {navIcons[item.href]}
-            {item.label}
+            <span>{item.label}</span>
           </Link>
         );
       })}

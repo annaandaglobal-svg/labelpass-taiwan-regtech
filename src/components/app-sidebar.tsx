@@ -21,7 +21,7 @@ type AppSidebarProps = {
 
 export function AppSidebar({ active }: AppSidebarProps) {
   return (
-    <aside className="lp-sidebar" aria-label="LabelPass 핵심 내비게이션">
+    <aside className="lp-sidebar" aria-label="LabelPass 핵심 내비게이션" data-shell-nav="primary">
       <div className="lp-brand">
         <span>LP</span>
         <div>
@@ -30,7 +30,7 @@ export function AppSidebar({ active }: AppSidebarProps) {
         </div>
       </div>
 
-      <nav className="lp-nav" aria-label="핵심 업무">
+      <nav className="lp-nav" aria-label="핵심 업무" data-shell-nav-count={navItems.length}>
         {navItems.map((item) => {
           const Icon = item.icon;
           const className = item.key === active ? "active" : undefined;
@@ -40,6 +40,7 @@ export function AppSidebar({ active }: AppSidebarProps) {
               key={item.key}
               className={className}
               href={item.href}
+              data-shell-nav-item={item.key}
               aria-current={item.key === active ? "page" : undefined}
             >
               <Icon size={17} />
