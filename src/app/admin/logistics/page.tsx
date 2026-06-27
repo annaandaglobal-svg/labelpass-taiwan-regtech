@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Truck
 } from "lucide-react";
+import { AdminRowActionDryRun } from "@/components/admin-row-action-dry-run";
 import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
 type RequestState =
@@ -36,6 +37,7 @@ type LogisticsCompany = {
 
 type ShipmentRequest = {
   id: string;
+  displayId?: string;
   product: string;
   importer: string;
   lane: string;
@@ -45,6 +47,7 @@ type ShipmentRequest = {
 };
 
 type Shipment = {
+  id?: string;
   reference: string;
   product: string;
   mode: TransportMode;
@@ -275,6 +278,14 @@ function ModeIcon({ mode }: { mode: TransportMode }) {
   return mode === "ocean" ? <Ship size={14} /> : <PlaneTakeoff size={14} />;
 }
 
+function nextShipmentStatus(state: RequestState) {
+  if (state === "requested" || state === "accepted") return "booked";
+  if (state === "booked") return "in_transit";
+  if (state === "in_transit") return "customs_hold";
+  if (state === "customs_hold") return "delivered";
+  return state === "cancelled" ? "cancelled" : "delivered";
+}
+
 export default async function AdminLogisticsPage() {
   const snapshot = await getPlatformOpsSnapshot();
   const logisticsCompanies = snapshot.logisticsCompanies.length ? snapshot.logisticsCompanies : fallbackLogisticsCompanies;
@@ -394,7 +405,7 @@ export default async function AdminLogisticsPage() {
               <span>Tracking</span>
             </div>
             {activeShipments.map((shipment) => (
-              <div key={shipment.reference} className="admin-table-row">
+              <div key={shipment.id ?? shipment.reference} className="admin-table-row">
                 <span>
                   <b>{shipment.reference}</b>
                   <small>{shipment.product}</small>
@@ -408,6 +419,14 @@ export default async function AdminLogisticsPage() {
                   <small>{shipment.carrier} / {shipment.tracking}</small>
                   <small>{shipment.route} / ETA {shipment.eta}</small>
                   <small>{shipment.customs}</small>
+                  <AdminRowActionDryRun
+                    action="shipment_status"
+                    id={shipment.id}
+                    status={nextShipmentStatus(shipment.state)}
+                    requestId={`shipment-${shipment.id ?? shipment.reference}`}
+                    note={`${shipment.reference} shipment ${shipment.state} to ${nextShipmentStatus(shipment.state)}`}
+                    fallbackUuid="00000000-0000-4000-8000-000000000202"
+                  />
                 </span>
               </div>
             ))}

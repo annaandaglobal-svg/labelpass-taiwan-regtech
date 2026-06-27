@@ -4,9 +4,9 @@ import { AdminSectionNav } from "@/components/admin-section-nav";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="admin-shell">
+    <main className="lp-shell admin-shell">
       <AppSidebar active="admin" />
-      <section className="admin-main">
+      <section className="lp-main lp-main-full admin-main">
         <AdminSectionNav />
         {children}
       </section>

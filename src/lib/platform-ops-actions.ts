@@ -410,6 +410,10 @@ export async function applyPlatformOpsAction(action: PlatformOpsAction, options:
   const dryRun = Boolean(options.dryRun);
   const storage = storageState();
 
+  if (dryRun && action.metadata?.syntheticTarget === true) {
+    return successResult(action, actionTables[action.action], "synthetic-dry-run", undefined, undefined, true);
+  }
+
   if (dryRun && storage !== "database") {
     return successResult(action, actionTables[action.action], "dry-run", undefined, undefined, true);
   }

@@ -53,6 +53,7 @@ export type PlatformExpertMatchState =
 
 export type PlatformExpertCaseRow = {
   id: string;
+  displayId?: string;
   company: string;
   product: string;
   category: "화장품" | "식품";
@@ -89,6 +90,7 @@ export type PlatformLogisticsCompanyRow = {
 
 export type PlatformShipmentRequestRow = {
   id: string;
+  displayId?: string;
   product: string;
   importer: string;
   lane: string;
@@ -98,6 +100,7 @@ export type PlatformShipmentRequestRow = {
 };
 
 export type PlatformShipmentRow = {
+  id?: string;
   reference: string;
   product: string;
   mode: PlatformTransportMode;
@@ -571,7 +574,8 @@ async function readExpertCases(sql: DbClient): Promise<PlatformExpertCaseRow[]> 
     const state = expertState(row.status);
     const category = productCategoryLabel(row.category);
     return {
-      id: row.id.slice(0, 8),
+      id: row.id,
+      displayId: row.id.slice(0, 8),
       company: row.organization_name ?? "조직 미지정",
       product: row.product_name ?? "제품 미지정",
       category,
@@ -631,7 +635,8 @@ async function readShipmentRequests(sql: DbClient): Promise<PlatformShipmentRequ
   `;
 
   return rows.map((row) => ({
-    id: row.id.slice(0, 8),
+    id: row.id,
+    displayId: row.id.slice(0, 8),
     product: row.product_name ?? row.cargo_summary ?? "화물 정보 미정",
     importer: row.organization_name ?? "수입자 미정",
     lane: `${row.origin_country} -> ${row.destination_country}`,
@@ -664,6 +669,7 @@ async function readActiveShipments(sql: DbClient): Promise<PlatformShipmentRow[]
   return rows.map((row) => {
     const mode = /air|flight|항공/i.test(metadataText(row.metadata, "mode", "")) ? "air" : "ocean";
     return {
+      id: row.id,
       reference: row.tracking_number ?? row.id.slice(0, 8),
       product: row.product_name ?? row.organization_name ?? "선적 제품 미정",
       mode,

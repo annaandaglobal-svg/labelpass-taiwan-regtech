@@ -14,6 +14,7 @@ import {
   UserCheck,
   Wheat
 } from "lucide-react";
+import { AdminRowActionDryRun } from "@/components/admin-row-action-dry-run";
 import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
 type MatchState = "requested" | "matched" | "paid" | "in_progress" | "completed" | "cancelled" | "refunded";
@@ -34,6 +35,7 @@ type ExpertProfile = {
 
 type MatchingCase = {
   id: string;
+  displayId?: string;
   company: string;
   product: string;
   category: "화장품" | "식품";
@@ -202,6 +204,14 @@ function ExpertIcon({ discipline }: { discipline: ExpertDiscipline }) {
   return <BadgeCheck size={18} />;
 }
 
+function nextExpertState(state: MatchState): MatchState {
+  if (state === "requested") return "matched";
+  if (state === "matched") return "paid";
+  if (state === "paid") return "in_progress";
+  if (state === "in_progress") return "completed";
+  return state;
+}
+
 export default async function AdminExpertsPage() {
   const snapshot = await getPlatformOpsSnapshot();
   const expertProfiles = snapshot.expertProfiles.length ? snapshot.expertProfiles : fallbackExpertProfiles;
@@ -275,7 +285,7 @@ export default async function AdminExpertsPage() {
                 <span>
                   <b>{item.company}</b>
                   <small>
-                    {item.id} / {item.category} / {item.product}
+                    {item.displayId ?? item.id} / {item.category} / {item.product}
                   </small>
                 </span>
                 <span>
@@ -290,6 +300,14 @@ export default async function AdminExpertsPage() {
                 <span>
                   {item.next}
                   <small>{item.sla}</small>
+                  <AdminRowActionDryRun
+                    action="expert_match_status"
+                    id={item.id}
+                    status={nextExpertState(item.state)}
+                    requestId={`expert-${item.id}`}
+                    note={`${item.product} expert match ${item.state} to ${nextExpertState(item.state)}`}
+                    fallbackUuid="00000000-0000-4000-8000-000000000101"
+                  />
                 </span>
               </div>
             ))}

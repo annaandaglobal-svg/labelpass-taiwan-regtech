@@ -12206,9 +12206,6 @@ h2 {
 }
 
 .admin-shell {
-  display: grid;
-  grid-template-columns: 236px minmax(0, 1fr);
-  min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
 }
@@ -12320,22 +12317,22 @@ h2 {
   width: 100%;
   max-width: 1480px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 16px 18px 60px;
 }
 
 .admin-section-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 8px;
+  padding: 7px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.72);
 }
 
 .admin-section-nav a {
-  min-height: 34px;
-  padding: 7px 10px;
+  min-height: 32px;
+  padding: 6px 9px;
   border-color: var(--line);
   background: var(--panel);
   color: var(--muted);
@@ -12380,12 +12377,13 @@ h2 {
 }
 
 .admin-primary-action {
-  min-height: 38px;
-  padding: 0 14px;
+  min-height: 34px;
+  padding: 0 11px;
   border: 1px solid var(--green-dark);
   border-radius: 8px;
-  background: var(--green-dark);
-  color: white;
+  background: var(--panel);
+  color: var(--green-dark);
+  font-size: 12px;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -12706,6 +12704,57 @@ h2 {
   color: var(--red);
 }
 
+.admin-row-action {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+  margin-top: 7px;
+}
+
+.admin-row-action button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--green-dark);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.admin-row-action button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.admin-row-action small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.admin-row-action.success button {
+  border-color: rgba(33, 112, 74, 0.34);
+  background: var(--green-soft);
+}
+
+.admin-row-action.success small {
+  color: var(--green-dark);
+}
+
+.admin-row-action.error button {
+  border-color: rgba(190, 61, 61, 0.34);
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.admin-row-action.error small {
+  color: var(--red);
+}
+
 .admin-health-list span {
   display: grid;
   gap: 5px;
@@ -12824,20 +12873,10 @@ h2 {
 }
 
 @media (max-width: 1100px) {
-  .admin-shell,
   .admin-hero,
   .admin-section-hero,
   .admin-grid {
     grid-template-columns: 1fr;
-  }
-
-  .admin-sidebar {
-    position: static;
-    height: auto;
-  }
-
-  .admin-nav {
-    grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
   }
 
   .admin-metrics,
