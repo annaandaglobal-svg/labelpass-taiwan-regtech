@@ -97,6 +97,60 @@ function asArray(value) {
   return Array.isArray(value) ? value.filter(Boolean) : [];
 }
 
+function hasTraditionalChineseText(value) {
+  return /[\u3400-\u9fff\uf900-\ufaff]/u.test(String(value ?? ""));
+}
+
+function inferOfficialRuleLanguage(value, fallback = "und") {
+  const text = String(value ?? "");
+  if (hasTraditionalChineseText(text)) return /[A-Za-z0-9]/.test(text) ? fallback : "zh-Hant";
+  if (/[\u3040-\u30ff]/u.test(text)) return "ja";
+  if (/[\uac00-\ud7af]/u.test(text)) return "ko";
+  return fallback;
+}
+
+function splitLocalAliasCandidate(value) {
+  return String(value ?? "")
+    .normalize("NFKC")
+    .split(/[;；、，,]/u)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function isUsableTraditionalChineseAlias(value) {
+  const text = String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim();
+  if (!hasTraditionalChineseText(text)) return false;
+  if (text.length < 2 || text.length > 48) return false;
+  if (/[A-Za-z0-9]/.test(text)) return false;
+  if (/^(地區|國家|原料|成分|備註|使用|用途|產品|化粧品|化妝品)$/.test(text)) return false;
+  if (/(不得|超過|以下|以上|除外|不在此限|為準|公告|規定|使用於|發生之國家)/.test(text)) return false;
+  return true;
+}
+
+function extractParentheticalTraditionalChineseAliases(value) {
+  const text = String(value ?? "").normalize("NFKC");
+  const matches = [...text.matchAll(/[（(]([^()（）]*[\u3400-\u9fff\uf900-\ufaff][^()（）]*)[）)]/gu)];
+  const candidates = [];
+
+  for (const match of matches) {
+    const rawCandidate = match[1]?.trim();
+    if (!rawCandidate) continue;
+    for (const part of [rawCandidate, ...splitLocalAliasCandidate(rawCandidate)]) {
+      if (isUsableTraditionalChineseAlias(part)) candidates.push(part);
+    }
+  }
+
+  return uniqueByNormalized(candidates, (alias) => alias);
+}
+
+function extractRuleTraditionalChineseAliases(rule) {
+  return uniqueByNormalized([
+    rule.ingredient_name,
+    ...asArray(rule.inci_names),
+    ...asArray(rule.aliases)
+  ].flatMap((value) => extractParentheticalTraditionalChineseAliases(value)), (alias) => alias);
+}
+
 function sourceKeysForRule(rule) {
   const sourceInfoId = String(rule?.source_info_id ?? "").trim();
   if (!sourceInfoId) return [];
@@ -134,7 +188,7 @@ function makeOfficialTerm(rule, sourceKeys) {
     ...identifiers.inci.map((value) => ({
       value,
       type: "official_rule_name",
-      language: "und",
+      language: inferOfficialRuleLanguage(value),
       jurisdiction: "TW",
       confidence: 0.95,
       source: "tfda-rule"
@@ -142,9 +196,17 @@ function makeOfficialTerm(rule, sourceKeys) {
     ...asArray(rule.aliases).map((value) => ({
       value,
       type: "official_alias",
-      language: "und",
+      language: inferOfficialRuleLanguage(value),
       jurisdiction: "TW",
       confidence: 0.9,
+      source: "tfda-rule"
+    })),
+    ...extractRuleTraditionalChineseAliases(rule).map((value) => ({
+      value,
+      type: "local_name",
+      language: "zh-Hant",
+      jurisdiction: "TW",
+      confidence: 0.88,
       source: "tfda-rule"
     })),
     ...identifiers.cas.map((value) => ({

@@ -18790,6 +18790,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "急性子",
+          "normalized": "急性子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -18816,6 +18826,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "紅大戟",
+          "normalized": "紅大戟",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -18846,6 +18866,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "狼毒",
+          "normalized": "狼毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -18872,6 +18902,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "打破碗花",
+          "normalized": "打破碗花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -19076,6 +19116,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "牽牛子",
+          "normalized": "牽牛子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -19452,6 +19502,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "虻蟲",
+          "normalized": "虻蟲",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -23672,6 +23732,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "茅膏菜",
+          "normalized": "茅膏菜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -23698,6 +23768,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "茵芋",
+          "normalized": "茵芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -23728,6 +23808,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "白附子",
+          "normalized": "白附子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -23754,6 +23844,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "烏桕",
+          "normalized": "烏桕",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -35163,6 +35263,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "土木香根油",
+          "normalized": "土木香根油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -35201,6 +35311,36 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "蛇根木,生物鹼及其鹽類",
+          "normalized": "蛇根木 生物鹼及其鹽類",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "蛇根木",
+          "normalized": "蛇根木",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "生物鹼及其鹽類",
+          "normalized": "生物鹼及其鹽類",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -35269,6 +35409,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "雷公藤",
+          "normalized": "雷公藤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39024,6 +39174,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "檳榔",
+          "normalized": "檳榔",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39050,6 +39210,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "細辛",
+          "normalized": "細辛",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39120,6 +39290,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "鴨膽子",
+          "normalized": "鴨膽子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39146,6 +39326,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "蟾酥",
+          "normalized": "蟾酥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39176,6 +39366,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "威靈仙",
+          "normalized": "威靈仙",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39202,6 +39402,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "鈴蘭",
+          "normalized": "鈴蘭",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39232,6 +39442,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "馬桑",
+          "normalized": "馬桑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39258,6 +39478,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "魚藤",
+          "normalized": "魚藤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39288,6 +39518,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "麻黃",
+          "normalized": "麻黃",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39314,6 +39554,36 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "續隨子;千金子",
+          "normalized": "續隨子 千金子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "續隨子",
+          "normalized": "續隨子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "千金子",
+          "normalized": "千金子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39344,6 +39614,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "莽草",
+          "normalized": "莽草",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39370,6 +39650,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "石蒜",
+          "normalized": "石蒜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39440,6 +39730,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "夾竹桃",
+          "normalized": "夾竹桃",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39466,6 +39766,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "商陸",
+          "normalized": "商陸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -39496,6 +39806,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "半夏",
+          "normalized": "半夏",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39524,6 +39844,36 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "羊躑躅;鬧羊花",
+          "normalized": "羊躑躅 鬧羊花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "羊躑躅",
+          "normalized": "羊躑躅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "鬧羊花",
+          "normalized": "鬧羊花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -39550,6 +39900,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "芥子",
+          "normalized": "芥子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -42670,6 +43030,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "黃樟素",
+          "normalized": "黃樟素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -42761,6 +43131,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "馬鞭草油",
+          "normalized": "馬鞭草油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -42801,6 +43181,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "木香根油",
+          "normalized": "木香根油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -42839,6 +43229,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "無花果葉萃取物",
+          "normalized": "無花果葉萃取物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -42884,9 +43284,29 @@
           "value": "尖尾姑婆芋)",
           "normalized": "尖尾姑婆芋",
           "type": "official_alias",
-          "language": "und",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "蔔芥;尖尾姑婆芋",
+          "normalized": "蔔芥 尖尾姑婆芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "蔔芥",
+          "normalized": "蔔芥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -42915,6 +43335,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "蒟蒻",
+          "normalized": "蒟蒻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -42960,9 +43390,29 @@
           "value": "姑婆芋)",
           "normalized": "姑婆芋",
           "type": "official_alias",
-          "language": "und",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "海芋;姑婆芋",
+          "normalized": "海芋 姑婆芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "海芋",
+          "normalized": "海芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -42993,6 +43443,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "長春花",
+          "normalized": "長春花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -43019,6 +43479,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "牛心茄子",
+          "normalized": "牛心茄子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -43061,6 +43531,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "毛茛科毛茛屬植物",
+          "normalized": "毛茛科毛茛屬植物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -43087,6 +43567,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "野百合",
+          "normalized": "野百合",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -43190,6 +43680,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "大苦薯",
+          "normalized": "大苦薯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -43216,6 +43716,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "鉤吻",
+          "normalized": "鉤吻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -45803,6 +46313,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "信石",
+          "normalized": "信石",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -45829,6 +46349,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "芫花",
+          "normalized": "芫花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -45859,6 +46389,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "洋金花",
+          "normalized": "洋金花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -45885,6 +46425,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "白狼毒",
+          "normalized": "白狼毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -45915,6 +46465,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "甘遂",
+          "normalized": "甘遂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -45943,6 +46503,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "tfda-rule"
+        },
+        {
+          "value": "水蛭",
+          "normalized": "水蛭",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "tfda-rule"
         }
       ],
       "source_keys": [
@@ -45969,6 +46539,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "tfda-rule"
+        },
+        {
+          "value": "天仙子",
+          "normalized": "天仙子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "tfda-rule"
         }
@@ -73890,6 +74470,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "急性子",
+          "normalized": "急性子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -73906,6 +74496,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "紅大戟",
+          "normalized": "紅大戟",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -73926,6 +74526,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "狼毒",
+          "normalized": "狼毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -73942,6 +74552,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "打破碗花",
+          "normalized": "打破碗花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -74080,6 +74700,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "牽牛子",
+          "normalized": "牽牛子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -74340,6 +74970,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "虻蟲",
+          "normalized": "虻蟲",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -77462,6 +78102,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "茅膏菜",
+          "normalized": "茅膏菜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -77478,6 +78128,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "茵芋",
+          "normalized": "茵芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -77498,6 +78158,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "白附子",
+          "normalized": "白附子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -77514,6 +78184,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "烏桕",
+          "normalized": "烏桕",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -85584,6 +86264,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "土木香根油",
+          "normalized": "土木香根油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -85610,6 +86300,36 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "蛇根木,生物鹼及其鹽類",
+          "normalized": "蛇根木 生物鹼及其鹽類",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "蛇根木",
+          "normalized": "蛇根木",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "生物鹼及其鹽類",
+          "normalized": "生物鹼及其鹽類",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -85656,6 +86376,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "雷公藤",
+          "normalized": "雷公藤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88452,6 +89182,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "檳榔",
+          "normalized": "檳榔",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88468,6 +89208,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "細辛",
+          "normalized": "細辛",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88516,6 +89266,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "鴨膽子",
+          "normalized": "鴨膽子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88532,6 +89292,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "蟾酥",
+          "normalized": "蟾酥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88552,6 +89322,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "威靈仙",
+          "normalized": "威靈仙",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88568,6 +89348,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "鈴蘭",
+          "normalized": "鈴蘭",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88588,6 +89378,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "馬桑",
+          "normalized": "馬桑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88604,6 +89404,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "魚藤",
+          "normalized": "魚藤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88624,6 +89434,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "麻黃",
+          "normalized": "麻黃",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88640,6 +89460,36 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "續隨子;千金子",
+          "normalized": "續隨子 千金子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "續隨子",
+          "normalized": "續隨子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "千金子",
+          "normalized": "千金子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88660,6 +89510,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "莽草",
+          "normalized": "莽草",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88676,6 +89536,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "石蒜",
+          "normalized": "石蒜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88724,6 +89594,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "夾竹桃",
+          "normalized": "夾竹桃",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88740,6 +89620,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "商陸",
+          "normalized": "商陸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -88760,6 +89650,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "半夏",
+          "normalized": "半夏",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88778,6 +89678,36 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "羊躑躅;鬧羊花",
+          "normalized": "羊躑躅 鬧羊花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "羊躑躅",
+          "normalized": "羊躑躅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "鬧羊花",
+          "normalized": "鬧羊花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -88794,6 +89724,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "芥子",
+          "normalized": "芥子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91042,6 +91982,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "黃樟素",
+          "normalized": "黃樟素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -91108,6 +92058,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "馬鞭草油",
+          "normalized": "馬鞭草油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -91136,6 +92096,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "木香根油",
+          "normalized": "木香根油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -91162,6 +92132,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "無花果葉萃取物",
+          "normalized": "無花果葉萃取物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91197,9 +92177,29 @@
           "value": "尖尾姑婆芋)",
           "normalized": "尖尾姑婆芋",
           "type": "official_alias",
-          "language": "und",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "蔔芥;尖尾姑婆芋",
+          "normalized": "蔔芥 尖尾姑婆芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "蔔芥",
+          "normalized": "蔔芥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91218,6 +92218,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "蒟蒻",
+          "normalized": "蒟蒻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91253,9 +92263,29 @@
           "value": "姑婆芋)",
           "normalized": "姑婆芋",
           "type": "official_alias",
-          "language": "und",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "海芋;姑婆芋",
+          "normalized": "海芋 姑婆芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "海芋",
+          "normalized": "海芋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91276,6 +92306,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "長春花",
+          "normalized": "長春花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -91292,6 +92332,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "牛心茄子",
+          "normalized": "牛心茄子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91322,6 +92372,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "毛茛科毛茛屬植物",
+          "normalized": "毛茛科毛茛屬植物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -91338,6 +92398,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "野百合",
+          "normalized": "野百合",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -91416,6 +92486,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "大苦薯",
+          "normalized": "大苦薯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -91432,6 +92512,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "鉤吻",
+          "normalized": "鉤吻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -93480,6 +94570,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "信石",
+          "normalized": "信石",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -93496,6 +94596,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "芫花",
+          "normalized": "芫花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -93516,6 +94626,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "洋金花",
+          "normalized": "洋金花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -93532,6 +94652,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "白狼毒",
+          "normalized": "白狼毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }
@@ -93552,6 +94682,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "甘遂",
+          "normalized": "甘遂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -93570,6 +94710,16 @@
           "confidence": 0.95,
           "note": null,
           "source": "generated_tfda_rule"
+        },
+        {
+          "value": "水蛭",
+          "normalized": "水蛭",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "generated_tfda_rule"
         }
       ]
     },
@@ -93586,6 +94736,16 @@
           "language": "und",
           "jurisdiction": "TW",
           "confidence": 0.95,
+          "note": null,
+          "source": "generated_tfda_rule"
+        },
+        {
+          "value": "天仙子",
+          "normalized": "天仙子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
           "note": null,
           "source": "generated_tfda_rule"
         }

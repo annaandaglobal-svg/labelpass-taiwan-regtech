@@ -76,6 +76,12 @@ function hasDamagedAliasText(value) {
   return /�|\?{2,}|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔)/u.test(String(value ?? ""));
 }
 
+const LOCAL_ALIAS_LANGUAGES = new Set(["zh", "zh-Hant", "zh-Hans", "ko", "ja"]);
+
+function hasTraditionalChineseText(value) {
+  return /[\u3400-\u9fff\uf900-\ufaff]/u.test(String(value ?? ""));
+}
+
 const [rulesData, registry, sourceOpsMetadata, termRegistry, index, termIndex, aliasReviewQueue, updateQueue, schemaSql, seedSql] = await Promise.all([
   readJson(paths.rules),
   readJson(paths.registry),
@@ -291,6 +297,14 @@ for (const term of terms) {
     }
     if (hasDamagedAliasText(alias.value) || hasDamagedAliasText(alias.normalized)) {
       fail(`term ${term.id} has damaged alias text: ${alias.value}`);
+    }
+    if (
+      String(alias.jurisdiction ?? "") === "TW" &&
+      hasTraditionalChineseText(alias.value) &&
+      !/[A-Za-z0-9]/.test(String(alias.value ?? "")) &&
+      !LOCAL_ALIAS_LANGUAGES.has(String(alias.language ?? ""))
+    ) {
+      fail(`term ${term.id} has a Taiwan Traditional Chinese alias without a local language tag: ${alias.value}`);
     }
   }
 
