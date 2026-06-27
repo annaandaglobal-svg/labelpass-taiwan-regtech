@@ -5,6 +5,8 @@ const root = process.cwd();
 const baseUrl = (process.env.LABELPASS_BASE_URL || "https://labelpass-taiwan-regtech.vercel.app").replace(/\/$/, "");
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
+const adminDbWritesEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES === "1";
+const adminOpsToken = process.env.LABELPASS_ADMIN_OPS_TOKEN;
 const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const publicReviewArchiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
 const publicReviewArchiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
@@ -165,6 +167,16 @@ function buildReviewPayload() {
   };
 }
 
+function buildAdminOpsDryRunPayload() {
+  return {
+    action: "expert_match_status",
+    id: "00000000-0000-4000-8000-000000000001",
+    status: "matched",
+    requestId: `preflight-admin-ops-${Date.now()}`,
+    note: "dry-run preflight check"
+  };
+}
+
 async function fetchJson(label, url, options) {
   const response = await fetch(url, {
     ...options,
@@ -271,6 +283,8 @@ const env = [
   envState("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
   envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
+  envState("LABELPASS_ENABLE_ADMIN_DB_WRITES", process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES),
+  envState("LABELPASS_ADMIN_OPS_TOKEN", adminOpsToken),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
@@ -286,6 +300,12 @@ if (databaseUrl && !adminDbPreviewEnabled) {
 }
 if (!databaseUrl && adminDbPreviewEnabled) {
   warnings.push("LABELPASS_ENABLE_ADMIN_DB_PREVIEW is 1, but no server DB URL is set; admin operations cannot use database.");
+}
+if (databaseUrl && adminDbPreviewEnabled && !adminDbWritesEnabled) {
+  warnings.push("Admin DB preview is enabled, but LABELPASS_ENABLE_ADMIN_DB_WRITES is not 1; admin operation status changes stay read-only.");
+}
+if (adminDbWritesEnabled && !adminOpsToken) {
+  warnings.push("LABELPASS_ENABLE_ADMIN_DB_WRITES is 1, but LABELPASS_ADMIN_OPS_TOKEN is not set; admin operation writes are not authorized.");
 }
 if (databaseUrl && !publicReviewArchiveEnabled) {
   warnings.push("Server DB URL is set, but LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE is not 1; public review archive API stays disabled.");
@@ -303,6 +323,13 @@ if (databaseUrl && publicReviewArchiveEnabled && !publicReviewArchiveWriteEnable
 const remoteChecks = [];
 try {
   remoteChecks.push(await fetchJson("knowledge search", `${baseUrl}/api/knowledge/search?q=casein&limit=6&preflight=${Date.now()}`));
+  remoteChecks.push(await fetchJson("admin ops readiness", `${baseUrl}/api/admin/ops/actions?preflight=${Date.now()}`));
+  remoteChecks.push(
+    await fetchJson("admin ops dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&preflight=${Date.now()}`, {
+      method: "POST",
+      body: JSON.stringify(buildAdminOpsDryRunPayload())
+    })
+  );
   remoteChecks.push(await fetchJson("review archive list", `${baseUrl}/api/reviews?limit=1&preflight=${Date.now()}`, {
     headers: archiveHeaders
   }));
@@ -349,6 +376,8 @@ if (knowledgeTotals) {
 
 const archiveList = remoteChecks.find((check) => check.label === "review archive list")?.body;
 const archiveDryRun = remoteChecks.find((check) => check.label === "review archive dry run")?.body;
+const adminOpsReadiness = remoteChecks.find((check) => check.label === "admin ops readiness")?.body;
+const adminOpsDryRun = remoteChecks.find((check) => check.label === "admin ops dry run")?.body;
 
 if (archiveList && !validArchiveStates.has(archiveList.storage)) {
   errors.push(`Unexpected archive list storage state: ${archiveList.storage}`);
@@ -364,6 +393,12 @@ if (archiveDryRun && archiveDryRun.storage !== expectedArchiveWriteStorage) {
 }
 if (expectedArchiveWriteStorage === "database" && archiveDryRun?.reviewId?.startsWith("preflight-") !== true) {
   errors.push("Archive dry run expected database storage to preserve the preflight review id");
+}
+if (!Array.isArray(adminOpsReadiness?.supportedActions?.expert_match_status)) {
+  errors.push("Admin ops readiness did not expose expert match status transitions");
+}
+if (adminOpsDryRun?.dryRun !== true || adminOpsDryRun?.applied !== false) {
+  errors.push("Admin ops dry run did not return a safe dry-run response");
 }
 
 const report = {
@@ -390,6 +425,10 @@ const report = {
     status: check.status,
     ok: check.ok,
     storage: check.body?.storage,
+    writesReady: check.body?.writesReady,
+    action: check.body?.action,
+    dryRun: check.body?.dryRun,
+    applied: check.body?.applied,
     totals: check.body?.totals,
     terms: check.body?.terms?.length,
     sources: check.body?.sources?.length

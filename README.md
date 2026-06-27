@@ -16,6 +16,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Provides `/admin`, an operator console shell for organizations, users, review queues, paid expert matching, logistics matching, shipment tracking, and source operations.
 - Reads admin operation tables from Supabase only when a server DB URL and `LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1` are configured; otherwise admin pages stay on safe read-only design data.
+- Exposes a guarded `/api/admin/ops/actions` endpoint for expert, payment, chat, logistics, and shipment state changes; real writes require explicit admin DB write flags and an operator token.
 - Generates a regulatory update queue so source changes, stale caches, and high-priority Taiwan notices require human approval before rules are changed.
 - Archives review history through `/api/reviews` only when a server DB URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are configured; otherwise the app keeps an immediate browser-side review archive.
 - Tracks the next platform layer in `docs/platform-roadmap.md`: admin operations, company/user data, paid expert matching, logistics partner matching, shipment execution, and tracking.
@@ -100,7 +101,13 @@ Admin operation pages are also deliberately opt-in for live database reads. Use 
 ```bash
 SUPABASE_DB_URL=
 LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1
+
+# Status-changing admin operations stay disabled unless both are set.
+LABELPASS_ENABLE_ADMIN_DB_WRITES=1
+LABELPASS_ADMIN_OPS_TOKEN=
 ```
+
+`LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1` only permits internal server reads. `LABELPASS_ENABLE_ADMIN_DB_WRITES=1` plus `LABELPASS_ADMIN_OPS_TOKEN` is required before `/api/admin/ops/actions` can mutate expert matches, payment states, chat threads, logistics matches, shipment requests, shipment states, or shipment events. Every applied operation writes an `audit_logs` row.
 
 Browser-only or blocked sources are preserved with manual text captures and screenshots under `data/knowledge/browser-captures/`.
 
@@ -112,9 +119,10 @@ pnpm test:rules
 pnpm build
 pnpm audit:production-env
 pnpm smoke:api
+pnpm smoke:admin-ops
 ```
 
-`pnpm audit:production-env` checks production API readiness without printing secrets. `pnpm smoke:api` expects the app to be running. It checks 28 review cases, 109 multilingual knowledge cases, 2 ambiguity cases, 66 source probes, 3 reusable evidence-bundle probes, plus review archive list/save probes through `/api/reviews`.
+`pnpm audit:production-env` checks production API readiness without printing secrets. `pnpm smoke:api` expects the app to be running. It checks 32 review cases, 116 multilingual knowledge cases, 2 ambiguity cases, 69 source probes, 3 reusable evidence-bundle probes, plus review archive list/save probes through `/api/reviews`. `pnpm smoke:admin-ops` verifies the guarded admin operations readiness endpoint, dry-run behavior, and token requirement.
 
 ## Deployment Files
 
@@ -129,5 +137,6 @@ pnpm smoke:api
 - `vercel.json`: Vercel deployment config.
 - `.github/workflows/ci.yml`: typecheck, data drift checks, and production build.
 - `scripts/audit-production-env.mjs`: no-secret production readiness audit for Vercel/Supabase/archive storage.
+- `scripts/smoke-admin-ops-api.mjs`: guarded admin operations readiness and dry-run smoke test.
 - `docs/deployment-runbook.md`: GitHub, Supabase, and Vercel deployment steps.
 - `docs/knowledge-operations.md`: knowledge refresh and curation process.

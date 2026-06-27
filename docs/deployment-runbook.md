@@ -29,7 +29,7 @@ For the current production URL, the single operator gate is:
 pnpm preflight:deploy
 ```
 
-`preflight:deploy` runs type checks, rule verification, generated knowledge drift checks, Supabase knowledge dry-run preflight, a production build, and `preflight:deployment`. The knowledge drift gate rebuilds the term index, regulatory update queue, alias review queue, reusable knowledge memory, product routing matrix, evidence bundle templates, and `supabase/knowledge-seed.sql`, then fails if those generated artifacts differ from the committed versions. The Supabase knowledge preflight regenerates the ignored SQL chunk files, validates Taiwan food/cosmetics coverage, audits searchable aliases, checks seed freshness/format, and dry-runs the apply plan. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
+`preflight:deploy` runs type checks, rule verification, generated knowledge drift checks, Supabase knowledge dry-run preflight, a production build, and `preflight:deployment`. The knowledge drift gate rebuilds the term index, regulatory update queue, alias review queue, reusable knowledge memory, product routing matrix, evidence bundle templates, and `supabase/knowledge-seed.sql`, then fails if those generated artifacts differ from the committed versions. The Supabase knowledge preflight regenerates the ignored SQL chunk files, validates Taiwan food/cosmetics coverage, audits searchable aliases, checks seed freshness/format, and dry-runs the apply plan. The deployment preflight also checks the guarded admin operations readiness and dry-run endpoint. The archive check expects `disabled` unless a database URL, `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1`, and either `LABELPASS_REVIEW_ARCHIVE_TOKEN` or the relevant public read/write flag are set. Override this only when production is intentionally configured for server-side archive storage:
 
 For a no-secret readiness snapshot before or after deployment, run:
 
@@ -67,6 +67,7 @@ With a local app running, point the same checks at that app:
 ```bash
 LABELPASS_BASE_URL=http://127.0.0.1:3023 pnpm preflight:deployment
 LABELPASS_BASE_URL=http://127.0.0.1:3023 pnpm smoke:api
+LABELPASS_BASE_URL=http://127.0.0.1:3023 pnpm smoke:admin-ops
 ```
 
 PowerShell equivalent:
@@ -74,6 +75,7 @@ PowerShell equivalent:
 ```powershell
 $env:LABELPASS_BASE_URL="http://127.0.0.1:3023"; pnpm preflight:deployment
 $env:LABELPASS_BASE_URL="http://127.0.0.1:3023"; pnpm smoke:api
+$env:LABELPASS_BASE_URL="http://127.0.0.1:3023"; pnpm smoke:admin-ops
 Remove-Item Env:\LABELPASS_BASE_URL -ErrorAction SilentlyContinue
 ```
 
@@ -205,6 +207,17 @@ LABELPASS_REVIEW_ARCHIVE_TOKEN=long-random-server-token
 ```
 
 The server-side fallback names are `POSTGRES_URL` and `DATABASE_URL`. Keep these values server-only; never expose them as `NEXT_PUBLIC_*` variables. `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` only enables the database-backed archive path. Public read/write remain disabled unless `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ=1` or `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE=1` is set. Use those public flags only for demo data because `/api/reviews` still has no user account ownership model.
+
+Admin operations use stricter gates than read-only pages:
+
+```bash
+SUPABASE_DB_URL=postgresql://...
+LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1
+LABELPASS_ENABLE_ADMIN_DB_WRITES=1
+LABELPASS_ADMIN_OPS_TOKEN=...
+```
+
+`LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1` allows server-side admin pages to read operation tables. `LABELPASS_ENABLE_ADMIN_DB_WRITES=1` and `LABELPASS_ADMIN_OPS_TOKEN` are additionally required before `/api/admin/ops/actions` can change expert match, payment, chat, logistics, shipment request, shipment, or shipment event state. Keep the token server/operator-only; every applied operation writes `audit_logs`.
 
 To add production values without echoing secrets into the terminal history, use interactive Vercel prompts:
 

@@ -83,3 +83,4 @@ This slice creates the base needed for expert matching, paid chat, logistics mat
 - Product records now have a nullable `organization_id` so existing owner-based review storage can keep working while new organization-scoped workflows are introduced.
 - RLS helper functions separate platform-level `profiles.role` from company-level `organization_members.role`.
 - Admin pages now use a DB-first loader with safe fallback data. Live Supabase operations preview requires both a server DB URL and `LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1`.
+- `/api/admin/ops/actions` now provides a guarded state-change layer for expert matches, payments, chat threads, logistics matches, shipment requests, shipments, and shipment events. Real writes require `LABELPASS_ENABLE_ADMIN_DB_WRITES=1` and `LABELPASS_ADMIN_OPS_TOKEN`, and every applied operation writes `audit_logs`.

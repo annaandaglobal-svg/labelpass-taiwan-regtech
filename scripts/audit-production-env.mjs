@@ -9,6 +9,8 @@ const archiveToken = process.env.LABELPASS_REVIEW_ARCHIVE_TOKEN;
 
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
+const adminDbWritesEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES === "1";
+const adminOpsToken = process.env.LABELPASS_ADMIN_OPS_TOKEN;
 const archiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const archiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
 const archiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
@@ -18,6 +20,8 @@ const localEnv = [
   envState("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
   envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
+  envState("LABELPASS_ENABLE_ADMIN_DB_WRITES", process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES),
+  envState("LABELPASS_ADMIN_OPS_TOKEN", adminOpsToken),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
@@ -39,6 +43,7 @@ const report = {
 try {
   report.remote.push(await fetchJson("knowledge search MSG", `${baseUrl}/api/knowledge/search?q=MSG&limit=4&audit=${Date.now()}`));
   report.remote.push(await fetchJson("knowledge search SO2", `${baseUrl}/api/knowledge/search?q=${encodeURIComponent("SO₂")}&limit=4&audit=${Date.now()}`));
+  report.remote.push(await fetchJson("admin ops readiness", `${baseUrl}/api/admin/ops/actions?audit=${Date.now()}`));
   report.remote.push(await fetchJson("review archive list", `${baseUrl}/api/reviews?limit=1&audit=${Date.now()}`, {
     headers: archiveHeaders()
   }));
@@ -55,6 +60,7 @@ try {
 const knowledgeChecks = report.remote.filter((check) => check.label.startsWith("knowledge search"));
 const archiveList = report.remote.find((check) => check.label === "review archive list")?.body;
 const archiveDryRun = report.remote.find((check) => check.label === "review archive dry run")?.body;
+const adminOpsReadiness = report.remote.find((check) => check.label === "admin ops readiness")?.body;
 const remoteAliasCounts = knowledgeChecks
   .map((check) => check.body?.totals?.aliases)
   .filter((value) => typeof value === "number");
@@ -69,6 +75,10 @@ report.readiness = {
   vercelProjectLinked: report.vercelLink.linked,
   localDatabaseUrlPresent: Boolean(databaseUrl),
   localAdminDbPreviewEnabled: adminDbPreviewEnabled,
+  localAdminDbWritesEnabled: adminDbWritesEnabled,
+  localAdminOpsTokenPresent: Boolean(adminOpsToken),
+  remoteAdminOpsStorage: adminOpsReadiness?.storage ?? "unknown",
+  remoteAdminOpsWritesReady: Boolean(adminOpsReadiness?.writesReady),
   localArchiveFlagEnabled: archiveEnabled,
   localArchiveReadAuthorized: archiveReadEnabled || Boolean(archiveToken),
   localArchiveWriteAuthorized: archiveWriteEnabled || Boolean(archiveToken),
@@ -86,6 +96,12 @@ if (databaseUrl && !adminDbPreviewEnabled) {
 }
 if (!databaseUrl && adminDbPreviewEnabled) {
   report.nextActions.push("Set a server DB URL or disable LABELPASS_ENABLE_ADMIN_DB_PREVIEW because admin operations cannot use database without it.");
+}
+if (databaseUrl && adminDbPreviewEnabled && !adminDbWritesEnabled) {
+  report.nextActions.push("Set LABELPASS_ENABLE_ADMIN_DB_WRITES=1 only for internal/admin deployments that should mutate expert, payment, logistics, or shipment states.");
+}
+if (adminDbWritesEnabled && !adminOpsToken) {
+  report.nextActions.push("Set LABELPASS_ADMIN_OPS_TOKEN before enabling admin operation writes.");
 }
 if (!archiveEnabled) {
   report.nextActions.push("Set LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1 in Vercel when review history should use Supabase instead of browser/local fallback.");
