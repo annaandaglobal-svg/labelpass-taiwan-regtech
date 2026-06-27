@@ -12,10 +12,10 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1178,
-    "stored_aliases": 4212,
-    "searchable_aliases": 6693,
-    "identifier_aliases": 2481,
+    "terms": 1186,
+    "stored_aliases": 4298,
+    "searchable_aliases": 6790,
+    "identifier_aliases": 2492,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 41,
     "alias_review_items": 1042,
@@ -4108,6 +4108,31 @@
       "score": 265
     },
     {
+      "id": "probiotics-lactic-acid-bacteria",
+      "canonical_name": "Probiotics and Lactic Acid Bacteria",
+      "category": "food_ingredient",
+      "category_label": "Food ingredient",
+      "aliases": [
+        "Probiotic",
+        "Probiotics",
+        "乳酸菌",
+        "益生菌",
+        "유산균",
+        "프로바이오틱스",
+        "Lactic acid bacteria",
+        "Bifidobacterium",
+        "Lactobacillus"
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-health-food-permit-query",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+      ],
+      "notes": "High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.",
+      "score": 242
+    },
+    {
       "id": "benzoates-food-additives",
       "canonical_name": "Benzoic Acid and Benzoates",
       "category": "food_additive",
@@ -4301,6 +4326,32 @@
       ],
       "notes": "Food additive common-name aliases for methionine forms; verify product-specific permission before use.",
       "score": 203
+    },
+    {
+      "id": "centella-asiatica-cosmetic-ingredient",
+      "canonical_name": "Centella Asiatica",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "CAS 84696-21-9",
+        "INCI Centella Asiatica Extract",
+        "INCI Centella Asiatica Leaf Extract",
+        "INCI Centella Asiatica Root Extract",
+        "Centella Asiatica",
+        "Centella Asiatica Extract",
+        "積雪草",
+        "병풀",
+        "센텔라아시아티카",
+        "Cica"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.",
+      "score": 199
     },
     {
       "id": "pantothenate-food-additives",
@@ -4663,6 +4714,84 @@
       "score": 179
     },
     {
+      "id": "hyaluronic-acid-sodium-hyaluronate",
+      "canonical_name": "Hyaluronic Acid and Sodium Hyaluronate",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "CAS 9004-61-9",
+        "CAS 9067-32-7",
+        "INCI Hyaluronic Acid",
+        "INCI Sodium Hyaluronate",
+        "INCI Hydrolyzed Hyaluronic Acid",
+        "Hyaluronic Acid",
+        "Sodium Hyaluronate",
+        "Hydrolyzed Hyaluronic Acid",
+        "玻尿酸",
+        "透明質酸"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Moisturizing cosmetic ingredient cluster. It helps route hydration claims to evidence review and keeps sodium-salt forms searchable.",
+      "score": 174
+    },
+    {
+      "id": "centella-triterpenes",
+      "canonical_name": "Centella Triterpenes",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "INCI Madecassoside",
+        "INCI Asiaticoside",
+        "INCI Asiatic Acid",
+        "INCI Madecassic Acid",
+        "Asiaticoside",
+        "Madecassoside",
+        "Asiatic Acid",
+        "Madecassic Acid",
+        "마데카소사이드",
+        "아시아티코사이드"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "eu-cosing-cosmetic-ingredients",
+        "global-cas-registry",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants.",
+      "score": 172
+    },
+    {
+      "id": "niacinamide-cosmetic-ingredient",
+      "canonical_name": "Niacinamide",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "CAS 98-92-0",
+        "INCI Niacinamide",
+        "Niacinamide",
+        "Nicotinamide",
+        "菸鹼醯胺",
+        "나이아신아마이드",
+        "烟酰胺",
+        "煙醯胺",
+        "니아신아마이드",
+        "니코틴아마이드"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.",
+      "score": 172
+    },
+    {
       "id": "food-additive-inspection-registration",
       "canonical_name": "Food Additive Inspection Registration",
       "category": "food_import",
@@ -4963,97 +5092,6 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "Paraben family terms should not be collapsed without compound-level evidence.",
-      "score": 163
-    },
-    {
-      "id": "tfda-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2-pyridon-and-its-monoethanolamine-sa",
-      "canonical_name": "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 50650-76-5",
-        "CAS 68890-66-4",
-        "INCI 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt",
-        "INCI 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
-        "INCI Piroctone olamine",
-        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt",
-        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
-        "Piroctone olamine",
-        "50650-76-5",
-        "68890-66-4"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-38",
-      "score": 163
-    },
-    {
-      "id": "tfda-formic-acid-and-its-sodium-salt",
-      "canonical_name": "Formic acid and its sodium salt",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 64-18-6",
-        "CAS 141-53-7",
-        "INCI Formic acid and its sodium salt",
-        "INCI Formic acid",
-        "INCI Sodium formate",
-        "Formic acid",
-        "Formic acid and its sodium salt",
-        "Sodium formate",
-        "141-53-7",
-        "64-18-6"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-22",
-      "score": 163
-    },
-    {
-      "id": "tfda-phenylmercuric-salts-including-borate",
-      "canonical_name": "Phenylmercuric salts (including borate)",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 62-38-4",
-        "CAS 94-43-9",
-        "INCI Phenylmercuric salts (including borate)",
-        "INCI Phenyl mercuric acetate",
-        "INCI Phenyl mercuric benzoate",
-        "Phenyl mercuric acetate",
-        "Phenyl mercuric benzoate",
-        "Phenylmercuric salts (including borate)",
-        "62-38-4",
-        "94-43-9"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-37",
-      "score": 163
-    },
-    {
-      "id": "triclosan",
-      "canonical_name": "Triclosan",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 3380-34-5",
-        "INCI Triclosan",
-        "Triclosan",
-        "トリクロサン",
-        "三氯生",
-        "트리클로산",
-        "Irgasan DP 300"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Used in some preservative/antimicrobial contexts; claims can affect product classification.",
       "score": 163
     },
     {
@@ -5425,40 +5463,15 @@
       ],
       "notes": "Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator.",
       "score": 119
-    },
-    {
-      "id": "compound-food-additive-import-documents",
-      "canonical_name": "Compound Food Additive Import Documents",
-      "category": "food_import",
-      "category_label": "Food import",
-      "aliases": [
-        "compound food additive",
-        "官方衛生證明",
-        "產品成分報告",
-        "複方食品添加物",
-        "compound food additive import documents",
-        "official health certificate",
-        "product composition report",
-        "공식 위생증명서",
-        "복방 식품첨가물",
-        "제품성분보고서"
-      ],
-      "source_keys": [
-        "tw-tfda-compound-food-additive-import-documents",
-        "tw-tfda-imported-food-inspection-regulations",
-        "tw-tfda-food-additive-registration-announcements"
-      ],
-      "notes": "Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates.",
-      "score": 117
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1178,
-      "aliases_scanned": 4212,
-      "alias_rows_scanned": 4207,
+      "terms_scanned": 1186,
+      "aliases_scanned": 4298,
+      "alias_rows_scanned": 4293,
       "collision_groups": 55,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
@@ -6508,7 +6521,11 @@
           "traditional-chinese"
         ],
         "affected_terms": [
-          "Food Ingredient Integration Query Platform"
+          "Food Ingredient Integration Query Platform",
+          "Panax Ginseng",
+          "Probiotics and Lactic Acid Bacteria",
+          "Collagen Peptides",
+          "Green Tea / Camellia Sinensis"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
@@ -6560,7 +6577,8 @@
           "Health Food Permit",
           "Approved Health Care Effects",
           "Health Food Label Required Items",
-          "Health Food Approved Effect Vocabulary"
+          "Health Food Approved Effect Vocabulary",
+          "Probiotics and Lactic Acid Bacteria"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
@@ -7138,7 +7156,11 @@
         ],
         "affected_terms": [
           "Food Ingredient Integration Query Platform",
-          "Novel Food Ingredient Safety Assessment"
+          "Novel Food Ingredient Safety Assessment",
+          "Panax Ginseng",
+          "Probiotics and Lactic Acid Bacteria",
+          "Collagen Peptides",
+          "Green Tea / Camellia Sinensis"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       }

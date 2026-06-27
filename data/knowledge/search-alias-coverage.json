@@ -371,6 +371,77 @@
       "query": "樟腦",
       "expectedTermId": "camphor",
       "requiredAliases": ["Camphor", "樟腦", "장뇌", "カンフル"]
+    },
+    {
+      "id": "cica-korean-marketing-name",
+      "query": "시카",
+      "expectedTermId": "centella-asiatica-cosmetic-ingredient",
+      "requiredAliases": ["Cica", "시카", "병풀", "積雪草", "Centella Asiatica Extract"],
+      "requiredSourceKeys": ["global-pcpc-inci", "tw-moj-cosmetic-claims-criteria"],
+      "note": "Cica is a marketing shorthand; search should surface Centella ingredient review and claim substantiation."
+    },
+    {
+      "id": "centella-taiwan-local-name",
+      "query": "積雪草",
+      "expectedTermId": "centella-asiatica-cosmetic-ingredient",
+      "requiredAliases": ["積雪草", "Centella Asiatica", "병풀", "Cica"]
+    },
+    {
+      "id": "madecassoside-korean",
+      "query": "마데카소사이드",
+      "expectedTermId": "centella-triterpenes",
+      "requiredAliases": ["Madecassoside", "마데카소사이드", "Asiaticoside", "아시아티코사이드"],
+      "requiredSourceKeys": ["global-pcpc-inci", "global-cas-registry"]
+    },
+    {
+      "id": "niacinamide-taiwan-name",
+      "query": "菸鹼醯胺",
+      "expectedTermId": "niacinamide-cosmetic-ingredient",
+      "requiredAliases": ["Niacinamide", "Nicotinamide", "菸鹼醯胺", "나이아신아마이드"],
+      "requiredSourceKeys": ["global-pcpc-inci", "global-cas-registry"]
+    },
+    {
+      "id": "hyaluronic-common-taiwan",
+      "query": "玻尿酸",
+      "expectedTermId": "hyaluronic-acid-sodium-hyaluronate",
+      "requiredAliases": ["Hyaluronic Acid", "Sodium Hyaluronate", "玻尿酸", "透明質酸", "히알루론산"],
+      "requiredSourceKeys": ["global-pcpc-inci", "global-cas-registry"]
+    },
+    {
+      "id": "soy-protein-korean",
+      "query": "분리대두단백",
+      "expectedTermId": "soybean-allergen",
+      "requiredAliases": ["Soy protein isolate", "Soy protein", "大豆蛋白", "분리대두단백", "대두단백"],
+      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+    },
+    {
+      "id": "ginseng-stick-korean",
+      "query": "홍삼",
+      "expectedTermId": "panax-ginseng-botanical",
+      "requiredAliases": ["Panax Ginseng", "Ginseng", "人參", "홍삼", "인삼"],
+      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "tw-moj-health-food-governing-act"],
+      "note": "Ginseng food labels should trigger ingredient identity plus health-food/claim screening."
+    },
+    {
+      "id": "probiotic-taiwan-local-name",
+      "query": "益生菌",
+      "expectedTermId": "probiotics-lactic-acid-bacteria",
+      "requiredAliases": ["Probiotics", "Lactic acid bacteria", "Lactobacillus", "益生菌", "乳酸菌", "유산균"],
+      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "tw-tfda-health-food-permit-query"]
+    },
+    {
+      "id": "collagen-peptide-korean",
+      "query": "저분자콜라겐",
+      "expectedTermId": "collagen-peptides",
+      "requiredAliases": ["Collagen", "Collagen peptides", "Hydrolyzed Collagen", "膠原蛋白", "저분자콜라겐"],
+      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "tw-tfda-food-false-exaggerated-medical-efficacy-claims"]
+    },
+    {
+      "id": "green-tea-catechin-zh",
+      "query": "兒茶素",
+      "expectedTermId": "green-tea-camellia-sinensis",
+      "requiredAliases": ["Camellia Sinensis", "Green tea", "綠茶", "兒茶素", "녹차"],
+      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "global-pcpc-inci"]
     }
   ]
 }

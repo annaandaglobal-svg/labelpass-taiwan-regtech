@@ -2269,6 +2269,26 @@
           "term_key": "novel-food-ingredient-safety-assessment",
           "canonical_name": "Novel Food Ingredient Safety Assessment",
           "category": "food_safety"
+        },
+        {
+          "term_key": "panax-ginseng-botanical",
+          "canonical_name": "Panax Ginseng",
+          "category": "botanical_ingredient"
+        },
+        {
+          "term_key": "probiotics-lactic-acid-bacteria",
+          "canonical_name": "Probiotics and Lactic Acid Bacteria",
+          "category": "food_ingredient"
+        },
+        {
+          "term_key": "collagen-peptides",
+          "canonical_name": "Collagen Peptides",
+          "category": "food_cosmetic_ingredient"
+        },
+        {
+          "term_key": "green-tea-camellia-sinensis",
+          "canonical_name": "Green Tea / Camellia Sinensis",
+          "category": "botanical_ingredient"
         }
       ],
       "affected_products": [
@@ -2339,6 +2359,26 @@
           "term_key": "food-ingredient-integration-query-platform",
           "canonical_name": "Food Ingredient Integration Query Platform",
           "category": "food_safety"
+        },
+        {
+          "term_key": "panax-ginseng-botanical",
+          "canonical_name": "Panax Ginseng",
+          "category": "botanical_ingredient"
+        },
+        {
+          "term_key": "probiotics-lactic-acid-bacteria",
+          "canonical_name": "Probiotics and Lactic Acid Bacteria",
+          "category": "food_ingredient"
+        },
+        {
+          "term_key": "collagen-peptides",
+          "canonical_name": "Collagen Peptides",
+          "category": "food_cosmetic_ingredient"
+        },
+        {
+          "term_key": "green-tea-camellia-sinensis",
+          "canonical_name": "Green Tea / Camellia Sinensis",
+          "category": "botanical_ingredient"
         }
       ],
       "affected_products": [
@@ -2572,6 +2612,11 @@
           "term_key": "health-food-approved-effect-vocabulary",
           "canonical_name": "Health Food Approved Effect Vocabulary",
           "category": "health_food_claim"
+        },
+        {
+          "term_key": "probiotics-lactic-acid-bacteria",
+          "canonical_name": "Probiotics and Lactic Acid Bacteria",
+          "category": "food_ingredient"
         }
       ],
       "affected_products": [

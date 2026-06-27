@@ -106,7 +106,7 @@
         "specific-purpose-cosmetics-transition",
         "cosmetic-claims-criteria",
         "benzalkonium-chloride-family",
-        "cosmetic-gmp"
+        "centella-asiatica-cosmetic-ingredient"
       ],
       "sources": [
         {
@@ -371,21 +371,22 @@
           ]
         },
         {
-          "id": "cosmetic-gmp",
-          "canonical_name": "Cosmetic Good Manufacturing Practice",
-          "category": "cosmetic_compliance",
+          "id": "centella-asiatica-cosmetic-ingredient",
+          "canonical_name": "Centella Asiatica",
+          "category": "cosmetic_ingredient",
           "aliases": [
-            "cosmetic GMP",
-            "化粧品優良製造準則",
-            "Good Manufacturing Practice for cosmetics",
-            "cosmetic good manufacturing practice",
-            "化粧品GMP",
-            "화장품 GMP"
+            "CAS 84696-21-9",
+            "INCI Centella Asiatica Extract",
+            "INCI Centella Asiatica Leaf Extract",
+            "INCI Centella Asiatica Root Extract",
+            "Centella Asiatica",
+            "Centella Asiatica Extract"
           ],
           "source_keys": [
-            "tw-tfda-cosmetic-announcements",
-            "tw-tfda-cosmetics-business-area",
-            "tw-moj-cosmetic-hygiene-safety-act"
+            "global-pcpc-inci",
+            "eu-cosing-cosmetic-ingredients",
+            "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+            "tw-moj-cosmetic-claims-criteria"
           ]
         }
       ]
@@ -1232,10 +1233,10 @@
         "imported-food-inspection-forms",
         "import-regulation-f01-f02-508",
         "food-business-registration-importer",
-        "compound-food-additive-import-documents",
         "customs-declaration",
         "hs-code-classification",
-        "import-export-permit"
+        "import-export-permit",
+        "novel-food-ingredient-safety-assessment"
       ],
       "sources": [
         {
@@ -1434,24 +1435,6 @@
           ]
         },
         {
-          "id": "compound-food-additive-import-documents",
-          "canonical_name": "Compound Food Additive Import Documents",
-          "category": "food_import",
-          "aliases": [
-            "compound food additive",
-            "官方衛生證明",
-            "產品成分報告",
-            "複方食品添加物",
-            "compound food additive import documents",
-            "official health certificate"
-          ],
-          "source_keys": [
-            "tw-tfda-compound-food-additive-import-documents",
-            "tw-tfda-imported-food-inspection-regulations",
-            "tw-tfda-food-additive-registration-announcements"
-          ]
-        },
-        {
           "id": "customs-declaration",
           "canonical_name": "Customs Declaration",
           "category": "customs_document",
@@ -1506,6 +1489,23 @@
             "tw-trade-import-export-administration",
             "tw-trade-import-export-regulations",
             "tw-trade-ccc-import-export-regulations"
+          ]
+        },
+        {
+          "id": "novel-food-ingredient-safety-assessment",
+          "canonical_name": "Novel Food Ingredient Safety Assessment",
+          "category": "food_safety",
+          "aliases": [
+            "新興食品原料",
+            "非傳統食品原料",
+            "non-traditional food ingredient",
+            "novel food ingredient",
+            "安全性評估資料表",
+            "safety assessment data sheet"
+          ],
+          "source_keys": [
+            "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+            "tw-tfda-food-ingredient-integration-query-platform"
           ]
         }
       ]

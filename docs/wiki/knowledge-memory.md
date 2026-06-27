@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-06-27T12:38:34.227Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,178
-- Stored aliases: 4,212
-- Searchable aliases including identifiers: 6,693
+- Terms: 1,186
+- Stored aliases: 4,298
+- Searchable aliases including identifiers: 6,790
 - Term-rule links: 1,082
 - Regulatory update candidates: 41
 - Alias review items: 1,042
@@ -195,10 +195,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: food additive inspection registration; 食品添加物查驗登記; food additive permit number; food additive permit query; food additive registration; single food additive registration; 食品添加物許可證; 식품첨가물 검사등록; 식품첨가물 등록; 식품첨가물 허가 조회
   - Sources: `tw-tfda-food-additive-registration-materials`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-registration-permit-management-rule`, `tw-tfda-food-additive-standards`
   - Note: Taiwan food-additive inspection registration concept, especially single food additives under TFDA registration and permit-document management.
-- **Compound Food Additive Import Documents** (`compound-food-additive-import-documents`)
-  - Aliases: compound food additive; 官方衛生證明; 產品成分報告; 複方食品添加物; compound food additive import documents; official health certificate; product composition report; 공식 위생증명서; 복방 식품첨가물; 제품성분보고서
-  - Sources: `tw-tfda-compound-food-additive-import-documents`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-food-additive-registration-announcements`
-  - Note: Taiwan import-document concept for compound food additives, linking product composition reports, official health certificates, and related certificates.
 
 ### food allergen
 
@@ -300,12 +296,35 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Taiwan food additive common-name table maps 胺基丙酸 to 丙胺酸.
 
+### Food ingredient
+
+- **Probiotics and Lactic Acid Bacteria** (`probiotics-lactic-acid-bacteria`)
+  - Aliases: Probiotic; Probiotics; 乳酸菌; 益生菌; 유산균; 프로바이오틱스; Lactic acid bacteria; Bifidobacterium; Lactobacillus
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-health-food-permit-query`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`
+  - Note: High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.
+
 ### Cosmetic ingredient
 
+- **Centella Asiatica** (`centella-asiatica-cosmetic-ingredient`)
+  - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
+  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
+  - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
 - **Salicylic Acid** (`salicylic-acid`)
   - Aliases: CAS 69-72-7; INCI Salicylic Acid; Salicylic Acid; 2-Hydroxybenzoic acid; サリチル酸; 水杨酸; 水楊酸; 살리실산; BHA
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Common acne/keratolytic ingredient. Abbreviation BHA requires context check.
+- **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
+  - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Moisturizing cosmetic ingredient cluster. It helps route hydration claims to evidence review and keeps sodium-salt forms searchable.
+- **Centella Triterpenes** (`centella-triterpenes`)
+  - Aliases: INCI Madecassoside; INCI Asiaticoside; INCI Asiatic Acid; INCI Madecassic Acid; Asiaticoside; Madecassoside; Asiatic Acid; Madecassic Acid; 마데카소사이드; 아시아티코사이드
+  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `global-cas-registry`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants.
+- **Niacinamide** (`niacinamide-cosmetic-ingredient`)
+  - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
 - **Camphor** (`camphor`)
   - Aliases: INCI Camphor; Camphor; カンフル; 樟脑; 樟腦; 장뇌
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`

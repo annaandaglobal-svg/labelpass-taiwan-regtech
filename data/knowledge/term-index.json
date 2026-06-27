@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 141,
+  "curated_term_count": 149,
   "generated_term_count": 1038,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -3245,6 +3245,46 @@
           "source": "curated"
         },
         {
+          "value": "Soy protein",
+          "normalized": "soy protein",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Soy protein isolate",
+          "normalized": "soy protein isolate",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Soy isolate",
+          "normalized": "soy isolate",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Textured soy protein",
+          "normalized": "textured soy protein",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "大豆",
           "normalized": "大豆",
           "type": "local_name",
@@ -3265,12 +3305,62 @@
           "source": "curated"
         },
         {
+          "value": "大豆蛋白",
+          "normalized": "大豆蛋白",
+          "type": "ingredient_form",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "黃豆蛋白",
+          "normalized": "黃豆蛋白",
+          "type": "ingredient_form",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "대두",
           "normalized": "대두",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대두단백",
+          "normalized": "대두단백",
+          "type": "ingredient_form",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.92,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "분리대두단백",
+          "normalized": "분리대두단백",
+          "type": "ingredient_form",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "콩단백",
+          "normalized": "콩단백",
+          "type": "ingredient_form",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
           "note": null,
           "source": "curated"
         },
@@ -18698,6 +18788,964 @@
         "tw-tfda-food-allergen-labeling-consumer-notice"
       ],
       "notes": "Taiwan mandatory allergen cluster for sulphites at the sulfur-dioxide residual threshold."
+    },
+    {
+      "id": "centella-asiatica-cosmetic-ingredient",
+      "canonical_name": "Centella Asiatica",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "84696-21-9"
+        ],
+        "inci": [
+          "Centella Asiatica Extract",
+          "Centella Asiatica Leaf Extract",
+          "Centella Asiatica Root Extract"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Centella Asiatica",
+          "normalized": "centella asiatica",
+          "type": "botanical_name",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Centella Asiatica Extract",
+          "normalized": "centella asiatica extract",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Cica",
+          "normalized": "cica",
+          "type": "marketing_common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Common cosmetic marketing shorthand; confirm actual INCI and claim wording.",
+          "source": "curated"
+        },
+        {
+          "value": "Tiger grass",
+          "normalized": "tiger grass",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Gotu kola",
+          "normalized": "gotu kola",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": "Food/botanical common name; verify cosmetic versus food context.",
+          "source": "curated"
+        },
+        {
+          "value": "積雪草",
+          "normalized": "積雪草",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "雷公根",
+          "normalized": "雷公根",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.82,
+          "note": "Traditional/common botanical name; confirm context before relying on it.",
+          "source": "curated"
+        },
+        {
+          "value": "병풀",
+          "normalized": "병풀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "센텔라아시아티카",
+          "normalized": "센텔라아시아티카",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.92,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시카",
+          "normalized": "시카",
+          "type": "marketing_common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": "Korean cosmetic shorthand; require ingredient-list confirmation.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-tfda-cosmetic-label-leaflet-packaging-marking",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval."
+    },
+    {
+      "id": "centella-triterpenes",
+      "canonical_name": "Centella Triterpenes",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [
+          "Madecassoside",
+          "Asiaticoside",
+          "Asiatic Acid",
+          "Madecassic Acid"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Madecassoside",
+          "normalized": "madecassoside",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Asiaticoside",
+          "normalized": "asiaticoside",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Asiatic Acid",
+          "normalized": "asiatic acid",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Madecassic Acid",
+          "normalized": "madecassic acid",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "마데카소사이드",
+          "normalized": "마데카소사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아시아티코사이드",
+          "normalized": "아시아티코사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "마데카식애씨드",
+          "normalized": "마데카식애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "羥基積雪草苷",
+          "normalized": "羥基積雪草苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Chinese naming varies by supplier; verify against INCI or CAS evidence.",
+          "source": "curated"
+        },
+        {
+          "value": "積雪草苷",
+          "normalized": "積雪草苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.82,
+          "note": "Supplier/local wording for asiaticoside family; confirm identity.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "eu-cosing-cosmetic-ingredients",
+        "global-cas-registry",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants."
+    },
+    {
+      "id": "niacinamide-cosmetic-ingredient",
+      "canonical_name": "Niacinamide",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "98-92-0"
+        ],
+        "inci": [
+          "Niacinamide"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Niacinamide",
+          "normalized": "niacinamide",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Nicotinamide",
+          "normalized": "nicotinamide",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Vitamin B3",
+          "normalized": "vitamin b3",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": "Broad vitamin name; confirm exact INCI in cosmetics or nutrition context.",
+          "source": "curated"
+        },
+        {
+          "value": "菸鹼醯胺",
+          "normalized": "菸鹼醯胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "煙醯胺",
+          "normalized": "煙醯胺",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "烟酰胺",
+          "normalized": "烟酰胺",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "나이아신아마이드",
+          "normalized": "나이아신아마이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "니아신아마이드",
+          "normalized": "니아신아마이드",
+          "type": "variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "니코틴아마이드",
+          "normalized": "니코틴아마이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval."
+    },
+    {
+      "id": "hyaluronic-acid-sodium-hyaluronate",
+      "canonical_name": "Hyaluronic Acid and Sodium Hyaluronate",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "9004-61-9",
+          "9067-32-7"
+        ],
+        "inci": [
+          "Hyaluronic Acid",
+          "Sodium Hyaluronate",
+          "Hydrolyzed Hyaluronic Acid"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Hyaluronic Acid",
+          "normalized": "hyaluronic acid",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sodium Hyaluronate",
+          "normalized": "sodium hyaluronate",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Hydrolyzed Hyaluronic Acid",
+          "normalized": "hydrolyzed hyaluronic acid",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HA",
+          "normalized": "ha",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": "Very broad abbreviation; only use with cosmetics or ingredient-list context.",
+          "source": "curated"
+        },
+        {
+          "value": "透明質酸",
+          "normalized": "透明質酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "玻尿酸",
+          "normalized": "玻尿酸",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "玻璃酸鈉",
+          "normalized": "玻璃酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "히알루론산",
+          "normalized": "히알루론산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소듐하이알루로네이트",
+          "normalized": "소듐하이알루로네이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.92,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "하이드롤라이즈드하이알루로닉애씨드",
+          "normalized": "하이드롤라이즈드하이알루로닉애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Moisturizing cosmetic ingredient cluster. It helps route hydration claims to evidence review and keeps sodium-salt forms searchable."
+    },
+    {
+      "id": "panax-ginseng-botanical",
+      "canonical_name": "Panax Ginseng",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [
+          "84650-12-4"
+        ],
+        "inci": [
+          "Panax Ginseng Root Extract"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Panax Ginseng",
+          "normalized": "panax ginseng",
+          "type": "botanical_name",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Ginseng",
+          "normalized": "ginseng",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Panax Ginseng Root Extract",
+          "normalized": "panax ginseng root extract",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Red ginseng",
+          "normalized": "red ginseng",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "人參",
+          "normalized": "人參",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "高麗人參",
+          "normalized": "高麗人參",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "紅蔘",
+          "normalized": "紅蔘",
+          "type": "ingredient_form",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인삼",
+          "normalized": "인삼",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "홍삼",
+          "normalized": "홍삼",
+          "type": "ingredient_form",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "진생",
+          "normalized": "진생",
+          "type": "variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.75,
+          "note": "Marketing transliteration; confirm botanical identity.",
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-moj-health-food-governing-act",
+        "global-pcpc-inci"
+      ],
+      "notes": "Cross-category botanical for Taiwan food, health-food, and cosmetics. Functional claims such as fatigue, immunity, stamina, or disease prevention must route to health-food permit or advertising review."
+    },
+    {
+      "id": "probiotics-lactic-acid-bacteria",
+      "canonical_name": "Probiotics and Lactic Acid Bacteria",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Probiotics",
+          "normalized": "probiotics",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Probiotic",
+          "normalized": "probiotic",
+          "type": "variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Lactic acid bacteria",
+          "normalized": "lactic acid bacteria",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.92,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Lactobacillus",
+          "normalized": "lactobacillus",
+          "type": "genus",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Bifidobacterium",
+          "normalized": "bifidobacterium",
+          "type": "genus",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "益生菌",
+          "normalized": "益生菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乳酸菌",
+          "normalized": "乳酸菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "프로바이오틱스",
+          "normalized": "프로바이오틱스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유산균",
+          "normalized": "유산균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-health-food-permit-query",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+      ],
+      "notes": "High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks."
+    },
+    {
+      "id": "collagen-peptides",
+      "canonical_name": "Collagen Peptides",
+      "category": "food_cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "9064-67-9"
+        ],
+        "inci": [
+          "Collagen",
+          "Hydrolyzed Collagen",
+          "Soluble Collagen"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Collagen",
+          "normalized": "collagen",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Collagen peptides",
+          "normalized": "collagen peptides",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Hydrolyzed Collagen",
+          "normalized": "hydrolyzed collagen",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Fish collagen",
+          "normalized": "fish collagen",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "膠原蛋白",
+          "normalized": "膠原蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "水解膠原蛋白",
+          "normalized": "水解膠原蛋白",
+          "type": "ingredient_form",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.92,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "魚膠原蛋白",
+          "normalized": "魚膠原蛋白",
+          "type": "ingredient_form",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "콜라겐",
+          "normalized": "콜라겐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "저분자콜라겐",
+          "normalized": "저분자콜라겐",
+          "type": "ingredient_form",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "피쉬콜라겐",
+          "normalized": "피쉬콜라겐",
+          "type": "ingredient_form",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims",
+        "global-pcpc-inci"
+      ],
+      "notes": "Food and cosmetic ingredient cluster. Skin, joint, anti-aging, or medical benefit wording must be checked as Taiwan claim risk rather than ordinary ingredient naming."
+    },
+    {
+      "id": "green-tea-camellia-sinensis",
+      "canonical_name": "Green Tea / Camellia Sinensis",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [
+          "84650-60-2"
+        ],
+        "inci": [
+          "Camellia Sinensis Leaf Extract"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Camellia Sinensis",
+          "normalized": "camellia sinensis",
+          "type": "botanical_name",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Camellia Sinensis Leaf Extract",
+          "normalized": "camellia sinensis leaf extract",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Green tea",
+          "normalized": "green tea",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Tea catechins",
+          "normalized": "tea catechins",
+          "type": "constituent",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "綠茶",
+          "normalized": "綠茶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "茶葉",
+          "normalized": "茶葉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "兒茶素",
+          "normalized": "兒茶素",
+          "type": "constituent",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "녹차",
+          "normalized": "녹차",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카멜리아 시넨시스",
+          "normalized": "카멜리아 시넨시스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카테킨",
+          "normalized": "카테킨",
+          "type": "constituent",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "global-pcpc-inci",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+      ],
+      "notes": "Cross-category botanical used in beverages, supplements, and cosmetics. Catechin/antioxidant wording should route to claim review and caffeine or extract-strength confirmation where relevant."
     },
     {
       "id": "end-use-end-user",

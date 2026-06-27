@@ -18,7 +18,8 @@
       ],
       "match_categories": [
         "cosmetic_compliance",
-        "preservative"
+        "preservative",
+        "cosmetic_ingredient"
       ],
       "match_terms": [
         "cosmetic-product-information-file",
@@ -30,7 +31,7 @@
         "specific-purpose-cosmetics-transition",
         "cosmetic-claims-criteria",
         "benzalkonium-chloride-family",
-        "cosmetic-gmp"
+        "centella-asiatica-cosmetic-ingredient"
       ],
       "match_sources": [
         "tw-moj-cosmetic-hygiene-safety-act",
@@ -789,7 +790,8 @@
         "food_import",
         "customs_document",
         "customs_classification",
-        "import_export_control"
+        "import_export_control",
+        "food_safety"
       ],
       "match_terms": [
         "imported-food-inspection",
@@ -798,10 +800,10 @@
         "imported-food-inspection-forms",
         "import-regulation-f01-f02-508",
         "food-business-registration-importer",
-        "compound-food-additive-import-documents",
         "customs-declaration",
         "hs-code-classification",
-        "import-export-permit"
+        "import-export-permit",
+        "novel-food-ingredient-safety-assessment"
       ],
       "match_sources": [
         "tw-customs-tariff-database-download",
