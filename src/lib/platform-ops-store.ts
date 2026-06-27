@@ -179,6 +179,14 @@ export type PlatformOpsSnapshot = {
   settings: PlatformSettingRow[];
 };
 
+export type PlatformOpsNavBadge = {
+  count: number;
+  tone: "info" | "warn" | "danger";
+  label: string;
+};
+
+export type PlatformOpsNavBadges = Partial<Record<string, PlatformOpsNavBadge>>;
+
 type OrganizationRow = {
   name: string;
   primary_market: string;
@@ -891,6 +899,52 @@ export function getPlatformOpsPreviewSnapshot(storage: PlatformOpsStorage, warni
     payments: previewPayments,
     settings: previewSettings
   };
+}
+
+function nonzeroBadge(count: number, tone: PlatformOpsNavBadge["tone"], label: string): PlatformOpsNavBadge | undefined {
+  return count > 0 ? { count, tone, label } : undefined;
+}
+
+export function buildPlatformOpsNavBadges(snapshot: PlatformOpsSnapshot): PlatformOpsNavBadges {
+  const reviewQueue = snapshot.reviewFlows.filter((flow) => !/completed|done|closed|완료|종료/i.test(flow.status)).length;
+  const expertQueue = snapshot.expertCases.filter(
+    (item) => item.state === "requested" || item.state === "matched" || item.queueTone === "blocked"
+  ).length;
+  const expertBlocked = snapshot.expertCases.filter((item) => item.queueTone === "blocked").length;
+  const paymentQueue = snapshot.payments.filter(
+    (payment) =>
+      payment.status === "pending" ||
+      payment.status === "failed" ||
+      payment.status === "refunded" ||
+      payment.chatThreadStatus === "payment_required"
+  ).length;
+  const customsHolds = snapshot.activeShipments.filter((shipment) => shipment.state === "customs_hold").length;
+  const logisticsQueue =
+    customsHolds +
+    snapshot.shipmentRequests.filter((request) => ["requested", "quoted", "customs_hold"].includes(request.state)).length;
+  const settingsQueue = snapshot.storage === "database" ? 0 : snapshot.warnings.length;
+  const totalQueue = reviewQueue + expertQueue + paymentQueue + logisticsQueue + settingsQueue;
+  const badges: PlatformOpsNavBadges = {};
+
+  for (const [href, badge] of [
+    ["/admin", nonzeroBadge(totalQueue, totalQueue >= 8 ? "danger" : "warn", `${totalQueue}개 운영 대기`)],
+    ["/admin/reviews", nonzeroBadge(reviewQueue, "warn", `${reviewQueue}개 리뷰 후속`)],
+    [
+      "/admin/experts",
+      nonzeroBadge(
+        expertQueue,
+        expertBlocked > 0 ? "danger" : "warn",
+        `${expertQueue}개 전문가 매칭 확인`
+      )
+    ],
+    ["/admin/payments", nonzeroBadge(paymentQueue, paymentQueue > 1 ? "danger" : "warn", `${paymentQueue}개 결제 또는 상담방 확인`)],
+    ["/admin/logistics", nonzeroBadge(logisticsQueue, customsHolds > 0 ? "danger" : "warn", `${logisticsQueue}개 물류 확인`)],
+    ["/admin/settings", nonzeroBadge(settingsQueue, "info", `${settingsQueue}개 운영 설정 확인`)]
+  ] as const) {
+    if (badge) badges[href] = badge;
+  }
+
+  return badges;
 }
 
 async function readCounts(sql: DbClient): Promise<PlatformOpsCounts> {

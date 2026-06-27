@@ -12411,6 +12411,32 @@ h2 {
   white-space: nowrap;
 }
 
+.admin-section-badge {
+  display: inline-grid;
+  flex: 0 0 auto;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: #355c99;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.admin-section-badge.warn {
+  background: #fff6da;
+  color: #8a5a00;
+}
+
+.admin-section-badge.danger {
+  background: #ffe7e7;
+  color: #a83232;
+}
+
 .admin-section-nav a:hover {
   background: var(--green-soft);
 }

@@ -74,7 +74,7 @@ const routeShells = [
     file: "src/app/admin/layout.tsx",
     shell: '<main className="lp-shell admin-shell">',
     sidebar: '<AppSidebar active="admin" />',
-    extra: '<AdminSectionNav />'
+    extra: '<AdminSectionNav badges={badges} />'
   }
 ];
 
@@ -190,6 +190,8 @@ if (/admin-sidebar|admin-brand|admin-back|admin-nav/.test(css)) fail("src/app/gl
 requireIncludes(adminSectionNavSource, 'className="admin-section-nav"', "src/components/admin-section-nav.tsx isolated secondary nav class");
 if (adminSectionNavSource.includes("admin-nav admin-section-nav")) fail("src/components/admin-section-nav.tsx: secondary admin nav must not inherit oversized admin-nav styles");
 requireIncludes(adminSectionNavSource, 'data-shell-nav="admin-secondary"', "src/components/admin-section-nav.tsx secondary shell nav contract");
+requireIncludes(adminSectionNavSource, "admin-section-badge", "src/components/admin-section-nav.tsx compact nav badges");
+requireIncludes(adminSectionNavSource, "data-admin-section-has-badge", "src/components/admin-section-nav.tsx stable badge marker");
 requireIncludes(adminSectionNav, "position: sticky", "src/app/globals.css .admin-section-nav");
 requireIncludes(adminSectionNav, "display: grid", "src/app/globals.css .admin-section-nav");
 requireIncludes(adminSectionNav, "grid-template-columns: repeat(8, minmax(0, 1fr))", "src/app/globals.css .admin-section-nav");
@@ -199,6 +201,9 @@ requireMaxPx(adminSectionNav, "padding", 8, "src/app/globals.css .admin-section-
 const adminSectionNavLink = cssRule(css, ".admin-section-nav a");
 requireMaxPx(adminSectionNavLink, "min-height", 30, "src/app/globals.css .admin-section-nav a");
 requireMaxPx(adminSectionNavLink, "font-size", 12, "src/app/globals.css .admin-section-nav a");
+const adminSectionBadge = cssRule(css, ".admin-section-badge");
+requireMaxPx(adminSectionBadge, "height", 18, "src/app/globals.css .admin-section-badge");
+requireMaxPx(adminSectionBadge, "font-size", 10, "src/app/globals.css .admin-section-badge");
 
 const adminHero = `${cssRule(css, ".admin-hero")} ${cssRule(css, ".admin-section-hero")}`;
 requireMaxPx(adminHero, "min-height", 60, "src/app/globals.css admin hero");

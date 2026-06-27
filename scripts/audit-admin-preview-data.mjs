@@ -1,11 +1,15 @@
 import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import vm from "node:vm";
+import ts from "typescript";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const source = readFileSync(join(repoRoot, "src", "lib", "platform-ops-store.ts"), "utf8");
 const adminHome = readFileSync(join(repoRoot, "src", "app", "admin", "page.tsx"), "utf8");
 const failures = [];
+const require = createRequire(import.meta.url);
 
 function fail(message) {
   failures.push(message);
@@ -38,11 +42,49 @@ function requireLinkedCase(product, areas) {
   }
 }
 
+function loadPlatformOpsStore() {
+  const transpiled = ts.transpileModule(source, {
+    compilerOptions: {
+      esModuleInterop: true,
+      module: ts.ModuleKind.CommonJS,
+      target: ts.ScriptTarget.ES2020
+    },
+    fileName: "platform-ops-store.ts"
+  }).outputText;
+  const module = { exports: {} };
+  const sandbox = {
+    exports: module.exports,
+    module,
+    require,
+    process,
+    console
+  };
+  vm.runInNewContext(transpiled, sandbox, { filename: "platform-ops-store.cjs" });
+  return module.exports;
+}
+
+function requireBadge(badges, href, expected) {
+  const badge = badges[href];
+  if (!badge) {
+    fail(`${href}: expected nav badge`);
+    return;
+  }
+  for (const [field, value] of Object.entries(expected)) {
+    if (badge[field] !== value) fail(`${href}: expected ${field}=${value}, got ${badge[field]}`);
+  }
+}
+
 requireIncludes(source, "export function getPlatformOpsPreviewSnapshot", "platform ops preview");
+requireIncludes(source, "export function buildPlatformOpsNavBadges", "platform ops nav badges");
 requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"disabled\"", "disabled DB fallback");
 requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"preview_disabled\"", "preview-disabled DB fallback");
 requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"error\"", "DB error fallback");
 requireIncludes(adminHome, "visibleOpsCount", "admin dashboard preview metric");
+requireIncludes(source, "[\"/admin/reviews\", nonzeroBadge", "review nav badge");
+requireIncludes(source, "\"/admin/experts\"", "expert nav badge");
+requireIncludes(source, "[\"/admin/payments\", nonzeroBadge", "payment nav badge");
+requireIncludes(source, "[\"/admin/logistics\", nonzeroBadge", "logistics nav badge");
+requireIncludes(source, "[\"/admin/settings\", nonzeroBadge", "settings nav badge");
 
 for (const name of [
   "previewCompanyRows",
@@ -92,6 +134,50 @@ for (const [label, expected] of [
 if (source.includes("return emptySnapshot")) {
   fail("getPlatformOpsSnapshot must not return an empty admin snapshot for non-live states");
 }
+
+const { buildPlatformOpsNavBadges, getPlatformOpsPreviewSnapshot } = loadPlatformOpsStore();
+const previewSnapshot = getPlatformOpsPreviewSnapshot("disabled", ["preview warning"]);
+const previewBadges = buildPlatformOpsNavBadges(previewSnapshot);
+requireBadge(previewBadges, "/admin", { count: 13, tone: "danger", label: "13개 운영 대기" });
+requireBadge(previewBadges, "/admin/reviews", { count: 4, tone: "warn", label: "4개 리뷰 후속" });
+requireBadge(previewBadges, "/admin/experts", { count: 3, tone: "danger", label: "3개 전문가 매칭 확인" });
+requireBadge(previewBadges, "/admin/payments", { count: 2, tone: "danger", label: "2개 결제 또는 상담방 확인" });
+requireBadge(previewBadges, "/admin/logistics", { count: 3, tone: "danger", label: "3개 물류 확인" });
+requireBadge(previewBadges, "/admin/settings", { count: 1, tone: "info", label: "1개 운영 설정 확인" });
+
+const quietSnapshot = {
+  ...previewSnapshot,
+  storage: "database",
+  warnings: [],
+  reviewFlows: [],
+  expertCases: [],
+  payments: [],
+  shipmentRequests: [],
+  activeShipments: []
+};
+const quietBadges = buildPlatformOpsNavBadges(quietSnapshot);
+if (Object.keys(quietBadges).length !== 0) {
+  fail(`quiet snapshot: expected zero nav badges, got ${Object.keys(quietBadges).join(", ")}`);
+}
+
+const largeBadgeSnapshot = {
+  ...previewSnapshot,
+  reviewFlows: Array.from({ length: 120 }, (_, index) => ({
+    title: `Review ${index}`,
+    product: "Bulk test",
+    route: "TW",
+    status: "open",
+    next: "next",
+    handoff: "handoff"
+  })),
+  expertCases: [],
+  payments: [],
+  shipmentRequests: [],
+  activeShipments: [],
+  warnings: []
+};
+const largeBadges = buildPlatformOpsNavBadges(largeBadgeSnapshot);
+requireBadge(largeBadges, "/admin/reviews", { count: 120, tone: "warn", label: "120개 리뷰 후속" });
 
 if (failures.length) {
   console.error("Admin preview data audit failed:");
