@@ -1,4 +1,5 @@
 import sourceIndexData from "../../data/knowledge/index.json";
+import aliasReviewQueueData from "../../data/knowledge/alias-review-queue.json";
 import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 import termIndexData from "../../data/knowledge/term-index.json";
 
@@ -65,6 +66,27 @@ type UpdateQueueItem = {
   status: string;
 };
 
+type AliasReviewQueueItem = {
+  id: string;
+  status: string;
+  issue: string;
+  priority: "backlog" | "low" | "medium" | "high" | "blocker";
+  alias: string;
+  term_count: number;
+  max_confidence: number;
+  recommended_action?: string;
+  terms?: Array<{
+    term_id: string;
+    canonical_name: string;
+    confidence?: number;
+    alias_value?: string;
+    alias_type?: string;
+    language?: string;
+    jurisdiction?: string;
+    notes?: string;
+  }>;
+};
+
 export type KnowledgeSourceScoringInput = {
   title: string;
   url: string;
@@ -116,6 +138,19 @@ export type KnowledgeSearchResult = {
       normalized: string;
       otherTerms: string[];
       note: string;
+      issue?: string;
+      priority?: string;
+      recommendedAction?: string;
+      contexts?: Array<{
+        termId: string;
+        canonicalName: string;
+        category: string;
+        confidence: number;
+        aliasType: string;
+        language: string;
+        jurisdiction: string;
+        notes: string;
+      }>;
     }>;
     sourceKeys: string[];
     notes: string;
@@ -180,6 +215,7 @@ const terms = (termIndexData.terms ?? []) as KnowledgeTerm[];
 const links = (termIndexData.term_rule_links ?? []) as TermRuleLink[];
 const sources = (sourceIndexData.results ?? []) as SourceResult[];
 const updateCandidates = (updateQueueData.items ?? []) as UpdateQueueItem[];
+const aliasReviewItems = (aliasReviewQueueData.items ?? []) as AliasReviewQueueItem[];
 
 const linksByTerm = new Map<string, TermRuleLink[]>();
 for (const link of links) {
@@ -187,6 +223,7 @@ for (const link of links) {
 }
 
 const termNamesById = new Map(terms.map((term) => [term.id, term.canonical_name]));
+const termCategoryById = new Map(terms.map((term) => [term.id, term.category ?? "term"]));
 
 const regulatoryVariantFoldMap: Record<string, string> = {
   "妆": "粧",
@@ -257,6 +294,38 @@ function compareStable(left: string, right: string) {
   if (left < right) return -1;
   if (left > right) return 1;
   return 0;
+}
+
+function aliasReviewPriorityRank(priority: string) {
+  if (priority === "blocker") return 0;
+  if (priority === "high") return 1;
+  if (priority === "medium") return 2;
+  if (priority === "low") return 3;
+  return 4;
+}
+
+const aliasReviewByNormalized = new Map<string, AliasReviewQueueItem[]>();
+for (const item of aliasReviewItems) {
+  const normalized = normalize(item.alias);
+  if (!normalized || item.term_count <= 1 || !item.terms?.length) continue;
+  aliasReviewByNormalized.set(normalized, [...(aliasReviewByNormalized.get(normalized) ?? []), item]);
+}
+
+for (const [normalized, items] of aliasReviewByNormalized) {
+  aliasReviewByNormalized.set(
+    normalized,
+    items.sort(
+      (left, right) =>
+        aliasReviewPriorityRank(left.priority) - aliasReviewPriorityRank(right.priority) ||
+        right.max_confidence - left.max_confidence ||
+        compareStable(left.id, right.id)
+    )
+  );
+}
+
+function aliasReviewContextFor(normalized: string) {
+  const items = aliasReviewByNormalized.get(normalized) ?? [];
+  return items.find((item) => item.issue.includes("collision")) ?? items[0] ?? null;
 }
 
 const aliasOwners = new Map<string, Set<string>>();
@@ -498,11 +567,29 @@ function ambiguousAliasesForTerm(term: KnowledgeTerm, aliases: Alias[], matchedA
         .sort((a, b) => compareStable(a, b))
         .slice(0, 5);
       if (!otherTerms.length) return null;
+      const reviewContext = aliasReviewContextFor(normalized);
+      const contexts = (reviewContext?.terms ?? [])
+        .map((context) => ({
+          termId: context.term_id,
+          canonicalName: context.canonical_name,
+          category: termCategoryById.get(context.term_id) ?? "term",
+          confidence: context.confidence ?? 0,
+          aliasType: context.alias_type ?? "alias",
+          language: context.language ?? "und",
+          jurisdiction: context.jurisdiction ?? "GLOBAL",
+          notes: context.notes ?? ""
+        }))
+        .sort((left, right) => right.confidence - left.confidence || compareStable(left.canonicalName, right.canonicalName))
+        .slice(0, 6);
       return {
         value: alias.value,
         normalized,
         otherTerms,
-        note: "동일 별칭이 여러 규제 용어에 연결되어 문맥 확인이 필요합니다."
+        note: reviewContext?.recommended_action ?? "동일 별칭이 여러 규제 용어에 연결되어 문맥 확인이 필요합니다.",
+        issue: reviewContext?.issue,
+        priority: reviewContext?.priority,
+        recommendedAction: reviewContext?.recommended_action,
+        contexts: contexts.length ? contexts : undefined
       };
     })
     .filter((entry): entry is NonNullable<typeof entry> => entry !== null)

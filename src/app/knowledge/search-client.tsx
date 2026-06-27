@@ -294,22 +294,26 @@ export default function KnowledgeSearchClient({
   }, [data, domain, freshness, jurisdiction, sourceType]);
 
   const unifiedResults = useMemo<UnifiedResult[]>(() => {
-    const termRows = filteredTerms.slice(0, 8).map((term) => ({
-      kind: "term" as const,
-      id: `term-${term.id}`,
-      title: term.canonicalName,
-      subtitle: `${labelFor(term.category)} · 별칭 ${term.aliasCount.toLocaleString()}개`,
-      detail: term.notes || "공식 용어, 별칭, CAS/INCI, 연결 규칙을 함께 확인하세요.",
-      score: term.score,
-      chips: uniqueCompact([
-        ...(term.ambiguousAliases.length ? [`문맥 확인 ${term.ambiguousAliases.length}`] : []),
-        ...term.identifiers.cas.slice(0, 1).map((value) => `CAS ${value}`),
-        ...term.identifiers.inci.slice(0, 1).map((value) => `INCI ${value}`),
-        ...term.aliases.slice(0, 2).map((alias) => alias.value),
-        `${term.sourceKeys.length}개 소스`
-      ]).slice(0, 4),
-      term
-    }));
+    const termRows = filteredTerms.slice(0, 8).map((term) => {
+      const collision = collisionSummaryForTerm(term);
+
+      return {
+        kind: "term" as const,
+        id: `term-${term.id}`,
+        title: term.canonicalName,
+        subtitle: `${labelFor(term.category)} · 별칭 ${term.aliasCount.toLocaleString()}개`,
+        detail: term.notes || "공식 용어, 별칭, CAS/INCI, 연결 규칙을 함께 확인하세요.",
+        score: term.score,
+        chips: uniqueCompact([
+          ...(collision ? [`문맥 ${collision.names.length + 1}갈래`, collision.alias] : []),
+          ...term.identifiers.cas.slice(0, 1).map((value) => `CAS ${value}`),
+          ...term.identifiers.inci.slice(0, 1).map((value) => `INCI ${value}`),
+          ...term.aliases.slice(0, 2).map((alias) => alias.value),
+          `${term.sourceKeys.length}개 소스`
+        ]).slice(0, 4),
+        term
+      };
+    });
 
     const sourceRows = filteredSources.slice(0, 8).map((source) => {
       const meta = freshnessMeta(source);
@@ -465,6 +469,7 @@ export default function KnowledgeSearchClient({
                     <div>
                       <h3>{result.title}</h3>
                       <p>{decision.detail}</p>
+                      {result.kind === "term" ? <CollisionInline term={result.term} /> : null}
                       <div className="kb-chip-row">
                         <span>{result.subtitle}</span>
                         {result.chips.slice(0, 3).map((chip) => (
@@ -526,7 +531,13 @@ export default function KnowledgeSearchClient({
                   {activeEvidence.aliasWarnings.slice(0, 3).map((warning) => (
                     <span key={`${activeEvidence.title}-${warning.normalized}`}>
                       <b>{warning.value}</b>
-                      <small>{warning.otherTerms.join(" / ")}</small>
+                      <small> · 문맥: {contextNamesForWarning(warning).join(" / ")}</small>
+                      {warning.recommendedAction ? <small> · 권장: {compact(warning.recommendedAction, 120)}</small> : null}
+                      {warning.contexts?.slice(0, 3).map((context) => (
+                        <small key={`${warning.normalized}-${context.termId}`}>
+                          {context.canonicalName}: {labelFor(context.jurisdiction)} · {labelFor(context.language)} · {compact(context.notes, 96)}
+                        </small>
+                      ))}
                     </span>
                   ))}
                   <Link href={`/knowledge/aliases?alias=${encodeURIComponent(activeEvidence.aliasWarnings[0].value)}&issue=alias-collision-high-confidence&priority=high&lane=active`}>
@@ -660,6 +671,35 @@ function FilterGroup({
       </div>
     </div>
   );
+}
+
+function CollisionInline({ term }: { term: TermItem }) {
+  const collision = collisionSummaryForTerm(term);
+  if (!collision) return null;
+
+  return (
+    <div className="kb-result-context">
+      <AlertTriangle size={13} />
+      <span>{collision.alias}</span>
+      <small> · 문맥: {collision.names.slice(0, 3).join(" / ")}</small>
+    </div>
+  );
+}
+
+function collisionSummaryForTerm(term: TermItem) {
+  const warning = term.ambiguousAliases[0];
+  if (!warning) return null;
+  const contextNames = contextNamesForWarning(warning).filter((name) => name !== term.canonicalName);
+  const names = contextNames.length ? contextNames : warning.otherTerms;
+  return {
+    alias: warning.value,
+    names
+  };
+}
+
+function contextNamesForWarning(warning: TermItem["ambiguousAliases"][number]) {
+  const contextNames = warning.contexts?.map((context) => context.canonicalName) ?? [];
+  return uniqueCompact(contextNames.length ? contextNames : warning.otherTerms);
 }
 
 function RouteHintCard({ route, hasQuery }: { route: RouteHint | null; hasQuery: boolean }) {
@@ -845,6 +885,13 @@ function labelFor(value: string) {
     pdf: "PDF",
     manual: "수동",
     browser_capture: "브라우저 캡처",
+    zh: "중국어",
+    "zh-Hant": "번체",
+    "zh-Hans": "간체",
+    en: "영어",
+    ko: "한국어",
+    ja: "일본어",
+    und: "언어 미정",
     cosmetic_ingredient: "화장품 원료",
     food_ingredient: "식품 원료",
     food_additive: "식품첨가물",

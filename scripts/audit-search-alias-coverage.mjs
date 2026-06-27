@@ -5,7 +5,8 @@ const root = process.cwd();
 
 const paths = {
   termIndex: path.join(root, "data", "knowledge", "term-index.json"),
-  coverage: path.join(root, "data", "knowledge", "search-alias-coverage.json")
+  coverage: path.join(root, "data", "knowledge", "search-alias-coverage.json"),
+  aliasReviewQueue: path.join(root, "data", "knowledge", "alias-review-queue.json")
 };
 
 function normalizeText(value) {
@@ -130,10 +131,46 @@ function bestTermForQuery(terms, query) {
 
 const termIndex = await readJson(paths.termIndex);
 const coverage = await readJson(paths.coverage);
+const aliasReviewQueue = await readJson(paths.aliasReviewQueue);
 const terms = Array.isArray(termIndex.terms) ? termIndex.terms : [];
 const termsById = new Map(terms.map((term) => [term.id, term]));
 const failures = [];
 const warnings = [];
+
+const collisionContextCases = [
+  {
+    id: "collision-context-inci",
+    alias: "INCI",
+    expectedTermIds: ["inci-ingredient-name", "cosmetic-label-required-items"]
+  },
+  {
+    id: "collision-context-preservative",
+    alias: "preservative",
+    expectedTermIds: ["cosmetic-preservatives", "food-additive-functional-classes"]
+  },
+  {
+    id: "collision-context-preservative-zh",
+    alias: "\u9632\u8150\u5291",
+    expectedTermIds: ["cosmetic-preservatives", "food-additive-functional-classes"]
+  },
+  {
+    id: "collision-context-casein",
+    alias: "casein",
+    expectedTermIds: ["milk-allergen", "caseinates-food-additives"]
+  },
+  {
+    id: "collision-context-health-care-effect",
+    alias: "\u4fdd\u5065\u529f\u6548",
+    expectedTermIds: ["health-food", "health-food-approved-claims", "health-food-label-required-items"]
+  }
+];
+
+function findCollisionQueueItem(alias) {
+  const normalized = normalizeText(alias);
+  return (aliasReviewQueue.items ?? []).find((item) => {
+    return normalizeText(item.alias) === normalized && String(item.issue ?? "").includes("collision");
+  });
+}
 
 for (const testCase of coverage.cases ?? []) {
   const term = termsById.get(testCase.expectedTermId);
@@ -197,11 +234,62 @@ for (const testCase of coverage.cases ?? []) {
   }
 }
 
+for (const testCase of collisionContextCases) {
+  const item = findCollisionQueueItem(testCase.alias);
+  if (!item) {
+    failures.push({
+      id: testCase.id,
+      issue: "missing-collision-context",
+      detail: `Alias review queue has no collision item for ${testCase.alias}`
+    });
+    continue;
+  }
+
+  if (item.priority !== "high" && item.priority !== "blocker") {
+    failures.push({
+      id: testCase.id,
+      issue: "weak-collision-priority",
+      detail: `Expected high-priority collision context for ${testCase.alias}, got ${item.priority}`
+    });
+  }
+
+  if (Number(item.max_confidence ?? 0) < 0.9) {
+    failures.push({
+      id: testCase.id,
+      issue: "weak-collision-confidence",
+      detail: `Expected high-confidence collision context for ${testCase.alias}, got ${item.max_confidence}`
+    });
+  }
+
+  const termIds = new Set((item.terms ?? []).map((term) => term.term_id));
+  const missingTermIds = testCase.expectedTermIds.filter((termId) => !termIds.has(termId));
+  if (missingTermIds.length > 0) {
+    failures.push({
+      id: testCase.id,
+      issue: "collision-missing-term-context",
+      detail: `${testCase.alias}: missing ${missingTermIds.join(", ")}`
+    });
+  }
+
+  for (const context of item.terms ?? []) {
+    for (const field of ["notes", "alias_type", "language", "jurisdiction"]) {
+      if (!String(context[field] ?? "").trim()) {
+        failures.push({
+          id: testCase.id,
+          issue: "collision-context-incomplete",
+          detail: `${testCase.alias}: ${context.term_id} missing ${field}`
+        });
+      }
+    }
+  }
+}
+
 const summary = {
   coverage_version: coverage.version ?? "unknown",
   term_index_generated_at: termIndex.generated_at ?? null,
   term_index_registry_version: termIndex.registry_version ?? null,
   cases: coverage.cases?.length ?? 0,
+  collision_context_cases: collisionContextCases.length,
   terms_scanned: terms.length,
   failures: failures.length,
   warnings: warnings.length
@@ -210,6 +298,7 @@ const summary = {
 console.log("Search alias coverage audit");
 console.log(`- Coverage version: ${summary.coverage_version}`);
 console.log(`- Cases: ${summary.cases}`);
+console.log(`- Collision context cases: ${summary.collision_context_cases}`);
 console.log(`- Terms scanned: ${summary.terms_scanned}`);
 console.log(`- Failures: ${summary.failures}`);
 console.log(`- Warnings: ${summary.warnings}`);

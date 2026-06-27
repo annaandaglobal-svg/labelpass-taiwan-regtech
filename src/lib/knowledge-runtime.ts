@@ -18,6 +18,45 @@ function uniqueValues(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
 
+type AmbiguousAlias = KnowledgeSearchResult["terms"][number]["ambiguousAliases"][number];
+
+function mergeAmbiguousAliases(primary: AmbiguousAlias[] = [], fallback: AmbiguousAlias[] = []) {
+  const byNormalized = new Map<string, AmbiguousAlias>();
+
+  for (const alias of primary) {
+    byNormalized.set(alias.normalized, { ...alias });
+  }
+
+  for (const alias of fallback) {
+    const existing = byNormalized.get(alias.normalized);
+    if (!existing) {
+      byNormalized.set(alias.normalized, { ...alias });
+      continue;
+    }
+
+    const existingContextCount = existing.contexts?.length ?? 0;
+    const nextContextCount = alias.contexts?.length ?? 0;
+    byNormalized.set(alias.normalized, {
+      ...existing,
+      ...(nextContextCount > existingContextCount ? alias : {}),
+      value: existing.value || alias.value,
+      otherTerms: uniqueValues([...(existing.otherTerms ?? []), ...(alias.otherTerms ?? [])]),
+      contexts:
+        nextContextCount > existingContextCount
+          ? alias.contexts
+          : existing.contexts?.length
+            ? existing.contexts
+            : alias.contexts,
+      issue: existing.issue ?? alias.issue,
+      priority: existing.priority ?? alias.priority,
+      recommendedAction: existing.recommendedAction ?? alias.recommendedAction,
+      note: existing.recommendedAction ?? alias.recommendedAction ?? existing.note ?? alias.note
+    });
+  }
+
+  return [...byNormalized.values()];
+}
+
 function mergeKnowledgeResult(
   primary: KnowledgeSearchResult,
   fallback: KnowledgeSearchResult,
@@ -43,9 +82,7 @@ function mergeKnowledgeResult(
         primaryTerm.aliasCount = Math.max(primaryTerm.aliasCount, fallbackTerm.aliasCount);
         primaryTerm.rules = fallbackTerm.rules.length ? fallbackTerm.rules : primaryTerm.rules;
       }
-      if (!primaryTerm.ambiguousAliases?.length && fallbackTerm.ambiguousAliases?.length) {
-        primaryTerm.ambiguousAliases = fallbackTerm.ambiguousAliases;
-      }
+      primaryTerm.ambiguousAliases = mergeAmbiguousAliases(primaryTerm.ambiguousAliases, fallbackTerm.ambiguousAliases);
       continue;
     }
     if (termIds.has(fallbackTerm.id)) continue;
