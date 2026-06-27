@@ -11,9 +11,11 @@ export function AppShell({ active, className, children }: AppShellProps) {
   const shellClassName = ["lp-shell", className].filter(Boolean).join(" ");
 
   return (
-    <main className={shellClassName} data-app-shell="persistent">
+    <main className={shellClassName} data-app-shell="persistent" data-shell-active={active}>
       <AppSidebar active={active} />
-      {children}
+      <div className="lp-content" data-shell-content="stable">
+        {children}
+      </div>
     </main>
   );
 }

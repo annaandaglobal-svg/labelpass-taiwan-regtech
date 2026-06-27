@@ -15,7 +15,7 @@ export default function AliasReviewPage() {
   return (
     <AppShell active="aliases">
       <section className="lp-main lp-main-full">
-        <div className="knowledge-shell alias-review-shell knowledge-shell-embedded">
+        <div className="alias-review-content alias-review-content-embedded">
           <section className="knowledge-hero alias-review-hero">
             <div>
               <Link className="knowledge-back" href="/knowledge">

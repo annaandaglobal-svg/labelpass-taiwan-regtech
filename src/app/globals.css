@@ -6264,7 +6264,7 @@ h2 {
   z-index: 30;
 }
 
-.knowledge-shell {
+.legacy-knowledge-shell {
   min-height: 100vh;
   padding: 28px;
   background: var(--bg);
@@ -10577,7 +10577,7 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .knowledge-shell {
+  .legacy-knowledge-shell {
     padding: 16px;
   }
 
@@ -10805,8 +10805,7 @@ h2 {
 }
 
 /* LabelPass 2026 console refresh */
-.lp-shell,
-.kb-shell {
+.lp-shell {
   min-height: 100vh;
   background: #eef3f1;
   color: #101918;
@@ -10821,15 +10820,21 @@ h2 {
 .lp-sidebar {
   position: sticky;
   top: 0;
+  z-index: 30;
   display: grid;
   grid-template-rows: auto auto auto auto 1fr;
   gap: 12px;
   height: 100dvh;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 16px 12px;
   border-right: 1px solid #d8e1dd;
   background: rgba(255, 255, 255, 0.94);
   scrollbar-gutter: stable;
+}
+
+.lp-content {
+  min-width: 0;
 }
 
 .lp-brand {
@@ -10922,24 +10927,25 @@ h2 {
 
 .lp-utility-nav a {
   justify-content: center;
-  min-height: 28px;
-  padding: 5px 4px;
-  background: #f8fbfa;
-  color: #4e625d;
-  font-size: 11px;
+  min-height: 26px;
+  padding: 4px 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #667772;
+  font-size: 10.5px;
 }
 
 .lp-sidebar .lp-utility-nav a {
-  min-height: 28px;
-  font-size: 11px;
+  min-height: 26px;
+  font-size: 10.5px;
 }
 
 .lp-utility-nav a.active,
 .lp-utility-nav a:hover {
   border-color: #d8e1dd;
-  background: #f4f8f6;
+  background: #f8fbfa;
   color: #0d5d4d;
-  box-shadow: inset 3px 0 0 #0d5d4d;
+  box-shadow: none;
 }
 
 .lp-nav a.active,
@@ -11944,12 +11950,13 @@ h2 {
   }
 }
 
-.kb-shell {
-  padding: 18px;
+.kb-content,
+.alias-review-content {
+  min-width: 0;
 }
 
-.kb-shell-embedded,
-.knowledge-shell-embedded {
+.kb-content-embedded,
+.alias-review-content-embedded {
   min-height: auto;
   padding: 0;
   background: transparent;
@@ -12538,14 +12545,13 @@ h2 {
 
   .lp-utility-nav a {
     flex-direction: row;
-    justify-content: flex-start;
-    min-height: 32px;
-    padding: 6px 8px;
+    justify-content: center;
+    min-height: 28px;
+    padding: 5px 6px;
     text-align: left;
   }
 
-  .lp-main,
-  .kb-shell {
+  .lp-main {
     padding: 12px;
   }
 
@@ -13367,12 +13373,12 @@ h2 {
 
 .admin-main {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   align-content: start;
   width: 100%;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 10px 16px 52px;
+  padding: 8px 14px 48px;
 }
 
 .admin-section-nav {
@@ -13457,10 +13463,10 @@ h2 {
 .admin-section-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
-  min-height: 56px;
-  padding: 6px 0 8px;
+  min-height: 46px;
+  padding: 4px 0 6px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -13477,20 +13483,20 @@ h2 {
 .admin-section-hero h1 {
   max-width: 760px;
   margin: 0;
-  font-size: 16px;
+  font-size: 14.5px;
   line-height: 1.28;
   letter-spacing: 0;
 }
 
 .admin-secondary-action {
   justify-self: end;
-  min-height: 28px;
-  padding: 0 8px;
+  min-height: 26px;
+  padding: 0 7px;
   border: 1px solid #d9e5df;
   border-radius: 6px;
   background: #f8fbfa;
   color: var(--green-dark);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -13498,7 +13504,7 @@ h2 {
 .admin-metrics,
 .admin-grid {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .admin-metrics {
@@ -13515,13 +13521,13 @@ h2 {
 
 .admin-metric {
   display: grid;
-  gap: 5px;
-  min-height: 82px;
-  padding: 10px;
+  gap: 4px;
+  min-height: 66px;
+  padding: 8px;
 }
 
 .admin-metric strong {
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1.16;
 }
 
@@ -13548,8 +13554,8 @@ h2 {
 
 .admin-panel {
   display: grid;
-  gap: 10px;
-  padding: 12px;
+  gap: 8px;
+  padding: 10px;
 }
 
 .admin-panel-wide {
@@ -13585,10 +13591,10 @@ h2 {
 
 .admin-module-card {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) auto;
-  gap: 10px;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  gap: 8px;
   align-items: start;
-  padding: 10px;
+  padding: 8px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
@@ -13596,8 +13602,8 @@ h2 {
 
 .admin-module-card > span {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   border-radius: 8px;
   background: var(--green-soft);
@@ -13616,6 +13622,10 @@ h2 {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.45;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .admin-module-card small {
@@ -13623,15 +13633,18 @@ h2 {
   font-family: var(--mono);
   font-size: 11px;
   line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .admin-module-card em {
   align-self: center;
-  padding: 5px 8px;
+  padding: 4px 7px;
   border-radius: 999px;
   background: var(--blue-soft);
   color: var(--navy);
-  font-size: 11px;
+  font-size: 10.5px;
   font-style: normal;
   font-weight: 900;
   white-space: nowrap;
@@ -13648,10 +13661,10 @@ h2 {
 
 .admin-queue-item {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
-  gap: 4px;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 2px 6px;
   align-items: center;
-  padding: 8px;
+  padding: 6px;
 }
 
 .admin-queue-link {
@@ -13665,12 +13678,22 @@ h2 {
 }
 
 .admin-queue-item > span {
-  padding: 4px 7px;
+  padding: 3px 6px;
   border-radius: 999px;
   background: var(--navy-soft);
   color: var(--navy);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 900;
+}
+
+.admin-queue-item b {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 12.5px;
+  line-height: 1.22;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .admin-queue-item.ready > span {
@@ -13692,8 +13715,12 @@ h2 {
 .admin-queue-item p {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.45;
+  font-size: 11.5px;
+  line-height: 1.32;
+}
+
+.admin-queue-item small {
+  display: none;
 }
 
 .admin-health-list {
@@ -14102,9 +14129,11 @@ h2 {
 
 .admin-gate-card {
   display: grid;
-  gap: 5px;
-  min-height: 94px;
-  padding: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 3px 8px;
+  align-items: center;
+  min-height: 58px;
+  padding: 8px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-soft);
@@ -14126,15 +14155,24 @@ h2 {
 }
 
 .admin-gate-card b {
-  font-size: 20px;
+  min-width: 0;
+  font-size: 16px;
   line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .admin-gate-card p {
+  grid-column: 1 / -1;
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.42;
+  font-size: 11.5px;
+  line-height: 1.32;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .admin-gate-card.ready {
@@ -14469,7 +14507,7 @@ h2 {
 
   .admin-hero h1,
   .admin-section-hero h1 {
-    font-size: 16px;
+    font-size: 14.5px;
   }
 
 }

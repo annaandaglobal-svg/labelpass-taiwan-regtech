@@ -40,7 +40,7 @@ function cssRule(css, selector) {
 
 function cssNumber(rule, property) {
   const escaped = property.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const match = rule.match(new RegExp(`${escaped}\\s*:\\s*(\\d+)px`, "i"));
+  const match = rule.match(new RegExp(`${escaped}\\s*:\\s*(\\d+(?:\\.\\d+)?)px`, "i"));
   return match ? Number(match[1]) : null;
 }
 
@@ -96,6 +96,21 @@ requireIncludes(appShellSource, "AppSidebar", "src/components/app-shell.tsx side
 requireIncludes(appShellSource, "type AppNavKey", "src/components/app-shell.tsx typed active nav");
 requireIncludes(appShellSource, '["lp-shell", className].filter(Boolean).join(" ")', "src/components/app-shell.tsx stable shell class composition");
 requireIncludes(appShellSource, 'data-app-shell="persistent"', "src/components/app-shell.tsx persistent shell contract");
+requireIncludes(appShellSource, "data-shell-active={active}", "src/components/app-shell.tsx active route marker");
+requireIncludes(appShellSource, 'className="lp-content"', "src/components/app-shell.tsx stable content frame");
+requireIncludes(appShellSource, 'data-shell-content="stable"', "src/components/app-shell.tsx stable content frame contract");
+
+for (const filePath of walk(join(repoRoot, "src/app"))) {
+  if (!filePath.endsWith(".tsx")) continue;
+  const label = relative(repoRoot, filePath).replaceAll("\\", "/");
+  const source = read(label);
+  for (const legacyClass of ['className="shell', 'className="sidebar', 'className="nav-list', 'className="nav-btn', 'className="side-panel']) {
+    if (source.includes(legacyClass)) fail(`${label}: legacy page shell class ${legacyClass} must not be used in app routes`);
+  }
+  for (const nestedShellClass of ["kb-shell", "knowledge-shell", "knowledge-shell-embedded", "alias-review-shell"]) {
+    if (source.includes(nestedShellClass)) fail(`${label}: nested page-level shell class ${nestedShellClass} must not be used inside AppShell`);
+  }
+}
 
 const reviewHomeSource = read("src/app/page.tsx");
 requireIncludes(reviewHomeSource, "actionPlanStats", "src/app/page.tsx review action plan summary");
@@ -210,10 +225,14 @@ const shellRule = cssRule(css, ".lp-shell");
 requireIncludes(shellRule, "display: grid", "src/app/globals.css .lp-shell");
 requireIncludes(shellRule, "grid-template-columns: 224px minmax(0, 1fr)", "src/app/globals.css .lp-shell");
 
+const contentRule = cssRule(css, ".lp-content");
+requireIncludes(contentRule, "min-width: 0", "src/app/globals.css .lp-content");
+
 const sidebarRule = cssRule(css, ".lp-sidebar");
 requireIncludes(sidebarRule, "position: sticky", "src/app/globals.css .lp-sidebar");
 requireIncludes(sidebarRule, "height: 100dvh", "src/app/globals.css .lp-sidebar");
 requireIncludes(sidebarRule, "overflow-y: auto", "src/app/globals.css .lp-sidebar");
+requireIncludes(sidebarRule, "overscroll-behavior: contain", "src/app/globals.css .lp-sidebar scroll containment");
 
 const appSidebarSource = read("src/components/app-sidebar.tsx");
 requireNoMojibake(appSidebarSource, "src/components/app-sidebar.tsx");
@@ -246,9 +265,15 @@ requireMaxPx(lpUtilityNavLink, "min-height", 30, "src/app/globals.css .lp-sideba
 requireMaxPx(lpUtilityNavLink, "font-size", 11, "src/app/globals.css .lp-sidebar .lp-utility-nav a");
 requireIncludes(css, ".lp-utility-label", "src/app/globals.css internal utility label");
 requireIncludes(css, ".lp-utility-nav a.active", "src/app/globals.css admin utility active treatment");
+requireIncludes(css, ".kb-content-embedded", "src/app/globals.css knowledge page must use content wrapper, not shell wrapper");
+requireIncludes(css, ".alias-review-content-embedded", "src/app/globals.css alias page must use content wrapper, not shell wrapper");
 requireIncludes(css, ".admin-pipeline-rail", "src/app/globals.css consultation pipeline rail");
 requireIncludes(css, ".admin-pipeline-step", "src/app/globals.css consultation pipeline step");
 requireIncludes(css, ".admin-gate-grid", "src/app/globals.css consultation gate grid");
+const adminGateCard = cssRule(css, ".admin-gate-card");
+requireIncludes(adminGateCard, "grid-template-columns: auto minmax(0, 1fr)", "src/app/globals.css compact consultation gate card");
+requireMaxPx(adminGateCard, "min-height", 62, "src/app/globals.css compact consultation gate card");
+requireMaxPx(adminGateCard, "padding", 8, "src/app/globals.css compact consultation gate card");
 requireIncludes(css, ".admin-stage-chip", "src/app/globals.css compact admin stage chip");
 requireIncludes(css, ".admin-ops-disclosure", "src/app/globals.css quiet admin ops controls");
 if (css.includes('.lp-nav a[data-shell-nav-item="admin"]')) {
@@ -318,8 +343,8 @@ requireCompactIncludes(
 
 if (css.includes(".admin-primary-action")) fail("src/app/globals.css: admin-primary-action must not return");
 const adminSecondaryAction = cssRule(css, ".admin-secondary-action");
-requireMaxPx(adminSecondaryAction, "min-height", 30, "src/app/globals.css .admin-secondary-action");
-requireMaxPx(adminSecondaryAction, "font-size", 12, "src/app/globals.css .admin-secondary-action");
+requireMaxPx(adminSecondaryAction, "min-height", 28, "src/app/globals.css .admin-secondary-action");
+requireMaxPx(adminSecondaryAction, "font-size", 11, "src/app/globals.css .admin-secondary-action");
 if (/width\s*:\s*100%/i.test(adminSecondaryAction)) fail("src/app/globals.css .admin-secondary-action: must stay compact, not full-width");
 
 const adminSectionNav = cssRule(css, ".admin-section-nav");
@@ -344,17 +369,17 @@ requireMaxPx(adminSectionBadge, "height", 18, "src/app/globals.css .admin-sectio
 requireMaxPx(adminSectionBadge, "font-size", 10, "src/app/globals.css .admin-section-badge");
 
 const adminHero = `${cssRule(css, ".admin-hero")} ${cssRule(css, ".admin-section-hero")}`;
-requireMaxPx(adminHero, "min-height", 60, "src/app/globals.css admin hero");
+requireMaxPx(adminHero, "min-height", 52, "src/app/globals.css admin hero");
 
 const adminHeroTitle = `${cssRule(css, ".admin-hero h1")} ${cssRule(css, ".admin-section-hero h1")}`;
-requireMaxPx(adminHeroTitle, "font-size", 17, "src/app/globals.css admin hero title");
+requireMaxPx(adminHeroTitle, "font-size", 15, "src/app/globals.css admin hero title");
 
 const adminMetric = cssRule(css, ".admin-metric");
-requireMaxPx(adminMetric, "min-height", 86, "src/app/globals.css .admin-metric");
-requireMaxPx(adminMetric, "padding", 12, "src/app/globals.css .admin-metric");
+requireMaxPx(adminMetric, "min-height", 70, "src/app/globals.css .admin-metric");
+requireMaxPx(adminMetric, "padding", 10, "src/app/globals.css .admin-metric");
 
 const adminMetricValue = cssRule(css, ".admin-metric strong");
-requireMaxPx(adminMetricValue, "font-size", 21, "src/app/globals.css .admin-metric strong");
+requireMaxPx(adminMetricValue, "font-size", 18, "src/app/globals.css .admin-metric strong");
 
 requireIncludes(css, ".lp-action-plan", "src/app/globals.css review action plan panel");
 requireIncludes(css, ".lp-handoff-grid", "src/app/globals.css review handoff grid");
@@ -385,7 +410,9 @@ requireIncludes(workspaceAction, "grid-template-columns: 76px minmax(0, 1fr)", "
 const adminQueueCopy = cssRule(css, ".admin-queue-item p");
 requireIncludes(adminQueueCopy, "-webkit-line-clamp: 1", "src/app/globals.css admin queue rows must stay compact");
 const adminQueueItem = cssRule(css, ".admin-queue-item");
-requireIncludes(adminQueueItem, "grid-template-columns: 74px minmax(0, 1fr)", "src/app/globals.css admin queue rows must use compact row layout");
+requireIncludes(adminQueueItem, "grid-template-columns: 64px minmax(0, 1fr)", "src/app/globals.css admin queue rows must use compact row layout");
+const adminQueueMeta = cssRule(css, ".admin-queue-item small");
+requireIncludes(adminQueueMeta, "display: none", "src/app/globals.css admin queue rows must hide dense metadata by default");
 
 const adminOpsDryRun = cssRule(css, ".admin-ops-dry-run button");
 requireMaxPx(adminOpsDryRun, "min-height", 38, "src/app/globals.css .admin-ops-dry-run button");

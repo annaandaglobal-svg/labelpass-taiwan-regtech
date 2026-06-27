@@ -25,7 +25,7 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
   return (
     <AppShell active="knowledge">
       <section className="lp-main lp-main-full">
-        <div className="kb-shell kb-shell-embedded">
+        <div className="kb-content kb-content-embedded">
           <header className="kb-topbar">
             <div>
               <p>공식 규정·용어 지식베이스</p>
