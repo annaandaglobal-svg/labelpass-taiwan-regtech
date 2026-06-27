@@ -30,6 +30,9 @@ jobs:
       - name: Typecheck
         run: pnpm exec tsc --noEmit
 
+      - name: Audit UI shell stability
+        run: pnpm audit:ui-shell
+
       - name: Verify regulatory rules
         run: pnpm test:rules
 
