@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { BadgeCheck, ClipboardCheck, Languages, Search } from "lucide-react";
+import { BadgeCheck, Boxes, ClipboardCheck, Languages, Search } from "lucide-react";
 
-type AppNavKey = "review" | "knowledge" | "aliases" | "admin";
+type AppNavKey = "review" | "workspace" | "knowledge" | "aliases" | "admin";
 
 const navItems: Array<{
   key: AppNavKey;
@@ -9,7 +9,8 @@ const navItems: Array<{
   label: string;
   icon: typeof ClipboardCheck;
 }> = [
-  { key: "review", href: "/", label: "검토 콘솔", icon: ClipboardCheck },
+  { key: "review", href: "/", label: "검토", icon: ClipboardCheck },
+  { key: "workspace", href: "/workspace", label: "워크스페이스", icon: Boxes },
   { key: "knowledge", href: "/knowledge", label: "지식 검색", icon: Search },
   { key: "aliases", href: "/knowledge/aliases", label: "용어 정리", icon: Languages },
   { key: "admin", href: "/admin", label: "운영 관리", icon: BadgeCheck }

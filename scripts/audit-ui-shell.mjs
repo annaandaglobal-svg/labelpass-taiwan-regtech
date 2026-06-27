@@ -17,7 +17,7 @@ function requireIncludes(source, needle, label) {
   if (!source.includes(needle)) fail(`${label}: missing ${needle}`);
 }
 
-const mojibakePattern = /[�\uE000-\uF8FF]|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔|渥|庖)/u;
+const mojibakePattern = /[\uFFFD\uE000-\uF8FF]|(?:銝|嚗|瑼|撟|靽|甈|賳|窶|鴞|貐|諡|麮|穈|篣|謔|渥|庖)/u;
 
 function requireNoMojibake(source, label) {
   const match = source.match(mojibakePattern);
@@ -68,6 +68,11 @@ const routeShells = [
     sidebar: '<AppSidebar active="review" />'
   },
   {
+    file: "src/app/workspace/page.tsx",
+    shell: '<main className="lp-shell workspace-shell">',
+    sidebar: '<AppSidebar active="workspace" />'
+  },
+  {
     file: "src/app/knowledge/page.tsx",
     shell: '<main className="lp-shell">',
     sidebar: '<AppSidebar active="knowledge" />'
@@ -99,6 +104,16 @@ requireIncludes(reviewHomeSource, 'className={`lp-action-plan', "src/app/page.ts
 requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
 requireIncludes(reviewHomeSource, 'href: "/admin/experts"', "src/app/page.tsx expert handoff link");
 requireIncludes(reviewHomeSource, 'href: "/admin/logistics"', "src/app/page.tsx logistics handoff link");
+
+const workspaceSource = read("src/app/workspace/page.tsx");
+requireNoMojibake(workspaceSource, "src/app/workspace/page.tsx");
+requireIncludes(workspaceSource, "getPlatformOpsSnapshot", "src/app/workspace/page.tsx workspace ops data");
+requireIncludes(workspaceSource, "buildPlatformOpsActionQueue", "src/app/workspace/page.tsx workspace action queue");
+requireIncludes(workspaceSource, 'className="workspace-dashboard"', "src/app/workspace/page.tsx workspace layout");
+requireIncludes(workspaceSource, 'className="workspace-action-list"', "src/app/workspace/page.tsx workspace action queue UI");
+requireIncludes(workspaceSource, 'href="/admin/experts"', "src/app/workspace/page.tsx expert handoff");
+requireIncludes(workspaceSource, 'href="/admin/logistics"', "src/app/workspace/page.tsx logistics handoff");
+requireIncludes(workspaceSource, 'href="/knowledge"', "src/app/workspace/page.tsx knowledge handoff");
 
 for (const filePath of walk(join(repoRoot, "src/app/admin"))) {
   if (!filePath.endsWith("page.tsx")) continue;
@@ -149,14 +164,16 @@ requireIncludes(sidebarRule, "height: 100dvh", "src/app/globals.css .lp-sidebar"
 requireIncludes(sidebarRule, "overflow-y: auto", "src/app/globals.css .lp-sidebar");
 
 const appSidebarSource = read("src/components/app-sidebar.tsx");
+requireNoMojibake(appSidebarSource, "src/components/app-sidebar.tsx");
 requireIncludes(appSidebarSource, 'data-shell-nav="primary"', "src/components/app-sidebar.tsx primary shell nav contract");
 requireIncludes(appSidebarSource, "data-shell-nav-count={navItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
 requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/components/app-sidebar.tsx stable nav item ids");
-for (const navLabel of ["검토 콘솔", "지식 검색", "용어 정리", "운영 관리"]) {
+for (const navLabel of ["검토", "워크스페이스", "지식 검색", "용어 정리", "운영 관리"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
 
 const lpNavLink = cssRule(css, ".lp-nav a");
+requireIncludes(lpNavLink, "min-width: 0", "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "min-height", 36, "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "font-size", 13, "src/app/globals.css .lp-nav a");
 requireIncludes(css, '.lp-nav a[data-shell-nav-item="admin"]', "src/app/globals.css admin utility nav treatment");
@@ -194,8 +211,13 @@ requireCompactIncludes(mobileCss, ".lp-shell { grid-template-columns: 1fr; }", "
 requireCompactIncludes(mobileCss, ".lp-sidebar { position: sticky; top: 0; z-index: 20; height: auto;", "src/app/globals.css mobile sidebar");
 requireCompactIncludes(
   mobileCss,
-  ".lp-nav { grid-template-columns: repeat(4, minmax(0, 1fr));",
+  ".lp-nav { grid-template-columns: repeat(5, minmax(0, 1fr));",
   "src/app/globals.css mobile primary nav"
+);
+requireCompactIncludes(
+  mobileCss,
+  "@media (max-width: 680px) { .lp-nav { grid-template-columns: 1fr; } .lp-nav a { flex-direction: row; justify-content: flex-start;",
+  "src/app/globals.css narrow mobile primary nav wrap"
 );
 requireCompactIncludes(mobileCss, ".lp-nav a { justify-content: center;", "src/app/globals.css mobile primary nav links");
 requireCompactIncludes(
@@ -246,6 +268,10 @@ requireIncludes(css, ".lp-action-plan", "src/app/globals.css review action plan 
 requireIncludes(css, ".lp-handoff-grid", "src/app/globals.css review handoff grid");
 requireIncludes(css, ".lp-handoff-card", "src/app/globals.css review handoff card");
 requireIncludes(css, ".lp-handoff-card:hover", "src/app/globals.css review handoff hover");
+requireIncludes(css, ".workspace-dashboard", "src/app/globals.css workspace dashboard");
+requireIncludes(css, ".workspace-product-row", "src/app/globals.css workspace product rows");
+requireIncludes(css, ".workspace-action-list", "src/app/globals.css workspace action list");
+requireIncludes(css, ".workspace-shipment-grid", "src/app/globals.css workspace shipment grid");
 requireIncludes(css, ".admin-queue-link", "src/app/globals.css linked admin queue card");
 requireIncludes(css, ".admin-queue-item.review > span", "src/app/globals.css admin queue review tone");
 requireIncludes(css, ".admin-queue-item.waiting > span", "src/app/globals.css admin queue waiting tone");

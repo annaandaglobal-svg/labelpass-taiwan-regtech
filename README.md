@@ -13,6 +13,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Maintains a reusable knowledge base so the system does not need to recrawl every source for every answer.
 - Uses Supabase public read-only knowledge RPCs when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are configured, with a bundled local cache fallback.
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
+- Provides `/workspace`, a customer work hub for Taiwan launch products, evidence, expert handoffs, logistics requests, and shipment tracking.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Provides `/admin`, an operator console shell for organizations, users, review queues, paid expert matching, logistics matching, shipment tracking, and source operations.
 - Reads admin operation tables from Supabase only when a server DB URL and `LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1` are configured; otherwise admin pages stay on safe read-only design data.
