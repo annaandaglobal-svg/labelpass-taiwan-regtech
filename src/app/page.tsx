@@ -32,6 +32,17 @@ import {
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
+import {
+  formatProductRouteAction,
+  formatProductRouteInput,
+  formatProductRouteLabel,
+  getStartRouteOption,
+  isProductRouteId,
+  startRouteOptions,
+  type ProductRouteId,
+  type StartRouteIcon,
+  type StartRouteOption
+} from "@/lib/product-routes";
 import { buildReviewActionPlan, type ReviewActionPlan } from "@/lib/review-action-plan";
 import type { ReviewArchiveResponse, ReviewArchiveStorage, SavedReview } from "@/lib/review-types";
 import { cleanSampleReview, compoundFoodAdditiveSampleReview, foodAdditiveSampleReview, foodClaimSampleReview, foodCleanSampleReview, foodContactPackagingSampleReview, foodImportShellfishSampleReview, foodRiskSampleReview, healthFoodSampleReview, sampleReview, sourceCards } from "@/lib/sample-data";
@@ -40,29 +51,6 @@ import updateQueueData from "../../data/knowledge/regulatory-update-queue.json";
 type Screen = "review" | "products" | "updates" | "partners";
 type FilterStatus = "all" | ReviewStatus;
 type ProductFilter = "all" | "act" | "wait" | "done";
-type StartRouteId =
-  | "tw_cosmetic_label_pif"
-  | "tw_food_label_allergen"
-  | "tw_food_additive_ingredient"
-  | "tw_food_import_inspection"
-  | "tw_health_food_claims"
-  | "tw_food_contact_packaging"
-  | "tw_trade_control_shtc";
-type StartRouteIcon = "cosmetic" | "food" | "additive" | "import" | "health" | "packaging" | "trade";
-
-type StartRouteOption = {
-  id: StartRouteId;
-  icon: StartRouteIcon;
-  label: string;
-  detail: string;
-  productFamily: string;
-  productType: string;
-  query: string;
-  shipmentPurpose?: string;
-  hsCode?: string;
-  inputs: string[];
-  tags: string[];
-};
 
 type WorkspaceDoc = {
   name: string;
@@ -166,88 +154,6 @@ const knowledgeStats = {
   knowledgeCases: "109",
   sourceCases: "66"
 };
-
-const startRouteOptions: StartRouteOption[] = [
-  {
-    id: "tw_cosmetic_label_pif",
-    icon: "cosmetic",
-    label: "화장품 라벨·PIF",
-    detail: "전성분, 제품등록, PIF, 표시·광고 문구를 먼저 확인합니다.",
-    productFamily: "cosmetic",
-    productType: "cosmetic / 일반 화장품",
-    query: "PIF",
-    inputs: ["제품명", "화장품 분류", "사용 방식"],
-    tags: ["INCI", "PIF", "제품등록"]
-  },
-  {
-    id: "tw_food_label_allergen",
-    icon: "food",
-    label: "포장식품 표시",
-    detail: "원재료, 알레르겐, 영양성분, 표시·광고 문구를 먼저 봅니다.",
-    productFamily: "food",
-    productType: "prepackaged food / 식품",
-    query: "allergen labeling",
-    inputs: ["식품 유형", "원재료명", "알레르겐"],
-    tags: ["알레르겐", "영양표시", "표시문구"]
-  },
-  {
-    id: "tw_food_additive_ingredient",
-    icon: "additive",
-    label: "식품첨가물·원료",
-    detail: "공식 명칭, 기능군, 사용량, 식품 유형을 기준으로 허용성을 봅니다.",
-    productFamily: "food_additive",
-    productType: "food additive / 식품첨가물",
-    query: "food additive",
-    inputs: ["공식 명칭", "기능군", "사용량"],
-    tags: ["첨가물", "허가", "사용기준"]
-  },
-  {
-    id: "tw_food_import_inspection",
-    icon: "import",
-    label: "식품 수입·통관",
-    detail: "HS/CCC, 수입 목적, 원산지, 수입자와 검사 서류를 먼저 맞춥니다.",
-    productFamily: "food_import",
-    productType: "food import / 수입식품",
-    query: "imported food inspection",
-    shipmentPurpose: "commercial import / 상업 수입",
-    inputs: ["HS/CCC", "원산지", "수입자"],
-    tags: ["수입검사", "통관", "서류"]
-  },
-  {
-    id: "tw_health_food_claims",
-    icon: "health",
-    label: "건강식품 허가·효능",
-    detail: "허가번호와 승인된 보건효능 범위를 먼저 확인합니다.",
-    productFamily: "health_food",
-    productType: "health food / 건강식품",
-    query: "health food permit",
-    inputs: ["허가번호", "승인 효능", "기능성 원료"],
-    tags: ["허가번호", "효능문구", "로고"]
-  },
-  {
-    id: "tw_food_contact_packaging",
-    icon: "packaging",
-    label: "식품접촉 포장·용기",
-    detail: "식품접촉 여부, 재질, 사용 조건, 시험성적서를 먼저 확인합니다.",
-    productFamily: "food_contact",
-    productType: "food contact packaging / 식품접촉재",
-    query: "food contact packaging",
-    inputs: ["재질", "식품접촉 용도", "시험성적서"],
-    tags: ["용기", "포장재", "위생기준"]
-  },
-  {
-    id: "tw_trade_control_shtc",
-    icon: "trade",
-    label: "SHTC·수출입 통제",
-    detail: "CCC 코드, 기술 사양, 용도, 목적지로 통제 여부를 선별합니다.",
-    productFamily: "trade_control",
-    productType: "trade control / 수출입 통제",
-    query: "SHTC",
-    shipmentPurpose: "export control screening / 수출입 통제 선별",
-    inputs: ["CCC 코드", "기술 사양", "목적지"],
-    tags: ["SHTC", "CCC", "용도"]
-  }
-];
 
 const archiveCopy: Record<ReviewArchiveStorage, { label: string; detail: string; tone: string }> = {
   database: { label: "클라우드 보관", detail: "Supabase에 검토 이력 저장", tone: "pass" },
@@ -507,10 +413,10 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
     : "공식 근거: 연결된 소스가 부족합니다.";
   const routeHint = bundle.routeHints?.[0];
   const route = routeHint
-    ? `업무 경로: ${formatEvidenceRouteLabel(routeHint.routeId, routeHint.label)}. 확인할 입력: ${routeHint.requiredInputs.slice(0, 3).map(formatEvidenceRouteInput).join(", ")}`
+    ? `업무 경로: ${formatProductRouteLabel(routeHint.routeId, routeHint.label)}. 확인할 입력: ${routeHint.requiredInputs.slice(0, 3).map(formatProductRouteInput).join(", ")}`
     : "";
   const action = routeHint
-    ? `다음 작업: ${formatEvidenceRouteAction(routeHint.routeId, routeHint.nextAction)}`
+    ? `다음 작업: ${formatProductRouteAction(routeHint.routeId, routeHint.nextAction)}`
     : bundle.suggestedActions[0] ? `다음 작업: ${bundle.suggestedActions[0]}` : "";
 
   return [
@@ -522,60 +428,6 @@ function formatKnowledgeEvidenceAnswer(bundle: KnowledgeEvidenceBundle, finding?
     action,
     `근거 신뢰도: ${bundle.confidence}. 이 답변은 캐시된 공식 소스와 용어 인덱스 기반의 1차 초안입니다.`
   ].filter(Boolean).join("\n");
-}
-
-function formatEvidenceRouteLabel(routeId: string, fallback: string) {
-  const labels: Record<string, string> = {
-    tw_cosmetic_label_pif: "대만 화장품 라벨·PIF·시장진입",
-    tw_food_label_allergen: "대만 포장식품 표시·알레르겐·영양",
-    tw_food_additive_ingredient: "대만 식품첨가물·원료 허용성",
-    tw_food_import_inspection: "대만 식품 수입검사·통관 서류",
-    tw_health_food_claims: "대만 건강식품 허가·효능 문구",
-    tw_food_contact_packaging: "대만 식품접촉 포장·용기 표시",
-    tw_customs_origin_hs: "대만 HS/CCC·원산지·통관 표시",
-    tw_trade_control_shtc: "대만 SHTC·수출입 통제 선별"
-  };
-  return labels[routeId] ?? fallback;
-}
-
-function formatEvidenceRouteInput(value: string) {
-  const labels: Record<string, string> = {
-    "product name": "제품명",
-    "cosmetic category": "화장품 분류",
-    "leave-on/rinse-off/spray": "사용 방식",
-    "specific-purpose function": "특정용도 기능",
-    "ingredient list": "전성분",
-    "Taiwan label text": "대만 라벨 문구",
-    "food category": "식품 유형",
-    "ingredient statement": "원재료명",
-    "allergen sources": "알레르겐 원료",
-    "nutrition facts": "영양성분",
-    "claim wording": "표시·광고 문구",
-    "HS/CCC code": "HS/CCC 코드",
-    "origin": "원산지",
-    "importer": "수입자",
-    "shipment purpose": "수입 목적",
-    "permit number": "허가번호",
-    "approved effect": "승인 효능",
-    "CCC code": "CCC 코드",
-    "technical specification": "기술 사양",
-    "end use": "최종 용도"
-  };
-  return labels[value] ?? value;
-}
-
-function formatEvidenceRouteAction(routeId: string, fallback: string) {
-  const actions: Record<string, string> = {
-    tw_cosmetic_label_pif: "화장품 분류, PIF/제품등록, 전성분 근거를 먼저 묶은 뒤 라벨 검토로 넘기세요.",
-    tw_food_label_allergen: "식품 유형, 원재료, 알레르겐, 영양·표시 문구를 먼저 확정하세요.",
-    tw_food_additive_ingredient: "공식 명칭, 기능군, 사용량, 식품 유형을 확인한 뒤 허용 여부를 판단하세요.",
-    tw_food_import_inspection: "HS/CCC, 수입 목적, 원산지, 수입자와 검사 서류를 먼저 맞추세요.",
-    tw_health_food_claims: "허가번호와 승인된 보건효능 범위를 확인한 뒤 표시 문구를 제한하세요.",
-    tw_food_contact_packaging: "식품접촉 여부, 재질, 사용 조건, 시험성적서를 먼저 확인하세요.",
-    tw_customs_origin_hs: "HS/CCC와 원산지 증빙을 먼저 맞춘 뒤 표시와 수출입 서류를 정리하세요.",
-    tw_trade_control_shtc: "CCC 코드, 기술 사양, 용도, 목적지로 SHTC 통제 여부를 먼저 선별하세요."
-  };
-  return actions[routeId] ?? fallback;
 }
 
 function startRouteIcon(icon: StartRouteIcon) {
@@ -636,7 +488,7 @@ export default function Home() {
   const [selectedSource, setSelectedSource] = useState(sourceCards[0]);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [startKnowledgeQuery, setStartKnowledgeQuery] = useState("");
-  const [selectedStartRouteId, setSelectedStartRouteId] = useState<StartRouteId>("tw_cosmetic_label_pif");
+  const [selectedStartRouteId, setSelectedStartRouteId] = useState<ProductRouteId>("tw_cosmetic_label_pif");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const assistantSourceCards = useMemo(() => {
     const priorityTitles = [
@@ -664,10 +516,7 @@ export default function Home() {
     }).slice(0, 3);
   }, [currentActionPlan]);
   const inputReadiness = useMemo(() => buildInputReadiness(input), [input]);
-  const selectedStartRoute = useMemo(
-    () => startRouteOptions.find((route) => route.id === selectedStartRouteId) ?? startRouteOptions[0],
-    [selectedStartRouteId]
-  );
+  const selectedStartRoute = useMemo(() => getStartRouteOption(selectedStartRouteId), [selectedStartRouteId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -723,8 +572,8 @@ export default function Home() {
     const productFamily = params.get("product_family")?.trim() || undefined;
     const routeId = params.get("route_id")?.trim() || undefined;
 
-    if (routeId && startRouteOptions.some((route) => route.id === routeId)) {
-      setSelectedStartRouteId(routeId as StartRouteId);
+    if (isProductRouteId(routeId)) {
+      setSelectedStartRouteId(routeId);
     }
 
     if (targetScreen === "review" || targetScreen === "products" || targetScreen === "updates" || targetScreen === "partners") {
@@ -992,12 +841,12 @@ export default function Home() {
   const hasReviewWorkspace =
     reviewStarted || result || isAnalyzing || showAssistantPanel || uploadedFiles.length > 0 || inputReadiness.readyCount > 0;
   const reviewMode = isAnalyzing ? "analyzing" : result ? "result" : hasReviewWorkspace ? "intake" : "start";
-  const isFocusedIntake = screen === "review" && reviewMode === "intake" && !showAssistantPanel;
+  const isFocusedIntake = screen === "review" && reviewMode === "intake";
   const isStartReview = screen === "review" && reviewMode === "start";
   const isQuietReview = isFocusedIntake || isStartReview;
   const showResultPane = Boolean(result) || isAnalyzing;
-  const showWorkPanel = screen === "review" && showAssistantPanel && reviewMode !== "result";
-  const showGlobalSearch = !isQuietReview && (screen !== "review" || Boolean(result) || showAssistantPanel);
+  const showWorkPanel = false;
+  const showGlobalSearch = !isQuietReview && (screen !== "review" || Boolean(result));
   const shellClassName = [
     "shell",
     showWorkPanel ? "shell-console" : "shell-no-assistant",
@@ -1113,16 +962,23 @@ export default function Home() {
               <div className="start-command-card start-hub-card">
                 <div className="start-command-copy start-hub-copy">
                   <span className="start-kicker">대만 식품·화장품 작업대</span>
-                  <h2>먼저 대만 업무 경로를 고르고 자료를 넣으세요</h2>
-                  <p>제품이 화장품인지, 식품인지, 수입검사나 통제 선별이 필요한지 먼저 잡으면 이후 입력 항목과 공식 근거가 그 경로에 맞춰 좁혀집니다.</p>
+                  <h2>새 라벨 검토를 시작하세요</h2>
+                  <p>제품 경로를 대략 고른 뒤 라벨/PDF나 전성분 텍스트를 넣으면, 대만 식품·화장품 기준에 맞춰 필요한 근거와 입력 항목만 좁혀집니다.</p>
                 </div>
 
-                <div className="start-route-selector" aria-label="대만 업무 경로 선택">
+                <div className="start-workflow-strip start-workflow-top" aria-label="검토 흐름">
+                  <span className="active"><b>1</b><small>품목/경로</small></span>
+                  <span><b>2</b><small>라벨·성분</small></span>
+                  <span><b>3</b><small>AI 1차 검토</small></span>
+                  <span><b>4</b><small>근거 리포트</small></span>
+                </div>
+
+                <div className="start-route-selector start-route-selector-compact" aria-label="대만 업무 경로 선택">
                   <div className="start-route-head">
-                    <span>1. 무엇을 대만으로 보내나요?</span>
+                    <span>품목/경로</span>
                     <b>{selectedStartRoute.label}</b>
                   </div>
-                  <div className="start-route-grid">
+                  <div className="start-route-grid start-route-segments">
                     {startRouteOptions.slice(0, 4).map((route) => (
                       <button
                         key={route.id}
@@ -1134,13 +990,12 @@ export default function Home() {
                         {startRouteIcon(route.icon)}
                         <span>
                           <b>{route.label}</b>
-                          <small>{route.detail}</small>
                         </span>
                       </button>
                     ))}
                   </div>
                   <details className="start-route-more">
-                    <summary>건강식품·식품접촉재·SHTC 특수 경로</summary>
+                    <summary>건강식품·식품접촉재·SHTC 기타 경로</summary>
                     <div>
                       {startRouteOptions.slice(4).map((route) => (
                         <button
@@ -1161,50 +1016,44 @@ export default function Home() {
                     {selectedStartRoute.inputs.map((item) => (
                       <b key={`${selectedStartRoute.id}-${item}`}>{item}</b>
                     ))}
-                    <small>{selectedStartRoute.tags.join(" · ")}</small>
                   </div>
                 </div>
 
                 <div className="start-hub-actions" aria-label="검토 시작 방법">
-                  <button className="start-path-action primary" type="button" onClick={beginWithUpload}>
-                    <Upload size={22} />
+                  <button className="start-upload-dropzone" type="button" onClick={beginWithUpload}>
+                    <span><Upload size={24} /></span>
                     <span>
                       <b>라벨/PDF 업로드</b>
-                      <small>이미지, PDF, 텍스트 파일을 먼저 연결하고 OCR 문구나 전성분은 다음 화면에서 확인합니다.</small>
+                      <small>파일이 없어도 괜찮습니다. 다음 화면에서 제품명, 품목, 전성분 또는 라벨 문구를 직접 넣을 수 있습니다.</small>
                     </span>
+                    <em>시작</em>
                   </button>
 
-                  <button className="start-path-action" type="button" onClick={focusInputPane}>
-                    <ClipboardCheck size={22} />
-                    <span>
-                      <b>직접 입력</b>
-                      <small>제품명, 품목, 전성분 또는 라벨 문구를 붙여넣어 바로 1차 검토를 준비합니다.</small>
-                    </span>
-                  </button>
-
-                  <form className="start-path-action start-search-action" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
-                    <Search size={22} />
-                    <span>
-                      <b>규정·성분 먼저 검색</b>
-                      <small>INCI, CAS, 알레르겐, HS/CCC처럼 이름이 여러 개인 표현을 공식 근거와 연결합니다.</small>
-                    </span>
-                    <div className="start-search-box">
+                  <div className="start-secondary-row">
+                    <button className="start-secondary-action" type="button" onClick={focusInputPane}>
+                      <ClipboardCheck size={17} />
+                      직접 입력
+                    </button>
+                    <form className="start-inline-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
+                      <Search size={16} />
                       <input
                         value={startKnowledgeQuery}
                         onChange={(event) => setStartKnowledgeQuery(event.target.value)}
-                        placeholder="예: INCI, allergen, HS 3304"
+                        placeholder="규정·성분 먼저 검색"
                         aria-label="시작 전 규정 또는 성분 검색"
                       />
-                      <button type="submit">검색</button>
-                    </div>
-                  </form>
+                      <button type="submit" aria-label="규정 또는 성분 검색">
+                        <ArrowRight size={15} />
+                      </button>
+                    </form>
+                  </div>
                 </div>
 
-                <div className="start-workflow-strip" aria-label="검토 흐름">
-                  <span className="active"><b>1</b><small>경로 선택</small></span>
-                  <span><b>2</b><small>자료 추가</small></span>
-                  <span><b>3</b><small>위험 항목 판정</small></span>
-                  <span><b>4</b><small>근거·리포트 저장</small></span>
+                <div className="start-sample-row start-sample-row-quiet" aria-label="샘플로 시작">
+                  <span>샘플</span>
+                  <button type="button" onClick={() => fillSample("risky")}>화장품</button>
+                  <button type="button" onClick={() => fillSample("food-risky")}>식품</button>
+                  <button type="button" onClick={() => fillSample("food-import")}>수입·통관</button>
                 </div>
               </div>
             </section>
@@ -1505,6 +1354,19 @@ export default function Home() {
                     <span>본문의 3가지 필수 입력을 먼저 채우면 1차 검토가 열립니다.</span>
                   </div>
                 </div>
+
+                {showAssistantPanel && (
+                  <div className="intake-evidence-card" aria-label="선택한 지식베이스 근거">
+                    <span>선택한 근거</span>
+                    <b>{assistantEvidence?.terms[0]?.canonicalName ?? assistantEvidence?.query ?? assistantQuestion}</b>
+                    <small>
+                      {assistantEvidence?.routeHints?.[0]
+                        ? formatProductRouteLabel(assistantEvidence.routeHints[0].routeId, assistantEvidence.routeHints[0].label)
+                        : assistantEvidence?.sources[0]?.title ?? "검토 입력에 붙일 근거를 확인 중입니다."}
+                    </small>
+                    <p>{compact(assistantAnswer, 180)}</p>
+                  </div>
+                )}
 
                 <div className="intake-side-cta">
                   <button className="ghost-btn" type="button" onClick={() => fileInputRef.current?.click()}>
@@ -1811,7 +1673,7 @@ export default function Home() {
               <b>{assistantEvidence.terms[0]?.canonicalName ?? assistantEvidence.query}</b>
               <small>
                 {assistantEvidence.routeHints?.[0]
-                  ? formatEvidenceRouteLabel(assistantEvidence.routeHints[0].routeId, assistantEvidence.routeHints[0].label)
+                  ? formatProductRouteLabel(assistantEvidence.routeHints[0].routeId, assistantEvidence.routeHints[0].label)
                   : assistantEvidence.sources[0]?.title ?? "공식 소스 연결 대기"}
               </small>
             </div>

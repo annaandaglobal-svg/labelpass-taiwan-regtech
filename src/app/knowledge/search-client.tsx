@@ -16,6 +16,7 @@ import {
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
+import { productRouteCopyForHint } from "@/lib/product-routes";
 
 const ALL = "all";
 
@@ -330,8 +331,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
   const visibleSecondaryResults = showAllResults ? secondaryResults : secondaryResults.slice(0, 2);
   const selectedEvidence = evidence ?? (topResult ? evidenceForResult(topResult) : null);
   const topRoute = evidenceBundle?.routeHints?.[0] ?? null;
-  const topRouteCopy = topRoute ? routeCopyFor(topRoute) : null;
-  const routeReviewHref = buildReviewHref(trimmed, topRoute);
+  const topRouteCopy = topRoute ? productRouteCopyForHint(topRoute) : null;
   const selectedReviewHref = buildReviewHref(selectedEvidence?.reviewParam || selectedEvidence?.title || trimmed, topRoute);
   const displayedResultCount = (topResult ? 1 : 0) + visibleSecondaryResults.length;
   const hiddenResultCount = Math.max(0, unifiedResults.length - displayedResultCount);
@@ -504,10 +504,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                   <span key={`${topRoute.routeId}-${input}`}>{input}</span>
                 ))}
               </div>
-              <Link href={routeReviewHref} className="knowledge-route-cta">
-                <PackageSearch size={15} />
-                이 경로로 검토 시작
-              </Link>
             </article>
           )}
 
@@ -797,102 +793,6 @@ function buildReviewHref(query: string, route: RouteHint | null) {
   if (route?.routeId) params.set("route_id", route.routeId);
   if (route?.productFamily) params.set("product_family", route.productFamily);
   return `/?${params.toString()}`;
-}
-
-function routeCopyFor(route: RouteHint) {
-  const labels: Record<string, string> = {
-    tw_cosmetic_label_pif: "대만 화장품 라벨·PIF·시장진입",
-    tw_food_label_allergen: "대만 포장식품 표시·알레르겐·영양",
-    tw_food_additive_ingredient: "대만 식품첨가물·원료 허용성",
-    tw_food_import_inspection: "대만 식품 수입검사·통관 서류",
-    tw_health_food_claims: "대만 건강식품 허가·효능 문구",
-    tw_food_contact_packaging: "대만 식품접촉 포장·용기 표시",
-    tw_customs_origin_hs: "대만 HS/CCC·원산지·통관 표시",
-    tw_trade_control_shtc: "대만 SHTC·수출입 통제 선별"
-  };
-
-  const actions: Record<string, string> = {
-    tw_cosmetic_label_pif: "화장품 분류, PIF/제품등록, 전성분 근거를 먼저 묶은 뒤 라벨 검토로 넘기세요.",
-    tw_food_label_allergen: "식품 유형, 원재료, 알레르겐, 영양·표시 문구를 먼저 확정하세요.",
-    tw_food_additive_ingredient: "공식 명칭, 기능군, 사용량, 식품 유형을 확인한 뒤 허용 여부를 판단하세요.",
-    tw_food_import_inspection: "HS/CCC, 수입 목적, 원산지, 수입자와 검사 서류를 먼저 맞추세요.",
-    tw_health_food_claims: "허가번호와 승인된 보건효능 범위를 확인한 뒤 표시 문구를 제한하세요.",
-    tw_food_contact_packaging: "식품접촉 여부, 재질, 사용 조건, 시험성적서를 먼저 확인하세요.",
-    tw_customs_origin_hs: "HS/CCC와 원산지 증빙을 먼저 맞춘 뒤 표시와 수출입 서류를 정리하세요.",
-    tw_trade_control_shtc: "CCC 코드, 기술 사양, 용도, 목적지로 SHTC 통제 여부를 먼저 선별하세요."
-  };
-
-  return {
-    label: labels[route.routeId] ?? route.label,
-    nextAction: actions[route.routeId] ?? route.nextAction,
-    openQuestion: translateRouteQuestion(route.openQuestions[0] ?? route.nextAction),
-    requiredInputs: route.requiredInputs.map(translateRouteInput)
-  };
-}
-
-function translateRouteQuestion(value: string) {
-  const questionMap: Record<string, string> = {
-    "Is the product a general cosmetic, specific-purpose cosmetic, spray/aerosol, or borderline product?": "일반 화장품, 특정용도 화장품, 스프레이/에어로졸, 경계 품목 중 어디에 해당하나요?",
-    "Is the product prepackaged food, bulk food, additive, health food, special dietary food, or food-contact packaging?": "포장식품, 벌크식품, 첨가물, 건강식품, 특수영양식품, 식품접촉재 중 어디에 해당하나요?",
-    "Is the material a food ingredient, single food additive, compound food additive, flavor, or processing aid?": "원료, 단일 첨가물, 복합 첨가물, 향료, 가공보조제 중 무엇인가요?",
-    "Is this commercial import, sample, testing, personal use, return, repair, or exhibition shipment?": "상업 수입, 샘플, 시험, 개인사용, 반품, 수리, 전시 중 어떤 목적의 화물인가요?",
-    "Is the product legally registered as Taiwan health food?": "대만 건강식품으로 허가·등록된 제품인가요?",
-    "Is the article intended for direct food contact?": "제품이 식품에 직접 닿는 용도인가요?",
-    "Which HS/CCC code is declared and does an advance ruling exist?": "신고할 HS/CCC 코드와 사전심사 근거가 있나요?",
-    "Does the CCC code, technical spec, destination, or end use trigger SHTC screening?": "CCC 코드, 기술 사양, 목적지, 최종용도가 SHTC 선별 대상인가요?"
-  };
-  return questionMap[value] ?? value;
-}
-
-function translateRouteInput(value: string) {
-  const inputMap: Record<string, string> = {
-    "product name": "제품명",
-    "cosmetic category": "화장품 분류",
-    "leave-on/rinse-off/spray": "사용 방식",
-    "specific-purpose function": "특정용도 기능",
-    "ingredient list": "전성분",
-    "Taiwan label text": "대만 라벨 문구",
-    "food category": "식품 유형",
-    "ingredient statement": "원재료명",
-    "allergen sources": "알레르겐 원료",
-    "nutrition facts": "영양성분",
-    "claim wording": "표시·광고 문구",
-    "package size": "포장 용량",
-    "substance/common name": "물질·공식 명칭",
-    "CAS or local name": "CAS·현지명",
-    "functional class": "기능군",
-    "use level": "사용량",
-    "compound additive status": "복합첨가물 여부",
-    "HS/CCC code": "HS/CCC 코드",
-    "origin": "원산지",
-    "importer": "수입자",
-    "shipment purpose": "수입 목적",
-    "invoice value": "송장 금액",
-    "documents": "서류",
-    "permit status": "허가 상태",
-    "permit number": "허가번호",
-    "approved effect": "승인 효능",
-    "functional ingredient": "기능성 원료",
-    "label copy": "라벨 문안",
-    "dosage/use instructions": "섭취·사용 방법",
-    "material": "재질",
-    "food-contact intent": "식품접촉 용도",
-    "temperature/use condition": "온도·사용 조건",
-    "import purpose": "수입 목적",
-    "label text": "표시 문구",
-    "test report": "시험성적서",
-    "HS/CCC": "HS/CCC 코드",
-    "incoterms": "인코텀즈",
-    "importer/exporter": "수입자·수출자",
-    "label origin": "라벨 원산지",
-    "CCC code": "CCC 코드",
-    "technical specification": "기술 사양",
-    "end use": "최종 용도",
-    "destination": "목적지",
-    "shipper/consignee": "송하인·수하인",
-    "export/import permit status": "수출입 허가 상태"
-  };
-  return inputMap[value] ?? value;
 }
 
 function buildOptions(values: string[]) {
