@@ -7,6 +7,7 @@ import {
   CalendarCheck,
   CheckCircle2,
   ClipboardCheck,
+  CreditCard,
   FileCheck2,
   Handshake,
   PackageCheck,
@@ -69,6 +70,36 @@ const productRows = [
       { href: "/workspace#shipment-events", label: "선적" },
       { href: "/workspace#review-queue", label: "리뷰 상태" }
     ]
+  }
+];
+
+const launchHandoffSteps = [
+  {
+    id: "expert",
+    label: "상담 범위",
+    title: "전문가에게 넘길 항목 묶기",
+    detail: "PIF, INCI, 중문 라벨, 식품 클레임을 제품별 상담 범위로 고정합니다.",
+    href: "/workspace#expert-cases",
+    tone: "review",
+    icon: Handshake
+  },
+  {
+    id: "payment",
+    label: "견적·결제",
+    title: "결제 후 작업방 열기",
+    detail: "견적 승인, 결제 상태, 상담방 접근 권한을 같은 흐름에서 확인합니다.",
+    href: "/workspace#expert-cases",
+    tone: "waiting",
+    icon: CreditCard
+  },
+  {
+    id: "shipment",
+    label: "선적·통관",
+    title: "물류사와 tracking 연결",
+    detail: "물류 견적, 선적 이벤트, 통관 보류 증빙을 선적 상태에 붙입니다.",
+    href: "/workspace#shipment-events",
+    tone: "blocked",
+    icon: Truck
   }
 ];
 
@@ -178,6 +209,21 @@ export default async function WorkspacePage() {
               <em>{metric.detail}</em>
             </span>
           ))}
+        </section>
+
+        <section className="workspace-handoff-strip" aria-label="전문가·결제·물류 요청 흐름">
+          {launchHandoffSteps.map((step) => {
+            const Icon = step.icon;
+
+            return (
+              <Link key={step.id} className={`workspace-handoff-step ${step.tone}`} href={step.href}>
+                <Icon size={16} />
+                <span>{step.label}</span>
+                <b>{step.title}</b>
+                <small>{step.detail}</small>
+              </Link>
+            );
+          })}
         </section>
 
         <section className="workspace-dashboard">

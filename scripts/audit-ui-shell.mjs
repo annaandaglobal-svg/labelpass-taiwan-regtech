@@ -113,6 +113,8 @@ requireNoMojibake(workspaceSource, "src/app/workspace/page.tsx");
 requireIncludes(workspaceSource, "getPlatformOpsSnapshot", "src/app/workspace/page.tsx workspace ops data");
 requireIncludes(workspaceSource, "buildPlatformOpsActionQueue", "src/app/workspace/page.tsx workspace action queue");
 requireIncludes(workspaceSource, "workspaceActionQueue", "src/app/workspace/page.tsx customer action queue");
+requireIncludes(workspaceSource, "launchHandoffSteps", "src/app/workspace/page.tsx customer launch handoff steps");
+requireIncludes(workspaceSource, 'aria-label="전문가·결제·물류 요청 흐름"', "src/app/workspace/page.tsx customer request flow strip");
 requireIncludes(workspaceSource, 'item.href !== "/admin/settings"', "src/app/workspace/page.tsx filters internal admin settings");
 requireIncludes(workspaceSource, "customerActionHref", "src/app/workspace/page.tsx customer-safe operation href mapping");
 requireIncludes(workspaceSource, 'className="workspace-dashboard"', "src/app/workspace/page.tsx workspace layout");
@@ -321,6 +323,8 @@ requireIncludes(css, ".lp-handoff-card", "src/app/globals.css review handoff car
 requireIncludes(css, ".lp-handoff-card:hover", "src/app/globals.css review handoff hover");
 requireIncludes(css, ".workspace-dashboard", "src/app/globals.css workspace dashboard");
 requireIncludes(css, ".workspace-product-row", "src/app/globals.css workspace product rows");
+requireIncludes(css, ".workspace-handoff-strip", "src/app/globals.css workspace customer request flow");
+requireIncludes(css, ".workspace-handoff-step", "src/app/globals.css workspace customer request flow cards");
 requireIncludes(css, ".workspace-action-list", "src/app/globals.css workspace action list");
 requireIncludes(css, ".workspace-shipment-grid", "src/app/globals.css workspace shipment grid");
 requireIncludes(css, ".admin-queue-link", "src/app/globals.css linked admin queue card");
