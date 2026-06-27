@@ -155,6 +155,30 @@ for (const href of requiredAdminRoutes) {
   }
 }
 
+const adminExpertsSource = read("src/app/admin/experts/page.tsx");
+const adminPaymentsSource = read("src/app/admin/payments/page.tsx");
+requireIncludes(adminExpertsSource, "consultationStages", "src/app/admin/experts/page.tsx consultation pipeline model");
+requireIncludes(adminExpertsSource, 'className="admin-pipeline-rail"', "src/app/admin/experts/page.tsx pipeline rail");
+requireIncludes(adminExpertsSource, 'className={`admin-gate-card ${paymentRequiredCount > 0 ? "blocked" : "ready"}`}', "src/app/admin/experts/page.tsx payment gate card");
+requireIncludes(adminExpertsSource, 'href="/admin/payments"', "src/app/admin/experts/page.tsx payment gate link");
+requireIncludes(adminExpertsSource, "payment_required", "src/app/admin/experts/page.tsx payment-required gate copy");
+requireIncludes(adminExpertsSource, "admin-stage-chip", "src/app/admin/experts/page.tsx compact row stage chip");
+requireIncludes(adminExpertsSource, "chatGateLabel", "src/app/admin/experts/page.tsx friendly chat gate labels");
+requireIncludes(adminExpertsSource, 'className="admin-ops-disclosure"', "src/app/admin/experts/page.tsx quiet ops controls");
+requireIncludes(adminPaymentsSource, "consultationStages", "src/app/admin/payments/page.tsx consultation pipeline model");
+requireIncludes(adminPaymentsSource, 'className="admin-pipeline-rail"', "src/app/admin/payments/page.tsx pipeline rail");
+requireIncludes(adminPaymentsSource, "payment_required", "src/app/admin/payments/page.tsx payment-required gate");
+requireIncludes(adminPaymentsSource, "chatThreadStatus active", "src/app/admin/payments/page.tsx chat thread gate summary");
+requireIncludes(adminPaymentsSource, "admin-stage-chip", "src/app/admin/payments/page.tsx compact row stage chip");
+requireIncludes(adminPaymentsSource, "chatGateLabel", "src/app/admin/payments/page.tsx friendly chat gate labels");
+requireIncludes(adminPaymentsSource, 'className="admin-ops-disclosure"', "src/app/admin/payments/page.tsx quiet ops controls");
+if (adminExpertsSource.indexOf('aria-label="전문가 상담 파이프라인"') > adminExpertsSource.indexOf('aria-label="전문가 매칭 상태 요약"')) {
+  fail("src/app/admin/experts/page.tsx: consultation pipeline must appear before metric cards");
+}
+if (adminPaymentsSource.indexOf('aria-label="결제 상담 파이프라인"') > adminPaymentsSource.indexOf('aria-label="결제 운영 상태 요약"')) {
+  fail("src/app/admin/payments/page.tsx: consultation pipeline must appear before metric cards");
+}
+
 const css = read("src/app/globals.css");
 const shellRule = cssRule(css, ".lp-shell");
 requireIncludes(shellRule, "display: grid", "src/app/globals.css .lp-shell");
@@ -187,6 +211,11 @@ requireMaxPx(lpNavLink, "min-height", 36, "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "font-size", 13, "src/app/globals.css .lp-nav a");
 requireIncludes(css, ".lp-utility-nav", "src/app/globals.css admin utility nav treatment");
 requireIncludes(css, ".lp-utility-nav a.active", "src/app/globals.css admin utility active treatment");
+requireIncludes(css, ".admin-pipeline-rail", "src/app/globals.css consultation pipeline rail");
+requireIncludes(css, ".admin-pipeline-step", "src/app/globals.css consultation pipeline step");
+requireIncludes(css, ".admin-gate-grid", "src/app/globals.css consultation gate grid");
+requireIncludes(css, ".admin-stage-chip", "src/app/globals.css compact admin stage chip");
+requireIncludes(css, ".admin-ops-disclosure", "src/app/globals.css quiet admin ops controls");
 if (css.includes('.lp-nav a[data-shell-nav-item="admin"]')) {
   fail('src/app/globals.css: admin must not be styled as a primary .lp-nav tab');
 }

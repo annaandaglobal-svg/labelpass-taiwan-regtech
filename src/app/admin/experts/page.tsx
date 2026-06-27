@@ -20,6 +20,7 @@ import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 type MatchState = "requested" | "matched" | "paid" | "in_progress" | "completed" | "cancelled" | "refunded";
 type ExpertDiscipline = "cosmetics" | "food" | "dual";
 type QueueTone = "ready" | "blocked" | "default";
+type ConsultationStageId = "scope" | "match" | "quote" | "payment" | "chat" | "close";
 
 type ExpertProfile = {
   name: string;
@@ -67,6 +68,15 @@ const stateOrder: MatchState[] = [
   "completed",
   "cancelled",
   "refunded"
+];
+
+const consultationStages: { id: ConsultationStageId; label: string; detail: string }[] = [
+  { id: "scope", label: "범위 확인", detail: "질문지·자료 접근" },
+  { id: "match", label: "전문가 배정", detail: "대만 화장품·식품 전문가" },
+  { id: "quote", label: "견적", detail: "범위·금액 확정" },
+  { id: "payment", label: "결제", detail: "상담방 잠금 해제 조건" },
+  { id: "chat", label: "상담방", detail: "전문가 작업공간" },
+  { id: "close", label: "완료/환불", detail: "정산·감사 trail" }
 ];
 
 const fallbackExpertProfiles: ExpertProfile[] = [
@@ -212,6 +222,29 @@ function nextExpertState(state: MatchState): MatchState {
   return state;
 }
 
+function expertConsultationStage(item: Pick<MatchingCase, "state" | "payment" | "chatReady">): ConsultationStageId {
+  if (item.state === "completed" || item.state === "cancelled" || item.state === "refunded") return "close";
+  if (item.state === "in_progress" || item.chatReady.includes("active")) return "chat";
+  if (item.state === "paid") return "chat";
+  if (item.state === "matched" && item.payment.includes("승인")) return "payment";
+  if (item.state === "matched") return "quote";
+  return "scope";
+}
+
+function stageTone(stage: ConsultationStageId) {
+  if (stage === "close") return "done";
+  if (stage === "payment") return "blocked";
+  if (stage === "chat") return "active";
+  return "waiting";
+}
+
+function chatGateLabel(value: string) {
+  if (value.includes("payment_required")) return "결제 후 상담방 열림";
+  if (value.includes("active")) return "상담 진행";
+  if (value.includes("archived")) return "상담방 보관";
+  return value;
+}
+
 export default async function AdminExpertsPage() {
   const snapshot = await getPlatformOpsSnapshot();
   const expertProfiles = snapshot.expertProfiles;
@@ -227,6 +260,19 @@ export default async function AdminExpertsPage() {
   const paidOrActiveCount = matchingCases.filter((item) =>
     ["paid", "in_progress", "completed"].includes(item.state)
   ).length;
+  const consultationStageCounts = consultationStages.map((stage) => ({
+    ...stage,
+    count: matchingCases.filter((item) => expertConsultationStage(item) === stage.id).length
+  }));
+  const paymentRequiredCount = matchingCases.filter(
+    (item) => item.state === "matched" || item.chatReady.includes("payment_required") || item.payment.includes("승인 대기")
+  ).length;
+  const activeChatCount = matchingCases.filter((item) =>
+    ["paid", "in_progress"].includes(item.state) || item.chatReady.includes("active")
+  ).length;
+  const closedAuditCount = matchingCases.filter((item) =>
+    ["completed", "cancelled", "refunded"].includes(item.state)
+  ).length;
 
   return (
     <>
@@ -240,6 +286,48 @@ export default async function AdminExpertsPage() {
           <ArrowRight size={16} />
         </Link>
       </header>
+
+      <section className="admin-panel admin-panel-wide" aria-label="전문가 상담 파이프라인">
+        <div className="admin-panel-head">
+          <div>
+            <span>상담 파이프라인</span>
+            <h2>범위 확인부터 결제, 상담방, 완료·환불까지 같은 단계로 봅니다</h2>
+          </div>
+          <Link className="admin-primary-action" href="/admin/payments">
+            결제 게이트 보기
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+        <div className="admin-pipeline-rail">
+          {consultationStageCounts.map((stage) => (
+            <div
+              key={stage.id}
+              className={`admin-pipeline-step ${stage.count > 0 ? "active" : ""} ${stage.id === "payment" && paymentRequiredCount > 0 ? "blocked" : ""}`}
+            >
+              <span>{stage.label}</span>
+              <b>{stage.count}</b>
+              <small>{stage.detail}</small>
+            </div>
+          ))}
+        </div>
+        <div className="admin-gate-grid">
+          <Link className={`admin-gate-card ${paymentRequiredCount > 0 ? "blocked" : "ready"}`} href="/admin/payments">
+            <span>payment_required</span>
+            <b>{paymentRequiredCount}</b>
+            <p>전문가 배정 후 결제가 끝나기 전까지 상담방을 잠급니다.</p>
+          </Link>
+          <div className="admin-gate-card ready">
+            <span>chat active</span>
+            <b>{activeChatCount}</b>
+            <p>결제 승인 뒤 전문가와 구매자가 같은 상담방에서 작업합니다.</p>
+          </div>
+          <div className="admin-gate-card done">
+            <span>audit close</span>
+            <b>{closedAuditCount}</b>
+            <p>완료·취소·환불은 정산과 감사 기록으로 닫습니다.</p>
+          </div>
+        </div>
+      </section>
 
       <section className="admin-metrics" aria-label="전문가 매칭 상태 요약">
         <article className="admin-metric info">
@@ -290,24 +378,30 @@ export default async function AdminExpertsPage() {
                 </span>
                 <span>
                   <b>{stateLabels[item.state]}</b>
+                  <span className={`admin-stage-chip ${stageTone(expertConsultationStage(item))}`}>
+                    {consultationStages.find((stage) => stage.id === expertConsultationStage(item))?.label}
+                  </span>
                   <small>{item.expert}</small>
                 </span>
                 <span>
-                  {item.chatReady}
+                  {chatGateLabel(item.chatReady)}
                   <small>{item.payment}</small>
                   <small>{item.reviewHandoff}</small>
                 </span>
                 <span>
                   {item.next}
                   <small>{item.sla}</small>
-                  <AdminRowActionDryRun
-                    action="expert_match_status"
-                    id={item.id}
-                    status={nextExpertState(item.state)}
-                    requestId={`expert-${item.id}`}
-                    note={`${item.product} expert match ${item.state} to ${nextExpertState(item.state)}`}
-                    fallbackUuid="00000000-0000-4000-8000-000000000101"
-                  />
+                  <details className="admin-ops-disclosure">
+                    <summary>운영 작업</summary>
+                    <AdminRowActionDryRun
+                      action="expert_match_status"
+                      id={item.id}
+                      status={nextExpertState(item.state)}
+                      requestId={`expert-${item.id}`}
+                      note={`${item.product} expert match ${item.state} to ${nextExpertState(item.state)}`}
+                      fallbackUuid="00000000-0000-4000-8000-000000000101"
+                    />
+                  </details>
                 </span>
               </div>
             ))}
@@ -346,7 +440,7 @@ export default async function AdminExpertsPage() {
                 <div key={`${item.id}-queue`} className={`admin-queue-item ${item.queueTone}`}>
                   <span>{stateLabels[item.state]}</span>
                   <b>{item.product}</b>
-                  <p>{item.chatReady}</p>
+                  <p>{chatGateLabel(item.chatReady)}</p>
                   <small>{item.payment}</small>
                 </div>
               ))}

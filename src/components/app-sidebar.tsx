@@ -27,7 +27,7 @@ type AppSidebarProps = {
 
 export function AppSidebar({ active }: AppSidebarProps) {
   return (
-    <aside className="lp-sidebar" aria-label="LabelPass 핵심 내비게이션" data-shell-nav="primary">
+    <aside className="lp-sidebar" aria-label="LabelPass 핵심 내비게이션">
       <div className="lp-brand">
         <span>LP</span>
         <div>
@@ -36,7 +36,7 @@ export function AppSidebar({ active }: AppSidebarProps) {
         </div>
       </div>
 
-      <nav className="lp-nav" aria-label="핵심 업무" data-shell-nav-count={primaryNavItems.length}>
+      <nav className="lp-nav" aria-label="핵심 업무" data-shell-nav="primary" data-shell-nav-count={primaryNavItems.length}>
         {primaryNavItems.map((item) => {
           const Icon = item.icon;
           const className = item.key === active ? "active" : undefined;

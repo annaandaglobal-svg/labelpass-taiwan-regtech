@@ -13544,6 +13544,37 @@ h2 {
   gap: 5px;
 }
 
+.admin-ops-disclosure {
+  display: grid;
+  gap: 7px;
+  margin-top: 7px;
+}
+
+.admin-ops-disclosure summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--green-dark);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 900;
+  list-style: none;
+}
+
+.admin-ops-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.admin-ops-disclosure[open] summary {
+  background: var(--green-soft);
+}
+
 .admin-row-action button {
   display: inline-flex;
   align-items: center;
@@ -13625,6 +13656,139 @@ h2 {
 
 .admin-flow span {
   white-space: nowrap;
+}
+
+.admin-pipeline-rail {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.admin-pipeline-step {
+  display: grid;
+  gap: 4px;
+  min-height: 82px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.admin-pipeline-step span {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.admin-pipeline-step b {
+  color: var(--navy);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.admin-pipeline-step small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.admin-pipeline-step.active {
+  border-color: rgba(19, 74, 93, 0.28);
+  background: var(--blue-soft);
+}
+
+.admin-pipeline-step.blocked {
+  border-color: rgba(190, 61, 61, 0.34);
+  background: var(--red-soft);
+}
+
+.admin-pipeline-step.blocked b,
+.admin-pipeline-step.blocked span {
+  color: var(--red);
+}
+
+.admin-gate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.admin-gate-card {
+  display: grid;
+  gap: 5px;
+  min-height: 94px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.admin-gate-card span,
+.admin-stage-chip {
+  justify-self: start;
+  min-height: 22px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--navy-soft);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.admin-gate-card b {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.admin-gate-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.42;
+}
+
+.admin-gate-card.ready {
+  border-color: rgba(33, 112, 74, 0.28);
+}
+
+.admin-gate-card.ready span,
+.admin-stage-chip.active {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.admin-gate-card.blocked {
+  border-color: rgba(190, 61, 61, 0.34);
+  background: var(--red-soft);
+}
+
+.admin-gate-card.blocked span,
+.admin-stage-chip.blocked {
+  background: #fff;
+  color: var(--red);
+}
+
+.admin-gate-card.done span,
+.admin-stage-chip.done {
+  background: var(--blue-soft);
+  color: var(--navy);
+}
+
+.admin-stage-chip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 5px;
+}
+
+.admin-stage-chip.waiting {
+  background: var(--gold-soft);
+  color: var(--gold);
 }
 
 .admin-chip-list span {
@@ -13793,8 +13957,13 @@ h2 {
 
   .admin-metrics,
   .admin-flow,
+  .admin-pipeline-rail,
   .admin-review-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-gate-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -13806,6 +13975,8 @@ h2 {
   .admin-metrics,
   .admin-health-list,
   .admin-flow,
+  .admin-pipeline-rail,
+  .admin-gate-grid,
   .admin-chip-list,
   .admin-review-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -13821,6 +13992,10 @@ h2 {
   .admin-section-nav a {
     flex: 0 0 auto;
     min-width: 78px;
+  }
+
+  .admin-gate-grid {
+    grid-template-columns: 1fr;
   }
 
   .admin-module-card,
