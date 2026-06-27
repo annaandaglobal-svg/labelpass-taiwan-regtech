@@ -92,6 +92,14 @@ for (const route of routeShells) {
   if (route.extra) requireIncludes(source, route.extra, route.file);
 }
 
+const reviewHomeSource = read("src/app/page.tsx");
+requireIncludes(reviewHomeSource, "actionPlanStats", "src/app/page.tsx review action plan summary");
+requireIncludes(reviewHomeSource, "handoffCards", "src/app/page.tsx review operational handoff cards");
+requireIncludes(reviewHomeSource, 'className={`lp-action-plan', "src/app/page.tsx review action plan panel");
+requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
+requireIncludes(reviewHomeSource, 'href: "/admin/experts"', "src/app/page.tsx expert handoff link");
+requireIncludes(reviewHomeSource, 'href: "/admin/logistics"', "src/app/page.tsx logistics handoff link");
+
 for (const filePath of walk(join(repoRoot, "src/app/admin"))) {
   if (!filePath.endsWith("page.tsx")) continue;
   const label = relative(repoRoot, filePath).replaceAll("\\", "/");
@@ -234,6 +242,10 @@ requireMaxPx(adminMetric, "padding", 12, "src/app/globals.css .admin-metric");
 const adminMetricValue = cssRule(css, ".admin-metric strong");
 requireMaxPx(adminMetricValue, "font-size", 21, "src/app/globals.css .admin-metric strong");
 
+requireIncludes(css, ".lp-action-plan", "src/app/globals.css review action plan panel");
+requireIncludes(css, ".lp-handoff-grid", "src/app/globals.css review handoff grid");
+requireIncludes(css, ".lp-handoff-card", "src/app/globals.css review handoff card");
+requireIncludes(css, ".lp-handoff-card:hover", "src/app/globals.css review handoff hover");
 requireIncludes(css, ".admin-queue-link", "src/app/globals.css linked admin queue card");
 requireIncludes(css, ".admin-queue-item.review > span", "src/app/globals.css admin queue review tone");
 requireIncludes(css, ".admin-queue-item.waiting > span", "src/app/globals.css admin queue waiting tone");

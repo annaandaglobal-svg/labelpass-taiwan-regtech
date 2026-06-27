@@ -11,6 +11,7 @@ import {
   ExternalLink,
   FileText,
   FlaskConical,
+  Handshake,
   History,
   Loader2,
   PackageCheck,
@@ -18,6 +19,7 @@ import {
   ShieldCheck,
   Ship,
   Sparkles,
+  Truck,
   UploadCloud,
   XCircle
 } from "lucide-react";
@@ -633,6 +635,87 @@ function nextActionFor(result: ReviewResult | null, route: RoutePreset) {
   return "제품 버전, 라벨, 증빙 원문을 묶어서 출시 기록으로 보관하세요.";
 }
 
+const actionPlanCopy: Record<ReviewResult["actionPlan"]["priority"], { label: string; detail: string; tone: string }> = {
+  blocked: {
+    label: "출시 전 차단 해소",
+    detail: "금지 성분, 초과 함량, 의학적 표현, 통관 보류처럼 먼저 막아야 할 항목입니다.",
+    tone: "danger"
+  },
+  collect_documents: {
+    label: "증빙 수집",
+    detail: "판정을 확정하려면 PIF, 함량, 수입자, 시험자료, 통관 서류를 보강해야 합니다.",
+    tone: "info"
+  },
+  revise_label: {
+    label: "라벨 수정",
+    detail: "중문 라벨, 효능 표현, 알레르기·영양·원산지 문구를 출시 전 정리하세요.",
+    tone: "warn"
+  },
+  ready_to_file: {
+    label: "출시 기록 준비",
+    detail: "검토 결과와 공식 증빙을 제품 버전, 라벨 버전, 선적 자료와 묶어 보관하세요.",
+    tone: "pass"
+  }
+};
+
+function actionPlanStats(result: ReviewResult) {
+  const docs = result.actionPlan.documentChecklist;
+  return {
+    owners: result.actionPlan.ownerSummary.slice(0, 3),
+    actionCount: result.actionPlan.actionItems.length,
+    neededDocs: docs.filter((doc) => doc.status === "needed" || doc.status === "review").length,
+    evidenceCount: result.actionPlan.evidencePack.length
+  };
+}
+
+function handoffCards(result: ReviewResult, route: RoutePreset) {
+  const stats = actionPlanStats(result);
+  const hasCustomsOrImport = result.findings.some((finding) =>
+    /통관|수입|customs|import|hs|ccc/i.test(`${finding.area} ${finding.id} ${finding.title}`)
+  );
+  const hasExpertNeed = result.status !== "pass" || result.actionPlan.actionItems.length > 0;
+  const logisticsDetail = hasCustomsOrImport
+    ? "통관 보류·수입검사 자료를 물류 큐에서 같이 확인합니다."
+    : route.family === "cosmetics"
+      ? "PIF와 라벨 버전을 고정한 뒤 선적 요청으로 넘깁니다."
+      : "식품 라벨·수입검사 증빙을 묶어 선적 요청으로 넘깁니다.";
+
+  return [
+    {
+      href: "/admin/reviews",
+      icon: <ClipboardCheck size={16} />,
+      label: "리뷰 큐",
+      title: `${stats.actionCount}개 조치 확인`,
+      detail: result.actionPlan.nextAction,
+      tone: actionPlanCopy[result.actionPlan.priority].tone
+    },
+    {
+      href: "/admin/experts",
+      icon: <Handshake size={16} />,
+      label: "전문가",
+      title: hasExpertNeed ? "상담 인계 준비" : "필요 시 상담 예약",
+      detail: stats.owners[0] ? `${stats.owners[0].owner} 담당 항목 ${stats.owners[0].count}개` : "전문가 검토가 필요한 항목은 없습니다.",
+      tone: hasExpertNeed ? "info" : "pass"
+    },
+    {
+      href: "/admin/logistics",
+      icon: <Truck size={16} />,
+      label: "물류/선적",
+      title: hasCustomsOrImport ? "통관 handoff" : "선적 준비",
+      detail: logisticsDetail,
+      tone: hasCustomsOrImport ? "warn" : "info"
+    },
+    {
+      href: "/knowledge",
+      icon: <BookOpen size={16} />,
+      label: "근거",
+      title: `${stats.evidenceCount}개 공식 근거`,
+      detail: `${stats.neededDocs}개 증빙 항목을 보강 대상으로 표시했습니다.`,
+      tone: stats.neededDocs > 0 ? "warn" : "pass"
+    }
+  ];
+}
+
 export default function Home() {
   const [selectedRouteId, setSelectedRouteId] = useState<RouteId>("tw_cosmetic");
   const [input, setInput] = useState<ReviewInput>(emptyInput);
@@ -777,6 +860,8 @@ export default function Home() {
     { label: "수정권장", value: result?.summary.warn ?? 0, tone: "warn" },
     { label: "통과", value: result?.summary.pass ?? 0, tone: "pass" }
   ];
+  const planStats = result ? actionPlanStats(result) : null;
+  const routeHandoffCards = result ? handoffCards(result, selectedRoute) : [];
 
   return (
     <main className="lp-shell">
@@ -938,6 +1023,47 @@ export default function Home() {
                   <div>
                     <b>다음 작업</b>
                     <span>{nextActionFor(result, selectedRoute)}</span>
+                  </div>
+                </div>
+
+                <div className={`lp-action-plan ${actionPlanCopy[result.actionPlan.priority].tone}`}>
+                  <div className="lp-action-plan-head">
+                    <span>{statusIcon(result.status)}</span>
+                    <div>
+                      <b>{actionPlanCopy[result.actionPlan.priority].label}</b>
+                      <p>{actionPlanCopy[result.actionPlan.priority].detail}</p>
+                    </div>
+                  </div>
+                  <div className="lp-action-plan-meta">
+                    {planStats?.owners.length ? (
+                      planStats.owners.map((owner) => (
+                        <span key={owner.owner}>
+                          <b>{owner.owner}</b>
+                          {owner.count}개 / 긴급 {owner.urgentCount}개
+                        </span>
+                      ))
+                    ) : (
+                      <span>
+                        <b>담당자</b>
+                        추가 조치 없음
+                      </span>
+                    )}
+                    <span>
+                      <b>증빙</b>
+                      보강 {planStats?.neededDocs ?? 0}개
+                    </span>
+                  </div>
+                  <div className="lp-handoff-grid" aria-label="운영 인계">
+                    {routeHandoffCards.map((card) => (
+                      <Link key={card.href} className={`lp-handoff-card ${card.tone}`} href={card.href}>
+                        <span>{card.icon}</span>
+                        <div>
+                          <em>{card.label}</em>
+                          <b>{card.title}</b>
+                          <small>{card.detail}</small>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
