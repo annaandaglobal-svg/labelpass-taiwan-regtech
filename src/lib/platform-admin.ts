@@ -124,5 +124,7 @@ export const adminNav = [
   { href: "/admin", label: "운영 홈" },
   { href: "/admin/companies", label: "회사" },
   { href: "/admin/users", label: "사용자" },
-  { href: "/admin/reviews", label: "리뷰 큐" }
+  { href: "/admin/reviews", label: "리뷰 큐" },
+  { href: "/admin/experts", label: "전문가" },
+  { href: "/admin/logistics", label: "물류·선적" }
 ];

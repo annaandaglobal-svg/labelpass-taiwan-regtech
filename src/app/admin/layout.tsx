@@ -1,13 +1,15 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowLeft, BriefcaseBusiness, ClipboardList, Settings, Users } from "lucide-react";
+import { ArrowLeft, BriefcaseBusiness, ClipboardList, Handshake, Settings, Truck, Users } from "lucide-react";
 import { adminNav } from "@/lib/platform-admin";
 
 const navIcons: Record<string, ReactNode> = {
   "/admin": <Settings size={16} />,
   "/admin/companies": <BriefcaseBusiness size={16} />,
   "/admin/users": <Users size={16} />,
-  "/admin/reviews": <ClipboardList size={16} />
+  "/admin/reviews": <ClipboardList size={16} />,
+  "/admin/experts": <Handshake size={16} />,
+  "/admin/logistics": <Truck size={16} />
 };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
