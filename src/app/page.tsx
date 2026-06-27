@@ -682,26 +682,26 @@ function handoffCards(result: ReviewResult, route: RoutePreset) {
 
   return [
     {
-      href: "/admin/reviews",
+      href: "/workspace#review-queue",
       icon: <ClipboardCheck size={16} />,
-      label: "리뷰 큐",
+      label: "리뷰 상태",
       title: `${stats.actionCount}개 조치 확인`,
       detail: result.actionPlan.nextAction,
       tone: actionPlanCopy[result.actionPlan.priority].tone
     },
     {
-      href: "/admin/experts",
+      href: "/workspace#expert-cases",
       icon: <Handshake size={16} />,
-      label: "전문가",
+      label: "상담 요청",
       title: hasExpertNeed ? "상담 인계 준비" : "필요 시 상담 예약",
       detail: stats.owners[0] ? `${stats.owners[0].owner} 담당 항목 ${stats.owners[0].count}개` : "전문가 검토가 필요한 항목은 없습니다.",
       tone: hasExpertNeed ? "info" : "pass"
     },
     {
-      href: "/admin/logistics",
+      href: "/workspace#shipment-events",
       icon: <Truck size={16} />,
-      label: "물류/선적",
-      title: hasCustomsOrImport ? "통관 handoff" : "선적 준비",
+      label: "선적 상태",
+      title: hasCustomsOrImport ? "통관 확인 필요" : "선적 준비",
       detail: logisticsDetail,
       tone: hasCustomsOrImport ? "warn" : "info"
     },

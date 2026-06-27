@@ -32,8 +32,8 @@ const productRows = [
     docs: ["PIF", "GMP", "COA", "중문 라벨"],
     links: [
       { href: "/#intake", label: "1차 검토" },
-      { href: "/admin/experts", label: "전문가 요청" },
-      { href: "/admin/logistics", label: "물류 연결" }
+      { href: "/workspace#expert-cases", label: "상담 상태" },
+      { href: "/workspace#shipment-events", label: "선적 상태" }
     ]
   },
   {
@@ -50,7 +50,7 @@ const productRows = [
     links: [
       { href: "/#intake", label: "1차 검토" },
       { href: "/knowledge?q=allergen", label: "근거" },
-      { href: "/admin/experts", label: "전문가 요청" }
+      { href: "/workspace#expert-cases", label: "상담 상태" }
     ]
   },
   {
@@ -66,8 +66,8 @@ const productRows = [
     docs: ["성분표", "첨가물", "CCC/HS", "수입검사"],
     links: [
       { href: "/knowledge?q=food additive", label: "첨가물" },
-      { href: "/admin/logistics", label: "선적" },
-      { href: "/admin/reviews", label: "리뷰 큐" }
+      { href: "/workspace#shipment-events", label: "선적" },
+      { href: "/workspace#review-queue", label: "리뷰 상태" }
     ]
   }
 ];
@@ -90,6 +90,20 @@ const stateLabels: Record<string, string> = {
 
 function labelState(value: string) {
   return stateLabels[value] ?? value;
+}
+
+function customerActionHref(href: string) {
+  switch (href) {
+    case "/admin/reviews":
+      return "/workspace#review-queue";
+    case "/admin/experts":
+    case "/admin/payments":
+      return "/workspace#expert-cases";
+    case "/admin/logistics":
+      return "/workspace#shipment-events";
+    default:
+      return href.startsWith("/admin") ? "/workspace" : href;
+  }
 }
 
 export default async function WorkspacePage() {
@@ -220,7 +234,7 @@ export default async function WorkspacePage() {
             </div>
           </article>
 
-          <article className="workspace-panel">
+          <article className="workspace-panel" id="review-queue">
             <div className="workspace-panel-head">
               <div>
                 <span>오늘 처리</span>
@@ -230,7 +244,7 @@ export default async function WorkspacePage() {
             </div>
             <div className="workspace-action-list">
               {workspaceActionQueue.map((item) => (
-                <Link key={item.id} className={`workspace-action-item ${item.tone}`} href={item.href}>
+                <Link key={item.id} className={`workspace-action-item ${item.tone}`} href={customerActionHref(item.href)}>
                   <span>{item.label}</span>
                   <b>{item.title}</b>
                   <p>{item.next}</p>
@@ -240,7 +254,7 @@ export default async function WorkspacePage() {
             </div>
           </article>
 
-          <article className="workspace-panel">
+          <article className="workspace-panel" id="expert-cases">
             <div className="workspace-panel-head">
               <div>
                 <span>전문가 매칭</span>
@@ -250,16 +264,16 @@ export default async function WorkspacePage() {
             </div>
             <div className="workspace-expert-list">
               {activeExpertCases.slice(0, 3).map((expertCase) => (
-                <Link key={expertCase.id} className={`workspace-expert-row ${expertCase.queueTone}`} href="/admin/experts">
+                <div key={expertCase.id} className={`workspace-expert-row ${expertCase.queueTone}`}>
                   <span>{expertCase.displayId ?? expertCase.id}</span>
                   <b>{expertCase.product}</b>
                   <small>{expertCase.expert} / {labelState(expertCase.state)} / {expertCase.payment}</small>
-                </Link>
+                </div>
               ))}
             </div>
           </article>
 
-          <article className="workspace-panel workspace-panel-wide">
+          <article className="workspace-panel workspace-panel-wide" id="shipment-events">
             <div className="workspace-panel-head">
               <div>
                 <span>물류·선적</span>
@@ -269,7 +283,7 @@ export default async function WorkspacePage() {
             </div>
             <div className="workspace-shipment-grid">
               {opsSnapshot.activeShipments.map((shipment) => (
-                <Link key={shipment.reference} className={`workspace-shipment-row ${shipment.state}`} href="/admin/logistics">
+                <div key={shipment.reference} className={`workspace-shipment-row ${shipment.state}`}>
                   <Truck size={17} />
                   <div>
                     <b>{shipment.reference}</b>
@@ -277,7 +291,7 @@ export default async function WorkspacePage() {
                     <small>{shipment.carrier} / {shipment.tracking}</small>
                   </div>
                   <em>{labelState(shipment.state)} · {shipment.eta}</em>
-                </Link>
+                </div>
               ))}
             </div>
           </article>

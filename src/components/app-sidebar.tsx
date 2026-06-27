@@ -13,11 +13,11 @@ type AppNavItem = {
 const primaryNavItems: AppNavItem[] = [
   { key: "workspace", href: "/workspace", label: "워크스페이스", icon: Boxes },
   { key: "review", href: "/", label: "검토", icon: ClipboardCheck },
-  { key: "knowledge", href: "/knowledge", label: "지식 검색", icon: Search },
-  { key: "aliases", href: "/knowledge/aliases", label: "용어 정리", icon: Languages }
+  { key: "knowledge", href: "/knowledge", label: "지식 검색", icon: Search }
 ];
 
 const utilityNavItems: AppNavItem[] = [
+  { key: "aliases", href: "/knowledge/aliases", label: "용어 검수", icon: Languages },
   { key: "admin", href: "/admin", label: "운영 관리", icon: BadgeCheck }
 ];
 

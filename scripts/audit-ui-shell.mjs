@@ -102,8 +102,12 @@ requireIncludes(reviewHomeSource, "actionPlanStats", "src/app/page.tsx review ac
 requireIncludes(reviewHomeSource, "handoffCards", "src/app/page.tsx review operational handoff cards");
 requireIncludes(reviewHomeSource, 'className={`lp-action-plan', "src/app/page.tsx review action plan panel");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
-requireIncludes(reviewHomeSource, 'href: "/admin/experts"', "src/app/page.tsx expert handoff link");
-requireIncludes(reviewHomeSource, 'href: "/admin/logistics"', "src/app/page.tsx logistics handoff link");
+requireIncludes(reviewHomeSource, 'href: "/workspace#review-queue"', "src/app/page.tsx customer review status handoff link");
+requireIncludes(reviewHomeSource, 'href: "/workspace#expert-cases"', "src/app/page.tsx customer expert status handoff link");
+requireIncludes(reviewHomeSource, 'href: "/workspace#shipment-events"', "src/app/page.tsx customer shipment status handoff link");
+if (/href\s*:\s*"\/admin\//.test(reviewHomeSource) || /href="\/admin\//.test(reviewHomeSource)) {
+  fail("src/app/page.tsx: customer review screen must not deep-link directly into admin routes");
+}
 
 const workspaceSource = read("src/app/workspace/page.tsx");
 requireNoMojibake(workspaceSource, "src/app/workspace/page.tsx");
@@ -111,11 +115,16 @@ requireIncludes(workspaceSource, "getPlatformOpsSnapshot", "src/app/workspace/pa
 requireIncludes(workspaceSource, "buildPlatformOpsActionQueue", "src/app/workspace/page.tsx workspace action queue");
 requireIncludes(workspaceSource, "workspaceActionQueue", "src/app/workspace/page.tsx customer action queue");
 requireIncludes(workspaceSource, 'item.href !== "/admin/settings"', "src/app/workspace/page.tsx filters internal admin settings");
+requireIncludes(workspaceSource, "customerActionHref", "src/app/workspace/page.tsx customer-safe operation href mapping");
 requireIncludes(workspaceSource, 'className="workspace-dashboard"', "src/app/workspace/page.tsx workspace layout");
 requireIncludes(workspaceSource, 'className="workspace-action-list"', "src/app/workspace/page.tsx workspace action queue UI");
-requireIncludes(workspaceSource, 'href="/admin/experts"', "src/app/workspace/page.tsx expert handoff");
-requireIncludes(workspaceSource, 'href="/admin/logistics"', "src/app/workspace/page.tsx logistics handoff");
+requireIncludes(workspaceSource, 'id="review-queue"', "src/app/workspace/page.tsx review status anchor");
+requireIncludes(workspaceSource, 'id="expert-cases"', "src/app/workspace/page.tsx expert status anchor");
+requireIncludes(workspaceSource, 'id="shipment-events"', "src/app/workspace/page.tsx shipment status anchor");
 requireIncludes(workspaceSource, 'href="/knowledge"', "src/app/workspace/page.tsx knowledge handoff");
+if (/href\s*:\s*"\/admin\//.test(workspaceSource) || /href="\/admin\//.test(workspaceSource)) {
+  fail("src/app/workspace/page.tsx: customer workspace must not deep-link directly into admin routes");
+}
 
 for (const filePath of walk(join(repoRoot, "src/app/admin"))) {
   if (!filePath.endsWith("page.tsx")) continue;
@@ -197,9 +206,10 @@ requireIncludes(appSidebarSource, "utilityNavItems", "src/components/app-sidebar
 requireIncludes(appSidebarSource, "data-shell-nav-count={primaryNavItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
 requireIncludes(appSidebarSource, 'data-shell-nav="utility"', "src/components/app-sidebar.tsx utility nav contract");
 requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/components/app-sidebar.tsx stable nav item ids");
-for (const navLabel of ["워크스페이스", "검토", "지식 검색", "용어 정리"]) {
+for (const navLabel of ["워크스페이스", "검토", "지식 검색"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
+requireIncludes(appSidebarSource, 'label: "용어 검수"', "src/components/app-sidebar.tsx utility aliases label");
 requireIncludes(appSidebarSource, 'label: "운영 관리"', "src/components/app-sidebar.tsx utility nav label");
 if (appSidebarSource.indexOf('key: "workspace"') > appSidebarSource.indexOf('key: "review"')) {
   fail("src/components/app-sidebar.tsx: workspace must be the first primary navigation item");
@@ -253,7 +263,7 @@ requireCompactIncludes(mobileCss, ".lp-shell { grid-template-columns: 1fr; }", "
 requireCompactIncludes(mobileCss, ".lp-sidebar { position: sticky; top: 0; z-index: 20; height: auto;", "src/app/globals.css mobile sidebar");
 requireCompactIncludes(
   mobileCss,
-  ".lp-nav { grid-template-columns: repeat(4, minmax(0, 1fr));",
+  ".lp-nav { grid-template-columns: repeat(3, minmax(0, 1fr));",
   "src/app/globals.css mobile primary nav"
 );
 requireCompactIncludes(
