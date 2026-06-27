@@ -34,8 +34,8 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
             검토 화면으로
           </Link>
           <p className="eyebrow">대만 식품·화장품 라벨링</p>
-          <h1>성분·규정 검색</h1>
-          <p>원료명, 표시 문구, 허가번호를 검색해 공식 근거를 확인하고 바로 검토 화면에 반영합니다.</p>
+          <h1>검토 근거 검색</h1>
+          <p>원료명, 표시 문구, 허가번호를 검색해 라벨 검토에 붙일 공식 근거만 빠르게 고릅니다.</p>
         </div>
       </section>
 

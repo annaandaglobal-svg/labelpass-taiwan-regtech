@@ -961,100 +961,108 @@ export default function Home() {
             <section className="start-command-shell start-command-shell-focused start-hub-shell" aria-label="LabelPass 시작">
               <div className="start-command-card start-hub-card">
                 <div className="start-command-copy start-hub-copy">
-                  <span className="start-kicker">대만 식품·화장품 작업대</span>
-                  <h2>새 라벨 검토를 시작하세요</h2>
-                  <p>제품 경로를 대략 고른 뒤 라벨/PDF나 전성분 텍스트를 넣으면, 대만 식품·화장품 기준에 맞춰 필요한 근거와 입력 항목만 좁혀집니다.</p>
+                  <span className="start-kicker">대만 식품·화장품 1차 검토</span>
+                  <h2>라벨이나 전성분표부터 올리세요</h2>
+                  <p>처음에는 파일 또는 텍스트만 넣으면 됩니다. 제품 경로, 필요한 근거, 보완 자료는 검토 과정에서 자동으로 좁혀집니다.</p>
                 </div>
 
-                <div className="start-workflow-strip start-workflow-top" aria-label="검토 흐름">
-                  <span className="active"><b>1</b><small>품목/경로</small></span>
-                  <span><b>2</b><small>라벨·성분</small></span>
-                  <span><b>3</b><small>AI 1차 검토</small></span>
-                  <span><b>4</b><small>근거 리포트</small></span>
-                </div>
+                <div className="start-decision-layout">
+                  <div className="start-hub-actions" aria-label="검토 시작">
+                    <button className="start-upload-dropzone" type="button" onClick={beginWithUpload}>
+                      <span><Upload size={24} /></span>
+                      <span>
+                        <b>라벨/PDF 업로드</b>
+                        <small>이미지, PDF, 전성분표를 먼저 연결합니다. 파일이 없으면 바로 아래에서 직접 입력으로 시작하세요.</small>
+                      </span>
+                      <em>시작</em>
+                    </button>
 
-                <div className="start-route-selector start-route-selector-compact" aria-label="대만 업무 경로 선택">
-                  <div className="start-route-head">
-                    <span>품목/경로</span>
-                    <b>{selectedStartRoute.label}</b>
-                  </div>
-                  <div className="start-route-grid start-route-segments">
-                    {startRouteOptions.slice(0, 4).map((route) => (
-                      <button
-                        key={route.id}
-                        type="button"
-                        className={selectedStartRoute.id === route.id ? "start-route-option active" : "start-route-option"}
-                        onClick={() => selectStartRoute(route)}
-                        aria-pressed={selectedStartRoute.id === route.id}
-                      >
-                        {startRouteIcon(route.icon)}
-                        <span>
-                          <b>{route.label}</b>
-                        </span>
+                    <div className="start-secondary-row start-secondary-row-flat">
+                      <button className="start-secondary-action" type="button" onClick={focusInputPane}>
+                        <ClipboardCheck size={17} />
+                        직접 입력으로 시작
                       </button>
-                    ))}
+                      <button className="start-secondary-action start-secondary-search" type="button" onClick={() => openKnowledgeSearch()}>
+                        <Search size={16} />
+                        성분·규정 사전검색
+                      </button>
+                    </div>
                   </div>
-                  <details className="start-route-more">
-                    <summary>건강식품·식품접촉재·SHTC 기타 경로</summary>
-                    <div>
-                      {startRouteOptions.slice(4).map((route) => (
+
+                  <div className="start-outcome-panel" aria-label="검토 후 제공되는 결과">
+                    <div className="start-outcome-head">
+                      <ShieldCheck size={18} />
+                      <div>
+                        <b>검토 후 바로 정리되는 것</b>
+                        <span>처음 화면에는 버튼을 늘리지 않고, 결과 화면에서 같은 흐름으로 열립니다.</span>
+                      </div>
+                    </div>
+                    <div className="start-outcome-list">
+                      <span><b>1</b><small>위험도 판정</small></span>
+                      <span><b>2</b><small>공식 근거</small></span>
+                      <span><b>3</b><small>수정 체크리스트</small></span>
+                      <span><b>4</b><small>내보내기·승인요청</small></span>
+                    </div>
+                  </div>
+                </div>
+
+                <details className="start-advanced-drawer">
+                  <summary>
+                    <span>품목 경로·샘플은 필요할 때만 열기</span>
+                    <b>{selectedStartRoute.label}</b>
+                  </summary>
+                  <div className="start-route-selector start-route-selector-compact" aria-label="대만 업무 경로 선택">
+                    <div className="start-route-head">
+                      <span>현재 경로</span>
+                      <b>{selectedStartRoute.label}</b>
+                    </div>
+                    <div className="start-route-grid start-route-segments">
+                      {startRouteOptions.slice(0, 4).map((route) => (
                         <button
                           key={route.id}
                           type="button"
-                          className={selectedStartRoute.id === route.id ? "active" : ""}
+                          className={selectedStartRoute.id === route.id ? "start-route-option active" : "start-route-option"}
                           onClick={() => selectStartRoute(route)}
                           aria-pressed={selectedStartRoute.id === route.id}
                         >
                           {startRouteIcon(route.icon)}
-                          <span>{route.label}</span>
+                          <span>
+                            <b>{route.label}</b>
+                          </span>
                         </button>
                       ))}
                     </div>
-                  </details>
-                  <div className="start-route-plan" aria-label="선택한 경로의 첫 확인 항목">
-                    <span>먼저 확인</span>
-                    {selectedStartRoute.inputs.map((item) => (
-                      <b key={`${selectedStartRoute.id}-${item}`}>{item}</b>
-                    ))}
+                    <details className="start-route-more">
+                      <summary>건강식품·식품접촉재·SHTC 기타 경로</summary>
+                      <div>
+                        {startRouteOptions.slice(4).map((route) => (
+                          <button
+                            key={route.id}
+                            type="button"
+                            className={selectedStartRoute.id === route.id ? "active" : ""}
+                            onClick={() => selectStartRoute(route)}
+                            aria-pressed={selectedStartRoute.id === route.id}
+                          >
+                            {startRouteIcon(route.icon)}
+                            <span>{route.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </details>
+                    <div className="start-route-plan" aria-label="선택한 경로의 첫 확인 항목">
+                      <span>먼저 확인</span>
+                      {selectedStartRoute.inputs.map((item) => (
+                        <b key={`${selectedStartRoute.id}-${item}`}>{item}</b>
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                <div className="start-hub-actions" aria-label="검토 시작 방법">
-                  <button className="start-upload-dropzone" type="button" onClick={beginWithUpload}>
-                    <span><Upload size={24} /></span>
-                    <span>
-                      <b>라벨/PDF 업로드</b>
-                      <small>파일이 없어도 괜찮습니다. 다음 화면에서 제품명, 품목, 전성분 또는 라벨 문구를 직접 넣을 수 있습니다.</small>
-                    </span>
-                    <em>시작</em>
-                  </button>
-
-                  <div className="start-secondary-row">
-                    <button className="start-secondary-action" type="button" onClick={focusInputPane}>
-                      <ClipboardCheck size={17} />
-                      직접 입력
-                    </button>
-                    <form className="start-inline-search" onSubmit={(event) => { event.preventDefault(); openKnowledgeSearch(); }}>
-                      <Search size={16} />
-                      <input
-                        value={startKnowledgeQuery}
-                        onChange={(event) => setStartKnowledgeQuery(event.target.value)}
-                        placeholder="규정·성분 먼저 검색"
-                        aria-label="시작 전 규정 또는 성분 검색"
-                      />
-                      <button type="submit" aria-label="규정 또는 성분 검색">
-                        <ArrowRight size={15} />
-                      </button>
-                    </form>
+                  <div className="start-sample-row start-sample-row-quiet" aria-label="샘플로 시작">
+                    <span>샘플</span>
+                    <button type="button" onClick={() => fillSample("risky")}>화장품</button>
+                    <button type="button" onClick={() => fillSample("food-risky")}>식품</button>
+                    <button type="button" onClick={() => fillSample("food-import")}>수입·통관</button>
                   </div>
-                </div>
-
-                <div className="start-sample-row start-sample-row-quiet" aria-label="샘플로 시작">
-                  <span>샘플</span>
-                  <button type="button" onClick={() => fillSample("risky")}>화장품</button>
-                  <button type="button" onClick={() => fillSample("food-risky")}>식품</button>
-                  <button type="button" onClick={() => fillSample("food-import")}>수입·통관</button>
-                </div>
+                </details>
               </div>
             </section>
           )}

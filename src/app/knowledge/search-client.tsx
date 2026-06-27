@@ -400,9 +400,9 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
     >
       <div className="knowledge-command-head">
         <div>
-          <span>대만 식품·화장품 지식 검색</span>
-          <h2>검색하면 공식 근거와 검토 반영 단계까지 이어집니다.</h2>
-          <p>원료명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드처럼 서로 다른 이름을 한곳에서 연결합니다.</p>
+          <span>검토 보조 검색</span>
+          <h2>라벨 검토에 붙일 공식 근거를 찾습니다.</h2>
+          <p>원료명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드 중 하나를 입력하면 검토에 연결할 근거를 좁힙니다.</p>
         </div>
         <div className="knowledge-command-actions">
           <div className={["knowledge-searchbar", loading ? "is-loading" : ""].filter(Boolean).join(" ")}>
@@ -415,13 +415,16 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             />
             {loading && <Loader2 className="spin" size={18} />}
           </div>
-          <div className="knowledge-mode-tabs knowledge-mode-tabs-steady" aria-label="품목군 선택">
-            {focusModes.map((mode) => (
-              <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
-                {mode.label}
-              </button>
-            ))}
-          </div>
+          <details className="knowledge-mode-drawer">
+            <summary>검색 범위: {focusModeMeta.title}</summary>
+            <div className="knowledge-mode-tabs knowledge-mode-tabs-steady" aria-label="품목군 선택">
+              {focusModes.map((mode) => (
+                <button key={mode.id} type="button" className={focusMode === mode.id ? "active" : ""} onClick={() => setFocusMode(mode.id)}>
+                  {mode.label}
+                </button>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
 
@@ -491,22 +494,6 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
             </div>
           )}
 
-          {hasQuery && topRoute && topRouteCopy && (
-            <article className="knowledge-route-card" aria-label="추천 업무 경로">
-              <div className="knowledge-route-main">
-                <span>추천 업무 경로</span>
-                <h3>{topRouteCopy.label}</h3>
-                <p>{topRouteCopy.nextAction}</p>
-              </div>
-              <div className="knowledge-route-checks" aria-label="먼저 확인할 입력">
-                <b>먼저 확인</b>
-                {topRouteCopy.requiredInputs.slice(0, 4).map((input) => (
-                  <span key={`${topRoute.routeId}-${input}`}>{input}</span>
-                ))}
-              </div>
-            </article>
-          )}
-
           {hasQuery && hasResults && topResult && (
             <article className={`knowledge-best-card ${topResult.kind}`}>
               <button
@@ -527,7 +514,7 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
                   </div>
                 </div>
                 <b className="knowledge-score">{topResult.kind === "term" ? "용어" : "근거"}</b>
-                <span className="knowledge-row-action-hint">근거 보기</span>
+                <span className="knowledge-row-action-hint">선택</span>
               </button>
             </article>
           )}
@@ -603,11 +590,11 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           <div className="knowledge-tray-head">
             <ShieldCheck size={18} />
             <div>
-              <h2>근거 패널</h2>
+              <h2>검토 연결</h2>
               <span>
                 {selectedEvidence
-                  ? "선택한 항목의 공식 출처, 별칭, 연결 규칙을 검토합니다."
-                  : "검색 결과를 선택하면 검토 근거가 여기에 열립니다."}
+                  ? "선택한 근거를 라벨 검토 화면으로 넘길 수 있습니다."
+                  : "검색 결과를 선택하면 같은 자리에서 검토 연결 버튼이 활성화됩니다."}
               </span>
             </div>
           </div>
@@ -654,8 +641,8 @@ export default function KnowledgeSearchClient({ initialQuery = "", initialData =
           ) : (
             <div className="knowledge-evidence-empty knowledge-evidence-preview">
               <ClipboardCheck size={20} />
-              <b>{hasQuery ? "왼쪽 결과를 선택하면 근거가 열립니다." : "검색어를 입력하면 공식 근거를 좁혀드립니다."}</b>
-              <p>{hasQuery ? "결과를 직접 선택한 뒤 공식 출처, 별칭, 원문 링크를 확인하고 검토 화면에 반영할 수 있습니다." : "성분명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드 중 하나로 시작하세요."}</p>
+              <b>{hasQuery ? "결과 하나를 선택하세요." : "검색어를 입력하면 근거를 좁혀드립니다."}</b>
+              <p>{hasQuery ? "선택 전후에도 작업 위치는 바뀌지 않습니다. 이 패널에서 검토 연결만 활성화됩니다." : "성분명, 표시 문구, 허가번호, INCI, CAS, HS/CCC 코드 중 하나로 시작하세요."}</p>
               <div className="knowledge-tray-actions knowledge-tray-actions-disabled" aria-label="근거 작업 대기">
                 <button type="button" className="primary" disabled>
                   <PackageSearch size={15} />

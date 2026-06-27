@@ -8742,6 +8742,142 @@ h2 {
   font-size: 14px;
 }
 
+.start-decision-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(280px, 0.72fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.start-outcome-panel {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #c8ded5;
+  border-radius: 8px;
+  background: #fbfdfc;
+}
+
+.start-outcome-head {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.start-outcome-head > svg {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.start-outcome-head b,
+.start-outcome-head span {
+  display: block;
+}
+
+.start-outcome-head b {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.start-outcome-head span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.start-outcome-list {
+  display: grid;
+  gap: 7px;
+}
+
+.start-outcome-list span {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.start-outcome-list b {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 12px;
+}
+
+.start-outcome-list small {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.start-advanced-drawer {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.start-advanced-drawer > summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 12px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 900;
+  list-style: none;
+  cursor: pointer;
+}
+
+.start-advanced-drawer > summary::-webkit-details-marker {
+  display: none;
+}
+
+.start-advanced-drawer > summary b {
+  max-width: 240px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.start-advanced-drawer[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.start-advanced-drawer .start-route-selector {
+  margin: 10px;
+  background: #fff;
+}
+
+.start-advanced-drawer .start-sample-row {
+  padding: 0 10px 10px;
+}
+
 .start-route-selector {
   display: grid;
   gap: 10px;
@@ -9097,6 +9233,11 @@ h2 {
   gap: 8px;
 }
 
+.start-decision-layout .start-hub-actions {
+  align-content: start;
+  min-width: 0;
+}
+
 .start-route-selector-compact {
   gap: 9px;
   padding: 11px;
@@ -9192,6 +9333,10 @@ h2 {
   gap: 8px;
 }
 
+.start-secondary-row-flat {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .start-secondary-action,
 .start-inline-search {
   min-height: 42px;
@@ -9208,6 +9353,10 @@ h2 {
   color: var(--navy);
   font-size: 13px;
   font-weight: 950;
+}
+
+.start-secondary-search {
+  color: var(--muted);
 }
 
 .start-inline-search {
@@ -9381,6 +9530,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .start-decision-layout {
+    grid-template-columns: 1fr;
+  }
+
   .start-hub-card.start-command-card,
   .start-command-shell-focused .start-hub-card.start-command-card {
     gap: 10px;
@@ -9444,6 +9597,8 @@ h2 {
 @media (max-width: 760px) {
   .start-hub-actions,
   .start-workflow-strip,
+  .start-decision-layout,
+  .start-secondary-row-flat,
   .intake-checklist,
   .intake-start-flow,
   .knowledge-start-flow,
@@ -9562,6 +9717,10 @@ h2 {
 
   .start-secondary-row {
     grid-template-columns: 1fr;
+  }
+
+  .start-outcome-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -10590,6 +10749,20 @@ h2 {
 
   .start-search-box {
     margin-top: 6px;
+  }
+
+  .start-outcome-list,
+  .start-route-segments {
+    grid-template-columns: 1fr;
+  }
+
+  .start-advanced-drawer > summary {
+    grid-template-columns: 1fr;
+  }
+
+  .start-advanced-drawer > summary b {
+    max-width: 100%;
+    text-align: left;
   }
 }
 
