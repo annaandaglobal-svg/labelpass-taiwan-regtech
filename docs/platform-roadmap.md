@@ -71,3 +71,11 @@ Build the platform shell before building the marketplace:
 5. Add audit logging for admin review status changes.
 
 This slice creates the base needed for expert matching, paid chat, logistics matching, and shipment tracking without forcing those larger workflows into the first admin release.
+
+## Implemented First Slice
+
+- `/admin` is available as the operator console shell.
+- `/admin/companies`, `/admin/users`, and `/admin/reviews` provide the first read-first views for organization setup, role separation, and review handoff operations.
+- `supabase/schema.sql` and `supabase/migrations/202606270002_platform_operations.sql` include the first platform tables for organizations, members, settings, product documents, expert profiles, expert matches, chat threads/messages, logistics companies, shipment requests, logistics matches, shipments, shipment events, and payments.
+- Product records now have a nullable `organization_id` so existing owner-based review storage can keep working while new organization-scoped workflows are introduced.
+- RLS helper functions separate platform-level `profiles.role` from company-level `organization_members.role`.

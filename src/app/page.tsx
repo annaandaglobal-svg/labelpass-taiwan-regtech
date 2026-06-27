@@ -802,6 +802,10 @@ export default function Home() {
             <Languages size={17} />
             용어 정리
           </Link>
+          <Link href="/admin">
+            <BadgeCheck size={17} />
+            운영 관리
+          </Link>
         </nav>
 
         <div className="lp-sidebar-note">
