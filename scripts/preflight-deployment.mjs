@@ -4,6 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const baseUrl = (process.env.LABELPASS_BASE_URL || "https://labelpass-taiwan-regtech.vercel.app").replace(/\/$/, "");
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
+const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
 const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const publicReviewArchiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
 const publicReviewArchiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
@@ -269,6 +270,7 @@ const env = [
   envState("NEXT_PUBLIC_SUPABASE_URL", process.env.NEXT_PUBLIC_SUPABASE_URL),
   envState("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
+  envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
@@ -278,6 +280,12 @@ const env = [
 
 if (!databaseUrl) {
   warnings.push("Server DB URL is not set; review archive storage will remain browser/local fallback in production.");
+}
+if (databaseUrl && !adminDbPreviewEnabled) {
+  warnings.push("Server DB URL is set, but LABELPASS_ENABLE_ADMIN_DB_PREVIEW is not 1; admin operations pages use safe fallback/design data.");
+}
+if (!databaseUrl && adminDbPreviewEnabled) {
+  warnings.push("LABELPASS_ENABLE_ADMIN_DB_PREVIEW is 1, but no server DB URL is set; admin operations cannot use database.");
 }
 if (databaseUrl && !publicReviewArchiveEnabled) {
   warnings.push("Server DB URL is set, but LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE is not 1; public review archive API stays disabled.");

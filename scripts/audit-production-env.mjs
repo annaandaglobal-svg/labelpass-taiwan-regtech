@@ -8,6 +8,7 @@ const jsonOnly = process.argv.includes("--json");
 const archiveToken = process.env.LABELPASS_REVIEW_ARCHIVE_TOKEN;
 
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
+const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
 const archiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const archiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
 const archiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
@@ -16,6 +17,7 @@ const localEnv = [
   envState("NEXT_PUBLIC_SUPABASE_URL", process.env.NEXT_PUBLIC_SUPABASE_URL),
   envState("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
+  envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
@@ -66,6 +68,7 @@ const archiveDatabaseReady = archiveList?.storage === "database" && archiveDryRu
 report.readiness = {
   vercelProjectLinked: report.vercelLink.linked,
   localDatabaseUrlPresent: Boolean(databaseUrl),
+  localAdminDbPreviewEnabled: adminDbPreviewEnabled,
   localArchiveFlagEnabled: archiveEnabled,
   localArchiveReadAuthorized: archiveReadEnabled || Boolean(archiveToken),
   localArchiveWriteAuthorized: archiveWriteEnabled || Boolean(archiveToken),
@@ -77,6 +80,12 @@ report.readiness = {
 
 if (!databaseUrl) {
   report.nextActions.push("Set SUPABASE_DB_URL, POSTGRES_URL, or DATABASE_URL in the local shell before applying or verifying the physical Supabase DB.");
+}
+if (databaseUrl && !adminDbPreviewEnabled) {
+  report.nextActions.push("Set LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1 only when admin operations pages should read live Supabase data.");
+}
+if (!databaseUrl && adminDbPreviewEnabled) {
+  report.nextActions.push("Set a server DB URL or disable LABELPASS_ENABLE_ADMIN_DB_PREVIEW because admin operations cannot use database without it.");
 }
 if (!archiveEnabled) {
   report.nextActions.push("Set LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1 in Vercel when review history should use Supabase instead of browser/local fallback.");

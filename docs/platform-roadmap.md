@@ -18,6 +18,8 @@ LabelPass should grow from a Taiwan-first labeling reviewer into an operating pl
 - `/admin/companies`: company and tenant management.
 - `/admin/users`: user, role, and invitation management.
 - `/admin/reviews`: review queue, escalation, quality control, and manual assignments.
+- `/admin/experts`: paid expert matching, chat readiness, payment, completion, and refund operations.
+- `/admin/logistics`: logistics partner matching, shipment requests, tracking, customs holds, and delivery events.
 - `/experts`: expert marketplace and profiles.
 - `/matches`: expert and logistics matching status.
 - `/chats/[threadId]`: paid expert conversations tied to review cases.
@@ -76,6 +78,8 @@ This slice creates the base needed for expert matching, paid chat, logistics mat
 
 - `/admin` is available as the operator console shell.
 - `/admin/companies`, `/admin/users`, and `/admin/reviews` provide the first read-first views for organization setup, role separation, and review handoff operations.
+- `/admin/experts` and `/admin/logistics` provide the first read-first operations views for paid expert matching, payment handoff, logistics matching, shipment tracking, and customs events.
 - `supabase/schema.sql` and `supabase/migrations/202606270002_platform_operations.sql` include the first platform tables for organizations, members, settings, product documents, expert profiles, expert matches, chat threads/messages, logistics companies, shipment requests, logistics matches, shipments, shipment events, and payments.
 - Product records now have a nullable `organization_id` so existing owner-based review storage can keep working while new organization-scoped workflows are introduced.
 - RLS helper functions separate platform-level `profiles.role` from company-level `organization_members.role`.
+- Admin pages now use a DB-first loader with safe fallback data. Live Supabase operations preview requires both a server DB URL and `LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1`.

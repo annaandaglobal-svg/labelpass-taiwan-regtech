@@ -15,6 +15,7 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Provides `/admin`, an operator console shell for organizations, users, review queues, paid expert matching, logistics matching, shipment tracking, and source operations.
+- Reads admin operation tables from Supabase only when a server DB URL and `LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1` are configured; otherwise admin pages stay on safe read-only design data.
 - Generates a regulatory update queue so source changes, stale caches, and high-priority Taiwan notices require human approval before rules are changed.
 - Archives review history through `/api/reviews` only when a server DB URL and `LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1` are configured; otherwise the app keeps an immediate browser-side review archive.
 - Tracks the next platform layer in `docs/platform-roadmap.md`: admin operations, company/user data, paid expert matching, logistics partner matching, shipment execution, and tracking.
@@ -92,6 +93,13 @@ LABELPASS_REVIEW_ARCHIVE_TOKEN=
 # Demo/public archive mode only, not recommended for production customer data:
 LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ=1
 LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE=1
+```
+
+Admin operation pages are also deliberately opt-in for live database reads. Use this only for an internal/admin deployment path after confirming access controls:
+
+```bash
+SUPABASE_DB_URL=
+LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1
 ```
 
 Browser-only or blocked sources are preserved with manual text captures and screenshots under `data/knowledge/browser-captures/`.

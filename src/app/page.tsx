@@ -12,7 +12,6 @@ import {
   FileText,
   FlaskConical,
   History,
-  Languages,
   Loader2,
   PackageCheck,
   Search,
@@ -26,6 +25,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
+import { AppSidebar } from "@/components/app-sidebar";
 
 type RouteId =
   | "tw_cosmetic"
@@ -780,39 +780,7 @@ export default function Home() {
 
   return (
     <main className="lp-shell">
-      <aside className="lp-sidebar" aria-label="LabelPass navigation">
-        <div className="lp-brand">
-          <span>LP</span>
-          <div>
-            <strong>LabelPass</strong>
-            <small>Taiwan RegTech</small>
-          </div>
-        </div>
-
-        <nav className="lp-nav" aria-label="핵심 업무">
-          <a className="active" href="#review">
-            <ClipboardCheck size={17} />
-            검토 콘솔
-          </a>
-          <Link href="/knowledge">
-            <Search size={17} />
-            지식 검색
-          </Link>
-          <Link href="/knowledge/aliases">
-            <Languages size={17} />
-            용어 정리
-          </Link>
-          <Link href="/admin">
-            <BadgeCheck size={17} />
-            운영 관리
-          </Link>
-        </nav>
-
-        <div className="lp-sidebar-note">
-          <b>대만 우선 범위</b>
-          <span>화장품 PIF, 식품 라벨, 첨가물, 수입검사, HS/CCC를 한 흐름으로 묶습니다.</span>
-        </div>
-      </aside>
+      <AppSidebar active="review" />
 
       <section className="lp-main" id="review">
         <header className="lp-topbar">

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowLeft, Database, Languages, RefreshCw, Search, ShieldCheck } from "lucide-react";
+import { Database, Languages, RefreshCw, Search, ShieldCheck } from "lucide-react";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { getAliasReviewQueue } from "@/lib/alias-review";
+import { AppSidebar } from "@/components/app-sidebar";
 import KnowledgeSearchClient from "./search-client";
 
 type KnowledgePageProps = {
@@ -22,80 +23,81 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
   const nextRefresh = formatDateTime(overview.operations.nextRefreshAt);
 
   return (
-    <main className="kb-shell">
-      <header className="kb-topbar">
-        <Link className="kb-back" href="/">
-          <ArrowLeft size={17} />
-          검토 콘솔
-        </Link>
-        <div>
-          <p>공식 규정·용어 지식베이스</p>
-          <h1>대만 화장품과 식품 라벨링에 필요한 원문, 별칭, 증빙을 재사용합니다.</h1>
-        </div>
-      </header>
+    <main className="lp-shell">
+      <AppSidebar active="knowledge" />
+      <section className="lp-main lp-main-full">
+        <div className="kb-shell kb-shell-embedded">
+          <header className="kb-topbar">
+            <div>
+              <p>공식 규정·용어 지식베이스</p>
+              <h1>대만 화장품과 식품 라벨링에 필요한 원문, 별칭, 증빙을 재사용합니다.</h1>
+            </div>
+          </header>
 
-      <section className="kb-metrics" aria-label="지식베이스 상태">
-        <span>
-          <Database size={17} />
-          <b>{totals.sources.toLocaleString()}</b>
-          공식 소스
-        </span>
-        <span>
-          <Languages size={17} />
-          <b>{totals.aliases.toLocaleString()}</b>
-          검색 별칭
-        </span>
-        <span>
-          <ShieldCheck size={17} />
-          <b>{totals.terms.toLocaleString()}</b>
-          규제 용어
-        </span>
-        <span>
-          <RefreshCw size={17} />
-          <b>{overview.operations.updateCandidates.toLocaleString()}</b>
-          변경 감시
-        </span>
+          <section className="kb-metrics" aria-label="지식베이스 상태">
+            <span>
+              <Database size={17} />
+              <b>{totals.sources.toLocaleString()}</b>
+              공식 소스
+            </span>
+            <span>
+              <Languages size={17} />
+              <b>{totals.aliases.toLocaleString()}</b>
+              검색 별칭
+            </span>
+            <span>
+              <ShieldCheck size={17} />
+              <b>{totals.terms.toLocaleString()}</b>
+              규제 용어
+            </span>
+            <span>
+              <RefreshCw size={17} />
+              <b>{overview.operations.updateCandidates.toLocaleString()}</b>
+              변경 감시
+            </span>
+          </section>
+
+          <KnowledgeSearchClient
+            initialQuery={initialQuery}
+            initialData={initialData}
+            totals={totals}
+            operations={{
+              latestFetched,
+              nextRefresh,
+              highPrioritySources: overview.operations.highPrioritySources,
+              staleSources: overview.operations.staleSources,
+              browserCaptures: overview.operations.browserCaptures,
+              manualFallbacks: overview.operations.manualFallbacks,
+              aliasReviewItems: aliasQueue.summary.review_items,
+              regulatedTermsWithoutLocalAlias: aliasQueue.summary.regulated_terms_without_local_alias
+            }}
+          />
+
+          <section className="kb-ops">
+            <div className="kb-section-head">
+              <div>
+                <span>운영 메모리</span>
+                <h2>매번 새로 찾지 않도록 출처, 용어, 별칭, 갱신 상태를 분리해 저장합니다.</h2>
+              </div>
+              <Link href="/knowledge/aliases">
+                용어 검수
+                <Languages size={15} />
+              </Link>
+            </div>
+            <div className="kb-ops-grid">
+              <OverviewGroup title="국가·지역" items={overview.coverage.jurisdictions} />
+              <OverviewGroup title="업무 도메인" items={overview.coverage.domains} />
+              <OverviewGroup title="용어 분류" items={overview.coverage.categories} />
+              <OverviewGroup title="언어" items={overview.coverage.languages} />
+            </div>
+          </section>
+
+          <footer className="kb-footer-note">
+            <Search size={15} />
+            같은 원료가 국가별·언어별·표기별로 다르게 불릴 수 있으므로, 별칭 검수 대기열을 계속 줄여 검색 품질을 높입니다.
+          </footer>
+        </div>
       </section>
-
-      <KnowledgeSearchClient
-        initialQuery={initialQuery}
-        initialData={initialData}
-        totals={totals}
-        operations={{
-          latestFetched,
-          nextRefresh,
-          highPrioritySources: overview.operations.highPrioritySources,
-          staleSources: overview.operations.staleSources,
-          browserCaptures: overview.operations.browserCaptures,
-          manualFallbacks: overview.operations.manualFallbacks,
-          aliasReviewItems: aliasQueue.summary.review_items,
-          regulatedTermsWithoutLocalAlias: aliasQueue.summary.regulated_terms_without_local_alias
-        }}
-      />
-
-      <section className="kb-ops">
-        <div className="kb-section-head">
-          <div>
-            <span>운영 메모리</span>
-            <h2>매번 새로 찾지 않도록 출처, 용어, 별칭, 갱신 상태를 분리해 저장합니다.</h2>
-          </div>
-          <Link href="/knowledge/aliases">
-            용어 검수
-            <Languages size={15} />
-          </Link>
-        </div>
-        <div className="kb-ops-grid">
-          <OverviewGroup title="국가·지역" items={overview.coverage.jurisdictions} />
-          <OverviewGroup title="업무 도메인" items={overview.coverage.domains} />
-          <OverviewGroup title="용어 분류" items={overview.coverage.categories} />
-          <OverviewGroup title="언어" items={overview.coverage.languages} />
-        </div>
-      </section>
-
-      <footer className="kb-footer-note">
-        <Search size={15} />
-        같은 원료가 국가별·언어별·표기별로 다르게 불릴 수 있으므로, 별칭 검수 대기열을 계속 줄여 검색 품질을 높입니다.
-      </footer>
     </main>
   );
 }

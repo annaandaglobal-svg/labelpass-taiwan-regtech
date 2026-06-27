@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Building2, Database, Settings2 } from "lucide-react";
+import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
-const companyRows = [
+const fallbackCompanyRows = [
   {
     name: "Annaanda Global",
     market: "TW",
@@ -25,7 +26,11 @@ const companyRows = [
   }
 ];
 
-export default function AdminCompaniesPage() {
+export default async function AdminCompaniesPage() {
+  const snapshot = await getPlatformOpsSnapshot();
+  const companyRows = snapshot.companyRows.length ? snapshot.companyRows : fallbackCompanyRows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 실데이터" : "설계 데이터";
+
   return (
     <>
       <header className="admin-section-hero">
@@ -94,7 +99,8 @@ export default function AdminCompaniesPage() {
             <Settings2 size={18} />
           </div>
           <p className="admin-note">
-            기본 시장, 언어, 리뷰 아카이브, 전문가 매칭, 물류 매칭, 알림 채널을 회사 단위로 분리합니다.
+            현재 표시 소스: {sourceLabel}. 기본 시장, 언어, 리뷰 아카이브, 전문가 매칭, 물류 매칭, 알림 채널을 회사 단위로 분리합니다.
+            {snapshot.warnings[0] ? ` ${snapshot.warnings[0]}` : ""}
           </p>
         </article>
       </section>

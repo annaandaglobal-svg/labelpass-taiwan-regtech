@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, UserCog, Users } from "lucide-react";
+import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
-const roleRows = [
+const fallbackRoleRows = [
   {
     role: "profiles.role = admin",
     scope: "플랫폼 전체",
@@ -34,7 +35,11 @@ const roleRows = [
   }
 ];
 
-export default function AdminUsersPage() {
+export default async function AdminUsersPage() {
+  const snapshot = await getPlatformOpsSnapshot();
+  const roleRows = snapshot.roleRows.length ? snapshot.roleRows : fallbackRoleRows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 멤버 데이터" : "RLS 설계 데이터";
+
   return (
     <>
       <header className="admin-section-hero">
@@ -84,7 +89,8 @@ export default function AdminUsersPage() {
             <ShieldCheck size={18} />
           </div>
           <p className="admin-note">
-            `profiles.role`은 플랫폼 운영 권한으로만 사용하고, 고객 회사 안의 권한은 `organization_members.role`로 관리합니다.
+            현재 표시 소스: {sourceLabel}. `profiles.role`은 플랫폼 운영 권한으로만 사용하고, 고객 회사 안의 권한은 `organization_members.role`로 관리합니다.
+            {snapshot.warnings[0] ? ` ${snapshot.warnings[0]}` : ""}
           </p>
         </article>
 

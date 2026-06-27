@@ -14,8 +14,9 @@ import {
   UserCheck,
   Wheat
 } from "lucide-react";
+import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
-type MatchState = "requested" | "matched" | "paid" | "in_progress" | "completed" | "refunded";
+type MatchState = "requested" | "matched" | "paid" | "in_progress" | "completed" | "cancelled" | "refunded";
 type ExpertDiscipline = "cosmetics" | "food" | "dual";
 type QueueTone = "ready" | "blocked" | "default";
 
@@ -52,6 +53,7 @@ const stateLabels: Record<MatchState, string> = {
   paid: "결제 완료",
   in_progress: "상담 진행",
   completed: "완료",
+  cancelled: "취소",
   refunded: "환불"
 };
 
@@ -61,10 +63,11 @@ const stateOrder: MatchState[] = [
   "paid",
   "in_progress",
   "completed",
+  "cancelled",
   "refunded"
 ];
 
-const expertProfiles: ExpertProfile[] = [
+const fallbackExpertProfiles: ExpertProfile[] = [
   {
     name: "Dr. Mei-Lin Chen",
     firm: "Taipei Cosmetic Safety Office",
@@ -100,7 +103,7 @@ const expertProfiles: ExpertProfile[] = [
   }
 ];
 
-const matchingCases: MatchingCase[] = [
+const fallbackMatchingCases: MatchingCase[] = [
   {
     id: "EXP-2418",
     company: "Annaanda Global",
@@ -187,19 +190,6 @@ const matchingCases: MatchingCase[] = [
   }
 ];
 
-const stateCounts = stateOrder.map((state) => ({
-  state,
-  count: matchingCases.filter((item) => item.state === state).length
-}));
-
-const chatReadyCount = matchingCases.filter((item) =>
-  item.chatReady.includes("준비") || item.chatReady.includes("운영")
-).length;
-
-const paidOrActiveCount = matchingCases.filter((item) =>
-  ["paid", "in_progress", "completed"].includes(item.state)
-).length;
-
 function ExpertIcon({ discipline }: { discipline: ExpertDiscipline }) {
   if (discipline === "cosmetics") {
     return <FlaskConical size={18} />;
@@ -212,7 +202,22 @@ function ExpertIcon({ discipline }: { discipline: ExpertDiscipline }) {
   return <BadgeCheck size={18} />;
 }
 
-export default function AdminExpertsPage() {
+export default async function AdminExpertsPage() {
+  const snapshot = await getPlatformOpsSnapshot();
+  const expertProfiles = snapshot.expertProfiles.length ? snapshot.expertProfiles : fallbackExpertProfiles;
+  const matchingCases = snapshot.expertCases.length ? snapshot.expertCases : fallbackMatchingCases;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 매칭 데이터" : "운영 설계 데이터";
+  const stateCounts = stateOrder.map((state) => ({
+    state,
+    count: matchingCases.filter((item) => item.state === state).length
+  }));
+  const chatReadyCount = matchingCases.filter((item) =>
+    item.chatReady.includes("준비") || item.chatReady.includes("운영") || item.chatReady.includes("active")
+  ).length;
+  const paidOrActiveCount = matchingCases.filter((item) =>
+    ["paid", "in_progress", "completed"].includes(item.state)
+  ).length;
+
   return (
     <>
       <header className="admin-section-hero">
@@ -328,6 +333,9 @@ export default function AdminExpertsPage() {
                 </div>
               ))}
           </div>
+          <p className="admin-note">
+            현재 표시 소스: {sourceLabel}. {snapshot.warnings[0] ?? "DB preview를 켜면 expert_matches, chat_threads, payments 기준으로 갱신됩니다."}
+          </p>
         </article>
 
         <article className="admin-panel admin-panel-wide">

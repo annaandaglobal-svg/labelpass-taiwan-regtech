@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, ClipboardList, FileWarning, Handshake, Truck } from "lucide-react";
 import { adminQueue } from "@/lib/platform-admin";
+import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
-const reviewFlows = [
+const fallbackReviewFlows = [
   {
     title: "화장품 PIF 보강",
     product: "Cica Barrier Cream",
@@ -29,7 +30,11 @@ const reviewFlows = [
   }
 ];
 
-export default function AdminReviewsPage() {
+export default async function AdminReviewsPage() {
+  const snapshot = await getPlatformOpsSnapshot();
+  const reviewFlows = snapshot.reviewFlows.length ? snapshot.reviewFlows : fallbackReviewFlows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 리뷰 데이터" : "운영 설계 데이터";
+
   return (
     <>
       <header className="admin-section-hero">
@@ -82,6 +87,9 @@ export default function AdminReviewsPage() {
               </div>
             ))}
           </div>
+          <p className="admin-note">
+            현재 표시 소스: {sourceLabel}. {snapshot.warnings[0] ?? "리뷰 후속 작업을 실제 DB 큐와 연결할 준비가 됐습니다."}
+          </p>
         </article>
 
         <article className="admin-panel">

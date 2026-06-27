@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Truck
 } from "lucide-react";
+import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
 type RequestState =
   | "requested"
@@ -101,7 +102,7 @@ const partnerLabels: Record<LogisticsCompany["status"], string> = {
   standby: "대기"
 };
 
-const logisticsCompanies: LogisticsCompany[] = [
+const fallbackLogisticsCompanies: LogisticsCompany[] = [
   {
     name: "Formosa Cold Chain",
     lane: "KR -> TW 냉장 식품",
@@ -128,7 +129,7 @@ const logisticsCompanies: LogisticsCompany[] = [
   }
 ];
 
-const shipmentRequests: ShipmentRequest[] = [
+const fallbackShipmentRequests: ShipmentRequest[] = [
   {
     id: "LR-2408",
     product: "Soy protein snack multipack",
@@ -158,7 +159,7 @@ const shipmentRequests: ShipmentRequest[] = [
   }
 ];
 
-const activeShipments: Shipment[] = [
+const fallbackActiveShipments: Shipment[] = [
   {
     reference: "SHP-TW-8831",
     product: "Cica barrier cream launch kit",
@@ -197,7 +198,7 @@ const activeShipments: Shipment[] = [
   }
 ];
 
-const shipmentEvents: ShipmentEvent[] = [
+const fallbackShipmentEvents: ShipmentEvent[] = [
   {
     time: "6월 27일 14:35",
     title: "통관사가 첨가물 소명을 요청",
@@ -266,11 +267,6 @@ const requestStates: RequestState[] = [
   "cancelled"
 ];
 
-const activeRequestCount = shipmentRequests.filter((request) => !["delivered", "cancelled"].includes(request.state)).length;
-const customsHoldCount = activeShipments.filter((shipment) => shipment.state === "customs_hold").length;
-const inTransitCount = activeShipments.filter((shipment) => shipment.state === "in_transit" || shipment.state === "booked").length;
-const preferredPartnerCount = logisticsCompanies.filter((company) => company.status === "preferred").length;
-
 function modesLabel(modes: TransportMode[]) {
   return modes.map((mode) => (mode === "ocean" ? "해상" : "항공")).join(" / ");
 }
@@ -279,7 +275,17 @@ function ModeIcon({ mode }: { mode: TransportMode }) {
   return mode === "ocean" ? <Ship size={14} /> : <PlaneTakeoff size={14} />;
 }
 
-export default function AdminLogisticsPage() {
+export default async function AdminLogisticsPage() {
+  const snapshot = await getPlatformOpsSnapshot();
+  const logisticsCompanies = snapshot.logisticsCompanies.length ? snapshot.logisticsCompanies : fallbackLogisticsCompanies;
+  const shipmentRequests = snapshot.shipmentRequests.length ? snapshot.shipmentRequests : fallbackShipmentRequests;
+  const activeShipments = snapshot.activeShipments.length ? snapshot.activeShipments : fallbackActiveShipments;
+  const shipmentEvents = snapshot.shipmentEvents.length ? snapshot.shipmentEvents : fallbackShipmentEvents;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 물류 데이터" : "운영 설계 데이터";
+  const activeRequestCount = shipmentRequests.filter((request) => !["delivered", "cancelled"].includes(request.state)).length;
+  const customsHoldCount = activeShipments.filter((shipment) => shipment.state === "customs_hold").length;
+  const inTransitCount = activeShipments.filter((shipment) => shipment.state === "in_transit" || shipment.state === "booked").length;
+
   return (
     <>
       <header className="admin-section-hero">
@@ -466,7 +472,8 @@ export default function AdminLogisticsPage() {
             <span><ClipboardList size={14} /> 배송완료 증빙 보관</span>
           </div>
           <p className="admin-note">
-            logistics_matches, shipment_requests, shipments, shipment_events를 분리해 요청 단계, 예약, 운송, 통관보류, 배송완료, 취소 상태를 같은 흐름에서 확인합니다.
+            현재 표시 소스: {sourceLabel}. logistics_matches, shipment_requests, shipments, shipment_events를 분리해 요청 단계, 예약, 운송, 통관보류, 배송완료, 취소 상태를 같은 흐름에서 확인합니다.
+            {snapshot.warnings[0] ? ` ${snapshot.warnings[0]}` : ""}
           </p>
         </article>
       </section>

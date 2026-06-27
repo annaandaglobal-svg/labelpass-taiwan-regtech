@@ -15,6 +15,7 @@ import {
 import { getAliasReviewQueue } from "@/lib/alias-review";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { adminMetrics, adminQueue, platformModules } from "@/lib/platform-admin";
+import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
 const moduleIcons: Record<string, ReactNode> = {
   organizations: <Users size={18} />,
@@ -23,16 +24,40 @@ const moduleIcons: Record<string, ReactNode> = {
   logistics: <Truck size={18} />
 };
 
-export default function AdminPage() {
+export default async function AdminPage() {
   const overview = getKnowledgeOverview();
   const totals = searchKnowledge("").totals;
   const aliasQueue = getAliasReviewQueue();
+  const opsSnapshot = await getPlatformOpsSnapshot();
   const metrics = adminMetrics.map((metric) => {
     if (metric.label === "공식 지식 소스") {
       return {
         ...metric,
         value: totals.sources.toLocaleString(),
         detail: `${totals.terms.toLocaleString()} terms, ${totals.aliases.toLocaleString()} aliases`
+      };
+    }
+    if (metric.label === "운영 테이블" && opsSnapshot.storage === "database") {
+      return {
+        ...metric,
+        value: (
+          opsSnapshot.counts.organizations +
+          opsSnapshot.counts.expertMatches +
+          opsSnapshot.counts.shipmentRequests +
+          opsSnapshot.counts.activeShipments
+        ).toLocaleString(),
+        detail: `조직 ${opsSnapshot.counts.organizations}, 전문가매칭 ${opsSnapshot.counts.expertMatches}, 물류요청 ${opsSnapshot.counts.shipmentRequests}, 선적 ${opsSnapshot.counts.activeShipments}`
+      };
+    }
+    if (metric.label === "남은 연결") {
+      return {
+        ...metric,
+        value: opsSnapshot.storage === "database" ? "DB 연결" : "DB URL",
+        detail:
+          opsSnapshot.storage === "database"
+            ? "관리자 운영 화면이 Supabase 실데이터를 읽고 있습니다."
+            : opsSnapshot.warnings[0] ?? metric.detail,
+        tone: opsSnapshot.storage === "database" ? "good" : metric.tone
       };
     }
     return metric;
