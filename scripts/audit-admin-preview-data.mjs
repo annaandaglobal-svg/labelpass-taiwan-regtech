@@ -83,6 +83,9 @@ requireIncludes(source, "getPlatformOpsPreviewSnapshot(\"error\"", "DB error fal
 requireIncludes(adminHome, "visibleOpsCount", "admin dashboard preview metric");
 requireIncludes(adminHome, "buildPlatformOpsActionQueue", "admin dashboard action queue");
 requireIncludes(adminHome, "admin-queue-link", "admin dashboard linked action queue");
+requireIncludes(adminHome, "admin-triage", "admin dashboard first-priority triage strip");
+requireIncludes(adminHome, "primaryAction", "admin dashboard primary action");
+requireIncludes(adminHome, "actionGroups", "admin dashboard action groups");
 requireIncludes(source, "[\"/admin/reviews\", nonzeroBadge", "review nav badge");
 requireIncludes(source, "\"/admin/experts\"", "expert nav badge");
 requireIncludes(source, "[\"/admin/payments\", nonzeroBadge", "payment nav badge");
@@ -152,6 +155,12 @@ if (!previewActionQueue.some((item) => item.tone === "blocked")) {
 }
 if (!previewActionQueue.some((item) => item.label === "통관 보류")) {
   fail("preview action queue: expected customs hold tracking item");
+}
+if (previewActionQueue[0]?.tone !== "blocked") {
+  fail(`preview action queue: expected first item to be blocked priority, got ${previewActionQueue[0]?.tone}`);
+}
+if (!["/admin/experts", "/admin/payments", "/admin/logistics", "/admin/settings"].includes(previewActionQueue[0]?.href)) {
+  fail(`preview action queue: first item should link to an actionable admin section, got ${previewActionQueue[0]?.href}`);
 }
 const previewBadges = buildPlatformOpsNavBadges(previewSnapshot);
 requireBadge(previewBadges, "/admin", { count: 13, tone: "danger", label: "13개 운영 대기" });

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { CheckCircle2, Loader2, LockKeyhole, Play, TriangleAlert } from "lucide-react";
+import { CheckCircle2, Loader2, Play, TriangleAlert } from "lucide-react";
 
 type AdminOpsAction =
   | "expert_match_status"
@@ -120,17 +120,8 @@ export function AdminRowActionDryRun({
           <Icon size={13} aria-hidden="true" />
           {label}
         </button>
-        <button
-          className="admin-row-action-lock"
-          type="button"
-          disabled
-          aria-label="실제 반영은 관리자 DB 쓰기와 토큰 설정 후 활성화됩니다"
-        >
-          <LockKeyhole size={13} aria-hidden="true" />
-          실제 반영 잠김
-        </button>
       </div>
-      <small>{summary}</small>
+      <small>{summary}. 실제 반영은 설정의 관리자 DB 쓰기 토큰을 켠 뒤 활성화됩니다.</small>
     </details>
   );
 }

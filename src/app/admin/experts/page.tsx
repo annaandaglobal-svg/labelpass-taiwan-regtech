@@ -293,10 +293,6 @@ export default async function AdminExpertsPage() {
             <span>상담 파이프라인</span>
             <h2>범위 확인부터 결제, 상담방, 완료·환불까지 같은 단계로 봅니다</h2>
           </div>
-          <Link className="admin-secondary-action" href="/admin/payments">
-            결제 게이트 보기
-            <ArrowRight size={16} />
-          </Link>
         </div>
         <div className="admin-pipeline-rail">
           {consultationStageCounts.map((stage) => (

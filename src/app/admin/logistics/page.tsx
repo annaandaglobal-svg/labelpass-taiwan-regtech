@@ -419,14 +419,17 @@ export default async function AdminLogisticsPage() {
                   <small>{shipment.carrier} / {shipment.tracking}</small>
                   <small>{shipment.route} / ETA {shipment.eta}</small>
                   <small>{shipment.customs}</small>
-                  <AdminRowActionDryRun
-                    action="shipment_status"
-                    id={shipment.id}
-                    status={nextShipmentStatus(shipment.state)}
-                    requestId={`shipment-${shipment.id ?? shipment.reference}`}
-                    note={`${shipment.reference} shipment ${shipment.state} to ${nextShipmentStatus(shipment.state)}`}
-                    fallbackUuid="00000000-0000-4000-8000-000000000202"
-                  />
+                  <details className="admin-ops-disclosure">
+                    <summary>운영 작업</summary>
+                    <AdminRowActionDryRun
+                      action="shipment_status"
+                      id={shipment.id}
+                      status={nextShipmentStatus(shipment.state)}
+                      requestId={`shipment-${shipment.id ?? shipment.reference}`}
+                      note={`${shipment.reference} shipment ${shipment.state} to ${nextShipmentStatus(shipment.state)}`}
+                      fallbackUuid="00000000-0000-4000-8000-000000000202"
+                    />
+                  </details>
                 </span>
               </div>
             ))}

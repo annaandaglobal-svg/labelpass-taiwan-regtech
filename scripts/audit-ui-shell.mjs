@@ -523,11 +523,15 @@ const rowActionSource = read("src/components/admin-row-action-dry-run.tsx");
 requireIncludes(rowActionSource, "<details", "src/components/admin-row-action-dry-run.tsx row action disclosure");
 requireIncludes(rowActionSource, "<summary>", "src/components/admin-row-action-dry-run.tsx row action disclosure");
 requireIncludes(rowActionSource, 'className="admin-row-action-note"', "src/components/admin-row-action-dry-run.tsx operator note capture");
-requireIncludes(rowActionSource, 'className="admin-row-action-lock"', "src/components/admin-row-action-dry-run.tsx locked live apply state");
 requireIncludes(rowActionSource, "operator_note_required", "src/components/admin-row-action-dry-run.tsx audit metadata");
+if (rowActionSource.includes("admin-row-action-lock")) {
+  fail("src/components/admin-row-action-dry-run.tsx: live apply lock must not be repeated in every row action");
+}
 requireIncludes(css, ".admin-row-action:not([open]) > :not(summary)", "src/app/globals.css closed row action disclosure");
 requireIncludes(css, ".admin-row-action-note input", "src/app/globals.css row action note input");
-requireIncludes(css, ".admin-row-action button.admin-row-action-lock", "src/app/globals.css row action locked button");
+if (css.includes(".admin-row-action button.admin-row-action-lock")) {
+  fail("src/app/globals.css: row action locked button CSS should be removed with the repeated lock button");
+}
 
 const handoffDraftSource = read("src/components/workspace-handoff-drafts.tsx");
 requireNoMojibake(handoffDraftSource, "src/components/workspace-handoff-drafts.tsx");

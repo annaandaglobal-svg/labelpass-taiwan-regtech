@@ -40,6 +40,17 @@ export default async function AdminPage() {
   const aliasQueue = getAliasReviewQueue();
   const opsSnapshot = await getPlatformOpsSnapshot();
   const actionQueue = buildPlatformOpsActionQueue(opsSnapshot);
+  const primaryAction = actionQueue[0];
+  const actionGroups = [
+    { label: "리뷰", href: "/admin/reviews", detail: "라벨·증빙 후속" },
+    { label: "전문가", href: "/admin/experts", detail: "상담 범위·매칭" },
+    { label: "결제", href: "/admin/payments", detail: "상담방 잠금·정산" },
+    { label: "물류", href: "/admin/logistics", detail: "통관 보류·선적" },
+    { label: "설정", href: "/admin/settings", detail: "DB·권한 준비" }
+  ].map((group) => ({
+    ...group,
+    count: actionQueue.filter((item) => item.href === group.href).length
+  }));
   const visibleOpsCount =
     opsSnapshot.counts.organizations +
     opsSnapshot.counts.expertMatches +
@@ -81,11 +92,43 @@ export default async function AdminPage() {
           <p>운영 관리</p>
           <h1>회사 데이터, 리뷰 큐, 전문가 매칭, 결제, 물류/선적을 한 흐름으로 관리합니다.</h1>
         </div>
-        <Link className="admin-secondary-action" href="/admin/companies">
-          회사 관리 시작
+        <Link className="admin-secondary-action" href={primaryAction?.href ?? "/admin/settings"}>
+          1순위 열기
           <ArrowRight size={16} />
         </Link>
       </header>
+
+      <section className="admin-triage" aria-label="오늘 먼저 처리할 운영 작업" data-admin-triage="primary">
+        {primaryAction ? (
+          <Link className={`admin-priority-card ${primaryAction.tone}`} href={primaryAction.href}>
+            <span>지금 먼저</span>
+            <b>
+              {primaryAction.label}: {primaryAction.title}
+            </b>
+            <p>{primaryAction.next}</p>
+            <small>
+              {primaryAction.detail} / {primaryAction.owner}
+            </small>
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        ) : (
+          <div className="admin-priority-card ready">
+            <span>대기 없음</span>
+            <b>오늘 처리할 운영 큐가 없습니다</b>
+            <p>리뷰, 전문가 매칭, 결제, 물류, 설정 대기 건이 생기면 이 위치에 먼저 표시됩니다.</p>
+            <small>운영자가 첫 화면에서 바로 다음 행동을 고를 수 있게 유지합니다.</small>
+          </div>
+        )}
+        <div className="admin-triage-groups" aria-label="업무 유형별 대기 건수">
+          {actionGroups.map((group) => (
+            <Link key={group.href} className={group.count > 0 ? "active" : ""} href={group.href}>
+              <span>{group.label}</span>
+              <b>{group.count}</b>
+              <small>{group.detail}</small>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className="admin-metrics" aria-label="운영 상태 요약">
         {metrics.map((metric) => (

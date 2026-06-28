@@ -288,6 +288,19 @@ function snapshotExpression() {
         }
       };
     });
+    const adminTriage = document.querySelector("[data-admin-triage='primary']");
+    const adminPriorityCards = Array.from(document.querySelectorAll(".admin-priority-card")).map((el) => ({
+      href: el.getAttribute("href") ? new URL(el.getAttribute("href"), location.href).pathname : "",
+      text: (el.textContent || "").replace(/\\s+/g, " ").trim().slice(0, 120),
+      rect: rect(el),
+      style: styleOf(el)
+    }));
+    const adminTriageLinks = Array.from(document.querySelectorAll(".admin-triage-groups a")).map((el) => ({
+      href: new URL(el.getAttribute("href") || "", location.href).pathname,
+      text: (el.textContent || "").replace(/\\s+/g, " ").trim().slice(0, 80),
+      rect: rect(el),
+      style: styleOf(el)
+    }));
     const searchInput = document.querySelector(".kb-searchbar input");
 
     return {
@@ -314,6 +327,11 @@ function snapshotExpression() {
       adminSectionItems,
       adminHeroRect: rect(adminHero),
       adminSectionNavRect: rect(adminSectionNav),
+      adminTriageRect: rect(adminTriage),
+      adminPriorityCards,
+      adminTriageLinks,
+      adminRowLiveLockButtons: document.querySelectorAll(".admin-row-action-lock").length,
+      adminDirectRowActions: document.querySelectorAll(".admin-table-row > span > .admin-row-action").length,
       searchInputValue: searchInput?.value ?? null,
       searchInputCount: document.querySelectorAll(".kb-searchbar input").length
     };
@@ -403,6 +421,24 @@ function assertSnapshot(snapshot, route, viewport) {
     if ((snapshot.adminHeroRect?.height ?? 0) > 92) fail(`${label}: admin hero is too tall at ${snapshot.adminHeroRect?.height}px`);
     if (viewport.name === "desktop" && (snapshot.adminSectionNavRect?.height ?? 0) > 44) {
       fail(`${label}: desktop admin secondary nav is too tall at ${snapshot.adminSectionNavRect?.height}px`);
+    }
+    if (snapshot.adminRowLiveLockButtons !== 0) {
+      fail(`${label}: row-level live lock buttons reappeared (${snapshot.adminRowLiveLockButtons})`);
+    }
+    if (snapshot.adminDirectRowActions !== 0) {
+      fail(`${label}: row actions are visible without an operations disclosure (${snapshot.adminDirectRowActions})`);
+    }
+    if (route.path === "/admin") {
+      if (!snapshot.adminTriageRect) fail(`${label}: admin first-priority triage strip is missing`);
+      if (snapshot.adminPriorityCards.length !== 1) fail(`${label}: expected one primary priority card, found ${snapshot.adminPriorityCards.length}`);
+      if (snapshot.adminTriageLinks.length !== 5) fail(`${label}: expected five admin triage group links, found ${snapshot.adminTriageLinks.length}`);
+      const priority = snapshot.adminPriorityCards[0];
+      if (priority && (priority.rect?.height ?? 0) > 132) fail(`${label}: primary priority card is too tall at ${priority.rect?.height}px`);
+      if (priority && !priority.text.includes("지금 먼저") && !priority.text.includes("대기 없음")) {
+        fail(`${label}: primary priority card does not clearly name the first action`);
+      }
+    } else if (snapshot.adminPriorityCards.length > 0 || snapshot.adminTriageLinks.length > 0) {
+      fail(`${label}: admin first-priority triage strip leaked outside admin home`);
     }
   } else if (snapshot.adminSectionItems.length > 0) {
     fail(`${label}: admin secondary nav leaked outside admin routes`);

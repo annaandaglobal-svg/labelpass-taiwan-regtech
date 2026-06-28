@@ -40,6 +40,22 @@ const chatDryRunPayload = {
   requestId: `smoke-admin-chat-${Date.now()}`,
   note: "chat gate dry-run smoke check"
 };
+const shipmentDryRunPayload = {
+  action: "shipment_status",
+  id: "00000000-0000-4000-8000-000000000004",
+  status: "in_transit",
+  requestId: `smoke-admin-shipment-${Date.now()}`,
+  note: "shipment status dry-run smoke check"
+};
+const shipmentEventDryRunPayload = {
+  action: "shipment_event",
+  shipmentId: "00000000-0000-4000-8000-000000000005",
+  eventType: "customs",
+  status: "customs_hold",
+  message: "Customs requested food additive evidence",
+  requestId: `smoke-admin-shipment-event-${Date.now()}`,
+  note: "shipment event dry-run smoke check"
+};
 const handoffPayload = {
   draft: {
     id: `smoke-handoff-${Date.now()}`,
@@ -94,6 +110,18 @@ checks.push(
     body: JSON.stringify(chatDryRunPayload)
   })
 );
+checks.push(
+  await fetchJson("admin shipment dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(shipmentDryRunPayload)
+  })
+);
+checks.push(
+  await fetchJson("admin shipment event dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(shipmentEventDryRunPayload)
+  })
+);
 checks.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?smoke=${Date.now()}`));
 checks.push(
   await fetchJson("handoff dry run", `${baseUrl}/api/handoff/requests?dryRun=1&smoke=${Date.now()}`, {
@@ -114,9 +142,11 @@ const dryRun = checks[1];
 const unauthorized = checks[2];
 const paymentDryRun = checks[3];
 const chatDryRun = checks[4];
-const handoffReadiness = checks[5];
-const handoffDryRun = checks[6];
-const handoffUnauthorized = checks[7];
+const shipmentDryRun = checks[5];
+const shipmentEventDryRun = checks[6];
+const handoffReadiness = checks[7];
+const handoffDryRun = checks[8];
+const handoffUnauthorized = checks[9];
 
 if (!readiness.ok) errors.push(`Readiness endpoint returned ${readiness.status}`);
 if (!readiness.body?.supportedActions?.expert_match_status?.includes("matched")) {
@@ -128,6 +158,12 @@ if (!readiness.body?.supportedActions?.payment_status?.includes("paid")) {
 if (!readiness.body?.supportedActions?.chat_thread_status?.includes("active")) {
   errors.push("Readiness endpoint did not expose expected chat_thread_status transitions");
 }
+if (!readiness.body?.supportedActions?.shipment_status?.includes("in_transit")) {
+  errors.push("Readiness endpoint did not expose expected shipment_status transitions");
+}
+if (!readiness.body?.supportedActions?.shipment_event?.includes("customs")) {
+  errors.push("Readiness endpoint did not expose expected shipment_event transitions");
+}
 if (!dryRun.ok || dryRun.body?.dryRun !== true || dryRun.body?.applied !== false) {
   errors.push(`Dry-run endpoint returned unexpected response ${dryRun.status}`);
 }
@@ -136,6 +172,12 @@ if (!paymentDryRun.ok || paymentDryRun.body?.dryRun !== true || paymentDryRun.bo
 }
 if (!chatDryRun.ok || chatDryRun.body?.dryRun !== true || chatDryRun.body?.applied !== false || chatDryRun.body?.action !== "chat_thread_status") {
   errors.push(`Chat dry-run endpoint returned unexpected response ${chatDryRun.status}`);
+}
+if (!shipmentDryRun.ok || shipmentDryRun.body?.dryRun !== true || shipmentDryRun.body?.applied !== false || shipmentDryRun.body?.action !== "shipment_status") {
+  errors.push(`Shipment dry-run endpoint returned unexpected response ${shipmentDryRun.status}`);
+}
+if (!shipmentEventDryRun.ok || shipmentEventDryRun.body?.dryRun !== true || shipmentEventDryRun.body?.applied !== false || shipmentEventDryRun.body?.action !== "shipment_event") {
+  errors.push(`Shipment event dry-run endpoint returned unexpected response ${shipmentEventDryRun.status}`);
 }
 if (!handoffReadiness.ok || !handoffReadiness.body?.targetTables?.includes("expert_matches")) {
   errors.push(`Handoff readiness endpoint returned unexpected response ${handoffReadiness.status}`);

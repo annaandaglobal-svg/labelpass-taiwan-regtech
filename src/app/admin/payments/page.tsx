@@ -168,10 +168,6 @@ export default async function AdminPaymentsPage() {
             <span>상담 파이프라인</span>
             <h2>견적과 결제 상태가 상담방 접근을 어떻게 여는지 한 줄로 봅니다</h2>
           </div>
-          <Link className="admin-secondary-action" href="/admin/experts">
-            매칭 단계 보기
-            <ArrowRight size={16} />
-          </Link>
         </div>
         <div className="admin-pipeline-rail">
           {consultationStageCounts.map((stage) => (
