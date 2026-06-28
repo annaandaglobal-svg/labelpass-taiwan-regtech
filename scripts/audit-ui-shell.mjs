@@ -53,6 +53,19 @@ function requireMaxPx(rule, property, max, label) {
   if (value > max) fail(`${label}: ${property} ${value}px exceeds ${max}px`);
 }
 
+function requireNotMatches(source, pattern, label) {
+  if (pattern.test(source)) fail(label);
+}
+
+function templateLiteral(source, constName) {
+  const startToken = `const ${constName} = \``;
+  const start = source.indexOf(startToken);
+  if (start < 0) return "";
+  const bodyStart = start + startToken.length;
+  const end = source.indexOf("`;", bodyStart);
+  return end >= 0 ? source.slice(bodyStart, end) : "";
+}
+
 function walk(dir) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir).flatMap((entry) => {
@@ -61,35 +74,56 @@ function walk(dir) {
   });
 }
 
-const routeShells = [
-  {
-    file: "src/app/page.tsx",
-    shell: '<AppShell active="review">'
-  },
-  {
-    file: "src/app/workspace/page.tsx",
-    shell: '<AppShell active="workspace" className="workspace-shell">'
-  },
-  {
-    file: "src/app/knowledge/page.tsx",
-    shell: '<AppShell active="knowledge">'
-  },
-  {
-    file: "src/app/knowledge/aliases/page.tsx",
-    shell: '<AppShell active="aliases">'
-  },
-  {
-    file: "src/app/admin/layout.tsx",
-    shell: '<AppShell active="admin" className="admin-shell">',
-    extra: '<AdminSectionNav badges={badges} />'
-  }
-];
+const rootLayoutSource = read("src/app/layout.tsx");
+const appFramePath = "src/components/app-frame.tsx";
+const usesAppFrame = rootLayoutSource.includes("<AppFrame>");
 
-for (const route of routeShells) {
-  const source = read(route.file);
-  requireIncludes(source, route.shell, route.file);
-  if (route.extra) requireIncludes(source, route.extra, route.file);
+if (usesAppFrame) {
+  const appFrameSource = read(appFramePath);
+  requireIncludes(rootLayoutSource, 'import { AppFrame } from "@/components/app-frame";', "src/app/layout.tsx app frame ownership");
+  requireIncludes(rootLayoutSource, "<AppFrame>{children}</AppFrame>", "src/app/layout.tsx persistent shell frame");
+  requireIncludes(appFrameSource, 'import { AppShell } from "@/components/app-shell";', `${appFramePath} app shell ownership`);
+  requireIncludes(appFrameSource, "usePathname", `${appFramePath} route-aware shell active state`);
+  requireIncludes(appFrameSource, 'pathname.startsWith("/admin")', `${appFramePath} admin active nav mapping`);
+  requireIncludes(appFrameSource, 'pathname.startsWith("/knowledge/aliases")', `${appFramePath} aliases active nav mapping`);
+  requireIncludes(appFrameSource, 'pathname.startsWith("/knowledge")', `${appFramePath} knowledge active nav mapping`);
+  requireIncludes(appFrameSource, 'pathname.startsWith("/workspace")', `${appFramePath} workspace active nav mapping`);
+  requireIncludes(appFrameSource, 'return "review";', `${appFramePath} review fallback active nav mapping`);
+  requireIncludes(appFrameSource, 'if (active === "admin") return "admin-shell";', `${appFramePath} admin shell class mapping`);
+  requireIncludes(appFrameSource, 'if (active === "workspace") return "workspace-shell";', `${appFramePath} workspace shell class mapping`);
+  requireIncludes(appFrameSource, "<AppShell active={active} className={shellClassFor(active)}>", `${appFramePath} persistent AppShell wrapper`);
+} else {
+  const routeShells = [
+    {
+      file: "src/app/page.tsx",
+      shell: '<AppShell active="review">'
+    },
+    {
+      file: "src/app/workspace/page.tsx",
+      shell: '<AppShell active="workspace" className="workspace-shell">'
+    },
+    {
+      file: "src/app/knowledge/page.tsx",
+      shell: '<AppShell active="knowledge">'
+    },
+    {
+      file: "src/app/knowledge/aliases/page.tsx",
+      shell: '<AppShell active="aliases">'
+    },
+    {
+      file: "src/app/admin/layout.tsx",
+      shell: '<AppShell active="admin" className="admin-shell">'
+    }
+  ];
+
+  for (const route of routeShells) {
+    const source = read(route.file);
+    requireIncludes(source, route.shell, route.file);
+  }
 }
+
+const adminLayoutSource = read("src/app/admin/layout.tsx");
+requireIncludes(adminLayoutSource, '<AdminSectionNav badges={badges} />', "src/app/admin/layout.tsx admin secondary nav");
 
 const appShellSource = read("src/components/app-shell.tsx");
 requireIncludes(appShellSource, "AppSidebar", "src/components/app-shell.tsx sidebar ownership");
@@ -97,8 +131,51 @@ requireIncludes(appShellSource, "type AppNavKey", "src/components/app-shell.tsx 
 requireIncludes(appShellSource, '["lp-shell", className].filter(Boolean).join(" ")', "src/components/app-shell.tsx stable shell class composition");
 requireIncludes(appShellSource, 'data-app-shell="persistent"', "src/components/app-shell.tsx persistent shell contract");
 requireIncludes(appShellSource, "data-shell-active={active}", "src/components/app-shell.tsx active route marker");
+requireIncludes(appShellSource, "const criticalShellCss = `", "src/components/app-shell.tsx critical shell fallback CSS");
+requireIncludes(appShellSource, "function CriticalShellStyles()", "src/components/app-shell.tsx critical shell style component");
+requireIncludes(appShellSource, "data-shell-critical-style", "src/components/app-shell.tsx critical shell style marker");
+requireIncludes(appShellSource, "dangerouslySetInnerHTML={{ __html: criticalShellCss }}", "src/components/app-shell.tsx critical shell style injection");
+requireIncludes(appShellSource, "<CriticalShellStyles />", "src/components/app-shell.tsx app shell must render critical shell style");
 requireIncludes(appShellSource, 'className="lp-content"', "src/components/app-shell.tsx stable content frame");
 requireIncludes(appShellSource, 'data-shell-content="stable"', "src/components/app-shell.tsx stable content frame contract");
+
+const criticalShellCss = templateLiteral(appShellSource, "criticalShellCss");
+if (!criticalShellCss) {
+  fail("src/components/app-shell.tsx: criticalShellCss template could not be parsed");
+}
+const criticalShellRule = cssRule(criticalShellCss, ".lp-shell");
+requireIncludes(criticalShellRule, "display:grid", "src/components/app-shell.tsx critical .lp-shell");
+requireIncludes(criticalShellRule, "grid-template-columns:224px minmax(0,1fr)", "src/components/app-shell.tsx critical .lp-shell");
+const criticalContentRule = cssRule(criticalShellCss, ".lp-content");
+requireIncludes(criticalContentRule, "min-width:0", "src/components/app-shell.tsx critical .lp-content");
+const criticalSidebarRule = cssRule(criticalShellCss, ".lp-sidebar");
+requireIncludes(criticalSidebarRule, "position:sticky", "src/components/app-shell.tsx critical .lp-sidebar");
+requireIncludes(criticalSidebarRule, "height:100dvh", "src/components/app-shell.tsx critical .lp-sidebar");
+requireIncludes(criticalSidebarRule, "overflow-y:auto", "src/components/app-shell.tsx critical .lp-sidebar");
+requireIncludes(criticalSidebarRule, "overscroll-behavior:contain", "src/components/app-shell.tsx critical .lp-sidebar");
+const criticalNavRule = cssRule(criticalShellCss, ".lp-nav a");
+requireMaxPx(criticalNavRule, "min-height", 36, "src/components/app-shell.tsx critical .lp-nav a");
+requireMaxPx(criticalNavRule, "font-size", 13, "src/components/app-shell.tsx critical .lp-nav a");
+const criticalUtilityNavRule = cssRule(criticalShellCss, ".lp-utility-nav");
+requireIncludes(criticalUtilityNavRule, "grid-template-columns:repeat(2,minmax(0,1fr))", "src/components/app-shell.tsx critical utility nav grid");
+const criticalAdminSectionNavRule = cssRule(criticalShellCss, ".admin-section-nav");
+requireIncludes(criticalAdminSectionNavRule, "display:grid", "src/components/app-shell.tsx critical admin section nav");
+requireIncludes(criticalAdminSectionNavRule, "grid-template-columns:repeat(8,minmax(0,1fr))", "src/components/app-shell.tsx critical admin section nav");
+const criticalAdminSectionNavLinkRule = cssRule(criticalShellCss, ".admin-section-nav a");
+requireMaxPx(criticalAdminSectionNavLinkRule, "min-height", 28, "src/components/app-shell.tsx critical .admin-section-nav a");
+requireMaxPx(criticalAdminSectionNavLinkRule, "font-size", 12, "src/components/app-shell.tsx critical .admin-section-nav a");
+const criticalAdminActionRule = cssRule(criticalShellCss, ".admin-secondary-action");
+requireIncludes(criticalAdminActionRule, "display:inline-flex", "src/components/app-shell.tsx critical compact admin action");
+requireIncludes(criticalAdminActionRule, "max-width:280px", "src/components/app-shell.tsx critical compact admin action");
+requireIncludes(criticalAdminActionRule, "white-space:nowrap", "src/components/app-shell.tsx critical compact admin action");
+requireMaxPx(criticalAdminActionRule, "min-height", 28, "src/components/app-shell.tsx critical .admin-secondary-action");
+requireMaxPx(criticalAdminActionRule, "font-size", 11, "src/components/app-shell.tsx critical .admin-secondary-action");
+requireNotMatches(criticalAdminActionRule, /width\s*:\s*100%/i, "src/components/app-shell.tsx critical .admin-secondary-action: must stay compact, not full-width");
+requireIncludes(
+  criticalShellCss,
+  ".admin-hero .admin-secondary-action,.admin-section-hero .admin-secondary-action{justify-self:end;align-self:start;max-width:132px;",
+  "src/components/app-shell.tsx critical mobile admin action clamp"
+);
 
 for (const filePath of walk(join(repoRoot, "src/app"))) {
   if (!filePath.endsWith(".tsx")) continue;
@@ -243,12 +320,18 @@ requireIncludes(appSidebarSource, "utilityNavItems", "src/components/app-sidebar
 requireIncludes(appSidebarSource, "data-shell-nav-count={primaryNavItems.length}", "src/components/app-sidebar.tsx primary shell nav count");
 requireIncludes(appSidebarSource, 'data-shell-nav="utility"', "src/components/app-sidebar.tsx utility nav contract");
 requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/components/app-sidebar.tsx stable nav item ids");
+requireIncludes(appSidebarSource, 'data-shell-nav-tier="primary"', "src/components/app-sidebar.tsx primary nav tier marker");
+requireIncludes(appSidebarSource, 'data-shell-nav-tier="utility"', "src/components/app-sidebar.tsx utility nav tier marker");
+requireIncludes(appSidebarSource, "aria-label={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav accessible label fallback");
+requireIncludes(appSidebarSource, "title={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav title fallback");
 requireIncludes(appSidebarSource, 'className="lp-utility-label"', "src/components/app-sidebar.tsx internal utility label");
 for (const navLabel of ["워크스페이스", "검토", "지식 검색"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
 requireIncludes(appSidebarSource, 'label: "용어 검수"', "src/components/app-sidebar.tsx utility aliases label");
-requireIncludes(appSidebarSource, 'label: "운영 관리"', "src/components/app-sidebar.tsx utility nav label");
+requireIncludes(appSidebarSource, 'label: "관리"', "src/components/app-sidebar.tsx utility admin visible label");
+requireIncludes(appSidebarSource, 'ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx utility admin accessible label");
+requireIncludes(appSidebarSource, '{ key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx compact admin utility label contract");
 if (appSidebarSource.indexOf('key: "workspace"') > appSidebarSource.indexOf('key: "review"')) {
   fail("src/components/app-sidebar.tsx: workspace must be the first primary navigation item");
 }

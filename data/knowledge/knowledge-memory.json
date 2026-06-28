@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T12:38:34.227Z",
+  "generated_at": "2026-06-27T19:02:37.720Z",
   "generated_from": {
     "source_registry_version": "2026-06-26",
     "source_ops_metadata_sources": 166,
-    "crawl_generated_at": "2026-06-27T12:38:34.227Z",
+    "crawl_generated_at": "2026-06-27T19:02:37.720Z",
     "term_index_generated_at": "2026-06-25T07:47:54.729Z",
     "alias_queue_generated_at": "2026-06-25T07:47:54.729Z",
-    "update_queue_generated_at": "2026-06-27T12:38:34.227Z"
+    "update_queue_generated_at": "2026-06-27T19:02:37.720Z"
   },
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1186,
-    "stored_aliases": 4298,
-    "searchable_aliases": 6790,
+    "terms": 1187,
+    "stored_aliases": 4325,
+    "searchable_aliases": 6817,
     "identifier_aliases": 2492,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 41,
-    "alias_review_items": 1042,
+    "alias_review_items": 1043,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -233,7 +233,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:08.728Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-cosmetic-hygiene-safety-act.md",
       "text_chars": 31948,
@@ -265,7 +265,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:09.708Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-cosmetic-pif-management.md",
       "text_chars": 8193,
@@ -297,7 +297,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:09.530Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-cosmetic-product-notification.md",
       "text_chars": 5643,
@@ -570,7 +570,7 @@
         "platform"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-10T19:21:16.739Z",
+      "cache_expires_at": "2026-07-11T18:58:15.589Z",
       "days_until_refresh": 14,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-fadenbook-platform.md",
@@ -780,7 +780,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T17:40:28.519Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-zone.md",
       "text_chars": 2840,
@@ -1051,7 +1051,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md",
       "text_chars": 3215,
@@ -1153,7 +1153,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T15:09:22.209Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md",
       "text_chars": 7455,
@@ -1175,7 +1175,7 @@
       "review_owner": "customs-origin-classification",
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
-      "evidence_policy": "browser-visible-text",
+      "evidence_policy": "browser-text-and-screenshot",
       "priority": "high",
       "tags": [
         "hs-code",
@@ -1185,7 +1185,7 @@
         "import-export"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-03T19:43:04.752Z",
+      "cache_expires_at": "2026-07-04T18:58:27.179Z",
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-customs-tariff-database-download.md",
@@ -1219,7 +1219,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T15:09:18.698Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-customs-tariff-system.md",
       "text_chars": 3931,
@@ -1297,7 +1297,7 @@
     {
       "id": "tw-tfda-food-additive-permit-query",
       "title": "Food Additive Permit Data Query",
-      "url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
+      "url": "https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161",
       "authority": "Taiwan Food and Drug Administration / Consumer Knowledge Service Network",
       "jurisdiction": "TW",
       "domain": "food_additives",
@@ -1310,7 +1310,7 @@
       "review_owner": "tw-food-additives",
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
-      "evidence_policy": "browser-visible-text",
+      "evidence_policy": "browser-text-and-screenshot",
       "priority": "high",
       "tags": [
         "food",
@@ -1322,7 +1322,7 @@
         "traditional-chinese"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-03T19:43:04.749Z",
+      "cache_expires_at": "2026-07-04T18:58:17.974Z",
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-permit-query.md",
@@ -1357,7 +1357,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T17:40:29.677Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-announcements.md",
       "text_chars": 2780,
@@ -1390,7 +1390,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T17:40:29.382Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-materials.md",
       "text_chars": 2682,
@@ -1423,7 +1423,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T17:40:30.042Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-registration-permit-management-rule.md",
       "text_chars": 2818,
@@ -1457,7 +1457,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T17:40:30.439Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-compound-food-additive-import-documents.md",
       "text_chars": 3137,
@@ -1490,7 +1490,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T15:09:14.583Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-import-inspection-exemptions.md",
       "text_chars": 4659,
@@ -1667,7 +1667,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T16:17:18.420Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-regulations.md",
       "text_chars": 47559,
@@ -1735,7 +1735,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T16:17:18.607Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-systematic-inspection-imported-food.md",
       "text_chars": 7153,
@@ -1767,7 +1767,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:10.220Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-food-safety-sanitation-act.md",
       "text_chars": 72171,
@@ -1799,7 +1799,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:11.707Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-common-names.md",
       "text_chars": 1155,
@@ -1832,7 +1832,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:12.107Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-common-names-table.md",
       "text_chars": 2998,
@@ -1865,7 +1865,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:10.646Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-standards.md",
       "text_chars": 3868,
@@ -1897,7 +1897,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:11.232Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling.md",
       "text_chars": 1644,
@@ -1930,7 +1930,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:12.432Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-consumer-notice.md",
       "text_chars": 2858,
@@ -1962,7 +1962,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:10.529Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-enforcement-rules.md",
       "text_chars": 2338,
@@ -2098,7 +2098,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:10.412Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-nutrition-labeling.md",
       "text_chars": 16964,
@@ -2155,7 +2155,7 @@
       "review_owner": "tw-food-labeling",
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
-      "evidence_policy": "browser-visible-text",
+      "evidence_policy": "browser-text-and-screenshot",
       "priority": "high",
       "tags": [
         "food",
@@ -2167,7 +2167,7 @@
         "consumer"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-03T19:43:04.751Z",
+      "cache_expires_at": "2026-07-04T18:58:21.669Z",
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-illegal-advertising-query.md",
@@ -2200,7 +2200,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:10.759Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-nutrition-claim-prepackaged-food.md",
       "text_chars": 2046,
@@ -2233,7 +2233,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:11.561Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-recommended-allergen-labeling.md",
       "text_chars": 3694,
@@ -2302,7 +2302,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T19:02:20.600Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-food-contaminants-toxins.md",
       "text_chars": 3734,
@@ -2336,7 +2336,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T19:02:20.296Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-food-pesticide-residue-limits.md",
       "text_chars": 4021,
@@ -2406,7 +2406,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T19:02:20.425Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-food-veterinary-drug-residue-limits.md",
       "text_chars": 2164,
@@ -2574,7 +2574,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:08.512Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-moj-commodity-labeling-act.md",
       "text_chars": 12556,
@@ -2771,7 +2771,7 @@
       "review_owner": "tw-health-food",
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
-      "evidence_policy": "browser-visible-text",
+      "evidence_policy": "browser-text-and-screenshot",
       "priority": "high",
       "tags": [
         "health-food",
@@ -2782,7 +2782,7 @@
         "traditional-chinese"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-03T19:43:04.750Z",
+      "cache_expires_at": "2026-07-04T18:58:19.382Z",
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-health-food-permit-query.md",
@@ -2805,7 +2805,7 @@
       "review_owner": "tw-special-dietary-food",
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
-      "evidence_policy": "browser-visible-text",
+      "evidence_policy": "browser-text-and-screenshot",
       "priority": "high",
       "tags": [
         "special-dietary-food",
@@ -2817,7 +2817,7 @@
         "traditional-chinese"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-03T19:43:04.750Z",
+      "cache_expires_at": "2026-07-04T18:58:21.669Z",
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-tfda-special-disease-food-permit-query.md",
@@ -2982,7 +2982,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T15:09:16.612Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md",
       "text_chars": 3822,
@@ -3015,7 +3015,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
-      "days_until_refresh": 13,
+      "days_until_refresh": 12,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md",
       "text_chars": 4771,
@@ -3037,7 +3037,7 @@
       "review_owner": "trade-import-export-controls",
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
-      "evidence_policy": "browser-visible-text",
+      "evidence_policy": "browser-text-and-screenshot",
       "priority": "high",
       "tags": [
         "ccc-code",
@@ -3047,7 +3047,7 @@
         "trade-controls"
       ],
       "cache_status": "fresh",
-      "cache_expires_at": "2026-07-03T19:43:04.751Z",
+      "cache_expires_at": "2026-07-04T18:58:25.289Z",
       "days_until_refresh": 7,
       "evidence_mode": "browser_capture",
       "document_path": "data/knowledge/documents/tw-trade-ccc-import-export-regulations.md",
@@ -3182,7 +3182,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T16:17:18.834Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-business-registration-importers.md",
       "text_chars": 7296,
@@ -3249,7 +3249,7 @@
       ],
       "cache_status": "fresh",
       "cache_expires_at": "2026-07-25T13:02:11.452Z",
-      "days_until_refresh": 29,
+      "days_until_refresh": 28,
       "evidence_mode": "cache",
       "document_path": "data/knowledge/documents/tw-tfda-food-allergen-labeling-en.md",
       "text_chars": 1938,
@@ -3373,10 +3373,10 @@
         "화장품 PIF",
         "PIF",
         "化粧品產品資訊檔案",
+        "產品資訊檔案查檢表",
+        "產品資訊檔案製作指引",
         "대만 화장품 제품정보파일",
-        "产品信息档案",
-        "제품정보파일",
-        "화장품 제품정보파일"
+        "PIF查檢表"
       ],
       "source_keys": [
         "tw-moj-cosmetic-pif-management",
@@ -3391,7 +3391,7 @@
         "tw-tfda-cosmetics-law-regulations-index"
       ],
       "notes": "Concept term for cosmetic product information file and safety documentation obligations, including Taiwan PIF implementation stages and TFDA PIF management principles.",
-      "score": 1352
+      "score": 1360
     },
     {
       "id": "cosmetic-labeling-claims",
@@ -3477,7 +3477,7 @@
         "tw-tfda-cosmetic-product-registration-system"
       ],
       "notes": "Use this category cluster to decide whether Taiwan cosmetic PIF setup and product registration obligations are already in force for the product type.",
-      "score": 1268
+      "score": 1270
     },
     {
       "id": "health-food-permit",
@@ -5469,17 +5469,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1186,
-      "aliases_scanned": 4298,
-      "alias_rows_scanned": 4293,
-      "collision_groups": 55,
+      "terms_scanned": 1187,
+      "aliases_scanned": 4325,
+      "alias_rows_scanned": 4320,
+      "collision_groups": 56,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 987,
       "strict_blockers": 0,
-      "review_items": 1042
+      "review_items": 1043
     },
     "items": [
       {
@@ -6351,7 +6351,7 @@
         "status": "watching",
         "severity": "medium",
         "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-03T19:43:04.752Z",
+        "cache_expires_at": "2026-07-04T18:58:27.179Z",
         "days_until_refresh": 7,
         "affected_domains": [
           "customs",
@@ -6482,7 +6482,7 @@
         "status": "watching",
         "severity": "medium",
         "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-03T19:43:04.749Z",
+        "cache_expires_at": "2026-07-04T18:58:17.974Z",
         "days_until_refresh": 7,
         "affected_domains": [
           "food_additives",
@@ -6562,7 +6562,7 @@
         "status": "watching",
         "severity": "medium",
         "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-03T19:43:04.750Z",
+        "cache_expires_at": "2026-07-04T18:58:19.382Z",
         "days_until_refresh": 7,
         "affected_domains": [
           "health_food",
@@ -6589,7 +6589,7 @@
         "status": "watching",
         "severity": "medium",
         "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-03T19:43:04.751Z",
+        "cache_expires_at": "2026-07-04T18:58:21.669Z",
         "days_until_refresh": 7,
         "affected_domains": [
           "food_labeling",
@@ -6662,7 +6662,7 @@
         "status": "watching",
         "severity": "medium",
         "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-03T19:43:04.750Z",
+        "cache_expires_at": "2026-07-04T18:58:21.669Z",
         "days_until_refresh": 7,
         "affected_domains": [
           "special_dietary_food",
@@ -6686,7 +6686,7 @@
         "status": "watching",
         "severity": "medium",
         "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-03T19:43:04.751Z",
+        "cache_expires_at": "2026-07-04T18:58:25.289Z",
         "days_until_refresh": 7,
         "affected_domains": [
           "trade_controls",
@@ -6703,6 +6703,233 @@
           "Import and Export Permit",
           "Customs Declaration",
           "SHTC Export Permit"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:baseline_watch",
+        "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
+        "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T15:09:22.209Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "customs",
+          "customs",
+          "ccc-code",
+          "tariff-classification",
+          "advance-ruling",
+          "imported-goods"
+        ],
+        "affected_terms": [
+          "Advance Tariff Classification Ruling"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-customs-tariff-system:baseline_watch",
+        "source_key": "tw-customs-tariff-system",
+        "title": "Tariff System - Customs Administration",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T15:09:18.698Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "customs",
+          "customs",
+          "tariff",
+          "ccc-code",
+          "hs-code",
+          "tariff-query"
+        ],
+        "affected_terms": [
+          "HS Code Classification"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-moj-food-pesticide-residue-limits:baseline_watch",
+        "source_key": "tw-moj-food-pesticide-residue-limits",
+        "title": "Standards for Pesticide Residue Limits in Foods",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T19:02:20.296Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "food_safety",
+          "food",
+          "pesticide-residue",
+          "mrl",
+          "crop-classification",
+          "import-risk",
+          "testing"
+        ],
+        "affected_terms": [
+          "Food Pesticide Residue Limits"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-shtc-dual-use-list:baseline_watch",
+        "source_key": "tw-shtc-dual-use-list",
+        "title": "Export Control List for Dual Use Items and Technology and Common Military List",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T13:02:21.869Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "export_control",
+          "dual-use",
+          "common-military-list",
+          "export-control",
+          "ai-hardware"
+        ],
+        "affected_terms": [
+          "Strategic High-Tech Commodities"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-cosmetic-product-registration-zone:baseline_watch",
+        "source_key": "tw-tfda-cosmetic-product-registration-zone",
+        "title": "Cosmetic Product Registration Zone",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T17:40:28.519Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "product-registration",
+          "product-notification",
+          "fadenbook",
+          "platform"
+        ],
+        "affected_terms": [
+          "Cosmetic Product Notification"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-food-additive-registration-announcements:baseline_watch",
+        "source_key": "tw-tfda-food-additive-registration-announcements",
+        "title": "Food Additive Registration Legal Announcements",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T17:40:29.677Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "food_additives",
+          "food",
+          "food-additives",
+          "inspection-registration",
+          "single-additive",
+          "compound-additive",
+          "permit-number"
+        ],
+        "affected_terms": [
+          "Food Additive Inspection Registration",
+          "Compound Food Additive Import Documents"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-food-additive-registration-materials:baseline_watch",
+        "source_key": "tw-tfda-food-additive-registration-materials",
+        "title": "Food Additive Inspection Registration Materials",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T17:40:29.382Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "food_additives",
+          "food",
+          "food-additives",
+          "inspection-registration",
+          "permit",
+          "application-materials"
+        ],
+        "affected_terms": [
+          "Food Additive Inspection Registration"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-pif-implementation:baseline_watch",
+        "source_key": "tw-tfda-pif-implementation",
+        "title": "Cosmetic Product Information Files to Be Implemented in Phases",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T13:02:08.995Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "cosmetics",
+          "pif",
+          "safety-assessment",
+          "2026"
+        ],
+        "affected_terms": [
+          "Cosmetic Product Information File",
+          "Cosmetic PIF and Product Registration Categories"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-trade-import-export-administration:baseline_watch",
+        "source_key": "tw-trade-import-export-administration",
+        "title": "Import and Export Administration",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T15:09:16.612Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "trade",
+          "import",
+          "export",
+          "permit",
+          "licensing",
+          "controlled-commodities"
+        ],
+        "affected_terms": [
+          "Import and Export Permit",
+          "Exporter and Importer Registration"
+        ],
+        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-trade-import-export-regulations:baseline_watch",
+        "source_key": "tw-trade-import-export-regulations",
+        "title": "Taiwan import and export related laws and regulations",
+        "status": "watching",
+        "severity": "medium",
+        "change_type": "baseline_watch",
+        "cache_expires_at": "2026-07-09T13:02:14.387Z",
+        "days_until_refresh": 12,
+        "affected_domains": [
+          "trade",
+          "import",
+          "export",
+          "shtc",
+          "origin",
+          "trade"
+        ],
+        "affected_terms": [
+          "Incoterms",
+          "Commercial Invoice",
+          "Packing List",
+          "Shipment Purpose",
+          "Import and Export Permit",
+          "Foreign Trade Act"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
@@ -6729,50 +6956,6 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
-        "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:baseline_watch",
-        "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
-        "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T15:09:22.209Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "customs",
-          "customs",
-          "ccc-code",
-          "tariff-classification",
-          "advance-ruling",
-          "imported-goods"
-        ],
-        "affected_terms": [
-          "Advance Tariff Classification Ruling"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-customs-tariff-system:baseline_watch",
-        "source_key": "tw-customs-tariff-system",
-        "title": "Tariff System - Customs Administration",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T15:09:18.698Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "customs",
-          "customs",
-          "tariff",
-          "ccc-code",
-          "hs-code",
-          "tariff-query"
-        ],
-        "affected_terms": [
-          "HS Code Classification"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
         "candidate_key": "tw-customs-valuation:baseline_watch",
         "source_key": "tw-customs-valuation",
         "title": "Customs Valuation",
@@ -6792,50 +6975,6 @@
           "assists"
         ],
         "affected_terms": [],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-moj-food-pesticide-residue-limits:baseline_watch",
-        "source_key": "tw-moj-food-pesticide-residue-limits",
-        "title": "Standards for Pesticide Residue Limits in Foods",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T19:02:20.296Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "food_safety",
-          "food",
-          "pesticide-residue",
-          "mrl",
-          "crop-classification",
-          "import-risk",
-          "testing"
-        ],
-        "affected_terms": [
-          "Food Pesticide Residue Limits"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-shtc-dual-use-list:baseline_watch",
-        "source_key": "tw-shtc-dual-use-list",
-        "title": "Export Control List for Dual Use Items and Technology and Common Military List",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T13:02:21.869Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "export_control",
-          "dual-use",
-          "common-military-list",
-          "export-control",
-          "ai-hardware"
-        ],
-        "affected_terms": [
-          "Strategic High-Tech Commodities"
-        ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
@@ -6975,28 +7114,6 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
-        "candidate_key": "tw-tfda-cosmetic-product-registration-zone:baseline_watch",
-        "source_key": "tw-tfda-cosmetic-product-registration-zone",
-        "title": "Cosmetic Product Registration Zone",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T17:40:28.519Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "cosmetics",
-          "cosmetics",
-          "product-registration",
-          "product-notification",
-          "fadenbook",
-          "platform"
-        ],
-        "affected_terms": [
-          "Cosmetic Product Notification"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
         "candidate_key": "tw-tfda-cosmetic-prohibited-ingredients:baseline_watch",
         "source_key": "tw-tfda-cosmetic-prohibited-ingredients",
         "title": "Cosmetics Prohibited Ingredients Open Data",
@@ -7023,144 +7140,6 @@
           "Cosmetic Prohibited Ingredients",
           "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
           "Impatientis Semen（急性子）"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-cosmetic-restricted-ingredients:baseline_watch",
-        "source_key": "tw-tfda-cosmetic-restricted-ingredients",
-        "title": "Cosmetics Restricted Ingredients Open Data",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T22:28:16.201Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "cosmetics",
-          "cosmetics",
-          "restricted-ingredients",
-          "ingredient-restrictions",
-          "inci",
-          "cas",
-          "label-cautions",
-          "opendata",
-          "infoid-199"
-        ],
-        "affected_terms": [
-          "Salicylic Acid",
-          "Hydrogen Peroxide",
-          "Kojic Acid",
-          "Potassium or Sodium Hydroxide",
-          "Ammonia / Ammonium Hydroxide",
-          "Resorcinol",
-          "Toluene-2,5-diamine",
-          "Boric Acid"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-cosmetic-sunscreen-ingredients:baseline_watch",
-        "source_key": "tw-tfda-cosmetic-sunscreen-ingredients",
-        "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T22:28:23.502Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "cosmetics",
-          "cosmetics",
-          "sunscreen",
-          "uv-filter",
-          "ingredient-restrictions",
-          "spf",
-          "pif",
-          "opendata",
-          "infoid-202"
-        ],
-        "affected_terms": [
-          "Titanium Dioxide",
-          "Zinc Oxide",
-          "Benzophenone-3",
-          "Cosmetic Sunscreen Ingredients",
-          "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
-          "2-Hydroxy-4-methoxybenzophenone-5-sulfonic acid and its sodium salt/ Sulisobenzone",
-          "Benzoic acid, 2-hydroxy-,3,3,5-trimethylcyclohexyl ester/ Homosalate",
-          "2-Ethylhexyl 4-methoxycinnamate/ Octinoxate"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-food-additive-registration-announcements:baseline_watch",
-        "source_key": "tw-tfda-food-additive-registration-announcements",
-        "title": "Food Additive Registration Legal Announcements",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T17:40:29.677Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "food_additives",
-          "food",
-          "food-additives",
-          "inspection-registration",
-          "single-additive",
-          "compound-additive",
-          "permit-number"
-        ],
-        "affected_terms": [
-          "Food Additive Inspection Registration",
-          "Compound Food Additive Import Documents"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-food-additive-registration-materials:baseline_watch",
-        "source_key": "tw-tfda-food-additive-registration-materials",
-        "title": "Food Additive Inspection Registration Materials",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T17:40:29.382Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "food_additives",
-          "food",
-          "food-additives",
-          "inspection-registration",
-          "permit",
-          "application-materials"
-        ],
-        "affected_terms": [
-          "Food Additive Inspection Registration"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-food-ingredient-integration-query-platform:baseline_watch",
-        "source_key": "tw-tfda-food-ingredient-integration-query-platform",
-        "title": "Food Ingredient Integration Query Platform",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-10T00:19:14.352Z",
-        "days_until_refresh": 13,
-        "affected_domains": [
-          "food_safety",
-          "food-ingredients",
-          "ingredient-safety",
-          "usage-limit",
-          "caution",
-          "scientific-name",
-          "query-platform"
-        ],
-        "affected_terms": [
-          "Food Ingredient Integration Query Platform",
-          "Novel Food Ingredient Safety Assessment",
-          "Panax Ginseng",
-          "Probiotics and Lactic Acid Bacteria",
-          "Collagen Peptides",
-          "Green Tea / Camellia Sinensis"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       }

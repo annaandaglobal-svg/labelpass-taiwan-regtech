@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 149,
+  "curated_term_count": 150,
   "generated_term_count": 1038,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -2904,6 +2904,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "whey protein",
+          "normalized": "whey protein",
+          "type": "protein_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乳清蛋白",
+          "normalized": "乳清蛋白",
+          "type": "protein_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Dairy-derived protein search wording; verify milk-allergen context and ingredient composition.",
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -3196,6 +3216,16 @@
           "jurisdiction": "KR",
           "confidence": 0.85,
           "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "麵質",
+          "normalized": "麵質",
+          "type": "common_misspelling",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.7,
+          "note": "Common user typo/variant for 麩質; keep low-confidence and allergen-context only.",
           "source": "curated"
         }
       ],
@@ -10957,6 +10987,46 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "SPF",
+          "normalized": "spf",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防曬乳",
+          "normalized": "防曬乳",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Consumer product wording; use with sunscreen ingredient limits and SPF/PIF substantiation checks.",
+          "source": "curated"
+        },
+        {
+          "value": "清爽型防曬乳",
+          "normalized": "清爽型防曬乳",
+          "type": "pif_example_product",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "TFDA PIF hub includes this sunscreen-lotion example.",
+          "source": "curated"
+        },
+        {
+          "value": "防曬係數",
+          "normalized": "防曬係數",
+          "type": "claim_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -11645,6 +11715,46 @@
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "PIF訪視",
+          "normalized": "pif訪視",
+          "type": "workflow_event",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產品資訊檔案查檢表",
+          "normalized": "產品資訊檔案查檢表",
+          "type": "official_document",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "PIF查檢表",
+          "normalized": "pif查檢表",
+          "type": "document_short_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "產品資訊檔案製作指引",
+          "normalized": "產品資訊檔案製作指引",
+          "type": "official_document",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
           "note": null,
           "source": "curated"
         }
@@ -16032,6 +16142,113 @@
       "notes": "Taiwan requires prominent principal-display-panel wording and doctor/dietitian warning statements for approved Formula for Certain Disease products from 2025-01-01."
     },
     {
+      "id": "infant-formula-permit-query",
+      "canonical_name": "Infant and Follow-up Infant Formula Permit Query",
+      "category": "special_dietary_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "infant formula permit query",
+          "normalized": "infant formula permit query",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "follow-up infant formula permit query",
+          "normalized": "follow-up infant formula permit query",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒配方食品許可資料查詢",
+          "normalized": "嬰兒配方食品許可資料查詢",
+          "type": "official_query_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "較大嬰兒配方食品許可資料查詢",
+          "normalized": "較大嬰兒配方食品許可資料查詢",
+          "type": "official_query_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒與較大嬰兒配方食品許可資料查詢",
+          "normalized": "嬰兒與較大嬰兒配方食品許可資料查詢",
+          "type": "official_query_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒配方食品",
+          "normalized": "嬰兒配方食品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "較大嬰兒配方食品",
+          "normalized": "較大嬰兒配方食品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영아 조제식 허가 조회",
+          "normalized": "영아 조제식 허가 조회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영유아 조제식 허가",
+          "normalized": "영유아 조제식 허가",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-business-info-query-links",
+        "tw-tfda-food-related-products-permit-document-management"
+      ],
+      "notes": "TFDA food-business information links include infant and follow-up infant formula permit-data queries; use this term to route formula products to permit lookup and related Chinese-label evidence."
+    },
+    {
       "id": "food-ingredient-integration-query-platform",
       "canonical_name": "Food Ingredient Integration Query Platform",
       "category": "food_safety",
@@ -16733,6 +16950,76 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "防曬乳",
+          "normalized": "防曬乳",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Consumer search wording for sunscreen lotion; map to Taiwan PIF/product-registration category and confirm sunscreen-ingredient limits when UV claims are made.",
+          "source": "curated"
+        },
+        {
+          "value": "隔離霜",
+          "normalized": "隔離霜",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.75,
+          "note": "Common Taiwan market wording; verify whether the product claims sunscreen, whitening, or makeup-only functions before routing.",
+          "source": "curated"
+        },
+        {
+          "value": "制臭",
+          "normalized": "制臭",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "除臭",
+          "normalized": "除臭",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Market wording that can overlap deodorant claims; verify Taiwan specific-purpose cosmetics context.",
+          "source": "curated"
+        },
+        {
+          "value": "手工皂",
+          "normalized": "手工皂",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Short market wording for solid handmade soap; confirm factory-registration exemption context.",
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒化粧品",
+          "normalized": "嬰兒化粧品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒用化粧品",
+          "normalized": "嬰兒用化粧品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }

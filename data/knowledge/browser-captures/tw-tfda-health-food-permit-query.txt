@@ -1,15 +1,154 @@
 id: tw-tfda-health-food-permit-query
 official_url: https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162
-captured_url: browser_error_page
-title: This site can't be reached
-captured_at: 2026-06-26T19:21:16.736Z
-capture_status: browser_capture_blocked_manual_anchor
-
-CAPTURE_NOTE:
-Browser navigation reached a Chrome network error page for the official dynamic TFDA consumer query URL during manual capture. The official URL remains the authority; this text preserves the permit-query workflow terms until the live lookup can be re-captured.
-
+captured_url: https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162
+title: Health Food Permit Data Query
+captured_at: 2026-06-27T18:58:15.587Z
+capture_status: browser_capture_ok
 VISIBLE_BROWSER_TEXT:
-_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
-
+健康食品查驗登記許可證資料查詢_消費者專區
+MENU 食品 ► 核可資料查詢
+食品原料整合查詢平臺
+邊境檢驗不符合食品資訊查詢
+食品法規查詢
+HACCP 查詢
+吃的健康
+食品相關法規暨解釋彙編查詢
+西藥 ► 產品回收
+通過GMP核准之國外藥廠名單
+檢驗方法查詢
+食品藥物管理署官網業務專區
+食品藥物管理署官網法規資訊
+化粧品禁限用成分管理規定
+人體器官保存庫 ► 保存庫許可通過名單查詢
+跳到主要內容區塊
+專區首頁
+食品藥物管理署
+:::
+專區首頁
+網站導覽
+食品藥物管理署
+食品 核可資料查詢
+食品原料整合查詢平臺
+邊境檢驗不符合食品資訊查詢
+食品法規查詢
+HACCP 查詢
+吃的健康
+食品相關法規暨解釋彙編查詢
+西藥 產品回收
+通過GMP核准之國外藥廠名單
+檢驗方法查詢
+食品藥物管理署官網業務專區
+食品藥物管理署官網法規資訊
+化粧品禁限用成分管理規定
+人體器官保存庫 保存庫許可通過名單查詢
+【暫停服務公告】 為配合本署資訊機房資安設備更換及網路架構調整作業，預計自109年12月13日(日)8時至19時，暫停本專區各項服務，造成不便，敬請見諒。
+-->
+:::
+首頁 > 整合查詢服務 > 食品 > 核可資料查詢 > 健康食品查驗登記許可證資料查詢
+健康食品查驗登記許可證資料查詢
+類別：
+全部
+衛署(部)健食字
+衛署(部)健食規字
+許可證字號：
+申請商：
+中文品名：
+保健功效項目：
+全部
+調節血脂
+調節血糖
+輔助調整過敏體質
+免疫調節
+不易形成體脂肪
+抗疲勞
+骨質保健
+延緩衰老
+胃腸功能改善
+護肝
+牙齒保健
+輔助調節血壓
+促進鐵吸收
+紅麴（規格標準）-調節血脂
+魚油（規格標準）-調節血脂
+關鍵字：
+全部(434)
+衛署(部)健食字(365)
+衛署(部)健食規字(69)
+項次
+許可證字號
+中文品名
+保健功效
+申請商
+詳細
+1
+衛署健食規字第000001號
+濟生活力深海魚油膠囊
+調節血脂, 魚油（規格標準）-調節血脂
+濟生醫藥生技股份有限公司
+詳細
+2
+衛署健食規字第000003號
+台糖精選魚油膠囊
+調節血脂, 魚油（規格標準）-調節血脂
+台灣糖業股份有限公司
+詳細
+3
+衛署健食規字第000004號
+增養紅麴膠囊
+調節血脂, 紅麴（規格標準）-調節血脂
+普新生技股份有限公司
+詳細
+4
+衛署健食規字第000005號
+台糖紅麴膠囊
+調節血脂, 紅麴（規格標準）-調節血脂
+台灣糖業股份有限公司
+詳細
+5
+衛署健食規字第000008號
+三多健康魚油軟膠囊
+調節血脂, 魚油（規格標準）-調節血脂
+三多士股份有限公司
+詳細
+6
+衛署健食規字第000010號
+雅芳康采紅麴膠囊
+調節血脂, 紅麴（規格標準）-調節血脂
+台灣雅芳股份有限公司
+詳細
+7
+衛署健食規字第000011號
+濟生紅麴王
+調節血脂, 紅麴（規格標準）-調節血脂
+濟生醫藥生技股份有限公司
+詳細
+8
+衛署健食規字第000012號
+新微庫醇紅麴膠囊
+調節血脂, 紅麴（規格標準）-調節血脂
+生達化學製藥股份有限公司
+詳細
+9
+衛署健食規字第000013號
+健康純淨魚油膠囊
+調節血脂功能, 魚油（規格標準）-調節血脂功能
+船井生醫股份有限公司
+詳細
+10
+衛署健食規字第000016號
+生活挪威深海魚油膠囊
+調節血脂功能, 魚油（規格標準）-調節血脂功能
+三皇生物科技股份有限公司
+詳細
+1 2 3 4 5 下一頁 最末頁 共有44頁
+::: 衛生福利部食品藥物管理署 © 2017 版權所有
+資訊安全政策
+隱私權政策
+政府網站資料開放宣告
+為民服務信箱
+食用玩家FB
+地址：115021 臺北市南港區研究院路一段130巷109號 | 總機電話:(02)2787-8000
+諮詢服務專線：(02)2787-8200 | 服務時間：人事行政局公告上班日8:00-18:00) | 食安資訊專線1919
+本網站最佳瀏覽解析度為1024x768 | 參訪人次 163012513 人次
 OFFICIAL_WORKFLOW_ANCHOR:
 Official TFDA Consumer Knowledge Service Network page for health food permit lookup. Use it to confirm health food permit numbers, product names, registration status, approved health-care effect scope, and whether a product may lawfully present itself as health food in Taiwan. In review workflows, open this lookup before accepting label wording about health-food status, standard health-food logo use, permit number display, function claims, recommended intake, warning text, or supporting import documents. The lookup should be treated as an operational evidence source rather than a general guidance page: it links a label claim to a specific approved product record. If the product cannot be found or the permit scope does not match the label, route the case to health-food claim substantiation and false or exaggerated advertising review.

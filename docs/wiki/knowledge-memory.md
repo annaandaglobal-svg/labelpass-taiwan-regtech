@@ -5,15 +5,15 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ## Snapshot
 
 - Source registry version: `2026-06-26`
-- Crawl snapshot: `2026-06-27T12:38:34.227Z`
+- Crawl snapshot: `2026-06-27T19:02:37.720Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,186
-- Stored aliases: 4,298
-- Searchable aliases including identifiers: 6,790
+- Terms: 1,187
+- Stored aliases: 4,325
+- Searchable aliases including identifiers: 6,817
 - Term-rule links: 1,082
 - Regulatory update candidates: 41
-- Alias review items: 1,042
+- Alias review items: 1,043
 
 ## How To Use This Memory
 
@@ -80,7 +80,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ### Cosmetic compliance
 
 - **Cosmetic Product Information File** (`cosmetic-product-information-file`)
-  - Aliases: Product Information File; 產品資訊檔案; 대만 화장품 PIF; 화장품 PIF; PIF; 化粧品產品資訊檔案; 대만 화장품 제품정보파일; 产品信息档案; 제품정보파일; 화장품 제품정보파일
+  - Aliases: Product Information File; 產品資訊檔案; 대만 화장품 PIF; 화장품 PIF; PIF; 化粧品產品資訊檔案; 產品資訊檔案查檢表; 產品資訊檔案製作指引; 대만 화장품 제품정보파일; PIF查檢表
   - Sources: `tw-moj-cosmetic-pif-management`, `tw-tfda-pif-hub-zh`, `tw-tfda-pif-implementation`, `tw-tfda-cosmetic-pif-category-implementation-2024`, `tw-tfda-cosmetic-product-registration-categories-2024`
   - Note: Concept term for cosmetic product information file and safety documentation obligations, including Taiwan PIF implementation stages and TFDA PIF management principles.
 - **Cosmetic Labeling and Claims** (`cosmetic-labeling-claims`)

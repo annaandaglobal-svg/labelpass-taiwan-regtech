@@ -1,447 +1,1006 @@
 {
-  "version": "2026-06-27",
+  "version": "2026-06-28",
   "description": "High-value multilingual alias coverage cases for Taiwan food and cosmetics labeling search. These cases protect source-backed ingredient, allergen, claim, and market-access terms from disappearing during crawling or term-index rebuilds.",
   "cases": [
     {
       "id": "msg-english-abbreviation",
       "query": "MSG",
       "expectedTermId": "monosodium-glutamate",
-      "requiredAliases": ["MSG", "Monosodium glutamate (MSG)", "글루탐산나트륨", "味精", "麩酸鈉"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
+      "requiredAliases": [
+        "MSG",
+        "Monosodium glutamate (MSG)",
+        "글루탐산나트륨",
+        "味精",
+        "麩酸鈉"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
       "note": "Short abbreviation must stay exact-match searchable for Taiwan food-additive review."
     },
     {
       "id": "msg-korean-local-name",
       "query": "글루탐산나트륨",
       "expectedTermId": "monosodium-glutamate",
-      "requiredAliases": ["글루탐산나트륨", "글루탐산 나트륨", "MSG", "味精"]
+      "requiredAliases": [
+        "글루탐산나트륨",
+        "글루탐산 나트륨",
+        "MSG",
+        "味精"
+      ]
     },
     {
       "id": "msg-taiwan-common-name",
       "query": "味精",
       "expectedTermId": "monosodium-glutamate",
-      "requiredAliases": ["味精", "味素", "麩酸鈉", "谷氨酸鈉"]
+      "requiredAliases": [
+        "味精",
+        "味素",
+        "麩酸鈉",
+        "谷氨酸鈉"
+      ]
     },
     {
       "id": "msg-ins-code",
       "query": "INS 621",
       "expectedTermId": "monosodium-glutamate",
-      "requiredAliases": ["INS 621", "INS621", "E621", "MSG", "Monosodium L-glutamate"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"],
+      "requiredAliases": [
+        "INS 621",
+        "INS621",
+        "E621",
+        "MSG",
+        "Monosodium L-glutamate"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
       "note": "Supplier specs and import documents often use additive codes instead of local common names."
     },
     {
       "id": "benzoate-sodium-zh",
       "query": "苯甲酸鈉",
       "expectedTermId": "benzoates-food-additives",
-      "requiredAliases": ["Sodium benzoate", "苯甲酸鈉", "安息香酸鈉", "안식향산나트륨"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "Sodium benzoate",
+        "苯甲酸鈉",
+        "安息香酸鈉",
+        "안식향산나트륨"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "benzoate-korean",
       "query": "안식향산나트륨",
       "expectedTermId": "benzoates-food-additives",
-      "requiredAliases": ["안식향산나트륨", "안식향산 나트륨", "벤조산나트륨", "벤조산 나트륨", "Sodium benzoate", "苯甲酸鈉"]
+      "requiredAliases": [
+        "안식향산나트륨",
+        "안식향산 나트륨",
+        "벤조산나트륨",
+        "벤조산 나트륨",
+        "Sodium benzoate",
+        "苯甲酸鈉"
+      ]
     },
     {
       "id": "benzoate-e-number",
       "query": "E211",
       "expectedTermId": "benzoates-food-additives",
-      "requiredAliases": ["E211", "INS 211", "Sodium benzoate", "苯甲酸鈉", "安息香酸鈉"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "E211",
+        "INS 211",
+        "Sodium benzoate",
+        "苯甲酸鈉",
+        "安息香酸鈉"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "sorbate-potassium-zh",
       "query": "山梨酸鉀",
       "expectedTermId": "sorbates-food-additives",
-      "requiredAliases": ["Potassium sorbate", "山梨酸鉀", "소르빈산칼륨", "소르빈산 칼륨"]
+      "requiredAliases": [
+        "Potassium sorbate",
+        "山梨酸鉀",
+        "소르빈산칼륨",
+        "소르빈산 칼륨"
+      ]
     },
     {
       "id": "sorbate-ins-code",
       "query": "INS202",
       "expectedTermId": "sorbates-food-additives",
-      "requiredAliases": ["INS202", "INS 202", "E202", "Potassium sorbate", "山梨酸鉀"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "INS202",
+        "INS 202",
+        "E202",
+        "Potassium sorbate",
+        "山梨酸鉀"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "sorbate-calcium-zh",
       "query": "山梨酸鈣",
       "expectedTermId": "sorbates-food-additives",
-      "requiredAliases": ["Calcium sorbate", "山梨酸鈣", "소르빈산칼슘"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "Calcium sorbate",
+        "山梨酸鈣",
+        "소르빈산칼슘"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "sodium-bicarbonate-simplified",
       "query": "碳酸氢钠",
       "expectedTermId": "sodium-bicarbonate-food-additive",
-      "requiredAliases": ["Sodium bicarbonate", "碳酸氫鈉", "碳酸氢钠", "小蘇打", "小苏打"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "Sodium bicarbonate",
+        "碳酸氫鈉",
+        "碳酸氢钠",
+        "小蘇打",
+        "小苏打"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "sodium-bicarbonate-formula",
       "query": "NaHCO3",
       "expectedTermId": "sodium-bicarbonate-food-additive",
-      "requiredAliases": ["NaHCO3", "Sodium bicarbonate", "탄산수소나트륨", "중탄산나트륨"]
+      "requiredAliases": [
+        "NaHCO3",
+        "Sodium bicarbonate",
+        "탄산수소나트륨",
+        "중탄산나트륨"
+      ]
     },
     {
       "id": "xanthan-taiwan-name",
       "query": "三仙膠",
       "expectedTermId": "xanthan-gum-food-additive",
-      "requiredAliases": ["Xanthan gum", "三仙膠", "玉米糖膠", "잔탄검"]
+      "requiredAliases": [
+        "Xanthan gum",
+        "三仙膠",
+        "玉米糖膠",
+        "잔탄검"
+      ]
     },
     {
       "id": "xanthan-korean",
       "query": "잔탄검",
       "expectedTermId": "xanthan-gum-food-additive",
-      "requiredAliases": ["잔탄검", "산탄검", "Xanthan gum", "三仙膠"]
+      "requiredAliases": [
+        "잔탄검",
+        "산탄검",
+        "Xanthan gum",
+        "三仙膠"
+      ]
     },
     {
       "id": "crustacea-taiwan-allergen",
       "query": "甲殼類",
       "expectedTermId": "crustacea-allergen",
-      "requiredAliases": ["甲殼類", "蝦", "蟹", "갑각류", "새우"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+      "requiredAliases": [
+        "甲殼類",
+        "蝦",
+        "蟹",
+        "갑각류",
+        "새우"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ]
     },
     {
       "id": "crustacea-korean-shrimp",
       "query": "새우",
       "expectedTermId": "crustacea-allergen",
-      "requiredAliases": ["새우", "갑각류", "蝦", "Crustacea"]
+      "requiredAliases": [
+        "새우",
+        "갑각류",
+        "蝦",
+        "Crustacea"
+      ]
     },
     {
       "id": "sulfites-so2",
       "query": "SO₂",
       "expectedTermId": "sulfites-allergen",
-      "requiredAliases": ["二氧化硫", "亞硫酸鹽", "亞硫酸鹽類", "SO2", "SO₂", "아황산염"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+      "requiredAliases": [
+        "二氧化硫",
+        "亞硫酸鹽",
+        "亞硫酸鹽類",
+        "SO2",
+        "SO₂",
+        "아황산염"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ]
     },
     {
       "id": "sulfites-korean",
       "query": "아황산염",
       "expectedTermId": "sulfites-allergen",
-      "requiredAliases": ["아황산염", "이산화황", "Sulfites", "二氧化硫"]
+      "requiredAliases": [
+        "아황산염",
+        "이산화황",
+        "Sulfites",
+        "二氧化硫"
+      ]
     },
     {
       "id": "sulfites-threshold-zh",
       "query": "二氧化硫殘留量",
       "expectedTermId": "sulfites-allergen",
-      "requiredAliases": ["二氧化硫殘留量", "二氧化硫", "每公斤10毫克", "total SO2"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+      "requiredAliases": [
+        "二氧化硫殘留量",
+        "二氧化硫",
+        "每公斤10毫克",
+        "total SO2"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ]
     },
     {
       "id": "sulfites-total-so2",
       "query": "total SO2",
       "expectedTermId": "sulfites-allergen",
-      "requiredAliases": ["total SO2", "SO2", "SO₂", "二氧化硫"]
+      "requiredAliases": [
+        "total SO2",
+        "SO2",
+        "SO₂",
+        "二氧化硫"
+      ]
     },
     {
       "id": "pantothenate-calcium-zh",
       "query": "本多酸鈣",
       "expectedTermId": "pantothenate-food-additives",
-      "requiredAliases": ["Calcium pantothenate", "Sodium pantothenate", "本多酸鈣", "泛酸鈣"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "Calcium pantothenate",
+        "Sodium pantothenate",
+        "本多酸鈣",
+        "泛酸鈣"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "pantothenate-sodium-zh",
       "query": "本多酸鈉",
       "expectedTermId": "pantothenate-food-additives",
-      "requiredAliases": ["本多酸鈉", "泛酸鈉", "판토텐산나트륨"]
+      "requiredAliases": [
+        "本多酸鈉",
+        "泛酸鈉",
+        "판토텐산나트륨"
+      ]
     },
     {
       "id": "methionine-dl-zh",
       "query": "DL-蛋胺酸",
       "expectedTermId": "methionine-food-additive",
-      "requiredAliases": ["DL-Methionine", "DL-蛋胺酸", "DL-甲硫胺酸", "메티오닌"],
-      "requiredSourceKeys": ["tw-tfda-food-additive-common-names", "tw-tfda-food-additive-common-names-table"]
+      "requiredAliases": [
+        "DL-Methionine",
+        "DL-蛋胺酸",
+        "DL-甲硫胺酸",
+        "메티오닌"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ]
     },
     {
       "id": "methionine-l-zh-variant",
       "query": "L-甲硫胺酸",
       "expectedTermId": "methionine-food-additive",
-      "requiredAliases": ["L-Methionine", "L-蛋胺酸", "L-甲硫胺酸"]
+      "requiredAliases": [
+        "L-Methionine",
+        "L-蛋胺酸",
+        "L-甲硫胺酸"
+      ]
     },
     {
       "id": "cosmetic-pif-abbreviation",
       "query": "PIF",
       "expectedTermId": "cosmetic-product-information-file",
-      "requiredAliases": ["PIF", "Product Information File", "產品資訊檔案", "化粧品產品資訊檔案", "화장품 PIF"],
-      "requiredSourceKeys": ["tw-tfda-pif-hub-zh", "tw-tfda-pif-implementation"]
+      "requiredAliases": [
+        "PIF",
+        "Product Information File",
+        "產品資訊檔案",
+        "化粧品產品資訊檔案",
+        "화장품 PIF"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-pif-hub-zh",
+        "tw-tfda-pif-implementation"
+      ]
     },
     {
       "id": "cosmetic-pif-zh-official",
       "query": "產品資訊檔案",
       "expectedTermId": "cosmetic-product-information-file",
-      "requiredAliases": ["產品資訊檔案", "化粧品產品資訊檔案", "化妝品產品資訊檔案", "대만 화장품 제품정보파일"]
+      "requiredAliases": [
+        "產品資訊檔案",
+        "化粧品產品資訊檔案",
+        "化妝品產品資訊檔案",
+        "대만 화장품 제품정보파일"
+      ]
     },
     {
       "id": "cosmetic-gmp-zh",
       "query": "化粧品GMP",
       "expectedTermId": "cosmetic-gmp",
-      "requiredAliases": ["cosmetic GMP", "化粧品GMP", "化妝品GMP", "化粧品優良製造準則", "화장품 GMP"]
+      "requiredAliases": [
+        "cosmetic GMP",
+        "化粧品GMP",
+        "化妝品GMP",
+        "化粧品優良製造準則",
+        "화장품 GMP"
+      ]
     },
     {
       "id": "cosmetic-preservative-zh",
       "query": "防腐劑",
       "expectedTermId": "cosmetic-preservatives",
-      "requiredAliases": ["防腐劑", "化粧品防腐劑", "방부제", "보존제", "cosmetic preservatives"]
+      "requiredAliases": [
+        "防腐劑",
+        "化粧品防腐劑",
+        "방부제",
+        "보존제",
+        "cosmetic preservatives"
+      ]
     },
     {
       "id": "cosmetic-colorants-zh",
       "query": "化粧品色素",
       "expectedTermId": "cosmetic-colorants",
-      "requiredAliases": ["化粧品色素", "色素", "화장품 색소", "color index", "cosmetic colorants"]
+      "requiredAliases": [
+        "化粧品色素",
+        "色素",
+        "화장품 색소",
+        "color index",
+        "cosmetic colorants"
+      ]
     },
     {
       "id": "cosmetic-sunscreen-zh",
       "query": "防曬劑",
       "expectedTermId": "cosmetic-sunscreen-ingredients",
-      "requiredAliases": ["防曬劑", "防曬成分", "化粧品防曬劑", "UV filter", "자외선차단제 성분"]
+      "requiredAliases": [
+        "防曬劑",
+        "防曬成分",
+        "化粧品防曬劑",
+        "UV filter",
+        "자외선차단제 성분"
+      ]
     },
     {
       "id": "nutrition-labeling-zh",
       "query": "營養標示",
       "expectedTermId": "nutrition-labeling",
-      "requiredAliases": ["營養標示", "nutrition label", "nutrition claim", "영양표시"]
+      "requiredAliases": [
+        "營養標示",
+        "nutrition label",
+        "nutrition claim",
+        "영양표시"
+      ]
     },
     {
       "id": "food-allergen-labeling-zh",
       "query": "過敏原標示",
       "expectedTermId": "food-allergen-labeling",
-      "requiredAliases": ["過敏原標示", "allergen labeling", "알레르겐 표시", "致過敏性內容物"]
+      "requiredAliases": [
+        "過敏原標示",
+        "allergen labeling",
+        "알레르겐 표시",
+        "致過敏性內容物"
+      ]
     },
     {
       "id": "food-allergen-contains-phrase",
       "query": "本產品含有",
       "expectedTermId": "food-allergen-labeling",
-      "requiredAliases": ["本產品含有", "不適合對其過敏體質者食用", "致過敏性內容物名稱"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling", "tw-tfda-food-allergen-labeling-consumer-notice"]
+      "requiredAliases": [
+        "本產品含有",
+        "不適合對其過敏體質者食用",
+        "致過敏性內容物名稱"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ]
     },
     {
       "id": "gluten-cereals-official-phrase",
       "query": "含麩質之穀物",
       "expectedTermId": "gluten-cereals-allergen",
-      "requiredAliases": ["含麩質之穀物", "黑麥", "燕麥", "글루텐 함유 곡물"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+      "requiredAliases": [
+        "含麩質之穀物",
+        "黑麥",
+        "燕麥",
+        "글루텐 함유 곡물"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ]
     },
     {
       "id": "gluten-cereals-rye-zh",
       "query": "黑麥",
       "expectedTermId": "gluten-cereals-allergen",
-      "requiredAliases": ["黑麥", "燕麥", "Rye", "Oat"]
+      "requiredAliases": [
+        "黑麥",
+        "燕麥",
+        "Rye",
+        "Oat"
+      ]
     },
     {
       "id": "cephalopods-official-zh",
       "query": "頭足類",
       "expectedTermId": "cephalopods-advisory-allergen",
-      "requiredAliases": ["頭足類", "Cephalopods", "魷魚", "章魚"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling-consumer-notice"]
+      "requiredAliases": [
+        "頭足類",
+        "Cephalopods",
+        "魷魚",
+        "章魚"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ]
     },
     {
       "id": "mollusks-official-zh",
       "query": "螺貝類",
       "expectedTermId": "mollusks-advisory-allergen",
-      "requiredAliases": ["螺貝類", "Mollusks", "Molluscs", "貝類"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling-consumer-notice"]
+      "requiredAliases": [
+        "螺貝類",
+        "Mollusks",
+        "Molluscs",
+        "貝類"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ]
     },
     {
       "id": "cosmetic-product-notification-zh",
       "query": "化粧品產品登錄",
       "expectedTermId": "cosmetic-product-notification",
-      "requiredAliases": ["產品登錄", "化粧品產品登錄", "cosmetic product notification", "화장품 등록"]
+      "requiredAliases": [
+        "產品登錄",
+        "化粧品產品登錄",
+        "cosmetic product notification",
+        "화장품 등록"
+      ]
     },
     {
       "id": "food-additive-registration-zh",
       "query": "食品添加物查驗登記",
       "expectedTermId": "food-additive-inspection-registration",
-      "requiredAliases": ["食品添加物查驗登記", "food additive inspection registration", "food additive registration", "식품첨가물 등록"]
+      "requiredAliases": [
+        "食品添加物查驗登記",
+        "food additive inspection registration",
+        "food additive registration",
+        "식품첨가물 등록"
+      ]
     },
     {
       "id": "benzoate-sodium-zh-hans",
       "query": "苯甲酸钠",
       "expectedTermId": "benzoates-food-additives",
-      "requiredAliases": ["Sodium benzoate", "苯甲酸鈉", "安息香酸鈉"]
+      "requiredAliases": [
+        "Sodium benzoate",
+        "苯甲酸鈉",
+        "安息香酸鈉"
+      ]
     },
     {
       "id": "sorbate-potassium-zh-hans",
       "query": "山梨酸钾",
       "expectedTermId": "sorbates-food-additives",
-      "requiredAliases": ["Potassium sorbate", "山梨酸鉀", "소르빈산칼륨"]
+      "requiredAliases": [
+        "Potassium sorbate",
+        "山梨酸鉀",
+        "소르빈산칼륨"
+      ]
     },
     {
       "id": "msg-simplified-glutamate",
       "query": "谷氨酸钠",
       "expectedTermId": "monosodium-glutamate",
-      "requiredAliases": ["谷氨酸鈉", "麩酸鈉", "MSG"]
+      "requiredAliases": [
+        "谷氨酸鈉",
+        "麩酸鈉",
+        "MSG"
+      ]
     },
     {
       "id": "sulfites-so2-spaced",
       "query": "SO 2",
       "expectedTermId": "sulfites-allergen",
-      "requiredAliases": ["SO2", "SO₂", "二氧化硫"]
+      "requiredAliases": [
+        "SO2",
+        "SO₂",
+        "二氧化硫"
+      ]
     },
     {
       "id": "cosmetic-gmp-zh-hans",
       "query": "化妆品GMP",
       "expectedTermId": "cosmetic-gmp",
-      "requiredAliases": ["化粧品GMP", "化妝品GMP", "화장품 GMP"]
+      "requiredAliases": [
+        "化粧品GMP",
+        "化妝品GMP",
+        "화장품 GMP"
+      ]
     },
     {
       "id": "cosmetic-pif-zh-hans",
       "query": "化妆品产品资讯档案",
       "expectedTermId": "cosmetic-product-information-file",
-      "requiredAliases": ["產品資訊檔案", "化粧品產品資訊檔案", "化妝品產品資訊檔案"]
+      "requiredAliases": [
+        "產品資訊檔案",
+        "化粧品產品資訊檔案",
+        "化妝品產品資訊檔案"
+      ]
     },
     {
       "id": "cosmetic-product-notification-zh-hans-context",
       "query": "台湾化妆品产品登录",
       "expectedTermId": "cosmetic-product-notification",
-      "requiredAliases": ["產品登錄", "化粧品產品登錄", "cosmetic product notification"]
+      "requiredAliases": [
+        "產品登錄",
+        "化粧品產品登錄",
+        "cosmetic product notification"
+      ]
     },
     {
       "id": "salicylic-cas-unicode-dash",
       "query": "69–72–7",
       "expectedTermId": "salicylic-acid",
-      "requiredAliases": ["69-72-7", "Salicylic Acid"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-cosmetic-preservatives"]
+      "requiredAliases": [
+        "69-72-7",
+        "Salicylic Acid"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ]
     },
     {
       "id": "salicylic-cas-prefix",
       "query": "CAS 69-72-7",
       "expectedTermId": "salicylic-acid",
-      "requiredAliases": ["69-72-7", "Salicylic Acid"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients", "tw-tfda-cosmetic-preservatives"]
+      "requiredAliases": [
+        "69-72-7",
+        "Salicylic Acid"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ]
     },
     {
       "id": "titanium-dioxide-ci-compact",
       "query": "CI77891",
       "expectedTermId": "titanium-dioxide",
-      "requiredAliases": ["CI 77891", "Titanium Dioxide", "TiO2"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-sunscreen-ingredients"]
+      "requiredAliases": [
+        "CI 77891",
+        "Titanium Dioxide",
+        "TiO2"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-colorants",
+        "tw-tfda-cosmetic-sunscreen-ingredients"
+      ]
     },
     {
       "id": "titanium-dioxide-ins-code",
       "query": "INS 171",
       "expectedTermId": "titanium-dioxide",
-      "requiredAliases": ["INS 171", "E171", "Titanium Dioxide", "二氧化鈦", "CI 77891"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-colorants", "tw-tfda-cosmetic-sunscreen-ingredients"]
+      "requiredAliases": [
+        "INS 171",
+        "E171",
+        "Titanium Dioxide",
+        "二氧化鈦",
+        "CI 77891"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-colorants",
+        "tw-tfda-cosmetic-sunscreen-ingredients"
+      ]
     },
     {
       "id": "benzophenone-3-inci-synonym",
       "query": "Oxybenzone",
       "expectedTermId": "benzophenone-3",
-      "requiredAliases": ["Oxybenzone", "Benzophenone-3", "二苯酮-3"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-sunscreen-ingredients"]
+      "requiredAliases": [
+        "Oxybenzone",
+        "Benzophenone-3",
+        "二苯酮-3"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-sunscreen-ingredients"
+      ]
     },
     {
       "id": "hydrogen-peroxide-korean",
       "query": "과산화수소",
       "expectedTermId": "hydrogen-peroxide",
-      "requiredAliases": ["Hydrogen Peroxide", "H2O2", "過氧化氫", "과산화수소"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients"]
+      "requiredAliases": [
+        "Hydrogen Peroxide",
+        "H2O2",
+        "過氧化氫",
+        "과산화수소"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ]
     },
     {
       "id": "kojic-acid-korean-common",
       "query": "코직산",
       "expectedTermId": "kojic-acid",
-      "requiredAliases": ["Kojic Acid", "麴酸", "코직애씨드", "코직산"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients"]
+      "requiredAliases": [
+        "Kojic Acid",
+        "麴酸",
+        "코직애씨드",
+        "코직산"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ]
     },
     {
       "id": "toluene-2-5-diamine-korean",
       "query": "톨루엔-2,5-디아민",
       "expectedTermId": "toluene-2-5-diamine",
-      "requiredAliases": ["Toluene-2,5-diamine", "Toluene 2,5-diamine", "톨루엔-2,5-디아민"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-restricted-ingredients"]
+      "requiredAliases": [
+        "Toluene-2,5-diamine",
+        "Toluene 2,5-diamine",
+        "톨루엔-2,5-디아민"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ]
     },
     {
       "id": "dmdm-hydantoin-zh",
       "query": "DMDM 乙內醯脲",
       "expectedTermId": "dmdm-hydantoin",
-      "requiredAliases": ["DMDM Hydantoin", "DMDM 乙內醯脲", "디엠디엠하이단토인"],
-      "requiredSourceKeys": ["tw-tfda-cosmetic-preservatives"]
+      "requiredAliases": [
+        "DMDM Hydantoin",
+        "DMDM 乙內醯脲",
+        "디엠디엠하이단토인"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-preservatives"
+      ]
     },
     {
       "id": "menthol-korean",
       "query": "멘톨",
       "expectedTermId": "menthol",
-      "requiredAliases": ["Menthol", "薄荷醇", "멘톨", "メントール"]
+      "requiredAliases": [
+        "Menthol",
+        "薄荷醇",
+        "멘톨",
+        "メントール"
+      ]
     },
     {
       "id": "camphor-zh",
       "query": "樟腦",
       "expectedTermId": "camphor",
-      "requiredAliases": ["Camphor", "樟腦", "장뇌", "カンフル"]
+      "requiredAliases": [
+        "Camphor",
+        "樟腦",
+        "장뇌",
+        "カンフル"
+      ]
     },
     {
       "id": "cica-korean-marketing-name",
       "query": "시카",
       "expectedTermId": "centella-asiatica-cosmetic-ingredient",
-      "requiredAliases": ["Cica", "시카", "병풀", "積雪草", "Centella Asiatica Extract"],
-      "requiredSourceKeys": ["global-pcpc-inci", "tw-moj-cosmetic-claims-criteria"],
+      "requiredAliases": [
+        "Cica",
+        "시카",
+        "병풀",
+        "積雪草",
+        "Centella Asiatica Extract"
+      ],
+      "requiredSourceKeys": [
+        "global-pcpc-inci",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
       "note": "Cica is a marketing shorthand; search should surface Centella ingredient review and claim substantiation."
     },
     {
       "id": "centella-taiwan-local-name",
       "query": "積雪草",
       "expectedTermId": "centella-asiatica-cosmetic-ingredient",
-      "requiredAliases": ["積雪草", "Centella Asiatica", "병풀", "Cica"]
+      "requiredAliases": [
+        "積雪草",
+        "Centella Asiatica",
+        "병풀",
+        "Cica"
+      ]
     },
     {
       "id": "madecassoside-korean",
       "query": "마데카소사이드",
       "expectedTermId": "centella-triterpenes",
-      "requiredAliases": ["Madecassoside", "마데카소사이드", "Asiaticoside", "아시아티코사이드"],
-      "requiredSourceKeys": ["global-pcpc-inci", "global-cas-registry"]
+      "requiredAliases": [
+        "Madecassoside",
+        "마데카소사이드",
+        "Asiaticoside",
+        "아시아티코사이드"
+      ],
+      "requiredSourceKeys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ]
     },
     {
       "id": "niacinamide-taiwan-name",
       "query": "菸鹼醯胺",
       "expectedTermId": "niacinamide-cosmetic-ingredient",
-      "requiredAliases": ["Niacinamide", "Nicotinamide", "菸鹼醯胺", "나이아신아마이드"],
-      "requiredSourceKeys": ["global-pcpc-inci", "global-cas-registry"]
+      "requiredAliases": [
+        "Niacinamide",
+        "Nicotinamide",
+        "菸鹼醯胺",
+        "나이아신아마이드"
+      ],
+      "requiredSourceKeys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ]
     },
     {
       "id": "hyaluronic-common-taiwan",
       "query": "玻尿酸",
       "expectedTermId": "hyaluronic-acid-sodium-hyaluronate",
-      "requiredAliases": ["Hyaluronic Acid", "Sodium Hyaluronate", "玻尿酸", "透明質酸", "히알루론산"],
-      "requiredSourceKeys": ["global-pcpc-inci", "global-cas-registry"]
+      "requiredAliases": [
+        "Hyaluronic Acid",
+        "Sodium Hyaluronate",
+        "玻尿酸",
+        "透明質酸",
+        "히알루론산"
+      ],
+      "requiredSourceKeys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ]
     },
     {
       "id": "soy-protein-korean",
       "query": "분리대두단백",
       "expectedTermId": "soybean-allergen",
-      "requiredAliases": ["Soy protein isolate", "Soy protein", "大豆蛋白", "분리대두단백", "대두단백"],
-      "requiredSourceKeys": ["tw-tfda-food-allergen-labeling"]
+      "requiredAliases": [
+        "Soy protein isolate",
+        "Soy protein",
+        "大豆蛋白",
+        "분리대두단백",
+        "대두단백"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ]
     },
     {
       "id": "ginseng-stick-korean",
       "query": "홍삼",
       "expectedTermId": "panax-ginseng-botanical",
-      "requiredAliases": ["Panax Ginseng", "Ginseng", "人參", "홍삼", "인삼"],
-      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "tw-moj-health-food-governing-act"],
+      "requiredAliases": [
+        "Panax Ginseng",
+        "Ginseng",
+        "人參",
+        "홍삼",
+        "인삼"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-moj-health-food-governing-act"
+      ],
       "note": "Ginseng food labels should trigger ingredient identity plus health-food/claim screening."
     },
     {
       "id": "probiotic-taiwan-local-name",
       "query": "益生菌",
       "expectedTermId": "probiotics-lactic-acid-bacteria",
-      "requiredAliases": ["Probiotics", "Lactic acid bacteria", "Lactobacillus", "益生菌", "乳酸菌", "유산균"],
-      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "tw-tfda-health-food-permit-query"]
+      "requiredAliases": [
+        "Probiotics",
+        "Lactic acid bacteria",
+        "Lactobacillus",
+        "益生菌",
+        "乳酸菌",
+        "유산균"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-health-food-permit-query"
+      ]
     },
     {
       "id": "collagen-peptide-korean",
       "query": "저분자콜라겐",
       "expectedTermId": "collagen-peptides",
-      "requiredAliases": ["Collagen", "Collagen peptides", "Hydrolyzed Collagen", "膠原蛋白", "저분자콜라겐"],
-      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "tw-tfda-food-false-exaggerated-medical-efficacy-claims"]
+      "requiredAliases": [
+        "Collagen",
+        "Collagen peptides",
+        "Hydrolyzed Collagen",
+        "膠原蛋白",
+        "저분자콜라겐"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
+      ]
     },
     {
       "id": "green-tea-catechin-zh",
       "query": "兒茶素",
       "expectedTermId": "green-tea-camellia-sinensis",
-      "requiredAliases": ["Camellia Sinensis", "Green tea", "綠茶", "兒茶素", "녹차"],
-      "requiredSourceKeys": ["tw-tfda-food-ingredient-integration-query-platform", "global-pcpc-inci"]
+      "requiredAliases": [
+        "Camellia Sinensis",
+        "Green tea",
+        "綠茶",
+        "兒茶素",
+        "녹차"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "global-pcpc-inci"
+      ]
+    },
+    {
+      "id": "sunscreen-lotion-zh-market-name",
+      "query": "防曬乳",
+      "expectedTermId": "cosmetic-pif-product-registration-categories",
+      "requiredAliases": [
+        "防曬乳",
+        "防曬"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-pif-category-implementation-2024",
+        "tw-tfda-pif-implementation"
+      ],
+      "note": "Taiwan users often search sunscreen lotion rather than the broader official sunscreen category."
+    },
+    {
+      "id": "sunscreen-lotion-ingredient-context",
+      "query": "清爽型防曬乳",
+      "expectedTermId": "cosmetic-sunscreen-ingredients",
+      "requiredAliases": [
+        "清爽型防曬乳",
+        "防曬係數",
+        "SPF"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-sunscreen-ingredients",
+        "tw-tfda-pif-hub-zh"
+      ],
+      "note": "TFDA PIF hub example product should route to sunscreen ingredients and SPF/PIF substantiation context."
+    },
+    {
+      "id": "deodorant-zh-market-name",
+      "query": "除臭",
+      "expectedTermId": "cosmetic-pif-product-registration-categories",
+      "requiredAliases": [
+        "止汗制臭",
+        "除臭",
+        "制臭"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-pif-category-implementation-2024"
+      ],
+      "note": "Market deodorant wording should not miss the Taiwan stop-sweat/deodorizing category."
+    },
+    {
+      "id": "handmade-soap-short-zh",
+      "query": "手工皂",
+      "expectedTermId": "cosmetic-pif-product-registration-categories",
+      "requiredAliases": [
+        "手工皂",
+        "固態手工香皂"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-pif-category-implementation-2024"
+      ],
+      "note": "Short handmade-soap wording should still route to PIF implementation/exemption context."
+    },
+    {
+      "id": "baby-cosmetics-zh",
+      "query": "嬰兒化粧品",
+      "expectedTermId": "cosmetic-pif-product-registration-categories",
+      "requiredAliases": [
+        "嬰兒化粧品",
+        "嬰兒用"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-cosmetic-pif-category-implementation-2024"
+      ],
+      "note": "Baby cosmetic product wording should route to the second PIF phase."
+    },
+    {
+      "id": "pif-visit-zh",
+      "query": "PIF訪視",
+      "expectedTermId": "cosmetic-product-information-file",
+      "requiredAliases": [
+        "PIF訪視",
+        "產品資訊檔案查檢表"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-pif-implementation",
+        "tw-moj-cosmetic-pif-management"
+      ],
+      "note": "PIF visit/workshop wording should open PIF readiness context."
+    },
+    {
+      "id": "gluten-common-typo-zh",
+      "query": "麵質",
+      "expectedTermId": "gluten-cereals-allergen",
+      "requiredAliases": [
+        "麵質",
+        "麩質",
+        "含麩質之穀物"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "note": "Keep a low-confidence common typo searchable for allergen review."
+    },
+    {
+      "id": "whey-protein-zh",
+      "query": "乳清蛋白",
+      "expectedTermId": "milk-allergen",
+      "requiredAliases": [
+        "乳清蛋白",
+        "whey protein",
+        "Milk"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-allergen-labeling"
+      ],
+      "note": "Dairy-derived protein ingredient wording should surface milk allergen review."
+    },
+    {
+      "id": "infant-formula-permit-query-zh",
+      "query": "嬰兒配方食品",
+      "expectedTermId": "infant-formula-permit-query",
+      "requiredAliases": [
+        "嬰兒配方食品",
+        "嬰兒與較大嬰兒配方食品許可資料查詢"
+      ],
+      "requiredSourceKeys": [
+        "tw-tfda-food-business-info-query-links",
+        "tw-tfda-food-related-products-permit-document-management"
+      ],
+      "note": "TFDA food-business information links include the infant/follow-up formula permit-data query."
     }
-  ]
+  ],
+  "coverage_version": "2026-06-28"
 }

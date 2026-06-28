@@ -26,7 +26,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: Taiwan Chinese label; ingredient composition; PIF or safety file; COA/specification; GMP/manufacturer document; importer/responsible firm data
 - Evidence template IDs: `tw_cosmetic_label_pif_evidence_bundle`
 - Source IDs: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-product-notification`, `tw-tfda-cosmetic-adverse-event-qms-platform`, `tw-tfda-cosmetic-announcements`, `tw-tfda-cosmetic-fadenbook-platform`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-tfda-cosmetic-pif-category-implementation-2024`, `tw-tfda-cosmetic-product-registration-categories-2024`, `tw-tfda-cosmetic-product-registration-system`
-- Term IDs: `cosmetic-product-information-file`, `cosmetic-labeling-claims`, `cosmetic-product-notification`, `cosmetic-pif-product-registration-categories`, `cosmetic-label-required-items`, `cosmetic-spray-aerosol-safety`, `specific-purpose-cosmetics-transition`, `cosmetic-claims-criteria`, `benzalkonium-chloride-family`, `centella-asiatica-cosmetic-ingredient`
+- Term IDs: `cosmetic-product-information-file`, `cosmetic-labeling-claims`, `cosmetic-pif-product-registration-categories`, `cosmetic-product-notification`, `cosmetic-label-required-items`, `cosmetic-spray-aerosol-safety`, `specific-purpose-cosmetics-transition`, `cosmetic-claims-criteria`, `benzalkonium-chloride-family`, `centella-asiatica-cosmetic-ingredient`
 
 ### Entry Questions
 

@@ -1,15 +1,13 @@
 id: tw-tfda-cosmetic-fadenbook-platform
 official_url: http://fadenbook.fda.gov.tw/
-captured_url: http://fadenbook.fda.gov.tw/
-title: fadenbook.fda.gov.tw
-captured_at: 2026-06-26T19:21:16.736Z
-capture_status: browser_capture_blocked_manual_anchor
-
+captured_url: browser_capture_timeout_manual_anchor
+title: TFDA Food and Drug Business Registration Platform
+captured_at: 2026-06-27T18:58:15.587Z
+capture_status: browser_capture_timeout_manual_anchor
 CAPTURE_NOTE:
-Browser navigation timed out or returned an empty response for the official fadenbook URL during manual capture. The official URL remains the authority; this text preserves the operational evidence anchor until the legacy portal can be re-captured.
+Chrome headless timed out on both the root URL and the public index URL during the 2026-06-28 recapture attempt. Keep the manual workflow anchor and retry with an interactive browser session when the portal is reachable.
 
 VISIBLE_BROWSER_TEXT:
 _The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
-
 OFFICIAL_WORKFLOW_ANCHOR:
 Official TFDA Food and Drug Business Registration Platform, commonly referenced as the fadenbook portal and 非登不可. Treat this as an operational companion source for Taiwan food, drug, and cosmetics business registration, operator account workflows, and product registration or filing support. For cosmetics review, use it with the TFDA cosmetic product registration platform, product notification rules, and PIF management evidence to confirm that importer, responsible firm, and filing responsibilities route through official TFDA systems.

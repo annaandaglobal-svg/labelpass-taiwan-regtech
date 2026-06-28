@@ -15,7 +15,6 @@ import {
   Ship,
   Truck
 } from "lucide-react";
-import { AppShell } from "@/components/app-shell";
 import { WorkspaceHandoffDrafts } from "@/components/workspace-handoff-drafts";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { buildPlatformOpsActionQueue, getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
@@ -183,7 +182,7 @@ export default async function WorkspacePage() {
   ];
 
   return (
-    <AppShell active="workspace" className="workspace-shell">
+    <>
       <section className="lp-main workspace-main">
         <header className="workspace-topbar">
           <div>
@@ -392,6 +391,6 @@ export default async function WorkspacePage() {
           </article>
         </section>
       </section>
-    </AppShell>
+    </>
   );
 }

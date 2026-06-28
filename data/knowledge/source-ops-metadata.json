@@ -388,7 +388,7 @@
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
       "refresh_strategy": "weekly-high-priority-watch",
-      "evidence_policy": "browser-visible-text"
+      "evidence_policy": "browser-text-and-screenshot"
     },
     {
       "id": "tw-tfda-food-registration-permit-management-rule",
@@ -850,7 +850,7 @@
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
       "refresh_strategy": "weekly-high-priority-watch",
-      "evidence_policy": "browser-visible-text"
+      "evidence_policy": "browser-text-and-screenshot"
     },
     {
       "id": "tw-tfda-formula-for-certain-disease-labeling-2025",
@@ -872,7 +872,7 @@
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
       "refresh_strategy": "weekly-high-priority-watch",
-      "evidence_policy": "browser-visible-text"
+      "evidence_policy": "browser-text-and-screenshot"
     },
     {
       "id": "tw-tfda-food-ingredient-integration-query-platform",
@@ -916,7 +916,7 @@
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
       "refresh_strategy": "weekly-high-priority-watch",
-      "evidence_policy": "browser-visible-text"
+      "evidence_policy": "browser-text-and-screenshot"
     },
     {
       "id": "tw-trade-import-export-regulations",
@@ -993,7 +993,7 @@
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
       "refresh_strategy": "weekly-high-priority-watch",
-      "evidence_policy": "browser-visible-text"
+      "evidence_policy": "browser-text-and-screenshot"
     },
     {
       "id": "tw-trade-commodity-classification-guide",
@@ -1015,7 +1015,7 @@
       "selector_strategy": "browser-visible-text-capture",
       "date_strategy": "page-update-or-publication-date",
       "refresh_strategy": "weekly-high-priority-watch",
-      "evidence_policy": "browser-visible-text"
+      "evidence_policy": "browser-text-and-screenshot"
     },
     {
       "id": "tw-customs-tariff-system",

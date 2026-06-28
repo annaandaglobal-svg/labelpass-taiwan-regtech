@@ -1,15 +1,157 @@
 id: tw-tfda-food-additive-permit-query
-official_url: https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162
-captured_url: browser_error_page
-title: This site can't be reached
-captured_at: 2026-06-26T19:21:16.736Z
-capture_status: browser_capture_blocked_manual_anchor
-
-CAPTURE_NOTE:
-Browser navigation reached a Chrome network error page for the official dynamic TFDA consumer query URL during manual capture. The official URL remains the authority; this text preserves the permit-query workflow terms until the ASP.NET/session page can be re-captured.
-
+official_url: https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161
+captured_url: https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161
+title: Food Additive Permit Data Query
+captured_at: 2026-06-27T18:58:15.587Z
+capture_status: browser_capture_ok
 VISIBLE_BROWSER_TEXT:
-_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
-
+食品添加物查驗登記許可證資料查詢_消費者專區
+MENU 食品 ► 核可資料查詢
+食品原料整合查詢平臺
+邊境檢驗不符合食品資訊查詢
+食品法規查詢
+HACCP 查詢
+吃的健康
+食品相關法規暨解釋彙編查詢
+西藥 ► 產品回收
+通過GMP核准之國外藥廠名單
+檢驗方法查詢
+食品藥物管理署官網業務專區
+食品藥物管理署官網法規資訊
+化粧品禁限用成分管理規定
+人體器官保存庫 ► 保存庫許可通過名單查詢
+跳到主要內容區塊
+專區首頁
+食品藥物管理署
+:::
+專區首頁
+網站導覽
+食品藥物管理署
+食品 核可資料查詢
+食品原料整合查詢平臺
+邊境檢驗不符合食品資訊查詢
+食品法規查詢
+HACCP 查詢
+吃的健康
+食品相關法規暨解釋彙編查詢
+西藥 產品回收
+通過GMP核准之國外藥廠名單
+檢驗方法查詢
+食品藥物管理署官網業務專區
+食品藥物管理署官網法規資訊
+化粧品禁限用成分管理規定
+人體器官保存庫 保存庫許可通過名單查詢
+【暫停服務公告】 為配合本署資訊機房資安設備更換及網路架構調整作業，預計自109年12月13日(日)8時至19時，暫停本專區各項服務，造成不便，敬請見諒。
+-->
+:::
+首頁 > 整合查詢服務 > 食品 > 核可資料查詢 > 食品添加物查驗登記許可證資料查詢
+食品添加物查驗登記許可證資料查詢
+許可證字號：
+中文品名：
+英文品名：
+食品申請商：
+成分1：
+成分2：
+成分3：
+關鍵字：
+讀取中!!請稍待片刻後查看下載目錄!!
+共有 6229 筆搜尋結果
+項次
+許可證字號
+中文品名
+英文品名
+包裝規格
+有效日期
+製造廠國別
+申請商名稱
+1
+衛署添輸字009079
+L-白胺酸
+L-LEUCINE
+包裝規格
+1200902
+中國大陸
+碩氨貿易有限公司
+2
+衛署添輸字006289
+L-精胺酸
+L-Arginine
+包裝規格
+1200829
+日本
+東信化學藥品有限公司
+3
+衛部添輸字011805
+磷酸氫鈣
+CALCIUM PHOSPHATE, DIBASIC (DICALCIUM PHOSPHATE DIHYDRATE POWDER)
+包裝規格
+1200829
+中國大陸
+富藏貿易有限公司
+4
+衛部添輸字011806
+磷酸氫鈣
+CALCIUM PHOSPHATE, DIBASIC (DICALCIUM PHOSPHATE DIHYDRATE GRANULAR)
+包裝規格
+1200829
+中國大陸
+富藏貿易有限公司
+5
+衛部添輸字011808
+麥芽糖醇
+MALTITOL
+包裝規格
+1200829
+中國大陸
+新和食品股份有限公司
+6
+衛部添輸字011809
+複方抗氧化劑 (粉末狀水溶性維生素 E)
+D-MIXED TOCOPHEROLS CONCENTRATE P34C
+包裝規格
+1200829
+日本
+鉑睿實業有限公司
+7
+衛署添輸字009064
+本多酸鈣
+CALCIUM PANTOTHENATE(CALCIUM D-PANTOTHENATE)
+包裝規格
+1200825
+英國
+赫力昂生技股份有限公司
+8
+衛署添輸字009070
+核黃素 (維生素B2)
+Riboflavin (Vitamin B2)
+包裝規格
+1200825
+中國大陸
+正豐貿易股份有限公司
+9
+衛署添輸字009071
+麥芽糖醇
+MALTITOL
+包裝規格
+1200825
+中國大陸
+盛美股份有限公司
+10
+衛部添製字002788
+胺基乙酸
+GLYCINE
+包裝規格
+1200810
+新和食品股份有限公司
+1 2 3 4 5 下一頁 最末頁 共有623頁
+::: 衛生福利部食品藥物管理署 © 2017 版權所有
+資訊安全政策
+隱私權政策
+政府網站資料開放宣告
+為民服務信箱
+食用玩家FB
+地址：115021 臺北市南港區研究院路一段130巷109號 | 總機電話:(02)2787-8000
+諮詢服務專線：(02)2787-8200 | 服務時間：人事行政局公告上班日8:00-18:00) | 食安資訊專線1919
+本網站最佳瀏覽解析度為1024x768 | 參訪人次 163012510 人次
 OFFICIAL_WORKFLOW_ANCHOR:
 Official TFDA Consumer Knowledge Service Network page for Food Additive Permit Data Query. The live URL is a dynamic official lookup page and may return generic resource text to automated HTTP clients, so LabelPass stores this manual extract as the searchable evidence anchor while retaining the official URL for verification. Use this source when a label, product specification, import file, supplier declaration, or product registration document mentions a food additive permit, food additive registration, food additive license number, permit number, registration number, inspection registration, 登錄碼, 許可證字號, 登記證, 食品添加物許可證, 食品添加物登錄碼, 食品添加物查驗登記, 食品添加物許可證字號, 식품첨가물 허가 조회, 식품첨가물 허가번호, or 식품첨가물 등록번호. The practical workflow is to search the TFDA permit data by additive or product name and permit-style identifiers, confirm whether the additive product appears in the TFDA permit dataset, and reconcile the result with the food additive standards, inspection-registration materials, and registration announcements before approving Taiwan import or label wording. This source is a database routing and evidence source, not a substitute for checking the applicable additive scope, specification, application, limitation, and product-category conditions.

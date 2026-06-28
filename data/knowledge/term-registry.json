@@ -2285,6 +2285,21 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "whey protein",
+          "type": "protein_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8
+        },
+        {
+          "value": "乳清蛋白",
+          "type": "protein_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Dairy-derived protein search wording; verify milk-allergen context and ingredient composition."
         }
       ],
       "source_keys": [
@@ -2514,6 +2529,14 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85
+        },
+        {
+          "value": "麵質",
+          "type": "common_misspelling",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.7,
+          "note": "Common user typo/variant for 麩質; keep low-confidence and allergen-context only."
         }
       ],
       "source_keys": [
@@ -8367,6 +8390,36 @@
           "language": "ja",
           "jurisdiction": "JP",
           "confidence": 0.85
+        },
+        {
+          "value": "SPF",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "防曬乳",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Consumer product wording; use with sunscreen ingredient limits and SPF/PIF substantiation checks."
+        },
+        {
+          "value": "清爽型防曬乳",
+          "type": "pif_example_product",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "TFDA PIF hub includes this sunscreen-lotion example."
+        },
+        {
+          "value": "防曬係數",
+          "type": "claim_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
         }
       ],
       "source_keys": [
@@ -8889,6 +8942,34 @@
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.9
+        },
+        {
+          "value": "PIF訪視",
+          "type": "workflow_event",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "產品資訊檔案查檢表",
+          "type": "official_document",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "PIF查檢表",
+          "type": "document_short_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "產品資訊檔案製作指引",
+          "type": "official_document",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
         }
       ],
       "source_keys": [
@@ -12165,6 +12246,86 @@
       "notes": "Taiwan requires prominent principal-display-panel wording and doctor/dietitian warning statements for approved Formula for Certain Disease products from 2025-01-01."
     },
     {
+      "id": "infant-formula-permit-query",
+      "canonical_name": "Infant and Follow-up Infant Formula Permit Query",
+      "category": "special_dietary_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "infant formula permit query",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "follow-up infant formula permit query",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "嬰兒配方食品許可資料查詢",
+          "type": "official_query_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "較大嬰兒配方食品許可資料查詢",
+          "type": "official_query_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "嬰兒與較大嬰兒配方食品許可資料查詢",
+          "type": "official_query_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "嬰兒配方食品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "較大嬰兒配方食品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "영아 조제식 허가 조회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "영유아 조제식 허가",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.8
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-business-info-query-links",
+        "tw-tfda-food-related-products-permit-document-management"
+      ],
+      "notes": "TFDA food-business information links include infant and follow-up infant formula permit-data queries; use this term to route formula products to permit lookup and related Chinese-label evidence."
+    },
+    {
       "id": "food-ingredient-integration-query-platform",
       "canonical_name": "Food Ingredient Integration Query Platform",
       "category": "food_safety",
@@ -12678,6 +12839,59 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85
+        },
+        {
+          "value": "防曬乳",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Consumer search wording for sunscreen lotion; map to Taiwan PIF/product-registration category and confirm sunscreen-ingredient limits when UV claims are made."
+        },
+        {
+          "value": "隔離霜",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.75,
+          "note": "Common Taiwan market wording; verify whether the product claims sunscreen, whitening, or makeup-only functions before routing."
+        },
+        {
+          "value": "制臭",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "除臭",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": "Market wording that can overlap deodorant claims; verify Taiwan specific-purpose cosmetics context."
+        },
+        {
+          "value": "手工皂",
+          "type": "market_product_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": "Short market wording for solid handmade soap; confirm factory-registration exemption context."
+        },
+        {
+          "value": "嬰兒化粧品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "嬰兒用化粧品",
+          "type": "product_category",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [

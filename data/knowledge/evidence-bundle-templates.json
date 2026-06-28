@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T12:38:34.227Z",
+  "generated_at": "2026-06-27T19:02:37.720Z",
   "generated_from": {
-    "knowledge_memory_generated_at": "2026-06-27T12:38:34.227Z",
+    "knowledge_memory_generated_at": "2026-06-27T19:02:37.720Z",
     "source_registry_version": "2026-06-26",
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -24,8 +24,8 @@
       "match_terms": [
         "cosmetic-product-information-file",
         "cosmetic-labeling-claims",
-        "cosmetic-product-notification",
         "cosmetic-pif-product-registration-categories",
+        "cosmetic-product-notification",
         "cosmetic-label-required-items",
         "cosmetic-spray-aerosol-safety",
         "specific-purpose-cosmetics-transition",
@@ -103,6 +103,25 @@
           ]
         },
         {
+          "id": "cosmetic-pif-product-registration-categories",
+          "canonical_name": "Cosmetic PIF and Product Registration Categories",
+          "category": "cosmetic_compliance",
+          "aliases": [
+            "cosmetic product registration",
+            "應完成產品登錄之化粧品種類",
+            "應建立產品資訊檔案之化粧品種類及實施日期",
+            "產品登錄",
+            "染髮",
+            "止汗制臭"
+          ],
+          "source_keys": [
+            "tw-tfda-pif-implementation",
+            "tw-tfda-cosmetic-pif-category-implementation-2024",
+            "tw-tfda-cosmetic-product-registration-categories-2024",
+            "tw-tfda-cosmetic-product-registration-system"
+          ]
+        },
+        {
           "id": "cosmetic-product-notification",
           "canonical_name": "Cosmetic Product Notification",
           "category": "cosmetic_compliance",
@@ -121,25 +140,6 @@
             "tw-tfda-cosmetics-business-area",
             "cn-nmpa-cosmetics-registration-filing",
             "eu-cosmetics-regulation-1223-2009"
-          ]
-        },
-        {
-          "id": "cosmetic-pif-product-registration-categories",
-          "canonical_name": "Cosmetic PIF and Product Registration Categories",
-          "category": "cosmetic_compliance",
-          "aliases": [
-            "cosmetic product registration",
-            "應完成產品登錄之化粧品種類",
-            "應建立產品資訊檔案之化粧品種類及實施日期",
-            "產品登錄",
-            "染髮",
-            "止汗制臭"
-          ],
-          "source_keys": [
-            "tw-tfda-pif-implementation",
-            "tw-tfda-cosmetic-pif-category-implementation-2024",
-            "tw-tfda-cosmetic-product-registration-categories-2024",
-            "tw-tfda-cosmetic-product-registration-system"
           ]
         },
         {
@@ -246,7 +246,7 @@
       ],
       "answer_skeleton": [
         "Classify the product as cosmetic and confirm the routing assumptions.",
-        "Normalize key names with the selected term cards: Cosmetic Product Information File, Cosmetic Labeling and Claims, Cosmetic Product Notification.",
+        "Normalize key names with the selected term cards: Cosmetic Product Information File, Cosmetic Labeling and Claims, Cosmetic PIF and Product Registration Categories.",
         "Cite the strongest Taiwan sources: tw-moj-cosmetic-hygiene-safety-act, tw-moj-cosmetic-product-notification, tw-tfda-cosmetic-adverse-event-qms-platform.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
@@ -262,7 +262,7 @@
         "no Chinese label text"
       ],
       "next_action": "Run the cosmetic review, then attach PIF/notification and ingredient evidence before expert approval.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_food_label_allergen_evidence_bundle",
@@ -518,7 +518,7 @@
         "missing importer/responsible firm"
       ],
       "next_action": "Run food label review and resolve allergen/nutrition/claim blockers before shipment release.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_food_additive_ingredient_evidence_bundle",
@@ -775,7 +775,7 @@
         "compound additive status unclear"
       ],
       "next_action": "Confirm additive/common-name status before treating the substance as allowed on a food label.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_food_import_inspection_evidence_bundle",
@@ -1023,7 +1023,7 @@
         "commercial shipment without importer registration"
       ],
       "next_action": "Route to food import inspection checklist before final label or logistics approval.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_health_food_claims_evidence_bundle",
@@ -1271,7 +1271,7 @@
         "medical claim wording present"
       ],
       "next_action": "Confirm permit scope before allowing any health-food wording or approved-effect claim.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_food_contact_packaging_evidence_bundle",
@@ -1515,7 +1515,7 @@
         "test report missing for regulated material"
       ],
       "next_action": "Classify food-contact status before applying ordinary food label or customs routing.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_customs_origin_hs_evidence_bundle",
@@ -1764,7 +1764,7 @@
         "trade restriction signal unresolved"
       ],
       "next_action": "Resolve HS/CCC and origin before final Taiwan label or import/export document release.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     },
     {
       "id": "tw_trade_control_shtc_evidence_bundle",
@@ -2000,7 +2000,7 @@
         "permit applicability unknown"
       ],
       "next_action": "Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals.",
-      "generated_from_memory_at": "2026-06-27T12:38:34.227Z"
+      "generated_from_memory_at": "2026-06-27T19:02:37.720Z"
     }
   ]
 }

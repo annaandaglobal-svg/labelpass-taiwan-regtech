@@ -8,11 +8,11 @@ domain: cosmetics
 source_type: database_index
 priority: high
 format: manual
-fetched_at: 2026-06-26T19:21:16.739Z
+fetched_at: 2026-06-27T18:58:15.589Z
 fetched_url: http://fadenbook.fda.gov.tw/
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T19:21:16.739Z
+cache_expires_at: 2026-07-11T18:58:15.589Z
 cache_status: fresh
 content_hash: 561e463fb515cb84b035213e3a9088f26668cbd84f7600c1fdc2b4cbc93198ef
 from_cache: false

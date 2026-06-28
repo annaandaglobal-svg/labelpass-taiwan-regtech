@@ -26,7 +26,6 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
-import { AppShell } from "@/components/app-shell";
 import {
   HANDOFF_DRAFTS_STORAGE_KEY,
   MAX_HANDOFF_DRAFTS,
@@ -952,7 +951,7 @@ export default function Home() {
   const routeHandoffCards = handoffCards(result, selectedRoute);
 
   return (
-    <AppShell active="review">
+    <>
       <section className="lp-main" id="review">
         <header className="lp-topbar">
           <div>
@@ -1352,6 +1351,6 @@ export default function Home() {
       </section>
 
       {toast && <div className="lp-toast">{toast}</div>}
-    </AppShell>
+    </>
   );
 }

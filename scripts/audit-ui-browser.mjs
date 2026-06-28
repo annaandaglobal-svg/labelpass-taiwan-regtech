@@ -7,8 +7,22 @@ import { join } from "node:path";
 
 const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").replace(/\/$/, "");
 const failures = [];
+const expectedPrimaryNavKeys = ["workspace", "review", "knowledge"];
+const expectedPrimaryNavHrefs = ["/workspace", "/", "/knowledge"];
+const expectedUtilityNavKeys = ["aliases", "admin"];
+const expectedUtilityNavHrefs = ["/knowledge/aliases", "/admin"];
 const expectedNavKeys = ["workspace", "review", "knowledge", "aliases", "admin"];
 const expectedNavHrefs = ["/workspace", "/", "/knowledge", "/knowledge/aliases", "/admin"];
+const expectedAdminSectionHrefs = [
+  "/admin",
+  "/admin/companies",
+  "/admin/users",
+  "/admin/reviews",
+  "/admin/experts",
+  "/admin/payments",
+  "/admin/logistics",
+  "/admin/settings"
+];
 
 const routes = [
   { path: "/workspace", active: "workspace" },
@@ -24,6 +38,14 @@ const routes = [
 const viewports = [
   { name: "desktop", width: 1440, height: 1080, mobile: false },
   { name: "mobile", width: 390, height: 920, mobile: true }
+];
+
+const shellTransitionSteps = [
+  { key: "review", path: "/", active: "review" },
+  { key: "knowledge", path: "/knowledge", active: "knowledge" },
+  { key: "aliases", path: "/knowledge/aliases", active: "aliases" },
+  { key: "admin", path: "/admin", active: "admin", admin: true },
+  { key: "workspace", path: "/workspace", active: "workspace" }
 ];
 
 function fail(message) {
@@ -214,6 +236,13 @@ function snapshotExpression() {
       current: el.getAttribute("aria-current") === "page",
       rect: rect(el)
     }));
+    const navItemsIn = (selector) => Array.from(document.querySelectorAll(selector)).map((el) => ({
+      key: el.getAttribute("data-shell-nav-item"),
+      href: new URL(el.getAttribute("href") || "", location.href).pathname,
+      text: (el.textContent || "").replace(/\\s+/g, " ").trim(),
+      current: el.getAttribute("aria-current") === "page",
+      rect: rect(el)
+    }));
     const activeItems = navItems.filter((item) => item.current);
     const controls = Array.from(document.querySelectorAll(".lp-button, .admin-secondary-action, .admin-section-nav a, .admin-ops-dry-run button, .admin-row-action button"))
       .map((el) => ({
@@ -228,6 +257,38 @@ function snapshotExpression() {
     const content = document.querySelector("[data-shell-content='stable']");
     const adminHero = document.querySelector(".admin-hero, .admin-section-hero");
     const adminSectionNav = document.querySelector(".admin-section-nav");
+    const adminSectionItems = Array.from(document.querySelectorAll(".admin-section-nav a")).map((el) => ({
+      href: new URL(el.getAttribute("href") || "", location.href).pathname,
+      text: (el.textContent || "").replace(/\\s+/g, " ").trim(),
+      current: el.getAttribute("aria-current") === "page",
+      rect: rect(el),
+      style: styleOf(el)
+    }));
+    const adminCtas = Array.from(document.querySelectorAll(".admin-hero .admin-secondary-action, .admin-section-hero .admin-secondary-action")).map((el) => {
+      const hero = el.closest(".admin-hero, .admin-section-hero");
+      const s = getComputedStyle(el);
+      return {
+        tag: el.tagName.toLowerCase(),
+        href: el.getAttribute("href") ? new URL(el.getAttribute("href"), location.href).pathname : "",
+        text: (el.textContent || "").replace(/\\s+/g, " ").trim().slice(0, 80),
+        rect: rect(el),
+        heroRect: rect(hero),
+        style: {
+          display: s.display,
+          width: s.width,
+          maxWidth: s.maxWidth,
+          minHeight: s.minHeight,
+          fontSize: s.fontSize,
+          lineHeight: s.lineHeight,
+          justifySelf: s.justifySelf,
+          alignSelf: s.alignSelf,
+          gridColumn: s.gridColumn,
+          flexGrow: s.flexGrow,
+          whiteSpace: s.whiteSpace
+        }
+      };
+    });
+    const searchInput = document.querySelector(".kb-searchbar input");
 
     return {
       path: location.pathname,
@@ -245,10 +306,16 @@ function snapshotExpression() {
       primaryCount: Number(document.querySelector("[data-shell-nav='primary']")?.getAttribute("data-shell-nav-count") || 0),
       utilityCount: Number(document.querySelector("[data-shell-nav='utility']")?.getAttribute("data-shell-nav-count") || 0),
       navItems,
+      primaryItems: navItemsIn("[data-shell-nav='primary'] [data-shell-nav-item]"),
+      utilityItems: navItemsIn("[data-shell-nav='utility'] [data-shell-nav-item]"),
       activeItems,
       controls,
+      adminCtas,
+      adminSectionItems,
       adminHeroRect: rect(adminHero),
-      adminSectionNavRect: rect(adminSectionNav)
+      adminSectionNavRect: rect(adminSectionNav),
+      searchInputValue: searchInput?.value ?? null,
+      searchInputCount: document.querySelectorAll(".kb-searchbar input").length
     };
   })()`;
 }
@@ -264,6 +331,14 @@ function assertSnapshot(snapshot, route, viewport) {
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);
+  const primaryKeys = snapshot.primaryItems.map((item) => item.key);
+  const primaryHrefs = snapshot.primaryItems.map((item) => item.href);
+  const utilityKeys = snapshot.utilityItems.map((item) => item.key);
+  const utilityHrefs = snapshot.utilityItems.map((item) => item.href);
+  if (primaryKeys.join("|") !== expectedPrimaryNavKeys.join("|")) fail(`${label}: primary nav key order changed to ${primaryKeys.join(", ")}`);
+  if (primaryHrefs.join("|") !== expectedPrimaryNavHrefs.join("|")) fail(`${label}: primary nav href order changed to ${primaryHrefs.join(", ")}`);
+  if (utilityKeys.join("|") !== expectedUtilityNavKeys.join("|")) fail(`${label}: utility nav key order changed to ${utilityKeys.join(", ")}`);
+  if (utilityHrefs.join("|") !== expectedUtilityNavHrefs.join("|")) fail(`${label}: utility nav href order changed to ${utilityHrefs.join(", ")}`);
   if (keys.join("|") !== expectedNavKeys.join("|")) fail(`${label}: nav key order changed to ${keys.join(", ")}`);
   if (hrefs.join("|") !== expectedNavHrefs.join("|")) fail(`${label}: nav href order changed to ${hrefs.join(", ")}`);
 
@@ -321,15 +396,148 @@ function assertSnapshot(snapshot, route, viewport) {
 
   if (route.admin) {
     if (!snapshot.adminSectionNavRect) fail(`${label}: admin secondary nav is missing`);
+    const adminHrefs = snapshot.adminSectionItems.map((item) => item.href);
+    if (adminHrefs.join("|") !== expectedAdminSectionHrefs.join("|")) {
+      fail(`${label}: admin secondary nav structure changed to ${adminHrefs.join(", ")}`);
+    }
     if ((snapshot.adminHeroRect?.height ?? 0) > 92) fail(`${label}: admin hero is too tall at ${snapshot.adminHeroRect?.height}px`);
     if (viewport.name === "desktop" && (snapshot.adminSectionNavRect?.height ?? 0) > 44) {
       fail(`${label}: desktop admin secondary nav is too tall at ${snapshot.adminSectionNavRect?.height}px`);
     }
+  } else if (snapshot.adminSectionItems.length > 0) {
+    fail(`${label}: admin secondary nav leaked outside admin routes`);
+  }
+
+  for (const cta of snapshot.adminCtas) {
+    const ctaLabel = `${label}: admin hero CTA "${cta.text}"`;
+    const ctaWidth = cta.rect?.width ?? 0;
+    const ctaHeight = cta.rect?.height ?? 0;
+    const heroWidth = cta.heroRect?.width ?? 0;
+    const widthRatio = heroWidth > 0 ? ctaWidth / heroWidth : 0;
+    const fontSize = px(cta.style?.fontSize);
+
+    if (ctaHeight > 38) fail(`${ctaLabel} is too tall at ${ctaHeight}px`);
+    if (ctaWidth > (viewport.name === "desktop" ? 240 : 168)) fail(`${ctaLabel} is too wide at ${ctaWidth}px`);
+    if (widthRatio > (viewport.name === "desktop" ? 0.42 : 0.58)) {
+      fail(`${ctaLabel} consumes ${Math.round(widthRatio * 100)}% of the hero width`);
+    }
+    if (fontSize && fontSize > 13.5) fail(`${ctaLabel} font-size is too large at ${cta.style.fontSize}`);
+    if (cta.style?.display === "block") fail(`${ctaLabel} became block-level instead of compact inline-flex`);
+    if (cta.style?.gridColumn === "1 / -1" || cta.style?.flexGrow === "1") fail(`${ctaLabel} is expanding like a full-width hero action`);
   }
 }
 
 function between(value, min, max) {
   return typeof value === "number" && value >= min && value <= max;
+}
+
+function px(value) {
+  const parsed = Number.parseFloat(String(value ?? ""));
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function navStructure(snapshot) {
+  return {
+    primary: snapshot.primaryItems.map((item) => `${item.key}:${item.href}`).join("|"),
+    utility: snapshot.utilityItems.map((item) => `${item.key}:${item.href}`).join("|"),
+    all: snapshot.navItems.map((item) => `${item.key}:${item.href}`).join("|"),
+    primaryCount: snapshot.primaryCount,
+    utilityCount: snapshot.utilityCount
+  };
+}
+
+function assertSameNavigation(before, after, label) {
+  const left = navStructure(before);
+  const right = navStructure(after);
+
+  for (const key of Object.keys(left)) {
+    if (left[key] !== right[key]) fail(`${label}: navigation ${key} changed from ${left[key]} to ${right[key]}`);
+  }
+}
+
+function assertShellContinuity(before, after, label, viewport) {
+  assertSameNavigation(before, after, label);
+  if (after.shellCount !== 1 || after.sidebarCount !== 1 || after.contentCount !== 1) {
+    fail(`${label}: persistent shell/sidebar/content counts changed after route movement`);
+  }
+  if (viewport.name === "desktop") {
+    if (!between(after.sidebarRect?.width, 218, 230)) fail(`${label}: sidebar width changed to ${after.sidebarRect?.width}px`);
+    if (Math.abs((before.sidebarRect?.left ?? 0) - (after.sidebarRect?.left ?? 0)) > 2) {
+      fail(`${label}: sidebar horizontal position shifted from ${before.sidebarRect?.left}px to ${after.sidebarRect?.left}px`);
+    }
+  }
+}
+
+async function clickShellNavItem(client, key) {
+  await evaluate(
+    client,
+    `(() => {
+      const link = document.querySelector("[data-shell-nav-item='${key}']");
+      if (!link) throw new Error("missing shell nav item ${key}");
+      link.click();
+      return true;
+    })()`
+  );
+}
+
+async function runShellTransitionAudit(client, viewport) {
+  await client.command("Page.navigate", { url: routeUrl("/workspace") });
+  let previous = await waitForSnapshot(client, { path: "/workspace", active: "workspace" }, viewport);
+  assertSnapshot(previous, { path: "/workspace", active: "workspace" }, viewport);
+
+  for (const step of shellTransitionSteps) {
+    await clickShellNavItem(client, step.key);
+    const current = await waitForSnapshot(client, step, viewport);
+    assertSnapshot(current, step, viewport);
+    assertShellContinuity(previous, current, `${viewport.name} client route ${previous.path} -> ${step.path}`, viewport);
+    previous = current;
+  }
+}
+
+async function waitForSearchSnapshot(client, query, viewport) {
+  const started = Date.now();
+  let lastError;
+
+  while (Date.now() - started < 15000) {
+    try {
+      const snapshot = await waitForSnapshot(client, { path: "/knowledge", active: "knowledge" }, viewport);
+      if (snapshot.searchInputValue === query) return snapshot;
+      lastError = new Error(`search value=${snapshot.searchInputValue}`);
+    } catch (error) {
+      lastError = error;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }
+
+  throw new Error(`${viewport.name} /knowledge search did not settle: ${lastError?.message ?? "timeout"}`);
+}
+
+async function setKnowledgeSearchQuery(client, query) {
+  await evaluate(
+    client,
+    `(() => {
+      const input = document.querySelector(".kb-searchbar input");
+      if (!input) throw new Error("knowledge search input is missing");
+      const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set;
+      setter.call(input, ${JSON.stringify(query)});
+      input.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: ${JSON.stringify(query)} }));
+      return input.value;
+    })()`
+  );
+}
+
+async function runSearchNavigationAudit(client, viewport) {
+  await client.command("Page.navigate", { url: routeUrl(`/knowledge?uiBrowserAudit=${Date.now()}`) });
+  const before = await waitForSnapshot(client, { path: "/knowledge", active: "knowledge" }, viewport);
+  assertSnapshot(before, { path: "/knowledge", active: "knowledge" }, viewport);
+  if (before.searchInputCount !== 1) fail(`${viewport.name} /knowledge: expected one search input before search, found ${before.searchInputCount}`);
+
+  const query = "SHTC export permit";
+  await setKnowledgeSearchQuery(client, query);
+  const after = await waitForSearchSnapshot(client, query, viewport);
+  assertSnapshot(after, { path: "/knowledge", active: "knowledge" }, viewport);
+  assertSameNavigation(before, after, `${viewport.name} knowledge search before/after`);
+  if (after.searchInputCount !== 1) fail(`${viewport.name} /knowledge: expected one search input after search, found ${after.searchInputCount}`);
 }
 
 function routeUrl(path) {
@@ -384,6 +592,9 @@ async function run() {
         const snapshot = await waitForSnapshot(client, route, viewport);
         assertSnapshot(snapshot, route, viewport);
       }
+
+      await runShellTransitionAudit(client, viewport);
+      await runSearchNavigationAudit(client, viewport);
     }
 
     client.close();

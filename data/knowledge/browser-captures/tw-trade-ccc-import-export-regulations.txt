@@ -1,15 +1,81 @@
 id: tw-trade-ccc-import-export-regulations
 official_url: https://fbfh.trade.gov.tw/fh/indexE.jsp
-captured_url: browser_error_page
-title: This site can't be reached
-captured_at: 2026-06-26T19:21:16.736Z
-capture_status: browser_capture_blocked_manual_anchor
-
-CAPTURE_NOTE:
-Browser navigation reached a Chrome network error page for the official International Trade Administration CCC import/export regulations URL during manual capture. The official URL remains the authority; this text preserves the query workflow terms until the browser-only database can be re-captured.
-
+captured_url: https://fbfh.trade.gov.tw/fh/indexE.jsp
+title: Import and Export Regulations by CCC Code
+captured_at: 2026-06-27T18:58:15.587Z
+capture_status: browser_capture_ok
 VISIBLE_BROWSER_TEXT:
-_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
-
+Import and Export Regulations - CCC
+Skip to the main section
+menu
+Home
+Query
+Import and Export Regulations
+Importation of Mainland China products
+Info
+Authority Concerned
+Download
+Download Information
+Download Importation of Mainland China products
+Sitemap
+中 中文版
+Import and Export Regulations
+Commodity Code：
+Single commodity code to search
+Commodity code range to search
+Import CCC code to search
+(Enter up to 5 items of HS code or CCC code)
+1.
+2.
+3.
+4.
+5.
+(Enter up to 3 groups of HS code or CCC code)
+1. from:
+1. to:
+2. from:
+2. to:
+3. from:
+3. to:
+(Import up to 100 items of CCC codes)
+Press 「Import」 button to select a file:
+Import
+Cancel
+Example
+HS code (2 to 6 digits, e.g., 01, 2001, 740729)
+CCC code (The Standard Classification of Commodities of the Republic of China, up to 10 digits, e.g., 0203120000, 2207101010)
+Commodity Description： You can key in a part of the description of commodities to retrieve. e.g., fish, bovine animals, chemical.
+Regulation codes： You can choose Import or Export regulation type then key in 3 digits code, e.g., 111, 401, 272, C01, MW0
+Import
+Export
+Regulation code:
+Import Regulation codes or
+Export Regulation codes
+Search
+Clear
+Select Date:
+Year:
+Month:
+Today
+×
+Select a file to upload
+×
+點選選擇檔案：
+Upload
+Close
+規定代號說明
+×
+「大陸物品有條件准許輸入」項目及簡要說明
+CCC 號列
+貨 名
+實施日期
+特別規定
+如 CCC號列後加註「EX」字樣之項目 ：表示該號列項下僅開放進口符合該中英文貨名之貨品。
+如 列有大陸物品輸入特別規定「MXX」、「NXX」代號之項目 ：進口該項大陸物品除應符合一般輸入規定外，應同時符合該特別規定始准進口。
+關閉
+Picture Description
+×
+Picture
+Close
 OFFICIAL_WORKFLOW_ANCHOR:
 Official Taiwan International Trade Administration/MOEA database page for Classification of Commodities and Regulations. The English interface is titled Import and Export Regulations and supports searching by commodity code, commodity code range, or imported file. It accepts HS code inputs from 2 to 6 digits and CCC code inputs under the Standard Classification of Commodities of the Republic of China up to 10 digits, with examples including 01, 2001, 740729, 0203120000, and 2207101010. The page also supports commodity-description keyword search, such as fish, bovine animals, or chemical, and regulation-code search for import or export regulation types. The form refers to Import Regulation codes and Export Regulation codes, with examples including numeric codes and alphanumeric codes such as 111, 401, 272, C01, and MW0. The page provides download areas for import/export regulation information and an Importation of Mainland China products section. It explains that where EX is appended after a CCC number, only goods conforming to the corresponding Chinese and English commodity description are opened for import. It also notes that where Mainland China product import special regulation codes such as MXX or NXX are listed, the goods must satisfy both general import regulations and those special provisions before import is allowed. The user workflow is to identify a commodity by HS or CCC number, confirm whether an import regulation code, export regulation code, permit, inspection, or agency restriction appears, and then map the result back to the responsible agency and shipment documents. This makes the page a primary routing source before preparing invoices, packing lists, origin evidence, TFDA documents, SHTC checks, or customs entries. This source is used by LabelPass for CCC-code based routing, import/export permit signals, trade-control screening, and search terms such as CCC code, HS code, import regulation code, export regulation code, regulation codes, commodity description, controlled goods, permit code, regulatory agency, and trade controls. It is a query database rather than a static legal text, so LabelPass stores this manual extract to preserve the official page semantics for search and review evidence while the live URL remains the authority.

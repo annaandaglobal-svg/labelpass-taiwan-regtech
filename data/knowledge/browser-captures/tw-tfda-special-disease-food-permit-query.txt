@@ -1,15 +1,153 @@
 id: tw-tfda-special-disease-food-permit-query
 official_url: https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163
-captured_url: browser_error_page
-title: This site can't be reached
-captured_at: 2026-06-26T19:21:16.736Z
-capture_status: browser_capture_blocked_manual_anchor
-
-CAPTURE_NOTE:
-Browser navigation reached a Chrome network error page for the official dynamic TFDA consumer query URL during manual capture. The official URL remains the authority; this text preserves the special-disease formula permit workflow terms until the live lookup can be re-captured.
-
+captured_url: https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163
+title: Special Disease Formula Food Permit Data Query
+captured_at: 2026-06-27T18:58:15.587Z
+capture_status: browser_capture_ok
 VISIBLE_BROWSER_TEXT:
-_The live page was not reachable in the browser session. See CAPTURE_NOTE and OFFICIAL_WORKFLOW_ANCHOR._
-
+特定疾病配方食品查驗登記許可證資料查詢_消費者專區
+MENU 食品 ► 核可資料查詢
+食品原料整合查詢平臺
+邊境檢驗不符合食品資訊查詢
+食品法規查詢
+HACCP 查詢
+吃的健康
+食品相關法規暨解釋彙編查詢
+西藥 ► 產品回收
+通過GMP核准之國外藥廠名單
+檢驗方法查詢
+食品藥物管理署官網業務專區
+食品藥物管理署官網法規資訊
+化粧品禁限用成分管理規定
+人體器官保存庫 ► 保存庫許可通過名單查詢
+跳到主要內容區塊
+專區首頁
+食品藥物管理署
+:::
+專區首頁
+網站導覽
+食品藥物管理署
+食品 核可資料查詢
+食品原料整合查詢平臺
+邊境檢驗不符合食品資訊查詢
+食品法規查詢
+HACCP 查詢
+吃的健康
+食品相關法規暨解釋彙編查詢
+西藥 產品回收
+通過GMP核准之國外藥廠名單
+檢驗方法查詢
+食品藥物管理署官網業務專區
+食品藥物管理署官網法規資訊
+化粧品禁限用成分管理規定
+人體器官保存庫 保存庫許可通過名單查詢
+【暫停服務公告】 為配合本署資訊機房資安設備更換及網路架構調整作業，預計自109年12月13日(日)8時至19時，暫停本專區各項服務，造成不便，敬請見諒。
+-->
+:::
+首頁 > 整合查詢服務 > 食品 > 核可資料查詢 > 特定疾病配方食品查驗登記許可證資料查詢
+特定疾病配方食品查驗登記許可證資料查詢
+類別：
+全部
+特定疾病配方食品
+特定疾病配方食品(營養均衡完整配方食品)
+特定疾病配方食品(營養調整完整配方食品)
+特定疾病配方食品(營養調整補充配方食品)
+特定疾病配方食品(特殊單素配方食品)
+許可證字號：
+中文品名：
+英文品名：
+公司名稱：
+成分1：
+成分2：
+成分3：
+關鍵字：
+共有 366 筆搜尋結果
+項次
+許可證字號
+中文品名
+英文品名
+有效日期
+申請商名稱
+詳細
+1
+1046060116
+基速得三合一胺基酸營養品
+ABOUND ORANGE
+2031/05/18
+美商亞培股份有限公司
+詳細
+2
+1046067155
+三多補体康D糖尿病營養配方
+SENTOSA PROTICOME DIABETIC NUTRITION FORMULA
+2031/05/17
+三多士股份有限公司
+詳細
+3
+1140728434
+佳貝能適康均衡完整配方-優護A+
+Nutri-Cam Plus
+2031/05/11
+佳貝生技有限公司
+詳細
+4
+1140728435
+佳貝固慎体均衡完整配方-護康
+Gushenti
+2031/05/11
+佳貝生技有限公司
+詳細
+5
+1046067154
+三多補体康®C經典營養配方
+SENTOSA PROTICOME® COMPLETE BALANCED NUTRITION FORMULA
+2031/05/10
+三多士股份有限公司
+詳細
+6
+1046067156
+三多補体康低蛋白營養配方
+SENTOSA PROTICOME LOW PROTEIN NUTRITION FORMULA
+2031/05/10
+三多士股份有限公司
+詳細
+7
+1096033515
+益富益力壯Plus經典均衡營養完整配方
+LivStrong Plus Classic Complete
+2031/05/10
+益富實業股份有限公司
+詳細
+8
+1096033163
+美日均衡配方營養品
+EVERY DAY ENERGY NUTRIMENT
+2031/05/10
+美日生技有限公司
+詳細
+9
+1096034435
+護力養Plus均衡營養完整配方
+Basicare Plus Complete Nutrition
+2031/05/10
+康平興業股份有限公司
+詳細
+10
+1046056137
+倍力素癌症專用液體營養品
+PROSURE VANILLA LIQUID
+2031/05/05
+美商亞培股份有限公司
+詳細
+1 2 3 4 5 下一頁 最末頁 共有37頁
+::: 衛生福利部食品藥物管理署 © 2017 版權所有
+資訊安全政策
+隱私權政策
+政府網站資料開放宣告
+為民服務信箱
+食用玩家FB
+地址：115021 臺北市南港區研究院路一段130巷109號 | 總機電話:(02)2787-8000
+諮詢服務專線：(02)2787-8200 | 服務時間：人事行政局公告上班日8:00-18:00) | 食安資訊專線1919
+本網站最佳瀏覽解析度為1024x768 | 參訪人次 163012516 人次
 OFFICIAL_WORKFLOW_ANCHOR:
 Official TFDA Consumer Knowledge Service Network page for special disease formula food permit lookup. Use it to verify permit numbers, product names, registered formula type, and registration status before relying on a Taiwan label, certificate, or import file for formula foods intended for certain diseases. In screening, this lookup is relevant when labels mention disease-specific nutrition, special medical or dietary use, controlled formula categories, patient-use instructions, or professional supervision. Treat the lookup as a permit-evidence source: if the product, permit number, or intended disease category cannot be matched, the review should require further registration evidence and should not rely only on packaging text. Pair this source with TFDA labeling requirements for formula for certain disease and imported-food inspection evidence.

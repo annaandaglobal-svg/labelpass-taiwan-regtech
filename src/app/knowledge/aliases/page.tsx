@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getAliasReviewQueue } from "@/lib/alias-review";
-import { AppShell } from "@/components/app-shell";
 import AliasReviewClient from "./review-client";
 
 export default function AliasReviewPage() {
@@ -13,7 +12,7 @@ export default function AliasReviewPage() {
   }).format(new Date(queue.generated_at));
 
   return (
-    <AppShell active="aliases">
+    <>
       <section className="lp-main lp-main-full">
         <div className="alias-review-content alias-review-content-embedded">
           <section className="knowledge-hero alias-review-hero">
@@ -39,6 +38,6 @@ export default function AliasReviewPage() {
           <AliasReviewClient queue={queue} />
         </div>
       </section>
-    </AppShell>
+    </>
   );
 }

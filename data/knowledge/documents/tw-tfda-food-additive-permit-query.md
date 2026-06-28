@@ -1,18 +1,18 @@
 ---
 id: tw-tfda-food-additive-permit-query
 title: Food Additive Permit Data Query
-url: https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162
+url: https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161
 authority: Taiwan Food and Drug Administration / Consumer Knowledge Service Network
 jurisdiction: TW
 domain: food_additives
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-26T19:43:04.749Z
-fetched_url: https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162
+fetched_at: 2026-06-27T18:58:17.974Z
+fetched_url: https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T19:43:04.749Z
+cache_expires_at: 2026-07-04T18:58:17.974Z
 cache_status: fresh
 content_hash: 1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb
 from_cache: false
@@ -24,7 +24,7 @@ tags: food, food-additives, permit-query, registration-number, license-number, d
 
 # Food Additive Permit Data Query
 
-Source: https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162
+Source: https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161
 
 ## Extract
 

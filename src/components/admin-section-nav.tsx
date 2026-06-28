@@ -24,7 +24,7 @@ export function AdminSectionNav({ badges = {} }: { badges?: PlatformOpsNavBadges
   return (
     <nav className="admin-section-nav" aria-label="운영 관리 하위 화면" data-shell-nav="admin-secondary" data-admin-section-count={adminNav.length}>
       {adminNav.map((item) => {
-        const isActive = pathname === item.href;
+        const isActive = item.href === "/admin" ? pathname === "/admin" : pathname === item.href || pathname.startsWith(`${item.href}/`);
         const badge = badges[item.href];
 
         return (

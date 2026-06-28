@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T19:43:04.769Z",
+  "generated_at": "2026-06-27T18:58:15.587Z",
   "captures": [
     {
       "id": "cn-state-council-customs-duties-guide",
@@ -53,10 +53,10 @@
       "id": "tw-customs-tariff-database-download",
       "title": "GC453 Tariff Database Download",
       "url": "https://portal.sw.nat.gov.tw/APGQ/GC453",
-      "text_chars": 2791,
+      "text_chars": 3541,
       "text_path": "data/knowledge/browser-captures/tw-customs-tariff-database-download.txt",
-      "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "screenshot_path": "data/knowledge/browser-captures/tw-customs-tariff-database-download.png",
+      "capture_status": "browser_capture_ok"
     },
     {
       "id": "tw-tfda-cosmetic-adverse-event-qms-platform",
@@ -71,55 +71,55 @@
       "id": "tw-tfda-cosmetic-fadenbook-platform",
       "title": "TFDA Food and Drug Business Registration Platform",
       "url": "http://fadenbook.fda.gov.tw/",
-      "text_chars": 1205,
+      "text_chars": 1213,
       "text_path": "data/knowledge/browser-captures/tw-tfda-cosmetic-fadenbook-platform.txt",
       "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "capture_status": "browser_capture_timeout_manual_anchor"
     },
     {
       "id": "tw-tfda-food-additive-permit-query",
       "title": "Food Additive Permit Data Query",
-      "url": "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162",
-      "text_chars": 1964,
+      "url": "https://consumer.fda.gov.tw/Food/FoodAdd.aspx?nodeID=161",
+      "text_chars": 3281,
       "text_path": "data/knowledge/browser-captures/tw-tfda-food-additive-permit-query.txt",
-      "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "screenshot_path": "data/knowledge/browser-captures/tw-tfda-food-additive-permit-query.png",
+      "capture_status": "browser_capture_ok"
     },
     {
       "id": "tw-tfda-health-food-permit-query",
       "title": "Health Food Permit Data Query",
       "url": "https://consumer.fda.gov.tw/Food/InfoHealthFood.aspx?nodeID=162",
-      "text_chars": 1550,
+      "text_chars": 2825,
       "text_path": "data/knowledge/browser-captures/tw-tfda-health-food-permit-query.txt",
-      "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "screenshot_path": "data/knowledge/browser-captures/tw-tfda-health-food-permit-query.png",
+      "capture_status": "browser_capture_ok"
     },
     {
       "id": "tw-tfda-illegal-advertising-query",
       "title": "Illegal Food, Drug, and Cosmetics Advertising Query System",
       "url": "http://pmds.fda.gov.tw/illegalad/",
-      "text_chars": 2881,
+      "text_chars": 2590,
       "text_path": "data/knowledge/browser-captures/tw-tfda-illegal-advertising-query.txt",
-      "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "screenshot_path": "data/knowledge/browser-captures/tw-tfda-illegal-advertising-query.png",
+      "capture_status": "browser_error_page_screenshot"
     },
     {
       "id": "tw-tfda-special-disease-food-permit-query",
       "title": "Special Disease Formula Food Permit Data Query",
       "url": "https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163",
-      "text_chars": 1588,
+      "text_chars": 3040,
       "text_path": "data/knowledge/browser-captures/tw-tfda-special-disease-food-permit-query.txt",
-      "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "screenshot_path": "data/knowledge/browser-captures/tw-tfda-special-disease-food-permit-query.png",
+      "capture_status": "browser_capture_ok"
     },
     {
       "id": "tw-trade-ccc-import-export-regulations",
       "title": "Import and Export Regulations by CCC Code",
       "url": "https://fbfh.trade.gov.tw/fh/indexE.jsp",
-      "text_chars": 3018,
+      "text_chars": 4071,
       "text_path": "data/knowledge/browser-captures/tw-trade-ccc-import-export-regulations.txt",
-      "screenshot_path": null,
-      "capture_status": "browser_capture_blocked_manual_anchor"
+      "screenshot_path": "data/knowledge/browser-captures/tw-trade-ccc-import-export-regulations.png",
+      "capture_status": "browser_capture_ok"
     }
   ]
 }

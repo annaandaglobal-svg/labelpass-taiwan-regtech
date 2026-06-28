@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T12:38:34.227Z",
+  "generated_at": "2026-06-27T19:02:37.720Z",
   "generated_from": {
-    "knowledge_memory_generated_at": "2026-06-27T12:38:34.227Z",
+    "knowledge_memory_generated_at": "2026-06-27T19:02:37.720Z",
     "source_registry_version": "2026-06-26",
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -99,8 +99,8 @@
       "term_ids": [
         "cosmetic-product-information-file",
         "cosmetic-labeling-claims",
-        "cosmetic-product-notification",
         "cosmetic-pif-product-registration-categories",
+        "cosmetic-product-notification",
         "cosmetic-label-required-items",
         "cosmetic-spray-aerosol-safety",
         "specific-purpose-cosmetics-transition",
@@ -244,6 +244,25 @@
           ]
         },
         {
+          "id": "cosmetic-pif-product-registration-categories",
+          "canonical_name": "Cosmetic PIF and Product Registration Categories",
+          "category": "cosmetic_compliance",
+          "aliases": [
+            "cosmetic product registration",
+            "應完成產品登錄之化粧品種類",
+            "應建立產品資訊檔案之化粧品種類及實施日期",
+            "產品登錄",
+            "染髮",
+            "止汗制臭"
+          ],
+          "source_keys": [
+            "tw-tfda-pif-implementation",
+            "tw-tfda-cosmetic-pif-category-implementation-2024",
+            "tw-tfda-cosmetic-product-registration-categories-2024",
+            "tw-tfda-cosmetic-product-registration-system"
+          ]
+        },
+        {
           "id": "cosmetic-product-notification",
           "canonical_name": "Cosmetic Product Notification",
           "category": "cosmetic_compliance",
@@ -262,25 +281,6 @@
             "tw-tfda-cosmetics-business-area",
             "cn-nmpa-cosmetics-registration-filing",
             "eu-cosmetics-regulation-1223-2009"
-          ]
-        },
-        {
-          "id": "cosmetic-pif-product-registration-categories",
-          "canonical_name": "Cosmetic PIF and Product Registration Categories",
-          "category": "cosmetic_compliance",
-          "aliases": [
-            "cosmetic product registration",
-            "應完成產品登錄之化粧品種類",
-            "應建立產品資訊檔案之化粧品種類及實施日期",
-            "產品登錄",
-            "染髮",
-            "止汗制臭"
-          ],
-          "source_keys": [
-            "tw-tfda-pif-implementation",
-            "tw-tfda-cosmetic-pif-category-implementation-2024",
-            "tw-tfda-cosmetic-product-registration-categories-2024",
-            "tw-tfda-cosmetic-product-registration-system"
           ]
         },
         {

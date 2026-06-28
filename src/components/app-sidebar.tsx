@@ -7,6 +7,7 @@ type AppNavItem = {
   key: AppNavKey;
   href: string;
   label: string;
+  ariaLabel?: string;
   icon: typeof ClipboardCheck;
 };
 
@@ -18,7 +19,7 @@ const primaryNavItems: AppNavItem[] = [
 
 const utilityNavItems: AppNavItem[] = [
   { key: "aliases", href: "/knowledge/aliases", label: "용어 검수", icon: Languages },
-  { key: "admin", href: "/admin", label: "운영 관리", icon: BadgeCheck }
+  { key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리", icon: BadgeCheck }
 ];
 
 type AppSidebarProps = {
@@ -46,7 +47,10 @@ export function AppSidebar({ active }: AppSidebarProps) {
               key={item.key}
               className={className}
               href={item.href}
+              aria-label={item.ariaLabel ?? item.label}
               data-shell-nav-item={item.key}
+              data-shell-nav-tier="primary"
+              title={item.ariaLabel ?? item.label}
               aria-current={item.key === active ? "page" : undefined}
             >
               <Icon size={17} />
@@ -67,7 +71,10 @@ export function AppSidebar({ active }: AppSidebarProps) {
               key={item.key}
               className={className}
               href={item.href}
+              aria-label={item.ariaLabel ?? item.label}
               data-shell-nav-item={item.key}
+              data-shell-nav-tier="utility"
+              title={item.ariaLabel ?? item.label}
               aria-current={item.key === active ? "page" : undefined}
             >
               <Icon size={16} />

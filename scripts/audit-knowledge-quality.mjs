@@ -121,6 +121,23 @@ for (const result of index.results ?? []) {
     });
   }
 
+  if (
+    isHighPriority(priority) &&
+    result.browser_capture &&
+    !result.screenshot_path &&
+    /capture_status:\s*browser_capture_blocked_manual_anchor/i.test(document)
+  ) {
+    addFinding(findings, {
+      severity: "high",
+      sourceId: result.id,
+      title: result.title,
+      reason: "High-priority browser capture still uses a blocked manual anchor without screenshot evidence",
+      textChars,
+      priority,
+      documentPath
+    });
+  }
+
   if (weakCapturePattern.test(document) && textChars < 2000) {
     addFinding(findings, {
       severity: "medium",

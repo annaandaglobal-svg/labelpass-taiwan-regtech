@@ -3,7 +3,6 @@ import { Database, Languages, RefreshCw, Search, ShieldCheck } from "lucide-reac
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { getAliasReviewQueue } from "@/lib/alias-review";
-import { AppShell } from "@/components/app-shell";
 import KnowledgeSearchClient from "./search-client";
 
 type KnowledgePageProps = {
@@ -23,7 +22,7 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
   const nextRefresh = formatDateTime(overview.operations.nextRefreshAt);
 
   return (
-    <AppShell active="knowledge">
+    <>
       <section className="lp-main lp-main-full">
         <div className="kb-content kb-content-embedded">
           <header className="kb-topbar">
@@ -97,7 +96,7 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
           </footer>
         </div>
       </section>
-    </AppShell>
+    </>
   );
 }
 
