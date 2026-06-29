@@ -72,6 +72,24 @@ type SampleReview = {
   input: ReviewInput;
 };
 
+type IntakeFileResponse = {
+  ok: boolean;
+  productName: string;
+  productTypeHint: string;
+  originText: string;
+  ingredientsText: string;
+  labelText: string;
+  ingredientCount: number;
+  nutritionCount: number;
+  warnings: string[];
+  files: Array<{
+    fileName: string;
+    ingredientCount: number;
+    nutritionCount: number;
+    warnings: string[];
+  }>;
+};
+
 const emptyInput: ReviewInput = {
   productName: "",
   productType: "",
@@ -414,6 +432,28 @@ async function requestKnowledgeEvidence(query: string, route: RoutePreset): Prom
 
   if (!response.ok) throw new Error("knowledge_failed");
   return response.json();
+}
+
+async function requestFileExtraction(files: FileList): Promise<IntakeFileResponse> {
+  const formData = new FormData();
+  Array.from(files).forEach((file) => formData.append("files", file, file.name));
+
+  const response = await fetch("/api/intake/files", {
+    method: "POST",
+    body: formData
+  });
+
+  if (!response.ok) throw new Error("file_extract_failed");
+  return response.json();
+}
+
+function appendInputBlock(current: string, next: string) {
+  const cleanNext = next.trim();
+  if (!cleanNext) return current;
+  const cleanCurrent = current.trim();
+  if (!cleanCurrent) return cleanNext;
+  if (cleanCurrent.includes(cleanNext)) return cleanCurrent;
+  return `${cleanCurrent}\n\n${cleanNext}`;
 }
 
 function readinessFor(input: ReviewInput) {
@@ -827,6 +867,7 @@ export default function Home() {
   const [isReviewing, setIsReviewing] = useState(false);
   const [isSearchingEvidence, setIsSearchingEvidence] = useState(false);
   const [isSubmittingHandoff, setIsSubmittingHandoff] = useState(false);
+  const [isExtractingFiles, setIsExtractingFiles] = useState(false);
   const [toast, setToast] = useState("");
   const [activeFindingId, setActiveFindingId] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -911,14 +952,49 @@ export default function Home() {
     setToast(`${sample.label}를 불러왔습니다.`);
   }
 
-  function handleFiles(files: FileList | null) {
+  async function handleFiles(files: FileList | null) {
     if (!files?.length) return;
     const names = Array.from(files).map((file) => file.name).join(", ");
-    setInput((current) => ({
-      ...current,
-      labelText: [current.labelText, `첨부 파일명: ${names}`].filter(Boolean).join("\n")
-    }));
-    setToast("첨부 파일을 검토 메모에 붙였습니다. OCR 추출 파이프라인도 이 자리에서 이어 붙입니다.");
+    setIsExtractingFiles(true);
+    setToast("파일을 읽고 있습니다. 엑셀 성분표와 영양정보를 자동 추출합니다.");
+
+    try {
+      const extraction = await requestFileExtraction(files);
+      const inferredRoute = routeFromInput({
+        ...emptyInput,
+        productName: extraction.productName,
+        productType: extraction.productTypeHint,
+        ingredientsText: extraction.ingredientsText,
+        labelText: extraction.labelText,
+        origin: extraction.originText
+      });
+
+      setSelectedRouteId(inferredRoute.id);
+      setKnowledgeQuery(extraction.productName || inferredRoute.query);
+      setInput((current) => ({
+        ...current,
+        productName: current.productName || extraction.productName,
+        productType: current.productType || extraction.productTypeHint || inferredRoute.productType,
+        origin: current.origin || extraction.originText,
+        ingredientsText: appendInputBlock(current.ingredientsText, extraction.ingredientsText),
+        labelText: appendInputBlock(current.labelText, extraction.labelText || `첨부 파일명: ${names}`)
+      }));
+
+      if (extraction.ingredientCount > 0 || extraction.nutritionCount > 0) {
+        setToast(`파일에서 성분 ${extraction.ingredientCount}개, 영양정보 ${extraction.nutritionCount}개를 읽었습니다.`);
+      } else {
+        setToast("파일은 열었지만 성분표 머리글을 찾지 못했습니다. 원재료명/Ingredient 열을 확인해주세요.");
+      }
+    } catch {
+      setInput((current) => ({
+        ...current,
+        labelText: appendInputBlock(current.labelText, `첨부 파일명: ${names}`)
+      }));
+      setToast("파일 내용을 읽지 못해 파일명만 메모에 남겼습니다. 엑셀/CSV 원본 구조를 다시 확인하겠습니다.");
+    } finally {
+      setIsExtractingFiles(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
   }
 
   async function runKnowledgeSearch(query: string, route = selectedRoute) {
@@ -1080,14 +1156,15 @@ export default function Home() {
                 type="file"
                 multiple
                 accept="image/*,.pdf,.txt,.csv,.xlsx,.xls,.doc,.docx"
-                onChange={(event) => handleFiles(event.currentTarget.files)}
+                disabled={isExtractingFiles}
+                onChange={(event) => void handleFiles(event.currentTarget.files)}
               />
               <span className="lp-ocr-icon"><UploadCloud size={24} /></span>
               <span className="lp-ocr-copy">
-                <b>라벨 이미지·성분표·통관서류부터 넣기</b>
-                <small>사진, PDF, 성분표, 인보이스, 패킹리스트, COA, PIF, 위생증명 파일을 먼저 올리면 검토 메모로 고정됩니다.</small>
+                <b>{isExtractingFiles ? "파일 읽는 중" : "라벨 이미지·성분표·통관서류부터 넣기"}</b>
+                <small>엑셀·CSV 성분표는 제품명, 원재료, 중문명, 영문명, 영양정보를 자동으로 입력칸에 채웁니다.</small>
               </span>
-              <span className="lp-ocr-cta">파일 선택</span>
+              <span className="lp-ocr-cta">{isExtractingFiles ? "읽는 중" : "파일 선택"}</span>
             </label>
 
             <div className="lp-readiness">
