@@ -19,6 +19,7 @@ import {
 } from "@/lib/platform-ops-actions";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const MAX_BODY_BYTES = 40_000;
 const MAX_RATE_WINDOW_MS = 60_000;

@@ -5,6 +5,7 @@ import { isReviewArchiveDatabaseConfigured, listStoredReviews, saveStoredReview 
 import type { SavedReview } from "@/lib/review-types";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const MAX_BODY_BYTES = 200_000;
 const MAX_REVIEW_TEXT_CHARS = 50_000;

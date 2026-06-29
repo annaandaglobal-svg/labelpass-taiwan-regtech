@@ -5,6 +5,7 @@ import { evaluateReview } from "@/lib/compliance";
 import { presentReviewResult } from "@/lib/review-presentation";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const reviewInputSchema = z.object({
   productName: z.string().default(""),

@@ -9,6 +9,7 @@ import {
 import { applyHandoffRequest, handoffRequestReadiness } from "@/lib/handoff-requests";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const MAX_BODY_BYTES = 45_000;
 const MAX_RATE_WINDOW_MS = 60_000;
