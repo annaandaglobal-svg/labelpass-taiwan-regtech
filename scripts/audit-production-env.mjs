@@ -44,6 +44,7 @@ try {
   report.remote.push(await fetchJson("knowledge search MSG", `${baseUrl}/api/knowledge/search?q=MSG&limit=4&audit=${Date.now()}`));
   report.remote.push(await fetchJson("knowledge search SO2", `${baseUrl}/api/knowledge/search?q=${encodeURIComponent("SO₂")}&limit=4&audit=${Date.now()}`));
   report.remote.push(await fetchJson("admin ops readiness", `${baseUrl}/api/admin/ops/actions?audit=${Date.now()}`));
+  report.remote.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?audit=${Date.now()}`));
   report.remote.push(await fetchJson("review archive list", `${baseUrl}/api/reviews?limit=1&audit=${Date.now()}`, {
     headers: archiveHeaders()
   }));
@@ -61,6 +62,7 @@ const knowledgeChecks = report.remote.filter((check) => check.label.startsWith("
 const archiveList = report.remote.find((check) => check.label === "review archive list")?.body;
 const archiveDryRun = report.remote.find((check) => check.label === "review archive dry run")?.body;
 const adminOpsReadiness = report.remote.find((check) => check.label === "admin ops readiness")?.body;
+const handoffReadiness = report.remote.find((check) => check.label === "handoff readiness")?.body;
 const remoteAliasCounts = knowledgeChecks
   .map((check) => check.body?.totals?.aliases)
   .filter((value) => typeof value === "number");
@@ -79,6 +81,10 @@ report.readiness = {
   localAdminOpsTokenPresent: Boolean(adminOpsToken),
   remoteAdminOpsStorage: adminOpsReadiness?.storage ?? "unknown",
   remoteAdminOpsWritesReady: Boolean(adminOpsReadiness?.writesReady),
+  remoteAdminOpsDryRunRateLimited: Boolean(adminOpsReadiness?.auth?.dryRunRateLimited),
+  remoteHandoffStorage: handoffReadiness?.storage ?? "unknown",
+  remoteHandoffWritesReady: Boolean(handoffReadiness?.writesReady),
+  remoteHandoffDryRunRateLimited: Boolean(handoffReadiness?.auth?.dryRunRateLimited),
   localArchiveFlagEnabled: archiveEnabled,
   localArchiveReadAuthorized: archiveReadEnabled || Boolean(archiveToken),
   localArchiveWriteAuthorized: archiveWriteEnabled || Boolean(archiveToken),
@@ -277,6 +283,15 @@ function summarizeBody(body) {
     return {
       ok: body.ok,
       storage: body.storage,
+      writesReady: body.writesReady,
+      auth: body.auth
+        ? {
+            dryRunRateLimited: Boolean(body.auth.dryRunRateLimited),
+            maxBodyBytes: body.auth.maxBodyBytes,
+            tokenConfigured: Boolean(body.auth.tokenConfigured)
+          }
+        : undefined,
+      targetTables: Array.isArray(body.targetTables) ? body.targetTables : undefined,
       reviews: Array.isArray(body.reviews) ? body.reviews.length : undefined,
       reviewId: body.reviewId
     };

@@ -83,6 +83,8 @@ const handoffPayload = {
   requestId: `smoke-handoff-request-${Date.now()}`,
   metadata: { smoke: true }
 };
+const malformedJson = "{";
+const oversizedBody = JSON.stringify({ note: "x".repeat(46_000) });
 
 const checks = [];
 checks.push(await fetchJson("admin ops readiness", `${baseUrl}/api/admin/ops/actions?smoke=${Date.now()}`));
@@ -122,6 +124,18 @@ checks.push(
     body: JSON.stringify(shipmentEventDryRunPayload)
   })
 );
+checks.push(
+  await fetchJson("admin invalid JSON dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: malformedJson
+  })
+);
+checks.push(
+  await fetchJson("admin oversized dry run", `${baseUrl}/api/admin/ops/actions?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: oversizedBody
+  })
+);
 checks.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?smoke=${Date.now()}`));
 checks.push(
   await fetchJson("handoff dry run", `${baseUrl}/api/handoff/requests?dryRun=1&smoke=${Date.now()}`, {
@@ -135,20 +149,43 @@ checks.push(
     body: JSON.stringify(handoffPayload)
   })
 );
+checks.push(
+  await fetchJson("handoff invalid JSON dry run", `${baseUrl}/api/handoff/requests?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: malformedJson
+  })
+);
+checks.push(
+  await fetchJson("handoff oversized dry run", `${baseUrl}/api/handoff/requests?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: oversizedBody
+  })
+);
 
 const errors = [];
-const readiness = checks[0];
-const dryRun = checks[1];
-const unauthorized = checks[2];
-const paymentDryRun = checks[3];
-const chatDryRun = checks[4];
-const shipmentDryRun = checks[5];
-const shipmentEventDryRun = checks[6];
-const handoffReadiness = checks[7];
-const handoffDryRun = checks[8];
-const handoffUnauthorized = checks[9];
+const checksByLabel = Object.fromEntries(checks.map((check) => [check.label, check]));
+const readiness = checksByLabel["admin ops readiness"];
+const dryRun = checksByLabel["admin ops dry run"];
+const unauthorized = checksByLabel["admin ops write without token"];
+const paymentDryRun = checksByLabel["admin payment dry run"];
+const chatDryRun = checksByLabel["admin chat dry run"];
+const shipmentDryRun = checksByLabel["admin shipment dry run"];
+const shipmentEventDryRun = checksByLabel["admin shipment event dry run"];
+const adminInvalidJson = checksByLabel["admin invalid JSON dry run"];
+const adminOversized = checksByLabel["admin oversized dry run"];
+const handoffReadiness = checksByLabel["handoff readiness"];
+const handoffDryRun = checksByLabel["handoff dry run"];
+const handoffUnauthorized = checksByLabel["handoff write without token"];
+const handoffInvalidJson = checksByLabel["handoff invalid JSON dry run"];
+const handoffOversized = checksByLabel["handoff oversized dry run"];
 
 if (!readiness.ok) errors.push(`Readiness endpoint returned ${readiness.status}`);
+if (readiness.body?.auth?.dryRunRateLimited !== true) {
+  errors.push("Readiness endpoint did not expose dry-run rate limiting");
+}
+if (readiness.body?.auth?.maxBodyBytes !== 40_000) {
+  errors.push(`Readiness endpoint reported unexpected admin maxBodyBytes=${readiness.body?.auth?.maxBodyBytes}`);
+}
 if (!readiness.body?.supportedActions?.expert_match_status?.includes("matched")) {
   errors.push("Readiness endpoint did not expose expected expert_match_status transitions");
 }
@@ -179,8 +216,20 @@ if (!shipmentDryRun.ok || shipmentDryRun.body?.dryRun !== true || shipmentDryRun
 if (!shipmentEventDryRun.ok || shipmentEventDryRun.body?.dryRun !== true || shipmentEventDryRun.body?.applied !== false || shipmentEventDryRun.body?.action !== "shipment_event") {
   errors.push(`Shipment event dry-run endpoint returned unexpected response ${shipmentEventDryRun.status}`);
 }
+if (adminInvalidJson.status !== 400) {
+  errors.push(`Admin invalid JSON should return 400, got ${adminInvalidJson.status}`);
+}
+if (adminOversized.status !== 413) {
+  errors.push(`Admin oversized payload should return 413, got ${adminOversized.status}`);
+}
 if (!handoffReadiness.ok || !handoffReadiness.body?.targetTables?.includes("expert_matches")) {
   errors.push(`Handoff readiness endpoint returned unexpected response ${handoffReadiness.status}`);
+}
+if (handoffReadiness.body?.auth?.dryRunRateLimited !== true) {
+  errors.push("Handoff readiness endpoint did not expose dry-run rate limiting");
+}
+if (handoffReadiness.body?.auth?.maxBodyBytes !== 45_000) {
+  errors.push(`Handoff readiness endpoint reported unexpected maxBodyBytes=${handoffReadiness.body?.auth?.maxBodyBytes}`);
 }
 if (
   !handoffDryRun.ok ||
@@ -196,6 +245,12 @@ if (unauthorized.status !== 401) {
 }
 if (handoffUnauthorized.status !== 401) {
   errors.push(`Handoff write without token should return 401, got ${handoffUnauthorized.status}`);
+}
+if (handoffInvalidJson.status !== 400) {
+  errors.push(`Handoff invalid JSON should return 400, got ${handoffInvalidJson.status}`);
+}
+if (handoffOversized.status !== 413) {
+  errors.push(`Handoff oversized payload should return 413, got ${handoffOversized.status}`);
 }
 
 if (errors.length) {
