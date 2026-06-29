@@ -14476,6 +14476,51 @@ h2 {
   margin-top: 10px;
 }
 
+.admin-connection-help {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.admin-connection-help.ready {
+  border-color: rgba(33, 112, 74, 0.28);
+  background: var(--green-soft);
+}
+
+.admin-connection-help.locked {
+  border-color: rgba(196, 139, 40, 0.26);
+  background: var(--gold-soft);
+}
+
+.admin-connection-help span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.admin-connection-help.ready span {
+  color: var(--green-dark);
+}
+
+.admin-connection-help b {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.admin-connection-help p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
 .admin-connection-checklist-head,
 .admin-connection-checklist > span {
   display: grid;
@@ -14534,14 +14579,89 @@ h2 {
 }
 
 .admin-connection-checklist > span b {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 7px;
+  align-items: center;
   color: var(--ink);
   font-size: 12px;
+}
+
+.admin-connection-checklist > span b em {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 800;
 }
 
 .admin-connection-checklist > span small {
   color: var(--muted);
   font-size: 11.5px;
   line-height: 1.45;
+}
+
+.admin-connection-checklist > span code {
+  grid-column: 2;
+  overflow-wrap: anywhere;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.admin-api-gates {
+  display: grid;
+  gap: 7px;
+}
+
+.admin-api-gates span {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 3px 7px;
+  align-items: start;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+}
+
+.admin-api-gates span.ready {
+  border-color: rgba(33, 112, 74, 0.28);
+  background: var(--green-soft);
+}
+
+.admin-api-gates span.locked {
+  border-color: rgba(196, 139, 40, 0.26);
+  background: var(--gold-soft);
+}
+
+.admin-api-gates svg {
+  grid-row: span 3;
+  margin-top: 2px;
+}
+
+.admin-api-gates b,
+.admin-api-gates code,
+.admin-api-gates small {
+  grid-column: 2;
+}
+
+.admin-api-gates b {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.admin-api-gates code {
+  overflow-wrap: anywhere;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+
+.admin-api-gates small {
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.42;
 }
 
 .admin-review-list {

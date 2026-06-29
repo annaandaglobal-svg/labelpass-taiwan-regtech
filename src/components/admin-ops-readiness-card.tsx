@@ -1,4 +1,5 @@
-import { CheckCircle2, Database, KeyRound, ListChecks, LockKeyhole, ShieldCheck } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Database, KeyRound, ListChecks, LockKeyhole, Route, ShieldCheck } from "lucide-react";
+import { handoffRequestReadiness } from "@/lib/handoff-requests";
 import { platformOpsActionReadiness } from "@/lib/platform-ops-actions";
 import { AdminOpsDryRunButton } from "./admin-ops-dry-run-button";
 
@@ -11,6 +12,7 @@ const storageLabels = {
 
 export function AdminOpsReadinessCard() {
   const readiness = platformOpsActionReadiness();
+  const handoffReadiness = handoffRequestReadiness();
   const flags = [
     {
       label: "운영 DB",
@@ -41,22 +43,66 @@ export function AdminOpsReadinessCard() {
   const supportedCount = Object.values(readiness.supportedActions).reduce((sum, actions) => sum + actions.length, 0);
   const connectionChecks = [
     {
-      label: "DB 연결 문자열",
-      detail: "Vercel Production에 SUPABASE_DB_URL, POSTGRES_URL, DATABASE_URL 중 하나를 저장",
+      label: "Supabase DB 연결",
+      owner: "사용자 승인",
+      detail: "Vercel Production 환경변수에 운영 DB 연결값을 저장",
+      env: "SUPABASE_DB_URL 또는 POSTGRES_URL 또는 DATABASE_URL",
       ready: readiness.databaseUrlPresent
     },
     {
       label: "관리자 읽기 게이트",
-      detail: "LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1로 Supabase 운영 데이터를 읽기 허용",
+      owner: "Vercel 설정",
+      detail: "관리자 화면이 Supabase 운영 데이터를 읽는 단계",
+      env: "LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1",
       ready: readiness.databaseUrlPresent && readiness.adminDbPreviewEnabled
     },
     {
       label: "상태 변경 게이트",
-      detail: "LABELPASS_ENABLE_ADMIN_DB_WRITES=1과 LABELPASS_ADMIN_OPS_TOKEN 설정 후 live 적용",
+      owner: "운영자 토큰",
+      detail: "전문가, 결제, 채팅, 물류, 선적 상태 변경을 live로 적용",
+      env: "LABELPASS_ENABLE_ADMIN_DB_WRITES=1 + LABELPASS_ADMIN_OPS_TOKEN",
+      ready: readiness.writesReady
+    }
+  ];
+  const apiChecks = [
+    {
+      label: "고객 의뢰 저장",
+      endpoint: "/api/handoff/requests",
+      detail: "검색 결과에서 제품, 전문가 상담, 결제 대기, 물류 요청 큐를 생성",
+      ready: handoffReadiness.writesReady
+    },
+    {
+      label: "관리자 상태 변경",
+      endpoint: "/api/admin/ops/actions",
+      detail: "운영자가 전문가, 결제, 채팅, 물류, 선적 상태를 변경",
       ready: readiness.writesReady
     }
   ];
   const readyCount = connectionChecks.filter((item) => item.ready).length;
+  const statusLabel = readiness.writesReady
+    ? storageLabels[readiness.storage]
+    : readiness.storage === "database"
+      ? "운영 토큰 잠김"
+      : storageLabels[readiness.storage];
+  const nextHelp = !readiness.databaseUrlPresent
+    ? {
+        title: "Supabase DB 연결값이 필요합니다",
+        detail: "Supabase 프로젝트의 pooled connection string을 Vercel Production 환경변수에 저장하면 운영 데이터 읽기 준비를 시작할 수 있습니다."
+      }
+    : !readiness.adminDbPreviewEnabled
+      ? {
+          title: "관리자 읽기 미리보기를 켜야 합니다",
+          detail: "DB 연결값이 들어간 뒤 LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1을 추가하면 관리자 화면이 실제 운영 데이터를 읽을 수 있습니다."
+        }
+      : !readiness.adminOpsTokenConfigured || !readiness.adminDbWritesEnabled
+        ? {
+            title: "live 쓰기 승인과 관리자 토큰이 필요합니다",
+            detail: "LABELPASS_ADMIN_OPS_TOKEN과 LABELPASS_ENABLE_ADMIN_DB_WRITES=1이 함께 있어야 결제, 전문가, 물류, 선적 상태 변경이 실제 DB에 기록됩니다."
+          }
+        : {
+            title: "운영 API 연결 준비 완료",
+            detail: "고객 의뢰 저장과 관리자 상태 변경 API가 live 저장 조건을 충족했습니다. 배포 후 smoke 검증만 확인하면 됩니다."
+          };
 
   return (
     <article className="admin-panel admin-ops-panel">
@@ -69,12 +115,21 @@ export function AdminOpsReadinessCard() {
       </div>
 
       <div className={`admin-ops-status ${readiness.writesReady ? "ready" : "locked"}`}>
-        <b>{storageLabels[readiness.storage]}</b>
+        <b>{statusLabel}</b>
         <small>
           {readiness.writesReady
             ? "전문가, 결제, 채팅, 물류, 선적 상태 변경이 감사 로그와 함께 적용됩니다."
             : "실제 운영 데이터 변경은 잠겨 있고 dry-run만 가능합니다."}
         </small>
+      </div>
+
+      <div className={`admin-connection-help ${readiness.writesReady ? "ready" : "locked"}`}>
+        <span>
+          {readiness.writesReady ? <CheckCircle2 size={15} /> : <AlertTriangle size={15} />}
+          {readiness.writesReady ? "연결 상태" : "지금 필요한 도움"}
+        </span>
+        <b>{nextHelp.title}</b>
+        <p>{nextHelp.detail}</p>
       </div>
 
       <div className="admin-connection-checklist" aria-label="Supabase 운영 연결 체크리스트">
@@ -88,8 +143,12 @@ export function AdminOpsReadinessCard() {
         {connectionChecks.map((item) => (
           <span key={item.label} className={item.ready ? "ready" : "locked"}>
             <CheckCircle2 size={14} aria-hidden="true" />
-            <b>{item.label}</b>
+            <b>
+              {item.label}
+              <em>{item.owner}</em>
+            </b>
             <small>{item.detail}</small>
+            <code>{item.env}</code>
           </span>
         ))}
       </div>
@@ -113,6 +172,17 @@ export function AdminOpsReadinessCard() {
         <div className="admin-ops-foot">
           <span>{supportedCount}개 상태 전환 지원</span>
           <code>/api/admin/ops/actions</code>
+        </div>
+
+        <div className="admin-api-gates" aria-label="운영 API 연결 상태">
+          {apiChecks.map((api) => (
+            <span key={api.endpoint} className={api.ready ? "ready" : "locked"}>
+              <Route size={14} />
+              <b>{api.label}</b>
+              <code>{api.endpoint}</code>
+              <small>{api.detail}</small>
+            </span>
+          ))}
         </div>
 
         <AdminOpsDryRunButton />
