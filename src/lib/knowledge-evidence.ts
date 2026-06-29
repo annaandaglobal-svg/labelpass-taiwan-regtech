@@ -3,6 +3,8 @@ import { searchKnowledgeRuntime } from "./knowledge-runtime";
 import evidenceTemplateData from "../../data/knowledge/evidence-bundle-templates.json";
 import productRouteData from "../../data/knowledge/product-routing-matrix.json";
 
+const POTASSIUM_GLYCEROPHOSPHATE_TERM_ID = "potassium-glycerophosphate-food-additive";
+
 type EvidenceTerm = {
   id: string;
   canonicalName: string;
@@ -92,7 +94,15 @@ function confidenceFor(result: KnowledgeSearchResult): KnowledgeEvidenceBundle["
   return "low";
 }
 
+function hasPotassiumGlycerophosphate(result: KnowledgeSearchResult) {
+  return result.terms.some((term) => term.id === POTASSIUM_GLYCEROPHOSPHATE_TERM_ID);
+}
+
 function buildSummary(query: string, result: KnowledgeSearchResult) {
+  if (hasPotassiumGlycerophosphate(result)) {
+    return `"${query}"는 대만 TFDA 식품첨가물 부록에서 정확명 허용을 확인하지 못한 성분입니다. Calcium Glycerophosphate는 별도 항목이므로 대체 근거가 아니며, 식품첨가물 용도라면 허가조회/허가증, 최종 식품군, 사용량, 중문명·규격 확인 전까지 승인 불가로 봅니다.`;
+  }
+
   const termNames = result.terms.slice(0, 3).map((term) => term.canonicalName);
   const sourceNames = result.sources.slice(0, 2).map((source) => source.title);
 
@@ -153,6 +163,8 @@ function routeHintsFor(result: KnowledgeSearchResult, query: string, options: Ev
 
 function suggestedActions(result: KnowledgeSearchResult, routeHints: EvidenceRouteHint[]) {
   const actions = [
+    hasPotassiumGlycerophosphate(result) ? "TFDA 식품첨가물 허가조회에서 Potassium Glycerophosphate 또는 중문명 甘油磷酸鉀의 허가증 존재 여부를 먼저 확인하세요." : "",
+    hasPotassiumGlycerophosphate(result) ? "공급사 규격서, 정확한 염 형태, 사용 목적, 최종 식품군, 1회/일일 사용량을 받아 Calcium Glycerophosphate와 혼동하지 않게 분리하세요." : "",
     routeHints[0]?.nextAction ? `업무 라우트: ${routeHints[0].nextAction}` : "",
     result.terms[0] ? `${result.terms[0].canonicalName} 기준으로 라벨 문구와 원료명을 재대조` : "",
     result.sources[0] ? `${result.sources[0].title} 원문 또는 캐시 문서를 검토 근거로 첨부` : "",

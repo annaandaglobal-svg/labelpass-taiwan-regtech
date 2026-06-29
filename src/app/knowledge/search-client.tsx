@@ -296,15 +296,17 @@ export default function KnowledgeSearchClient({
   const unifiedResults = useMemo<UnifiedResult[]>(() => {
     const termRows = filteredTerms.slice(0, 8).map((term) => {
       const collision = collisionSummaryForTerm(term);
+      const decision = termDecisionOverride(term);
 
       return {
         kind: "term" as const,
         id: `term-${term.id}`,
         title: term.canonicalName,
         subtitle: `${labelFor(term.category)} · 별칭 ${term.aliasCount.toLocaleString()}개`,
-        detail: term.notes || "공식 용어, 별칭, CAS/INCI, 연결 규칙을 함께 확인하세요.",
+        detail: decision?.detail || term.notes || "공식 용어, 별칭, CAS/INCI, 연결 규칙을 함께 확인하세요.",
         score: term.score,
         chips: uniqueCompact([
+          ...(decision?.chips ?? []),
           ...(collision ? [`문맥 ${collision.names.length + 1}갈래`, collision.alias] : []),
           ...term.identifiers.cas.slice(0, 1).map((value) => `CAS ${value}`),
           ...term.identifiers.inci.slice(0, 1).map((value) => `INCI ${value}`),
@@ -597,13 +599,16 @@ export default function KnowledgeSearchClient({
   );
 
   function buildTermEvidence(term: TermItem): EvidenceItem {
+    const decision = termDecisionOverride(term);
+
     return {
       kind: "term",
       title: term.canonicalName,
       subtitle: `${labelFor(term.category)} · 별칭 ${term.aliasCount.toLocaleString()}개`,
-      detail: term.notes || "공식 용어, 별칭, 규칙 링크를 확인하세요.",
+      detail: decision?.detail || term.notes || "공식 용어, 별칭, 규칙 링크를 확인하세요.",
       score: term.score,
       chips: uniqueCompact([
+        ...(decision?.chips ?? []),
         ...term.identifiers.cas.map((value) => `CAS ${value}`),
         ...term.identifiers.inci.slice(0, 3).map((value) => `INCI ${value}`),
         ...term.rules.slice(0, 4).map((rule) => rule.ruleCode),
@@ -779,8 +784,25 @@ function freshnessMeta(source: SourceItem) {
   return { label: "상태 확인", tone: "neutral" };
 }
 
+function termDecisionOverride(term: TermItem) {
+  if (term.id === "potassium-glycerophosphate-food-additive") {
+    return {
+      label: "허용 확인 안 됨",
+      detail:
+        "대만 TFDA 식품첨가물 사용범위/한도 부록에서 Potassium Glycerophosphate 정확명은 확인되지 않았습니다. Calcium Glycerophosphate는 별도 허용 항목이므로 대체 근거가 아닙니다. 식품첨가물 용도라면 TFDA 허가조회/허가증, 최종 식품군, 사용량, 중문명·규격 확인 전까지 승인 불가로 봅니다.",
+      tone: "gold",
+      chips: ["TFDA 부록 미확인", "허가조회 필요", "Calcium salt와 별개", "508 수입검사 가능"]
+    };
+  }
+
+  return null;
+}
+
 function decisionForResult(item: UnifiedResult) {
   if (item.kind === "term") {
+    const decision = termDecisionOverride(item.term);
+    if (decision) return decision;
+
     if (item.term.ambiguousAliases.length) {
       return { label: "문맥 확인", detail: "같은 별칭이 다른 규제 용어에도 연결됩니다. 품목과 용도를 함께 확인하세요.", tone: "gold" };
     }

@@ -20318,7 +20318,7 @@
         "tw-tfda-food-additive-registration-announcements",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
       ],
-      "notes": "Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confirmation before deciding whether it can be used or how it must be declared."
+      "notes": "Taiwan decision note: not confirmed as permitted by exact name for food-additive use. TFDA food additive standards require additives to match Appendix 1 scope/application/limits; the current Appendix I/II check finds Calcium Glycerophosphate (07011), not Potassium Glycerophosphate. Treat protein-powder or supplement use as conditional/high-risk until TFDA food additive permit query, product specification, Chinese name, exact salt identity, final food category, use level, and 508 import-regulation routing are confirmed. Do not approve import or label solely from the alias match."
     },
     {
       "id": "aspergillus-oryzae-fermented-powder",
