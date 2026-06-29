@@ -18,7 +18,7 @@ content_hash: 33fbdc6597f03dde24617761eb24e15bf96ad48a6126efb33f46402400e46d2f
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, front-of-package, nutrition-label, prepackaged-food
 ---
 

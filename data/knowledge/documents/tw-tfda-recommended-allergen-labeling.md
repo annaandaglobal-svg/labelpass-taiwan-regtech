@@ -18,7 +18,7 @@ content_hash: d07d3b35f521dbef23978e30e157dedfbbde3a897704bfe8440d0a5fdf552898
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, allergen, recommended-allergen, cross-contamination, prepackaged-food
 ---
 

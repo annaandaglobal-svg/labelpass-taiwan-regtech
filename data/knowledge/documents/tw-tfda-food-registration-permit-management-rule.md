@@ -18,7 +18,7 @@ content_hash: 01d661cba2d8d6bb9eb9d67b30d1a6ed0b3221552514f0693286c4fafd73716d
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, food-additives, registration, permit-documents, rule-update
 ---
 

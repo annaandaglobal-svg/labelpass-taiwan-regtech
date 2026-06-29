@@ -18,7 +18,7 @@ content_hash: ecb7660dc2bd982a0ce8b921bb718430809f37777983f16aee0bdc91e1f19dd2
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, food-additives, common-names, aliases, traditional-chinese
 ---
 

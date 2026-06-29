@@ -18,7 +18,7 @@ content_hash: a9c86b54634d008d7f7049263712aebfe29b8d6ac75096481e5f747133a6ec59
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosing, inci, cosmetic-ingredients, substances
 ---
 

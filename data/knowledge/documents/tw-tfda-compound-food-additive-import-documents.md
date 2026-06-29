@@ -18,7 +18,7 @@ content_hash: 1d96d566eed0b19172264c455cd07c9ae61114e8959f54b95d8ed412ec104feb
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, food-additives, compound-food-additive, composition-report, official-health-certificate, import-documents
 ---
 

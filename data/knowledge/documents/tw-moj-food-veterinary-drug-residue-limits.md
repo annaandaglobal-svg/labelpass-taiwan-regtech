@@ -18,7 +18,7 @@ content_hash: b6dda2f4630cffa0c53910cc6cfc8a29b827c2653227df804d081fc533d5ab28
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, veterinary-drug-residue, mrl, animal-products, import-risk, testing
 ---
 

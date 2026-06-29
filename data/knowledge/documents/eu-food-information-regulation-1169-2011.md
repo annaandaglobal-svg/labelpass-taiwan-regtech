@@ -18,7 +18,7 @@ content_hash: 2329a152b08275dce422a0546bfdfcbb84c5153b9c3d6135c5e4da2b686f7425
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food-labeling, nutrition, allergen, origin
 ---
 

@@ -34,11 +34,11 @@
 ## Required Sources
 
 - **GC453 Tariff Database Download** (`tw-customs-tariff-database-download`) - Customs Administration / CPT Single Window; fresh; browser_capture
-- **Kaohsiung Customs origin packaging notice** (`tw-customs-export-origin-packaging`) - Taiwan Customs Administration; fresh; html
-- **Taiwan Import Regulation Code Search Instructions** (`tw-trade-import-regulation-code-instruction`) - International Trade Administration, Ministry of Economic Affairs; fresh; html
-- **TFDA Import Regulation 508 Food Additive Commodity List Notice** (`tw-tfda-import-regulation-508-food-additive-commodity-list-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **TFDA F01 and F02 Import Regulation Commodity Table Notice** (`tw-tfda-import-regulation-f01-f02-commodity-table-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **TFDA Imported Food Inspection Application Forms** (`tw-tfda-imported-food-inspection-forms`) - Taiwan Food and Drug Administration; fresh; html
+- **Kaohsiung Customs origin packaging notice** (`tw-customs-export-origin-packaging`) - Taiwan Customs Administration; fresh; cache
+- **Taiwan Import Regulation Code Search Instructions** (`tw-trade-import-regulation-code-instruction`) - International Trade Administration, Ministry of Economic Affairs; fresh; cache
+- **TFDA Import Regulation 508 Food Additive Commodity List Notice** (`tw-tfda-import-regulation-508-food-additive-commodity-list-2026`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA F01 and F02 Import Regulation Commodity Table Notice** (`tw-tfda-import-regulation-f01-f02-commodity-table-2026`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA Imported Food Inspection Application Forms** (`tw-tfda-imported-food-inspection-forms`) - Taiwan Food and Drug Administration; fresh; cache
 
 ## Answer Skeleton
 

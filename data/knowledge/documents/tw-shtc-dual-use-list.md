@@ -18,7 +18,7 @@ content_hash: cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: dual-use, common-military-list, export-control, ai-hardware
 ---
 

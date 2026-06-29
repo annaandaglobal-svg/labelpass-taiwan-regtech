@@ -8,14 +8,14 @@ domain: health_food
 source_type: guidance_index
 priority: medium
 format: html
-fetched_at: 2026-06-26T12:20:54.480Z
+fetched_at: 2026-06-26T12:21:01.652Z
 fetched_url: https://www.fda.gov.tw/TC/sitelist.aspx?sid=1760
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T12:20:54.480Z
+cache_expires_at: 2026-07-26T12:21:01.652Z
 cache_status: fresh
 content_hash: 1f4187fa22240ba47566ba457e4421498afc3886ab010027209ad598262a4fd3
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

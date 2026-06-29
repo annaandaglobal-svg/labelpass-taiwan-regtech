@@ -18,7 +18,7 @@ content_hash: 2829ab727c41cca224ab12823bf83dedcada5a9fa77c18269c5148e1907e015d
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, allergen, prepackaged-food, warning-label
 ---
 

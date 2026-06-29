@@ -18,7 +18,7 @@ content_hash: b34ae2c67c5e5aba57bfbd772ae6346197897733b9c6860a1d4ec3428d9e0cfb
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: hs-code, tariff, classification, imports
 ---
 

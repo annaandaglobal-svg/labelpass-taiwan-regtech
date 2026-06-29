@@ -32,10 +32,10 @@
 
 ## Required Sources
 
-- **Food Ingredient Integration Query Platform Direct Query** (`tw-tfda-food-ingredient-query-platform-direct`) - Taiwan Food and Drug Administration / Consumer Knowledge Service Network; fresh; html
-- **TFDA Food Business Information Query Links** (`tw-tfda-food-business-info-query-links`) - Taiwan Food and Drug Administration; fresh; html
+- **Food Ingredient Integration Query Platform Direct Query** (`tw-tfda-food-ingredient-query-platform-direct`) - Taiwan Food and Drug Administration / Consumer Knowledge Service Network; fresh; cache
+- **TFDA Food Business Information Query Links** (`tw-tfda-food-business-info-query-links`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy** (`tw-tfda-food-false-exaggerated-medical-efficacy-claims`) - Taiwan Food and Drug Administration; fresh; cache
-- **TFDA Food Guidance, Law and Regulations Index** (`tw-tfda-food-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; html
+- **TFDA Food Guidance, Law and Regulations Index** (`tw-tfda-food-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations on Nutrition Labeling for Prepackaged Food Products** (`tw-tfda-food-nutrition-labeling`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulation of Food Allergen Labeling English Page** (`tw-tfda-food-allergen-labeling-en`) - Taiwan Food and Drug Administration; fresh; cache
 

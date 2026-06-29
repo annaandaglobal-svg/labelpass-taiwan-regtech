@@ -18,7 +18,7 @@ content_hash: 9273592e24ef60ee5cf5ca165fe5ec9e329baf5760876b57bd1b8a37c2a0ff63
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: ear, export-control, dual-use, eccn
 ---
 

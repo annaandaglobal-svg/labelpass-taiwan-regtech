@@ -18,7 +18,7 @@ content_hash: 9a0551c706ed9258d29908af22fa5b0681a76f64ff58aee77b4719be06b9c5cb
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, traceability, source-flow-data, lot-number, import-declaration, five-year-retention
 ---
 

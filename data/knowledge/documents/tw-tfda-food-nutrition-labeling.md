@@ -18,7 +18,7 @@ content_hash: 211fc12e80c091bedca113cf0ff3e61ae246312578c9a82e2b15459e43eedac6
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, nutrition-label, prepackaged-food
 ---
 

@@ -18,7 +18,7 @@ content_hash: fb27dd0d5bea65b7a45ae297fa0695022df5ef11e6c43e05c4d22a036374024b
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: commodity-labeling, chinese-label, consumer-goods
 ---
 

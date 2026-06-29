@@ -18,7 +18,7 @@ content_hash: 26a0bc8ca1366f52cdc5033f594f10aad1f01203002039a05c2952d112777cb8
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, notification, labeling, transition, general-cosmetics
 ---
 

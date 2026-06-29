@@ -8,14 +8,14 @@ domain: food_import
 source_type: regulation
 priority: high
 format: pdf
-fetched_at: 2026-06-26T12:20:54.480Z
+fetched_at: 2026-06-26T12:21:00.183Z
 fetched_url: https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638369543965031913
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T12:20:54.480Z
+cache_expires_at: 2026-07-26T12:21:00.183Z
 cache_status: fresh
 content_hash: 2e5021f74bb269fa959a6df825ed872c2fbf869bf946c4da7b82c9d7bf78d376
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

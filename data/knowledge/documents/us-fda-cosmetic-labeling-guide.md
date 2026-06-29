@@ -18,7 +18,7 @@ content_hash: eb14ffc029f59919451a5b029789312716ee3616b9f0d8389c7dcd4adf54cebf
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, labeling-guide, ingredient-declaration
 ---
 

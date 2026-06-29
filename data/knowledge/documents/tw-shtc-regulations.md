@@ -18,7 +18,7 @@ content_hash: 75ea1097c8b1be3ea698cce451434a9209270168ff5670452c57b5881140e961
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: shtc, dual-use, export-control, ai-hardware
 ---
 

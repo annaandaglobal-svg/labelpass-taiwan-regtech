@@ -18,7 +18,7 @@ content_hash: 80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food-ingredients, ingredient-safety, usage-limit, caution, scientific-name, query-platform
 ---
 

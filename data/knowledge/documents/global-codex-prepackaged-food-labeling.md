@@ -18,7 +18,7 @@ content_hash: d2d256b8a3c1ec397ae7736279a0f8f99174340cb20c15950b396a8444e201e0
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: codex, prepackaged-food, mandatory-label-items
 ---
 

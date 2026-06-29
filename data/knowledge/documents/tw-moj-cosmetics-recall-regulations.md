@@ -18,7 +18,7 @@ content_hash: 86353c6db875607651ffadfc5ec54fbccb8e35021a1028ebbe55178e3b94cf5b
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, recall, class-1, class-2, class-3, recall-plan, seller-notification, capa
 ---
 

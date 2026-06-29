@@ -8,14 +8,14 @@ domain: food_labeling
 source_type: handbook
 priority: high
 format: html
-fetched_at: 2026-06-26T12:23:13.662Z
+fetched_at: 2026-06-26T12:23:14.564Z
 fetched_url: https://www.fda.gov.tw/tc/siteList.aspx?sid=12419
-extra_fetched_urls: https://www.fda.gov.tw/tc/siteList.aspx?sid=12347
+extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T12:23:13.662Z
+cache_expires_at: 2026-07-26T12:23:14.564Z
 cache_status: fresh
 content_hash: 3ddded594997acd5baa071009fbadf178ff18b4b3829369251aa6607d1664b35
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

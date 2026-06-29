@@ -18,7 +18,7 @@ content_hash: 7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: import, export, shtc, origin, trade
 ---
 

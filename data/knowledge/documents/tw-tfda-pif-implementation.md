@@ -18,7 +18,7 @@ content_hash: e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: pif, safety-assessment, 2026
 ---
 

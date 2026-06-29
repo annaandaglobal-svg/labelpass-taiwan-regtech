@@ -8,14 +8,14 @@ domain: food_safety
 source_type: database
 priority: high
 format: html
-fetched_at: 2026-06-27T12:38:34.227Z
+fetched_at: 2026-06-27T12:38:36.631Z
 fetched_url: https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T12:38:34.227Z
+cache_expires_at: 2026-07-04T12:38:36.631Z
 cache_status: fresh
 content_hash: 2fcdb50e30af5ff05753234c03b5964ff8f2217c59775f1ac6a618ec88588db8
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

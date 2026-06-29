@@ -18,7 +18,7 @@ content_hash: dd3b0916095629ea35d9590cdfb29e5c9a1133fcd446e826105725fa57e96b0f
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, nutrition-claim, prepackaged-food, claims
 ---
 

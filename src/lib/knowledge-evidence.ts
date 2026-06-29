@@ -1,9 +1,8 @@
 import type { KnowledgeSearchResult } from "./knowledge-search";
 import { searchKnowledgeRuntime } from "./knowledge-runtime";
+import { verdictForKnowledgeTerm } from "./knowledge-verdicts";
 import evidenceTemplateData from "../../data/knowledge/evidence-bundle-templates.json";
 import productRouteData from "../../data/knowledge/product-routing-matrix.json";
-
-const POTASSIUM_GLYCEROPHOSPHATE_TERM_ID = "potassium-glycerophosphate-food-additive";
 
 type EvidenceTerm = {
   id: string;
@@ -94,13 +93,19 @@ function confidenceFor(result: KnowledgeSearchResult): KnowledgeEvidenceBundle["
   return "low";
 }
 
-function hasPotassiumGlycerophosphate(result: KnowledgeSearchResult) {
-  return result.terms.some((term) => term.id === POTASSIUM_GLYCEROPHOSPHATE_TERM_ID);
+function verdictsFor(result: KnowledgeSearchResult) {
+  return result.terms
+    .map((term) => ({ term, verdict: verdictForKnowledgeTerm(term) }))
+    .filter((item): item is { term: KnowledgeSearchResult["terms"][number]; verdict: NonNullable<ReturnType<typeof verdictForKnowledgeTerm>> } =>
+      Boolean(item.verdict)
+    );
 }
 
 function buildSummary(query: string, result: KnowledgeSearchResult) {
-  if (hasPotassiumGlycerophosphate(result)) {
-    return `"${query}"는 금지목록 성분으로 확인된 것이 아니라, 대만 식품첨가물/영양첨가물 포지티브 리스트에서 정확명 등재가 확인되지 않은 성분입니다. 따라서 첨가물 용도라면 현재 근거로는 사용 불가로 판단하고, 일반 식품원료라고 주장하려면 TFDA 원료조회/공식 분류, 허가증, 중문명, 정확한 염 형태, 최종 식품군, 사용량 근거가 필요합니다.`;
+  const primaryVerdict = verdictsFor(result)[0];
+
+  if (primaryVerdict) {
+    return `"${query}"의 실무 판정: ${primaryVerdict.verdict.label}. ${primaryVerdict.verdict.detail}`;
   }
 
   const termNames = result.terms.slice(0, 3).map((term) => term.canonicalName);
@@ -162,9 +167,9 @@ function routeHintsFor(result: KnowledgeSearchResult, query: string, options: Ev
 }
 
 function suggestedActions(result: KnowledgeSearchResult, routeHints: EvidenceRouteHint[]) {
+  const verdictActions = verdictsFor(result).flatMap((item) => item.verdict.actions);
   const actions = [
-    hasPotassiumGlycerophosphate(result) ? "식품첨가물/영양첨가물 용도라면 현재 기준으로 사용 불가로 표시하고, 허가증 또는 공식 분류 근거가 나오기 전까지 승인하지 마세요." : "",
-    hasPotassiumGlycerophosphate(result) ? "공급사에서 일반 식품원료라고 주장하면 TFDA 원료조회 결과, 중문명, 정확한 염 형태, 최종 식품군, 사용량, 규격서를 받아 Calcium/Magnesium Glycerophosphate와 분리하세요." : "",
+    ...verdictActions,
     routeHints[0]?.nextAction ? `업무 라우트: ${routeHints[0].nextAction}` : "",
     result.terms[0] ? `${result.terms[0].canonicalName} 기준으로 라벨 문구와 원료명을 재대조` : "",
     result.sources[0] ? `${result.sources[0].title} 원문 또는 캐시 문서를 검토 근거로 첨부` : "",

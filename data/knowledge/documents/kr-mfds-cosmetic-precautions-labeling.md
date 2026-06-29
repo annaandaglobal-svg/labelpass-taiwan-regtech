@@ -18,7 +18,7 @@ content_hash: e833223d6a7f625072ac3a923f849ea8d5eb354843ca15cea77bf83aaf75a2e5
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, precautions, warnings, labeling
 ---
 

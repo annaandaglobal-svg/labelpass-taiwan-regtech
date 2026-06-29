@@ -8,14 +8,14 @@ domain: food_labeling
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-27T12:38:34.227Z
+fetched_at: 2026-06-27T12:38:36.001Z
 fetched_url: https://www.fda.gov.tw/eng/law.aspx?cid=16
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T12:38:34.227Z
+cache_expires_at: 2026-07-04T12:38:36.001Z
 cache_status: fresh
 content_hash: 4f39802a9feedbce1702bb8e07cec7fbdf3d2b43244e2246b8e4b8dfcd4022e4
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

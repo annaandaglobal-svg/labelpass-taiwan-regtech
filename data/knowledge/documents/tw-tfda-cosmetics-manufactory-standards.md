@@ -8,14 +8,14 @@ domain: cosmetics
 source_type: standard
 priority: medium
 format: html
-fetched_at: 2026-06-26T07:32:31.721Z
+fetched_at: 2026-06-26T07:32:32.587Z
 fetched_url: https://www.fda.gov.tw/eng/lawContent.aspx?cid=5062&id=3284
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T07:32:31.721Z
+cache_expires_at: 2026-07-26T07:32:32.587Z
 cache_status: fresh
 content_hash: 927c3182c01ba3852e9d31687bdafd58e6467424375b24c5107f8e7563aede52
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

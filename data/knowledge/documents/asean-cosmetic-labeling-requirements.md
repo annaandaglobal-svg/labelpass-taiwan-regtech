@@ -18,7 +18,7 @@ content_hash: d48fe6280f1fbd089f017a1ca1c2044fd1962c25bf34d6bfd6e0f5ecbdd0bc10
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: asean, cosmetic-labeling, mandatory-label-items
 ---
 

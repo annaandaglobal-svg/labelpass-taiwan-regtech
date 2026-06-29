@@ -18,7 +18,7 @@ content_hash: 86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, china, nmpa, notices
 ---
 

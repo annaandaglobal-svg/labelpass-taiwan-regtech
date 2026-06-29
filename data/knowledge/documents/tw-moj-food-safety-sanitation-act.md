@@ -18,7 +18,7 @@ content_hash: 315b80cc5c83722cc1b4fa38efd311fd49b3f0f74d25a5a0e1b67dc15af45a7c
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, labeling, food-additives, import
 ---
 

@@ -18,7 +18,7 @@ content_hash: 631983f9f1ad7219c3fd19f2124b3e1f52dd5cde943200bee52aa7ea6193fb40
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, fish, product-name, species-name, labeling
 ---
 

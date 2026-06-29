@@ -18,7 +18,7 @@ content_hash: a971a72efdd02f3167be64dede150f62e0107a9730400f35876ddbf40b18f9d7
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: export, export-permit, origin-marking, trademark, shtc
 ---
 

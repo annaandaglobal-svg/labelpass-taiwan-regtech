@@ -18,7 +18,7 @@ content_hash: 6918e1222400ac6d83d58a327d0469a8cdaa28208f5e4b6242d911df825c6a53
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: import, import-permit, negative-list, customs-assisted-examination, country-of-origin
 ---
 

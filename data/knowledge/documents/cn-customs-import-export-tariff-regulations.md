@@ -18,7 +18,7 @@ content_hash: 96559e7b15d8e78ba5037a5f8609618106fe263fe278fad892dc497dfcae8490
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: customs, import, export, tariff
 ---
 

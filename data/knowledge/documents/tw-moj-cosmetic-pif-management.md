@@ -18,7 +18,7 @@ content_hash: 44df9f416b5f7dbdcc46200f5b8431d6f3b972200321aec2173f98259895922a
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, pif, safety-assessment, ingredient-content
 ---
 

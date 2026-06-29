@@ -18,7 +18,7 @@ content_hash: 78250ac818ee7b8b520684a384fb1b474b08b139916dbf992443973a843f095b
 from_cache: false
 manual_fallback: false
 browser_capture: true
-parse_error: 
+parse_error:
 tags: export-control, dual-use, security, high-tech
 ---
 

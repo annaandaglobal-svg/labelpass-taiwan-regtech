@@ -18,7 +18,7 @@ content_hash: 9e08777e6647383cf1b8dbd61097a25c76091d2d44e14d23feb4f3ef7fde250c
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: origin, textiles, import-labeling
 ---
 

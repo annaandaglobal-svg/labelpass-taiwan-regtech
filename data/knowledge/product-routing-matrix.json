@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T19:02:37.720Z",
+  "generated_at": "2026-06-29T12:20:17.961Z",
   "generated_from": {
-    "knowledge_memory_generated_at": "2026-06-27T19:02:37.720Z",
+    "knowledge_memory_generated_at": "2026-06-29T12:20:17.961Z",
     "source_registry_version": "2026-06-26",
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -146,7 +146,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-announcements.md"
         },
         {
@@ -166,7 +166,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "pdf",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-label-leaflet-packaging-marking.md"
         },
         {
@@ -176,7 +176,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-pif-category-implementation-2024.md"
         },
         {
@@ -186,7 +186,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-categories-2024.md"
         },
         {
@@ -196,7 +196,7 @@
           "domain": "cosmetics",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-system.md"
         }
       ],
@@ -486,7 +486,7 @@
         "fish-allergen",
         "mango-allergen",
         "tree-nuts-allergen",
-        "caseinates-food-additives"
+        "potassium-glycerophosphate-food-additive"
       ],
       "sources": [
         {
@@ -536,7 +536,7 @@
           "domain": "food_labeling",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-labeling-handbook-2026.md"
         },
         {
@@ -546,7 +546,7 @@
           "domain": "food_labeling",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-law-regulations-index.md"
         },
         {
@@ -749,21 +749,23 @@
           ]
         },
         {
-          "id": "caseinates-food-additives",
-          "canonical_name": "Casein and Caseinates",
+          "id": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
           "category": "food_additive",
           "aliases": [
-            "CAS 9000-71-9",
-            "Calcium caseinate",
-            "Casein",
-            "Sodium caseinate",
-            "乾酪素",
-            "乾酪素鈉"
+            "Potassium Glycerophosphate",
+            "글리세로인산칼륨",
+            "甘油磷酸鉀",
+            "Potassium glycerol phosphate",
+            "글리세로포스페이트 칼륨",
+            "Potassium glycerophosphate powder"
           ],
           "source_keys": [
-            "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table",
-            "tw-tfda-food-allergen-labeling"
+            "tw-tfda-food-additive-standards",
+            "tw-tfda-food-additive-permit-query",
+            "tw-tfda-food-additive-registration-announcements",
+            "tw-tfda-food-ingredient-integration-query-platform",
+            "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
           ]
         }
       ]
@@ -868,7 +870,7 @@
           "domain": "food_safety",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-query-platform-direct.md"
         },
         {
@@ -878,7 +880,7 @@
           "domain": "food_safety",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-business-info-query-links.md"
         },
         {
@@ -898,7 +900,7 @@
           "domain": "food_labeling",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-food-law-regulations-index.md"
         },
         {
@@ -1048,6 +1050,7 @@
             "tw-tfda-food-additive-standards",
             "tw-tfda-food-additive-permit-query",
             "tw-tfda-food-additive-registration-announcements",
+            "tw-tfda-food-ingredient-integration-query-platform",
             "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
           ]
         },
@@ -1256,7 +1259,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-508-food-additive-commodity-list-2026.md"
         },
         {
@@ -1266,7 +1269,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-f01-f02-commodity-table-2026.md"
         },
         {
@@ -1276,7 +1279,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-forms.md"
         },
         {
@@ -1296,7 +1299,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-inspections-law-regulations-index.md"
         },
         {
@@ -1316,7 +1319,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -1620,7 +1623,7 @@
           "domain": "health_food",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "pdf",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-health-food-application-permit-regulations.md"
         },
         {
@@ -1640,7 +1643,7 @@
           "domain": "health_food",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-health-food-health-care-effect-items-2025.md"
         },
         {
@@ -1650,7 +1653,7 @@
           "domain": "health_food",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "pdf",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-health-food-labeling-regulations.md"
         },
         {
@@ -1670,7 +1673,7 @@
           "domain": "health_food",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-health-food-effect-assessment-methods-hub.md"
         },
         {
@@ -1690,7 +1693,7 @@
           "domain": "food_safety",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-novel-food-ingredient-safety-assessment-principles-2026.md"
         }
       ],
@@ -1902,7 +1905,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-f01-f02-commodity-table-2026.md"
         },
         {
@@ -1922,7 +1925,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-508-food-additive-commodity-list-2026.md"
         },
         {
@@ -1932,7 +1935,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-forms.md"
         },
         {
@@ -1952,7 +1955,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-inspections-law-regulations-index.md"
         },
         {
@@ -1972,7 +1975,7 @@
           "domain": "food_import",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-field-declaration-2024.md"
         },
         {
@@ -1982,7 +1985,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         }
       ],
@@ -2280,7 +2283,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -2290,7 +2293,7 @@
           "domain": "trade",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-trade-import-regulation-code-instruction.md"
         },
         {
@@ -2300,7 +2303,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-508-food-additive-commodity-list-2026.md"
         },
         {
@@ -2310,7 +2313,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-f01-f02-commodity-table-2026.md"
         },
         {
@@ -2320,7 +2323,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-forms.md"
         },
         {
@@ -2340,7 +2343,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-inspections-law-regulations-index.md"
         },
         {
@@ -2651,7 +2654,7 @@
           "domain": "customs",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-customs-export-origin-packaging.md"
         },
         {
@@ -2661,7 +2664,7 @@
           "domain": "trade",
           "priority": "medium",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-trade-import-regulation-code-instruction.md"
         },
         {
@@ -2681,7 +2684,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-508-food-additive-commodity-list-2026.md"
         },
         {
@@ -2691,7 +2694,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-import-regulation-f01-f02-commodity-table-2026.md"
         },
         {
@@ -2701,7 +2704,7 @@
           "domain": "food_import",
           "priority": "high",
           "cache_status": "fresh",
-          "evidence_mode": "html",
+          "evidence_mode": "cache",
           "document_path": "data/knowledge/documents/tw-tfda-imported-food-inspection-forms.md"
         },
         {

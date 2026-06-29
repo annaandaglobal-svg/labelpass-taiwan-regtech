@@ -18,7 +18,7 @@ content_hash: dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, prohibited-ingredients, ingredient-restrictions, cas, opendata, infoid-203
 ---
 

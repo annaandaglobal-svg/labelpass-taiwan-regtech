@@ -8,14 +8,14 @@ domain: food_safety
 source_type: database_index
 priority: medium
 format: html
-fetched_at: 2026-06-27T12:38:34.227Z
+fetched_at: 2026-06-27T12:38:36.976Z
 fetched_url: https://www.fda.gov.tw/tc/sitelist.aspx?sid=51
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T12:38:34.227Z
+cache_expires_at: 2026-07-04T12:38:36.976Z
 cache_status: fresh
 content_hash: 566b0236e19604de62902de10afb1c8ba616979d9cf5620962133a96d9213486
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

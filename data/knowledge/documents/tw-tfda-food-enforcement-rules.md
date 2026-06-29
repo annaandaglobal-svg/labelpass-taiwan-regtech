@@ -18,7 +18,7 @@ content_hash: 6672ea2c4c719e50fc35ec86f8d647d0624330a2a10a20e94e9c2dbdfd0aee98
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, enforcement-rules, labeling, product-name
 ---
 

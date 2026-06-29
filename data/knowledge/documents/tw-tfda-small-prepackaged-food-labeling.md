@@ -18,7 +18,7 @@ content_hash: 72dc295120e86a6226746dbf5e5ad736a4e978f76c5b002ef338890286ac3612
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, small-package, qr-code, prepackaged-food
 ---
 

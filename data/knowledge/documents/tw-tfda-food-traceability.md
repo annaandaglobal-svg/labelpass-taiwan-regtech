@@ -18,7 +18,7 @@ content_hash: b1aca3b63c4125f8bfc8a9a91ed9c54f53598ad19ab582fe1f39ff1a84ac44a2
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, traceability, source-tracking, records, food-additives, packaging, cleansers
 ---
 

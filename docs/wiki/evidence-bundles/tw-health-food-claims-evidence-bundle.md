@@ -33,10 +33,10 @@
 ## Required Sources
 
 - **Health Food Governing Act** (`tw-moj-health-food-governing-act`) - Ministry of Health and Welfare / MOJ Laws and Regulations Database; fresh; cache
-- **Health Food Application Permit Regulations** (`tw-tfda-health-food-application-permit-regulations`) - Taiwan Food and Drug Administration; fresh; pdf
+- **Health Food Application Permit Regulations** (`tw-tfda-health-food-application-permit-regulations`) - Taiwan Food and Drug Administration; fresh; cache
 - **Enforcement Rules of Health Food Control Act** (`tw-tfda-health-food-enforcement-rules`) - Taiwan Food and Drug Administration; fresh; cache
-- **Health Food Health Care Effect Item Notice** (`tw-tfda-health-food-health-care-effect-items-2025`) - Taiwan Food and Drug Administration; fresh; html
-- **Health Food Labeling Regulations** (`tw-tfda-health-food-labeling-regulations`) - Taiwan Food and Drug Administration; fresh; pdf
+- **Health Food Health Care Effect Item Notice** (`tw-tfda-health-food-health-care-effect-items-2025`) - Taiwan Food and Drug Administration; fresh; cache
+- **Health Food Labeling Regulations** (`tw-tfda-health-food-labeling-regulations`) - Taiwan Food and Drug Administration; fresh; cache
 - **Health Food Permit Data Query** (`tw-tfda-health-food-permit-query`) - Taiwan Food and Drug Administration / Consumer Knowledge Service Network; fresh; browser_capture
 
 ## Answer Skeleton

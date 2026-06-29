@@ -36,8 +36,8 @@
 - **Regulation of Food Allergen Labeling** (`tw-tfda-food-allergen-labeling`) - Taiwan Food and Drug Administration; fresh; cache
 - **Prepackaged Food Allergen Labeling Notice** (`tw-tfda-food-allergen-labeling-consumer-notice`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations Governing Criteria for Food Labels, Promotion and Advertisement Identified as False, Exaggerated, Misleading or Having Medical Efficacy** (`tw-tfda-food-false-exaggerated-medical-efficacy-claims`) - Taiwan Food and Drug Administration; fresh; cache
-- **TFDA Food Labeling Manuals and Handbook Hub** (`tw-tfda-food-labeling-handbook-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **TFDA Food Guidance, Law and Regulations Index** (`tw-tfda-food-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; html
+- **TFDA Food Labeling Manuals and Handbook Hub** (`tw-tfda-food-labeling-handbook-2026`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA Food Guidance, Law and Regulations Index** (`tw-tfda-food-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; cache
 
 ## Answer Skeleton
 

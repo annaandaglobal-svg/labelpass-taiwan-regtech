@@ -18,7 +18,7 @@ content_hash: 99163b35fce0586520f072b9245014e13ba381209e4cf70daf9e4f639601b46d
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, ghp, hygiene, manufacturing, storage, transportation, food-additives, traceability
 ---
 

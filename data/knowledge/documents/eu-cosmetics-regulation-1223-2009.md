@@ -18,7 +18,7 @@ content_hash: 858298b0649bd04c96565e92c5db593d8c88ed9b67f96f91189c2b194a1efec8
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, responsible-person, labeling, pif
 ---
 

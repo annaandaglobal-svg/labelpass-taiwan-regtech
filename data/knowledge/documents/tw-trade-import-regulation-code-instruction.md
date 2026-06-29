@@ -8,14 +8,14 @@ domain: trade
 source_type: database
 priority: medium
 format: html
-fetched_at: 2026-06-26T12:20:54.480Z
+fetched_at: 2026-06-26T12:20:59.871Z
 fetched_url: https://fbfh.trade.gov.tw/fh/ap/listIERegf_e.do?language=E&q_type=1
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T12:20:54.480Z
+cache_expires_at: 2026-07-10T12:20:59.871Z
 cache_status: fresh
 content_hash: 27357c0d5d187014cb39f024429fcb43e5513f05d61d6014929f60c9b6d8d03b
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

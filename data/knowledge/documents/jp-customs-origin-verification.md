@@ -18,7 +18,7 @@ content_hash: f71d5cb09fa4ed1dd99dfbc76372570dd98336c45a56e754d48de040f9110d4c
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: origin, fta, verification, customs
 ---
 

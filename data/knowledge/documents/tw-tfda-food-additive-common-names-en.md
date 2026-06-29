@@ -18,7 +18,7 @@ content_hash: 8ed9758392a6cffa0fb4d9cbc5a0f8c4c5fa2ffdfa42084e0ad704b315336d21
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, food-additives, common-names, english
 ---
 

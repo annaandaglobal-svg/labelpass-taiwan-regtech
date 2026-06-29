@@ -18,7 +18,7 @@ content_hash: 309074a3e09e8ff900a50ab8a060474d7cdc3dcd3602a77e3d1b082ab07f54c3
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, import-inspection, inspection-exemption, custom-code, personal-use
 ---
 

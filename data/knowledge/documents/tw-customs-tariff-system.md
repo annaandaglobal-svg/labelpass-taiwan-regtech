@@ -18,7 +18,7 @@ content_hash: 797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: customs, tariff, ccc-code, hs-code, tariff-query
 ---
 

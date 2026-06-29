@@ -18,7 +18,7 @@ content_hash: 7e404b721df626f77dfaaad29bc74def0a3d806158fd4254cc528a19a2405baa
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, bulk-food, chinese-label
 ---
 

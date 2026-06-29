@@ -18,7 +18,7 @@ content_hash: 5a5ebddfdb945f0c04882a78283c86b34caa3228faa1e0fce8367a2978f2d833
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, labeling, promotion, advertising, claims, deception, exaggeration, medical-efficacy, substantiation, article-10
 ---
 

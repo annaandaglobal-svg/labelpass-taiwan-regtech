@@ -8,14 +8,14 @@ domain: customs
 source_type: guidance
 priority: high
 format: html
-fetched_at: 2026-06-26T07:32:31.721Z
+fetched_at: 2026-06-26T07:32:38.637Z
 fetched_url: https://web.customs.gov.tw/en/singlehtml/1865?cntId=cus16_183499_1865
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T07:32:31.721Z
+cache_expires_at: 2026-07-10T07:32:38.637Z
 cache_status: fresh
 content_hash: 65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

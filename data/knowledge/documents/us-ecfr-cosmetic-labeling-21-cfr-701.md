@@ -18,7 +18,7 @@ content_hash: bce643a16d8b9ac7e42f3c6568ddccb8451fc2135e799071ce262a6bf32c9e27
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, labeling, ingredient-declaration, warning
 ---
 

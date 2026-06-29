@@ -18,7 +18,7 @@ content_hash: 55769e4b0588e8de68f0475bd42a504ce34ae96a7067f2cef613aadd9b68b03d
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, contaminants, toxins, heavy-metals, mycotoxins, marine-biotoxins, import-risk
 ---
 

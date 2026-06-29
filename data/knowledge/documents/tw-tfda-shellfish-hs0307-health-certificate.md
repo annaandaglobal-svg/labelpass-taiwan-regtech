@@ -18,7 +18,7 @@ content_hash: 5c4c4f5125e1f08f8188aa63ad7f2837be0a4cc36021362f5c1176444b3d294a
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, shellfish, hs-0307, health-certificate, harvest-area, border-inspection
 ---
 

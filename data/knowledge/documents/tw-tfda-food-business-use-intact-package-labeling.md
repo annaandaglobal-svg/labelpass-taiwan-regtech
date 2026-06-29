@@ -18,7 +18,7 @@ content_hash: a68cd4757ebbd4481e76150220e663b21ea7a2cc53fcce335aedda0a005dc066
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, business-use, raw-materials, intact-package, repackaging, chinese-label
 ---
 

@@ -18,7 +18,7 @@ content_hash: cb441ac2bdcfcbca401bba14d4fc3de52e5d9c53185f7d4c0acd0ffffb049bf1
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: health-food, functional-claims, permit, labeling, advertising, logo, import
 ---
 

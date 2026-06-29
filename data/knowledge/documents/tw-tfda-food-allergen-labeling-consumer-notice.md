@@ -18,7 +18,7 @@ content_hash: 48867cfc5502f5521bd4bf4f5cb933e483d07e289e1a6b63e47c187cbb995da7
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, allergen, prepackaged-food, warning-label, traditional-chinese
 ---
 

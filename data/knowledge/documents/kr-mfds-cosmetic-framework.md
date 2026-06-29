@@ -18,7 +18,7 @@ content_hash: ccdc41ea20b9bd74248ccfc774ce857e92406a9bfc0c271b422a0630f980122f
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, regulatory-framework, korea
 ---
 

@@ -18,7 +18,7 @@ content_hash: 704ab5e9a8ff64151e8079f4196bed303e8880be902e4e1a40e7b98258030389
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: asean, rules-of-origin, fta, trade
 ---
 

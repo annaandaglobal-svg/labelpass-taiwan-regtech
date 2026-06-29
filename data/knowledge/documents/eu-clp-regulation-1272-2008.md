@@ -18,7 +18,7 @@ content_hash: b350504db682ee827d8c1acfda0e5caafaac91af2bbd6b803e6722070cf5f4b2
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: clp, ghs, hazard-labeling, packaging
 ---
 

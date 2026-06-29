@@ -18,7 +18,7 @@ content_hash: b048f56f6540042ed3326871b3d01ecaa5760db8580fbd133ffa9ccad0cacc6c
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: dual-use, export-control, sensitive-technology
 ---
 

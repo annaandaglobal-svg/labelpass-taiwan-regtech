@@ -18,7 +18,7 @@ content_hash: 2dc952758b079ecf4a0f897d2cecb219ebda764d6e36f7093f497887979294b6
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: health-food, labeling, warning, recommended-intake, permit, food-safety-act
 ---
 

@@ -52,7 +52,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: finished label; ingredient specification; allergen statement; nutrition analysis; claim substantiation; importer data
 - Evidence template IDs: `tw_food_label_allergen_evidence_bundle`
 - Source IDs: `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-consumer-notice`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`, `tw-tfda-food-labeling-handbook-2026`, `tw-tfda-food-law-regulations-index`, `tw-tfda-food-nutrition-labeling`, `tw-tfda-illegal-advertising-query`, `tw-tfda-food-allergen-labeling-en`
-- Term IDs: `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`, `sulfites-allergen`, `crustacea-allergen`, `fish-allergen`, `mango-allergen`, `tree-nuts-allergen`, `caseinates-food-additives`
+- Term IDs: `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`, `sulfites-allergen`, `crustacea-allergen`, `fish-allergen`, `mango-allergen`, `tree-nuts-allergen`, `potassium-glycerophosphate-food-additive`
 
 ### Entry Questions
 

@@ -18,7 +18,7 @@ content_hash: ad3e6c91e5dbdaeb3aaa56b0c7403f9817b76d5a1b55c6b29ef495a5c1858360
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: dual-use, export-control, cyber-surveillance, sensitive-technology
 ---
 

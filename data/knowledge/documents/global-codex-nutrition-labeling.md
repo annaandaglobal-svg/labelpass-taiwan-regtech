@@ -18,7 +18,7 @@ content_hash: 888c073dc098619aa640e4c2eca04a560b27cecf9e4ea6a32eebd340b1fcfdee
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: codex, food-labeling, nutrition-labeling
 ---
 

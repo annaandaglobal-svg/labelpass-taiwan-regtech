@@ -18,7 +18,7 @@ content_hash: 55a6f4167c09fff2c7ec920ea470d91ea1adf4c055d6d7afdc0b2075bee051dc
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: exporter-importer, registration, english-name, trade-operator
 ---
 

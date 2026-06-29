@@ -18,7 +18,7 @@ content_hash: 07dbc6e0ffd3252efb0a1da8c2134b7f8f6e1ee4c5cf8b56241077924a9376c1
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, sweetness-claim, nutrition-claim, prepackaged-food, claims, misleading
 ---
 

@@ -18,7 +18,7 @@ content_hash: 81d9739264a1964a084482e854d7c965f2a9c12b9761cf01eb695a7d9191b1a8
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: country-of-origin, customs, marking, imports
 ---
 

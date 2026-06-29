@@ -18,7 +18,7 @@ content_hash: 8c19d707f8598ba58b53b610db5334fada753dcb8cb79102b451ee648b2fc6c7
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, labeling, advertising, claims
 ---
 

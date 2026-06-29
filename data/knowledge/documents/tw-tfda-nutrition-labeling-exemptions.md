@@ -18,7 +18,7 @@ content_hash: 353a84e88e5f3dbe1795b400b0bfecd16f1b04c4b273fe182b3a301574685102
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, nutrition-label, exemptions, prepackaged-food
 ---
 

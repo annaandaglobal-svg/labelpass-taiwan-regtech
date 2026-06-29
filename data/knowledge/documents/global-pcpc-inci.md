@@ -18,7 +18,7 @@ content_hash: 248274249adc55106c31ecb816d5eae7e00e457556400da4ef52317108deb765
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: inci, cosmetics, ingredient-names
 ---
 

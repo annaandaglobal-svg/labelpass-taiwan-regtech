@@ -18,7 +18,7 @@ content_hash: 74c9680517d02b2f13e2d8c4a79f20e84205dc18b5b2fef5e53d54371de19c5a
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: shtc, bilingual-glossary, export-permit, end-use, end-user
 ---
 

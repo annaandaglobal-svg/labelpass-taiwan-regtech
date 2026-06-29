@@ -18,7 +18,7 @@ content_hash: bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, preservatives, ingredient-restrictions, inci, cas, label-cautions, opendata, infoid-201
 ---
 

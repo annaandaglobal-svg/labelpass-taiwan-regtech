@@ -18,7 +18,7 @@ content_hash: 0089f5bdba0d75d3a2eacb8064c636398c761dbcc2f32acff6e4386bed826dcf
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: asean, cosmetics, directive, labeling
 ---
 

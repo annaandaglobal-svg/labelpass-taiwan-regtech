@@ -18,7 +18,7 @@ content_hash: 79579a506e998fcbd661187321e29f54a71eba9247735851ca16e582950b4455
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, product-notification, ingredients, importers
 ---
 

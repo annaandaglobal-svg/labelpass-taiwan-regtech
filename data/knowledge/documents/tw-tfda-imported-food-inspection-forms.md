@@ -8,14 +8,14 @@ domain: food_import
 source_type: forms
 priority: high
 format: html
-fetched_at: 2026-06-26T12:20:54.480Z
+fetched_at: 2026-06-26T12:20:57.632Z
 fetched_url: https://www.fda.gov.tw/TC/sitecontent.aspx?sid=2525
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T12:20:54.480Z
+cache_expires_at: 2026-07-26T12:20:57.632Z
 cache_status: fresh
 content_hash: 5a0de27ab028891baad4a7c6c664caf9884d2c71264148538ed5d6dccf3945ae
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

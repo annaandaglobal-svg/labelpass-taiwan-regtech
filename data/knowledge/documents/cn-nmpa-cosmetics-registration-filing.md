@@ -18,7 +18,7 @@ content_hash: 72490df542a56ec53a5af52df4224c44b5db297cb7f1ec81ec558626487a8224
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, registration, filing, ingredients
 ---
 

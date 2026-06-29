@@ -18,7 +18,7 @@ content_hash: d8e5957d3a3c1f41aa3f54d513178fc3a16fb995edd16e1eb660280d8e7c7e75
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: hazcom, ghs, workplace-labeling, sds
 ---
 

@@ -32,12 +32,12 @@
 
 ## Required Sources
 
-- **TFDA F01 and F02 Import Regulation Commodity Table Notice** (`tw-tfda-import-regulation-f01-f02-commodity-table-2026`) - Taiwan Food and Drug Administration; fresh; html
+- **TFDA F01 and F02 Import Regulation Commodity Table Notice** (`tw-tfda-import-regulation-f01-f02-commodity-table-2026`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations Governing the Registration of Food Business** (`tw-tfda-food-business-registration-importers`) - Taiwan Food and Drug Administration; fresh; cache
-- **TFDA Import Regulation 508 Food Additive Commodity List Notice** (`tw-tfda-import-regulation-508-food-additive-commodity-list-2026`) - Taiwan Food and Drug Administration; fresh; html
-- **TFDA Imported Food Inspection Application Forms** (`tw-tfda-imported-food-inspection-forms`) - Taiwan Food and Drug Administration; fresh; html
+- **TFDA Import Regulation 508 Food Additive Commodity List Notice** (`tw-tfda-import-regulation-508-food-additive-commodity-list-2026`) - Taiwan Food and Drug Administration; fresh; cache
+- **TFDA Imported Food Inspection Application Forms** (`tw-tfda-imported-food-inspection-forms`) - Taiwan Food and Drug Administration; fresh; cache
 - **Regulations of Inspection of Imported Foods and Related Products** (`tw-tfda-imported-food-inspection-regulations`) - Taiwan Food and Drug Administration; fresh; cache
-- **TFDA Inspections Guidance, Law and Regulations Index** (`tw-tfda-inspections-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; html
+- **TFDA Inspections Guidance, Law and Regulations Index** (`tw-tfda-inspections-law-regulations-index`) - Taiwan Food and Drug Administration; fresh; cache
 
 ## Answer Skeleton
 

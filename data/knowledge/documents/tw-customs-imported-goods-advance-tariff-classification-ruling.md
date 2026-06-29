@@ -18,7 +18,7 @@ content_hash: ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: customs, ccc-code, tariff-classification, advance-ruling, imported-goods
 ---
 

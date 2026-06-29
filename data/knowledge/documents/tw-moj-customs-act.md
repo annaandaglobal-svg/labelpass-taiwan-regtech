@@ -18,7 +18,7 @@ content_hash: bdf6eac48a0ab066a21a5605463cfe010b7e79f6f4299b9e0c58ea121ed7a39e
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: customs, customs-declaration, single-window, invoice, packing-list, post-clearance-audit
 ---
 

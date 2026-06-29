@@ -18,7 +18,7 @@ content_hash: 3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, sunscreen, uv-filter, ingredient-restrictions, spf, pif, opendata, infoid-202
 ---
 

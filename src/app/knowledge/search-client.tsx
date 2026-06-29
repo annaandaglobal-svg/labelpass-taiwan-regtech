@@ -18,6 +18,7 @@ import {
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
+import { verdictForKnowledgeTerm } from "@/lib/knowledge-verdicts";
 
 const ALL = "all";
 
@@ -785,17 +786,7 @@ function freshnessMeta(source: SourceItem) {
 }
 
 function termDecisionOverride(term: TermItem) {
-  if (term.id === "potassium-glycerophosphate-food-additive") {
-    return {
-      label: "첨가물 용도 사용불가",
-      detail:
-        "정확히 말하면 금지목록 성분이라서 금지된 것이 아니라, 대만 식품첨가물/영양첨가물 포지티브 리스트에서 Potassium Glycerophosphate 정확명이 확인되지 않아 첨가물 용도로는 사용 불가로 판단합니다. Calcium/Magnesium Glycerophosphate는 별도 항목이므로 대체 근거가 아닙니다. 일반 식품원료라고 주장하려면 TFDA 원료조회/공식 분류, 허가증, 중문명, 정확한 염 형태, 최종 식품군, 사용량 근거가 필요합니다.",
-      tone: "red",
-      chips: ["첨가물 용도 사용불가", "금지목록 금지와 구분", "포지티브리스트 미등재", "일반원료는 별도 입증"]
-    };
-  }
-
-  return null;
+  return verdictForKnowledgeTerm(term);
 }
 
 function decisionForResult(item: UnifiedResult) {

@@ -18,7 +18,7 @@ content_hash: d28b24209e05998d739e8c1d220e01fcd0d42c6799a455308ba0528ccf6a903e
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: bsmi, commodity-inspection-mark, product-safety
 ---
 

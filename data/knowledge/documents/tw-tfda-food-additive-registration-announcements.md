@@ -18,7 +18,7 @@ content_hash: 4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, food-additives, inspection-registration, single-additive, compound-additive, permit-number
 ---
 

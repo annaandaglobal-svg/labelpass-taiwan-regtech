@@ -18,7 +18,7 @@ content_hash: 0da863dde7ec359160adca40ebc2470a66fff2854adc699e8f83b880ebd6ca15
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: customs, origin, misleading-label
 ---
 

@@ -18,7 +18,7 @@ content_hash: 3130c14566f63c31c3b095db60226934f49c656912f5183dac6c7bd98fc72cc8
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: bsmi, commodity-inspection, certification-mark, regulated-products
 ---
 

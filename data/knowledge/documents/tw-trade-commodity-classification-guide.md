@@ -18,7 +18,7 @@ content_hash: 069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: ccc-code, import-regulation, export-regulation, negative-list, shtc, mainland-china
 ---
 

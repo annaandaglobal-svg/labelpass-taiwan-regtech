@@ -18,7 +18,7 @@ content_hash: 58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: export-control, dual-use, mofcom, china
 ---
 

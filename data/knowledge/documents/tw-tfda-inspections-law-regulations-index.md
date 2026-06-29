@@ -8,14 +8,14 @@ domain: food_import
 source_type: regulation_index
 priority: high
 format: html
-fetched_at: 2026-06-27T12:38:34.227Z
+fetched_at: 2026-06-27T12:38:36.138Z
 fetched_url: https://www.fda.gov.tw/eng/law.aspx?cid=5094
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T12:38:34.227Z
+cache_expires_at: 2026-07-04T12:38:36.138Z
 cache_status: fresh
 content_hash: fe0b238016834483bef5d55501ceb3c54c6dc82559cd7bd9235a4a9a628d1c2a
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

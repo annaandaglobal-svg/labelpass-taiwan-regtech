@@ -18,7 +18,7 @@ content_hash: e6161a6bd8217b10cb0060168d7f91dfbbbbfd3a0a329b1851d4d0987a2e0434
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, claims, advertising, medical-efficacy, false-exaggerated-misleading, labeling
 ---
 

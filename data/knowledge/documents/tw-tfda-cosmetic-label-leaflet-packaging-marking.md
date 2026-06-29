@@ -8,14 +8,14 @@ domain: cosmetics
 source_type: regulation
 priority: high
 format: pdf
-fetched_at: 2026-06-26T12:20:54.480Z
+fetched_at: 2026-06-26T12:20:54.894Z
 fetched_url: https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f636948036356063048
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T12:20:54.480Z
+cache_expires_at: 2026-07-26T12:20:54.894Z
 cache_status: fresh
 content_hash: e0b22caaa6dd3ece7ff377fb3c81692872cbcc17cdc42960f97e775d6a985f68
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

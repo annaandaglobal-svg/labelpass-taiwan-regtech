@@ -18,7 +18,7 @@ content_hash: c958c9de25763782d96e195cf38d990d05b50bf1c6bcba4bb858a46775dcd339
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, labeling, claims, pif
 ---
 

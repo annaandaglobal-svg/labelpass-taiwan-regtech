@@ -18,7 +18,7 @@ content_hash: c59f29b637aae8ada55f205759bddb083ff14c10f4421ccbaec2af1e1fbdc607
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food-labeling, nutrition-facts, claims
 ---
 

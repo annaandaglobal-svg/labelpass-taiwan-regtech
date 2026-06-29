@@ -18,7 +18,7 @@ content_hash: b5dbf5b535b06bf72d3c1dbeb0ded52b50103dabdcc7b0855f80e0b18c74b497
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: technical-regulation, standard, labeling, conformity-assessment
 ---
 

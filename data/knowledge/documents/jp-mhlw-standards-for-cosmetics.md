@@ -18,7 +18,7 @@ content_hash: 117fc949a82789ca66017163f19041cf2fcf6b5902708077c8e4f56c482dc8e2
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, ingredient-standards, mhlw
 ---
 

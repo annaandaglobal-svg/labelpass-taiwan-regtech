@@ -18,7 +18,7 @@ content_hash: b4b7040c5943a00cdc35670ef3a5987cd8713f260553c605f6401dc12a34e983
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cas, chemical-identifier, ingredients
 ---
 

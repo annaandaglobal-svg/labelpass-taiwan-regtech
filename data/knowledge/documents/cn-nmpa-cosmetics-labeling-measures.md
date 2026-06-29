@@ -18,7 +18,7 @@ content_hash: a103d8da73b270dac17dbd67bc8bf889efa755e3ae2ed07a22b76537e6d3a7f6
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, labeling, china, nmpa
 ---
 

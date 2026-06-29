@@ -8,14 +8,14 @@ domain: cosmetics
 source_type: guideline
 priority: medium
 format: html
-fetched_at: 2026-06-26T12:20:54.480Z
+fetched_at: 2026-06-26T12:20:56.369Z
 fetched_url: https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31102
 extra_fetched_urls:
 cache_days: 30
-cache_expires_at: 2026-07-26T12:20:54.480Z
+cache_expires_at: 2026-07-26T12:20:56.369Z
 cache_status: fresh
 content_hash: 8dc87605393602cd9674fa79ec544bedb18cf95c3cc261f490d6b644614c7115
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

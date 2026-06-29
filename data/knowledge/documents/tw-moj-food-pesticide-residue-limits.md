@@ -18,7 +18,7 @@ content_hash: ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, pesticide-residue, mrl, crop-classification, import-risk, testing
 ---
 

@@ -8,14 +8,14 @@ domain: customs
 source_type: guidance
 priority: high
 format: html
-fetched_at: 2026-06-26T07:32:31.721Z
+fetched_at: 2026-06-26T07:32:36.116Z
 fetched_url: https://web.customs.gov.tw/ekeelung/singlehtml/1451
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-10T07:32:31.721Z
+cache_expires_at: 2026-07-10T07:32:36.116Z
 cache_status: fresh
 content_hash: 080b766af687d648cf5e18adcde4f75effaebd5f3a341efdfd32397968d065dd
-from_cache: false
+from_cache: true
 manual_fallback: false
 browser_capture: false
 parse_error:

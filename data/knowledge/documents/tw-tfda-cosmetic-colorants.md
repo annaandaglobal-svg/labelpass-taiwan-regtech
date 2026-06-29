@@ -18,7 +18,7 @@ content_hash: 45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, colorants, color-index, ingredient-restrictions, opendata, infoid-200
 ---
 

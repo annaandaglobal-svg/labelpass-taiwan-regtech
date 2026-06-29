@@ -18,7 +18,7 @@ content_hash: bef8215b2a407f9d0fbd94a1c877a975840237dde868c86ce23102e4f82fa259
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: clp, classification, labeling, packaging, browser-captured
 ---
 

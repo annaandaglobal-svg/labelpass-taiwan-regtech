@@ -18,7 +18,7 @@ content_hash: 7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, adverse-event-reporting, defective-product-reporting, qms, post-market-surveillance, reporting-form
 ---
 

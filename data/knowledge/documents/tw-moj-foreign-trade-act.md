@@ -18,7 +18,7 @@ content_hash: 9b7c88dc98ca7a225a90ed74dc1169d6cf3a523fb5521f702d9fe513437638b8
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: foreign-trade-act, import, export, exporter-importer, trade-controls
 ---
 

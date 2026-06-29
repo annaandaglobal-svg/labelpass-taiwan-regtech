@@ -18,7 +18,7 @@ content_hash: 71432d9bc10f10e3de44a130d251de3bddcdc1209d8764ba18008895d3aca39e
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: cosmetics, serious-adverse-effects, adverse-event-reporting, hygiene-safety-hazard, 15-day-reporting, records
 ---
 

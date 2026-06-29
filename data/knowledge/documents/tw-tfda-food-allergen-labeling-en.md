@@ -18,7 +18,7 @@ content_hash: f27956a1d94efbf19f0be5f9a8c0147496cd9af8eb05dd0ad774a1a68b7ab868
 from_cache: true
 manual_fallback: false
 browser_capture: false
-parse_error: 
+parse_error:
 tags: food, allergen, prepackaged-food, english
 ---
 
