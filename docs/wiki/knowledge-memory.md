@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-06-27T19:02:37.720Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,190
-- Stored aliases: 4,360
-- Searchable aliases including identifiers: 6,852
+- Terms: 1,191
+- Stored aliases: 4,387
+- Searchable aliases including identifiers: 6,879
 - Term-rule links: 1,082
 - Regulatory update candidates: 41
-- Alias review items: 1,043
+- Alias review items: 1,044
 
 ## How To Use This Memory
 
@@ -185,7 +185,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-claims-criteria`, `tw-moj-cosmetic-product-notification`, `tw-tfda-cosmetic-announcements`, `tw-tfda-cosmetics-business-area`
   - Note: Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening.
 - **Cosmetic Product Notification** (`cosmetic-product-notification`)
-  - Aliases: cosmetic product notification; 台灣化粧品產品登錄; 化粧品產品登錄; 화장품 신고; product notification; 化妆品备案; 化粧品產品登錄平台系統; 化粧品登錄; cosmetic filing; 產品登錄
+  - Aliases: cosmetic product notification; 台灣化粧品產品登錄; Taiwan cosmetic product notification; 化粧品產品登錄; 화장품 신고; Taiwan cosmetic notification; cosmetic notification; product notification; 化妆品备案; 化粧品產品登錄平台系統
   - Sources: `tw-moj-cosmetic-product-notification`, `tw-tfda-pif-hub-zh`, `tw-tfda-cosmetic-product-registration-zone`, `tw-tfda-cosmetics-business-area`, `cn-nmpa-cosmetics-registration-filing`
   - Note: Concept term for product notification, filing, and registration workflows before or around market entry.
 - **Cosmetic PIF and Product Registration Categories** (`cosmetic-pif-product-registration-categories`)
@@ -265,7 +265,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-field-declaration-2024`, `tw-tfda-inspections-law-regulations-index`
   - Note: Use for evidence requests and import review screens when Taiwan imported-food inspection requires application, product data, declaration and Chinese-label undertaking materials.
 - **Taiwan Import Regulation Codes F01, F02 and 508** (`import-regulation-f01-f02-508`)
-  - Aliases: 508; F01; F02; 輸入規定508; 輸入規定F01; 輸入規定F02; import regulation 508; import regulation F01; import regulation F02; 單方食品添加物
+  - Aliases: 508; F01; F02; 輸入規定508; 輸入規定F01; 輸入規定F02; Taiwan import regulation code; import regulation 508; import regulation F01; import regulation F02
   - Sources: `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-trade-import-regulation-code-instruction`
   - Note: Routes Taiwan food, food contact material, cleanser, additive and flavor imports by import-regulation code before label or inspection workflow selection.
 - **Imported Food Inspection** (`imported-food-inspection`)

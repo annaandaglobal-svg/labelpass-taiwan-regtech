@@ -26,7 +26,7 @@
 - **Cosmetic Product Information File** (`cosmetic-product-information-file`): Product Information File; 產品資訊檔案; 대만 화장품 PIF; 화장품 PIF
 - **Cosmetic Labeling and Claims** (`cosmetic-labeling-claims`): cosmetic labeling; 化粧品標示; 화장품 표시; cosmetic advertising claims
 - **Cosmetic PIF and Product Registration Categories** (`cosmetic-pif-product-registration-categories`): cosmetic product registration; 應完成產品登錄之化粧品種類; 應建立產品資訊檔案之化粧品種類及實施日期; 產品登錄
-- **Cosmetic Product Notification** (`cosmetic-product-notification`): cosmetic product notification; 台灣化粧品產品登錄; 化粧品產品登錄; 화장품 신고
+- **Cosmetic Product Notification** (`cosmetic-product-notification`): cosmetic product notification; 台灣化粧品產品登錄; Taiwan cosmetic product notification; 化粧品產品登錄
 - **Cosmetic Label Required Items** (`cosmetic-label-required-items`): INCI; cosmetic outer package, container, label and package insert marking; 中文品名; 全成分
 - **Spray and Aerosol Cosmetic Safety** (`cosmetic-spray-aerosol-safety`): 噴霧狀化粧品; aerosol cosmetics; spray cosmetics; 使用安全指引
 

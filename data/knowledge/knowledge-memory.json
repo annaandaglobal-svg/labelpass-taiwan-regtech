@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1190,
-    "stored_aliases": 4360,
-    "searchable_aliases": 6852,
+    "terms": 1191,
+    "stored_aliases": 4387,
+    "searchable_aliases": 6879,
     "identifier_aliases": 2492,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 41,
-    "alias_review_items": 1043,
+    "alias_review_items": 1044,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -3609,14 +3609,14 @@
       "aliases": [
         "cosmetic product notification",
         "台灣化粧品產品登錄",
+        "Taiwan cosmetic product notification",
         "化粧品產品登錄",
         "화장품 신고",
+        "Taiwan cosmetic notification",
+        "cosmetic notification",
         "product notification",
         "化妆品备案",
-        "化粧品產品登錄平台系統",
-        "化粧品登錄",
-        "cosmetic filing",
-        "產品登錄"
+        "化粧品產品登錄平台系統"
       ],
       "source_keys": [
         "tw-moj-cosmetic-product-notification",
@@ -3629,7 +3629,7 @@
         "tw-tfda-cosmetic-fadenbook-platform"
       ],
       "notes": "Concept term for product notification, filing, and registration workflows before or around market entry.",
-      "score": 1277
+      "score": 1287
     },
     {
       "id": "cosmetic-pif-product-registration-categories",
@@ -3942,10 +3942,10 @@
         "輸入規定508",
         "輸入規定F01",
         "輸入規定F02",
+        "Taiwan import regulation code",
         "import regulation 508",
         "import regulation F01",
-        "import regulation F02",
-        "單方食品添加物"
+        "import regulation F02"
       ],
       "source_keys": [
         "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
@@ -5516,17 +5516,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1190,
-      "aliases_scanned": 4360,
-      "alias_rows_scanned": 4355,
-      "collision_groups": 56,
+      "terms_scanned": 1191,
+      "aliases_scanned": 4387,
+      "alias_rows_scanned": 4382,
+      "collision_groups": 57,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 987,
       "strict_blockers": 0,
-      "review_items": 1043
+      "review_items": 1044
     },
     "items": [
       {
@@ -6410,6 +6410,7 @@
         ],
         "affected_terms": [
           "HS Code Classification",
+          "BSMI Commodity Inspection",
           "Commercial Invoice",
           "Packing List",
           "Advance Tariff Classification Ruling",
@@ -6748,6 +6749,7 @@
         ],
         "affected_terms": [
           "HS Code Classification",
+          "BSMI Commodity Inspection",
           "Incoterms",
           "Shipment Purpose",
           "Import and Export Permit",

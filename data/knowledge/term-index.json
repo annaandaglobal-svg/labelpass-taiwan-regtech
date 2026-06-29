@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 153,
+  "curated_term_count": 154,
   "generated_term_count": 1038,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -6430,6 +6430,166 @@
       "notes": "Concept term for tariff classification, customs statistical codes, and HS-code based routing."
     },
     {
+      "id": "bsmi-commodity-inspection",
+      "canonical_name": "BSMI Commodity Inspection",
+      "category": "product_certification",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "BSMI",
+          "normalized": "bsmi",
+          "type": "abbreviation",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Bureau of Standards, Metrology and Inspection",
+          "normalized": "bureau of standards metrology and inspection",
+          "type": "official_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Commodity Inspection",
+          "normalized": "commodity inspection",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "commodity inspection mark",
+          "normalized": "commodity inspection mark",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Taiwan commodity inspection",
+          "normalized": "taiwan commodity inspection",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "BSMI mark",
+          "normalized": "bsmi mark",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商品檢驗",
+          "normalized": "商品檢驗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "商品檢驗標識",
+          "normalized": "商品檢驗標識",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "標準檢驗局",
+          "normalized": "標準檢驗局",
+          "type": "agency_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "經濟部標準檢驗局",
+          "normalized": "經濟部標準檢驗局",
+          "type": "agency_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 BSMI",
+          "normalized": "대만 bsmi",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 상품검험",
+          "normalized": "대만 상품검험",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 표준검험국",
+          "normalized": "대만 표준검험국",
+          "type": "agency_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "상품검사 마크",
+          "normalized": "상품검사 마크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-bsmi-commodity-inspection-mark",
+        "tw-moea-commodity-inspection-mark-law",
+        "tw-bsmi-commodity-inspection-schemes",
+        "tw-customs-tariff-database-download",
+        "tw-trade-ccc-import-export-regulations"
+      ],
+      "notes": "Taiwan BSMI commodity-inspection routing concept for regulated products, commodity-inspection marks, CCC-code dependent import checks, and product certification evidence. Use after HS/CCC classification when a food-contact article, packaging article, appliance, textile, toy, electronics item, or other regulated commodity may require BSMI inspection."
+    },
+    {
       "id": "country-of-origin-marking",
       "canonical_name": "Country of Origin Marking",
       "category": "origin_marking",
@@ -11824,6 +11984,36 @@
           "source": "curated"
         },
         {
+          "value": "cosmetic notification",
+          "normalized": "cosmetic notification",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.92,
+          "note": "Short user query for cosmetic product notification or filing; confirm Taiwan product-registration context.",
+          "source": "curated"
+        },
+        {
+          "value": "Taiwan cosmetic notification",
+          "normalized": "taiwan cosmetic notification",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.92,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Taiwan cosmetic product notification",
+          "normalized": "taiwan cosmetic product notification",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "product notification",
           "normalized": "product notification",
           "type": "common_name",
@@ -11861,6 +12051,26 @@
           "jurisdiction": "KR",
           "confidence": 0.85,
           "note": "May refer to filing, registration, or notification depending on jurisdiction.",
+          "source": "curated"
+        },
+        {
+          "value": "대만 화장품 등록",
+          "normalized": "대만 화장품 등록",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Common Korean wording for Taiwan cosmetic product notification/product registration.",
+          "source": "curated"
+        },
+        {
+          "value": "대만 화장품 제품등록",
+          "normalized": "대만 화장품 제품등록",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
           "source": "curated"
         },
         {
@@ -17722,6 +17932,36 @@
           "source": "curated"
         },
         {
+          "value": "import regulation code",
+          "normalized": "import regulation code",
+          "type": "official_term",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Taiwan import regulation code",
+          "normalized": "taiwan import regulation code",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "import regulation code F01 F02 508",
+          "normalized": "import regulation code f01 f02 508",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
           "value": "food-related use",
           "normalized": "food-related use",
           "type": "official_term",
@@ -17738,6 +17978,56 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入規定",
+          "normalized": "輸入規定",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": "Broad Taiwan import-regulation wording; confirm CCC code and agency context.",
+          "source": "curated"
+        },
+        {
+          "value": "輸入規定代號",
+          "normalized": "輸入規定代號",
+          "type": "official_term",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輸入規定代碼",
+          "normalized": "輸入規定代碼",
+          "type": "variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 수입규정 코드",
+          "normalized": "대만 수입규정 코드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대만 수입 규정 코드",
+          "normalized": "대만 수입 규정 코드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         },

@@ -133,7 +133,7 @@ function mergeKnowledgeResult(
 
   return {
     ...primary,
-    totals: fallback.totals,
+    totals: primary.totals,
     ambiguity: primary.ambiguity ?? fallback.ambiguity,
     terms: mergedTerms,
     sources: mergedSources

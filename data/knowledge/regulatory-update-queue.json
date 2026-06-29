@@ -180,6 +180,11 @@
           "category": "customs_classification"
         },
         {
+          "term_key": "bsmi-commodity-inspection",
+          "canonical_name": "BSMI Commodity Inspection",
+          "category": "product_certification"
+        },
+        {
           "term_key": "commercial-invoice",
           "canonical_name": "Commercial Invoice",
           "category": "customs_document"
@@ -3302,6 +3307,11 @@
           "term_key": "hs-code-classification",
           "canonical_name": "HS Code Classification",
           "category": "customs_classification"
+        },
+        {
+          "term_key": "bsmi-commodity-inspection",
+          "canonical_name": "BSMI Commodity Inspection",
+          "category": "product_certification"
         },
         {
           "term_key": "incoterms",
