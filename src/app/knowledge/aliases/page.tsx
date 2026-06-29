@@ -19,13 +19,13 @@ export default function AliasReviewPage() {
             <div>
               <Link className="knowledge-back" href="/knowledge">
                 <ArrowLeft size={17} />
-                지식 검색으로
+                통합검색으로
               </Link>
-              <p className="eyebrow">용어·별칭 운영 큐</p>
-              <h1>별칭 검수 작업대</h1>
+              <p className="eyebrow">운영팀 전용 검색어 관리</p>
+              <h1>사용자 통합검색 뒤에서 원료명과 다른 이름을 관리합니다.</h1>
               <p>
-                같은 원료와 규제 표현이 나라·언어·품목별로 다르게 불리는 문제를 검수합니다. 충돌, 깨진 문자,
-                현지명 누락을 우선순위대로 정리해 검색 품질을 계속 올립니다.
+                통합검색에서 0건이 나오거나 엉뚱한 결과가 나올 때 개발·운영자가 쓰는 작업대입니다. 한국어, 영어,
+                중문명, 약어, 공급사 표기를 연결하고 같은 검색어가 여러 뜻으로 쓰이는 충돌을 정리합니다.
               </p>
             </div>
             <div className="alias-review-hero-meta">

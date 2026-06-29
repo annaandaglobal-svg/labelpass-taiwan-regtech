@@ -41,16 +41,16 @@ const priorityLabels: Record<AliasReviewPriority, string> = {
 
 const issueLabels: Record<string, string> = {
   "alias-collision-high-confidence": "고신뢰 충돌",
-  "alias-collision": "별칭 충돌",
+  "alias-collision": "같은 검색어 충돌",
   mojibake: "문자 깨짐",
-  "missing-local-alias": "현지명 누락"
+  "missing-local-alias": "검색어 누락"
 };
 
 const issueIntents: Record<string, string> = {
-  "alias-collision-high-confidence": "품목·용도 문맥 메모 추가",
-  "alias-collision": "공유 별칭 문맥 보강",
+  "alias-collision-high-confidence": "같은 말의 다른 뜻 분리",
+  "alias-collision": "공유 검색어 문맥 보강",
   mojibake: "재수집·수동 캡처",
-  "missing-local-alias": "공식 현지명 추가"
+  "missing-local-alias": "한글·영문·중문명 추가"
 };
 
 const laneOptions = [
@@ -265,10 +265,10 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
   return (
     <section className="alias-review-workbench">
       <div className="alias-health-grid" aria-label="별칭 큐 요약">
-        <HealthTile icon={<ShieldCheck size={17} />} label="검수 항목" value={queue.summary.review_items} detail="전체 별칭 운영 큐" tone="green" href="/knowledge/aliases?lane=active&priority=high" />
-        <HealthTile icon={<AlertTriangle size={17} />} label="고신뢰 충돌" value={queue.summary.high_confidence_collisions} detail="우선 문맥 보강" tone="gold" href="/knowledge/aliases?issue=alias-collision-high-confidence&priority=high&lane=active" />
-        <HealthTile icon={<Languages size={17} />} label="현지명 백로그" value={queue.summary.regulated_terms_without_local_alias} detail="공식 zh-Hant/ko/ja 보강" tone="blue" href="/knowledge/aliases?issue=missing-local-alias&priority=backlog&lane=backlog" />
-        <HealthTile icon={<CheckCircle2 size={17} />} label="엄격 차단" value={queue.summary.strict_blockers} detail={damagedCount ? `문자 깨짐 ${damagedCount}건 별도 확인` : "차단 항목 없음"} tone={queue.summary.strict_blockers ? "red" : "neutral"} href="/knowledge/aliases?priority=blocker&lane=all" />
+        <HealthTile icon={<ShieldCheck size={17} />} label="추가·수정 대기" value={queue.summary.review_items} detail="검색 품질을 올릴 항목" tone="green" href="/knowledge/aliases?lane=active&priority=high" />
+        <HealthTile icon={<AlertTriangle size={17} />} label="같은 검색어 충돌" value={queue.summary.high_confidence_collisions} detail="품목·용도별 뜻 분리" tone="gold" href="/knowledge/aliases?issue=alias-collision-high-confidence&priority=high&lane=active" />
+        <HealthTile icon={<Languages size={17} />} label="번역명 누락" value={queue.summary.regulated_terms_without_local_alias} detail="한글·영문·중문명 보강" tone="blue" href="/knowledge/aliases?issue=missing-local-alias&priority=backlog&lane=backlog" />
+        <HealthTile icon={<CheckCircle2 size={17} />} label="깨진 글자" value={queue.summary.strict_blockers} detail={damagedCount ? `문자 깨짐 ${damagedCount}건 별도 확인` : "현재 차단 없음"} tone={queue.summary.strict_blockers ? "red" : "neutral"} href="/knowledge/aliases?priority=blocker&lane=all" />
       </div>
 
       <div className="alias-progress-strip" aria-label="로컬 검수 진행률">
@@ -288,7 +288,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="별칭, term id, 언어, alias type, 조치 메모 검색"
+            placeholder="추가하거나 고칠 검색어, 한글명, 영문명, 중문명 검색"
           />
         </label>
         <div className="alias-segment" aria-label="검수 lane">
@@ -343,7 +343,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
         <section className="alias-list-panel">
           <div className="alias-section-head">
             <div>
-              <h2>검수 후보</h2>
+              <h2>추가·수정 후보</h2>
               <span>상위 {visibleItems.length.toLocaleString()}건 표시 · 전체 일치 {filteredItems.length.toLocaleString()}건</span>
             </div>
             <b>{lane === "backlog" ? "백로그" : lane === "active" ? "우선 검수" : "전체"}</b>
@@ -375,7 +375,7 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
               <div className="alias-empty">
                 <Search size={18} />
                 <b>조건에 맞는 검수 항목이 없습니다.</b>
-                <span>검색어 또는 lane을 넓혀보세요.</span>
+                <span>새로 들어온 검색어라면 이 화면에서 사전 항목으로 추가할 후보입니다.</span>
               </div>
             )}
           </div>
@@ -452,8 +452,8 @@ export default function AliasReviewClient({ queue }: { queue: AliasReviewQueue }
 
               <div className="alias-decision-list">
                 <b>운영 액션</b>
-                <span><Sparkles size={14} /> 소스 기반 문맥 note 추가</span>
-                <span><Sparkles size={14} /> 품목·용도별 별칭 분리</span>
+                <span><Sparkles size={14} /> 소스 기반 검색어 메모 추가</span>
+                <span><Sparkles size={14} /> 품목·용도별 같은 말 분리</span>
                 <span><Sparkles size={14} /> 신뢰도 하향 또는 공식 현지명 보강</span>
                 {looksDamaged(selected) && <span><AlertTriangle size={14} /> 재수집 또는 브라우저 수동 캡처 필요</span>}
               </div>

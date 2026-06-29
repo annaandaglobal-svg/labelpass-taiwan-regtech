@@ -12,9 +12,9 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1187,
-    "stored_aliases": 4325,
-    "searchable_aliases": 6817,
+    "terms": 1190,
+    "stored_aliases": 4360,
+    "searchable_aliases": 6852,
     "identifier_aliases": 2492,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 41,
@@ -4158,6 +4158,29 @@
       "score": 240
     },
     {
+      "id": "potassium-glycerophosphate-food-additive",
+      "canonical_name": "Potassium Glycerophosphate",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "Potassium Glycerophosphate",
+        "글리세로인산칼륨",
+        "甘油磷酸鉀",
+        "Potassium glycerol phosphate",
+        "글리세로포스페이트 칼륨",
+        "Potassium glycerophosphate powder",
+        "포타슘 글리세로포스페이트"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-food-additive-permit-query",
+        "tw-tfda-food-additive-registration-announcements",
+        "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
+      ],
+      "notes": "Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confir...",
+      "score": 239
+    },
+    {
       "id": "sorbates-food-additives",
       "canonical_name": "Sorbic Acid and Sorbates",
       "category": "food_additive",
@@ -4451,6 +4474,29 @@
       "score": 193
     },
     {
+      "id": "steviol-glycosides-food-additive",
+      "canonical_name": "Steviol Glycosides",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "Steviol glycosides",
+        "甜菊糖",
+        "甜菊醣苷",
+        "스테비올배당체",
+        "Steviol glycoside",
+        "Stevia sweetener",
+        "스테비올 글리코사이드",
+        "Stevia",
+        "스테비아"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.",
+      "score": 193
+    },
+    {
       "id": "benzalkonium-chloride-family",
       "canonical_name": "Benzalkonium Chloride Family",
       "category": "preservative",
@@ -4518,26 +4564,6 @@
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.",
-      "score": 187
-    },
-    {
-      "id": "steviol-glycosides-food-additive",
-      "canonical_name": "Steviol Glycosides",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "Steviol glycosides",
-        "甜菊糖",
-        "甜菊醣苷",
-        "스테비올배당체",
-        "Stevia",
-        "스테비아"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
-      ],
-      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖.",
       "score": 187
     },
     {
@@ -5073,28 +5099,6 @@
       "score": 163
     },
     {
-      "id": "propylparaben",
-      "canonical_name": "Propylparaben",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 94-13-3",
-        "INCI Propylparaben",
-        "Propylparaben",
-        "Propyl 4-hydroxybenzoate",
-        "프로필파라벤",
-        "羟苯丙酯",
-        "羥苯丙酯"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Paraben family terms should not be collapsed without compound-level evidence.",
-      "score": 163
-    },
-    {
       "id": "menthol",
       "canonical_name": "Menthol",
       "category": "cosmetic_ingredient",
@@ -5309,6 +5313,58 @@
       "score": 141
     },
     {
+      "id": "aspergillus-oryzae-fermented-powder",
+      "canonical_name": "Aspergillus Oryzae Fermented Powder",
+      "category": "fermented_food_ingredient",
+      "category_label": "fermented food ingredient",
+      "aliases": [
+        "Aspergillus oryzae fermented powder",
+        "아스퍼질러스 오리재 발효분말",
+        "아스퍼질러스 오리재발효분말",
+        "Aspergillus oryzae",
+        "Aspergillus oryzae fermentation product",
+        "아스퍼질러스 오리자에 발효분말",
+        "Aspergillus oryzae culture",
+        "米麴菌發酵粉",
+        "아스퍼질러스 오리제 발효분말",
+        "米麴菌"
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+        "tw-tfda-imported-food-inspection-regulations"
+      ],
+      "notes": "Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...",
+      "score": 138
+    },
+    {
+      "id": "aspergillus-niger-culture",
+      "canonical_name": "Aspergillus Niger Culture",
+      "category": "fermented_food_ingredient",
+      "category_label": "fermented food ingredient",
+      "aliases": [
+        "Aspergillus niger culture",
+        "아스퍼질러스 나이거 배양물",
+        "아스퍼질러스 나이거배양물",
+        "Aspergillus niger",
+        "Aspergillus niger culture powder",
+        "Aspergillus niger fermentation product",
+        "黑麴菌培養物",
+        "아스퍼질러스 니거 배양물",
+        "黑曲霉培養物",
+        "흑국균 배양물"
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+        "tw-tfda-imported-food-inspection-regulations"
+      ],
+      "notes": "Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-...",
+      "score": 132
+    },
+    {
       "id": "food-ingredient-integration-query-platform",
       "canonical_name": "Food Ingredient Integration Query Platform",
       "category": "food_safety",
@@ -5412,66 +5468,15 @@
       ],
       "notes": "Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments.",
       "score": 125
-    },
-    {
-      "id": "customs-declaration",
-      "canonical_name": "Customs Declaration",
-      "category": "customs_document",
-      "category_label": "customs document",
-      "aliases": [
-        "customs declaration",
-        "export declaration",
-        "import declaration",
-        "出口報單",
-        "進口報單",
-        "수입신고",
-        "수출신고",
-        "export declaration form",
-        "import declaration form",
-        "報關"
-      ],
-      "source_keys": [
-        "tw-moj-customs-act",
-        "tw-customs-tariff-database-download",
-        "tw-trade-ccc-import-export-regulations"
-      ],
-      "notes": "Customs-entry concept for import/export declaration forms, invoice, packing list, permits, single-window transmission, and post-clearance evidence.",
-      "score": 119
-    },
-    {
-      "id": "taiwan-importer-responsible-firm",
-      "canonical_name": "Taiwan Importer and Responsible Firm",
-      "category": "trade_operator",
-      "category_label": "trade operator",
-      "aliases": [
-        "Taiwan importer",
-        "進口商",
-        "대만 수입자",
-        "수입자",
-        "importer of record",
-        "local responsible firm",
-        "國內負責廠商",
-        "責任業者",
-        "책임업체",
-        "responsible firm"
-      ],
-      "source_keys": [
-        "tw-moj-cosmetic-hygiene-safety-act",
-        "tw-moj-cosmetic-product-notification",
-        "tw-moj-food-safety-sanitation-act",
-        "tw-customs-origin-importers"
-      ],
-      "notes": "Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator.",
-      "score": 119
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1187,
-      "aliases_scanned": 4325,
-      "alias_rows_scanned": 4320,
+      "terms_scanned": 1190,
+      "aliases_scanned": 4360,
+      "alias_rows_scanned": 4355,
       "collision_groups": 56,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
@@ -6496,7 +6501,8 @@
         ],
         "affected_terms": [
           "Food Additive Inspection Registration",
-          "Food Additive Functional Classes"
+          "Food Additive Functional Classes",
+          "Potassium Glycerophosphate"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
@@ -6525,6 +6531,8 @@
           "Panax Ginseng",
           "Probiotics and Lactic Acid Bacteria",
           "Collagen Peptides",
+          "Aspergillus Oryzae Fermented Powder",
+          "Aspergillus Niger Culture",
           "Green Tea / Camellia Sinensis"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
@@ -6836,7 +6844,8 @@
         ],
         "affected_terms": [
           "Food Additive Inspection Registration",
-          "Compound Food Additive Import Documents"
+          "Compound Food Additive Import Documents",
+          "Potassium Glycerophosphate"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

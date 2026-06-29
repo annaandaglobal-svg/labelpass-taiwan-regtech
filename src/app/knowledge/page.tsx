@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Database, Languages, RefreshCw, Search, ShieldCheck } from "lucide-react";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
@@ -27,8 +26,8 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
         <div className="kb-content kb-content-embedded">
           <header className="kb-topbar">
             <div>
-              <p>공식 규정·용어 지식베이스</p>
-              <h1>대만 화장품과 식품 라벨링에 필요한 원문, 별칭, 증빙을 재사용합니다.</h1>
+              <p>통합검색</p>
+              <h1>막힌 성분명, 통관 이슈, 라벨 문구, HS/CCC, 제품 유형을 한 번에 넣고 다음 확인 항목을 찾습니다.</h1>
             </div>
           </header>
 
@@ -74,13 +73,9 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
           <section className="kb-ops">
             <div className="kb-section-head">
               <div>
-                <span>운영 메모리</span>
-                <h2>매번 새로 찾지 않도록 출처, 용어, 별칭, 갱신 상태를 분리해 저장합니다.</h2>
+                <span>검색 기억장치</span>
+                <h2>한 번 찾은 공식 출처와 원료의 다른 이름을 저장해 다음 검색에서 바로 재사용합니다.</h2>
               </div>
-              <Link href="/knowledge/aliases">
-                용어 검수
-                <Languages size={15} />
-              </Link>
             </div>
             <div className="kb-ops-grid">
               <OverviewGroup title="국가·지역" items={overview.coverage.jurisdictions} />
@@ -92,7 +87,7 @@ export default function KnowledgePage({ searchParams }: KnowledgePageProps) {
 
           <footer className="kb-footer-note">
             <Search size={15} />
-            같은 원료가 국가별·언어별·표기별로 다르게 불릴 수 있으므로, 별칭 검수 대기열을 계속 줄여 검색 품질을 높입니다.
+            검색이 안 되거나 엉뚱한 결과가 나오면 운영팀 확인 목록에 원료명, 번역명, 약어, 중문명을 보강해 다음 검색 품질을 높입니다.
           </footer>
         </div>
       </section>
@@ -156,6 +151,8 @@ function labelFor(value: string) {
     dataset: "공개 데이터",
     cosmetic_ingredient: "화장품 원료",
     food_ingredient: "식품 원료",
+    food_cosmetic_ingredient: "식품·화장품 원료",
+    fermented_food_ingredient: "발효식품 원료",
     food_additive: "식품첨가물",
     label_claim: "표시·광고 표현",
     allergen: "알레르기",

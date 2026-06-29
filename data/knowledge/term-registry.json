@@ -4109,12 +4109,27 @@
           "confidence": 1
         },
         {
+          "value": "Steviol glycoside",
+          "type": "additive_name_variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.95
+        },
+        {
           "value": "Stevia",
           "type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.85,
           "note": "Broad plant/common name; verify context."
+        },
+        {
+          "value": "Stevia sweetener",
+          "type": "common_name_context",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.86,
+          "note": "Import and label documents may say stevia even when the Taiwan additive name is steviol glycosides."
         },
         {
           "value": "甜菊醣苷",
@@ -4144,13 +4159,21 @@
           "jurisdiction": "KR",
           "confidence": 0.85,
           "note": "Broad plant/common name; verify context."
+        },
+        {
+          "value": "스테비올 글리코사이드",
+          "type": "transliteration",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.86,
+          "note": "Supplier-style spelling of steviol glycosides."
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖."
+      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision."
     },
     {
       "id": "sorbitol-food-additive",
@@ -15075,6 +15098,318 @@
         "global-pcpc-inci"
       ],
       "notes": "Food and cosmetic ingredient cluster. Skin, joint, anti-aging, or medical benefit wording must be checked as Taiwan claim risk rather than ordinary ingredient naming."
+    },
+    {
+      "id": "potassium-glycerophosphate-food-additive",
+      "canonical_name": "Potassium Glycerophosphate",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Potassium Glycerophosphate",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "POTASSIUM GLYCEROPHOSPHATE",
+          "type": "supplier_label_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Potassium glycerol phosphate",
+          "type": "chemical_name_variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.86,
+          "note": "Supplier wording variant; confirm exact identity against specification and additive permit data."
+        },
+        {
+          "value": "Potassium glycerophosphate powder",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.84,
+          "note": "Protein-powder import documents may include the physical form."
+        },
+        {
+          "value": "甘油磷酸鉀",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": "Traditional Chinese supplier/Taiwan-style name; verify against TFDA additive or ingredient query result."
+        },
+        {
+          "value": "甘油磷酸钾",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.86
+        },
+        {
+          "value": "글리세로인산칼륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "글리세로포스페이트 칼륨",
+          "type": "translation_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.86
+        },
+        {
+          "value": "포타슘 글리세로포스페이트",
+          "type": "transliteration",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.82
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-food-additive-permit-query",
+        "tw-tfda-food-additive-registration-announcements",
+        "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
+      ],
+      "notes": "Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confirmation before deciding whether it can be used or how it must be declared."
+    },
+    {
+      "id": "aspergillus-oryzae-fermented-powder",
+      "canonical_name": "Aspergillus Oryzae Fermented Powder",
+      "category": "fermented_food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Aspergillus oryzae fermented powder",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Aspergillus oryzae fermentation product",
+          "type": "ingredient_form_variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "Aspergillus oryzae culture",
+          "type": "culture_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.86,
+          "note": "Culture wording needs strain, substrate and viable-organism confirmation."
+        },
+        {
+          "value": "Koji mold fermented powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.72,
+          "note": "Broad common name; confirm scientific name and food category."
+        },
+        {
+          "value": "Aspergillus oryzae",
+          "type": "scientific_name",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.92
+        },
+        {
+          "value": "아스퍼질러스 오리재발효분말",
+          "type": "supplier_label_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1
+        },
+        {
+          "value": "아스퍼질러스 오리재 발효분말",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1
+        },
+        {
+          "value": "아스퍼질러스 오리자에 발효분말",
+          "type": "transliteration_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "아스퍼질러스 오리제 발효분말",
+          "type": "transliteration_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.86
+        },
+        {
+          "value": "황국균 발효분말",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": "Common Korean name for koji/yellow mold context; verify scientific name."
+        },
+        {
+          "value": "코지균 발효분말",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.76,
+          "note": "Broad common name; confirm it is Aspergillus oryzae and not another koji-related organism."
+        },
+        {
+          "value": "米麴菌發酵粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.86
+        },
+        {
+          "value": "麴菌發酵粉",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.72,
+          "note": "Broad Chinese name; confirm species and substrate before using as a regulatory identity."
+        },
+        {
+          "value": "米麴菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.82
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+        "tw-tfda-imported-food-inspection-regulations"
+      ],
+      "notes": "Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditional ingredient or expert review instead of treating it as an ordinary flavor or additive."
+    },
+    {
+      "id": "aspergillus-niger-culture",
+      "canonical_name": "Aspergillus Niger Culture",
+      "category": "fermented_food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Aspergillus niger culture",
+          "type": "culture_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Aspergillus niger culture powder",
+          "type": "ingredient_form",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.92
+        },
+        {
+          "value": "Aspergillus niger fermentation product",
+          "type": "ingredient_form_variant",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "Aspergillus niger",
+          "type": "scientific_name",
+          "language": "la",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.92
+        },
+        {
+          "value": "아스퍼질러스 나이거 배양물",
+          "type": "supplier_label_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1
+        },
+        {
+          "value": "아스퍼질러스 나이거배양물",
+          "type": "spacing_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 1
+        },
+        {
+          "value": "아스퍼질러스 니거 배양물",
+          "type": "transliteration_variant",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.86
+        },
+        {
+          "value": "흑국균 배양물",
+          "type": "common_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": "Common Korean name; confirm scientific name and strain evidence."
+        },
+        {
+          "value": "黑麴菌培養物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.86
+        },
+        {
+          "value": "黑曲霉培養物",
+          "type": "local_name_variant",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.82
+        },
+        {
+          "value": "黑曲霉培养物",
+          "type": "local_name",
+          "language": "zh-Hans",
+          "jurisdiction": "CN",
+          "confidence": 0.82
+        },
+        {
+          "value": "黑麴菌",
+          "type": "common_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.78,
+          "note": "Broad common name; verify whether it means Aspergillus niger culture, enzyme preparation, or another fermented ingredient."
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+        "tw-tfda-imported-food-inspection-regulations"
+      ],
+      "notes": "Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-traditional food ingredient, route to TFDA expert review and do not rely on the common name alone."
     },
     {
       "id": "green-tea-camellia-sinensis",

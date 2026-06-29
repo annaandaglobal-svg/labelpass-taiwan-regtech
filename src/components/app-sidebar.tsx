@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { BadgeCheck, Boxes, ClipboardCheck, Languages, Search } from "lucide-react";
+import { BadgeCheck, Boxes, ClipboardCheck, Search } from "lucide-react";
 
-export type AppNavKey = "review" | "workspace" | "knowledge" | "aliases" | "admin";
+export type AppNavKey = "review" | "workspace" | "knowledge" | "admin";
 
 type AppNavItem = {
   key: AppNavKey;
@@ -14,11 +14,10 @@ type AppNavItem = {
 const primaryNavItems: AppNavItem[] = [
   { key: "workspace", href: "/workspace", label: "워크스페이스", icon: Boxes },
   { key: "review", href: "/", label: "검토", icon: ClipboardCheck },
-  { key: "knowledge", href: "/knowledge", label: "지식 검색", icon: Search }
+  { key: "knowledge", href: "/knowledge", label: "통합검색", ariaLabel: "성분, 통관, 라벨, 규정 통합검색", icon: Search }
 ];
 
 const utilityNavItems: AppNavItem[] = [
-  { key: "aliases", href: "/knowledge/aliases", label: "용어 검수", icon: Languages },
   { key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리", icon: BadgeCheck }
 ];
 

@@ -7,7 +7,6 @@ import type { ReactNode } from "react";
 
 function activeNavForPath(pathname: string): AppNavKey {
   if (pathname.startsWith("/admin")) return "admin";
-  if (pathname.startsWith("/knowledge/aliases")) return "aliases";
   if (pathname.startsWith("/knowledge")) return "knowledge";
   if (pathname.startsWith("/workspace")) return "workspace";
   return "review";

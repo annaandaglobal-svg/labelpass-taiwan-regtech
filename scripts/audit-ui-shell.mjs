@@ -85,7 +85,6 @@ if (usesAppFrame) {
   requireIncludes(appFrameSource, 'import { AppShell } from "@/components/app-shell";', `${appFramePath} app shell ownership`);
   requireIncludes(appFrameSource, "usePathname", `${appFramePath} route-aware shell active state`);
   requireIncludes(appFrameSource, 'pathname.startsWith("/admin")', `${appFramePath} admin active nav mapping`);
-  requireIncludes(appFrameSource, 'pathname.startsWith("/knowledge/aliases")', `${appFramePath} aliases active nav mapping`);
   requireIncludes(appFrameSource, 'pathname.startsWith("/knowledge")', `${appFramePath} knowledge active nav mapping`);
   requireIncludes(appFrameSource, 'pathname.startsWith("/workspace")', `${appFramePath} workspace active nav mapping`);
   requireIncludes(appFrameSource, 'return "review";', `${appFramePath} review fallback active nav mapping`);
@@ -108,7 +107,7 @@ if (usesAppFrame) {
     },
     {
       file: "src/app/knowledge/aliases/page.tsx",
-      shell: '<AppShell active="aliases">'
+      shell: '<AppShell active="knowledge">'
     },
     {
       file: "src/app/admin/layout.tsx",
@@ -157,7 +156,7 @@ const criticalNavRule = cssRule(criticalShellCss, ".lp-nav a");
 requireMaxPx(criticalNavRule, "min-height", 36, "src/components/app-shell.tsx critical .lp-nav a");
 requireMaxPx(criticalNavRule, "font-size", 13, "src/components/app-shell.tsx critical .lp-nav a");
 const criticalUtilityNavRule = cssRule(criticalShellCss, ".lp-utility-nav");
-requireIncludes(criticalUtilityNavRule, "grid-template-columns:repeat(2,minmax(0,1fr))", "src/components/app-shell.tsx critical utility nav grid");
+requireIncludes(criticalUtilityNavRule, "grid-template-columns:1fr", "src/components/app-shell.tsx critical utility nav grid");
 const criticalAdminSectionNavRule = cssRule(criticalShellCss, ".admin-section-nav");
 requireIncludes(criticalAdminSectionNavRule, "display:grid", "src/components/app-shell.tsx critical admin section nav");
 requireIncludes(criticalAdminSectionNavRule, "grid-template-columns:repeat(8,minmax(0,1fr))", "src/components/app-shell.tsx critical admin section nav");
@@ -325,10 +324,9 @@ requireIncludes(appSidebarSource, 'data-shell-nav-tier="utility"', "src/componen
 requireIncludes(appSidebarSource, "aria-label={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav accessible label fallback");
 requireIncludes(appSidebarSource, "title={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav title fallback");
 requireIncludes(appSidebarSource, 'className="lp-utility-label"', "src/components/app-sidebar.tsx internal utility label");
-for (const navLabel of ["워크스페이스", "검토", "지식 검색"]) {
+for (const navLabel of ["워크스페이스", "검토", "통합검색"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
-requireIncludes(appSidebarSource, 'label: "용어 검수"', "src/components/app-sidebar.tsx utility aliases label");
 requireIncludes(appSidebarSource, 'label: "관리"', "src/components/app-sidebar.tsx utility admin visible label");
 requireIncludes(appSidebarSource, 'ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx utility admin accessible label");
 requireIncludes(appSidebarSource, '{ key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx compact admin utility label contract");
@@ -342,7 +340,7 @@ requireMaxPx(lpNavLink, "min-height", 36, "src/app/globals.css .lp-nav a");
 requireMaxPx(lpNavLink, "font-size", 13, "src/app/globals.css .lp-nav a");
 requireIncludes(css, ".lp-utility-nav", "src/app/globals.css admin utility nav treatment");
 const lpUtilityNav = cssRule(css, ".lp-utility-nav");
-requireIncludes(lpUtilityNav, "grid-template-columns: repeat(2, minmax(0, 1fr))", "src/app/globals.css compact utility nav grid");
+requireIncludes(lpUtilityNav, "grid-template-columns: 1fr", "src/app/globals.css compact utility nav grid");
 const lpUtilityNavLink = cssRule(css, ".lp-sidebar .lp-utility-nav a");
 requireMaxPx(lpUtilityNavLink, "min-height", 30, "src/app/globals.css .lp-sidebar .lp-utility-nav a");
 requireMaxPx(lpUtilityNavLink, "font-size", 11, "src/app/globals.css .lp-sidebar .lp-utility-nav a");
@@ -368,13 +366,15 @@ requireMaxPx(lpButton, "min-height", 36, "src/app/globals.css .lp-button");
 requireMaxPx(lpButton, "font-size", 13, "src/app/globals.css .lp-button");
 
 const routeGrid = cssRule(css, ".lp-route-grid");
-requireIncludes(routeGrid, "grid-template-columns: repeat(7, minmax(0, 1fr))", "src/app/globals.css compact route segmented grid");
+requireIncludes(routeGrid, "grid-template-columns: repeat(4, minmax(0, 1fr))", "src/app/globals.css product selector grid");
 const routeCard = cssRule(css, ".lp-route-card");
-requireIncludes(routeCard, "display: inline-flex", "src/app/globals.css compact route segmented controls");
-requireIncludes(routeCard, "text-align: center", "src/app/globals.css centered compact route labels");
-requireMaxPx(routeCard, "min-height", 44, "src/app/globals.css .lp-route-card");
-requireMaxPx(routeCard, "padding", 8, "src/app/globals.css .lp-route-card");
+requireIncludes(routeCard, "display: grid", "src/app/globals.css product selector controls");
+requireIncludes(routeCard, "text-align: left", "src/app/globals.css readable product labels");
+requireMaxPx(routeCard, "min-height", 92, "src/app/globals.css .lp-route-card");
+requireMaxPx(routeCard, "padding", 10, "src/app/globals.css .lp-route-card");
 requireIncludes(css, ".lp-route-summary", "src/app/globals.css selected route summary");
+requireIncludes(css, ".lp-auto-scope", "src/app/globals.css automatic review scope chips");
+requireIncludes(css, ".lp-ocr-dropzone", "src/app/globals.css OCR-first intake dropzone");
 const handoffGrid = cssRule(css, ".lp-handoff-grid");
 requireIncludes(handoffGrid, "grid-template-columns: repeat(2, minmax(0, 1fr))", "src/app/globals.css result handoff grid must not compress into four columns");
 const handoffCard = cssRule(css, ".lp-handoff-card");
@@ -397,8 +397,10 @@ requireIncludes(homePageSource, 'href="/workspace"', "src/app/page.tsx workspace
 requireIncludes(homePageSource, 'href="#intake"', "src/app/page.tsx top action");
 requireIncludes(homePageSource, 'className="lp-button secondary" href="#intake"', "src/app/page.tsx intake top action visual weight");
 requireIncludes(homePageSource, 'className="lp-intake-panel" id="intake"', "src/app/page.tsx intake anchor");
-requireIncludes(homePageSource, "aria-label={route.label}", "src/app/page.tsx route card accessible label");
-requireIncludes(homePageSource, "<b>{route.shortLabel}</b>", "src/app/page.tsx compact route card label");
+requireIncludes(homePageSource, 'aria-label={`${product.label} 품목으로 검토`}', "src/app/page.tsx product card accessible label");
+requireIncludes(homePageSource, "<b>{product.label}</b>", "src/app/page.tsx product card label");
+requireIncludes(homePageSource, 'aria-label="품목 선택"', "src/app/page.tsx product-first review entry");
+requireIncludes(homePageSource, "통관, 포장재는 AI가 안에서 같이 분류합니다", "src/app/page.tsx product-first auto classification copy");
 if (homePageSource.includes('onClick={() => void runReview()} disabled={!readiness.canReview || isReviewing}>\n              {isReviewing ? <Loader2 className="lp-spin" size={16} /> : <ShieldCheck size={16} />}\n              1차 검토')) {
   fail("src/app/page.tsx: topbar must not duplicate a disabled review action before intake");
 }
@@ -414,8 +416,13 @@ requireCompactIncludes(
 );
 requireCompactIncludes(
   mobileCss,
-  "@media (max-width: 680px) { .lp-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); } .lp-nav a { flex-direction: column; justify-content: center;",
+  "@media (max-width: 680px) { .lp-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lp-nav a { flex-direction: column; justify-content: center;",
   "src/app/globals.css narrow mobile primary nav stability"
+);
+requireCompactIncludes(
+  mobileCss,
+  '.lp-nav a[data-shell-nav-item="knowledge"] { grid-column: 1 / -1; flex-direction: row;',
+  "src/app/globals.css mobile knowledge nav label fit"
 );
 requireCompactIncludes(mobileCss, ".lp-nav a { justify-content: center;", "src/app/globals.css mobile primary nav links");
 requireCompactIncludes(

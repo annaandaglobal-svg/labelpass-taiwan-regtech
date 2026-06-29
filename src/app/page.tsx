@@ -56,6 +56,15 @@ type RoutePreset = {
   expectedDocs: string[];
 };
 
+type ProductPreset = {
+  id: "cosmetic" | "food" | "supplement" | "ingredient";
+  label: string;
+  helper: string;
+  productType: string;
+  routeId: RouteId;
+  examples: string[];
+};
+
 type SampleReview = {
   id: string;
   label: string;
@@ -167,6 +176,41 @@ const routePresets: RoutePreset[] = [
     query: "Taiwan CCC import export regulation HS code",
     requiredInputs: ["HS/CCC 코드", "상품 설명", "원산지", "거래조건", "수출입 목적"],
     expectedDocs: ["HS/CCC 근거", "인보이스", "원산지 표시", "허가 코드 검토", "수출통제 확인"]
+  }
+];
+
+const productPresets: ProductPreset[] = [
+  {
+    id: "cosmetic",
+    label: "화장품",
+    helper: "스킨케어, 메이크업, 헤어·바디 제품. PIF, 효능 표현, 전성분, 중문 라벨을 함께 봅니다.",
+    productType: "cosmetic / skincare / Taiwan import",
+    routeId: "tw_cosmetic",
+    examples: ["PIF", "전성분", "효능 표현"]
+  },
+  {
+    id: "food",
+    label: "식품",
+    helper: "가공식품, 음료, 간식, 냉동식품. 원재료, 알레르기, 영양표시, 수입검사를 함께 봅니다.",
+    productType: "prepackaged food / Taiwan import",
+    routeId: "tw_food_label",
+    examples: ["원재료", "영양표시", "수입검사"]
+  },
+  {
+    id: "supplement",
+    label: "건강식품·단백질",
+    helper: "단백질 파우더, 효소, 유산균, 기능성 제품. 성분 이슈와 광고 표현을 먼저 분리합니다.",
+    productType: "protein powder / supplement / Taiwan import",
+    routeId: "tw_health_food",
+    examples: ["기능성 표현", "섭취 방법", "문제 성분"]
+  },
+  {
+    id: "ingredient",
+    label: "원료·첨가물",
+    helper: "스테비아, 인산염, 발효원료, 복합첨가물. 허용목록, 사용기준, 규격·등록을 확인합니다.",
+    productType: "food ingredient / food additive / Taiwan import",
+    routeId: "tw_food_additive",
+    examples: ["허용목록", "사용기준", "규격 자료"]
   }
 ];
 
@@ -327,11 +371,21 @@ function findRoute(id: RouteId) {
   return routePresets.find((route) => route.id === id) ?? routePresets[0];
 }
 
+function productForRoute(routeId: RouteId) {
+  const direct = productPresets.find((product) => product.routeId === routeId);
+  if (direct) return direct;
+  const route = findRoute(routeId);
+  if (route.family === "cosmetics") return productPresets[0];
+  if (route.id === "tw_health_food") return productPresets[2];
+  if (route.id === "tw_food_additive") return productPresets[3];
+  return productPresets[1];
+}
+
 function routeFromInput(input: ReviewInput) {
   const text = `${input.productName} ${input.productType} ${input.ingredientsText} ${input.labelText} ${input.hsCode ?? ""}`.toLowerCase();
-  if (/additive|sodium benzoate|potassium sorbate|compound/.test(text)) return findRoute("tw_food_additive");
+  if (/protein powder|whey|health food|supplement|probiotic|enzyme|immune|cholesterol|blood sugar|단백질|건강식품|보충제|프로바이오틱|효소|유산균/.test(text)) return findRoute("tw_health_food");
+  if (/potassium glycerophosphate|glycerophosphate|stevia|steviol|aspergillus|oryzae|niger|additive|sodium benzoate|potassium sorbate|compound|스테비아|스테비올|아스퍼질러스|오리재|오리자|나이거|글리세로인산칼륨|글리세로포스페이트/.test(text)) return findRoute("tw_food_additive");
   if (/shellfish|oyster|0307|import inspection|health certificate/.test(text)) return findRoute("tw_food_import");
-  if (/health food|supplement|probiotic|immune|cholesterol|blood sugar/.test(text)) return findRoute("tw_health_food");
   if (/packaging|container|wrap|food contact|pvc|plastic/.test(text)) return findRoute("tw_food_packaging");
   if (/food|snack|beverage|cookie|tea|nutrition|allergen/.test(text)) return findRoute("tw_food_label");
   if (/hs|ccc|customs|export|import/.test(text) && !/cosmetic|food/.test(text)) return findRoute("tw_trade");
@@ -365,7 +419,7 @@ async function requestKnowledgeEvidence(query: string, route: RoutePreset): Prom
 function readinessFor(input: ReviewInput) {
   const required = [
     { label: "제품명", ready: hasText(input.productName) },
-    { label: "제품 유형", ready: hasText(input.productType) },
+    { label: "세부 품목", ready: hasText(input.productType) },
     { label: "성분 또는 라벨", ready: hasText(input.ingredientsText) || hasText(input.labelText) },
     { label: "원산지", ready: hasText(input.origin) },
     { label: "제조사·수입자", ready: hasText(input.manufacturer) }
@@ -778,6 +832,7 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const selectedRoute = useMemo(() => findRoute(selectedRouteId), [selectedRouteId]);
+  const selectedProduct = useMemo(() => productForRoute(selectedRouteId), [selectedRouteId]);
   const readiness = useMemo(() => readinessFor(input), [input]);
   const sortedFindings = useMemo(() => {
     if (!result) return [];
@@ -835,13 +890,14 @@ export default function Home() {
     setInput((current) => ({ ...current, [field]: value }));
   }
 
-  function selectRoute(route: RoutePreset) {
+  function selectProduct(product: ProductPreset) {
+    const route = findRoute(product.routeId);
     setSelectedRouteId(route.id);
     setResult(null);
     setEvidenceBundle(null);
     setInput((current) => ({
       ...current,
-      productType: current.productType || route.productType
+      productType: current.productType || product.productType
     }));
     setKnowledgeQuery(route.query);
   }
@@ -862,7 +918,7 @@ export default function Home() {
       ...current,
       labelText: [current.labelText, `첨부 파일명: ${names}`].filter(Boolean).join("\n")
     }));
-    setToast("파일명은 검토 메모에 붙였습니다. 실제 OCR 연결은 다음 단계에서 붙이면 됩니다.");
+    setToast("첨부 파일을 검토 메모에 붙였습니다. OCR 추출 파이프라인도 이 자리에서 이어 붙입니다.");
   }
 
   async function runKnowledgeSearch(query: string, route = selectedRoute) {
@@ -956,7 +1012,7 @@ export default function Home() {
         <header className="lp-topbar">
           <div>
             <p>대만 화장품·식품 라벨링 검토</p>
-            <h1>자료를 넣으면 리스크, 증빙, 다음 작업을 한 화면에서 정리합니다.</h1>
+            <h1>품목과 라벨·서류를 넣으면 AI가 성분, 수입검사, 통관, 포장재까지 한 번에 분류합니다.</h1>
           </div>
           <div className="lp-top-actions">
             <Link className="lp-button" href="/workspace">
@@ -970,31 +1026,40 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="lp-route-band" aria-label="검토 경로">
+        <section className="lp-route-band" aria-label="품목 선택">
           <div className="lp-section-head">
             <div>
-              <span>시작 경로</span>
-              <h2>제품군을 고르면 입력과 증빙만 조용히 좁혀집니다.</h2>
+              <span>품목</span>
+              <h2>먼저 품목만 고르세요. 서류, 수입검사, 통관, 포장재는 AI가 안에서 같이 분류합니다.</h2>
             </div>
-            <small>{selectedRoute.primaryQuestion}</small>
+            <small>화면에서 업무 경로를 따로 고르게 하지 않고, 제품 맥락과 자료를 기준으로 필요한 검토를 자동으로 엮습니다.</small>
           </div>
           <div className="lp-route-grid">
-            {routePresets.map((route) => (
+            {productPresets.map((product) => {
+              const route = findRoute(product.routeId);
+              return (
               <button
-                key={route.id}
-                className={route.id === selectedRoute.id ? "lp-route-card active" : "lp-route-card"}
+                key={product.id}
+                className={product.id === selectedProduct.id ? "lp-route-card active" : "lp-route-card"}
                 type="button"
-                aria-label={route.label}
-                onClick={() => selectRoute(route)}
+                aria-label={`${product.label} 품목으로 검토`}
+                onClick={() => selectProduct(product)}
               >
                 <span>{routeIcon(route.icon)}</span>
-                <b>{route.shortLabel}</b>
+                <b>{product.label}</b>
+                <small>{product.helper}</small>
               </button>
-            ))}
+            );
+            })}
           </div>
           <div className="lp-route-summary">
-            <b>{selectedRoute.label}</b>
-            <span>{selectedRoute.description}</span>
+            <b>{selectedProduct.label}</b>
+            <span>{selectedProduct.helper}</span>
+          </div>
+          <div className="lp-auto-scope" aria-label="자동 검토 범위">
+            {["성분·원료", "라벨", "서류", "수입검사", "통관·HS/CCC", "포장재"].map((item) => (
+              <span key={item}>{item}</span>
+            ))}
           </div>
         </section>
 
@@ -1003,10 +1068,27 @@ export default function Home() {
             <div className="lp-panel-head">
               <div>
                 <span>입력</span>
-                <h2>{selectedRoute.label}</h2>
+                <h2>{selectedProduct.label} 자료</h2>
               </div>
               <em>{readiness.readyCount}/{readiness.total}</em>
             </div>
+
+            <label className="lp-ocr-dropzone">
+              <input
+                ref={fileInputRef}
+                className="lp-file-input"
+                type="file"
+                multiple
+                accept="image/*,.pdf,.txt,.csv,.xlsx,.xls,.doc,.docx"
+                onChange={(event) => handleFiles(event.currentTarget.files)}
+              />
+              <span className="lp-ocr-icon"><UploadCloud size={24} /></span>
+              <span className="lp-ocr-copy">
+                <b>라벨 이미지·성분표·통관서류부터 넣기</b>
+                <small>사진, PDF, 성분표, 인보이스, 패킹리스트, COA, PIF, 위생증명 파일을 먼저 올리면 검토 메모로 고정됩니다.</small>
+              </span>
+              <span className="lp-ocr-cta">파일 선택</span>
+            </label>
 
             <div className="lp-readiness">
               {readiness.required.map((item) => (
@@ -1023,8 +1105,8 @@ export default function Home() {
                 <input value={input.productName} onChange={(event) => updateInput("productName", event.target.value)} placeholder="예: Cica Barrier Cream 50ml" />
               </label>
               <label className="lp-field">
-                <span>제품 유형</span>
-                <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder={selectedRoute.productType} />
+                <span>세부 품목</span>
+                <input value={input.productType} onChange={(event) => updateInput("productType", event.target.value)} placeholder={selectedProduct.productType} />
               </label>
               <label className="lp-field">
                 <span>원산지</span>
@@ -1055,11 +1137,6 @@ export default function Home() {
             </label>
 
             <div className="lp-intake-actions">
-              <input ref={fileInputRef} className="lp-file-input" type="file" multiple onChange={(event) => handleFiles(event.currentTarget.files)} />
-              <button className="lp-button secondary" type="button" onClick={() => fileInputRef.current?.click()}>
-                <UploadCloud size={16} />
-                파일 메모
-              </button>
               <button className="lp-button" type="button" onClick={() => void runReview()} disabled={!readiness.canReview || isReviewing}>
                 {isReviewing ? <Loader2 className="lp-spin" size={16} /> : <ArrowRight size={16} />}
                 검토 시작
@@ -1284,7 +1361,7 @@ export default function Home() {
               <div className="lp-panel-head compact">
                 <div>
                   <span>필수 증빙</span>
-                  <h2>{selectedRoute.shortLabel} 체크리스트</h2>
+                  <h2>서류·통관 체크리스트</h2>
                 </div>
               </div>
               <div className="lp-doc-list">
@@ -1314,7 +1391,7 @@ export default function Home() {
                 ))}
               </div>
               <Link className="lp-inline-link" href="/knowledge">
-                용어·규정 검색으로 이동
+                통합검색으로 이동
                 <ArrowRight size={14} />
               </Link>
             </section>

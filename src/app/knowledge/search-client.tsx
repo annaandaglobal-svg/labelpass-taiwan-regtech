@@ -101,9 +101,9 @@ const focusModes: Array<{
   {
     id: "food",
     label: "식품",
-    title: "대만 식품 라벨·수입검사",
-    helper: "식품첨가물, 알레르기, 영양표시, 건강표현, 수입검사 서류를 확인합니다.",
-    placeholder: "예: food additive, allergen, nutrition labeling, HS 0307"
+    title: "식품 원료·첨가물·수입검사",
+    helper: "통관에서 막힌 성분명, 발효 원료, 감미료, 영양성분, 수입검사 서류를 확인합니다.",
+    placeholder: "예: POTASSIUM GLYCEROPHOSPHATE, 아스퍼질러스 오리재, 스테비아"
   },
   {
     id: "trade",
@@ -122,10 +122,10 @@ const examples: Record<FocusMode, Array<{ label: string; query: string }>> = {
     { label: "효능 표현", query: "cosmetic claim criteria" }
   ],
   food: [
-    { label: "식품첨가물", query: "food additive permit" },
-    { label: "알레르기", query: "allergen labeling" },
-    { label: "영양표시", query: "nutrition labeling" },
-    { label: "패류 수입", query: "HS 0307 health certificate" }
+    { label: "칼륨 글리세로인산", query: "POTASSIUM GLYCEROPHOSPHATE" },
+    { label: "오리재 발효분말", query: "아스퍼질러스 오리재발효분말" },
+    { label: "나이거 배양물", query: "아스퍼질러스 나이거 배양물" },
+    { label: "스테비아", query: "스테비아" }
   ],
   trade: [
     { label: "HS/CCC", query: "HS code CCC code" },
@@ -417,15 +417,15 @@ export default function KnowledgeSearchClient({
             <small>
               {hasResults
                 ? `용어 ${filteredTerms.length.toLocaleString()}개 · 소스 ${filteredSources.length.toLocaleString()}개`
-                : `${totals.sources.toLocaleString()}개 소스, ${totals.aliases.toLocaleString()}개 별칭 대기`}
+                : `${totals.sources.toLocaleString()}개 소스, ${totals.aliases.toLocaleString()}개 다른 이름`}
             </small>
           </div>
 
           {!hasQuery && (
             <div className="kb-empty-state">
               <BookOpen size={26} />
-              <b>원료명, INCI, CAS, 중문명, HS/CCC, PIF 같은 단어로 시작하세요.</b>
-              <span>공식 소스, 용어 별칭, 증빙 경로를 함께 확인해 제품 검토로 넘길 수 있습니다.</span>
+              <b>통관에서 문제가 된 성분명이나 라벨 문구를 그대로 붙여넣으세요.</b>
+              <span>영어 원료명, 한글 표기, 중문명, HS/CCC, PIF 같은 단어를 함께 넣으면 공식 근거와 확인 경로를 찾습니다.</span>
             </div>
           )}
 
@@ -454,8 +454,12 @@ export default function KnowledgeSearchClient({
           {hasQuery && hasResults && unifiedResults.length === 0 && (
             <div className="kb-empty-state">
               <Search size={24} />
-              <b>현재 필터에 맞는 결과가 없습니다.</b>
-              <span>필터를 전체로 되돌리거나 제품 유형, 국가, 원료 별칭을 함께 넣어보세요.</span>
+              <b>아직 검색 기억장치에 없는 표현입니다.</b>
+              <span>검토 콘솔로 넘기면 제품 맥락과 함께 확인하고, 내부에서 필요한 검색어를 보강합니다.</span>
+              <Link className="kb-empty-action" href={reviewHref}>
+                검토 콘솔에 넣기
+                <ArrowRight size={14} />
+              </Link>
             </div>
           )}
 
@@ -540,10 +544,7 @@ export default function KnowledgeSearchClient({
                       ))}
                     </span>
                   ))}
-                  <Link href={`/knowledge/aliases?alias=${encodeURIComponent(activeEvidence.aliasWarnings[0].value)}&issue=alias-collision-high-confidence&priority=high&lane=active`}>
-                    별칭 검수 큐에서 보기
-                    <ArrowRight size={13} />
-                  </Link>
+                  <small>운영팀 확인 목록에서 품목·용도별 뜻을 분리해야 하는 후보입니다.</small>
                 </div>
               ) : null}
               <div className="kb-detail-actions">
@@ -706,16 +707,16 @@ function RouteHintCard({ route, hasQuery }: { route: RouteHint | null; hasQuery:
   if (!route) {
     return (
       <div className="kb-route-card empty">
-        <small>추천 경로</small>
-        <b>{hasQuery ? "경로를 확정하려면 제품 유형을 더 넣어주세요." : "검색하면 관련 검토 경로가 표시됩니다."}</b>
-        <p>예: 화장품 PIF, 식품첨가물, HS 0307, 식품 라벨처럼 업무 맥락을 같이 넣으면 정확도가 올라갑니다.</p>
+        <small>AI 분류</small>
+        <b>{hasQuery ? "품목 맥락을 더 넣으면 다음 확인 항목이 좁혀집니다." : "검색하면 관련 확인 항목이 표시됩니다."}</b>
+        <p>예: 단백질 파우더, 화장품 PIF, 식품첨가물, HS 0307처럼 품목과 문제 성분을 같이 넣으면 정확도가 올라갑니다.</p>
       </div>
     );
   }
 
   return (
     <div className="kb-route-card">
-      <small>추천 경로</small>
+      <small>AI 분류</small>
       <b>{cleanRouteLabel(route.label, route.routeId)}</b>
       <p>{cleanRouteAction(route.nextAction)}</p>
       <div className="kb-chip-row">
@@ -894,6 +895,8 @@ function labelFor(value: string) {
     und: "언어 미정",
     cosmetic_ingredient: "화장품 원료",
     food_ingredient: "식품 원료",
+    food_cosmetic_ingredient: "식품·화장품 원료",
+    fermented_food_ingredient: "발효식품 원료",
     food_additive: "식품첨가물",
     label_claim: "표시·광고 표현",
     allergen: "알레르기",

@@ -146,6 +146,23 @@ export default async function AdminSettingsPage() {
         <article className="admin-panel">
           <div className="admin-panel-head">
             <div>
+              <span>개발자 전용</span>
+              <h2>검색 기억장치 관리</h2>
+            </div>
+            <Settings2 size={18} />
+          </div>
+          <p className="admin-note">
+            일반 사용자 화면에서 숨긴 원료명·번역명·중문명·공급사 표기 보강 작업대입니다. 통합검색이 0건이거나 다른 뜻으로 잡히는 표현을 여기서 정리합니다.
+          </p>
+          <Link className="admin-secondary-action" href="/knowledge/aliases">
+            검색어 작업대
+            <ArrowRight size={16} />
+          </Link>
+        </article>
+
+        <article className="admin-panel">
+          <div className="admin-panel-head">
+            <div>
               <span>설정 출처</span>
               <h2>DB 연결 상태</h2>
             </div>

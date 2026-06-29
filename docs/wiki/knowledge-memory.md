@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-06-27T19:02:37.720Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,187
-- Stored aliases: 4,325
-- Searchable aliases including identifiers: 6,817
+- Terms: 1,190
+- Stored aliases: 4,360
+- Searchable aliases including identifiers: 6,852
 - Term-rule links: 1,082
 - Regulatory update candidates: 41
 - Alias review items: 1,043
@@ -247,6 +247,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; Benzoic acid; Potassium benzoate; Sodium benzoate; 苯甲酸; 苯甲酸鈉; 苯甲酸鉀; 벤조산
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
+- **Potassium Glycerophosphate** (`potassium-glycerophosphate-food-additive`)
+  - Aliases: Potassium Glycerophosphate; 글리세로인산칼륨; 甘油磷酸鉀; Potassium glycerol phosphate; 글리세로포스페이트 칼륨; Potassium glycerophosphate powder; 포타슘 글리세로포스페이트
+  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`
+  - Note: Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confir...
 - **Sorbic Acid and Sorbates** (`sorbates-food-additives`)
   - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀; 소르빈산
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
@@ -279,22 +283,18 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 144-55-8; Baking soda; Sodium bicarbonate; 小蘇打; 碳酸氫鈉; 베이킹소다; 탄산수소나트륨; 중탄산나트륨; 탄산수소 나트륨; NaHCO3
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Common food additive and common-name alias.
+- **Steviol Glycosides** (`steviol-glycosides-food-additive`)
+  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; Stevia sweetener; 스테비올 글리코사이드; Stevia; 스테비아
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.
 - **Sorbitol** (`sorbitol-food-additive`)
   - Aliases: CAS 50-70-4; D-Sorbitol; D-山梨醇; Sorbitol; 山梨糖醇; 소르비톨; 솔비톨
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.
-- **Steviol Glycosides** (`steviol-glycosides-food-additive`)
-  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Stevia; 스테비아
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖.
 - **Xanthan Gum** (`xanthan-gum-food-additive`)
   - Aliases: CAS 11138-66-2; Xanthan gum; 잔탄검; 三仙膠; 산탄검; Xanthan; 玉米糖膠
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Food thickener/stabilizer alias set.
-- **Alanine** (`alanine-food-additive`)
-  - Aliases: CAS 56-41-7; Alanine; 丙胺酸; 胺基丙酸; 알라닌; Ala
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Taiwan food additive common-name table maps 胺基丙酸 to 丙胺酸.
 
 ### Food ingredient
 
@@ -440,6 +440,17 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-cosmetic-colorants`
   - Note: Generated from TFDA rule tw-cos-200-7
 
+### fermented food ingredient
+
+- **Aspergillus Oryzae Fermented Powder** (`aspergillus-oryzae-fermented-powder`)
+  - Aliases: Aspergillus oryzae fermented powder; 아스퍼질러스 오리재 발효분말; 아스퍼질러스 오리재발효분말; Aspergillus oryzae; Aspergillus oryzae fermentation product; 아스퍼질러스 오리자에 발효분말; Aspergillus oryzae culture; 米麴菌發酵粉; 아스퍼질러스 오리제 발효분말; 米麴菌
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
+  - Note: Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...
+- **Aspergillus Niger Culture** (`aspergillus-niger-culture`)
+  - Aliases: Aspergillus niger culture; 아스퍼질러스 나이거 배양물; 아스퍼질러스 나이거배양물; Aspergillus niger; Aspergillus niger culture powder; Aspergillus niger fermentation product; 黑麴菌培養物; 아스퍼질러스 니거 배양물; 黑曲霉培養物; 흑국균 배양물
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
+  - Note: Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-...
+
 ### customs classification
 
 - **HS Code Classification** (`hs-code-classification`)
@@ -460,20 +471,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: shipment purpose; 출하 목적; import purpose; 自用; 進口目的; 수입 목적; commercial sale; personal use; sample shipment; 商業銷售
   - Sources: `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`, `tw-tfda-food-import-inspection-exemptions`
   - Note: Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments.
-
-### customs document
-
-- **Customs Declaration** (`customs-declaration`)
-  - Aliases: customs declaration; export declaration; import declaration; 出口報單; 進口報單; 수입신고; 수출신고; export declaration form; import declaration form; 報關
-  - Sources: `tw-moj-customs-act`, `tw-customs-tariff-database-download`, `tw-trade-ccc-import-export-regulations`
-  - Note: Customs-entry concept for import/export declaration forms, invoice, packing list, permits, single-window transmission, and post-clearance evidence.
-
-### trade operator
-
-- **Taiwan Importer and Responsible Firm** (`taiwan-importer-responsible-firm`)
-  - Aliases: Taiwan importer; 進口商; 대만 수입자; 수입자; importer of record; local responsible firm; 國內負責廠商; 責任業者; 책임업체; responsible firm
-  - Sources: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-product-notification`, `tw-moj-food-safety-sanitation-act`, `tw-customs-origin-importers`
-  - Note: Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator.
 
 ## Alias Ambiguity Queue
 

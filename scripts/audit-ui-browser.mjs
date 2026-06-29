@@ -9,10 +9,10 @@ const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").repl
 const failures = [];
 const expectedPrimaryNavKeys = ["workspace", "review", "knowledge"];
 const expectedPrimaryNavHrefs = ["/workspace", "/", "/knowledge"];
-const expectedUtilityNavKeys = ["aliases", "admin"];
-const expectedUtilityNavHrefs = ["/knowledge/aliases", "/admin"];
-const expectedNavKeys = ["workspace", "review", "knowledge", "aliases", "admin"];
-const expectedNavHrefs = ["/workspace", "/", "/knowledge", "/knowledge/aliases", "/admin"];
+const expectedUtilityNavKeys = ["admin"];
+const expectedUtilityNavHrefs = ["/admin"];
+const expectedNavKeys = ["workspace", "review", "knowledge", "admin"];
+const expectedNavHrefs = ["/workspace", "/", "/knowledge", "/admin"];
 const expectedAdminSectionHrefs = [
   "/admin",
   "/admin/companies",
@@ -28,7 +28,6 @@ const routes = [
   { path: "/workspace", active: "workspace" },
   { path: "/", active: "review" },
   { path: `/knowledge?q=PIF&uiBrowserAudit=${Date.now()}`, active: "knowledge" },
-  { path: "/knowledge/aliases?lane=active&priority=high", active: "aliases" },
   { path: "/admin", active: "admin", admin: true },
   { path: "/admin/experts", active: "admin", admin: true },
   { path: "/admin/payments", active: "admin", admin: true },
@@ -43,7 +42,6 @@ const viewports = [
 const shellTransitionSteps = [
   { key: "review", path: "/", active: "review" },
   { key: "knowledge", path: "/knowledge", active: "knowledge" },
-  { key: "aliases", path: "/knowledge/aliases", active: "aliases" },
   { key: "admin", path: "/admin", active: "admin", admin: true },
   { key: "workspace", path: "/workspace", active: "workspace" }
 ];
@@ -345,7 +343,7 @@ function assertSnapshot(snapshot, route, viewport) {
   if (snapshot.sidebarCount !== 1) fail(`${label}: expected one persistent sidebar, found ${snapshot.sidebarCount}`);
   if (snapshot.contentCount !== 1) fail(`${label}: expected one stable content frame, found ${snapshot.contentCount}`);
   if (snapshot.primaryCount !== 3) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
-  if (snapshot.utilityCount !== 2) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
+  if (snapshot.utilityCount !== 1) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);

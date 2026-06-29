@@ -2053,6 +2053,11 @@
           "term_key": "food-additive-functional-classes",
           "canonical_name": "Food Additive Functional Classes",
           "category": "food_additive"
+        },
+        {
+          "term_key": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
+          "category": "food_additive"
         }
       ],
       "affected_products": [
@@ -2128,6 +2133,11 @@
           "term_key": "compound-food-additive-import-documents",
           "canonical_name": "Compound Food Additive Import Documents",
           "category": "food_import"
+        },
+        {
+          "term_key": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
+          "category": "food_additive"
         }
       ],
       "affected_products": [
@@ -2286,6 +2296,16 @@
           "category": "food_cosmetic_ingredient"
         },
         {
+          "term_key": "aspergillus-oryzae-fermented-powder",
+          "canonical_name": "Aspergillus Oryzae Fermented Powder",
+          "category": "fermented_food_ingredient"
+        },
+        {
+          "term_key": "aspergillus-niger-culture",
+          "canonical_name": "Aspergillus Niger Culture",
+          "category": "fermented_food_ingredient"
+        },
+        {
           "term_key": "green-tea-camellia-sinensis",
           "canonical_name": "Green Tea / Camellia Sinensis",
           "category": "botanical_ingredient"
@@ -2374,6 +2394,16 @@
           "term_key": "collagen-peptides",
           "canonical_name": "Collagen Peptides",
           "category": "food_cosmetic_ingredient"
+        },
+        {
+          "term_key": "aspergillus-oryzae-fermented-powder",
+          "canonical_name": "Aspergillus Oryzae Fermented Powder",
+          "category": "fermented_food_ingredient"
+        },
+        {
+          "term_key": "aspergillus-niger-culture",
+          "canonical_name": "Aspergillus Niger Culture",
+          "category": "fermented_food_ingredient"
         },
         {
           "term_key": "green-tea-camellia-sinensis",
@@ -2768,6 +2798,11 @@
           "term_key": "import-regulation-f01-f02-508",
           "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
           "category": "food_import"
+        },
+        {
+          "term_key": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
+          "category": "food_additive"
         }
       ],
       "affected_products": [
