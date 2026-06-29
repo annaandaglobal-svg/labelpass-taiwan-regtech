@@ -109,6 +109,13 @@ function chunk(items, size) {
   return chunks;
 }
 
+function makePolicyCreationIdempotent(source) {
+  return source.replace(
+    /(^|\n)(create policy\s+"([^"]+)"\s+on\s+([a-z0-9_."-]+))/gi,
+    '$1drop policy if exists "$3" on $4;\n$2'
+  );
+}
+
 await runPreflight();
 assertConnectionTarget(databaseUrl);
 
@@ -157,7 +164,7 @@ const sql = dryRun
     });
 
 async function applySqlFile(label, filePath) {
-  const source = await readFile(filePath, "utf8");
+  const source = makePolicyCreationIdempotent(await readFile(filePath, "utf8"));
   await sql.begin(async (tx) => {
     await tx.unsafe(source);
   });
@@ -184,9 +191,7 @@ async function applyGeneratedSeed(label, filePath) {
 
   for (const [index, batch] of batches.entries()) {
     await sql.begin(async (tx) => {
-      for (const statement of batch) {
-        await tx.unsafe(statement);
-      }
+      await tx.unsafe(batch.join("\n"));
     });
     console.log(`Applied ${label} batch ${index + 1}/${batches.length}`);
   }

@@ -96,7 +96,7 @@ const probeTermKeys = [
   "cosmetic-source-flow-records"
 ];
 
-const probeAliases = [
+const deprecatedProbeAliases = [
   "msg",
   "味精",
   "카제인나트륨",
@@ -171,6 +171,67 @@ const probeAliases = [
   "供應來源及流向資料"
 ];
 
+const probeAliasValues = [
+  "MSG",
+  "味精",
+  "카제인나트륨",
+  "魷魚",
+  "奇異果",
+  "PIF",
+  "SDS",
+  "COA",
+  "INCI",
+  "CCC碼",
+  "화장품 효능표현",
+  "화장품 금지성분",
+  "限用成分",
+  "防腐劑",
+  "防曬成分",
+  "化妆品备案",
+  "식품 효능표현",
+  "food claim substantiation",
+  "slightly sweet",
+  "not sweet",
+  "food additive permit query",
+  "food additive functional class",
+  "sweetener",
+  "甜味劑",
+  "甜味宣稱",
+  "醫療效能",
+  "輸入食品查驗",
+  "HS 0307 health certificate",
+  "食品業者登錄",
+  "식품원료 통합조회",
+  "health food",
+  "health food permit",
+  "approved health care effects",
+  "formula for certain disease",
+  "food contact packaging",
+  "plastic food contact surface",
+  "PVC",
+  "sanitation standards for food utensils containers and packages",
+  "젖병 BPA",
+  "food recall and destruction",
+  "post-market surveillance"
+];
+
+const normalizedAliasByValue = new Map(aliases.map((alias) => [alias.value, alias.normalized]));
+const normalizedAliasByLowerValue = new Map(
+  aliases.map((alias) => [String(alias.value ?? "").toLowerCase(), alias.normalized])
+);
+const normalizedAliasByNormalized = new Map(aliases.map((alias) => [alias.normalized, alias.normalized]));
+
+function resolveProbeAlias(value) {
+  return (
+    normalizedAliasByValue.get(value) ??
+    normalizedAliasByLowerValue.get(String(value ?? "").toLowerCase()) ??
+    normalizedAliasByNormalized.get(value)
+  );
+}
+
+const missingLocalProbeAliasValues = probeAliasValues.filter((alias) => !resolveProbeAlias(alias));
+const probeAliases = [...new Set(probeAliasValues.map(resolveProbeAlias).filter(Boolean))];
+
 if (!databaseUrl && !dryRun) {
   console.error(
     JSON.stringify(
@@ -196,7 +257,9 @@ if (dryRun) {
         hasDatabaseUrl: Boolean(databaseUrl),
         expectedCounts,
         probeTermKeys,
-        probeAliases
+        probeAliasValues,
+        probeAliases,
+        missingLocalProbeAliasValues
       },
       null,
       2
@@ -276,6 +339,7 @@ try {
   const missingAliases = probeAliases.filter((alias) => !foundAliases.has(alias));
   const errors = [
     ...countMismatches.map((mismatch) => `Count mismatch for ${mismatch.tableName}: expected ${mismatch.expected}, got ${mismatch.actual}`),
+    ...missingLocalProbeAliasValues.map((alias) => `Probe alias is not in local term index: ${alias}`),
     ...missingTermKeys.map((termKey) => `Missing probe term: ${termKey}`),
     ...missingAliases.map((alias) => `Missing probe alias: ${alias}`)
   ];
@@ -286,6 +350,7 @@ try {
         ok: errors.length === 0,
         expectedCounts,
         actualCounts,
+        missingLocalProbeAliasValues,
         probeTerms: termRows,
         probeAliases: aliasRows,
         errors
