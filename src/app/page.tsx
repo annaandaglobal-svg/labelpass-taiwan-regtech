@@ -347,7 +347,7 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; detail: st
   pass: {
     label: "진행 가능",
     tone: "pass",
-    detail: "1차 자동검토에서는 큰 차단 항목이 보이지 않습니다. 공식 증빙은 계속 보관하세요.",
+    detail: "1차 자동검토에서는 즉시 멈출 항목이 보이지 않습니다. 공식 증빙은 계속 보관하세요.",
     icon: "pass"
   }
 };
@@ -641,7 +641,7 @@ function readableFinding(finding: Finding) {
     return {
       area: "확인",
       title: "1차 검토 통과 항목",
-      why: "자동검토에서 즉시 차단되는 신호는 낮습니다. 공식 문서와 제품 버전 연결은 계속 유지하세요.",
+      why: "자동검토에서 즉시 멈춰야 하는 신호는 낮습니다. 공식 문서와 제품 버전 연결은 계속 유지하세요.",
       fixes: ["증빙 원문 링크 저장", "라벨 버전과 검토 결과 연결", "수입 전 최종 원문 재확인"]
     };
   }
@@ -735,18 +735,18 @@ function nextActionFor(result: ReviewResult | null, route: RoutePreset) {
 
 const actionPlanCopy: Record<ReviewResult["actionPlan"]["priority"], { label: string; detail: string; tone: string }> = {
   blocked: {
-    label: "출시 전 차단 해소",
-    detail: "금지 성분, 초과 함량, 의학적 표현, 통관 보류처럼 먼저 막아야 할 항목입니다.",
+    label: "먼저 해결할 항목",
+    detail: "이 상태로 바로 진행하지 말고, 금지 가능 성분·초과 함량·의학적 표현·통관 보류 가능성을 먼저 확인하세요.",
     tone: "danger"
   },
   collect_documents: {
-    label: "증빙 수집",
-    detail: "판정을 확정하려면 PIF, 함량, 수입자, 시험자료, 통관 서류를 보강해야 합니다.",
+    label: "자료 보강 필요",
+    detail: "판정을 확정하려면 PIF, 함량, 수입자, 시험자료, 통관 서류 같은 빠진 증빙을 먼저 채워야 합니다.",
     tone: "info"
   },
   revise_label: {
-    label: "라벨 수정",
-    detail: "중문 라벨, 효능 표현, 알레르기·영양·원산지 문구를 출시 전 정리하세요.",
+    label: "라벨·문구 수정",
+    detail: "중문 라벨, 효능 표현, 알레르기·영양·원산지 문구를 출시 전 다시 정리하세요.",
     tone: "warn"
   },
   ready_to_file: {
@@ -941,6 +941,9 @@ export default function Home() {
       productType: current.productType || product.productType
     }));
     setKnowledgeQuery(route.query);
+    if (result) {
+      setToast("품목을 바꿔 이전 판정은 숨겼습니다. 입력값은 유지되어 있으니 다시 검토를 누르면 됩니다.");
+    }
   }
 
   function loadSample(sample: SampleReview) {
@@ -970,6 +973,9 @@ export default function Home() {
       });
 
       setSelectedRouteId(inferredRoute.id);
+      setResult(null);
+      setEvidenceBundle(null);
+      setActiveFindingId(null);
       setKnowledgeQuery(extraction.productName || inferredRoute.query);
       setInput((current) => ({
         ...current,
@@ -1074,13 +1080,21 @@ export default function Home() {
 
   const currentStatus = result ? statusCopy[result.status] : null;
   const summaryItems = [
-    { label: "차단", value: result?.summary.fail ?? 0, tone: "danger" },
-    { label: "자료필요", value: result?.summary.needsInfo ?? 0, tone: "info" },
-    { label: "수정권장", value: result?.summary.warn ?? 0, tone: "warn" },
+    { label: "즉시 수정", value: result?.summary.fail ?? 0, tone: "danger" },
+    { label: "자료 필요", value: result?.summary.needsInfo ?? 0, tone: "info" },
+    { label: "라벨/문구", value: result?.summary.warn ?? 0, tone: "warn" },
     { label: "통과", value: result?.summary.pass ?? 0, tone: "pass" }
   ];
   const planStats = result ? actionPlanStats(result) : null;
   const routeHandoffCards = handoffCards(result, selectedRoute);
+  const currentDraftSaved = Boolean(
+    result &&
+      handoffDrafts.some(
+        (draft) =>
+          draft.routeId === selectedRoute.id &&
+          draft.productName === (input.productName.trim() || selectedRoute.label)
+      )
+  );
 
   return (
     <>
@@ -1317,22 +1331,28 @@ export default function Home() {
                   </div>
                   <div className="lp-handoff-grid" aria-label="운영 인계">
                     {routeHandoffCards.map((card) => (
-                      <Link key={card.href} className={`lp-handoff-card ${card.tone}`} href={card.href}>
+                      <div key={card.href} className={`lp-handoff-card ${card.tone}`}>
                         <span>{card.icon}</span>
                         <div>
                           <em>{card.label}</em>
                           <b>{card.title}</b>
                           <small>{card.detail}</small>
                         </div>
-                      </Link>
+                      </div>
                     ))}
                   </div>
                   <div className="lp-handoff-draft-row">
                     <button type="button" onClick={() => void saveHandoffDraft()} disabled={isSubmittingHandoff}>
                       <PackageCheck size={14} />
-                      {isSubmittingHandoff ? "운영 큐 확인 중" : "의뢰 초안 저장"}
+                      {isSubmittingHandoff ? "저장 확인 중" : currentDraftSaved ? "초안 다시 저장" : "의뢰 초안 저장"}
                     </button>
-                    <small>워크스페이스에서 상담 범위, 결제 gate, 물류 증빙으로 이어집니다.</small>
+                    {currentDraftSaved && (
+                      <Link href="/workspace#expert-cases">
+                        <ArrowRight size={14} />
+                        워크스페이스에서 보기
+                      </Link>
+                    )}
+                    <small>저장 전에는 화면이 이동하지 않습니다. 저장 후 워크스페이스에서 상담, 결제, 물류를 이어갑니다.</small>
                   </div>
                 </div>
 
@@ -1392,14 +1412,14 @@ export default function Home() {
                 </div>
                 <div className="lp-handoff-grid" aria-label="운영 인계">
                   {routeHandoffCards.map((card) => (
-                    <Link key={card.href} className={`lp-handoff-card ${card.tone}`} href={card.href}>
+                    <div key={card.href} className={`lp-handoff-card ${card.tone}`}>
                       <span>{card.icon}</span>
                       <div>
                         <em>{card.label}</em>
                         <b>{card.title}</b>
                         <small>{card.detail}</small>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>

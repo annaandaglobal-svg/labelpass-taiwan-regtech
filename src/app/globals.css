@@ -11731,6 +11731,7 @@ h2 {
   border-radius: 8px;
   background: #fff;
   color: inherit;
+  cursor: default;
   text-decoration: none;
 }
 
@@ -11785,8 +11786,8 @@ h2 {
 }
 
 .lp-handoff-card:hover {
-  border-color: var(--green-dark);
-  background: #f8fbfa;
+  border-color: var(--line);
+  background: #fff;
 }
 
 .lp-handoff-draft-row {
@@ -11797,7 +11798,8 @@ h2 {
   padding-top: 2px;
 }
 
-.lp-handoff-draft-row button {
+.lp-handoff-draft-row button,
+.lp-handoff-draft-row a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -11809,6 +11811,13 @@ h2 {
   color: #fff;
   font-size: 12px;
   font-weight: 900;
+  text-decoration: none;
+}
+
+.lp-handoff-draft-row a {
+  border-color: var(--line);
+  background: #fff;
+  color: var(--green-dark);
 }
 
 .lp-handoff-draft-row small {

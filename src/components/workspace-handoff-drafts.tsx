@@ -6,9 +6,9 @@ import { HANDOFF_DRAFTS_STORAGE_KEY, parseHandoffDrafts, type HandoffDraft } fro
 import { useEffect, useState } from "react";
 
 function priorityLabel(priority: HandoffDraft["priority"]) {
-  if (priority === "blocked") return "차단";
-  if (priority === "collect_documents") return "증빙";
-  if (priority === "revise_label") return "라벨";
+  if (priority === "blocked") return "출시 보류";
+  if (priority === "collect_documents") return "자료 필요";
+  if (priority === "revise_label") return "라벨 수정";
   return "보관";
 }
 
