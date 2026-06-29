@@ -328,7 +328,15 @@ type OrganizationSettingDbRow = {
 
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
+const databasePreviewTimeoutMs = parseTimeout(process.env.LABELPASS_PLATFORM_OPS_DB_TIMEOUT_MS ?? "2500");
 let client: DbClient | null = null;
+let snapshotCache: { value: PlatformOpsSnapshot; expiresAt: number } | null = null;
+
+function parseTimeout(value: string) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 500 || parsed > 10000) return 2500;
+  return parsed;
+}
 
 export function isPlatformOpsDatabaseConfigured() {
   return Boolean(databaseUrl && adminDbPreviewEnabled);
@@ -344,6 +352,28 @@ function getClient() {
     prepare: false
   });
   return client;
+}
+
+function cacheSnapshot(value: PlatformOpsSnapshot) {
+  snapshotCache = { value, expiresAt: Date.now() + 15_000 };
+  return value;
+}
+
+function timeoutError(ms: number) {
+  return new Error(`Admin DB preview timed out after ${ms}ms; using safe preview data.`);
+}
+
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  return Promise.race([
+    promise.finally(() => {
+      if (timer) clearTimeout(timer);
+    }),
+    new Promise<T>((_, reject) => {
+      timer = setTimeout(() => reject(timeoutError(ms)), ms);
+    })
+  ]);
 }
 
 function asCount(value: number | string | null | undefined) {
@@ -1463,6 +1493,10 @@ async function readSettings(sql: DbClient): Promise<PlatformSettingRow[]> {
 }
 
 export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
+  if (snapshotCache && snapshotCache.expiresAt > Date.now()) {
+    return snapshotCache.value;
+  }
+
   if (!databaseUrl) {
     return getPlatformOpsPreviewSnapshot("disabled", [
       "Supabase DB URL이 없어 실제 운영 DB 대신 연결된 운영 프리뷰 데이터를 표시합니다."
@@ -1496,7 +1530,7 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       shipmentEvents,
       payments,
       settings
-    ] = await Promise.all([
+    ] = await withTimeout(Promise.all([
       readCounts(sql),
       readCompanyRows(sql),
       readRoleRows(sql),
@@ -1509,9 +1543,9 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       readShipmentEvents(sql),
       readPayments(sql),
       readSettings(sql)
-    ]);
+    ]), databasePreviewTimeoutMs);
 
-    return {
+    return cacheSnapshot({
       storage: "database",
       generatedAt: new Date().toISOString(),
       warnings: [],
@@ -1527,11 +1561,11 @@ export async function getPlatformOpsSnapshot(): Promise<PlatformOpsSnapshot> {
       shipmentEvents,
       payments,
       settings
-    };
+    });
   } catch (error) {
-    return getPlatformOpsPreviewSnapshot("error", [
+    return cacheSnapshot(getPlatformOpsPreviewSnapshot("error", [
       error instanceof Error ? error.message : "관리자 운영 DB 조회 중 알 수 없는 오류가 발생했습니다.",
       "실데이터 조회 실패로 운영 프리뷰 데이터를 표시합니다."
-    ]);
+    ]));
   }
 }
