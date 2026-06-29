@@ -7,6 +7,8 @@ const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? p
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
 const adminDbWritesEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES === "1";
 const adminOpsToken = process.env.LABELPASS_ADMIN_OPS_TOKEN;
+const openaiApiKey = process.env.OPENAI_API_KEY;
+const aiReviewEnabled = process.env.LABELPASS_ENABLE_AI_REVIEW === "1";
 const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const publicReviewArchiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
 const publicReviewArchiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
@@ -315,6 +317,9 @@ const env = [
   envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
   envState("LABELPASS_ENABLE_ADMIN_DB_WRITES", process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES),
   envState("LABELPASS_ADMIN_OPS_TOKEN", adminOpsToken),
+  envState("OPENAI_API_KEY", openaiApiKey),
+  envState("LABELPASS_ENABLE_AI_REVIEW", process.env.LABELPASS_ENABLE_AI_REVIEW),
+  envState("OPENAI_REVIEW_MODEL", process.env.OPENAI_REVIEW_MODEL),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
@@ -336,6 +341,12 @@ if (databaseUrl && adminDbPreviewEnabled && !adminDbWritesEnabled) {
 }
 if (adminDbWritesEnabled && !adminOpsToken) {
   warnings.push("LABELPASS_ENABLE_ADMIN_DB_WRITES is 1, but LABELPASS_ADMIN_OPS_TOKEN is not set; admin operation writes are not authorized.");
+}
+if (!openaiApiKey) {
+  warnings.push("OPENAI_API_KEY is not set; /api/review will use rules and knowledge only, without GPT context analysis.");
+}
+if (openaiApiKey && !aiReviewEnabled) {
+  warnings.push("OPENAI_API_KEY is set, but LABELPASS_ENABLE_AI_REVIEW is not 1; GPT context analysis stays disabled.");
 }
 if (databaseUrl && !publicReviewArchiveEnabled) {
   warnings.push("Server DB URL is set, but LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE is not 1; public review archive API stays disabled.");

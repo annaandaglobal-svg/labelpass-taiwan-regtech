@@ -520,6 +520,8 @@ const adminOpsCardSource = read("src/components/admin-ops-readiness-card.tsx");
 requireIncludes(adminOpsCardSource, '<details className="admin-ops-disclosure">', "src/components/admin-ops-readiness-card.tsx compact disclosure");
 requireIncludes(adminOpsCardSource, 'className="admin-connection-checklist"', "src/components/admin-ops-readiness-card.tsx Supabase connection checklist");
 requireIncludes(adminOpsCardSource, "SUPABASE_DB_URL", "src/components/admin-ops-readiness-card.tsx DB URL setup copy");
+requireIncludes(adminOpsCardSource, "OPENAI_API_KEY", "src/components/admin-ops-readiness-card.tsx OpenAI analysis key setup copy");
+requireIncludes(adminOpsCardSource, "LABELPASS_ENABLE_AI_REVIEW=1", "src/components/admin-ops-readiness-card.tsx AI review gate setup copy");
 requireIncludes(adminOpsCardSource, "LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1", "src/components/admin-ops-readiness-card.tsx preview gate setup copy");
 requireIncludes(adminOpsCardSource, "LABELPASS_ENABLE_ADMIN_DB_WRITES=1", "src/components/admin-ops-readiness-card.tsx write gate setup copy");
 requireIncludes(adminOpsCardSource, "LABELPASS_ADMIN_OPS_TOKEN", "src/components/admin-ops-readiness-card.tsx admin token setup copy");

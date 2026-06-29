@@ -853,12 +853,12 @@
         "food-allergen-labeling",
         "food-label-required-items",
         "nutrition-labeling",
+        "potassium-glycerophosphate-food-additive",
+        "steviol-glycosides-food-additive",
         "food-additive-functional-classes",
         "benzoates-food-additives",
         "sorbates-food-additives",
-        "calcium-lime-food-additives",
-        "caseinates-food-additives",
-        "dehydroacetic-acid-food-additive"
+        "calcium-lime-food-additives"
       ],
       "sources": [
         {
@@ -1033,6 +1033,42 @@
           ]
         },
         {
+          "id": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
+          "category": "food_additive",
+          "aliases": [
+            "Potassium Glycerophosphate",
+            "글리세로인산칼륨",
+            "甘油磷酸鉀",
+            "Potassium glycerol phosphate",
+            "글리세로포스페이트 칼륨",
+            "Potassium glycerophosphate powder"
+          ],
+          "source_keys": [
+            "tw-tfda-food-additive-standards",
+            "tw-tfda-food-additive-permit-query",
+            "tw-tfda-food-additive-registration-announcements",
+            "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
+          ]
+        },
+        {
+          "id": "steviol-glycosides-food-additive",
+          "canonical_name": "Steviol Glycosides",
+          "category": "food_additive",
+          "aliases": [
+            "Steviol glycosides",
+            "甜菊糖",
+            "甜菊醣苷",
+            "스테비올배당체",
+            "Steviol glycoside",
+            "Stevia sweetener"
+          ],
+          "source_keys": [
+            "tw-tfda-food-additive-common-names",
+            "tw-tfda-food-additive-common-names-table"
+          ]
+        },
+        {
           "id": "food-additive-functional-classes",
           "canonical_name": "Food Additive Functional Classes",
           "category": "food_additive",
@@ -1103,42 +1139,6 @@
             "tw-tfda-food-additive-common-names",
             "tw-tfda-food-additive-common-names-table",
             "tw-tfda-cosmetic-restricted-ingredients"
-          ]
-        },
-        {
-          "id": "caseinates-food-additives",
-          "canonical_name": "Casein and Caseinates",
-          "category": "food_additive",
-          "aliases": [
-            "CAS 9000-71-9",
-            "Calcium caseinate",
-            "Casein",
-            "Sodium caseinate",
-            "乾酪素",
-            "乾酪素鈉"
-          ],
-          "source_keys": [
-            "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table",
-            "tw-tfda-food-allergen-labeling"
-          ]
-        },
-        {
-          "id": "dehydroacetic-acid-food-additive",
-          "canonical_name": "Dehydroacetic Acid",
-          "category": "food_additive",
-          "aliases": [
-            "CAS 520-45-6",
-            "Dehydroacetic acid",
-            "去水醋酸",
-            "脫氫乙酸",
-            "데하이드로초산",
-            "탈수초산"
-          ],
-          "source_keys": [
-            "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table",
-            "tw-tfda-cosmetic-preservatives"
           ]
         }
       ]
@@ -1233,10 +1233,10 @@
         "imported-food-inspection-forms",
         "import-regulation-f01-f02-508",
         "food-business-registration-importer",
-        "customs-declaration",
         "hs-code-classification",
         "import-export-permit",
-        "novel-food-ingredient-safety-assessment"
+        "customs-declaration",
+        "advance-tariff-classification-ruling"
       ],
       "sources": [
         {
@@ -1435,24 +1435,6 @@
           ]
         },
         {
-          "id": "customs-declaration",
-          "canonical_name": "Customs Declaration",
-          "category": "customs_document",
-          "aliases": [
-            "customs declaration",
-            "export declaration",
-            "import declaration",
-            "出口報單",
-            "進口報單",
-            "수입신고"
-          ],
-          "source_keys": [
-            "tw-moj-customs-act",
-            "tw-customs-tariff-database-download",
-            "tw-trade-ccc-import-export-regulations"
-          ]
-        },
-        {
           "id": "hs-code-classification",
           "canonical_name": "HS Code Classification",
           "category": "customs_classification",
@@ -1492,20 +1474,39 @@
           ]
         },
         {
-          "id": "novel-food-ingredient-safety-assessment",
-          "canonical_name": "Novel Food Ingredient Safety Assessment",
-          "category": "food_safety",
+          "id": "customs-declaration",
+          "canonical_name": "Customs Declaration",
+          "category": "customs_document",
           "aliases": [
-            "新興食品原料",
-            "非傳統食品原料",
-            "non-traditional food ingredient",
-            "novel food ingredient",
-            "安全性評估資料表",
-            "safety assessment data sheet"
+            "customs declaration",
+            "export declaration",
+            "import declaration",
+            "出口報單",
+            "進口報單",
+            "수입신고"
           ],
           "source_keys": [
-            "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
-            "tw-tfda-food-ingredient-integration-query-platform"
+            "tw-moj-customs-act",
+            "tw-customs-tariff-database-download",
+            "tw-trade-ccc-import-export-regulations"
+          ]
+        },
+        {
+          "id": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "customs_classification",
+          "aliases": [
+            "advance tariff classification ruling",
+            "進口貨物稅則預先審核",
+            "수입물품 사전세번심사",
+            "advance classification ruling",
+            "import goods advance tariff ruling",
+            "稅則預先審核"
+          ],
+          "source_keys": [
+            "tw-customs-imported-goods-advance-tariff-classification-ruling",
+            "tw-customs-advance-tariff-classification-ruling",
+            "tw-customs-tariff-database-download"
           ]
         }
       ]
@@ -1599,8 +1600,7 @@
         "health-food-application-permit",
         "health-food-approved-effect-vocabulary",
         "health-food-label-required-items",
-        "novel-food-ingredient-safety-assessment",
-        "food-ingredient-integration-query-platform"
+        "novel-food-ingredient-safety-assessment"
       ],
       "sources": [
         {
@@ -1800,24 +1800,6 @@
           "source_keys": [
             "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
             "tw-tfda-food-ingredient-integration-query-platform"
-          ]
-        },
-        {
-          "id": "food-ingredient-integration-query-platform",
-          "canonical_name": "Food Ingredient Integration Query Platform",
-          "category": "food_safety",
-          "aliases": [
-            "Food Ingredient Integration Query Platform",
-            "食品原料整合查詢平台",
-            "식품원료 통합조회",
-            "food ingredient direct query",
-            "food ingredient platform",
-            "原料查詢平台"
-          ],
-          "source_keys": [
-            "tw-tfda-food-ingredient-integration-query-platform",
-            "tw-tfda-food-ingredient-query-platform-direct",
-            "tw-tfda-food-business-info-query-links"
           ]
         }
       ]
@@ -2275,10 +2257,10 @@
         "import-regulation-f01-f02-508",
         "product-information-sheet",
         "systematic-imported-food-inspection",
-        "customs-declaration",
         "hs-code-classification",
         "import-export-permit",
-        "shipment-purpose"
+        "shipment-purpose",
+        "customs-declaration"
       ],
       "sources": [
         {
@@ -2477,24 +2459,6 @@
           ]
         },
         {
-          "id": "customs-declaration",
-          "canonical_name": "Customs Declaration",
-          "category": "customs_document",
-          "aliases": [
-            "customs declaration",
-            "export declaration",
-            "import declaration",
-            "出口報單",
-            "進口報單",
-            "수입신고"
-          ],
-          "source_keys": [
-            "tw-moj-customs-act",
-            "tw-customs-tariff-database-download",
-            "tw-trade-ccc-import-export-regulations"
-          ]
-        },
-        {
           "id": "hs-code-classification",
           "canonical_name": "HS Code Classification",
           "category": "customs_classification",
@@ -2549,6 +2513,24 @@
             "tw-trade-import-export-regulations",
             "tw-trade-ccc-import-export-regulations",
             "tw-tfda-food-import-inspection-exemptions"
+          ]
+        },
+        {
+          "id": "customs-declaration",
+          "canonical_name": "Customs Declaration",
+          "category": "customs_document",
+          "aliases": [
+            "customs declaration",
+            "export declaration",
+            "import declaration",
+            "出口報單",
+            "進口報單",
+            "수입신고"
+          ],
+          "source_keys": [
+            "tw-moj-customs-act",
+            "tw-customs-tariff-database-download",
+            "tw-trade-ccc-import-export-regulations"
           ]
         }
       ]
@@ -2630,11 +2612,16 @@
         "tw-tfda-imported-food-inspection-regulations"
       ],
       "term_ids": [
+        "shtc-export-permit",
+        "strategic-high-tech-commodities",
         "import-export-permit",
-        "customs-declaration",
+        "end-use-end-user",
         "hs-code-classification",
         "shipment-purpose",
-        "taiwan-importer-responsible-firm"
+        "customs-declaration",
+        "exporter-importer-registration",
+        "taiwan-importer-responsible-firm",
+        "advance-tariff-classification-ruling"
       ],
       "sources": [
         {
@@ -2730,6 +2717,45 @@
       ],
       "terms": [
         {
+          "id": "shtc-export-permit",
+          "canonical_name": "SHTC Export Permit",
+          "category": "import_export_control",
+          "aliases": [
+            "Export Permit of Strategic High-Tech Commodities",
+            "SHTC export permit",
+            "戰略性高科技貨品輸出許可證",
+            "SHTC 수출허가",
+            "strategic high-tech commodities export license",
+            "전략성 고기술 화물 수출허가증"
+          ],
+          "source_keys": [
+            "tw-moj-shtc-export-import-regulations",
+            "tw-shtc-regulations",
+            "tw-trade-shtc-bilingual-glossary",
+            "tw-trade-ccc-import-export-regulations"
+          ]
+        },
+        {
+          "id": "strategic-high-tech-commodities",
+          "canonical_name": "Strategic High-Tech Commodities",
+          "category": "import_export_control",
+          "aliases": [
+            "SHTC",
+            "Strategic High-Tech Commodities",
+            "戰略性高科技貨品",
+            "전략성 고기술 화물",
+            "dual-use controlled items",
+            "strategic high tech goods"
+          ],
+          "source_keys": [
+            "tw-moj-shtc-export-import-regulations",
+            "tw-shtc-regulations",
+            "tw-shtc-dual-use-list",
+            "tw-trade-shtc-bilingual-glossary",
+            "global-wassenaar-control-lists"
+          ]
+        },
+        {
           "id": "import-export-permit",
           "canonical_name": "Import and Export Permit",
           "category": "import_export_control",
@@ -2748,21 +2774,23 @@
           ]
         },
         {
-          "id": "customs-declaration",
-          "canonical_name": "Customs Declaration",
-          "category": "customs_document",
+          "id": "end-use-end-user",
+          "canonical_name": "End Use and End User",
+          "category": "import_export_control",
           "aliases": [
-            "customs declaration",
-            "export declaration",
-            "import declaration",
-            "出口報單",
-            "進口報單",
-            "수입신고"
+            "end use",
+            "end user",
+            "end-use",
+            "end-user",
+            "最終使用者",
+            "最終用途"
           ],
           "source_keys": [
-            "tw-moj-customs-act",
-            "tw-customs-tariff-database-download",
-            "tw-trade-ccc-import-export-regulations"
+            "tw-moj-shtc-export-import-regulations",
+            "tw-trade-shtc-bilingual-glossary",
+            "global-wassenaar-control-lists",
+            "us-bis-ear-overview",
+            "jp-meti-security-export-control"
           ]
         },
         {
@@ -2805,6 +2833,42 @@
           ]
         },
         {
+          "id": "customs-declaration",
+          "canonical_name": "Customs Declaration",
+          "category": "customs_document",
+          "aliases": [
+            "customs declaration",
+            "export declaration",
+            "import declaration",
+            "出口報單",
+            "進口報單",
+            "수입신고"
+          ],
+          "source_keys": [
+            "tw-moj-customs-act",
+            "tw-customs-tariff-database-download",
+            "tw-trade-ccc-import-export-regulations"
+          ]
+        },
+        {
+          "id": "exporter-importer-registration",
+          "canonical_name": "Exporter and Importer Registration",
+          "category": "import_export_control",
+          "aliases": [
+            "exporter and importer registration",
+            "registration of exporters and importers",
+            "出進口廠商登記",
+            "수출입업자 등록",
+            "TITA exporter importer registration",
+            "importer exporter registration"
+          ],
+          "source_keys": [
+            "tw-moj-exporter-importer-registration",
+            "tw-moj-foreign-trade-act",
+            "tw-trade-import-export-administration"
+          ]
+        },
+        {
           "id": "taiwan-importer-responsible-firm",
           "canonical_name": "Taiwan Importer and Responsible Firm",
           "category": "trade_operator",
@@ -2821,6 +2885,24 @@
             "tw-moj-cosmetic-product-notification",
             "tw-moj-food-safety-sanitation-act",
             "tw-customs-origin-importers"
+          ]
+        },
+        {
+          "id": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "customs_classification",
+          "aliases": [
+            "advance tariff classification ruling",
+            "進口貨物稅則預先審核",
+            "수입물품 사전세번심사",
+            "advance classification ruling",
+            "import goods advance tariff ruling",
+            "稅則預先審核"
+          ],
+          "source_keys": [
+            "tw-customs-imported-goods-advance-tariff-classification-ruling",
+            "tw-customs-advance-tariff-classification-ruling",
+            "tw-customs-tariff-database-download"
           ]
         }
       ]

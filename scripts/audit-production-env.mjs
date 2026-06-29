@@ -11,6 +11,8 @@ const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? p
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
 const adminDbWritesEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES === "1";
 const adminOpsToken = process.env.LABELPASS_ADMIN_OPS_TOKEN;
+const openaiApiKey = process.env.OPENAI_API_KEY;
+const aiReviewEnabled = process.env.LABELPASS_ENABLE_AI_REVIEW === "1";
 const archiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
 const archiveReadEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ === "1";
 const archiveWriteEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE === "1";
@@ -22,6 +24,9 @@ const localEnv = [
   envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
   envState("LABELPASS_ENABLE_ADMIN_DB_WRITES", process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES),
   envState("LABELPASS_ADMIN_OPS_TOKEN", adminOpsToken),
+  envState("OPENAI_API_KEY", openaiApiKey),
+  envState("LABELPASS_ENABLE_AI_REVIEW", process.env.LABELPASS_ENABLE_AI_REVIEW),
+  envState("OPENAI_REVIEW_MODEL", process.env.OPENAI_REVIEW_MODEL),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_READ),
   envState("LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE", process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE_WRITE),
@@ -79,6 +84,8 @@ report.readiness = {
   localAdminDbPreviewEnabled: adminDbPreviewEnabled,
   localAdminDbWritesEnabled: adminDbWritesEnabled,
   localAdminOpsTokenPresent: Boolean(adminOpsToken),
+  localOpenAiKeyPresent: Boolean(openaiApiKey),
+  localAiReviewEnabled: aiReviewEnabled,
   remoteAdminOpsStorage: adminOpsReadiness?.storage ?? "unknown",
   remoteAdminOpsWritesReady: Boolean(adminOpsReadiness?.writesReady),
   remoteAdminOpsDryRunRateLimited: Boolean(adminOpsReadiness?.auth?.dryRunRateLimited),
@@ -108,6 +115,12 @@ if (databaseUrl && adminDbPreviewEnabled && !adminDbWritesEnabled) {
 }
 if (adminDbWritesEnabled && !adminOpsToken) {
   report.nextActions.push("Set LABELPASS_ADMIN_OPS_TOKEN before enabling admin operation writes.");
+}
+if (!openaiApiKey) {
+  report.nextActions.push("Set OPENAI_API_KEY in Vercel Production and the local shell when GPT context analysis should run.");
+}
+if (openaiApiKey && !aiReviewEnabled) {
+  report.nextActions.push("Set LABELPASS_ENABLE_AI_REVIEW=1 to enable GPT context analysis on /api/review.");
 }
 if (!archiveEnabled) {
   report.nextActions.push("Set LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE=1 in Vercel when review history should use Supabase instead of browser/local fallback.");
@@ -346,6 +359,7 @@ function printHumanReport(value) {
   console.log(`- Base URL: ${value.baseUrl}`);
   console.log(`- Vercel linked: ${value.vercelLink.linked ? `yes (${value.vercelLink.projectName})` : "no"}`);
   console.log(`- Local DB URL present: ${value.readiness.localDatabaseUrlPresent ? "yes" : "no"}`);
+  console.log(`- Local OpenAI review enabled: ${value.readiness.localOpenAiKeyPresent && value.readiness.localAiReviewEnabled ? "yes" : "no"}`);
   console.log(`- Local archive enabled: ${value.readiness.localArchiveFlagEnabled ? "yes" : "no"}`);
   console.log(`- Remote knowledge ready: ${value.readiness.remoteKnowledgeReady ? "yes" : "no"}`);
   console.log(`- Remote archive read/write: ${value.readiness.remoteArchiveReadStorage} / ${value.readiness.remoteArchiveWriteStorage}`);

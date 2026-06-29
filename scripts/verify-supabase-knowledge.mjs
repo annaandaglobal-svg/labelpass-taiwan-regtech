@@ -1,6 +1,5 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import postgres from "postgres";
 
 const root = process.cwd();
 const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
@@ -204,6 +203,27 @@ if (dryRun) {
     )
   );
   process.exit(0);
+}
+
+let postgres;
+try {
+  ({ default: postgres } = await import("postgres"));
+} catch (error) {
+  console.error(
+    JSON.stringify(
+      {
+        ok: false,
+        dryRun: false,
+        hasDatabaseUrl: Boolean(databaseUrl),
+        expectedCounts,
+        error: "Could not load the postgres package. Run pnpm install before verifying the live Supabase database.",
+        detail: error instanceof Error ? error.message : String(error)
+      },
+      null,
+      2
+    )
+  );
+  process.exit(1);
 }
 
 const sql = postgres(databaseUrl, {

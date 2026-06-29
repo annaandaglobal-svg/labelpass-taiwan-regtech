@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { generateAiReviewInsight } from "@/lib/ai-review";
 import { evaluateReview } from "@/lib/compliance";
 import { presentReviewResult } from "@/lib/review-presentation";
 
@@ -32,6 +33,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const result = evaluateReview(parsed.data);
-  return NextResponse.json(presentReviewResult(parsed.data, result));
+  const result = presentReviewResult(parsed.data, evaluateReview(parsed.data));
+  const aiAnalysis = await generateAiReviewInsight(parsed.data, result);
+
+  return NextResponse.json(aiAnalysis ? { ...result, aiAnalysis } : result);
 }

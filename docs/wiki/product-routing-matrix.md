@@ -10,10 +10,10 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 | Taiwan prepackaged food label, allergens, nutrition and claims | food | 9 | 10 | Run food label review and resolve allergen/nutrition/claim blockers before shipment release. |
 | Taiwan food additive or ingredient permissibility | food_additive | 9 | 10 | Confirm additive/common-name status before treating the substance as allowed on a food label. |
 | Taiwan food import inspection and customs packet | food_import | 9 | 10 | Route to food import inspection checklist before final label or logistics approval. |
-| Taiwan health food permit, label and approved effect wording | health_food | 9 | 7 | Confirm permit scope before allowing any health-food wording or approved-effect claim. |
+| Taiwan health food permit, label and approved effect wording | health_food | 9 | 6 | Confirm permit scope before allowing any health-food wording or approved-effect claim. |
 | Taiwan food-contact packaging and container labeling | food_contact | 9 | 10 | Classify food-contact status before applying ordinary food label or customs routing. |
 | Taiwan customs, HS/CCC, origin and trade label routing | customs_trade | 9 | 10 | Resolve HS/CCC and origin before final Taiwan label or import/export document release. |
-| Taiwan SHTC and import/export control screening | trade_control | 9 | 5 | Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals. |
+| Taiwan SHTC and import/export control screening | trade_control | 9 | 10 | Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals. |
 
 
 ## Taiwan cosmetic label, PIF and market access
@@ -78,7 +78,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: specification; COA; common-name evidence; permit or registration data; formula/use-level statement; supplier declaration
 - Evidence template IDs: `tw_food_additive_ingredient_evidence_bundle`
 - Source IDs: `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-food-business-info-query-links`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`, `tw-tfda-food-law-regulations-index`, `tw-tfda-food-nutrition-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-consumer-notice`
-- Term IDs: `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`, `food-additive-functional-classes`, `benzoates-food-additives`, `sorbates-food-additives`, `calcium-lime-food-additives`, `caseinates-food-additives`, `dehydroacetic-acid-food-additive`
+- Term IDs: `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`, `potassium-glycerophosphate-food-additive`, `steviol-glycosides-food-additive`, `food-additive-functional-classes`, `benzoates-food-additives`, `sorbates-food-additives`, `calcium-lime-food-additives`
 
 ### Entry Questions
 
@@ -104,7 +104,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: invoice; packing list; product information sheet; import declaration; health certificate if required; origin evidence; importer registration
 - Evidence template IDs: `tw_food_import_inspection_evidence_bundle`
 - Source IDs: `tw-customs-tariff-database-download`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-inspections-law-regulations-index`, `tw-tfda-systematic-inspection-imported-food`, `tw-customs-export-origin-packaging`, `tw-tfda-food-business-registration-importers`
-- Term IDs: `imported-food-inspection`, `product-information-sheet`, `systematic-imported-food-inspection`, `imported-food-inspection-forms`, `import-regulation-f01-f02-508`, `food-business-registration-importer`, `customs-declaration`, `hs-code-classification`, `import-export-permit`, `novel-food-ingredient-safety-assessment`
+- Term IDs: `imported-food-inspection`, `product-information-sheet`, `systematic-imported-food-inspection`, `imported-food-inspection-forms`, `import-regulation-f01-f02-508`, `food-business-registration-importer`, `hs-code-classification`, `import-export-permit`, `customs-declaration`, `advance-tariff-classification-ruling`
 
 ### Entry Questions
 
@@ -130,7 +130,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: permit record; approved effect scope; functional ingredient report; safety/effect assessment; label and product description
 - Evidence template IDs: `tw_health_food_claims_evidence_bundle`
 - Source IDs: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-application-permit-regulations`, `tw-tfda-health-food-enforcement-rules`, `tw-tfda-health-food-health-care-effect-items-2025`, `tw-tfda-health-food-labeling-regulations`, `tw-tfda-health-food-permit-query`, `tw-tfda-health-food-effect-assessment-methods-hub`, `tw-tfda-special-disease-food-permit-query`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`
-- Term IDs: `health-food-permit`, `health-food`, `health-food-application-permit`, `health-food-approved-effect-vocabulary`, `health-food-label-required-items`, `novel-food-ingredient-safety-assessment`, `food-ingredient-integration-query-platform`
+- Term IDs: `health-food-permit`, `health-food`, `health-food-application-permit`, `health-food-approved-effect-vocabulary`, `health-food-label-required-items`, `novel-food-ingredient-safety-assessment`
 
 ### Entry Questions
 
@@ -182,7 +182,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: invoice; packing list; origin evidence; HS/CCC evidence; import/export permit if required; shipping terms
 - Evidence template IDs: `tw_customs_origin_hs_evidence_bundle`
 - Source IDs: `tw-customs-tariff-database-download`, `tw-customs-export-origin-packaging`, `tw-trade-import-regulation-code-instruction`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`, `tw-tfda-inspections-law-regulations-index`, `tw-tfda-systematic-inspection-imported-food`
-- Term IDs: `imported-food-inspection`, `food-business-registration-importer`, `imported-food-inspection-forms`, `import-regulation-f01-f02-508`, `product-information-sheet`, `systematic-imported-food-inspection`, `customs-declaration`, `hs-code-classification`, `import-export-permit`, `shipment-purpose`
+- Term IDs: `imported-food-inspection`, `food-business-registration-importer`, `imported-food-inspection-forms`, `import-regulation-f01-f02-508`, `product-information-sheet`, `systematic-imported-food-inspection`, `hs-code-classification`, `import-export-permit`, `shipment-purpose`, `customs-declaration`
 
 ### Entry Questions
 
@@ -208,7 +208,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: technical spec; CCC classification; end-use statement; permit evidence; invoice/packing list; shipper/consignee data
 - Evidence template IDs: `tw_trade_control_shtc_evidence_bundle`
 - Source IDs: `tw-customs-tariff-database-download`, `tw-trade-ccc-import-export-regulations`, `tw-customs-export-origin-packaging`, `tw-trade-import-regulation-code-instruction`, `tw-tfda-food-additive-permit-query`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`, `tw-tfda-import-regulation-f01-f02-commodity-table-2026`, `tw-tfda-imported-food-inspection-forms`, `tw-tfda-imported-food-inspection-regulations`
-- Term IDs: `import-export-permit`, `customs-declaration`, `hs-code-classification`, `shipment-purpose`, `taiwan-importer-responsible-firm`
+- Term IDs: `shtc-export-permit`, `strategic-high-tech-commodities`, `import-export-permit`, `end-use-end-user`, `hs-code-classification`, `shipment-purpose`, `customs-declaration`, `exporter-importer-registration`, `taiwan-importer-responsible-firm`, `advance-tariff-classification-ruling`
 
 ### Entry Questions
 

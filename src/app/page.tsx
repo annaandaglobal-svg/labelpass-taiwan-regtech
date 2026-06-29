@@ -1183,6 +1183,26 @@ export default function Home() {
                   ))}
                 </div>
 
+                {result.aiAnalysis && (
+                  <div className={`lp-ai-panel ${result.aiAnalysis.status === "generated" ? "ready" : "locked"}`}>
+                    <div>
+                      <span>
+                        <Sparkles size={16} />
+                        GPT 분석
+                      </span>
+                      <b>{result.aiAnalysis.productCategory || "품목 확인 필요"}</b>
+                      <small>{result.aiAnalysis.model} · {result.aiAnalysis.confidence} confidence</small>
+                    </div>
+                    <p>{result.aiAnalysis.summary}</p>
+                    {result.aiAnalysis.warning && <em>{result.aiAnalysis.warning}</em>}
+                    <div className="lp-ai-chip-row">
+                      {[...result.aiAnalysis.riskSignals, ...result.aiAnalysis.documentGaps, ...result.aiAnalysis.customsQuestions].slice(0, 6).map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="lp-next-action">
                   <Sparkles size={18} />
                   <div>

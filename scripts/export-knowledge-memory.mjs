@@ -51,10 +51,25 @@ const categoryPriority = [
   "allergen",
   "label_claim",
   "health_food",
+  "customs_classification",
+  "customs_document",
+  "trade_document",
+  "trade_operator",
+  "import_export_control",
   "customs",
   "trade_controls",
   "terminology"
 ];
+
+const pinnedTermIds = new Set([
+  "potassium-glycerophosphate-food-additive",
+  "aspergillus-oryzae-fermented-powder",
+  "aspergillus-niger-culture",
+  "steviol-glycosides-food-additive",
+  "strategic-high-tech-commodities",
+  "shtc-export-permit",
+  "end-use-end-user"
+]);
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
@@ -231,6 +246,7 @@ function buildAliasList(term) {
 
 function termScore(term, coverageTermIds, selectedSourceIds) {
   let score = 0;
+  if (pinnedTermIds.has(term.id)) score += 2_000;
   if (coverageTermIds.has(term.id)) score += 1_000;
   if (categoryPriority.includes(term.category)) score += 120 - categoryPriority.indexOf(term.category);
   score += (term.source_keys ?? []).filter((sourceKey) => selectedSourceIds.has(sourceKey)).length * 25;

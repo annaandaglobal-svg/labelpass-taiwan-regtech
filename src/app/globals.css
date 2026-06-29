@@ -11533,6 +11533,78 @@ h2 {
   color: #0d5d4d;
 }
 
+.lp-ai-panel {
+  display: grid;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid #d8e1dd;
+  border-radius: 8px;
+  background: #f8fbfa;
+}
+
+.lp-ai-panel.ready {
+  border-color: #b8d9ca;
+  background: #eef8f3;
+}
+
+.lp-ai-panel.locked {
+  border-color: #e5c886;
+  background: #fff9ec;
+}
+
+.lp-ai-panel > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+}
+
+.lp-ai-panel span {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  color: #0d5d4d;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.lp-ai-panel b {
+  color: #101918;
+  font-size: 13px;
+}
+
+.lp-ai-panel small,
+.lp-ai-panel em {
+  color: #61726e;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 750;
+}
+
+.lp-ai-panel p {
+  margin: 0;
+  color: #3f524e;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.lp-ai-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.lp-ai-chip-row span {
+  min-height: 24px;
+  padding: 3px 7px;
+  border: 1px solid #d8e1dd;
+  border-radius: 999px;
+  background: #fff;
+  color: #3f524e;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
 .lp-next-action {
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr);

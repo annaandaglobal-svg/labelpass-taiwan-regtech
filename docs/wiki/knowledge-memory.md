@@ -77,6 +77,103 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 ## Term Memory Cards
 
+### Food additive
+
+- **Potassium Glycerophosphate** (`potassium-glycerophosphate-food-additive`)
+  - Aliases: Potassium Glycerophosphate; 글리세로인산칼륨; 甘油磷酸鉀; Potassium glycerol phosphate; 글리세로포스페이트 칼륨; Potassium glycerophosphate powder; 포타슘 글리세로포스페이트
+  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`
+  - Note: Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confir...
+- **Steviol Glycosides** (`steviol-glycosides-food-additive`)
+  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; Stevia sweetener; 스테비올 글리코사이드; Stevia; 스테비아
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.
+- **Food Additive Functional Classes** (`food-additive-functional-classes`)
+  - Aliases: food additive functional class; food additive function; preservative; preservatives; sweetener; sweeteners; 甜味劑; 防腐劑; 감미료; 보존료
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`
+  - Note: Functional-class search bridge for Taiwan food additives. Use alongside the additive standards and permit query to map broad function terms such as sweetener, preservative, thickener, emulsifier, antioxidant, and colorant to specific per...
+- **Benzoic Acid and Benzoates** (`benzoates-food-additives`)
+  - Aliases: CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; Benzoic acid; Potassium benzoate; Sodium benzoate; 苯甲酸; 苯甲酸鈉; 苯甲酸鉀; 벤조산
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
+  - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
+- **Sorbic Acid and Sorbates** (`sorbates-food-additives`)
+  - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀; 소르빈산
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
+  - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
+- **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
+  - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
+  - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
+- **Casein and Caseinates** (`caseinates-food-additives`)
+  - Aliases: CAS 9000-71-9; Calcium caseinate; Casein; Sodium caseinate; 乾酪素; 乾酪素鈉; 乾酪素鈣; 酪蛋白; 酪蛋白鈉; 酪蛋白鈣
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
+  - Note: Food additive common-name set that also overlaps with milk allergen review.
+- **Dehydroacetic Acid** (`dehydroacetic-acid-food-additive`)
+  - Aliases: CAS 520-45-6; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 탈수초산; DHA
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
+  - Note: Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸.
+- **Monosodium Glutamate** (`monosodium-glutamate`)
+  - Aliases: CAS 142-47-2; Monosodium Glutamate; 味精; 글루탐산나트륨; Monosodium L-glutamate; Monosodium glutamate (MSG); Sodium glutamate; 麩胺酸鈉; 麩酸鈉; 글루탐산 나트륨
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Representative food additive alias set from Taiwan common-name material.
+- **Methionine** (`methionine-food-additive`)
+  - Aliases: DL-Methionine; DL-蛋胺酸; L-Methionine; L-蛋胺酸; Methionine; DL-甲硫胺酸; L-甲硫胺酸; 메티오닌; DL-甲硫氨酸; DL-蛋氨酸
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Food additive common-name aliases for methionine forms; verify product-specific permission before use.
+- **Pantothenates** (`pantothenate-food-additives`)
+  - Aliases: Calcium pantothenate; Sodium pantothenate; 本多酸鈉; 本多酸鈣; 泛酸鈉; 泛酸鈣; 판토텐산칼슘; Pantothenate; 판토텐산 칼슘; 판토텐산나트륨
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Vitamin-related food additive common names; use additive standards for scope and limitations.
+- **Sodium Bicarbonate** (`sodium-bicarbonate-food-additive`)
+  - Aliases: CAS 144-55-8; Baking soda; Sodium bicarbonate; 小蘇打; 碳酸氫鈉; 베이킹소다; 탄산수소나트륨; 중탄산나트륨; 탄산수소 나트륨; NaHCO3
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Common food additive and common-name alias.
+- **Sorbitol** (`sorbitol-food-additive`)
+  - Aliases: CAS 50-70-4; D-Sorbitol; D-山梨醇; Sorbitol; 山梨糖醇; 소르비톨; 솔비톨
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.
+- **Xanthan Gum** (`xanthan-gum-food-additive`)
+  - Aliases: CAS 11138-66-2; Xanthan gum; 잔탄검; 三仙膠; 산탄검; Xanthan; 玉米糖膠
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: Food thickener/stabilizer alias set.
+
+### import export control
+
+- **SHTC Export Permit** (`shtc-export-permit`)
+  - Aliases: Export Permit of Strategic High-Tech Commodities; SHTC export permit; 戰略性高科技貨品輸出許可證; SHTC 수출허가; strategic high-tech commodities export license; 전략성 고기술 화물 수출허가증; ICP Exporter; Internal Compliance Program; 輸出許可證; export permit license
+  - Sources: `tw-moj-shtc-export-import-regulations`, `tw-shtc-regulations`, `tw-trade-shtc-bilingual-glossary`, `tw-trade-ccc-import-export-regulations`
+  - Note: Permit concept for Taiwan SHTC export control, including ordinary permits, ICP exporter programs, validity periods, and case-closing evidence after export.
+- **End Use and End User** (`end-use-end-user`)
+  - Aliases: end use; end user; end-use; end-user; 最終使用者; 最終用途; 최종사용자; 최종용도; Certificate of End Uses; Written Assurance of End Uses
+  - Sources: `tw-moj-shtc-export-import-regulations`, `tw-trade-shtc-bilingual-glossary`, `global-wassenaar-control-lists`, `us-bis-ear-overview`, `jp-meti-security-export-control`
+  - Note: Export-control screening concept for intended use, final user, ultimate consignee, certificates of end use, written assurances, and restricted-area routing.
+- **Strategic High-Tech Commodities** (`strategic-high-tech-commodities`)
+  - Aliases: SHTC; Strategic High-Tech Commodities; 戰略性高科技貨品; 전략성 고기술 화물; dual-use controlled items; strategic high tech goods; 高科技貨品; 전략성 하이테크 화물; common military list; 战略性高科技货品
+  - Sources: `tw-moj-shtc-export-import-regulations`, `tw-shtc-regulations`, `tw-shtc-dual-use-list`, `tw-trade-shtc-bilingual-glossary`, `global-wassenaar-control-lists`
+  - Note: Taiwan export-control concept for strategic high-tech commodities, dual-use items, common military list items, transit/transshipment, and AI hardware risk routing.
+- **Import and Export Permit** (`import-export-permit`)
+  - Aliases: export permit; import permit; 輸入許可證; 輸出許可證; 수입허가증; 수출허가증; electronic licensing; export license; import license; 輸出入許可
+  - Sources: `tw-trade-import-export-administration`, `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`
+  - Note: Trade-control concept for import/export permits, electronic licensing, and commodity restrictions that may appear by CCC code.
+- **Exporter and Importer Registration** (`exporter-importer-registration`)
+  - Aliases: exporter and importer registration; registration of exporters and importers; 出進口廠商登記; 수출입업자 등록; TITA exporter importer registration; importer exporter registration; English name availability review; export/import qualifications; 出進口資格; 수출자 수입자 등록
+  - Sources: `tw-moj-exporter-importer-registration`, `tw-moj-foreign-trade-act`, `tw-trade-import-export-administration`
+  - Note: Taiwan operator-registration concept for companies or firms engaging in import/export business, including English-name review and qualification lookup.
+- **Foreign Trade Act** (`foreign-trade-act`)
+  - Aliases: Foreign Trade Act; 貿易法; Taiwan Foreign Trade Act; 대만 무역법; foreign trade law; export import business registration; trade control legal basis; 贸易法; 수출입 관리 법적 근거; 對外貿易法
+  - Sources: `tw-moj-foreign-trade-act`, `tw-trade-import-export-regulations`
+  - Note: Umbrella legal concept for Taiwan import/export administration, exporter-importer registration, trade controls, restrictions, and trade-order obligations.
+
+### fermented food ingredient
+
+- **Aspergillus Oryzae Fermented Powder** (`aspergillus-oryzae-fermented-powder`)
+  - Aliases: Aspergillus oryzae fermented powder; 아스퍼질러스 오리재 발효분말; 아스퍼질러스 오리재발효분말; Aspergillus oryzae; Aspergillus oryzae fermentation product; 아스퍼질러스 오리자에 발효분말; Aspergillus oryzae culture; 米麴菌發酵粉; 아스퍼질러스 오리제 발효분말; 米麴菌
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
+  - Note: Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...
+- **Aspergillus Niger Culture** (`aspergillus-niger-culture`)
+  - Aliases: Aspergillus niger culture; 아스퍼질러스 나이거 배양물; 아스퍼질러스 나이거배양물; Aspergillus niger; Aspergillus niger culture powder; Aspergillus niger fermentation product; 黑麴菌培養物; 아스퍼질러스 니거 배양물; 黑曲霉培養物; 흑국균 배양물
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
+  - Note: Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-...
+
 ### Cosmetic compliance
 
 - **Cosmetic Product Information File** (`cosmetic-product-information-file`)
@@ -119,10 +216,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: imported cosmetics inspection; 輸入化粧品檢驗; cosmetics import inspection; 先行放行; 抽批檢驗; 輸入化粧品查驗; 輸入化粧品邊境查驗; 수입 화장품 검사; 取樣; 輸入不符合通知書
   - Sources: `tw-tfda-imported-cosmetics-inspection`, `tw-moj-cosmetic-hygiene-safety-act`
   - Note: Border inspection concept for imported cosmetics, including sampling, release, and nonconforming goods workflows.
-- **INCI Ingredient Name** (`inci-ingredient-name`)
-  - Aliases: INCI; International Nomenclature Cosmetic Ingredient; 화장품 성분명; cosmetic ingredient name; 化妆品成分名称; 化粧品成分名稱; 국제화장품성분명
-  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-product-notification`
-  - Note: Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping.
 
 ### Health food
 
@@ -232,69 +325,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 新興食品原料; 非傳統食品原料; non-traditional food ingredient; novel food ingredient; 安全性評估資料表; safety assessment data sheet; 신규 식품원료; 비전통 식품원료 안전성 평가
   - Sources: `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-food-ingredient-integration-query-platform`
   - Note: Use before food-label approval when an ingredient may not be an ordinary edible ingredient in Taiwan.
-- **Food Ingredient Integration Query Platform** (`food-ingredient-integration-query-platform`)
-  - Aliases: Food Ingredient Integration Query Platform; 食品原料整合查詢平台; 식품원료 통합조회; food ingredient direct query; food ingredient platform; 原料查詢平台; 可供食品使用原料; 未確認安全性尚不得使用原料; 食材查詢; 식품원료 안전성 조회
-  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-food-business-info-query-links`
-  - Note: Use this TFDA platform to confirm ingredient safety status, permitted product types, usage limits, and cautionary notes before final food label approval.
-
-### Food additive
-
-- **Food Additive Functional Classes** (`food-additive-functional-classes`)
-  - Aliases: food additive functional class; food additive function; preservative; preservatives; sweetener; sweeteners; 甜味劑; 防腐劑; 감미료; 보존료
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`
-  - Note: Functional-class search bridge for Taiwan food additives. Use alongside the additive standards and permit query to map broad function terms such as sweetener, preservative, thickener, emulsifier, antioxidant, and colorant to specific per...
-- **Benzoic Acid and Benzoates** (`benzoates-food-additives`)
-  - Aliases: CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; Benzoic acid; Potassium benzoate; Sodium benzoate; 苯甲酸; 苯甲酸鈉; 苯甲酸鉀; 벤조산
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
-  - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
-- **Potassium Glycerophosphate** (`potassium-glycerophosphate-food-additive`)
-  - Aliases: Potassium Glycerophosphate; 글리세로인산칼륨; 甘油磷酸鉀; Potassium glycerol phosphate; 글리세로포스페이트 칼륨; Potassium glycerophosphate powder; 포타슘 글리세로포스페이트
-  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`
-  - Note: Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confir...
-- **Sorbic Acid and Sorbates** (`sorbates-food-additives`)
-  - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀; 소르빈산
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
-  - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
-- **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
-  - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
-  - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
-- **Casein and Caseinates** (`caseinates-food-additives`)
-  - Aliases: CAS 9000-71-9; Calcium caseinate; Casein; Sodium caseinate; 乾酪素; 乾酪素鈉; 乾酪素鈣; 酪蛋白; 酪蛋白鈉; 酪蛋白鈣
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
-  - Note: Food additive common-name set that also overlaps with milk allergen review.
-- **Dehydroacetic Acid** (`dehydroacetic-acid-food-additive`)
-  - Aliases: CAS 520-45-6; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 탈수초산; DHA
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
-  - Note: Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸.
-- **Monosodium Glutamate** (`monosodium-glutamate`)
-  - Aliases: CAS 142-47-2; Monosodium Glutamate; 味精; 글루탐산나트륨; Monosodium L-glutamate; Monosodium glutamate (MSG); Sodium glutamate; 麩胺酸鈉; 麩酸鈉; 글루탐산 나트륨
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Representative food additive alias set from Taiwan common-name material.
-- **Methionine** (`methionine-food-additive`)
-  - Aliases: DL-Methionine; DL-蛋胺酸; L-Methionine; L-蛋胺酸; Methionine; DL-甲硫胺酸; L-甲硫胺酸; 메티오닌; DL-甲硫氨酸; DL-蛋氨酸
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Food additive common-name aliases for methionine forms; verify product-specific permission before use.
-- **Pantothenates** (`pantothenate-food-additives`)
-  - Aliases: Calcium pantothenate; Sodium pantothenate; 本多酸鈉; 本多酸鈣; 泛酸鈉; 泛酸鈣; 판토텐산칼슘; Pantothenate; 판토텐산 칼슘; 판토텐산나트륨
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Vitamin-related food additive common names; use additive standards for scope and limitations.
-- **Sodium Bicarbonate** (`sodium-bicarbonate-food-additive`)
-  - Aliases: CAS 144-55-8; Baking soda; Sodium bicarbonate; 小蘇打; 碳酸氫鈉; 베이킹소다; 탄산수소나트륨; 중탄산나트륨; 탄산수소 나트륨; NaHCO3
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Common food additive and common-name alias.
-- **Steviol Glycosides** (`steviol-glycosides-food-additive`)
-  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; Stevia sweetener; 스테비올 글리코사이드; Stevia; 스테비아
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.
-- **Sorbitol** (`sorbitol-food-additive`)
-  - Aliases: CAS 50-70-4; D-Sorbitol; D-山梨醇; Sorbitol; 山梨糖醇; 소르비톨; 솔비톨
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.
-- **Xanthan Gum** (`xanthan-gum-food-additive`)
-  - Aliases: CAS 11138-66-2; Xanthan gum; 잔탄검; 三仙膠; 산탄검; Xanthan; 玉米糖膠
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Food thickener/stabilizer alias set.
 
 ### Food ingredient
 
@@ -302,6 +332,50 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: Probiotic; Probiotics; 乳酸菌; 益生菌; 유산균; 프로바이오틱스; Lactic acid bacteria; Bifidobacterium; Lactobacillus
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-health-food-permit-query`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`
   - Note: High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.
+
+### customs classification
+
+- **HS Code Classification** (`hs-code-classification`)
+  - Aliases: CCC code; CCC碼; HS code; HS코드; Harmonized System; HSコード; HS碼; HS编码; customs import tariff; tariff classification
+  - Sources: `global-wco-harmonized-system`, `tw-customs-tariff-database-download`, `tw-customs-tariff-system`, `tw-trade-ccc-import-export-regulations`, `tw-customs-advance-tariff-classification-ruling`
+  - Note: Concept term for tariff classification, customs statistical codes, and HS-code based routing.
+- **Advance Tariff Classification Ruling** (`advance-tariff-classification-ruling`)
+  - Aliases: advance tariff classification ruling; 進口貨物稅則預先審核; 수입물품 사전세번심사; advance classification ruling; import goods advance tariff ruling; 稅則預先審核; 사전 품목분류 심사; pre-import classification ruling; 税则预先审核; 貨品分類預先審核
+  - Sources: `tw-customs-imported-goods-advance-tariff-classification-ruling`, `tw-customs-advance-tariff-classification-ruling`, `tw-customs-tariff-database-download`
+  - Note: Customs workflow for obtaining a binding CCC-code classification ruling before import when product classification is uncertain.
+
+### trade document
+
+- **Shipment Purpose** (`shipment-purpose`)
+  - Aliases: shipment purpose; 출하 목적; import purpose; 自用; 進口目的; 수입 목적; commercial sale; personal use; sample shipment; 商業銷售
+  - Sources: `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`, `tw-tfda-food-import-inspection-exemptions`
+  - Note: Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments.
+- **Incoterms** (`incoterms`)
+  - Aliases: Incoterms; 인코텀즈; delivery terms; インコタームズ; 交貨條件; 国际贸易术语; 國際貿易條件; 무역조건; shipping terms; trade terms
+  - Sources: `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`
+  - Note: Operational trade term for allocating freight, insurance, delivery, and import-clearance responsibilities.
+
+### customs document
+
+- **Customs Declaration** (`customs-declaration`)
+  - Aliases: customs declaration; export declaration; import declaration; 出口報單; 進口報單; 수입신고; 수출신고; export declaration form; import declaration form; 報關
+  - Sources: `tw-moj-customs-act`, `tw-customs-tariff-database-download`, `tw-trade-ccc-import-export-regulations`
+  - Note: Customs-entry concept for import/export declaration forms, invoice, packing list, permits, single-window transmission, and post-clearance evidence.
+- **Packing List** (`packing-list`)
+  - Aliases: packing list; 裝箱單; 포장명세서; shipment packing list; パッキングリスト; 包裝明細表; 梱包明細書; 装箱单; 패킹리스트; 包装明细表
+  - Sources: `tw-trade-import-export-regulations`, `tw-customs-tariff-database-download`
+  - Note: Customs and logistics document concept for carton, quantity, weight, and package details.
+- **Commercial Invoice** (`commercial-invoice`)
+  - Aliases: commercial invoice; 商業發票; 상업송장; trade invoice; 商业发票; 商業インボイス; 商業送り状; 인보이스; invoice; 發票
+  - Sources: `tw-trade-import-export-regulations`, `tw-customs-tariff-database-download`
+  - Note: Customs document concept for declared value, buyer/seller, shipment description, and trade terms.
+
+### trade operator
+
+- **Taiwan Importer and Responsible Firm** (`taiwan-importer-responsible-firm`)
+  - Aliases: Taiwan importer; 進口商; 대만 수입자; 수입자; importer of record; local responsible firm; 國內負責廠商; 責任業者; 책임업체; responsible firm
+  - Sources: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-product-notification`, `tw-moj-food-safety-sanitation-act`, `tw-customs-origin-importers`
+  - Note: Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator.
 
 ### Cosmetic ingredient
 
@@ -333,10 +407,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI Menthol; Menthol; メントール; 薄荷醇; 멘톨
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`
   - Note: Common cooling ingredient with multilingual label variants.
-- **Retinol** (`retinol`)
-  - Aliases: CAS 68-26-8; INCI Retinol; Retinol; 레티놀; All-trans-retinol; 視黃醇; 视黄醇; Vitamin A
-  - Sources: `global-pcpc-inci`, `global-cas-registry`
-  - Note: Vitamin A family names need separate handling for esters and derivatives.
 
 ### Preservative
 
@@ -380,22 +450,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate); INCI Hexamidine; INCI Hexamidine diisethionate; INCI Hexamidine paraben; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
   - Sources: `tw-tfda-cosmetic-preservatives`
   - Note: Generated from TFDA rule tw-cos-201-24
-- **Chlorhexidine Family** (`chlorhexidine-family`)
-  - Aliases: CAS 55-56-1; CAS 18472-51-0; CAS 3697-42-5; CAS 56-95-1; INCI Chlorhexidine; INCI Chlorhexidine Digluconate; INCI Chlorhexidine Dihydrochloride; INCI Chlorhexidine Diacetate; Chlorhexidine; Chlorhexidine Digluconate
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Antimicrobial preservative family; salt form matters for limits.
-- **Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride** (`tfda-poly-methylene-alpha-ome-ga-bis-aminoiminomethyl-amino-iminomethyl-amino-dihydro`)
-  - Aliases: CAS 32289-58-0; CAS 133029-32-0; CAS 28757-47-3; CAS 27083-27-8; INCI Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride; INCI Polyaminopropyl biguanide; Polyaminopropyl biguanide; 133029-32-0; 27083-27-8; 28757-47-3
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-39
-- **Chloroxylenol** (`chloroxylenol`)
-  - Aliases: CAS 88-04-0; CAS 1321-23-9; INCI Chloroxylenol; Chloroxylenol; クロロキシレノール; 클로록실레놀; 氯二甲酚; PCMX
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Preservative/antimicrobial term with PCMX abbreviation.
-- **Methylparaben** (`methylparaben`)
-  - Aliases: CAS 99-76-3; INCI Methylparaben; Methylparaben; Methyl 4-hydroxybenzoate; 메틸파라벤; 羟苯甲酯; 羥苯甲酯
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Paraben family terms should not be collapsed without compound-level evidence.
 
 ### Colorant
 
@@ -427,50 +481,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI CI 11680; CI CI 11680; CI 11680; Pigment Yellow 1 Ext. D&C Yellow No. 5 Hansa Yellow G
   - Sources: `tw-tfda-cosmetic-colorants`
   - Note: Generated from TFDA rule tw-cos-200-4
-- **CI 11710** (`tfda-ci-11710`)
-  - Aliases: INCI CI 11710; CI CI 11710; CI 11710; Pigment Yellow 3
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-5
-- **CI 11725** (`tfda-ci-11725`)
-  - Aliases: INCI CI 11725; CI CI 11725; CI 11725; Pigment Orange 1 Hansa Yellow 3R
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-6
-- **CI 11920** (`tfda-ci-11920`)
-  - Aliases: INCI CI 11920; CI CI 11920; CI 11920; Food Orange 3
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-7
-
-### fermented food ingredient
-
-- **Aspergillus Oryzae Fermented Powder** (`aspergillus-oryzae-fermented-powder`)
-  - Aliases: Aspergillus oryzae fermented powder; 아스퍼질러스 오리재 발효분말; 아스퍼질러스 오리재발효분말; Aspergillus oryzae; Aspergillus oryzae fermentation product; 아스퍼질러스 오리자에 발효분말; Aspergillus oryzae culture; 米麴菌發酵粉; 아스퍼질러스 오리제 발효분말; 米麴菌
-  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
-  - Note: Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...
-- **Aspergillus Niger Culture** (`aspergillus-niger-culture`)
-  - Aliases: Aspergillus niger culture; 아스퍼질러스 나이거 배양물; 아스퍼질러스 나이거배양물; Aspergillus niger; Aspergillus niger culture powder; Aspergillus niger fermentation product; 黑麴菌培養物; 아스퍼질러스 니거 배양물; 黑曲霉培養物; 흑국균 배양물
-  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
-  - Note: Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-...
-
-### customs classification
-
-- **HS Code Classification** (`hs-code-classification`)
-  - Aliases: CCC code; CCC碼; HS code; HS코드; Harmonized System; HSコード; HS碼; HS编码; customs import tariff; tariff classification
-  - Sources: `global-wco-harmonized-system`, `tw-customs-tariff-database-download`, `tw-customs-tariff-system`, `tw-trade-ccc-import-export-regulations`, `tw-customs-advance-tariff-classification-ruling`
-  - Note: Concept term for tariff classification, customs statistical codes, and HS-code based routing.
-
-### import export control
-
-- **Import and Export Permit** (`import-export-permit`)
-  - Aliases: export permit; import permit; 輸入許可證; 輸出許可證; 수입허가증; 수출허가증; electronic licensing; export license; import license; 輸出入許可
-  - Sources: `tw-trade-import-export-administration`, `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`
-  - Note: Trade-control concept for import/export permits, electronic licensing, and commodity restrictions that may appear by CCC code.
-
-### trade document
-
-- **Shipment Purpose** (`shipment-purpose`)
-  - Aliases: shipment purpose; 출하 목적; import purpose; 自用; 進口目的; 수입 목적; commercial sale; personal use; sample shipment; 商業銷售
-  - Sources: `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`, `tw-tfda-food-import-inspection-exemptions`
-  - Note: Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments.
 
 ## Alias Ambiguity Queue
 

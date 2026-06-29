@@ -27,8 +27,8 @@
 - **Food Allergen Labeling** (`food-allergen-labeling`): allergen labeling; 過敏原標示; 알레르기 표시; allergen warning
 - **Food Label Required Items** (`food-label-required-items`): food labeling regulations handbook; 食品標示; 食品標示手冊; 食品標示法規手冊
 - **Nutrition Labeling** (`nutrition-labeling`): nutrition label; 營養標示; 영양성분표; nutrition facts
-- **Food Additive Functional Classes** (`food-additive-functional-classes`): food additive functional class; food additive function; preservative; preservatives
-- **Benzoic Acid and Benzoates** (`benzoates-food-additives`): CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; Benzoic acid
+- **Potassium Glycerophosphate** (`potassium-glycerophosphate-food-additive`): Potassium Glycerophosphate; 글리세로인산칼륨; 甘油磷酸鉀; Potassium glycerol phosphate
+- **Steviol Glycosides** (`steviol-glycosides-food-additive`): Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체
 
 ## Required Sources
 

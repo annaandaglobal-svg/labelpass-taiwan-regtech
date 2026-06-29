@@ -1,4 +1,5 @@
 import { AlertTriangle, CheckCircle2, Database, KeyRound, ListChecks, LockKeyhole, Route, ShieldCheck } from "lucide-react";
+import { aiReviewReadiness } from "@/lib/ai-review";
 import { handoffRequestReadiness } from "@/lib/handoff-requests";
 import { platformOpsActionReadiness } from "@/lib/platform-ops-actions";
 import { AdminOpsDryRunButton } from "./admin-ops-dry-run-button";
@@ -13,6 +14,7 @@ const storageLabels = {
 export function AdminOpsReadinessCard() {
   const readiness = platformOpsActionReadiness();
   const handoffReadiness = handoffRequestReadiness();
+  const aiReadiness = aiReviewReadiness();
   const flags = [
     {
       label: "운영 DB",
@@ -50,6 +52,13 @@ export function AdminOpsReadinessCard() {
       ready: readiness.databaseUrlPresent
     },
     {
+      label: "OpenAI 분석 API",
+      owner: "Vercel 설정",
+      detail: "리뷰 결과에 GPT 문맥 분석을 덧붙이는 서버 전용 키",
+      env: "OPENAI_API_KEY + LABELPASS_ENABLE_AI_REVIEW=1",
+      ready: aiReadiness.ready
+    },
+    {
       label: "관리자 읽기 게이트",
       owner: "Vercel 설정",
       detail: "관리자 화면이 Supabase 운영 데이터를 읽는 단계",
@@ -65,6 +74,12 @@ export function AdminOpsReadinessCard() {
     }
   ];
   const apiChecks = [
+    {
+      label: "GPT 문맥 분석",
+      endpoint: "/api/review",
+      detail: `${aiReadiness.model} 모델로 품목·성분·서류·통관 질문을 보강`,
+      ready: aiReadiness.ready
+    },
     {
       label: "고객 의뢰 저장",
       endpoint: "/api/handoff/requests",

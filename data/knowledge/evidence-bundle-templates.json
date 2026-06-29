@@ -538,12 +538,12 @@
         "food-allergen-labeling",
         "food-label-required-items",
         "nutrition-labeling",
+        "potassium-glycerophosphate-food-additive",
+        "steviol-glycosides-food-additive",
         "food-additive-functional-classes",
         "benzoates-food-additives",
         "sorbates-food-additives",
-        "calcium-lime-food-additives",
-        "caseinates-food-additives",
-        "dehydroacetic-acid-food-additive"
+        "calcium-lime-food-additives"
       ],
       "match_sources": [
         "tw-tfda-food-ingredient-query-platform-direct",
@@ -652,40 +652,39 @@
           ]
         },
         {
-          "id": "food-additive-functional-classes",
-          "canonical_name": "Food Additive Functional Classes",
+          "id": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
           "category": "food_additive",
           "aliases": [
-            "food additive functional class",
-            "food additive function",
-            "preservative",
-            "preservatives",
-            "sweetener",
-            "sweeteners"
+            "Potassium Glycerophosphate",
+            "글리세로인산칼륨",
+            "甘油磷酸鉀",
+            "Potassium glycerol phosphate",
+            "글리세로포스페이트 칼륨",
+            "Potassium glycerophosphate powder"
           ],
           "source_keys": [
-            "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table",
             "tw-tfda-food-additive-standards",
-            "tw-tfda-food-additive-permit-query"
+            "tw-tfda-food-additive-permit-query",
+            "tw-tfda-food-additive-registration-announcements",
+            "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
           ]
         },
         {
-          "id": "benzoates-food-additives",
-          "canonical_name": "Benzoic Acid and Benzoates",
+          "id": "steviol-glycosides-food-additive",
+          "canonical_name": "Steviol Glycosides",
           "category": "food_additive",
           "aliases": [
-            "CAS 65-85-0",
-            "CAS 532-32-1",
-            "CAS 582-25-2",
-            "Benzoic acid",
-            "Potassium benzoate",
-            "Sodium benzoate"
+            "Steviol glycosides",
+            "甜菊糖",
+            "甜菊醣苷",
+            "스테비올배당체",
+            "Steviol glycoside",
+            "Stevia sweetener"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table",
-            "tw-tfda-cosmetic-preservatives"
+            "tw-tfda-food-additive-common-names-table"
           ]
         }
       ],
@@ -788,10 +787,9 @@
       ],
       "match_categories": [
         "food_import",
-        "customs_document",
         "customs_classification",
         "import_export_control",
-        "food_safety"
+        "customs_document"
       ],
       "match_terms": [
         "imported-food-inspection",
@@ -800,10 +798,10 @@
         "imported-food-inspection-forms",
         "import-regulation-f01-f02-508",
         "food-business-registration-importer",
-        "customs-declaration",
         "hs-code-classification",
         "import-export-permit",
-        "novel-food-ingredient-safety-assessment"
+        "customs-declaration",
+        "advance-tariff-classification-ruling"
       ],
       "match_sources": [
         "tw-customs-tariff-database-download",
@@ -1047,8 +1045,7 @@
         "health-food-application-permit",
         "health-food-approved-effect-vocabulary",
         "health-food-label-required-items",
-        "novel-food-ingredient-safety-assessment",
-        "food-ingredient-integration-query-platform"
+        "novel-food-ingredient-safety-assessment"
       ],
       "match_sources": [
         "tw-moj-health-food-governing-act",
@@ -1529,10 +1526,10 @@
       ],
       "match_categories": [
         "food_import",
-        "customs_document",
         "customs_classification",
         "import_export_control",
-        "trade_document"
+        "trade_document",
+        "customs_document"
       ],
       "match_terms": [
         "imported-food-inspection",
@@ -1541,10 +1538,10 @@
         "import-regulation-f01-f02-508",
         "product-information-sheet",
         "systematic-imported-food-inspection",
-        "customs-declaration",
         "hs-code-classification",
         "import-export-permit",
-        "shipment-purpose"
+        "shipment-purpose",
+        "customs-declaration"
       ],
       "match_sources": [
         "tw-customs-tariff-database-download",
@@ -1780,17 +1777,22 @@
       ],
       "match_categories": [
         "import_export_control",
-        "customs_document",
         "customs_classification",
         "trade_document",
+        "customs_document",
         "trade_operator"
       ],
       "match_terms": [
+        "shtc-export-permit",
+        "strategic-high-tech-commodities",
         "import-export-permit",
-        "customs-declaration",
+        "end-use-end-user",
         "hs-code-classification",
         "shipment-purpose",
-        "taiwan-importer-responsible-firm"
+        "customs-declaration",
+        "exporter-importer-registration",
+        "taiwan-importer-responsible-firm",
+        "advance-tariff-classification-ruling"
       ],
       "match_sources": [
         "tw-customs-tariff-database-download",
@@ -1820,6 +1822,45 @@
       ],
       "top_terms": [
         {
+          "id": "shtc-export-permit",
+          "canonical_name": "SHTC Export Permit",
+          "category": "import_export_control",
+          "aliases": [
+            "Export Permit of Strategic High-Tech Commodities",
+            "SHTC export permit",
+            "戰略性高科技貨品輸出許可證",
+            "SHTC 수출허가",
+            "strategic high-tech commodities export license",
+            "전략성 고기술 화물 수출허가증"
+          ],
+          "source_keys": [
+            "tw-moj-shtc-export-import-regulations",
+            "tw-shtc-regulations",
+            "tw-trade-shtc-bilingual-glossary",
+            "tw-trade-ccc-import-export-regulations"
+          ]
+        },
+        {
+          "id": "strategic-high-tech-commodities",
+          "canonical_name": "Strategic High-Tech Commodities",
+          "category": "import_export_control",
+          "aliases": [
+            "SHTC",
+            "Strategic High-Tech Commodities",
+            "戰略性高科技貨品",
+            "전략성 고기술 화물",
+            "dual-use controlled items",
+            "strategic high tech goods"
+          ],
+          "source_keys": [
+            "tw-moj-shtc-export-import-regulations",
+            "tw-shtc-regulations",
+            "tw-shtc-dual-use-list",
+            "tw-trade-shtc-bilingual-glossary",
+            "global-wassenaar-control-lists"
+          ]
+        },
+        {
           "id": "import-export-permit",
           "canonical_name": "Import and Export Permit",
           "category": "import_export_control",
@@ -1838,21 +1879,23 @@
           ]
         },
         {
-          "id": "customs-declaration",
-          "canonical_name": "Customs Declaration",
-          "category": "customs_document",
+          "id": "end-use-end-user",
+          "canonical_name": "End Use and End User",
+          "category": "import_export_control",
           "aliases": [
-            "customs declaration",
-            "export declaration",
-            "import declaration",
-            "出口報單",
-            "進口報單",
-            "수입신고"
+            "end use",
+            "end user",
+            "end-use",
+            "end-user",
+            "最終使用者",
+            "最終用途"
           ],
           "source_keys": [
-            "tw-moj-customs-act",
-            "tw-customs-tariff-database-download",
-            "tw-trade-ccc-import-export-regulations"
+            "tw-moj-shtc-export-import-regulations",
+            "tw-trade-shtc-bilingual-glossary",
+            "global-wassenaar-control-lists",
+            "us-bis-ear-overview",
+            "jp-meti-security-export-control"
           ]
         },
         {
@@ -1892,25 +1935,6 @@
             "tw-trade-import-export-regulations",
             "tw-trade-ccc-import-export-regulations",
             "tw-tfda-food-import-inspection-exemptions"
-          ]
-        },
-        {
-          "id": "taiwan-importer-responsible-firm",
-          "canonical_name": "Taiwan Importer and Responsible Firm",
-          "category": "trade_operator",
-          "aliases": [
-            "Taiwan importer",
-            "進口商",
-            "대만 수입자",
-            "수입자",
-            "importer of record",
-            "local responsible firm"
-          ],
-          "source_keys": [
-            "tw-moj-cosmetic-hygiene-safety-act",
-            "tw-moj-cosmetic-product-notification",
-            "tw-moj-food-safety-sanitation-act",
-            "tw-customs-origin-importers"
           ]
         }
       ],
@@ -1984,7 +2008,7 @@
       ],
       "answer_skeleton": [
         "Classify the product as trade_control and confirm the routing assumptions.",
-        "Normalize key names with the selected term cards: Import and Export Permit, Customs Declaration, HS Code Classification.",
+        "Normalize key names with the selected term cards: SHTC Export Permit, Strategic High-Tech Commodities, Import and Export Permit.",
         "Cite the strongest Taiwan sources: tw-customs-tariff-database-download, tw-trade-ccc-import-export-regulations, tw-customs-export-origin-packaging.",
         "Return blockers first, then required documents, then optional follow-up checks."
       ],
