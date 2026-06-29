@@ -20316,9 +20316,10 @@
         "tw-tfda-food-additive-standards",
         "tw-tfda-food-additive-permit-query",
         "tw-tfda-food-additive-registration-announcements",
+        "tw-tfda-food-ingredient-integration-query-platform",
         "tw-tfda-import-regulation-508-food-additive-commodity-list-2026"
       ],
-      "notes": "Taiwan decision note: not confirmed as permitted by exact name for food-additive use. TFDA food additive standards require additives to match Appendix 1 scope/application/limits; the current Appendix I/II check finds Calcium Glycerophosphate (07011), not Potassium Glycerophosphate. Treat protein-powder or supplement use as conditional/high-risk until TFDA food additive permit query, product specification, Chinese name, exact salt identity, final food category, use level, and 508 import-regulation routing are confirmed. Do not approve import or label solely from the alias match."
+      "notes": "Taiwan decision note: for food-additive or nutritional-additive use, treat as not permitted unless the supplier provides a TFDA permit or official classification evidence. TFDA food additive standards use a positive-list approach: additives must match Appendix 1 scope/application/limits, and additives not listed cannot be used. Current Appendix I/II checks find calcium and magnesium glycerophosphate as separate entries, but not Potassium Glycerophosphate by exact name. This is not the same as a toxic/prohibited-substance blacklist ban; it is a positive-list non-listing. If the supplier claims this is an ordinary food ingredient rather than an additive, classification remains unresolved and must be supported by TFDA food ingredient query or official letter, product specification, Chinese name, exact salt identity, final food category, and use level. Do not approve import or label solely from the alias match."
     },
     {
       "id": "aspergillus-oryzae-fermented-powder",

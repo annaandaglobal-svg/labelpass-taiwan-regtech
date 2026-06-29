@@ -2301,6 +2301,11 @@
           "category": "food_cosmetic_ingredient"
         },
         {
+          "term_key": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
+          "category": "food_additive"
+        },
+        {
           "term_key": "aspergillus-oryzae-fermented-powder",
           "canonical_name": "Aspergillus Oryzae Fermented Powder",
           "category": "fermented_food_ingredient"

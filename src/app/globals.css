@@ -11889,6 +11889,11 @@ h2 {
   color: #8a5c12;
 }
 
+.kb-pill.red {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
 .lp-finding.info button > span,
 .kb-pill.blue {
   background: #edf5fb;

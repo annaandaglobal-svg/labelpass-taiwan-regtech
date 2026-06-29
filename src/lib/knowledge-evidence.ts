@@ -100,7 +100,7 @@ function hasPotassiumGlycerophosphate(result: KnowledgeSearchResult) {
 
 function buildSummary(query: string, result: KnowledgeSearchResult) {
   if (hasPotassiumGlycerophosphate(result)) {
-    return `"${query}"는 대만 TFDA 식품첨가물 부록에서 정확명 허용을 확인하지 못한 성분입니다. Calcium Glycerophosphate는 별도 항목이므로 대체 근거가 아니며, 식품첨가물 용도라면 허가조회/허가증, 최종 식품군, 사용량, 중문명·규격 확인 전까지 승인 불가로 봅니다.`;
+    return `"${query}"는 금지목록 성분으로 확인된 것이 아니라, 대만 식품첨가물/영양첨가물 포지티브 리스트에서 정확명 등재가 확인되지 않은 성분입니다. 따라서 첨가물 용도라면 현재 근거로는 사용 불가로 판단하고, 일반 식품원료라고 주장하려면 TFDA 원료조회/공식 분류, 허가증, 중문명, 정확한 염 형태, 최종 식품군, 사용량 근거가 필요합니다.`;
   }
 
   const termNames = result.terms.slice(0, 3).map((term) => term.canonicalName);
@@ -163,8 +163,8 @@ function routeHintsFor(result: KnowledgeSearchResult, query: string, options: Ev
 
 function suggestedActions(result: KnowledgeSearchResult, routeHints: EvidenceRouteHint[]) {
   const actions = [
-    hasPotassiumGlycerophosphate(result) ? "TFDA 식품첨가물 허가조회에서 Potassium Glycerophosphate 또는 중문명 甘油磷酸鉀의 허가증 존재 여부를 먼저 확인하세요." : "",
-    hasPotassiumGlycerophosphate(result) ? "공급사 규격서, 정확한 염 형태, 사용 목적, 최종 식품군, 1회/일일 사용량을 받아 Calcium Glycerophosphate와 혼동하지 않게 분리하세요." : "",
+    hasPotassiumGlycerophosphate(result) ? "식품첨가물/영양첨가물 용도라면 현재 기준으로 사용 불가로 표시하고, 허가증 또는 공식 분류 근거가 나오기 전까지 승인하지 마세요." : "",
+    hasPotassiumGlycerophosphate(result) ? "공급사에서 일반 식품원료라고 주장하면 TFDA 원료조회 결과, 중문명, 정확한 염 형태, 최종 식품군, 사용량, 규격서를 받아 Calcium/Magnesium Glycerophosphate와 분리하세요." : "",
     routeHints[0]?.nextAction ? `업무 라우트: ${routeHints[0].nextAction}` : "",
     result.terms[0] ? `${result.terms[0].canonicalName} 기준으로 라벨 문구와 원료명을 재대조` : "",
     result.sources[0] ? `${result.sources[0].title} 원문 또는 캐시 문서를 검토 근거로 첨부` : "",

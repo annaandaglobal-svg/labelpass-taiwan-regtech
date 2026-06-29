@@ -82,7 +82,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - **Potassium Glycerophosphate** (`potassium-glycerophosphate-food-additive`)
   - Aliases: Potassium Glycerophosphate; 글리세로인산칼륨; 甘油磷酸鉀; Potassium glycerol phosphate; 글리세로포스페이트 칼륨; Potassium glycerophosphate powder; 포타슘 글리세로포스페이트
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`
-  - Note: Protein powder and supplement import documents may list this as a potassium/mineral phosphate ingredient. For Taiwan, route to food additive scope/limits, additive inspection registration or permit query, and product specification confir...
+  - Note: Taiwan decision note: not confirmed as permitted by exact name for food-additive use. TFDA food additive standards require additives to match Appendix 1 scope/application/limits; the current Appendix I/II check finds Calcium Glycerophosp...
 - **Steviol Glycosides** (`steviol-glycosides-food-additive`)
   - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; Stevia sweetener; 스테비올 글리코사이드; Stevia; 스테비아
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
