@@ -88,6 +88,25 @@ function buildFormulaIngredientWorkbook() {
   return XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
 }
 
+function buildKrExportIngredientWorkbook() {
+  const workbook = XLSX.utils.book_new();
+  const singleSheet = XLSX.utils.aoa_to_sheet([
+    ["INGREDIENTS LIST", "", "", "", "", "", "", "", ""],
+    ["PRODUCT CODE", "", "", "", "", "", "Lab No.", "CFSB-024-01", ""],
+    ["COMPANY", "", "주식회사 젬나컴퍼니", "", "", "", "DATE", "2024-05-14", ""],
+    ["PRODUCT NAME", "", "젬나컴퍼니 더마씬 머드 폼클렌저 120g", "", "", "", "SORT", "수출용", ""],
+    ["No.", "INGREDIENTS(KR)", "INGREDIENTS(EN)", "INGREDIENTS(EU)", "INGREDIENTS(CN)", "FUNCTION", "CAS NO.", "REFERENCE", "ACTUAL% "],
+    ["1", "정제수", "Water", "AQUA", "水", "SOLVENT", "7732-18-5", "ICID", "33.96400000000 "],
+    ["2", "글리세린", "Glycerin", "GLYCERIN", "甘油", "HUMECTANT", "56-81-5", "ICID", "20.00000000000 "],
+    ["3", "미리스틱애씨드", "Myristic Acid", "MYRISTIC ACID", "肉豆蔻酸", "SURFACTANT - CLEANSING AGENT", "544-63-8", "ICID", "18.98400000000 "],
+    ["KR", "정제수,글리세린,미리스틱애씨드", "", "", "", "", "", "", ""],
+    ["EN", "Water,Glycerin,Myristic Acid", "", "", "", "", "", "", ""]
+  ]);
+
+  XLSX.utils.book_append_sheet(workbook, singleSheet, "단일성분표");
+  return XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
+}
+
 async function assertIntakeFormulaSpreadsheet() {
   const form = new FormData();
   form.append(
@@ -133,7 +152,53 @@ async function assertIntakeFormulaSpreadsheet() {
   }
 }
 
+async function assertIntakeKrExportSpreadsheet() {
+  const form = new FormData();
+  form.append(
+    "files",
+    new Blob([buildKrExportIngredientWorkbook()], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }),
+    "kr-export-cleanser.xlsx"
+  );
+
+  const response = await fetch(`${baseUrl}/api/intake/files`, {
+    method: "POST",
+    body: form
+  });
+
+  if (!response.ok) {
+    throw new Error(`KR export ingredient intake: API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const text = String(result.ingredientsText ?? "");
+
+  if (result.productName !== "젬나컴퍼니 더마씬 머드 폼클렌저 120g") {
+    throw new Error(`KR export ingredient intake: unexpected productName ${result.productName}`);
+  }
+
+  if (result.productTypeHint !== "cosmetic / Taiwan import") {
+    throw new Error(`KR export ingredient intake: expected cosmetic product type, got ${result.productTypeHint}`);
+  }
+
+  if (result.ingredientCount !== 3) {
+    throw new Error(`KR export ingredient intake: expected 3 ingredients, got ${result.ingredientCount}`);
+  }
+
+  for (const expected of ["정제수 / Water / 水", "글리세린 / Glycerin / 甘油", "미리스틱애씨드 / Myristic Acid / 肉豆蔻酸", "함량 33.964%", "CAS 544-63-8"]) {
+    if (!text.includes(expected)) {
+      throw new Error(`KR export ingredient intake: missing ${expected}`);
+    }
+  }
+
+  if (/^\d+\.\s*(No\.|KR|EN|PRODUCT NAME)/im.test(text)) {
+    throw new Error("KR export ingredient intake: summary or header rows leaked into ingredients");
+  }
+}
+
 await assertIntakeFormulaSpreadsheet();
+await assertIntakeKrExportSpreadsheet();
 
 const baseInput = {
   productName: "Glow Repair Toner",
@@ -1795,5 +1860,5 @@ if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeI
 }
 
 console.log(
-  `API smoke test passed: 1 intake spreadsheet case, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: 2 intake spreadsheet cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

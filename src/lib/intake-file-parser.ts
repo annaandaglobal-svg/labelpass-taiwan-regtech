@@ -35,13 +35,16 @@ type IngredientFields = {
 };
 
 const ingredientHeaderPattern = /(원재료|원료명|성분명|전성분|ingredient|ingredients|inci|原料|成分)/i;
-const exactIngredientHeaderPattern = /^(원재료|원료명|성분명|전성분|ingredient|ingredients|ingredient\s*name|inci|原料|成分)$/i;
+const exactIngredientHeaderPattern = /^(원재료|원료명|성분명|전성분|ingredient|ingredients(?:\s*\([^)]+\))?|ingredient\s*name|inci|原料|成分)$/i;
+const localIngredientHeaderPattern = /^(성분명|원재료|원료명|전성분|ingredients?\s*\((kr|kor|korean)\)|原料|成分)$/i;
+const englishIngredientHeaderPattern = /^(ingredients?\s*\((en|eng|english|eu)\)|ingredients?|ingredient\s*name|inci|english|英文)$/i;
+const chineseIngredientHeaderPattern = /^(ingredients?\s*\((cn|zh|chinese)\)|대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)$/i;
 const originHeaderPattern = /(원산지|origin|country|產地|产地|來源|来源)/i;
 const chineseHeaderPattern = /(대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)/i;
 const englishHeaderPattern = /(영어|english|英文|inci)/i;
 const nutritionHeaderPattern = /(영양|營養|营养|nutrition|nutrition facts)/i;
-const amountHeaderPattern = /(용량|함량|중량|amount|content|quantity|actual\s*wt|actual\s*weight|wt\(%\)|배합량|농도|含量|份量|每份|濃度|浓度)/i;
-const actualAmountHeaderPattern = /(actual\s*wt|actual\s*weight|wt\(%\)|실제\s*함량|최종\s*함량)/i;
+const amountHeaderPattern = /(용량|함량|중량|amount|content|quantity|actual\s*%|actual\s*wt|actual\s*weight|wt\(%\)|배합량|농도|含量|份量|每份|濃度|浓度)/i;
+const actualAmountHeaderPattern = /(actual\s*%|actual\s*wt|actual\s*weight|wt\(%\)|실제\s*함량|최종\s*함량)/i;
 const casHeaderPattern = /^cas(\s*no\.?)?$/i;
 const functionHeaderPattern = /^(기능|용도|function|functions|purpose|用途|功效)$/i;
 const rowNumberHeaderPattern = /^(no\.?|번호|순번|#)$/i;
@@ -62,6 +65,19 @@ function nonEmpty(values: string[]) {
 
 function unique(values: string[]) {
   return Array.from(new Set(values.map(cleanLine).filter(Boolean)));
+}
+
+function cleanAmount(value: string) {
+  const normalized = cleanLine(value).replace(/%$/, "");
+  if (!normalized) return "";
+
+  const numeric = Number(normalized);
+  if (!Number.isFinite(numeric)) return normalized;
+
+  return numeric
+    .toFixed(6)
+    .replace(/0+$/, "")
+    .replace(/\.$/, "");
 }
 
 function parseCsv(text: string) {
@@ -194,17 +210,17 @@ function findProductName(rows: string[][]) {
 }
 
 function formatIngredient(fields: IngredientFields) {
-  const names = unique([fields.localName, fields.zhName, fields.englishName]);
+  const names = unique([fields.localName, fields.englishName, fields.zhName]);
   if (!names.length) return "";
 
+  const amount = cleanAmount(fields.amount);
   const details = [
-    fields.amount ? `함량 ${fields.amount}${/%$/.test(fields.amount) ? "" : "%"}` : "",
-    fields.casNo && fields.casNo !== "-" ? `CAS ${fields.casNo}` : "",
-    fields.functionText ? `기능 ${fields.functionText}` : ""
+    amount ? `함량 ${amount}%` : "",
+    fields.casNo && fields.casNo !== "-" ? `CAS ${fields.casNo}` : ""
   ].filter(Boolean);
   const prefix = [fields.productName, fields.origin ? `원산지 ${fields.origin}` : ""].filter(Boolean).join(" / ");
 
-  return `${prefix ? `[${prefix}] ` : ""}${names.join(" / ")}${details.length ? ` (${details.join(", ")})` : ""}`;
+  return `${prefix ? `[${prefix}] ` : ""}${names.join(" / ")}${details.length ? ` (${details.join(" | ")})` : ""}`;
 }
 
 function extractNutrition(rows: string[][], headerIndex: number, headerRow: string[]) {
@@ -232,7 +248,7 @@ function inferProductType(text: string) {
   if (/단백질|protein|whey|soy protein|프로바이오틱|유산균|supplement|health food|효소|enzyme/i.test(text)) {
     return "protein powder / supplement / Taiwan import";
   }
-  if (/화장품|inci|cosmetic|skincare|skin\s*care|toner|cream|serum|mask|modeling\s*mask|lotion|cleanser|sunscreen/i.test(text)) {
+  if (/화장품|스킨케어|클렌저|폼클렌저|선크림|토너|세럼|크림|로션|마스크|팩|머드|더마|inci|cosmetic|skincare|skin\s*care|toner|cream|serum|mask|modeling\s*mask|lotion|cleanser|sunscreen/i.test(text)) {
     return "cosmetic / Taiwan import";
   }
   if (/식품첨가물|감미료|sweetener|additive|stevia|sucralose|erythritol|phosphate/i.test(text)) {
@@ -258,11 +274,11 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
   }
 
   const headerRow = rows[headerIndex];
-  const localIngredientCol = findColumn(headerRow, /^(성분명|원재료|원료명|전성분|原料|成分)$/i);
+  const localIngredientCol = findColumn(headerRow, localIngredientHeaderPattern);
   const ingredientCol = localIngredientCol >= 0 ? localIngredientCol : findColumn(headerRow, exactIngredientHeaderPattern);
   const originCol = findColumn(headerRow, originHeaderPattern, ingredientCol);
-  const chineseCol = findColumn(headerRow, chineseHeaderPattern, ingredientCol);
-  const englishCol = findColumn(headerRow, /^(ingredients?|ingredient\s*name|inci|english|英文)$/i, ingredientCol);
+  const chineseCol = findColumn(headerRow, chineseIngredientHeaderPattern, ingredientCol);
+  const englishCol = findColumn(headerRow, englishIngredientHeaderPattern, ingredientCol);
   const actualAmountCol = findColumn(headerRow, actualAmountHeaderPattern, ingredientCol);
   const amountCol = actualAmountCol >= 0 ? actualAmountCol : findColumn(headerRow, amountHeaderPattern, ingredientCol);
   const casCol = findColumn(headerRow, casHeaderPattern, ingredientCol);
@@ -275,6 +291,7 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
     const row = rows[rowIndex] ?? [];
     const rowLabel = cleanCell(row[0] ?? "");
     if (/^(total|합계|소계|subtotal|grand\s*total)$/i.test(rowLabel)) continue;
+    if (/^(kr|kor|korean|en|eng|english|eu|cn|zh|chinese|中文|중문|한글|영문)$/i.test(rowLabel)) continue;
     if (/^(slc\s+co\.?,?\s*ltd\.?|company|제조사)$/i.test(rowLabel)) continue;
 
     const ingredient = cleanCell(row[ingredientCol] ?? "");
