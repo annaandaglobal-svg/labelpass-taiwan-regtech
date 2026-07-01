@@ -65,19 +65,36 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Smoke test production server
+      - name: Start production server
         run: |
           pnpm exec next start -p 3000 > /tmp/labelpass-next.log 2>&1 &
           app_pid=$!
-          trap 'kill "$app_pid" || true' EXIT
+          echo "$app_pid" > /tmp/labelpass-next.pid
           for attempt in {1..30}; do
             if curl -fsS http://127.0.0.1:3000 >/dev/null; then
-              LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:api
-              LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:admin-ops
-              LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm audit:ui-browser
               exit 0
             fi
             sleep 1
           done
           cat /tmp/labelpass-next.log
           exit 1
+
+      - name: Smoke test review API
+        run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:api
+
+      - name: Smoke test admin operations API
+        run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:admin-ops
+
+      - name: Audit browser UI shell
+        run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm audit:ui-browser
+
+      - name: Dump production server log on failure
+        if: failure()
+        run: cat /tmp/labelpass-next.log || true
+
+      - name: Stop production server
+        if: always()
+        run: |
+          if [ -f /tmp/labelpass-next.pid ]; then
+            kill "$(cat /tmp/labelpass-next.pid)" || true
+          fi
