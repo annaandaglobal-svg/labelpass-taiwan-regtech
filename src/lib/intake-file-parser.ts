@@ -109,6 +109,7 @@ function splitIngredientText(text: string) {
         item
           .replace(/^[-*•·]\s*/, "")
           .replace(/^\d+[\).、]\s*/, "")
+          .replace(/^(?:ingredients?|ingredient\s+list|inci|formula|composition|materials?|raw\s*materials?|配料|成分|全成分|原料|原材料|組成|组成|성분|전성분|원재료|원료)\s+/i, "")
       )
     )
     .filter((item) => item.length >= 2)
