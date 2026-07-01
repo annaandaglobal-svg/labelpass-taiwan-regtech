@@ -148,6 +148,14 @@ function extractFreeformIngredients(text: string) {
   return unique(blocks.flatMap(splitIngredientText)).slice(0, 220);
 }
 
+function cleanProvidedIngredients(ingredients: string[]) {
+  return unique(ingredients.flatMap(splitIngredientText))
+    .filter((item) => !freeformStopSectionPattern.test(item))
+    .filter((item) => !freeformNutritionHeaderPattern.test(item))
+    .filter((item) => !freeformNutrientLinePattern.test(item))
+    .slice(0, 220);
+}
+
 function extractFreeformNutrition(text: string) {
   const lines = compactTextLines(text);
   const nutritionLines: string[] = [];
@@ -535,7 +543,7 @@ export function extractUnstructuredTextFile(
   const normalizedText = normalizeTextBlock(text);
   const productName = options.productName?.trim() || extractFreeformProductName(normalizedText);
   const originText = options.originText?.trim() || extractFreeformOrigin(normalizedText);
-  const ingredients = unique([...(options.ingredients ?? []), ...extractFreeformIngredients(normalizedText)]).slice(0, 220);
+  const ingredients = unique([...cleanProvidedIngredients(options.ingredients ?? []), ...extractFreeformIngredients(normalizedText)]).slice(0, 220);
   const nutrition = unique([...(options.nutrition ?? []), ...extractFreeformNutrition(normalizedText)]).slice(0, 40);
   const warnings = [...(options.warnings ?? [])];
 
