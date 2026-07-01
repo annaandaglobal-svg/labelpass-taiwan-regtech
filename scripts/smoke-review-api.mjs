@@ -197,8 +197,120 @@ async function assertIntakeKrExportSpreadsheet() {
   }
 }
 
+async function assertIntakeFreeformText() {
+  const form = new FormData();
+  form.append(
+    "files",
+    new Blob(
+      [
+        [
+          "Product name: Test Protein Powder",
+          "Ingredients: Whey Protein, Potassium Glycerophosphate, Stevia, Aspergillus oryzae fermented powder",
+          "Made in Korea",
+          "Nutrition Facts: Protein 20g, Sodium 30mg"
+        ].join("\n")
+      ],
+      { type: "text/plain" }
+    ),
+    "protein-label.txt"
+  );
+
+  const response = await fetch(`${baseUrl}/api/intake/files`, {
+    method: "POST",
+    body: form
+  });
+
+  if (!response.ok) {
+    throw new Error(`Freeform text intake: API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const text = String(result.ingredientsText ?? "");
+
+  if (result.productName !== "Test Protein Powder") {
+    throw new Error(`Freeform text intake: unexpected productName ${result.productName}`);
+  }
+
+  if (result.ingredientCount !== 4 || result.nutritionCount !== 1) {
+    throw new Error(`Freeform text intake: expected 4 ingredients and 1 nutrition line, got ${result.ingredientCount}/${result.nutritionCount}`);
+  }
+
+  if (!text.includes("Potassium Glycerophosphate") || text.includes("Made in Korea")) {
+    throw new Error("Freeform text intake: ingredient block was missing potassium or included origin text");
+  }
+}
+
+async function assertIntakePdfText() {
+  const pdfBase64 =
+    "JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0NvbnRlbnRzIDcgMCBSIC9NZWRpYUJveCBbIDAgMCA1OTUuMjc1NiA4NDEuODg5OCBdIC9QYXJlbnQgNiAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNCAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDYgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9BdXRob3IgKGFub255bW91cykgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MDcwMTE4MDMwNiswOScwMCcpIC9DcmVhdG9yIChhbm9ueW1vdXMpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MDcwMTE4MDMwNiswOScwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0ICh1bnNwZWNpZmllZCkgL1RpdGxlICh1bnRpdGxlZCkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgMyAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjUyCj4+CnN0cmVhbQpHYXMyQ18ucGtBJjRIIV9NRS5RUVVsbFxQaSsjOnQ2SkduKFRQJVxNRDNbWElaQ0tqZlk3ZW4mNlgrYGVfX0Fgb2lGJFsjbThhRW4kVG8uRDRHRVA1P1M3V1VEcUtxTWVHN3FzUC9fJkUjNHA4KWVRMmNQKVRrb3AkOkgyJVtPQnMjT2Fob1ZKcEAxc15kYyxyZXQvKlEpbkkiMiUxTnNuTTFkImA6QTR0KWRubDBORDwmNDlPYiIsYiIuY2p0UEZlbUdxUl1eWykhOUBvcVQjLmRtUiYpLyViYiYiWkZdMWRcdGxFZjA6ZltkSCJOclE2LE10LVYnJmssfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA4CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMDkyIDAwMDAwIG4gCjAwMDAwMDAxOTkgMDAwMDAgbiAKMDAwMDAwMDQwMiAwMDAwMCBuIAowMDAwMDAwNDcwIDAwMDAwIG4gCjAwMDAwMDA3MzEgMDAwMDAgbiAKMDAwMDAwMDc5MCAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxmOTRkYTA5NTA2NzY0ZWZmZTJkMWQ1OTNiZjYwZGUyYT48Zjk0ZGEwOTUwNjc2NGVmZmUyZDFkNTkzYmY2MGRlMmE+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDUgMCBSCi9Sb290IDQgMCBSCi9TaXplIDgKPj4Kc3RhcnR4cmVmCjExMzIKJSVFT0YK";
+  const form = new FormData();
+  form.append("files", new Blob([Buffer.from(pdfBase64, "base64")], { type: "application/pdf" }), "protein-label.pdf");
+
+  const response = await fetch(`${baseUrl}/api/intake/files`, {
+    method: "POST",
+    body: form
+  });
+
+  if (!response.ok) {
+    throw new Error(`PDF text intake: API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const text = String(result.ingredientsText ?? "");
+
+  if (result.productName !== "PDF Protein Powder") {
+    throw new Error(`PDF text intake: unexpected productName ${result.productName}`);
+  }
+
+  if (result.ingredientCount !== 3 || result.nutritionCount !== 1) {
+    throw new Error(`PDF text intake: expected 3 ingredients and 1 nutrition line, got ${result.ingredientCount}/${result.nutritionCount}`);
+  }
+
+  if (!text.includes("Potassium Glycerophosphate") || text.includes("Made in Korea")) {
+    throw new Error("PDF text intake: ingredient block was missing potassium or included origin text");
+  }
+}
+
+async function assertIntakeImageOcrReadiness() {
+  if (process.env.OPENAI_API_KEY && process.env.LABELPASS_DISABLE_FILE_OCR !== "1") return false;
+
+  const form = new FormData();
+  form.append(
+    "files",
+    new Blob([Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/l8u7WQAAAABJRU5ErkJggg==", "base64")], {
+      type: "image/png"
+    }),
+    "blank-label.png"
+  );
+
+  const response = await fetch(`${baseUrl}/api/intake/files`, {
+    method: "POST",
+    body: form
+  });
+
+  if (!response.ok) {
+    throw new Error(`Image OCR readiness intake: API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const warningText = String(result.warnings ?? "");
+  if (result.files?.[0]?.kind !== "unsupported" || (!warningText.includes("OPENAI_API_KEY") && !warningText.includes("LABELPASS_DISABLE_FILE_OCR"))) {
+    throw new Error("Image OCR readiness intake: expected OCR configuration warning without OpenAI key");
+  }
+
+  return true;
+}
+
+let intakeCaseCount = 0;
 await assertIntakeFormulaSpreadsheet();
+intakeCaseCount += 1;
 await assertIntakeKrExportSpreadsheet();
+intakeCaseCount += 1;
+await assertIntakeFreeformText();
+intakeCaseCount += 1;
+await assertIntakePdfText();
+intakeCaseCount += 1;
+if (await assertIntakeImageOcrReadiness()) intakeCaseCount += 1;
 
 const baseInput = {
   productName: "Glow Repair Toner",
@@ -1860,5 +1972,5 @@ if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeI
 }
 
 console.log(
-  `API smoke test passed: 2 intake spreadsheet cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

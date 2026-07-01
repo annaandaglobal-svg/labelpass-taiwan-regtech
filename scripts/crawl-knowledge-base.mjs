@@ -23,7 +23,7 @@ const onlyIds = onlyArg
 const now = new Date();
 const userAgent = "LabelPassRegulatoryCrawler/0.1 (+https://github.com/annaandaglobal-svg/labelpass-taiwan-regtech)";
 const require = createRequire(import.meta.url);
-const pdfParse = require("pdf-parse");
+const pdfParseModule = require("pdf-parse");
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -71,6 +71,27 @@ function detectFormat(source, body, contentType = "") {
   return "html";
 }
 
+async function parsePdfBody(body) {
+  if (typeof pdfParseModule === "function") {
+    const parsed = await pdfParseModule(body);
+    return {
+      text: parsed.text ?? "",
+      page_count: parsed.numpages ?? null
+    };
+  }
+
+  const parser = new pdfParseModule.PDFParse({ data: body });
+  try {
+    const parsed = await parser.getText();
+    return {
+      text: parsed.text ?? "",
+      page_count: parsed.total ?? parsed.pages?.length ?? null
+    };
+  } finally {
+    await parser.destroy();
+  }
+}
+
 async function extractText(source, body, contentType) {
   const format = detectFormat(source, body, contentType);
 
@@ -85,11 +106,11 @@ async function extractText(source, body, contentType) {
 
   if (format === "pdf") {
     try {
-      const parsed = await pdfParse(body);
+      const parsed = await parsePdfBody(body);
       return {
         format,
         text: normalizeWhitespace(parsed.text),
-        page_count: parsed.numpages ?? null,
+        page_count: parsed.page_count,
         parse_error: null
       };
     } catch (error) {

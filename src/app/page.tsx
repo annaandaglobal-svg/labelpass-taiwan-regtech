@@ -1175,8 +1175,8 @@ export default function Home() {
               />
               <span className="lp-ocr-icon"><UploadCloud size={24} /></span>
               <span className="lp-ocr-copy">
-                <b>{isExtractingFiles ? "파일 읽는 중" : "라벨 이미지·성분표·통관서류부터 넣기"}</b>
-                <small>엑셀·CSV 성분표는 제품명, 원재료, 중문명, 영문명, 영양정보를 자동으로 입력칸에 채웁니다.</small>
+                <b>{isExtractingFiles ? "파일 읽는 중" : "라벨 이미지·PDF·성분표 넣기"}</b>
+                <small>엑셀, CSV, TXT, PDF, 이미지, DOC/DOCX에서 제품명·성분·영양정보·라벨 문안을 자동으로 채웁니다.</small>
               </span>
               <span className="lp-ocr-cta">{isExtractingFiles ? "읽는 중" : "파일 선택"}</span>
             </label>

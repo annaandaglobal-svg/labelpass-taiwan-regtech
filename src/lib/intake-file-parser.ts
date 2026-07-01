@@ -2,7 +2,7 @@ import * as XLSX from "xlsx";
 
 export type IntakeFileExtraction = {
   fileName: string;
-  kind: "spreadsheet" | "text" | "unsupported";
+  kind: "spreadsheet" | "text" | "pdf" | "image" | "document" | "unsupported";
   productName: string;
   productTypeHint: string;
   originText: string;
@@ -65,6 +65,133 @@ function nonEmpty(values: string[]) {
 
 function unique(values: string[]) {
   return Array.from(new Set(values.map(cleanLine).filter(Boolean)));
+}
+
+function normalizeTextBlock(text: string) {
+  return text
+    .replace(/\u0000/g, " ")
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function compactTextLines(text: string) {
+  return normalizeTextBlock(text)
+    .split("\n")
+    .map(cleanLine)
+    .filter(Boolean);
+}
+
+const freeformIngredientHeaderPattern =
+  /^(?:ingredients?|ingredient\s+list|inci|formula|composition|materials?|raw\s*materials?|配料|成分|全成分|原料|原材料|組成|组成|성분|전성분|원재료|원료)\b/i;
+const freeformNutritionHeaderPattern = /^(?:nutrition(?:\s+facts?)?|營養|营养|영양)\b/i;
+const freeformNutrientLinePattern =
+  /^(?:calories?|energy|protein|fat|total\s+fat|carbohydrate|sugars?|sodium|熱量|热量|蛋白質|蛋白质|脂肪|碳水化合物|糖|鈉|钠|열량|단백질|지방|탄수화물|당류|나트륨)\b/i;
+const freeformStopSectionPattern =
+  /^(?:nutrition(?:\s+facts?)?|allergens?|warning|caution|directions?|usage|how\s+to\s+use|manufacturer|importer|distributor|net\s*(?:weight|content)|contents?|lot|batch|expiry|exp\.?|best\s+before|storage|claims?|made\s+in|country\s+of\s+origin|origin|營養|营养|過敏原|过敏原|警告|注意|用法|製造|制造|進口|进口|原產地|原产地|產地|产地|保存|有效|內容量|内容量|영양|알레르기|주의|사용법|제조|수입|원산지|제조국|내용량|보관|유통기한|소비기한|품질유지기한)/i;
+
+function stripSectionHeader(line: string, headerPattern: RegExp) {
+  const colonIndex = line.search(/[:：]/);
+  if (colonIndex >= 0 && headerPattern.test(line.slice(0, colonIndex))) {
+    return cleanLine(line.slice(colonIndex + 1));
+  }
+  return headerPattern.test(line) ? "" : line;
+}
+
+function splitIngredientText(text: string) {
+  return text
+    .replace(/^[\s:：-]+/, "")
+    .split(/\n|[;；]|,(?=\s*[A-Za-z가-힣\u4E00-\u9FFF])/g)
+    .map((item) =>
+      cleanLine(
+        item
+          .replace(/^[-*•·]\s*/, "")
+          .replace(/^\d+[\).、]\s*/, "")
+      )
+    )
+    .filter((item) => item.length >= 2)
+    .filter((item) => !/^(no\.?|total|subtotal|product\s*name|products?\s*name|nutrition|warning|manufacturer|importer)$/i.test(item))
+    .filter((item) => !/^\d+(\.\d+)?\s*%?$/.test(item));
+}
+
+function extractFreeformIngredients(text: string) {
+  const lines = compactTextLines(text);
+  const blocks: string[] = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (!freeformIngredientHeaderPattern.test(line)) continue;
+
+    const inline = stripSectionHeader(line, freeformIngredientHeaderPattern);
+    const collected = inline ? [inline] : [];
+
+    for (let nextIndex = index + 1; nextIndex < lines.length && collected.length < 30; nextIndex += 1) {
+      const nextLine = lines[nextIndex];
+      if (freeformStopSectionPattern.test(nextLine)) break;
+      if (/^(?:product\s*name|products?\s*name|품명|제품명|品名|產品名稱|产品名称)\b/i.test(nextLine)) break;
+      collected.push(nextLine);
+    }
+
+    if (collected.length) blocks.push(collected.join("\n"));
+  }
+
+  if (!blocks.length) {
+    const likelyIngredientLine = lines.find((line) => {
+      const separatorCount = (line.match(/[,;；、]/g) ?? []).length;
+      return separatorCount >= 2 && /water|aqua|glycerin|protein|extract|oil|acid|powder|stevia|enzyme|vitamin|成分|原料|성분|원재료/i.test(line);
+    });
+    if (likelyIngredientLine) blocks.push(likelyIngredientLine);
+  }
+
+  return unique(blocks.flatMap(splitIngredientText)).slice(0, 220);
+}
+
+function extractFreeformNutrition(text: string) {
+  const lines = compactTextLines(text);
+  const nutritionLines: string[] = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (!freeformNutritionHeaderPattern.test(line) && !freeformNutrientLinePattern.test(line)) continue;
+
+    nutritionLines.push(stripSectionHeader(line, freeformNutritionHeaderPattern) || line);
+    for (let nextIndex = index + 1; nextIndex < lines.length && nutritionLines.length < 20; nextIndex += 1) {
+      const nextLine = lines[nextIndex];
+      if (freeformStopSectionPattern.test(nextLine) && !freeformNutritionHeaderPattern.test(nextLine)) break;
+      if (!freeformNutritionHeaderPattern.test(nextLine) && !freeformNutrientLinePattern.test(nextLine) && !/\d/.test(nextLine)) break;
+      nutritionLines.push(nextLine);
+    }
+  }
+
+  return unique(nutritionLines).slice(0, 40);
+}
+
+function extractFreeformProductName(text: string) {
+  const lines = compactTextLines(text);
+  const productPattern = /(?:product\s*name|products?\s*name|name\s+of\s+product|品名|產品名稱|产品名称|商品名|제품명|상품명)\s*[:：]\s*(.+)$/i;
+
+  for (const line of lines) {
+    const match = line.match(productPattern);
+    if (match?.[1]) return cleanLine(match[1]);
+  }
+
+  return lines.find((line) => line.length >= 4 && line.length <= 80 && !freeformIngredientHeaderPattern.test(line) && !freeformStopSectionPattern.test(line)) ?? "";
+}
+
+function extractFreeformOrigin(text: string) {
+  const patterns = [
+    /(?:made\s+in|country\s+of\s+origin|origin)\s*[:：]?\s*([A-Za-z가-힣\u4E00-\u9FFF ]{2,40})/i,
+    /(?:原產地|原产地|產地|产地|製造地|制造地|원산지|제조국)\s*[:：]?\s*([A-Za-z가-힣\u4E00-\u9FFF ]{2,40})/i
+  ];
+
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match?.[1]) return cleanLine(match[1]).replace(/[.。]$/, "");
+  }
+
+  return "";
 }
 
 function cleanAmount(value: string) {
@@ -383,7 +510,81 @@ export function extractSpreadsheetFile(buffer: Buffer, fileName: string): Intake
 export function extractDelimitedTextFile(text: string, fileName: string): IntakeFileExtraction {
   const rows = fileName.toLowerCase().endsWith(".csv") ? parseCsv(text) : text.split(/\r?\n/).map((line) => [cleanLine(line)]);
   const sheet = extractSheet(rows, "text");
-  return buildExtraction(fileName, "text", [sheet]);
+  const extraction = buildExtraction(fileName, "text", [sheet]);
+
+  if (fileName.toLowerCase().endsWith(".csv")) return extraction;
+  if (extraction.ingredientCount > 0 || extraction.nutritionCount > 0) return extraction;
+
+  return extractUnstructuredTextFile(text, fileName, "text");
+}
+
+export function extractUnstructuredTextFile(
+  text: string,
+  fileName: string,
+  kind: Extract<IntakeFileExtraction["kind"], "text" | "pdf" | "image" | "document"> = "text",
+  options: {
+    productName?: string;
+    productTypeHint?: string;
+    originText?: string;
+    ingredients?: string[];
+    nutrition?: string[];
+    labelNotes?: string[];
+    warnings?: string[];
+  } = {}
+): IntakeFileExtraction {
+  const normalizedText = normalizeTextBlock(text);
+  const productName = options.productName?.trim() || extractFreeformProductName(normalizedText);
+  const originText = options.originText?.trim() || extractFreeformOrigin(normalizedText);
+  const ingredients = unique([...(options.ingredients ?? []), ...extractFreeformIngredients(normalizedText)]).slice(0, 220);
+  const nutrition = unique([...(options.nutrition ?? []), ...extractFreeformNutrition(normalizedText)]).slice(0, 40);
+  const warnings = [...(options.warnings ?? [])];
+
+  if (!normalizedText) {
+    warnings.push("파일에서 읽을 수 있는 텍스트를 찾지 못했습니다. 스캔본이면 더 선명한 원본이나 이미지 OCR이 필요합니다.");
+  } else if (!ingredients.length && !nutrition.length) {
+    warnings.push("원재료/성분 또는 영양정보 영역을 자동으로 분리하지 못했습니다. OCR 원문을 검토 문안에 넣었습니다.");
+  }
+
+  const sourceLabel = `[파일 추출] ${fileName}`;
+  const productLine = productName ? `제품명: ${productName}` : "";
+  const originLine = originText ? `원산지/제조국: ${originText}` : "";
+  const ingredientsText = [
+    sourceLabel,
+    productLine,
+    originLine,
+    ingredients.length ? "원재료/성분:" : "",
+    ...ingredients.map((line, index) => `${index + 1}. ${line}`)
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const rawText = normalizedText.slice(0, 12000);
+  const labelText = [
+    sourceLabel,
+    productLine,
+    originLine,
+    nutrition.length ? "영양정보:" : "",
+    ...nutrition.map((line) => `- ${line}`),
+    ...(options.labelNotes ?? []).map((line) => `- ${line}`),
+    rawText ? "OCR/문서 원문:" : "",
+    rawText
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const combined = `${fileName} ${productName} ${options.productTypeHint ?? ""} ${originText} ${ingredients.join(" ")} ${normalizedText}`;
+
+  return {
+    fileName,
+    kind,
+    productName,
+    productTypeHint: options.productTypeHint?.trim() || inferProductType(combined),
+    originText,
+    ingredientsText,
+    labelText,
+    sheetCount: 1,
+    ingredientCount: ingredients.length,
+    nutritionCount: nutrition.length,
+    warnings
+  };
 }
 
 export function unsupportedFileExtraction(fileName: string, reason: string): IntakeFileExtraction {
