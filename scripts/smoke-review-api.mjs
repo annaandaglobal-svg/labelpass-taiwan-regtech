@@ -1,3 +1,5 @@
+import * as XLSX from "xlsx";
+
 const baseUrl = process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000";
 const foodAdditivePermitQueryUrl = "https://consumer.fda.gov.tw/Food/InfoFoodAdd.aspx?nodeID=162";
 const foodIngredientDirectQueryUrl = "https://consumer.fda.gov.tw/Food/Material.aspx?nodeID=160";
@@ -60,6 +62,78 @@ function assertCleanReviewSurface(caseName, result) {
     throw new Error(`${caseName}: review API surface contains mojibake at ${broken.path}: ${broken.value}`);
   }
 }
+
+function buildFormulaIngredientWorkbook() {
+  const workbook = XLSX.utils.book_new();
+  const firstSheet = XLSX.utils.aoa_to_sheet([
+    ["FORMULA INGREDIENTS STATEMENT", "", "", "", "", "", "", "", "", ""],
+    ["Products Name : AQUA BAB MODELING MASK 1ST", "", "", "", "", "", "", "", "", ""],
+    ["No", "성분명", "", "Ingredients", "Quantity", "Mixure ratio", "Actual Wt(%)", "CAS No", "Standard", "Functions"],
+    ["1", "정제수", "", "Aqua", "72.440", "100.000", "72.440", "7732-18-5", "ICID", "Solvent"],
+    ["2", "글리세린", "", "Glycerin", "5.000", "100.000", "5.000", "56-81-5", "ICID", "Humectant"],
+    ["Total", "", "", "", "100.000", "", "100.000", "", "", ""],
+    ["SLC Co., Ltd.", "", "", "", "", "", "", "", "", ""]
+  ]);
+  const secondSheet = XLSX.utils.aoa_to_sheet([
+    ["FORMULA INGREDIENTS STATEMENT", "", "", "", "", "", "", "", "", ""],
+    ["Products Name : AQUA BAB MODELING MASK 2ND", "", "", "", "", "", "", "", "", ""],
+    ["No", "성분명", "", "Ingredients", "Quantity", "Mixure ratio", "Actual Wt(%)", "CAS No", "Standard", "Functions"],
+    ["1", "글루코오스", "", "Glucose", "63.000", "100.000", "63.420", "50-99-7", "ICID", "Humectant"],
+    ["2", "칼슘설페이트", "", "Calcium Sulfate", "30.000", "100.000", "30.000", "7778-18-9", "ICID", "Coagulant"],
+    ["Total", "", "", "", "100.000", "", "100.000", "", "", ""]
+  ]);
+
+  XLSX.utils.book_append_sheet(workbook, firstSheet, "Table 1");
+  XLSX.utils.book_append_sheet(workbook, secondSheet, "Table 2");
+  return XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
+}
+
+async function assertIntakeFormulaSpreadsheet() {
+  const form = new FormData();
+  form.append(
+    "files",
+    new Blob([buildFormulaIngredientWorkbook()], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }),
+    "formula-modeling-mask.xlsx"
+  );
+
+  const response = await fetch(`${baseUrl}/api/intake/files`, {
+    method: "POST",
+    body: form
+  });
+
+  if (!response.ok) {
+    throw new Error(`Formula ingredient intake: API returned ${response.status}`);
+  }
+
+  const result = await response.json();
+  const text = String(result.ingredientsText ?? "");
+
+  if (result.productName !== "AQUA BAB MODELING MASK 1ST / AQUA BAB MODELING MASK 2ND") {
+    throw new Error(`Formula ingredient intake: unexpected productName ${result.productName}`);
+  }
+
+  if (result.productTypeHint !== "cosmetic / Taiwan import") {
+    throw new Error(`Formula ingredient intake: expected cosmetic product type, got ${result.productTypeHint}`);
+  }
+
+  if (result.ingredientCount !== 4) {
+    throw new Error(`Formula ingredient intake: expected 4 ingredients, got ${result.ingredientCount}`);
+  }
+
+  for (const expected of ["정제수 / Aqua", "글리세린 / Glycerin", "글루코오스 / Glucose", "칼슘설페이트 / Calcium Sulfate", "CAS 7778-18-9"]) {
+    if (!text.includes(expected)) {
+      throw new Error(`Formula ingredient intake: missing ${expected}`);
+    }
+  }
+
+  if (/Products Name\s*:|^\d+\.\s*(No|\d+|Total|SLC Co\.)/im.test(text)) {
+    throw new Error("Formula ingredient intake: table title, row number, total, or supplier row leaked into ingredients");
+  }
+}
+
+await assertIntakeFormulaSpreadsheet();
 
 const baseInput = {
   productName: "Glow Repair Toner",
@@ -1721,5 +1795,5 @@ if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeI
 }
 
 console.log(
-  `API smoke test passed: ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: 1 intake spreadsheet case, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

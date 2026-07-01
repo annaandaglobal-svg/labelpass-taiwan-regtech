@@ -23,13 +23,29 @@ type SheetExtraction = {
   warnings: string[];
 };
 
-const ingredientHeaderPattern = /(원재료|원료명|성분명|전성분|ingredient|ingredients|原料|成分)/i;
+type IngredientFields = {
+  productName: string;
+  origin: string;
+  localName: string;
+  zhName: string;
+  englishName: string;
+  amount: string;
+  casNo: string;
+  functionText: string;
+};
+
+const ingredientHeaderPattern = /(원재료|원료명|성분명|전성분|ingredient|ingredients|inci|原料|成分)/i;
+const exactIngredientHeaderPattern = /^(원재료|원료명|성분명|전성분|ingredient|ingredients|ingredient\s*name|inci|原料|成分)$/i;
 const originHeaderPattern = /(원산지|origin|country|產地|产地|來源|来源)/i;
 const chineseHeaderPattern = /(대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)/i;
 const englishHeaderPattern = /(영어|english|英文|inci)/i;
 const nutritionHeaderPattern = /(영양|營養|营养|nutrition|nutrition facts)/i;
-const amountHeaderPattern = /(용량|함량|amount|content|含量|份量|每份)/i;
-const productNamePattern = /^(제품명|품명|product\s*name|品名|產品名稱|产品名称|商品名)$/i;
+const amountHeaderPattern = /(용량|함량|중량|amount|content|quantity|actual\s*wt|actual\s*weight|wt\(%\)|배합량|농도|含量|份量|每份|濃度|浓度)/i;
+const actualAmountHeaderPattern = /(actual\s*wt|actual\s*weight|wt\(%\)|실제\s*함량|최종\s*함량)/i;
+const casHeaderPattern = /^cas(\s*no\.?)?$/i;
+const functionHeaderPattern = /^(기능|용도|function|functions|purpose|用途|功效)$/i;
+const rowNumberHeaderPattern = /^(no\.?|번호|순번|#)$/i;
+const productNamePattern = /^(제품명|품명|products?\s*name|品名|產品名稱|产品名称|商品名)$/i;
 
 function cleanCell(value: unknown) {
   if (value === null || value === undefined) return "";
@@ -104,8 +120,18 @@ function rowsFromSheet(sheet: XLSX.WorkSheet) {
 }
 
 function scoreHeaderRow(row: string[]) {
+  const filledCells = row.filter(Boolean);
+  const hasExactIngredientHeader = row.some((cell) => exactIngredientHeaderPattern.test(cell));
+
+  if (!hasExactIngredientHeader) return 0;
+  if (filledCells.length === 1) return 6;
+
   let score = 0;
-  if (row.some((cell) => ingredientHeaderPattern.test(cell))) score += 8;
+  if (hasExactIngredientHeader) score += 7;
+  if (row.some((cell) => rowNumberHeaderPattern.test(cell))) score += 1;
+  if (row.some((cell) => amountHeaderPattern.test(cell))) score += 2;
+  if (row.some((cell) => casHeaderPattern.test(cell))) score += 2;
+  if (row.some((cell) => functionHeaderPattern.test(cell))) score += 1;
   if (row.some((cell) => originHeaderPattern.test(cell))) score += 3;
   if (row.some((cell) => chineseHeaderPattern.test(cell))) score += 2;
   if (row.some((cell) => englishHeaderPattern.test(cell))) score += 2;
@@ -139,11 +165,19 @@ function findColumn(row: string[], pattern: RegExp, nearColumn?: number) {
   return matches.sort((left, right) => Math.abs(left.index - nearColumn) - Math.abs(right.index - nearColumn))[0].index;
 }
 
+function parseProductNameCell(cell: string) {
+  const direct = cell.match(/(?:제품명|품명|products?\s*name|品名|產品名稱|产品名称|商品名)\s*[:：-]\s*(.+)$/i);
+  return direct?.[1] ? cleanLine(direct[1]) : "";
+}
+
 function findProductName(rows: string[][]) {
   for (let rowIndex = 0; rowIndex < rows.length; rowIndex += 1) {
     const row = rows[rowIndex];
     for (let colIndex = 0; colIndex < row.length; colIndex += 1) {
       const cell = row[colIndex];
+      const inlineProductName = parseProductNameCell(cell);
+      if (inlineProductName) return inlineProductName;
+
       if (!productNamePattern.test(cell)) continue;
 
       const candidates = [
@@ -159,10 +193,18 @@ function findProductName(rows: string[][]) {
   return "";
 }
 
-function formatIngredient(origin: string, korean: string, zh: string, english: string) {
-  const names = nonEmpty([korean, zh, english]);
+function formatIngredient(fields: IngredientFields) {
+  const names = unique([fields.localName, fields.zhName, fields.englishName]);
   if (!names.length) return "";
-  return `${origin ? `[${origin}] ` : ""}${names.join(" / ")}`;
+
+  const details = [
+    fields.amount ? `함량 ${fields.amount}${/%$/.test(fields.amount) ? "" : "%"}` : "",
+    fields.casNo && fields.casNo !== "-" ? `CAS ${fields.casNo}` : "",
+    fields.functionText ? `기능 ${fields.functionText}` : ""
+  ].filter(Boolean);
+  const prefix = [fields.productName, fields.origin ? `원산지 ${fields.origin}` : ""].filter(Boolean).join(" / ");
+
+  return `${prefix ? `[${prefix}] ` : ""}${names.join(" / ")}${details.length ? ` (${details.join(", ")})` : ""}`;
 }
 
 function extractNutrition(rows: string[][], headerIndex: number, headerRow: string[]) {
@@ -190,10 +232,12 @@ function inferProductType(text: string) {
   if (/단백질|protein|whey|soy protein|프로바이오틱|유산균|supplement|health food|효소|enzyme/i.test(text)) {
     return "protein powder / supplement / Taiwan import";
   }
+  if (/화장품|inci|cosmetic|skincare|skin\s*care|toner|cream|serum|mask|modeling\s*mask|lotion|cleanser|sunscreen/i.test(text)) {
+    return "cosmetic / Taiwan import";
+  }
   if (/식품첨가물|감미료|sweetener|additive|stevia|sucralose|erythritol|phosphate/i.test(text)) {
     return "food ingredient / food additive / Taiwan import";
   }
-  if (/화장품|inci|cosmetic|skincare/i.test(text)) return "cosmetic / Taiwan import";
   if (/식품|nutrition|allergen|원재료/i.test(text)) return "prepackaged food / Taiwan import";
   return "";
 }
@@ -214,20 +258,48 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
   }
 
   const headerRow = rows[headerIndex];
-  const ingredientCol = findColumn(headerRow, ingredientHeaderPattern);
+  const localIngredientCol = findColumn(headerRow, /^(성분명|원재료|원료명|전성분|原料|成分)$/i);
+  const ingredientCol = localIngredientCol >= 0 ? localIngredientCol : findColumn(headerRow, exactIngredientHeaderPattern);
   const originCol = findColumn(headerRow, originHeaderPattern, ingredientCol);
   const chineseCol = findColumn(headerRow, chineseHeaderPattern, ingredientCol);
-  const englishCol = findColumn(headerRow, englishHeaderPattern, ingredientCol);
+  const englishCol = findColumn(headerRow, /^(ingredients?|ingredient\s*name|inci|english|英文)$/i, ingredientCol);
+  const actualAmountCol = findColumn(headerRow, actualAmountHeaderPattern, ingredientCol);
+  const amountCol = actualAmountCol >= 0 ? actualAmountCol : findColumn(headerRow, amountHeaderPattern, ingredientCol);
+  const casCol = findColumn(headerRow, casHeaderPattern, ingredientCol);
+  const functionCol = findColumn(headerRow, functionHeaderPattern, ingredientCol);
+  const productName = findProductName(rows);
   const ingredients: string[] = [];
   const origins: string[] = [];
 
   for (let rowIndex = headerIndex + 1; rowIndex < rows.length; rowIndex += 1) {
     const row = rows[rowIndex] ?? [];
+    const rowLabel = cleanCell(row[0] ?? "");
+    if (/^(total|합계|소계|subtotal|grand\s*total)$/i.test(rowLabel)) continue;
+    if (/^(slc\s+co\.?,?\s*ltd\.?|company|제조사)$/i.test(rowLabel)) continue;
+
     const ingredient = cleanCell(row[ingredientCol] ?? "");
     const origin = originCol >= 0 ? cleanCell(row[originCol] ?? "") : "";
     const zh = chineseCol >= 0 ? cleanCell(row[chineseCol] ?? "") : "";
-    const english = englishCol >= 0 ? cleanCell(row[englishCol] ?? "") : "";
-    const line = formatIngredient(origin, ingredient, zh, english);
+    const english = englishCol >= 0 && englishCol !== ingredientCol ? cleanCell(row[englishCol] ?? "") : "";
+    const amount = amountCol >= 0 ? cleanCell(row[amountCol] ?? "") : "";
+    const casNo = casCol >= 0 ? cleanCell(row[casCol] ?? "") : "";
+    const functionText = functionCol >= 0 ? cleanCell(row[functionCol] ?? "") : "";
+
+    if (!nonEmpty([ingredient, zh, english]).length) continue;
+    if (/^(no\.?|번호|순번|total)$/i.test(ingredient)) continue;
+    if (/^\d+(\.\d+)?$/.test(ingredient)) continue;
+    if (parseProductNameCell(ingredient) || productNamePattern.test(ingredient)) continue;
+
+    const line = formatIngredient({
+      productName,
+      origin,
+      localName: ingredient,
+      zhName: zh,
+      englishName: english,
+      amount,
+      casNo,
+      functionText
+    });
 
     if (line) ingredients.push(line);
     if (origin) origins.push(origin);
@@ -237,7 +309,7 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
 
   return {
     sheetName,
-    productName: findProductName(rows),
+    productName,
     originText: unique(origins).join(", "),
     ingredients: unique(ingredients).slice(0, 220),
     nutrition: extractNutrition(rows, headerIndex, headerRow),
@@ -246,7 +318,7 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
 }
 
 function buildExtraction(fileName: string, kind: IntakeFileExtraction["kind"], sheets: SheetExtraction[]): IntakeFileExtraction {
-  const productName = sheets.find((sheet) => sheet.productName)?.productName ?? "";
+  const productName = unique(sheets.map((sheet) => sheet.productName)).join(" / ");
   const origins = unique(sheets.flatMap((sheet) => sheet.originText.split(",").map((item) => item.trim()))).join(", ");
   const ingredients = sheets.flatMap((sheet) => sheet.ingredients);
   const nutrition = sheets.flatMap((sheet) => sheet.nutrition);
