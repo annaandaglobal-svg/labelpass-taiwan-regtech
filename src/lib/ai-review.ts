@@ -103,7 +103,7 @@ export async function generateAiReviewInsight(input: ReviewInput, result: Review
 
     const payload = await response.json();
     const parsed = parseResponseJson(payload);
-    if (!parsed) return errorInsight(readiness.model, "OpenAI 응답을 JSON으로 읽지 못했습니다.");
+    if (!parsed) return errorInsight(readiness.model, "OpenAI 응답에서 검토 JSON을 찾지 못했습니다.");
 
     return {
       provider: "openai",
@@ -119,7 +119,7 @@ export async function generateAiReviewInsight(input: ReviewInput, result: Review
       confidence: enumField(parsed.confidence, ["low", "medium", "high"], "low")
     };
   } catch (error) {
-    return errorInsight(readiness.model, error instanceof Error ? error.message : "AI 분석 호출 실패");
+    return errorInsight(readiness.model, error instanceof Error ? error.message : "AI 분석 요청에 실패했습니다.");
   }
 }
 
@@ -135,7 +135,7 @@ function buildAiReviewPrompt(input: ReviewInput, result: ReviewResult) {
   return JSON.stringify(
     {
       task:
-        "대만 수입/라벨링 1차 분석 결과를 사람이 바로 이해할 수 있게 요약하고, 품목 분류, 성분/서류/통관 질문, 추가 확인 항목을 정리하세요.",
+        "대만 식품/화장품 수입 라벨링 1차 AI 검토입니다. 제공된 규칙 판정과 근거를 기준으로 제품 분류, 주요 위험 신호, 보완 서류, 통관 확인 질문, 출처 정합성을 한국어로 정리하세요.",
       product: {
         name: input.productName,
         type: input.productType,
@@ -205,8 +205,8 @@ function errorInsight(model: string, warning: string): AiReviewInsight {
     provider: "openai",
     model,
     status: "error",
-    summary: "AI 분석 호출에 실패해 규칙 기반 1차 검토 결과만 표시합니다.",
-    productCategory: "확인 필요",
+    summary: "AI 분석을 완료하지 못했습니다. 규칙 기반 1차 검토 결과를 기준으로 확인하세요.",
+    productCategory: "분류 확인 필요",
     riskLevel: "unknown",
     riskSignals: [],
     documentGaps: [],
