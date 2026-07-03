@@ -270,7 +270,8 @@ async function assertIntakePdfText() {
     throw new Error("PDF text intake: ingredient block was missing potassium or included origin text");
   }
 
-  if (/영양정보:\s*(?:\n- .*)*Made in Korea/i.test(String(result.labelText ?? ""))) {
+  const nutritionBlock = String(result.labelText ?? "").match(/영양정보:\n((?:- .*(?:\n|$))*)/)?.[1] ?? "";
+  if (/Made in Korea|Product name|Ingredients:/i.test(nutritionBlock)) {
     throw new Error("PDF text intake: origin text leaked into nutrition lines");
   }
 }
