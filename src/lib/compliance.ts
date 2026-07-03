@@ -2,6 +2,7 @@ import rulesData from "../../data/rules/tw-cosmetics-rules.json";
 import termIndexData from "../../data/knowledge/term-index.json";
 import type { AiReviewInsight } from "./ai-review";
 import { buildReviewActionPlan, type ReviewActionPlan } from "./review-action-plan";
+import { verdictForKnowledgeTerm, verdictStateLabels, type KnowledgeVerdictState } from "./knowledge-verdicts";
 
 export type ReviewStatus = "pass" | "warn" | "fail" | "needs_info";
 
@@ -37,6 +38,20 @@ export type ReviewInput = {
   invoiceValue?: string;
 };
 
+export type IngredientVerdict = {
+  termId: string;
+  canonicalName: string;
+  category: string;
+  matchedText: string;
+  state: KnowledgeVerdictState;
+  stateLabel: string;
+  label: string;
+  detail: string;
+  uncertainty: string;
+  actions: string[];
+  sourceKeys: string[];
+};
+
 export type ReviewResult = {
   status: ReviewStatus;
   score: number;
@@ -44,6 +59,7 @@ export type ReviewResult = {
   ruleVersion: string;
   parsedIngredients: ParsedIngredient[];
   findings: Finding[];
+  ingredientVerdicts: IngredientVerdict[];
   actionPlan: ReviewActionPlan;
   summary: {
     fail: number;
@@ -193,6 +209,84 @@ const foodAdditiveTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTerm[]
 const foodAdvisoryAllergenTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTerm[]).filter(
   (term) => term.category === "food_allergen_advisory"
 );
+
+// Categories where an ingredient-level verdict is a genuine per-ingredient decision and
+// worth surfacing directly in the review. Broad "일반 원료" categories (cosmetic_ingredient,
+// food_ingredient) are intentionally excluded so common carriers (water, glycerin) don't
+// clutter every review; they still appear in unified search.
+const verdictSurfacedCategories = new Set([
+  "prohibited",
+  "restricted",
+  "preservative",
+  "colorant",
+  "sunscreen",
+  "ph_adjuster",
+  "cosmetic_ingredient_restriction",
+  "colorant_uv_filter",
+  "uv_filter",
+  "oxidizing_agent",
+  "skin_lightening_agent",
+  "hair_dye_ingredient",
+  "food_additive",
+  "fermented_food_ingredient",
+  "health_food",
+  "health_food_claim",
+  "health_food_labeling",
+  "special_dietary_food",
+  "botanical_ingredient",
+  "food_cosmetic_ingredient"
+]);
+
+// Precompute the same verdict logic used by /api/knowledge/evidence so the review path and
+// the search path return the same normalized decision state for a given ingredient.
+const verdictEligibleTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTerm[])
+  .filter((term) => verdictSurfacedCategories.has(term.category ?? ""))
+  .map((term) => ({
+    term,
+    verdict: verdictForKnowledgeTerm({
+      id: term.id,
+      canonicalName: term.canonical_name,
+      category: term.category ?? "",
+      sourceKeys: term.source_keys,
+      notes: term.notes
+    })
+  }))
+  .filter(
+    (entry): entry is { term: IndexedKnowledgeTerm; verdict: NonNullable<ReturnType<typeof verdictForKnowledgeTerm>> } =>
+      Boolean(entry.verdict)
+  );
+
+function computeIngredientVerdicts(input: ReviewInput, limit = 12): IngredientVerdict[] {
+  const verdicts: IngredientVerdict[] = [];
+  const seen = new Set<string>();
+
+  for (const ingredient of parseIngredients(input.ingredientsText)) {
+    for (const { term, verdict } of verdictEligibleTerms) {
+      if (seen.has(term.id)) continue;
+      const alias = matchedAlias(ingredient, term.aliases ?? []);
+      if (!alias) continue;
+
+      seen.add(term.id);
+      const state: KnowledgeVerdictState = verdict.state ?? "needs_check";
+      verdicts.push({
+        termId: term.id,
+        canonicalName: term.canonical_name,
+        category: term.category ?? "",
+        matchedText: ingredient.raw,
+        state,
+        stateLabel: verdictStateLabels[state],
+        label: verdict.label,
+        detail: verdict.detail,
+        uncertainty: verdict.uncertainty ?? "",
+        actions: verdict.actions,
+        sourceKeys: term.source_keys ?? []
+      });
+      if (verdicts.length >= limit) return verdicts;
+    }
+  }
+
+  return verdicts;
+}
 
 const labelRequirements = [
   { id: "name", label: "제품명", patterns: [/品名|產品名|product name|제품명/i] },
@@ -2496,6 +2590,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     ruleVersion,
     parsedIngredients,
     findings,
+    ingredientVerdicts: computeIngredientVerdicts(input),
     actionPlan: buildReviewActionPlan(findings, ruleVersion),
     summary
   };

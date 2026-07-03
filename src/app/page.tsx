@@ -26,6 +26,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
+import { verdictStateTone } from "@/lib/knowledge-verdicts";
 import {
   HANDOFF_DRAFTS_STORAGE_KEY,
   MAX_HANDOFF_DRAFTS,
@@ -1322,6 +1323,36 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+
+                {result.ingredientVerdicts.length > 0 && (
+                  <div className="lp-verdict-list" aria-label="성분별 규제 판정">
+                    <div className="lp-verdict-list-head">
+                      <b>성분별 규제 판정</b>
+                      <small>지식검색과 동일한 기준 · 확인일 {new Date(result.generatedAt).toLocaleDateString("ko-KR")}</small>
+                    </div>
+                    {result.ingredientVerdicts.map((verdict) => (
+                      <div key={verdict.termId} className={`lp-verdict-row tone-${verdictStateTone[verdict.state]}`}>
+                        <div className="lp-verdict-row-head">
+                          <em>{verdict.stateLabel}</em>
+                          <b>{verdict.canonicalName}</b>
+                        </div>
+                        <p>{verdict.detail}</p>
+                        {verdict.uncertainty && <small className="lp-verdict-uncertainty">확인 필요: {verdict.uncertainty}</small>}
+                        {verdict.actions.length > 0 && (
+                          <ul>
+                            {verdict.actions.slice(0, 2).map((action) => (
+                              <li key={action}>{action}</li>
+                            ))}
+                          </ul>
+                        )}
+                        <Link className="lp-inline-link" href={`/knowledge?q=${encodeURIComponent(verdict.canonicalName)}`}>
+                          공식 근거 보기
+                          <ArrowRight size={13} />
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {result.aiAnalysis && (
                   <div className={`lp-ai-panel ${result.aiAnalysis.status === "generated" ? "ready" : "locked"}`}>

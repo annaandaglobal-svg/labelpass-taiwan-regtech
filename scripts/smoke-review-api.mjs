@@ -1981,6 +1981,59 @@ if (archiveSave.storage === "database" && archiveSave.reviewId !== archiveSmokeI
   throw new Error("Review archive save: database response did not preserve app review id");
 }
 
+// Verdict consistency: /api/review must surface the same normalized state as
+// /api/knowledge/evidence for the known ambiguous ingredients.
+const verdictConsistencyCases = [
+  { ingredient: "Potassium Glycerophosphate", state: "restricted_risk", label: "제한·금지 가능성", nameRe: /glycerophosphate/i },
+  { ingredient: "Steviol glycosides", state: "conditional", label: "조건부 가능", nameRe: /stevi/i },
+  { ingredient: "Aspergillus oryzae fermented powder", state: "needs_check", label: "추가 확인 필요", nameRe: /oryzae/i },
+  { ingredient: "Aspergillus niger culture", state: "needs_check", label: "추가 확인 필요", nameRe: /niger/i }
+];
+
+for (const testCase of verdictConsistencyCases) {
+  const evidenceResponse = await fetch(`${baseUrl}/api/knowledge/evidence?q=${encodeURIComponent(testCase.ingredient)}&limit=6`);
+  if (!evidenceResponse.ok) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: evidence API returned ${evidenceResponse.status}`);
+  }
+  const evidence = await evidenceResponse.json();
+  const evidenceState = evidence.verdict?.state ?? null;
+
+  const reviewResponse = await fetch(`${baseUrl}/api/review`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      productName: "Verdict Consistency Sample",
+      productType: "food ingredient / food additive / Taiwan import",
+      ingredientsText: testCase.ingredient,
+      labelText: "",
+      origin: "Korea",
+      manufacturer: "Test Co / Taiwan Importer"
+    })
+  });
+  if (!reviewResponse.ok) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: review API returned ${reviewResponse.status}`);
+  }
+  const review = await reviewResponse.json();
+  const verdicts = Array.isArray(review.ingredientVerdicts) ? review.ingredientVerdicts : [];
+  const match = verdicts.find((v) => testCase.nameRe.test(String(v.canonicalName ?? "")));
+
+  if (!match) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: review returned no ingredient verdict (got ${verdicts.map((v) => v.canonicalName).join(", ") || "none"})`);
+  }
+  if (match.state !== testCase.state) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: review state ${match.state} != expected ${testCase.state}`);
+  }
+  if (match.stateLabel !== testCase.label) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: review label ${match.stateLabel} != expected ${testCase.label}`);
+  }
+  if (evidenceState && evidenceState !== match.state) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: evidence state ${evidenceState} != review state ${match.state}`);
+  }
+  if (!(match.uncertainty && match.uncertainty.length > 5) || !(Array.isArray(match.actions) && match.actions.length)) {
+    throw new Error(`Verdict consistency ${testCase.ingredient}: missing uncertainty or next actions`);
+  }
+}
+
 console.log(
-  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

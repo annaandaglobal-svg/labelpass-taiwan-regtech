@@ -16356,3 +16356,107 @@ h2 {
   font-size: 11px;
   line-height: 1.4;
 }
+
+/* ---------------------------------------------------------------------------
+   Per-ingredient regulatory verdicts on the review result (5-state)
+--------------------------------------------------------------------------- */
+
+.lp-verdict-list {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-soft);
+}
+
+.lp-verdict-list-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.lp-verdict-list-head b {
+  font-size: 12.5px;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.lp-verdict-list-head small {
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.lp-verdict-row {
+  display: grid;
+  gap: 4px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.lp-verdict-row-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  align-items: baseline;
+}
+
+.lp-verdict-row-head em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--panel-soft);
+}
+
+.lp-verdict-row-head b {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.lp-verdict-row p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.lp-verdict-uncertainty {
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: var(--gold);
+}
+
+.lp-verdict-row ul {
+  margin: 2px 0 0;
+  padding-left: 16px;
+  display: grid;
+  gap: 2px;
+}
+
+.lp-verdict-row li {
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.lp-verdict-row .lp-inline-link {
+  font-size: 11px;
+  justify-self: start;
+}
+
+.lp-verdict-row.tone-green { border-left-color: var(--green); }
+.lp-verdict-row.tone-green .lp-verdict-row-head em { background: var(--green-soft); color: var(--green-dark); }
+.lp-verdict-row.tone-blue { border-left-color: var(--blue); }
+.lp-verdict-row.tone-blue .lp-verdict-row-head em { background: var(--blue-soft); color: var(--blue); }
+.lp-verdict-row.tone-gold { border-left-color: var(--gold); }
+.lp-verdict-row.tone-gold .lp-verdict-row-head em { background: var(--gold-soft); color: var(--gold); }
+.lp-verdict-row.tone-red { border-left-color: var(--red); }
+.lp-verdict-row.tone-red .lp-verdict-row-head em { background: var(--red-soft); color: var(--red); }
