@@ -57,7 +57,7 @@ type RoutePreset = {
 };
 
 type ProductPreset = {
-  id: "cosmetic" | "food" | "supplement" | "ingredient";
+  id: "cosmetic" | "food" | "supplement" | "ingredient" | "packaging" | "other";
   label: string;
   helper: string;
   productType: string;
@@ -229,6 +229,22 @@ const productPresets: ProductPreset[] = [
     productType: "food ingredient / food additive / Taiwan import",
     routeId: "tw_food_additive",
     examples: ["허용목록", "사용기준", "규격 자료"]
+  },
+  {
+    id: "packaging",
+    label: "포장재·용기",
+    helper: "식품 접촉 용기, 필름, 병뚜껑. 재질, 사용조건, 위생규격 시험자료를 확인합니다.",
+    productType: "food contact packaging / Taiwan import",
+    routeId: "tw_food_packaging",
+    examples: ["재질", "용출시험", "표시사항"]
+  },
+  {
+    id: "other",
+    label: "기타·일반 화물",
+    helper: "위 품목이 아니면 여기로. HS/CCC 분류, 원산지 표시, 수출입 허가 코드를 먼저 봅니다.",
+    productType: "general goods / import export / Taiwan",
+    routeId: "tw_trade",
+    examples: ["HS/CCC", "원산지", "허가 코드"]
   }
 ];
 
@@ -1118,7 +1134,7 @@ export default function Home() {
         <FileText size={14} />
         PIF 신청
       </Link>
-      <Link href="/workspace/experts">
+      <Link href={`/workspace/experts${productQuery}`}>
         <Handshake size={14} />
         전문가 상담·견적
       </Link>

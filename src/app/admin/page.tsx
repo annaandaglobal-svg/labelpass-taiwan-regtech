@@ -213,6 +213,17 @@ export default async function AdminPage() {
               update candidates
             </span>
           </div>
+          <div className="admin-chip-list admin-data-ops-links">
+            <Link href="/knowledge/aliases">
+              <BadgeCheck size={14} /> 용어 alias 후보 검수
+            </Link>
+            <Link href="/knowledge">
+              <Database size={14} /> 지식베이스·출처 상태
+            </Link>
+            <Link href="/admin/settings">
+              <Settings2 size={14} /> 크롤링·env 준비 상태
+            </Link>
+          </div>
         </article>
 
         <article className="admin-panel admin-panel-wide">
