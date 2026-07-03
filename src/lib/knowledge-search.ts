@@ -546,8 +546,9 @@ function scoreTerm(term: KnowledgeTerm, query: string) {
 
   const normalizedCanonical = normalize(term.canonical_name);
   const canonicalBase = tokenScoreWithQueryFallback(normalizedCanonical, query);
+  const canonicalPrefixBoost = canonicalBase && query.length >= 2 && normalizedCanonical.startsWith(`${query} `) ? 12 : 0;
   const canonicalScore = canonicalBase
-    ? canonicalBase + (normalizedCanonical === query ? 16 : 0) + (aliasScores.length ? 6 : 0)
+    ? canonicalBase + (normalizedCanonical === query ? 16 : 0) + canonicalPrefixBoost + (aliasScores.length ? 6 : 0)
     : 0;
   const score = Math.max(canonicalScore, aliasScores[0]?.score ?? 0);
   return { score, aliasScores };
