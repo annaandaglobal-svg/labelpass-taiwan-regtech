@@ -579,47 +579,59 @@ function buildKnowledgeSearchResult(params: {
     .sort((a, b) => b.score - a.score || priorityRank(a.priority) - priorityRank(b.priority) || compareStable(a.title, b.title))
     .slice(0, Math.max(4, Math.floor(limit / 2)));
 
-  const terms = termRows.map((term) => {
-    const aliases = aliasesByTerm.get(term.term_key) ?? [];
+  const canonicalPrefixRank = (canonicalName: string) => {
+    const normalized = normalizeKnowledgeQuery(canonicalName);
+    return query.length >= 2 && normalized.startsWith(`${query} `) ? 0 : 1;
+  };
 
-    return {
-      id: term.term_key,
-      canonicalName: term.canonical_name,
-      category: term.category ?? "term",
-      score: term.score,
-      identifiers: {
-        cas: jsonArray(term.identifiers?.cas),
-        inci: jsonArray(term.identifiers?.inci),
-        colorIndex: jsonArray(term.identifiers?.color_index)
-      },
-      aliases: aliases.slice(0, 8).map((alias) => ({
-        value: alias.alias_value,
-        normalized: alias.normalized_alias,
-        type: alias.alias_type,
-        language: alias.language,
-        jurisdiction: alias.jurisdiction,
-        confidence: numeric(alias.confidence),
-        note: alias.note,
-        source: alias.source ?? undefined
-      })),
-      aliasCount: aliases.length,
-      ambiguousAliases: remoteAmbiguousAliasesForTerm({
-        termKey: term.term_key,
-        query,
-        aliases,
-        aliasOwners,
-        termNamesByKey
-      }),
-      sourceKeys: jsonArray(term.source_keys),
-      notes: term.notes ?? "",
-      rules: (rulesByTerm.get(term.term_key) ?? []).slice(0, 12).map((rule) => ({
-        ruleCode: rule.rule_code,
-        jurisdiction: rule.jurisdiction,
-        basis: rule.match_basis,
-        confidence: numeric(rule.confidence)
-      }))
-    };
-  }) satisfies KnowledgeSearchResult["terms"];
+  const terms = termRows
+    .map((term) => {
+      const aliases = aliasesByTerm.get(term.term_key) ?? [];
+
+      return {
+        id: term.term_key,
+        canonicalName: term.canonical_name,
+        category: term.category ?? "term",
+        score: term.score,
+        identifiers: {
+          cas: jsonArray(term.identifiers?.cas),
+          inci: jsonArray(term.identifiers?.inci),
+          colorIndex: jsonArray(term.identifiers?.color_index)
+        },
+        aliases: aliases.slice(0, 8).map((alias) => ({
+          value: alias.alias_value,
+          normalized: alias.normalized_alias,
+          type: alias.alias_type,
+          language: alias.language,
+          jurisdiction: alias.jurisdiction,
+          confidence: numeric(alias.confidence),
+          note: alias.note,
+          source: alias.source ?? undefined
+        })),
+        aliasCount: aliases.length,
+        ambiguousAliases: remoteAmbiguousAliasesForTerm({
+          termKey: term.term_key,
+          query,
+          aliases,
+          aliasOwners,
+          termNamesByKey
+        }),
+        sourceKeys: jsonArray(term.source_keys),
+        notes: term.notes ?? "",
+        rules: (rulesByTerm.get(term.term_key) ?? []).slice(0, 12).map((rule) => ({
+          ruleCode: rule.rule_code,
+          jurisdiction: rule.jurisdiction,
+          basis: rule.match_basis,
+          confidence: numeric(rule.confidence)
+        }))
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        canonicalPrefixRank(a.canonicalName) - canonicalPrefixRank(b.canonicalName) ||
+        compareStable(a.canonicalName, b.canonicalName)
+    ) satisfies KnowledgeSearchResult["terms"];
 
   return {
     query,
