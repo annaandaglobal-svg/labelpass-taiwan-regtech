@@ -341,10 +341,36 @@ function foldMatchSeparators(value: string) {
   return value.replace(/[\s._-]+/g, "");
 }
 
+// Fold separators only WITHIN whitespace tokens, never across word boundaries. Folding the
+// whole string merged adjacent words (e.g. "culture aspergillus" -> "cultureaspergillus")
+// and let a short alias like "urea" match across the junction ("cult[urea]spergillus").
 function hasFoldedAlias(value: string, normalizedAlias: string) {
-  const foldedValue = foldMatchSeparators(value);
   const foldedAlias = foldMatchSeparators(normalizedAlias);
-  return foldedAlias.length > 3 && foldedValue.includes(foldedAlias);
+  if (foldedAlias.length <= 3) return false;
+
+  const tokens = value.split(/\s+/).map(foldMatchSeparators).filter(Boolean);
+  // (a) separator variant contained inside a single token
+  if (tokens.some((token) => token.includes(foldedAlias))) return true;
+  // (b) multi-word alias that spans a run of whole consecutive tokens
+  for (let start = 0; start < tokens.length; start += 1) {
+    let concat = "";
+    for (let end = start; end < tokens.length; end += 1) {
+      concat += tokens[end];
+      if (concat === foldedAlias) return true;
+      if (concat.length >= foldedAlias.length) break;
+    }
+  }
+  return false;
+}
+
+// A short single-word latin alias (e.g. "urea") must match a whole word, not a fragment
+// inside a longer token or across a junction.
+function isShortLatinWord(normalized: string) {
+  return /^[a-z]+$/.test(normalized) && normalized.length <= 6;
+}
+
+function matchesWordBoundary(value: string, normalizedAlias: string) {
+  return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
 }
 
 function aliasesForRule(rule: RegulatoryRule): IndexedAlias[] {
@@ -382,8 +408,8 @@ function matchedAlias(ingredient: ParsedIngredient, aliases: IndexedAlias[]) {
     const isLatinShortAlias = /^[a-z0-9.+-]+$/i.test(normalizedAlias) && normalizedAlias.length <= 3;
     const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
 
-    if (isLatinShortAlias || isLowConfidence) {
-      return new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+    if (isLatinShortAlias || isLowConfidence || isShortLatinWord(normalizedAlias)) {
+      return matchesWordBoundary(value, normalizedAlias);
     }
 
     if (normalizedAlias.length < 2) return false;
@@ -402,8 +428,14 @@ function matchedAliasInText(text: string, aliases: IndexedAlias[]) {
     const isLatinShortAlias = isLatinAlias && normalizedAlias.length <= 3;
     const isLowConfidence = typeof alias.confidence === "number" && alias.confidence < 0.75;
 
+    // Short single-word latin aliases (e.g. "urea") must match a whole word only, never a
+    // fragment inside a longer token.
+    if (isShortLatinWord(normalizedAlias)) {
+      return matchesWordBoundary(value, normalizedAlias);
+    }
+
     if (isLatinAlias || isLatinShortAlias || isLowConfidence) {
-      const exactWord = new RegExp(`(^|\\s)${escapeRegex(normalizedAlias)}($|\\s)`, "u").test(value);
+      const exactWord = matchesWordBoundary(value, normalizedAlias);
       return exactWord || (!isLatinShortAlias && !isLowConfidence && hasFoldedAlias(value, normalizedAlias));
     }
 

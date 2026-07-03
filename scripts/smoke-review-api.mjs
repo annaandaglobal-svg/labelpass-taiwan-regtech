@@ -2034,6 +2034,79 @@ for (const testCase of verdictConsistencyCases) {
   }
 }
 
+// Regression: "Aspergillus niger culture" on its own must never match tfda-urea and must
+// return exactly one verdict (Aspergillus Niger Culture).
+{
+  const nigerResponse = await fetch(`${baseUrl}/api/review`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      productName: "Niger Sample",
+      productType: "food ingredient / Taiwan import",
+      ingredientsText: "Aspergillus niger culture",
+      labelText: "",
+      origin: "Korea",
+      manufacturer: "Test Co / Taiwan Importer"
+    })
+  });
+  if (!nigerResponse.ok) {
+    throw new Error(`Aspergillus niger review: API returned ${nigerResponse.status}`);
+  }
+  const niger = await nigerResponse.json();
+  const verdicts = Array.isArray(niger.ingredientVerdicts) ? niger.ingredientVerdicts : [];
+  if (verdicts.some((v) => v.termId === "tfda-urea")) {
+    throw new Error(`Aspergillus niger review: false-positive tfda-urea matched "${verdicts.find((v) => v.termId === "tfda-urea")?.matchedText}"`);
+  }
+  if (verdicts.length !== 1 || !/niger/i.test(String(verdicts[0]?.canonicalName ?? ""))) {
+    throw new Error(`Aspergillus niger review: expected exactly 1 niger verdict, got ${verdicts.map((v) => v.canonicalName).join(", ") || "none"}`);
+  }
+}
+
+// Combined input: all four ambiguous ingredients at once must produce exactly four
+// verdicts with the correct states and NO false-positive term (e.g. tfda-urea matching
+// "Aspergillus niger culture" across a folded word junction).
+{
+  const comboResponse = await fetch(`${baseUrl}/api/review`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      productName: "Combined Ambiguous Sample",
+      productType: "food ingredient / food additive / Taiwan import",
+      ingredientsText: "Potassium Glycerophosphate, Stevia, Aspergillus oryzae fermented powder, Aspergillus niger culture",
+      labelText: "",
+      origin: "Korea",
+      manufacturer: "Test Co / Taiwan Importer"
+    })
+  });
+  if (!comboResponse.ok) {
+    throw new Error(`Combined verdict review: API returned ${comboResponse.status}`);
+  }
+  const combo = await comboResponse.json();
+  const verdicts = Array.isArray(combo.ingredientVerdicts) ? combo.ingredientVerdicts : [];
+
+  if (verdicts.some((v) => v.termId === "tfda-urea")) {
+    const bad = verdicts.find((v) => v.termId === "tfda-urea");
+    throw new Error(`Combined verdict review: false-positive tfda-urea matched "${bad?.matchedText}"`);
+  }
+  if (verdicts.length !== 4) {
+    throw new Error(`Combined verdict review: expected exactly 4 verdicts, got ${verdicts.length} (${verdicts.map((v) => v.canonicalName).join(", ")})`);
+  }
+  const byName = (re) => verdicts.find((v) => re.test(String(v.canonicalName ?? "")));
+  const expected = [
+    { re: /glycerophosphate/i, state: "restricted_risk" },
+    { re: /stevi/i, state: "conditional" },
+    { re: /oryzae/i, state: "needs_check" },
+    { re: /niger/i, state: "needs_check" }
+  ];
+  for (const exp of expected) {
+    const match = byName(exp.re);
+    if (!match) throw new Error(`Combined verdict review: missing verdict for ${exp.re}`);
+    if (match.state !== exp.state) {
+      throw new Error(`Combined verdict review: ${match.canonicalName} state ${match.state} != ${exp.state}`);
+    }
+  }
+}
+
 console.log(
-  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );
