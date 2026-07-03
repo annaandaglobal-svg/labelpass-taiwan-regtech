@@ -352,10 +352,12 @@ const statusCopy: Record<ReviewStatus, { label: string; tone: string; detail: st
   }
 };
 
-const knowledgeStats = [
-  { label: "공식 소스", value: "166" },
-  { label: "검색 별칭", value: "6,693" },
-  { label: "규제 용어", value: "1,178" }
+type KnowledgeTotals = { sources: number; aliases: number; terms: number };
+
+const knowledgeStatLabels: Array<{ key: keyof KnowledgeTotals; label: string }> = [
+  { key: "sources", label: "공식 소스" },
+  { key: "aliases", label: "검색 별칭" },
+  { key: "terms", label: "규제 용어" }
 ];
 
 function routeIcon(icon: RoutePreset["icon"]) {
@@ -864,6 +866,7 @@ export default function Home() {
   const [savedReviews, setSavedReviews] = useState<Array<{ id: string; input: ReviewInput; result: ReviewResult }>>([]);
   const [handoffDrafts, setHandoffDrafts] = useState<HandoffDraft[]>([]);
   const [knowledgeQuery, setKnowledgeQuery] = useState("");
+  const [knowledgeTotals, setKnowledgeTotals] = useState<KnowledgeTotals | null>(null);
   const [isReviewing, setIsReviewing] = useState(false);
   const [isSearchingEvidence, setIsSearchingEvidence] = useState(false);
   const [isSubmittingHandoff, setIsSubmittingHandoff] = useState(false);
@@ -919,6 +922,19 @@ export default function Home() {
     if (routeParam && routePresets.some((route) => route.id === routeParam)) {
       setSelectedRouteId(routeParam as RouteId);
     }
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/knowledge/summary", { cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((body) => {
+        if (active && body?.totals) setKnowledgeTotals(body.totals as KnowledgeTotals);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -1094,6 +1110,23 @@ export default function Home() {
           draft.routeId === selectedRoute.id &&
           draft.productName === (input.productName.trim() || selectedRoute.label)
       )
+  );
+  const productQuery = input.productName.trim() ? `?product=${encodeURIComponent(input.productName.trim())}` : "";
+  const nextStepsRow = (
+    <div className="lp-next-steps" aria-label="다음 단계 바로가기" data-steady-next-steps="true">
+      <Link href={`/workspace/pif${productQuery}`}>
+        <FileText size={14} />
+        PIF 신청
+      </Link>
+      <Link href="/workspace/experts">
+        <Handshake size={14} />
+        전문가 상담·견적
+      </Link>
+      <Link href={`/workspace/logistics${productQuery}`}>
+        <Truck size={14} />
+        물류·트래킹
+      </Link>
+    </div>
   );
 
   return (
@@ -1341,6 +1374,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
+                  {nextStepsRow}
                   <div className="lp-handoff-draft-row">
                     <button type="button" onClick={() => void saveHandoffDraft()} disabled={isSubmittingHandoff}>
                       <PackageCheck size={14} />
@@ -1391,13 +1425,7 @@ export default function Home() {
                   )}
                 </div>
               </>
-            ) : (
-              <div className="lp-empty-state">
-                <ShieldCheck size={28} />
-                <b>자료를 넣고 검토를 시작하세요.</b>
-                <span>사이드바와 업무 흐름은 그대로 두고, 선택한 경로의 필수 입력과 증빙만 정리됩니다.</span>
-              </div>
-            )}
+            ) : null}
 
             {!result && (
               <div className="lp-action-plan info lp-action-plan-pending" data-steady-handoff="true">
@@ -1406,8 +1434,8 @@ export default function Home() {
                     <ClipboardCheck size={20} />
                   </span>
                   <div>
-                    <b>검토 후 이어질 업무 흐름</b>
-                    <p>버튼이 새로 생기지 않도록 리뷰, 상담, 선적, 근거 흐름을 같은 위치에 먼저 고정해 둡니다.</p>
+                    <b>자료를 넣고 검토를 시작하세요</b>
+                    <p>검토 결과가 여기에 표시됩니다. 리뷰·상담·선적·근거 흐름은 검토 전에도 같은 위치에 고정되어 버튼이 새로 생기지 않습니다.</p>
                   </div>
                 </div>
                 <div className="lp-handoff-grid" aria-label="운영 인계">
@@ -1422,6 +1450,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
+                {nextStepsRow}
               </div>
             )}
           </section>
@@ -1442,6 +1471,18 @@ export default function Home() {
                   검색
                 </button>
               </label>
+              <div className="lp-search-scope">
+                <small>
+                  지금은 <b>{selectedProduct.label}</b> 범위에서 공식 소스를 찾습니다.
+                </small>
+                <Link
+                  className="lp-inline-link"
+                  href={`/knowledge?q=${encodeURIComponent((knowledgeQuery || selectedRoute.query).trim())}`}
+                >
+                  전체 통합검색으로 넓히기
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
               {evidenceBundle ? (
                 <div className="lp-evidence-stack">
                   <div className="lp-evidence-score">
@@ -1500,9 +1541,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="lp-stat-grid">
-                {knowledgeStats.map((stat) => (
-                  <span key={stat.label}>
-                    <b>{stat.value}</b>
+                {knowledgeStatLabels.map((stat) => (
+                  <span key={stat.key}>
+                    <b>{knowledgeTotals ? knowledgeTotals[stat.key].toLocaleString() : "—"}</b>
                     {stat.label}
                   </span>
                 ))}

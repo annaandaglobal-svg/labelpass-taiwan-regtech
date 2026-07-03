@@ -14,6 +14,9 @@ LabelPass is a Taiwan-first import, export, and product-labeling compliance assi
 - Uses Supabase public read-only knowledge RPCs when `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are configured, with a bundled local cache fallback.
 - Normalizes ingredient names across INCI, CAS, English, Korean, Traditional Chinese, Simplified Chinese, and Japanese aliases.
 - Provides `/workspace`, a customer work hub for Taiwan launch products, evidence, expert handoffs, logistics requests, and shipment tracking.
+- Provides `/workspace/pif`, a Taiwan cosmetics PIF application flow with a required/recommended/deferrable document checklist, attachment capture, and a submission path that stays in demo mode until the operations database is enabled (`/api/pif/applications` targets `products`, `product_documents`, and `audit_logs`).
+- Provides `/workspace/experts`, a customer expert-matching screen with quote requests (estimated cost range, scope, lead time), quote acceptance, and a consultation chat that runs on a local demo fallback until a realtime backend (for example Supabase Realtime on `chat_threads`/`chat_messages`) is connected.
+- Provides `/workspace/logistics`, a logistics matching and shipment-tracking screen with a keyless Korea-to-Taiwan route map, customs-stage rail, document status notes, and a shipment event timeline; the map is a self-contained SVG that can later be swapped for Mapbox/Google Maps.
 - Provides `/knowledge`, a searchable term and official-source explorer for aliases, identifiers, and TFDA rule links.
 - Provides `/admin`, an operator console shell for organizations, users, review queues, paid expert matching, logistics matching, shipment tracking, and source operations.
 - Reads admin operation tables from Supabase only when a server DB URL and `LABELPASS_ENABLE_ADMIN_DB_PREVIEW=1` are configured; otherwise admin pages stay on safe read-only design data.

@@ -33,8 +33,9 @@ const productRows = [
     docs: ["PIF", "GMP", "COA", "중문 라벨"],
     links: [
       { href: "/#intake", label: "1차 검토" },
-      { href: "/workspace#expert-cases", label: "상담 상태" },
-      { href: "/workspace#shipment-events", label: "선적 상태" }
+      { href: "/workspace/pif", label: "PIF 신청" },
+      { href: "/workspace/experts", label: "상담 상태" },
+      { href: "/workspace/logistics", label: "선적 상태" }
     ]
   },
   {
@@ -75,20 +76,29 @@ const productRows = [
 
 const launchHandoffSteps = [
   {
+    id: "pif",
+    label: "PIF 신청",
+    title: "화장품 PIF 자료 제출",
+    detail: "필수·권장 자료 체크리스트를 확인하고 첨부와 함께 신청서를 제출합니다.",
+    href: "/workspace/pif",
+    tone: "review",
+    icon: FileCheck2
+  },
+  {
     id: "expert",
     label: "상담 범위",
     title: "전문가에게 넘길 항목 묶기",
     detail: "PIF, INCI, 중문 라벨, 식품 클레임을 제품별 상담 범위로 고정합니다.",
-    href: "/workspace#expert-cases",
+    href: "/workspace/experts",
     tone: "review",
     icon: Handshake
   },
   {
     id: "payment",
     label: "견적·결제",
-    title: "결제 후 작업방 열기",
-    detail: "견적 승인, 결제 상태, 상담방 접근 권한을 같은 흐름에서 확인합니다.",
-    href: "/workspace#expert-cases",
+    title: "견적 확인 후 상담 시작",
+    detail: "예상 비용·범위·납기를 확인하고 수락하면 상담방이 열립니다.",
+    href: "/workspace/experts",
     tone: "waiting",
     icon: CreditCard
   },
@@ -96,8 +106,8 @@ const launchHandoffSteps = [
     id: "shipment",
     label: "선적·통관",
     title: "물류사와 tracking 연결",
-    detail: "물류 견적, 선적 이벤트, 통관 보류 증빙을 선적 상태에 붙입니다.",
-    href: "/workspace#shipment-events",
+    detail: "항로 지도, 통관 단계, 선적 이벤트를 트래킹 화면에서 확인합니다.",
+    href: "/workspace/logistics",
     tone: "blocked",
     icon: Truck
   }
@@ -318,6 +328,11 @@ export default async function WorkspacePage() {
                 </div>
               ))}
             </div>
+            <Link className="workspace-wide-link" href="/workspace/experts">
+              <Handshake size={15} />
+              상담 요청·견적·채팅 열기
+              <ArrowRight size={14} />
+            </Link>
           </article>
 
           <article className="workspace-panel workspace-panel-wide" id="shipment-events">
@@ -341,6 +356,11 @@ export default async function WorkspacePage() {
                 </div>
               ))}
             </div>
+            <Link className="workspace-wide-link" href="/workspace/logistics">
+              <Ship size={15} />
+              항로 지도·통관 단계·트래킹 타임라인 열기
+              <ArrowRight size={14} />
+            </Link>
           </article>
 
           <article className="workspace-panel">
