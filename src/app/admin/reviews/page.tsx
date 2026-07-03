@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, ClipboardList, FileWarning, Handshake, Truck } from "lucide-react";
+import { ArrowRight, ClipboardList, FileCheck2, FileWarning, Handshake, Truck } from "lucide-react";
 import { adminQueue } from "@/lib/platform-admin";
 import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
+import { pifRequestReadiness } from "@/lib/pif-requests";
 
 const fallbackReviewFlows = [
   {
@@ -34,6 +35,7 @@ export default async function AdminReviewsPage() {
   const snapshot = await getPlatformOpsSnapshot();
   const reviewFlows = snapshot.reviewFlows;
   const sourceLabel = snapshot.storage === "database" ? "Supabase 리뷰 데이터" : "운영 프리뷰 데이터";
+  const pifReadiness = pifRequestReadiness();
 
   return (
     <>
@@ -89,6 +91,30 @@ export default async function AdminReviewsPage() {
           </div>
           <p className="admin-note">
             현재 표시 소스: {sourceLabel}. {snapshot.warnings[0] ?? "리뷰 후속 작업을 실제 DB 큐와 연결할 준비가 됐습니다."}
+          </p>
+        </article>
+
+        <article className="admin-panel">
+          <div className="admin-panel-head">
+            <div>
+              <span>PIF 신청 접수</span>
+              <h2>고객 PIF 신청 큐</h2>
+            </div>
+            <FileCheck2 size={18} />
+          </div>
+          <div className="admin-health-list">
+            <span>
+              <b>{pifReadiness.storage === "database" ? "DB 접수" : "데모 접수"}</b>
+              현재 저장 모드
+            </span>
+            <span>
+              <b>{pifReadiness.writesReady ? "가능" : "대기"}</b>
+              운영 큐 실기록
+            </span>
+          </div>
+          <p className="admin-note">
+            고객 PIF 신청은 products·product_documents·audit_logs에 기록되도록 준비되어 있습니다.{" "}
+            {pifReadiness.warnings[0] ?? "DB 연결이 활성화되어 신청이 운영 큐로 직접 들어옵니다."}
           </p>
         </article>
 
