@@ -14,6 +14,38 @@ function compareStable(left: string, right: string) {
   return 0;
 }
 
+function normalizeRuntimeQuery(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\u3131-\u318e\uac00-\ud7a3\u4e00-\u9fff]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+function termQueryRank(term: KnowledgeSearchResult["terms"][number], rawQuery: string) {
+  const query = normalizeRuntimeQuery(rawQuery);
+  if (!query) return 10;
+
+  const canonicalName = normalizeRuntimeQuery(term.canonicalName);
+  if (canonicalName === query) return 0;
+  if (canonicalName.startsWith(`${query} `)) return 1;
+
+  const identifiers = [
+    ...(term.identifiers.cas ?? []),
+    ...(term.identifiers.inci ?? []),
+    ...(term.identifiers.colorIndex ?? [])
+  ].map(normalizeRuntimeQuery);
+  if (identifiers.includes(query)) return 2;
+
+  const aliases = term.aliases.map((alias) => normalizeRuntimeQuery(alias.value));
+  if (aliases.includes(query)) return 3;
+  if (canonicalName.includes(query)) return 4;
+  if (aliases.some((alias) => alias.includes(query))) return 5;
+  return 10;
+}
+
 function uniqueValues(values: string[]) {
   return [...new Set(values.filter(Boolean))];
 }
@@ -97,11 +129,16 @@ function mergeKnowledgeResult(
     }
   }
 
+  const query = primary.query || fallback.query;
   const mergedTerms = terms
-    .sort((a, b) => b.score - a.score || compareStable(a.canonicalName, b.canonicalName))
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        termQueryRank(a, query) - termQueryRank(b, query) ||
+        compareStable(a.canonicalName, b.canonicalName)
+    )
     .slice(0, limit);
 
-  const query = primary.query || fallback.query;
   const mergedSources = [...sourcesById.values()]
     .map((source) => {
       const normalizedScore = scoreKnowledgeSourceForQuery(
