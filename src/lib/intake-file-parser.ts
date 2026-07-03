@@ -91,6 +91,8 @@ const freeformNutrientLinePattern =
   /^(?:calories?|energy|protein|fat|total\s+fat|carbohydrate|sugars?|sodium|熱量|热量|蛋白質|蛋白质|脂肪|碳水化合物|糖|鈉|钠|열량|단백질|지방|탄수화물|당류|나트륨)\b/i;
 const freeformStopSectionPattern =
   /^(?:nutrition(?:\s+facts?)?|allergens?|warning|caution|directions?|usage|how\s+to\s+use|manufacturer|importer|distributor|net\s*(?:weight|content)|contents?|lot|batch|expiry|exp\.?|best\s+before|storage|claims?|made\s+in|country\s+of\s+origin|origin|營養|营养|過敏原|过敏原|警告|注意|用法|製造|制造|進口|进口|原產地|原产地|產地|产地|保存|有效|內容量|内容量|영양|알레르기|주의|사용법|제조|수입|원산지|제조국|내용량|보관|유통기한|소비기한|품질유지기한)/i;
+const nonNutritionLinePattern =
+  /^(?:made\s+in|country\s+of\s+origin|origin|manufacturer|importer|distributor|product\s*name|products?\s*name|ingredients?|ingredient\s+list|원산지|제조국|제조|수입|수입자|제품명|상품명|성분|원재료|原產地|原产地|產地|产地|製造|制造|進口|进口|產品名稱|产品名称|成分|配料)\b/i;
 
 function stripSectionHeader(line: string, headerPattern: RegExp) {
   const colonIndex = line.search(/[:：]/);
@@ -175,6 +177,31 @@ function extractFreeformNutrition(text: string) {
   }
 
   return unique(nutritionLines).slice(0, 40);
+}
+
+function isNutritionLine(line: string) {
+  if (!line || nonNutritionLinePattern.test(line)) return false;
+  return freeformNutritionHeaderPattern.test(line) || freeformNutrientLinePattern.test(line) || /\d/.test(line);
+}
+
+function cleanNutritionLines(lines: string[]) {
+  const cleaned = unique(
+    lines
+      .map((line) => cleanLine(line.replace(/^[-*•·]\s*/, "")))
+      .map((line) => stripSectionHeader(line, freeformNutritionHeaderPattern) || line)
+      .filter(isNutritionLine)
+  );
+  const normalized = new Set(cleaned.map((line) => line.toLowerCase()));
+
+  return cleaned
+    .filter((line) => {
+      const parts = line
+        .split(/[,;；、]/)
+        .map(cleanLine)
+        .filter(Boolean);
+      return !(parts.length > 1 && parts.every((part) => normalized.has(part.toLowerCase())));
+    })
+    .slice(0, 40);
 }
 
 function extractFreeformProductName(text: string) {
@@ -545,7 +572,7 @@ export function extractUnstructuredTextFile(
   const productName = options.productName?.trim() || extractFreeformProductName(normalizedText);
   const originText = options.originText?.trim() || extractFreeformOrigin(normalizedText);
   const ingredients = unique([...cleanProvidedIngredients(options.ingredients ?? []), ...extractFreeformIngredients(normalizedText)]).slice(0, 220);
-  const nutrition = unique([...(options.nutrition ?? []), ...extractFreeformNutrition(normalizedText)]).slice(0, 40);
+  const nutrition = cleanNutritionLines([...(options.nutrition ?? []), ...extractFreeformNutrition(normalizedText)]);
   const warnings = [...(options.warnings ?? [])];
 
   if (!normalizedText) {

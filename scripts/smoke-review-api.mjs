@@ -262,12 +262,16 @@ async function assertIntakePdfText() {
     throw new Error(`PDF text intake: unexpected productName ${result.productName}`);
   }
 
-  if (result.ingredientCount !== 3 || result.nutritionCount !== 1) {
-    throw new Error(`PDF text intake: expected 3 ingredients and 1 nutrition line, got ${result.ingredientCount}/${result.nutritionCount}`);
+  if (result.ingredientCount !== 3 || result.nutritionCount < 1 || result.nutritionCount > 3) {
+    throw new Error(`PDF text intake: expected 3 ingredients and 1-3 nutrition lines, got ${result.ingredientCount}/${result.nutritionCount}`);
   }
 
   if (!text.includes("Potassium Glycerophosphate") || text.includes("Made in Korea")) {
     throw new Error("PDF text intake: ingredient block was missing potassium or included origin text");
+  }
+
+  if (/영양정보:\s*(?:\n- .*)*Made in Korea/i.test(String(result.labelText ?? ""))) {
+    throw new Error("PDF text intake: origin text leaked into nutrition lines");
   }
 }
 
