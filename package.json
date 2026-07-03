@@ -43,8 +43,9 @@
     "probe:review-archive": "node scripts/probe-review-archive.mjs",
     "smoke:admin-ops": "node scripts/smoke-admin-ops-api.mjs",
     "refresh:rules": "pnpm fetch:tfda && pnpm build:rules",
-    "test:rules": "node scripts/verify-rules.mjs && pnpm test:intake",
+    "test:rules": "node scripts/verify-rules.mjs && pnpm test:intake && pnpm test:verdicts",
     "test:intake": "node --experimental-strip-types --no-warnings scripts/verify-intake-parser.mjs",
+    "test:verdicts": "node --experimental-strip-types --no-warnings scripts/verify-verdict-states.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs"
   },
   "dependencies": {

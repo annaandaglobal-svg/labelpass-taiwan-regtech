@@ -1,5 +1,29 @@
 export type KnowledgeVerdictTone = "green" | "blue" | "gold" | "red" | "neutral";
 
+// Normalized decision state so the UI never blurs "허용 확인 안 됨" into "금지".
+export type KnowledgeVerdictState =
+  | "allowed_confirmed" // 허용 근거 확인
+  | "conditional" // 조건부 가능
+  | "needs_check" // 추가 확인 필요
+  | "restricted_risk" // 제한·금지 가능성
+  | "prohibited_confirmed"; // 금지 근거 확인
+
+export const verdictStateLabels: Record<KnowledgeVerdictState, string> = {
+  allowed_confirmed: "허용 근거 확인",
+  conditional: "조건부 가능",
+  needs_check: "추가 확인 필요",
+  restricted_risk: "제한·금지 가능성",
+  prohibited_confirmed: "금지 근거 확인"
+};
+
+export const verdictStateTone: Record<KnowledgeVerdictState, KnowledgeVerdictTone> = {
+  allowed_confirmed: "green",
+  conditional: "blue",
+  needs_check: "gold",
+  restricted_risk: "gold",
+  prohibited_confirmed: "red"
+};
+
 export type KnowledgeTermForVerdict = {
   id: string;
   canonicalName: string;
@@ -14,6 +38,10 @@ export type KnowledgeVerdict = {
   tone: KnowledgeVerdictTone;
   chips: string[];
   actions: string[];
+  // Filled by resolveVerdictState so every verdict carries a normalized state and an
+  // explicit uncertainty note. Overrides may set these directly for precision.
+  state?: KnowledgeVerdictState;
+  uncertainty?: string;
 };
 
 const verdictOverrides: Record<string, KnowledgeVerdict> = {
@@ -21,7 +49,10 @@ const verdictOverrides: Record<string, KnowledgeVerdict> = {
     label: "첨가물 용도 사용불가",
     detail:
       "금지목록 성분으로 확인된 것은 아니지만, 대만 식품첨가물/영양첨가물 포지티브 리스트에서 Potassium Glycerophosphate 정확명 등재가 확인되지 않습니다. 따라서 첨가물 용도라면 현재 근거로는 사용 불가로 판단하고, 일반 식품원료라고 주장하려면 TFDA 원료조회/공식 분류, 허가증, 중문명, 정확한 염 형태, 최종 식품군, 사용량 근거가 필요합니다.",
-    tone: "red",
+    tone: "gold",
+    state: "restricted_risk",
+    uncertainty:
+      "‘금지 근거 확인’이 아니라 ‘허용 근거 미확인’입니다. 포지티브 리스트 미등재라 첨가물 용도로는 통관 리스크가 크지만, 일반 식품원료 근거가 나오면 판정이 바뀔 수 있습니다.",
     chips: ["첨가물 용도 사용불가", "금지목록 금지와 구분", "포지티브리스트 미등재", "일반원료는 별도 입증"],
     actions: [
       "식품첨가물/영양첨가물 용도라면 허가증 또는 공식 분류 근거가 나오기 전까지 승인하지 마세요.",
@@ -33,6 +64,8 @@ const verdictOverrides: Record<string, KnowledgeVerdict> = {
     detail:
       "대만에서 바로 허용 원료로 단정할 수 없습니다. 발효분말은 균종, 균주, 배지/기질, 효소 활성, 살아있는 균 포함 여부, 최종 식품군에 따라 일반 식품원료, 효소제/가공보조제, 첨가물, 건강식품 원료로 갈릴 수 있습니다. TFDA 원료조회 또는 공식 분류 근거 없이 통관 승인으로 판단하면 안 됩니다.",
     tone: "gold",
+    state: "needs_check",
+    uncertainty: "허용/금지 어느 쪽도 확정되지 않았습니다. 균종·균주·기질·효소 활성에 따라 분류가 달라져 추가 자료 없이는 판단 불가입니다.",
     chips: ["분류 필요", "균주·기질 확인", "TFDA 원료조회 필요", "효소/첨가물 가능성"],
     actions: [
       "균주명, 배지/기질, 제조공정, 살아있는 균 포함 여부, 효소 활성, COA를 먼저 받으세요.",
@@ -44,6 +77,8 @@ const verdictOverrides: Record<string, KnowledgeVerdict> = {
     detail:
       "대만에서 바로 허용 원료로 단정할 수 없습니다. Aspergillus niger 배양물은 균주, 생산물, 효소 활성, 잔류 균체/독소 관리, 배지/기질, 사용 목적에 따라 일반 원료가 아니라 효소제, 가공보조제, 식품첨가물 또는 별도 안전성 검토 대상으로 갈릴 수 있습니다.",
     tone: "gold",
+    state: "needs_check",
+    uncertainty: "허용/금지 어느 쪽도 확정되지 않았습니다. 균주·독소 관리·효소 활성·사용 목적에 따라 경로가 달라져 추가 자료 없이는 판단 불가입니다.",
     chips: ["분류 필요", "균주·독소 관리", "효소/가공보조제 가능", "공식 근거 필요"],
     actions: [
       "균주 증명, 독소/오염 관리, 배지/기질, 효소 활성, 최종 제품 내 잔류 여부를 확인하세요.",
@@ -55,6 +90,8 @@ const verdictOverrides: Record<string, KnowledgeVerdict> = {
     detail:
       "스테비아 원물명으로 검색되더라도 대만 실무에서는 대개 감미료인 Steviol Glycosides 정체성 확인이 먼저입니다. 허용 여부는 첨가물 기준의 사용범위, 한도, 최종 식품군, 표시명, 사용량을 맞춰야 판단할 수 있습니다. 원물 추출물인지 정제 감미료인지 구분하지 않으면 승인하면 안 됩니다.",
     tone: "gold",
+    state: "conditional",
+    uncertainty: "감미료 Steviol Glycosides로 확인되면 첨가물 기준의 사용범위·한도·식품군을 맞추는 조건부 허용입니다. 원물/추출물 여부가 확정되지 않으면 판단이 달라집니다.",
     chips: ["감미료 정체성 확인", "사용범위·한도 필요", "식품군 확인", "표시명 확인"],
     actions: [
       "스테비아 원물/추출물/Steviol Glycosides 중 무엇인지 규격서와 COA로 분리하세요.",
@@ -63,7 +100,38 @@ const verdictOverrides: Record<string, KnowledgeVerdict> = {
   }
 };
 
+function deriveVerdictState(verdict: KnowledgeVerdict): KnowledgeVerdictState {
+  const text = `${verdict.label} ${verdict.chips.join(" ")}`;
+  // Positive-list non-listing or "허용 확인 안 됨" must read as risk, never a confirmed ban.
+  if (/미등재|확인\s*안|확인되지|허용\s*근거\s*(없|미)/.test(text)) return "restricted_risk";
+  if (verdict.tone === "red") {
+    if (/금지|사용불가|불가|표현불가|필수/.test(text)) return "prohibited_confirmed";
+    return "restricted_risk";
+  }
+  if (verdict.tone === "green") return "allowed_confirmed";
+  if (/조건부|허용/.test(text)) return "conditional";
+  if (/분류|확인|필요|서류|검토/.test(text)) return "needs_check";
+  return verdict.tone === "blue" ? "needs_check" : "conditional";
+}
+
+function resolveVerdictState(verdict: KnowledgeVerdict): KnowledgeVerdict {
+  const state = verdict.state ?? deriveVerdictState(verdict);
+  const uncertainty =
+    verdict.uncertainty ??
+    (state === "prohibited_confirmed"
+      ? "동명이물질·염 형태·CAS가 다르면 판정이 달라질 수 있으니 정확한 물질 동정이 필요합니다."
+      : state === "allowed_confirmed"
+        ? "공식 근거 확인 시점 기준입니다. 제품 유형·함량·용도가 다르면 재확인이 필요합니다."
+        : "허용/금지가 확정되지 않았습니다. 아래 다음 행동으로 통관 판단에 필요한 근거를 먼저 확보하세요.");
+  return { ...verdict, state, uncertainty };
+}
+
 export function verdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVerdict | null {
+  const base = baseVerdictForKnowledgeTerm(term);
+  return base ? resolveVerdictState(base) : null;
+}
+
+function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVerdict | null {
   const override = verdictOverrides[term.id];
   if (override) return override;
 

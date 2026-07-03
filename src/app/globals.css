@@ -16280,6 +16280,70 @@ h2 {
   line-height: 1.45;
 }
 
+.lp-verdict-badge {
+  display: grid;
+  gap: 3px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.lp-verdict-badge b {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.lp-verdict-badge span {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.lp-verdict-badge small {
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.lp-verdict-badge.tone-green {
+  border-left-color: var(--green);
+  background: var(--green-soft);
+}
+
+.lp-verdict-badge.tone-green b {
+  color: var(--green-dark);
+}
+
+.lp-verdict-badge.tone-gold {
+  border-left-color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.lp-verdict-badge.tone-gold b {
+  color: var(--gold);
+}
+
+.lp-verdict-badge.tone-red {
+  border-left-color: var(--red);
+  background: var(--red-soft);
+}
+
+.lp-verdict-badge.tone-red b {
+  color: var(--red);
+}
+
+.lp-verdict-badge.tone-blue {
+  border-left-color: var(--blue);
+  background: var(--blue-soft);
+}
+
+.lp-verdict-badge.tone-blue b {
+  color: var(--blue);
+}
+
 .lp-evidence-actions {
   display: grid;
   gap: 3px;

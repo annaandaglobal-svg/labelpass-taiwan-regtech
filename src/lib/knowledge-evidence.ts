@@ -1,6 +1,6 @@
 import type { KnowledgeSearchResult } from "./knowledge-search";
 import { searchKnowledgeRuntime } from "./knowledge-runtime";
-import { verdictForKnowledgeTerm } from "./knowledge-verdicts";
+import { verdictForKnowledgeTerm, verdictStateLabels, type KnowledgeVerdictState } from "./knowledge-verdicts";
 import evidenceTemplateData from "../../data/knowledge/evidence-bundle-templates.json";
 import productRouteData from "../../data/knowledge/product-routing-matrix.json";
 
@@ -43,9 +43,19 @@ type EvidenceRouteHint = {
   termIds: string[];
 };
 
+export type KnowledgeEvidenceVerdict = {
+  state: KnowledgeVerdictState;
+  stateLabel: string;
+  label: string;
+  detail: string;
+  uncertainty: string;
+  tone: string;
+};
+
 export type KnowledgeEvidenceBundle = {
   query: string;
   summary: string;
+  verdict: KnowledgeEvidenceVerdict | null;
   confidence: "high" | "medium" | "low";
   terms: EvidenceTerm[];
   sources: EvidenceSource[];
@@ -211,9 +221,23 @@ export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12,
     score: source.score
   }));
 
+  const primary = verdictsFor(result)[0]?.verdict ?? null;
+  const verdict: KnowledgeEvidenceBundle["verdict"] =
+    primary && primary.state
+      ? {
+          state: primary.state as KnowledgeVerdictState,
+          stateLabel: verdictStateLabels[primary.state],
+          label: primary.label,
+          detail: primary.detail,
+          uncertainty: primary.uncertainty ?? "",
+          tone: primary.tone
+        }
+      : null;
+
   return {
     query: result.query || query,
     summary: buildSummary(query, result),
+    verdict,
     confidence: confidenceFor(result),
     terms,
     sources,

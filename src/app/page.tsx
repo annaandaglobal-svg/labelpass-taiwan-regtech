@@ -1508,6 +1508,15 @@ export default function Home() {
                       용어 {evidenceBundle.terms.length}개, 공식 소스 {evidenceBundle.sources.length}개
                     </small>
                   </div>
+                  {evidenceBundle.verdict && (
+                    <div className={`lp-verdict-badge tone-${evidenceBundle.verdict.tone}`}>
+                      <b>{evidenceBundle.verdict.stateLabel}</b>
+                      <span>{evidenceBundle.verdict.label}</span>
+                      {evidenceBundle.verdict.uncertainty && (
+                        <small>확인 필요: {evidenceBundle.verdict.uncertainty}</small>
+                      )}
+                    </div>
+                  )}
                   {evidenceBundle.summary && (
                     <p className="lp-evidence-summary">{evidenceBundle.summary}</p>
                   )}
