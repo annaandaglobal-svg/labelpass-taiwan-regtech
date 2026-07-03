@@ -83,6 +83,32 @@ const handoffPayload = {
   requestId: `smoke-handoff-request-${Date.now()}`,
   metadata: { smoke: true }
 };
+const pifPayload = {
+  application: {
+    id: `smoke-pif-${Date.now()}`,
+    createdAt: new Date().toISOString(),
+    productName: "Smoke PIF Cream",
+    brandName: "Smoke Brand",
+    productCategory: "cosmetic / Taiwan PIF",
+    taiwanImporter: "Taiwan importer",
+    contactEmail: "qa@example.com",
+    note: "PIF smoke check",
+    status: "submitted",
+    checkedRequirements: ["product-basic", "full-formula", "label-artwork", "safety-assessment", "manufacture-process"],
+    serverQueueState: "local_only",
+    attachments: [
+      {
+        requirementId: "product-basic",
+        fileName: "basic-info.pdf",
+        fileSize: 128,
+        mimeType: "application/pdf",
+        attachedAt: new Date().toISOString(),
+        uploadState: "metadata_only"
+      }
+    ]
+  },
+  requestId: `smoke-pif-request-${Date.now()}`
+};
 const malformedJson = "{";
 const oversizedBody = JSON.stringify({ note: "x".repeat(46_000) });
 
@@ -137,10 +163,18 @@ checks.push(
   })
 );
 checks.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?smoke=${Date.now()}`));
+checks.push(await fetchJson("pif readiness", `${baseUrl}/api/pif/applications?smoke=${Date.now()}`));
+checks.push(await fetchJson("pif attachment readiness", `${baseUrl}/api/pif/attachments?smoke=${Date.now()}`));
 checks.push(
   await fetchJson("handoff dry run", `${baseUrl}/api/handoff/requests?dryRun=1&smoke=${Date.now()}`, {
     method: "POST",
     body: JSON.stringify(handoffPayload)
+  })
+);
+checks.push(
+  await fetchJson("pif dry run", `${baseUrl}/api/pif/applications?dryRun=1&smoke=${Date.now()}`, {
+    method: "POST",
+    body: JSON.stringify(pifPayload)
   })
 );
 checks.push(
@@ -174,7 +208,10 @@ const shipmentEventDryRun = checksByLabel["admin shipment event dry run"];
 const adminInvalidJson = checksByLabel["admin invalid JSON dry run"];
 const adminOversized = checksByLabel["admin oversized dry run"];
 const handoffReadiness = checksByLabel["handoff readiness"];
+const pifReadiness = checksByLabel["pif readiness"];
+const pifAttachmentReadiness = checksByLabel["pif attachment readiness"];
 const handoffDryRun = checksByLabel["handoff dry run"];
+const pifDryRun = checksByLabel["pif dry run"];
 const handoffUnauthorized = checksByLabel["handoff write without token"];
 const handoffInvalidJson = checksByLabel["handoff invalid JSON dry run"];
 const handoffOversized = checksByLabel["handoff oversized dry run"];
@@ -225,6 +262,15 @@ if (adminOversized.status !== 413) {
 if (!handoffReadiness.ok || !handoffReadiness.body?.targetTables?.includes("expert_matches")) {
   errors.push(`Handoff readiness endpoint returned unexpected response ${handoffReadiness.status}`);
 }
+if (!pifReadiness.ok || !pifReadiness.body?.targetTables?.includes("product_documents")) {
+  errors.push(`PIF readiness endpoint returned unexpected response ${pifReadiness.status}`);
+}
+if (typeof pifReadiness.body?.customerWritesReady !== "boolean") {
+  errors.push("PIF readiness endpoint did not expose customerWritesReady");
+}
+if (!pifAttachmentReadiness.ok || typeof pifAttachmentReadiness.body?.ready !== "boolean") {
+  errors.push(`PIF attachment readiness endpoint returned unexpected response ${pifAttachmentReadiness.status}`);
+}
 if (handoffReadiness.body?.auth?.dryRunRateLimited !== true) {
   errors.push("Handoff readiness endpoint did not expose dry-run rate limiting");
 }
@@ -239,6 +285,9 @@ if (
   !handoffDryRun.body?.entityIds?.shipmentRequestId
 ) {
   errors.push(`Handoff dry-run endpoint returned unexpected response ${handoffDryRun.status}`);
+}
+if (!pifDryRun.ok || pifDryRun.body?.dryRun !== true || pifDryRun.body?.applied !== false || !pifDryRun.body?.entityIds?.productId) {
+  errors.push(`PIF dry-run endpoint returned unexpected response ${pifDryRun.status}`);
 }
 if (unauthorized.status !== 401) {
   errors.push(`Write without token should return 401, got ${unauthorized.status}`);

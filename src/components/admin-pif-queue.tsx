@@ -1,10 +1,5 @@
 "use client";
 
-// 운영자용 PIF 신청 목록.
-// 운영 DB가 연결되기 전에는 이 브라우저에서 제출된 데모 신청(localStorage)을
-// 그대로 보여줘서 접수 → 검토 → 보완요청 → 완료 흐름을 운영자 화면에서도
-// 확인할 수 있게 합니다. DB 연결 후에는 products/product_documents 큐로 대체됩니다.
-
 import { useEffect, useState } from "react";
 import {
   PIF_APPLICATIONS_STORAGE_KEY,
@@ -13,22 +8,33 @@ import {
   pifStatusLabels,
   type PifApplication
 } from "@/lib/pif-application";
+import type { PifRequestStorage } from "@/lib/pif-requests";
 
-export function AdminPifQueue() {
-  const [applications, setApplications] = useState<PifApplication[]>([]);
+export function AdminPifQueue({
+  initialApplications = [],
+  storage = "disabled"
+}: {
+  initialApplications?: PifApplication[];
+  storage?: PifRequestStorage;
+}) {
+  const [applications, setApplications] = useState<PifApplication[]>(initialApplications);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setApplications(parsePifApplications(window.localStorage.getItem(PIF_APPLICATIONS_STORAGE_KEY)));
+    const localApplications = parsePifApplications(window.localStorage.getItem(PIF_APPLICATIONS_STORAGE_KEY));
+    const merged = new Map<string, PifApplication>();
+    for (const application of localApplications) merged.set(application.id, application);
+    for (const application of initialApplications) merged.set(application.id, application);
+    setApplications([...merged.values()].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)));
     setLoaded(true);
-  }, []);
+  }, [initialApplications]);
 
-  if (!loaded) return <p className="admin-note">PIF 신청 데이터를 불러오는 중입니다.</p>;
+  if (!loaded) return <p className="admin-note">PIF 신청 큐를 불러오는 중입니다.</p>;
 
   if (!applications.length) {
     return (
       <p className="admin-note">
-        이 브라우저에서 제출된 PIF 신청이 아직 없습니다. 고객 화면 /workspace/pif 에서 제출하면 여기 큐에 나타납니다.
+        아직 접수된 PIF 신청이 없습니다. 고객이 /workspace/pif에서 제출하면 Supabase 운영 큐 또는 브라우저 백업 큐에 표시됩니다.
       </p>
     );
   }
@@ -37,18 +43,36 @@ export function AdminPifQueue() {
     <div className="admin-pif-list">
       {applications.map((application) => {
         const view = application.serverQueueState === "queued" ? { status: application.status, revisionNotes: [] } : derivePifDemoStatus(application);
+        const storedFiles = application.attachments.filter((item) => item.storagePath).length;
         return (
           <div key={application.id} className={`admin-pif-row ${view.status}`}>
             <div>
               <b>{application.productName}</b>
               <span>
-                {application.brandName || "브랜드 미기재"} · {application.contactEmail || "이메일 미기재"} ·{" "}
-                {new Date(application.createdAt).toLocaleString("ko-KR", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}
+                {application.brandName || "브랜드 미입력"} · {application.contactEmail || "연락처 미입력"} ·{" "}
+                {new Date(application.createdAt).toLocaleString("ko-KR", {
+                  month: "short",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit"
+                })}
               </span>
               <small>
                 첨부 {application.attachments.length}개
                 {application.attachments.length > 0 && `: ${application.attachments.map((item) => item.fileName).slice(0, 4).join(", ")}`}
                 {view.revisionNotes.length > 0 && ` · ${view.revisionNotes[0]}`}
+              </small>
+              <small>
+                {storage === "database" && application.serverQueueState === "queued"
+                  ? "Supabase 운영 큐"
+                  : application.serverQueueState === "local_only"
+                    ? "브라우저 임시 저장"
+                    : "서버 미리보기"}
+                {application.attachments.length > 0
+                  ? storedFiles > 0
+                    ? ` · 원본 파일 ${storedFiles}개 저장됨`
+                    : " · 파일 메타데이터만 있음"
+                  : ""}
               </small>
             </div>
             <em>{pifStatusLabels[view.status]}</em>

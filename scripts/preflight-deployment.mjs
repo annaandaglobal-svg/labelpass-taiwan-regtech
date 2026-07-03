@@ -7,6 +7,8 @@ const databaseUrl = process.env.SUPABASE_DB_URL ?? process.env.POSTGRES_URL ?? p
 const adminDbPreviewEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW === "1";
 const adminDbWritesEnabled = process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES === "1";
 const adminOpsToken = process.env.LABELPASS_ADMIN_OPS_TOKEN;
+const customerPifSubmissionsEnabled = process.env.LABELPASS_ENABLE_CUSTOMER_PIF_SUBMISSIONS === "1";
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const openaiApiKey = process.env.OPENAI_API_KEY;
 const aiReviewEnabled = process.env.LABELPASS_ENABLE_AI_REVIEW === "1";
 const publicReviewArchiveEnabled = process.env.LABELPASS_ENABLE_PUBLIC_REVIEW_ARCHIVE === "1";
@@ -316,7 +318,10 @@ const env = [
   envState("SUPABASE_DB_URL/POSTGRES_URL/DATABASE_URL", databaseUrl),
   envState("LABELPASS_ENABLE_ADMIN_DB_PREVIEW", process.env.LABELPASS_ENABLE_ADMIN_DB_PREVIEW),
   envState("LABELPASS_ENABLE_ADMIN_DB_WRITES", process.env.LABELPASS_ENABLE_ADMIN_DB_WRITES),
+  envState("LABELPASS_ENABLE_CUSTOMER_PIF_SUBMISSIONS", process.env.LABELPASS_ENABLE_CUSTOMER_PIF_SUBMISSIONS),
   envState("LABELPASS_ADMIN_OPS_TOKEN", adminOpsToken),
+  envState("SUPABASE_SERVICE_ROLE_KEY", supabaseServiceRoleKey),
+  envState("LABELPASS_PIF_STORAGE_BUCKET", process.env.LABELPASS_PIF_STORAGE_BUCKET),
   envState("OPENAI_API_KEY", openaiApiKey),
   envState("LABELPASS_ENABLE_AI_REVIEW", process.env.LABELPASS_ENABLE_AI_REVIEW),
   envState("OPENAI_REVIEW_MODEL", process.env.OPENAI_REVIEW_MODEL),
@@ -341,6 +346,15 @@ if (databaseUrl && adminDbPreviewEnabled && !adminDbWritesEnabled) {
 }
 if (adminDbWritesEnabled && !adminOpsToken) {
   warnings.push("LABELPASS_ENABLE_ADMIN_DB_WRITES is 1, but LABELPASS_ADMIN_OPS_TOKEN is not set; admin operation writes are not authorized.");
+}
+if (customerPifSubmissionsEnabled && (!databaseUrl || !adminDbWritesEnabled)) {
+  warnings.push("LABELPASS_ENABLE_CUSTOMER_PIF_SUBMISSIONS is 1, but DB URL or LABELPASS_ENABLE_ADMIN_DB_WRITES is missing; customer PIF submissions cannot persist.");
+}
+if (databaseUrl && adminDbWritesEnabled && !customerPifSubmissionsEnabled) {
+  warnings.push("DB writes are enabled, but LABELPASS_ENABLE_CUSTOMER_PIF_SUBMISSIONS is not 1; customer PIF submissions will stay local/dry-run.");
+}
+if (!supabaseServiceRoleKey) {
+  warnings.push("SUPABASE_SERVICE_ROLE_KEY is not set; PIF file originals will not upload to Supabase Storage.");
 }
 if (!openaiApiKey) {
   warnings.push("OPENAI_API_KEY is not set; /api/review will use rules and knowledge only, without GPT context analysis.");
@@ -372,6 +386,8 @@ try {
     })
   );
   remoteChecks.push(await fetchJson("handoff readiness", `${baseUrl}/api/handoff/requests?preflight=${Date.now()}`));
+  remoteChecks.push(await fetchJson("pif application readiness", `${baseUrl}/api/pif/applications?preflight=${Date.now()}`));
+  remoteChecks.push(await fetchJson("pif attachment readiness", `${baseUrl}/api/pif/attachments?preflight=${Date.now()}`));
   remoteChecks.push(
     await fetchJson("handoff dry run", `${baseUrl}/api/handoff/requests?dryRun=1&preflight=${Date.now()}`, {
       method: "POST",
@@ -428,6 +444,8 @@ const adminOpsReadiness = remoteChecks.find((check) => check.label === "admin op
 const adminOpsDryRun = remoteChecks.find((check) => check.label === "admin ops dry run")?.body;
 const handoffReadiness = remoteChecks.find((check) => check.label === "handoff readiness")?.body;
 const handoffDryRun = remoteChecks.find((check) => check.label === "handoff dry run")?.body;
+const pifApplicationReadiness = remoteChecks.find((check) => check.label === "pif application readiness")?.body;
+const pifAttachmentReadiness = remoteChecks.find((check) => check.label === "pif attachment readiness")?.body;
 
 if (archiveList && !validArchiveStates.has(archiveList.storage)) {
   errors.push(`Unexpected archive list storage state: ${archiveList.storage}`);
@@ -452,6 +470,12 @@ if (adminOpsDryRun?.dryRun !== true || adminOpsDryRun?.applied !== false) {
 }
 if (!handoffReadiness?.targetTables?.includes("shipment_requests")) {
   errors.push("Handoff readiness did not expose shipment request target table");
+}
+if (!pifApplicationReadiness?.targetTables?.includes("product_documents")) {
+  errors.push("PIF readiness did not expose product document target table");
+}
+if (pifAttachmentReadiness && typeof pifAttachmentReadiness.ready !== "boolean") {
+  errors.push("PIF attachment readiness did not expose storage readiness");
 }
 if (handoffDryRun?.dryRun !== true || handoffDryRun?.applied !== false || !handoffDryRun?.plannedRecords?.payment) {
   errors.push("Handoff dry run did not return a safe planned-record response");
@@ -482,6 +506,8 @@ const report = {
     ok: check.ok,
     storage: check.body?.storage,
     writesReady: check.body?.writesReady,
+    customerWritesReady: check.body?.customerWritesReady,
+    fileStorageReady: check.body?.fileStorage?.ready ?? check.body?.ready,
     action: check.body?.action,
     dryRun: check.body?.dryRun,
     applied: check.body?.applied,

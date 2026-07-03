@@ -17,6 +17,11 @@ export type PifAttachmentMeta = {
   fileSize: number;
   mimeType: string;
   attachedAt: string;
+  storageBucket?: string;
+  storagePath?: string;
+  uploadedAt?: string;
+  uploadState?: "pending" | "uploading" | "uploaded" | "failed" | "metadata_only";
+  uploadError?: string;
 };
 
 export type PifApplicationStatus = "draft" | "submitted" | "in_review" | "needs_revision" | "accepted";
@@ -38,7 +43,7 @@ export type PifApplication = {
 
 export const pifStatusLabels: Record<PifApplicationStatus, string> = {
   draft: "작성 중",
-  submitted: "제출됨",
+  submitted: "접수됨",
   in_review: "검토 중",
   needs_revision: "보완 요청",
   accepted: "접수 완료"
@@ -47,92 +52,90 @@ export const pifStatusLabels: Record<PifApplicationStatus, string> = {
 export const pifTierCopy: Record<PifDocumentTier, { label: string; detail: string; tone: string }> = {
   required: {
     label: "필수",
-    detail: "이 자료가 없으면 대만 화장품 PIF를 완성할 수 없습니다. 제출 전 반드시 준비하세요.",
+    detail: "대만 화장품 PIF 접수 전 먼저 갖춰야 하는 자료입니다. 빠지면 보완 요청 가능성이 높습니다.",
     tone: "danger"
   },
   recommended: {
     label: "권장",
-    detail: "심사 보류와 보완 요청을 줄여주는 자료입니다. 가능하면 함께 제출하세요.",
+    detail: "효능 표현, 성분 안전성, 제조 근거를 설명할 때 도움이 되는 자료입니다.",
     tone: "warn"
   },
   deferrable: {
-    label: "나중에 보완 가능",
-    detail: "신청 후에도 보완할 수 있는 자료입니다. 준비되는 대로 추가하세요.",
+    label: "후속 보완",
+    detail: "초기 접수 뒤 운영자 또는 전문가 검토 과정에서 추가로 정리할 수 있는 자료입니다.",
     tone: "info"
   }
 };
 
-// 대만 화장품 PIF(產品資訊檔案) 구성 자료. 化粧品衛生安全管理法 및
-// 化粧品產品資訊檔案管理辦法 기준의 실무 체크리스트를 고객 언어로 정리한 목록.
 export const pifDocumentRequirements: PifDocumentRequirement[] = [
   {
     id: "product-basic",
     tier: "required",
-    label: "제품 기본 정보",
-    detail: "제품명(중문·영문), 카테고리, 제형, 사용 방법, 대만 책임업체(수입자) 정보.",
+    label: "제품 기본정보",
+    detail: "제품명, 브랜드명, 용량, 제조사, 수입자, 사용 부위와 사용 방법을 확인합니다.",
     documentType: "pif"
   },
   {
     id: "full-formula",
     tier: "required",
-    label: "전성분표 (함량 포함)",
-    detail: "INCI 기준 전성분과 각 성분 함량(%). 제한 성분은 함량 근거가 반드시 필요합니다.",
+    label: "전성분표와 배합비",
+    detail: "INCI 또는 원료명, 함량(%), 배합 목적을 포함한 전성분 자료가 필요합니다.",
     documentType: "pif"
   },
   {
     id: "label-artwork",
     tier: "required",
-    label: "중문 라벨 시안",
-    detail: "제품명, 용도, 전성분, 용량, 제조/수입자, 원산지, 제조번호, 유통기한이 들어간 라벨 문안.",
+    label: "라벨 시안",
+    detail: "제품명, 전성분, 사용법, 주의문구, 용량, 제조·수입자 표시가 보이는 라벨 파일입니다.",
     documentType: "label"
   },
   {
     id: "safety-assessment",
     tier: "required",
-    label: "제품 안전성 평가 자료",
-    detail: "안전성 평가자(서명 포함)가 작성한 안전성 평가 보고서 또는 그에 준하는 자료.",
+    label: "안전성 평가 자료",
+    detail: "성분 안전성, 사용 농도, 제한 성분 여부를 설명할 수 있는 안전성 근거입니다.",
     documentType: "pif"
   },
   {
     id: "manufacture-process",
     tier: "required",
-    label: "제조방법·GMP 증빙",
-    detail: "제조공정 요약과 GMP 또는 ISO 22716 인증서. 제조소가 여러 곳이면 모두 포함.",
+    label: "제조공정·GMP 증빙",
+    detail: "제조 공정 요약, 제조소 정보, GMP 또는 ISO 22716 관련 증빙을 확인합니다.",
     documentType: "certificate"
   },
   {
     id: "coa",
     tier: "recommended",
-    label: "완제품 COA·시험성적서",
-    detail: "미생물, 중금속 등 완제품 품질 시험 결과. 보완 요청을 크게 줄여줍니다.",
+    label: "COA·시험성적서",
+    detail: "원료 또는 완제품의 주요 시험 결과, 미생물·중금속 등 품질 근거가 있으면 첨부합니다.",
     documentType: "coa"
   },
   {
     id: "claim-evidence",
     tier: "recommended",
-    label: "효능 표현 근거자료",
-    detail: "라벨·광고에 쓰는 효능 문구별 근거(시험, 문헌). 의학적 표현은 사용할 수 없습니다.",
+    label: "효능·광고 표현 근거",
+    detail: "보습, 진정, 미백 등 표현을 사용할 경우 시험자료나 문헌 근거가 필요할 수 있습니다.",
     documentType: "other"
   },
   {
     id: "stability",
     tier: "recommended",
-    label: "안정성 시험 자료",
-    detail: "유통기한 설정 근거가 되는 안정성 시험 결과.",
+    label: "안정성 자료",
+    detail: "유통기한, 보관조건, 포장 적합성을 설명하는 안정성 시험 또는 내부 근거입니다.",
     documentType: "other"
   },
   {
     id: "adverse-sop",
     tier: "deferrable",
-    label: "이상사례·회수 SOP",
-    detail: "판매 후 이상사례 대응과 회수 절차 문서. 판매 개시 전까지 준비하면 됩니다.",
+    label: "이상사례 대응 절차",
+    detail: "대만 판매 후 이상사례 접수, 조사, 보고 절차를 운영 문서로 정리합니다.",
     documentType: "other"
   },
   {
     id: "source-flow",
     tier: "deferrable",
-    label: "유통·이력 관리 기록 양식",
-    detail: "수입·유통 흐름을 추적할 수 있는 기록 체계. 신청 후 보완 가능합니다.",
+    label: "원료·공급망 추적 자료",
+    detail: "원료 공급처, 제조 로트, 수입·유통 흐름을 추적할 수 있는 자료입니다.",
     documentType: "other"
   }
 ];
@@ -153,10 +156,10 @@ export function pifReadiness(checkedRequirements: string[], attachments: PifAtta
   };
 }
 
-// 데모(운영 DB 미연결) 접수 건의 상태를 시간과 자료 상태 기준으로 진행시켜
-// 접수됨 → 검토중 → 보완요청/완료 흐름이 끝까지 보이게 합니다.
-// 운영 DB가 연결되면 이 함수 대신 운영자가 실제 상태를 바꿉니다.
-export function derivePifDemoStatus(application: PifApplication, now = Date.now()): {
+export function derivePifDemoStatus(
+  application: PifApplication,
+  now = Date.now()
+): {
   status: PifApplicationStatus;
   revisionNotes: string[];
 } {
@@ -178,19 +181,19 @@ export function derivePifDemoStatus(application: PifApplication, now = Date.now(
   if (application.attachments.length === 0) {
     return {
       status: "needs_revision",
-      revisionNotes: ["체크만 하고 첨부된 파일이 없습니다. 필수 자료 파일을 첨부해 다시 제출해주세요."]
+      revisionNotes: ["첨부파일이 없어 원본 자료 확인이 필요합니다. 필수 항목별 파일을 올려 주세요."]
     };
   }
   if (missingRequiredAttachments.length > 2) {
     return {
       status: "needs_revision",
-      revisionNotes: [`필수 자료 중 ${missingRequiredAttachments.length}개가 파일 없이 접수됐습니다: ${missingRequiredAttachments.map((item) => item.label).join(", ")}`]
+      revisionNotes: [`필수 항목 ${missingRequiredAttachments.length}개에 파일 첨부가 필요합니다: ${missingRequiredAttachments.map((item) => item.label).join(", ")}`]
     };
   }
   if (missingRecommended.length >= 2) {
     return {
       status: "needs_revision",
-      revisionNotes: [`권장 자료 보완이 필요합니다: ${missingRecommended.map((item) => item.label).join(", ")}`]
+      revisionNotes: [`권장 자료를 보강하면 검토가 빨라집니다: ${missingRecommended.map((item) => item.label).join(", ")}`]
     };
   }
   return { status: "accepted", revisionNotes: [] };

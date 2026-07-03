@@ -6,7 +6,7 @@ import {
   hasValidAdminOpsToken,
   readLimitedJsonBody
 } from "@/lib/admin-api-security";
-import { applyPifRequest, pifRequestReadiness } from "@/lib/pif-requests";
+import { applyPifRequest, canAcceptCustomerPifSubmission, pifRequestReadiness } from "@/lib/pif-requests";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,7 +28,12 @@ const attachmentSchema = z.object({
   fileName: z.string().min(1).max(260),
   fileSize: z.number().int().min(0).max(200_000_000),
   mimeType: z.string().max(160),
-  attachedAt: z.string().datetime({ offset: true })
+  attachedAt: z.string().datetime({ offset: true }),
+  storageBucket: z.string().max(120).optional(),
+  storagePath: z.string().max(600).optional(),
+  uploadedAt: z.string().datetime({ offset: true }).optional(),
+  uploadState: z.enum(["pending", "uploading", "uploaded", "failed", "metadata_only"]).optional(),
+  uploadError: z.string().max(600).optional()
 });
 
 const applicationSchema = z.object({
@@ -69,7 +74,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: dryRun ? "pif_request_dry_run_rate_limited" : "pif_request_rate_limited" }, { status: 429 });
   }
 
-  if (!dryRun && !hasValidAdminOpsToken(request)) {
+  if (!dryRun && !canAcceptCustomerPifSubmission() && !hasValidAdminOpsToken(request)) {
     return NextResponse.json({ error: "admin_ops_token_required" }, { status: 401 });
   }
 

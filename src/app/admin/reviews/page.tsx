@@ -3,50 +3,51 @@ import { ArrowRight, ClipboardList, FileCheck2, FileWarning, Handshake, Truck } 
 import { AdminPifQueue } from "@/components/admin-pif-queue";
 import { adminQueue } from "@/lib/platform-admin";
 import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
-import { pifRequestReadiness } from "@/lib/pif-requests";
+import { listPifApplicationsForAdmin, pifRequestReadiness } from "@/lib/pif-requests";
 
 const fallbackReviewFlows = [
   {
     title: "화장품 PIF 보강",
     product: "Cica Barrier Cream",
     route: "대만 화장품",
-    status: "자료 회수",
+    status: "서류 보완",
     next: "PIF, GMP, 제품등록 번호 확인",
-    handoff: "전문가 매칭"
+    handoff: "전문가 검토"
   },
   {
-    title: "식품 중문 라벨 수정",
+    title: "식품 라벨 문안 검토",
     product: "Soy Corn Protein Bar",
     route: "대만 식품",
-    status: "라벨 수정",
-    next: "GMO/non-GMO 증빙과 알레르겐 표시 대조",
+    status: "라벨 확인",
+    next: "GMO/non-GMO 근거와 영양표시 수치 확인",
     handoff: "라벨 전문가"
   },
   {
-    title: "HS/CCC·수입검사 확인",
+    title: "HS/CCC와 포장재 검사 확인",
     product: "Food Contact Bottle",
-    route: "포장재·통관",
-    status: "물류 준비",
-    next: "인보이스, 패킹리스트, 수입자 등록 확인",
-    handoff: "물류사 견적"
+    route: "포장재·용기",
+    status: "자료 대기",
+    next: "재질 증빙, 식품접촉 적합성, 통관 서류 확인",
+    handoff: "물류·통관"
   }
 ];
 
 export default async function AdminReviewsPage() {
   const snapshot = await getPlatformOpsSnapshot();
-  const reviewFlows = snapshot.reviewFlows;
-  const sourceLabel = snapshot.storage === "database" ? "Supabase 리뷰 데이터" : "운영 프리뷰 데이터";
+  const reviewFlows = snapshot.reviewFlows.length ? snapshot.reviewFlows : fallbackReviewFlows;
+  const sourceLabel = snapshot.storage === "database" ? "Supabase 운영 데이터" : "안전한 예시 데이터";
   const pifReadiness = pifRequestReadiness();
+  const pifQueue = await listPifApplicationsForAdmin();
 
   return (
     <>
       <header className="admin-section-hero">
         <div>
-          <p>리뷰 운영 큐</p>
-          <h1>라벨 검토 결과를 문서 회수, 전문가 상담, 물류 요청으로 넘기는 운영 화면입니다.</h1>
+          <p>검토 운영</p>
+          <h1>고객 신청, PIF 자료, 전문가 연결, 물류 후속 조치를 한곳에서 확인합니다.</h1>
         </div>
         <Link className="admin-secondary-action" href="/knowledge">
-          지식베이스 확인
+          규정 근거 확인
           <ArrowRight size={16} />
         </Link>
       </header>
@@ -55,19 +56,21 @@ export default async function AdminReviewsPage() {
         <article className="admin-panel admin-panel-wide">
           <div className="admin-panel-head">
             <div>
-              <span>케이스 큐</span>
-              <h2>리뷰 후속 작업</h2>
+              <span>검토 흐름</span>
+              <h2>진행 중인 주요 케이스</h2>
             </div>
             <ClipboardList size={18} />
           </div>
           <div className="admin-review-list">
             {reviewFlows.map((flow) => (
-              <div key={flow.title} className="admin-review-card">
+              <div key={`${flow.title}-${flow.product}`} className="admin-review-card">
                 <span>{flow.route}</span>
                 <b>{flow.title}</b>
                 <p>{flow.product}</p>
                 <small>{flow.next}</small>
-                <em>{flow.status} · {flow.handoff}</em>
+                <em>
+                  {flow.status} · {flow.handoff}
+                </em>
               </div>
             ))}
           </div>
@@ -76,8 +79,8 @@ export default async function AdminReviewsPage() {
         <article className="admin-panel">
           <div className="admin-panel-head">
             <div>
-              <span>운영 작업</span>
-              <h2>현재 우선순위</h2>
+              <span>운영 알림</span>
+              <h2>먼저 처리할 일</h2>
             </div>
             <FileWarning size={18} />
           </div>
@@ -91,7 +94,7 @@ export default async function AdminReviewsPage() {
             ))}
           </div>
           <p className="admin-note">
-            현재 표시 소스: {sourceLabel}. {snapshot.warnings[0] ?? "리뷰 후속 작업을 실제 DB 큐와 연결할 준비가 됐습니다."}
+            현재 데이터 출처: {sourceLabel}. {snapshot.warnings[0] ?? "Supabase 운영 데이터가 정상적으로 표시되고 있습니다."}
           </p>
         </article>
 
@@ -105,34 +108,46 @@ export default async function AdminReviewsPage() {
           </div>
           <div className="admin-health-list">
             <span>
-              <b>{pifReadiness.storage === "database" ? "DB 접수" : "데모 접수"}</b>
-              현재 저장 모드
+              <b>{pifReadiness.storage === "database" ? "DB 연결" : "DB 대기"}</b>
+              신청 저장 상태
             </span>
             <span>
-              <b>{pifReadiness.writesReady ? "가능" : "대기"}</b>
-              운영 큐 실기록
+              <b>{pifReadiness.customerWritesReady ? "고객 접수 가능" : "고객 접수 대기"}</b>
+              공개 신청 API
+            </span>
+            <span>
+              <b>{pifReadiness.fileStorage.ready ? "파일 저장 가능" : "파일 저장 대기"}</b>
+              Supabase Storage
             </span>
           </div>
-          <AdminPifQueue />
+          <AdminPifQueue initialApplications={pifQueue.applications} storage={pifQueue.storage} />
           <p className="admin-note">
-            고객 PIF 신청은 products·product_documents·audit_logs에 기록되도록 준비되어 있습니다.{" "}
-            {pifReadiness.warnings[0] ?? "DB 연결이 활성화되어 신청이 운영 큐로 직접 들어옵니다."}
+            고객 PIF 신청은 products, product_documents, audit_logs에 기록됩니다.{" "}
+            {pifQueue.warnings[0] ?? pifReadiness.warnings[0] ?? "DB 접수가 활성화되어 신청이 운영 큐로 직접 들어옵니다."}
           </p>
         </article>
 
         <article className="admin-panel">
           <div className="admin-panel-head">
             <div>
-              <span>연결 대상</span>
-              <h2>다음 자동화</h2>
+              <span>후속 연결</span>
+              <h2>다음 운영 작업</h2>
             </div>
             <Handshake size={18} />
           </div>
           <div className="admin-chip-list">
-            <span><Handshake size={14} /> 전문가 배정</span>
-            <span><Truck size={14} /> 물류 견적</span>
-            <span><ClipboardList size={14} /> 문서 checklist</span>
-            <span><FileWarning size={14} /> audit 로그</span>
+            <span>
+              <Handshake size={14} /> 전문가 매칭
+            </span>
+            <span>
+              <Truck size={14} /> 물류 견적
+            </span>
+            <span>
+              <ClipboardList size={14} /> 검토 체크리스트
+            </span>
+            <span>
+              <FileWarning size={14} /> 보완 요청
+            </span>
           </div>
         </article>
       </section>

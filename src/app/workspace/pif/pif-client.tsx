@@ -31,17 +31,22 @@ import {
 
 const tierOrder: PifDocumentTier[] = ["required", "recommended", "deferrable"];
 
+type PendingPifAttachment = PifAttachmentMeta & {
+  clientId: string;
+  file?: File;
+};
+
+const statusRail: Array<{ status: PifApplicationStatus; label: string }> = [
+  { status: "submitted", label: "접수" },
+  { status: "in_review", label: "검토" },
+  { status: "needs_revision", label: "보완" },
+  { status: "accepted", label: "완료" }
+];
+
 function applicationView(application: PifApplication): { status: PifApplicationStatus; revisionNotes: string[] } {
   if (application.serverQueueState === "queued") return { status: application.status, revisionNotes: [] };
   return derivePifDemoStatus(application);
 }
-
-const statusRail: Array<{ status: PifApplicationStatus; label: string }> = [
-  { status: "submitted", label: "접수됨" },
-  { status: "in_review", label: "검토중" },
-  { status: "needs_revision", label: "보완요청" },
-  { status: "accepted", label: "완료" }
-];
 
 function statusRank(status: PifApplicationStatus) {
   if (status === "submitted" || status === "draft") return 0;
@@ -54,6 +59,11 @@ function newId() {
   return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function publicAttachment(attachment: PendingPifAttachment): PifAttachmentMeta {
+  const { clientId: _clientId, file: _file, ...rest } = attachment;
+  return rest;
+}
+
 export function PifClient() {
   const [productName, setProductName] = useState("");
   const [brandName, setBrandName] = useState("");
@@ -61,7 +71,7 @@ export function PifClient() {
   const [contactEmail, setContactEmail] = useState("");
   const [note, setNote] = useState("");
   const [checked, setChecked] = useState<string[]>([]);
-  const [attachments, setAttachments] = useState<PifAttachmentMeta[]>([]);
+  const [attachments, setAttachments] = useState<PendingPifAttachment[]>([]);
   const [applications, setApplications] = useState<PifApplication[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState("");
@@ -77,11 +87,12 @@ export function PifClient() {
 
   useEffect(() => {
     if (!toast) return;
-    const timer = window.setTimeout(() => setToast(""), 3200);
+    const timer = window.setTimeout(() => setToast(""), 3800);
     return () => window.clearTimeout(timer);
   }, [toast]);
 
   const readiness = useMemo(() => pifReadiness(checked, attachments), [checked, attachments]);
+  const isBusy = isSubmitting || attachments.some((item) => item.uploadState === "uploading");
 
   function toggleChecked(requirementId: string) {
     setChecked((current) =>
@@ -89,14 +100,22 @@ export function PifClient() {
     );
   }
 
+  function patchAttachment(clientId: string, patch: Partial<PendingPifAttachment>) {
+    setAttachments((current) => current.map((item) => (item.clientId === clientId ? { ...item, ...patch } : item)));
+  }
+
   function attachFiles(requirementId: string, files: FileList | null) {
     if (!files?.length) return;
+    const now = new Date().toISOString();
     const next = Array.from(files).map((file) => ({
+      clientId: newId(),
       requirementId,
       fileName: file.name,
       fileSize: file.size,
       mimeType: file.type || "application/octet-stream",
-      attachedAt: new Date().toISOString()
+      attachedAt: now,
+      uploadState: "pending" as const,
+      file
     }));
     setAttachments((current) => [
       ...current.filter((item) => !(item.requirementId === requirementId && next.some((n) => n.fileName === item.fileName))),
@@ -110,18 +129,67 @@ export function PifClient() {
     setAttachments((current) => current.filter((item) => !(item.requirementId === requirementId && item.fileName === fileName)));
   }
 
+  async function uploadAttachment(applicationId: string, attachment: PendingPifAttachment): Promise<PendingPifAttachment> {
+    if (!attachment.file || attachment.storagePath) return attachment;
+
+    patchAttachment(attachment.clientId, { uploadState: "uploading", uploadError: undefined });
+    const formData = new FormData();
+    formData.append("applicationId", applicationId);
+    formData.append("requirementId", attachment.requirementId);
+    formData.append("file", attachment.file);
+
+    try {
+      const response = await fetch("/api/pif/attachments", {
+        method: "POST",
+        body: formData
+      });
+      const body = await response.json().catch(() => null);
+      if (response.ok && body?.ok) {
+        const uploaded: PendingPifAttachment = {
+          ...attachment,
+          storageBucket: body.bucket,
+          storagePath: body.storagePath,
+          uploadedAt: body.uploadedAt,
+          uploadState: "uploaded"
+        };
+        patchAttachment(attachment.clientId, uploaded);
+        return uploaded;
+      }
+
+      const failed: PendingPifAttachment = {
+        ...attachment,
+        uploadState: response.status === 503 ? "metadata_only" : "failed",
+        uploadError: body?.message || body?.error || "파일 원본 업로드가 완료되지 않았습니다."
+      };
+      patchAttachment(attachment.clientId, failed);
+      return failed;
+    } catch {
+      const failed: PendingPifAttachment = {
+        ...attachment,
+        uploadState: "failed",
+        uploadError: "파일 원본 업로드 중 네트워크 문제가 발생했습니다."
+      };
+      patchAttachment(attachment.clientId, failed);
+      return failed;
+    }
+  }
+
   async function submitApplication() {
     if (!productName.trim()) {
-      setToast("제품명을 입력해주세요.");
+      setToast("제품명을 입력해 주세요.");
       return;
     }
     if (!readiness.canSubmit) {
-      setToast(`필수 자료 ${readiness.missingRequired.length}개가 아직 준비 전입니다. 준비됨 표시 또는 파일 첨부 후 제출하세요.`);
+      setToast(`필수 자료 ${readiness.missingRequired.length}개가 아직 준비되지 않았습니다. 체크하거나 파일을 첨부해 주세요.`);
       return;
     }
 
+    setIsSubmitting(true);
+    const applicationId = newId();
+    const uploadedAttachments = await Promise.all(attachments.map((attachment) => uploadAttachment(applicationId, attachment)));
+    const publicAttachments = uploadedAttachments.map(publicAttachment);
     const application: PifApplication = {
-      id: newId(),
+      id: applicationId,
       createdAt: new Date().toISOString(),
       productName: productName.trim(),
       brandName: brandName.trim(),
@@ -131,23 +199,36 @@ export function PifClient() {
       note: note.trim(),
       status: "submitted",
       checkedRequirements: checked,
-      attachments,
+      attachments: publicAttachments,
       serverQueueState: "local_only"
     };
 
-    setIsSubmitting(true);
+    let serverMessage = "";
     try {
-      const response = await fetch("/api/pif/applications?dryRun=1", {
+      const response = await fetch("/api/pif/applications", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ application, requestId: `pif-${application.id}` })
       });
       const body = await response.json().catch(() => null);
       if (response.ok && body?.ok) {
-        application.serverQueueState = Array.isArray(body.warnings) && body.warnings.length > 0 ? "preview_only" : "queued";
+        application.serverQueueState = body.applied ? "queued" : "preview_only";
+        serverMessage = body.applied ? "운영 큐에 접수되었습니다." : "서버 미리보기로 확인되었습니다.";
+      } else {
+        const dryRun = await fetch("/api/pif/applications?dryRun=1", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ application, requestId: `pif-${application.id}` })
+        });
+        const dryRunBody = await dryRun.json().catch(() => null);
+        if (dryRun.ok && dryRunBody?.ok) {
+          application.serverQueueState = "preview_only";
+          serverMessage = "운영 저장은 대기 중이라 브라우저 백업으로 보관했습니다.";
+        }
       }
     } catch {
       application.serverQueueState = "local_only";
+      serverMessage = "네트워크 문제로 브라우저 백업에 보관했습니다.";
     }
 
     const nextApplications = [application, ...applications].slice(0, MAX_PIF_APPLICATIONS);
@@ -156,8 +237,8 @@ export function PifClient() {
     setIsSubmitting(false);
     setToast(
       application.serverQueueState === "queued"
-        ? "PIF 신청이 접수됐습니다. 운영팀이 자료를 확인한 뒤 연락드립니다."
-        : "PIF 신청을 저장했습니다. 지금은 데모 접수 모드라 이 브라우저와 운영 프리뷰 큐에 기록됩니다."
+        ? `PIF 신청이 접수되었습니다. ${serverMessage}`
+        : `PIF 신청 초안은 보관되었습니다. ${serverMessage || "Supabase 쓰기 설정을 켜면 운영 큐로 바로 들어갑니다."}`
     );
     setChecked([]);
     setAttachments([]);
@@ -169,7 +250,7 @@ export function PifClient() {
       <header className="workspace-topbar">
         <div>
           <p>대만 화장품 PIF 신청</p>
-          <h1>PIF에 필요한 자료를 확인하고, 준비된 자료를 첨부해 신청하세요.</h1>
+          <h1>제품 자료를 올리면 운영자가 PIF 접수 가능 여부와 보완 항목을 확인합니다.</h1>
         </div>
         <div className="workspace-topbar-actions">
           <Link className="workspace-button" href="/workspace">
@@ -187,7 +268,7 @@ export function PifClient() {
         <section className="workspace-panel pif-checklist-panel">
           <div className="workspace-panel-head">
             <div>
-              <span>자료 체크리스트</span>
+              <span>서류 체크리스트</span>
               <h2>필수 {readiness.requiredReady}/{readiness.requiredTotal} 준비됨</h2>
             </div>
             <ShieldCheck size={18} />
@@ -219,7 +300,7 @@ export function PifClient() {
                             <b>{item.label}</b>
                             <small>{item.detail}</small>
                           </span>
-                          <em>{isReady ? "준비됨" : "준비 전"}</em>
+                          <em>{isReady ? "준비됨" : "필요"}</em>
                         </button>
                         <div className="pif-req-files">
                           <label className="pif-attach">
@@ -236,9 +317,13 @@ export function PifClient() {
                             파일 첨부
                           </label>
                           {itemAttachments.map((file) => (
-                            <span key={`${item.id}-${file.fileName}`} className="pif-file-chip">
+                            <span key={`${item.id}-${file.clientId}`} className="pif-file-chip">
                               <FileText size={12} />
                               {file.fileName}
+                              {file.uploadState === "uploading" && " 업로드 중"}
+                              {file.uploadState === "uploaded" && " 저장됨"}
+                              {file.uploadState === "metadata_only" && " 메타만"}
+                              {file.uploadState === "failed" && " 실패"}
                               <button type="button" aria-label={`${file.fileName} 제거`} onClick={() => removeAttachment(item.id, file.fileName)}>
                                 ×
                               </button>
@@ -259,38 +344,37 @@ export function PifClient() {
             <div className="workspace-panel-head">
               <div>
                 <span>신청 정보</span>
-                <h2>제품과 담당자</h2>
+                <h2>제품과 연락처</h2>
               </div>
               <FileText size={18} />
             </div>
             <div className="pif-form">
               <label className="lp-field">
-                <span>제품명 *</span>
+                <span>제품명*</span>
                 <input value={productName} onChange={(event) => setProductName(event.target.value)} placeholder="예: Cica Barrier Cream 50ml" />
               </label>
               <label className="lp-field">
-                <span>브랜드</span>
+                <span>브랜드명</span>
                 <input value={brandName} onChange={(event) => setBrandName(event.target.value)} placeholder="브랜드명" />
               </label>
               <label className="lp-field">
-                <span>대만 수입자·책임업체</span>
-                <input value={taiwanImporter} onChange={(event) => setTaiwanImporter(event.target.value)} placeholder="미정이면 비워두세요" />
+                <span>대만 수입자</span>
+                <input value={taiwanImporter} onChange={(event) => setTaiwanImporter(event.target.value)} placeholder="수입자 또는 예정 파트너" />
               </label>
               <label className="lp-field">
                 <span>연락 이메일</span>
                 <input type="email" value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} placeholder="you@company.com" />
               </label>
               <label className="lp-field">
-                <span>요청 메모</span>
-                <textarea rows={3} value={note} onChange={(event) => setNote(event.target.value)} placeholder="일정, 궁금한 점, 특이사항을 남겨주세요." />
+                <span>메모</span>
+                <textarea rows={3} value={note} onChange={(event) => setNote(event.target.value)} placeholder="일정, 수출 목적, 이미 받은 보완 요청 등을 적어 주세요." />
               </label>
-              <button className="lp-button" type="button" onClick={() => void submitApplication()} disabled={isSubmitting}>
-                {isSubmitting ? <Loader2 className="lp-spin" size={16} /> : <Send size={16} />}
-                PIF 신청 제출
+              <button className="lp-button" type="button" onClick={() => void submitApplication()} disabled={isBusy}>
+                {isBusy ? <Loader2 className="lp-spin" size={16} /> : <Send size={16} />}
+                PIF 신청 접수
               </button>
               <small className="pif-form-note">
-                첨부 파일 원본은 저장소 연결 전까지 이 브라우저에만 남고, 신청서에는 파일 이름과 목록이 기록됩니다. 제출하면
-                운영팀 확인 후 이메일로 다음 단계를 안내합니다.
+                원본 파일은 Supabase Storage가 설정되어 있으면 서버에 저장됩니다. 설정 전에는 파일명과 크기만 기록하고 브라우저 백업에 남깁니다.
               </small>
             </div>
           </section>
@@ -298,7 +382,7 @@ export function PifClient() {
           <section className="workspace-panel">
             <div className="workspace-panel-head">
               <div>
-                <span>내 신청</span>
+                <span>최근 신청</span>
                 <h2>PIF 신청 상태</h2>
               </div>
               <ClipboardCheck size={18} />
@@ -315,7 +399,7 @@ export function PifClient() {
                         {pifStatusLabels[view.status]} · 첨부 {application.attachments.length}개 ·{" "}
                         {new Date(application.createdAt).toLocaleDateString("ko-KR")}
                       </span>
-                      <div className="pif-status-rail" aria-label="신청 진행 단계">
+                      <div className="pif-status-rail" aria-label="신청 처리 단계">
                         {statusRail.map((step, index) => {
                           const isSkippedRevision = step.status === "needs_revision" && view.status !== "needs_revision";
                           const tone =
@@ -329,15 +413,15 @@ export function PifClient() {
                       </div>
                       {view.revisionNotes.map((noteText) => (
                         <small key={noteText} className="pif-revision-note">
-                          {noteText} 자료를 보강해 새 신청으로 다시 제출하면 이어서 검토됩니다.
+                          {noteText}
                         </small>
                       ))}
                       <small>
                         {application.serverQueueState === "queued"
                           ? "운영 큐에 접수됨"
                           : application.serverQueueState === "preview_only"
-                            ? "데모 접수 (운영 DB 연결 전, 상태는 자동 시뮬레이션)"
-                            : "이 브라우저에 저장됨 (상태는 자동 시뮬레이션)"}
+                            ? "서버 미리보기 확인, 브라우저 백업 보관"
+                            : "브라우저 백업 보관"}
                       </small>
                     </div>
                   );
