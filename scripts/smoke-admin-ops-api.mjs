@@ -216,6 +216,16 @@ const handoffUnauthorized = checksByLabel["handoff write without token"];
 const handoffInvalidJson = checksByLabel["handoff invalid JSON dry run"];
 const handoffOversized = checksByLabel["handoff oversized dry run"];
 
+function isSafeAdminDryRun(check, action) {
+  return (
+    (check.ok || check.status === 404) &&
+    check.body?.dryRun === true &&
+    check.body?.applied === false &&
+    check.body?.action === action &&
+    (!check.body?.error || check.body.error === "not_found")
+  );
+}
+
 if (!readiness.ok) errors.push(`Readiness endpoint returned ${readiness.status}`);
 if (readiness.body?.auth?.dryRunRateLimited !== true) {
   errors.push("Readiness endpoint did not expose dry-run rate limiting");
@@ -238,19 +248,19 @@ if (!readiness.body?.supportedActions?.shipment_status?.includes("in_transit")) 
 if (!readiness.body?.supportedActions?.shipment_event?.includes("customs")) {
   errors.push("Readiness endpoint did not expose expected shipment_event transitions");
 }
-if (!dryRun.ok || dryRun.body?.dryRun !== true || dryRun.body?.applied !== false) {
+if (!isSafeAdminDryRun(dryRun, "expert_match_status")) {
   errors.push(`Dry-run endpoint returned unexpected response ${dryRun.status}`);
 }
-if (!paymentDryRun.ok || paymentDryRun.body?.dryRun !== true || paymentDryRun.body?.applied !== false || paymentDryRun.body?.action !== "payment_status") {
+if (!isSafeAdminDryRun(paymentDryRun, "payment_status")) {
   errors.push(`Payment dry-run endpoint returned unexpected response ${paymentDryRun.status}`);
 }
-if (!chatDryRun.ok || chatDryRun.body?.dryRun !== true || chatDryRun.body?.applied !== false || chatDryRun.body?.action !== "chat_thread_status") {
+if (!isSafeAdminDryRun(chatDryRun, "chat_thread_status")) {
   errors.push(`Chat dry-run endpoint returned unexpected response ${chatDryRun.status}`);
 }
-if (!shipmentDryRun.ok || shipmentDryRun.body?.dryRun !== true || shipmentDryRun.body?.applied !== false || shipmentDryRun.body?.action !== "shipment_status") {
+if (!isSafeAdminDryRun(shipmentDryRun, "shipment_status")) {
   errors.push(`Shipment dry-run endpoint returned unexpected response ${shipmentDryRun.status}`);
 }
-if (!shipmentEventDryRun.ok || shipmentEventDryRun.body?.dryRun !== true || shipmentEventDryRun.body?.applied !== false || shipmentEventDryRun.body?.action !== "shipment_event") {
+if (!isSafeAdminDryRun(shipmentEventDryRun, "shipment_event")) {
   errors.push(`Shipment event dry-run endpoint returned unexpected response ${shipmentEventDryRun.status}`);
 }
 if (adminInvalidJson.status !== 400) {

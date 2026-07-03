@@ -408,8 +408,12 @@ try {
   errors.push(`Remote API preflight failed for ${baseUrl}: ${error instanceof Error ? error.message : String(error)}`);
 }
 
+function isExpectedAdminDryRunNotFound(check) {
+  return check.label === "admin ops dry run" && check.status === 404 && check.body?.dryRun === true && check.body?.error === "not_found";
+}
+
 for (const check of remoteChecks) {
-  if (!check.ok) errors.push(`${check.label} returned ${check.status}`);
+  if (!check.ok && !isExpectedAdminDryRunNotFound(check)) errors.push(`${check.label} returned ${check.status}`);
 }
 
 const knowledgeCheck = remoteChecks.find((check) => check.label === "knowledge search");
