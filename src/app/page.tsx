@@ -1508,6 +1508,16 @@ export default function Home() {
                       용어 {evidenceBundle.terms.length}개, 공식 소스 {evidenceBundle.sources.length}개
                     </small>
                   </div>
+                  {evidenceBundle.summary && (
+                    <p className="lp-evidence-summary">{evidenceBundle.summary}</p>
+                  )}
+                  {evidenceBundle.suggestedActions.length > 0 && (
+                    <ul className="lp-evidence-actions" aria-label="다음 확인 조치">
+                      {evidenceBundle.suggestedActions.slice(0, 3).map((action) => (
+                        <li key={action}>{action}</li>
+                      ))}
+                    </ul>
+                  )}
                   <div className="lp-evidence-list">
                     {evidenceBundle.terms.slice(0, 3).map((term) => (
                       <span key={term.id}>
