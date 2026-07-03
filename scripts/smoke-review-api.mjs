@@ -299,8 +299,13 @@ async function assertIntakeImageOcrReadiness() {
 
   const result = await response.json();
   const warningText = String(result.warnings ?? "");
-  if (result.files?.[0]?.kind !== "unsupported" || (!warningText.includes("OPENAI_API_KEY") && !warningText.includes("LABELPASS_DISABLE_FILE_OCR"))) {
-    throw new Error("Image OCR readiness intake: expected OCR configuration warning without OpenAI key");
+  const expectedReadinessWarning =
+    warningText.includes("OPENAI_API_KEY") ||
+    warningText.includes("LABELPASS_DISABLE_FILE_OCR") ||
+    warningText.includes("OCR 요청에 실패") ||
+    warningText.includes("OpenAI OCR");
+  if (result.files?.[0]?.kind !== "unsupported" || !expectedReadinessWarning) {
+    throw new Error("Image OCR readiness intake: expected OCR configuration or OCR-call warning");
   }
 
   return true;

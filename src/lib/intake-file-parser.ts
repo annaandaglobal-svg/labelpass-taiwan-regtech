@@ -215,6 +215,13 @@ function cleanLabelNotes(lines: string[]) {
   ).slice(0, 80);
 }
 
+function normalizeOriginText(value: string) {
+  return cleanLine(value)
+    .replace(/^(?:made\s+in|country\s+of\s+origin|origin|原產地|原产地|產地|产地|製造地|制造地|원산지|제조국)\s*[:：]?\s*/i, "")
+    .replace(/[.。]$/, "")
+    .trim();
+}
+
 function extractFreeformProductName(text: string) {
   const lines = compactTextLines(text);
   const productPattern = /(?:product\s*name|products?\s*name|name\s+of\s+product|品名|產品名稱|产品名称|商品名|제품명|상품명)\s*[:：]\s*(.+)$/i;
@@ -235,7 +242,7 @@ function extractFreeformOrigin(text: string) {
 
   for (const pattern of patterns) {
     const match = text.match(pattern);
-    if (match?.[1]) return cleanLine(match[1]).replace(/[.。]$/, "");
+    if (match?.[1]) return normalizeOriginText(match[1]);
   }
 
   return "";
@@ -581,7 +588,7 @@ export function extractUnstructuredTextFile(
 ): IntakeFileExtraction {
   const normalizedText = normalizeTextBlock(text);
   const productName = options.productName?.trim() || extractFreeformProductName(normalizedText);
-  const originText = options.originText?.trim() || extractFreeformOrigin(normalizedText);
+  const originText = normalizeOriginText(options.originText ?? "") || extractFreeformOrigin(normalizedText);
   const ingredients = unique([...cleanProvidedIngredients(options.ingredients ?? []), ...extractFreeformIngredients(normalizedText)]).slice(0, 220);
   const nutrition = cleanNutritionLines([...(options.nutrition ?? []), ...extractFreeformNutrition(normalizedText)]);
   const labelNotes = cleanLabelNotes(options.labelNotes ?? []);
