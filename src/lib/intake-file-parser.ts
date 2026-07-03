@@ -34,21 +34,36 @@ type IngredientFields = {
   functionText: string;
 };
 
-const ingredientHeaderPattern = /(원재료|원료명|성분명|전성분|ingredient|ingredients|inci|原料|成分)/i;
-const exactIngredientHeaderPattern = /^(원재료|원료명|성분명|전성분|ingredient|ingredients(?:\s*\([^)]+\))?|ingredient\s*name|inci|原料|成分)$/i;
-const localIngredientHeaderPattern = /^(성분명|원재료|원료명|전성분|ingredients?\s*\((kr|kor|korean)\)|原料|成分)$/i;
-const englishIngredientHeaderPattern = /^(ingredients?\s*\((en|eng|english|eu)\)|ingredients?|ingredient\s*name|inci|english|英文)$/i;
+// Optional trailing qualifier such as "(국문)", "(INCI)", "(en)", "/ KOR" that real
+// cosmetic and food ingredient sheets append after the core header word.
+const headerQualifier = "(?:\\s*[\\(（/][^)）]*[\\)）]?)?";
+const ingredientHeaderPattern = /(원재료|원료명|성분명|전성분|주성분|ingredient|ingredients|inci|material\s*name|raw\s*material|trade\s*name|原料|成分)/i;
+const exactIngredientHeaderPattern = new RegExp(
+  `^(?:원재료명?|원료명|성분명|전성분|주성분|ingredients?|ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|原料名?|成分名?|全成分)${headerQualifier}$`,
+  "i"
+);
+const localIngredientHeaderPattern = new RegExp(
+  `^(?:성분명|원재료명?|원료명|전성분|주성분)${headerQualifier}$|^ingredients?\\s*\\((?:kr|kor|korean|국문|한글)\\)$|^原料名?$|^成分名?$`,
+  "i"
+);
+const englishIngredientHeaderPattern = new RegExp(
+  `^ingredients?\\s*\\((?:en|eng|english|eu|inci)\\)$|^(?:ingredients?|ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|english|英文)${headerQualifier}$`,
+  "i"
+);
 const chineseIngredientHeaderPattern = /^(ingredients?\s*\((cn|zh|chinese)\)|대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)$/i;
 const originHeaderPattern = /(원산지|origin|country|產地|产地|來源|来源)/i;
 const chineseHeaderPattern = /(대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)/i;
 const englishHeaderPattern = /(영어|english|英文|inci)/i;
 const nutritionHeaderPattern = /(영양|營養|营养|nutrition|nutrition facts)/i;
-const amountHeaderPattern = /(용량|함량|중량|amount|content|quantity|actual\s*%|actual\s*wt|actual\s*weight|wt\(%\)|배합량|농도|含量|份量|每份|濃度|浓度)/i;
-const actualAmountHeaderPattern = /(actual\s*%|actual\s*wt|actual\s*weight|wt\(%\)|실제\s*함량|최종\s*함량)/i;
-const casHeaderPattern = /^cas(\s*no\.?)?$/i;
-const functionHeaderPattern = /^(기능|용도|function|functions|purpose|用途|功效)$/i;
-const rowNumberHeaderPattern = /^(no\.?|번호|순번|#)$/i;
-const productNamePattern = /^(제품명|품명|products?\s*name|品名|產品名稱|产品名称|商品名)$/i;
+const amountHeaderPattern = /(용량|함량|중량|배합비|배합량|투입량|amount|content|quantity|actual\s*%|actual\s*wt|actual\s*weight|wt\s*\(?%\)?|w\s*\/\s*w|%\s*w\s*\/\s*w|conc\.?|농도|含量|份量|每份|濃度|浓度)/i;
+const actualAmountHeaderPattern = /(actual\s*%|actual\s*wt|actual\s*weight|wt\s*\(?%\)?|실제\s*함량|최종\s*함량)/i;
+const casHeaderPattern = /^cas(\s*(no\.?|number|#))?$/i;
+const functionHeaderPattern = /^(기능|용도|기능\/용도|function|functions|purpose|用途|功效)$/i;
+const rowNumberHeaderPattern = /^(no\.?|번호|순번|연번|일련번호|seq\.?|#)$/i;
+const productNamePattern = /^(제품명|품명|제품\s*이름|products?\s*name|品名|產品名稱|产品名称|商品名)\s*[:：]?$/i;
+// Manufacturer / supplier rows that must not be captured as ingredients.
+const manufacturerRowLabelPattern = /(회사명|제조사|제조원|제조업체|제조회사|공급사|공급업체|공급원|판매원|판매업체|판매사|본사|업체명|maker|manufacturer|supplier|company|distributor|vendor)/i;
+const companyEntityPattern = /(co\.?,?\s*ltd\.?|,?\s*ltd\.?$|inc\.?$|corp\.?|company|주식회사|\(주\)|㈜|유한회사|gmbh|s\.?a\.?$|co\.?,?\s*inc\.?)/i;
 
 function cleanCell(value: unknown) {
   if (value === null || value === undefined) return "";
@@ -471,9 +486,11 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
   for (let rowIndex = headerIndex + 1; rowIndex < rows.length; rowIndex += 1) {
     const row = rows[rowIndex] ?? [];
     const rowLabel = cleanCell(row[0] ?? "");
-    if (/^(total|합계|소계|subtotal|grand\s*total)$/i.test(rowLabel)) continue;
+    if (/^(total|합계|소계|subtotal|grand\s*total|계|총계|합\s*계)$/i.test(rowLabel)) continue;
     if (/^(kr|kor|korean|en|eng|english|eu|cn|zh|chinese|中文|중문|한글|영문)$/i.test(rowLabel)) continue;
-    if (/^(slc\s+co\.?,?\s*ltd\.?|company|제조사)$/i.test(rowLabel)) continue;
+    // Manufacturer / supplier / product-name label rows leak the company name into the
+    // ingredient column, so drop the whole row when the leading label identifies metadata.
+    if (manufacturerRowLabelPattern.test(rowLabel) || productNamePattern.test(rowLabel)) continue;
 
     const ingredient = cleanCell(row[ingredientCol] ?? "");
     const origin = originCol >= 0 ? cleanCell(row[originCol] ?? "") : "";
@@ -484,9 +501,12 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
     const functionText = functionCol >= 0 ? cleanCell(row[functionCol] ?? "") : "";
 
     if (!nonEmpty([ingredient, zh, english]).length) continue;
-    if (/^(no\.?|번호|순번|total)$/i.test(ingredient)) continue;
+    if (/^(no\.?|번호|순번|연번|total|합계|소계)$/i.test(ingredient)) continue;
     if (/^\d+(\.\d+)?$/.test(ingredient)) continue;
     if (parseProductNameCell(ingredient) || productNamePattern.test(ingredient)) continue;
+    // Company/supplier entity leaking into the ingredient column (no amount/CAS backing it).
+    if (companyEntityPattern.test(ingredient) && !cleanAmount(amount) && !(casNo && casNo !== "-")) continue;
+    if (manufacturerRowLabelPattern.test(ingredient) && !cleanAmount(amount)) continue;
 
     const line = formatIngredient({
       productName,
