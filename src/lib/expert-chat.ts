@@ -144,3 +144,10 @@ export function buildExpertAutoReply(consultCase: ConsultCase, customerText: str
 export function demoExpertNameFor(category: string) {
   return /화장품|cosmetic|pif/i.test(category) ? "대만 화장품 인허가 전문가 (배정 예정)" : "대만 식품·수입검사 전문가 (배정 예정)";
 }
+
+// 견적 산정 시점에 데모 전문가를 배정해 "요청 → 매칭 → 견적" 단계가 눈에 보이게 합니다.
+export function demoAssignedExpertFor(category: string) {
+  return /화장품|cosmetic|pif/i.test(category)
+    ? "Chen Yi-Ting · 대만 화장품 인허가 (데모 배정)"
+    : "Lin Wei-Chen · 대만 식품·수입검사 (데모 배정)";
+}

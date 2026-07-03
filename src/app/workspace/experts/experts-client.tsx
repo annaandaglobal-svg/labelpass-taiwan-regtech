@@ -25,6 +25,7 @@ import {
   buildDemoQuote,
   buildExpertAutoReply,
   consultStatusCopy,
+  demoAssignedExpertFor,
   demoExpertNameFor,
   parseChatMessages,
   parseConsultCases,
@@ -54,6 +55,7 @@ export function ExpertsClient() {
   const [newCategory, setNewCategory] = useState("화장품");
   const [chatInput, setChatInput] = useState("");
   const [isQuoting, setIsQuoting] = useState(false);
+  const [isPaying, setIsPaying] = useState(false);
   const [toast, setToast] = useState("");
   const chatScrollRef = useRef<HTMLDivElement | null>(null);
   const replyTimerRef = useRef<number | null>(null);
@@ -64,6 +66,9 @@ export function ExpertsClient() {
     setMessages(parseChatMessages(window.localStorage.getItem(CHAT_MESSAGES_STORAGE_KEY)));
     setDrafts(parseHandoffDrafts(window.localStorage.getItem(HANDOFF_DRAFTS_STORAGE_KEY)));
     if (storedCases.length) setSelectedCaseId(storedCases[0].id);
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get("product");
+    if (product?.trim()) setNewProductName(product.trim());
     return () => {
       if (replyTimerRef.current) window.clearTimeout(replyTimerRef.current);
     };
@@ -162,9 +167,10 @@ export function ExpertsClient() {
     // 실제 연동 시 이 부분이 /api/admin/ops/actions 의 견적 입력 이벤트로 대체됩니다.
     window.setTimeout(() => {
       const quote = buildDemoQuote(consultCase);
+      const assignedExpert = demoAssignedExpertFor(consultCase.category);
       setCases((currentCases) => {
         const next = currentCases.map((item) =>
-          item.id === consultCase.id ? { ...item, status: "quoted" as const, quote } : item
+          item.id === consultCase.id ? { ...item, status: "quoted" as const, quote, expertName: assignedExpert } : item
         );
         window.localStorage.setItem(CONSULT_CASES_STORAGE_KEY, JSON.stringify(next.slice(0, MAX_CONSULT_CASES)));
         return next;
@@ -176,7 +182,7 @@ export function ExpertsClient() {
             id: newId(),
             caseId: consultCase.id,
             author: "system" as const,
-            text: `견적이 도착했습니다. 예상 비용 USD ${quote.feeRangeUsd[0]}–${quote.feeRangeUsd[1]}, 예상 납기 ${quote.leadTimeDays}일. 견적 카드에서 범위를 확인하세요.`,
+            text: `${assignedExpert} 전문가가 매칭됐고 견적이 도착했습니다. 예상 비용 USD ${quote.feeRangeUsd[0]}–${quote.feeRangeUsd[1]}, 예상 납기 ${quote.leadTimeDays}일. 견적 카드에서 범위를 확인하세요.`,
             createdAt: new Date().toISOString()
           }
         ];
@@ -192,13 +198,39 @@ export function ExpertsClient() {
     appendMessage(
       consultCase.id,
       "system",
-      "견적을 수락했습니다. 결제 링크는 운영팀이 이메일로 안내합니다. 데모 모드에서는 결제 없이 상담을 시작해볼 수 있습니다."
+      "견적을 수락했습니다. 결제가 확인되면 상담방이 바로 열립니다. 지금은 mock 결제로 흐름을 이어갈 수 있습니다."
     );
   }
 
-  function startDemoConsult(consultCase: ConsultCase) {
-    updateCase(consultCase.id, (current) => ({ ...current, status: "in_progress" }));
-    appendMessage(consultCase.id, "system", "상담방이 열렸습니다. 전문가가 자료를 확인하며 답변을 남깁니다.");
+  async function payAndOpenConsult(consultCase: ConsultCase) {
+    const amountUsd = consultCase.quote?.feeRangeUsd[0] ?? 200;
+    setIsPaying(true);
+    try {
+      const response = await fetch("/api/payments/checkout", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          caseId: consultCase.id,
+          title: `${consultCase.productName} 전문가 상담`,
+          amountUsd
+        })
+      });
+      const body = await response.json().catch(() => null);
+      if (response.ok && body?.ok && body.status === "paid") {
+        updateCase(consultCase.id, (current) => ({ ...current, status: "in_progress" }));
+        appendMessage(
+          consultCase.id,
+          "system",
+          `결제가 확인됐습니다 (${body.provider === "mock_demo" ? "mock 결제" : "PortOne"} · USD ${amountUsd} · ${body.paymentId}). 상담방이 열렸습니다. 전문가가 자료를 확인하며 답변을 남깁니다.`
+        );
+      } else {
+        setToast("결제 처리에 실패했습니다. 잠시 후 다시 시도해주세요.");
+      }
+    } catch {
+      setToast("결제 서버에 연결하지 못했습니다. 네트워크 확인 후 다시 시도해주세요.");
+    } finally {
+      setIsPaying(false);
+    }
   }
 
   function sendChat() {
@@ -399,9 +431,9 @@ export function ExpertsClient() {
                     </button>
                   )}
                   {selectedCase.status === "payment_pending" && (
-                    <button className="lp-button secondary" type="button" onClick={() => startDemoConsult(selectedCase)}>
-                      <MessageCircle size={15} />
-                      데모 모드로 상담 시작
+                    <button className="lp-button" type="button" disabled={isPaying} onClick={() => void payAndOpenConsult(selectedCase)}>
+                      {isPaying ? <Loader2 className="lp-spin" size={15} /> : <CreditCard size={15} />}
+                      USD {selectedCase.quote?.feeRangeUsd[0] ?? 200} 결제 진행 (mock)
                     </button>
                   )}
                   {(selectedCase.status === "in_progress" || selectedCase.status === "completed") && (
