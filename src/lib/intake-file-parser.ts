@@ -46,8 +46,11 @@ const localIngredientHeaderPattern = new RegExp(
   `^(?:성분명|원재료명?|원료명|전성분|주성분)${headerQualifier}$|^ingredients?\\s*\\((?:kr|kor|korean|국문|한글)\\)$|^原料名?$|^成分名?$`,
   "i"
 );
+// English column: only match english-qualified ingredient headers, english-name-style
+// headers, or a bare "Ingredients" with no language qualifier. A qualified header such
+// as INGREDIENTS(KR) or INGREDIENTS(CN) must NOT be treated as the english column.
 const englishIngredientHeaderPattern = new RegExp(
-  `^ingredients?\\s*\\((?:en|eng|english|eu|inci)\\)$|^(?:ingredients?|ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|english|英文)${headerQualifier}$`,
+  `^ingredients?\\s*\\((?:en|eng|english|eu|inci)\\)$|^(?:ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|english|英文)${headerQualifier}$|^ingredients?$`,
   "i"
 );
 const chineseIngredientHeaderPattern = /^(ingredients?\s*\((cn|zh|chinese)\)|대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)$/i;

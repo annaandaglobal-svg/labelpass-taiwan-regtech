@@ -79,6 +79,24 @@ assert(c.ingredientCount === 2, `C expected 2 ingredients, got ${c.ingredientCou
 assert(/Aqua/.test(c.ingredientsText) && /Glycerin/.test(c.ingredientsText), "C missing INCI names");
 assertNoNoise(c, "C");
 
+// Case D: multi-language export sheet with INGREDIENTS(KR)/(EN)/(EU)/(CN) columns and
+// metadata rows (COMPANY / PRODUCT NAME). Guards the english-column resolution so the
+// KR/EN/CN names all survive (regression: english column collapsed onto the KR column).
+const caseD = build([
+  ["INGREDIENTS LIST", "", "", "", "", "", ""],
+  ["COMPANY", "", "주식회사 젬나컴퍼니", "", "", "", ""],
+  ["PRODUCT NAME", "", "더마씬 머드 폼클렌저 120g", "", "", "", ""],
+  ["No.", "INGREDIENTS(KR)", "INGREDIENTS(EN)", "INGREDIENTS(EU)", "INGREDIENTS(CN)", "FUNCTION", "ACTUAL%"],
+  ["1", "정제수", "Water", "AQUA", "水", "SOLVENT", "33.964"],
+  ["2", "글리세린", "Glycerin", "GLYCERIN", "甘油", "HUMECTANT", "20"]
+]);
+const d = extractSpreadsheetFile(caseD, "cosmetic_D.xlsx");
+assert(d.productName === "더마씬 머드 폼클렌저 120g", `D productName wrong: ${d.productName}`);
+assert(d.ingredientCount === 2, `D expected 2 ingredients, got ${d.ingredientCount}`);
+assert(/정제수 \/ Water \/ 水/.test(d.ingredientsText), "D missing KR/EN/CN join for 정제수");
+assert(!/젬나컴퍼니/.test(d.ingredientsText), "D leaked company name into ingredients");
+assertNoNoise(d, "D");
+
 if (failures) {
   process.exitCode = 1;
 } else {
