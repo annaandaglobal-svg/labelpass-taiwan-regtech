@@ -153,6 +153,51 @@ export function pifReadiness(checkedRequirements: string[], attachments: PifAtta
   };
 }
 
+// 데모(운영 DB 미연결) 접수 건의 상태를 시간과 자료 상태 기준으로 진행시켜
+// 접수됨 → 검토중 → 보완요청/완료 흐름이 끝까지 보이게 합니다.
+// 운영 DB가 연결되면 이 함수 대신 운영자가 실제 상태를 바꿉니다.
+export function derivePifDemoStatus(application: PifApplication, now = Date.now()): {
+  status: PifApplicationStatus;
+  revisionNotes: string[];
+} {
+  const createdAt = Date.parse(application.createdAt);
+  const ageMs = Number.isFinite(createdAt) ? now - createdAt : 0;
+
+  if (ageMs < 60_000) return { status: "submitted", revisionNotes: [] };
+  if (ageMs < 180_000) return { status: "in_review", revisionNotes: [] };
+
+  const covered = new Set([
+    ...application.checkedRequirements,
+    ...application.attachments.map((item) => item.requirementId)
+  ]);
+  const missingRequiredAttachments = pifRequirementsByTier("required").filter(
+    (item) => !application.attachments.some((attachment) => attachment.requirementId === item.id)
+  );
+  const missingRecommended = pifRequirementsByTier("recommended").filter((item) => !covered.has(item.id));
+
+  if (application.attachments.length === 0) {
+    return {
+      status: "needs_revision",
+      revisionNotes: ["체크만 하고 첨부된 파일이 없습니다. 필수 자료 파일을 첨부해 다시 제출해주세요."]
+    };
+  }
+  if (missingRequiredAttachments.length > 2) {
+    return {
+      status: "needs_revision",
+      revisionNotes: [`필수 자료 중 ${missingRequiredAttachments.length}개가 파일 없이 접수됐습니다: ${missingRequiredAttachments.map((item) => item.label).join(", ")}`]
+    };
+  }
+  if (missingRecommended.length >= 2) {
+    return {
+      status: "needs_revision",
+      revisionNotes: [`권장 자료 보완이 필요합니다: ${missingRecommended.map((item) => item.label).join(", ")}`]
+    };
+  }
+  return { status: "accepted", revisionNotes: [] };
+}
+
+export const pifStatusFlow: PifApplicationStatus[] = ["submitted", "in_review", "needs_revision", "accepted"];
+
 export function parsePifApplications(raw: string | null): PifApplication[] {
   if (!raw) return [];
 

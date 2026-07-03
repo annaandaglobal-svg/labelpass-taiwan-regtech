@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ClipboardList, FileCheck2, FileWarning, Handshake, Truck } from "lucide-react";
+import { AdminPifQueue } from "@/components/admin-pif-queue";
 import { adminQueue } from "@/lib/platform-admin";
 import { getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 import { pifRequestReadiness } from "@/lib/pif-requests";
@@ -112,6 +113,7 @@ export default async function AdminReviewsPage() {
               운영 큐 실기록
             </span>
           </div>
+          <AdminPifQueue />
           <p className="admin-note">
             고객 PIF 신청은 products·product_documents·audit_logs에 기록되도록 준비되어 있습니다.{" "}
             {pifReadiness.warnings[0] ?? "DB 연결이 활성화되어 신청이 운영 큐로 직접 들어옵니다."}

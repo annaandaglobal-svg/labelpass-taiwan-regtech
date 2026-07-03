@@ -17,17 +17,38 @@ import {
 import {
   MAX_PIF_APPLICATIONS,
   PIF_APPLICATIONS_STORAGE_KEY,
+  derivePifDemoStatus,
   parsePifApplications,
   pifReadiness,
   pifRequirementsByTier,
   pifStatusLabels,
   pifTierCopy,
   type PifApplication,
+  type PifApplicationStatus,
   type PifAttachmentMeta,
   type PifDocumentTier
 } from "@/lib/pif-application";
 
 const tierOrder: PifDocumentTier[] = ["required", "recommended", "deferrable"];
+
+function applicationView(application: PifApplication): { status: PifApplicationStatus; revisionNotes: string[] } {
+  if (application.serverQueueState === "queued") return { status: application.status, revisionNotes: [] };
+  return derivePifDemoStatus(application);
+}
+
+const statusRail: Array<{ status: PifApplicationStatus; label: string }> = [
+  { status: "submitted", label: "접수됨" },
+  { status: "in_review", label: "검토중" },
+  { status: "needs_revision", label: "보완요청" },
+  { status: "accepted", label: "완료" }
+];
+
+function statusRank(status: PifApplicationStatus) {
+  if (status === "submitted" || status === "draft") return 0;
+  if (status === "in_review") return 1;
+  if (status === "needs_revision") return 2;
+  return 3;
+}
 
 function newId() {
   return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -284,22 +305,43 @@ export function PifClient() {
             </div>
             <div className="pif-app-list">
               {applications.length ? (
-                applications.map((application) => (
-                  <div key={application.id} className="pif-app-row">
-                    <b>{application.productName}</b>
-                    <span>
-                      {pifStatusLabels[application.status]} · 첨부 {application.attachments.length}개 ·{" "}
-                      {new Date(application.createdAt).toLocaleDateString("ko-KR")}
-                    </span>
-                    <small>
-                      {application.serverQueueState === "queued"
-                        ? "운영 큐에 접수됨"
-                        : application.serverQueueState === "preview_only"
-                          ? "데모 접수 (운영 DB 연결 전)"
-                          : "이 브라우저에 저장됨"}
-                    </small>
-                  </div>
-                ))
+                applications.map((application) => {
+                  const view = applicationView(application);
+                  const rank = statusRank(view.status);
+                  return (
+                    <div key={application.id} className={`pif-app-row ${view.status}`}>
+                      <b>{application.productName}</b>
+                      <span>
+                        {pifStatusLabels[view.status]} · 첨부 {application.attachments.length}개 ·{" "}
+                        {new Date(application.createdAt).toLocaleDateString("ko-KR")}
+                      </span>
+                      <div className="pif-status-rail" aria-label="신청 진행 단계">
+                        {statusRail.map((step, index) => {
+                          const isSkippedRevision = step.status === "needs_revision" && view.status !== "needs_revision";
+                          const tone =
+                            index < rank ? "done" : index === rank ? (view.status === "needs_revision" ? "hold" : "now") : "";
+                          return (
+                            <em key={step.status} className={`${tone} ${isSkippedRevision && index !== rank ? "optional" : ""}`}>
+                              {step.label}
+                            </em>
+                          );
+                        })}
+                      </div>
+                      {view.revisionNotes.map((noteText) => (
+                        <small key={noteText} className="pif-revision-note">
+                          {noteText} 자료를 보강해 새 신청으로 다시 제출하면 이어서 검토됩니다.
+                        </small>
+                      ))}
+                      <small>
+                        {application.serverQueueState === "queued"
+                          ? "운영 큐에 접수됨"
+                          : application.serverQueueState === "preview_only"
+                            ? "데모 접수 (운영 DB 연결 전, 상태는 자동 시뮬레이션)"
+                            : "이 브라우저에 저장됨 (상태는 자동 시뮬레이션)"}
+                      </small>
+                    </div>
+                  );
+                })
               ) : (
                 <span className="pif-empty">아직 제출한 PIF 신청이 없습니다.</span>
               )}
