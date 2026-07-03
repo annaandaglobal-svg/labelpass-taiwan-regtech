@@ -37,9 +37,12 @@ type IngredientFields = {
 // Optional trailing qualifier such as "(국문)", "(INCI)", "(en)", "/ KOR" that real
 // cosmetic and food ingredient sheets append after the core header word.
 const headerQualifier = "(?:\\s*[\\(（/][^)）]*[\\)）]?)?";
+// A trailing descriptor real sheets append after the ingredient word, e.g.
+// "INGREDIENTS LIST", "성분 목록", "원료 명세". Kept optional so bare headers still match.
+const ingredientListSuffix = "(?:\\s*(?:list|listing|리스트|목록|명세서?|내역|현황)\\.?)?";
 const ingredientHeaderPattern = /(원재료|원료명|성분명|전성분|주성분|ingredient|ingredients|inci|material\s*name|raw\s*material|trade\s*name|原料|成分)/i;
 const exactIngredientHeaderPattern = new RegExp(
-  `^(?:원재료명?|원료명|성분명|전성분|주성분|ingredients?|ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|原料名?|成分名?|全成分)${headerQualifier}$`,
+  `^(?:원재료명?|원료명|성분명|전성분|주성분|ingredients?|ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|原料名?|成分名?|全成分)${ingredientListSuffix}${headerQualifier}$`,
   "i"
 );
 const localIngredientHeaderPattern = new RegExp(
@@ -50,7 +53,7 @@ const localIngredientHeaderPattern = new RegExp(
 // headers, or a bare "Ingredients" with no language qualifier. A qualified header such
 // as INGREDIENTS(KR) or INGREDIENTS(CN) must NOT be treated as the english column.
 const englishIngredientHeaderPattern = new RegExp(
-  `^ingredients?\\s*\\((?:en|eng|english|eu|inci)\\)$|^(?:ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|english|英文)${headerQualifier}$|^ingredients?$`,
+  `^ingredients?\\s*\\((?:en|eng|english|eu|inci)\\)$|^(?:ingredient\\s*name|inci(?:\\s*name)?|material\\s*name|raw\\s*materials?|trade\\s*name|english|英文)${headerQualifier}$|^ingredients?${ingredientListSuffix}$`,
   "i"
 );
 const chineseIngredientHeaderPattern = /^(ingredients?\s*\((cn|zh|chinese)\)|대만어|대만|중문|번체|中文|繁體|繁体|台灣|台湾|臺灣|臺灣)$/i;
@@ -408,6 +411,28 @@ function findProductName(rows: string[][]) {
   return "";
 }
 
+// When a sheet carries no labelled "제품명:"/"Products Name:" cell, the product identity is
+// usually a bare title line above the ingredient header. Pick the first title-like cell,
+// skipping product codes, header keywords, and company/metadata rows.
+function findTitleProductName(rows: string[][], headerIndex: number) {
+  const limit = headerIndex > 0 ? headerIndex : Math.min(rows.length, 4);
+  for (let rowIndex = 0; rowIndex < limit; rowIndex += 1) {
+    for (const rawCell of rows[rowIndex] ?? []) {
+      const value = cleanCell(rawCell);
+      if (value.length < 4 || value.length > 60) continue;
+      if (!/[A-Za-z가-힣一-鿿]/.test(value)) continue; // must contain a real word
+      if (/^[A-Z0-9()\-_.\/]+$/.test(value)) continue; // pure product/lot code
+      if (productNamePattern.test(value) || parseProductNameCell(value)) continue;
+      if (ingredientHeaderPattern.test(value) || originHeaderPattern.test(value)) continue;
+      if (amountHeaderPattern.test(value) || nutritionHeaderPattern.test(value)) continue;
+      if (rowNumberHeaderPattern.test(value)) continue;
+      if (manufacturerRowLabelPattern.test(value) || companyEntityPattern.test(value)) continue;
+      return value;
+    }
+  }
+  return "";
+}
+
 function formatIngredient(fields: IngredientFields) {
   const names = unique([fields.localName, fields.englishName, fields.zhName]);
   if (!names.length) return "";
@@ -464,7 +489,7 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
   if (headerIndex < 0) {
     return {
       sheetName,
-      productName: findProductName(rows),
+      productName: findProductName(rows) || findTitleProductName(rows, headerIndex),
       originText: "",
       ingredients: [],
       nutrition: [],
@@ -477,12 +502,21 @@ function extractSheet(rows: string[][], sheetName: string): SheetExtraction {
   const ingredientCol = localIngredientCol >= 0 ? localIngredientCol : findColumn(headerRow, exactIngredientHeaderPattern);
   const originCol = findColumn(headerRow, originHeaderPattern, ingredientCol);
   const chineseCol = findColumn(headerRow, chineseIngredientHeaderPattern, ingredientCol);
-  const englishCol = findColumn(headerRow, englishIngredientHeaderPattern, ingredientCol);
+  let englishCol = findColumn(headerRow, englishIngredientHeaderPattern, ingredientCol);
+  // Some sheets label the local and english name columns identically (e.g. two adjacent
+  // "INGREDIENTS LIST" columns for the Korean and English names). When the english match
+  // collapses onto the local column, take the next distinct ingredient-header column.
+  if (englishCol < 0 || englishCol === ingredientCol) {
+    const secondaryIngredientCol = headerRow.findIndex(
+      (cell, index) => index !== ingredientCol && exactIngredientHeaderPattern.test(cell)
+    );
+    if (secondaryIngredientCol >= 0) englishCol = secondaryIngredientCol;
+  }
   const actualAmountCol = findColumn(headerRow, actualAmountHeaderPattern, ingredientCol);
   const amountCol = actualAmountCol >= 0 ? actualAmountCol : findColumn(headerRow, amountHeaderPattern, ingredientCol);
   const casCol = findColumn(headerRow, casHeaderPattern, ingredientCol);
   const functionCol = findColumn(headerRow, functionHeaderPattern, ingredientCol);
-  const productName = findProductName(rows);
+  const productName = findProductName(rows) || findTitleProductName(rows, headerIndex);
   const ingredients: string[] = [];
   const origins: string[] = [];
 

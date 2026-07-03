@@ -97,8 +97,28 @@ assert(/정제수 \/ Water \/ 水/.test(d.ingredientsText), "D missing KR/EN/CN 
 assert(!/젬나컴퍼니/.test(d.ingredientsText), "D leaked company name into ingredients");
 assertNoNoise(d, "D");
 
+// Case E: real "발송" suncream sheet shape — a bare product-title cell (no "제품명:" label),
+// a product-code row, and TWO identically-labelled "INGREDIENTS LIST" columns for the
+// Korean and English names, with a CONTENT% amount column. Regression: header wording
+// "INGREDIENTS LIST" was not recognized, so the whole sheet extracted zero ingredients.
+const caseE = build([
+  ["", "더마썬 논나노 징크 선크림", "", ""],
+  ["", "CCNS2252-RB(NAS)", "", ""],
+  ["NO.", "INGREDIENTS LIST", "INGREDIENTS LIST", "CONTENT%"],
+  ["1", "정제수", "WATER", ""],
+  ["2", "징크옥사이드", "ZINC OXIDE", ""],
+  ["3", "약모밀추출물", "HOUTTUYNIA CORDATA EXTRACT", "9.5"]
+], "발송");
+const e = extractSpreadsheetFile(caseE, "suncream_E.xlsx");
+assert(e.productName === "더마썬 논나노 징크 선크림", `E productName wrong: ${e.productName}`);
+assert(e.ingredientCount === 3, `E expected 3 ingredients, got ${e.ingredientCount}`);
+assert(/정제수 \/ WATER/.test(e.ingredientsText), "E missing KR/EN join for 정제수");
+assert(/약모밀추출물.*함량 9\.5%/.test(e.ingredientsText), "E missing CONTENT% amount for 약모밀추출물");
+assert(!/CCNS2252/.test(e.ingredientsText), "E leaked product code into ingredients");
+assertNoNoise(e, "E");
+
 if (failures) {
   process.exitCode = 1;
 } else {
-  console.log("Intake parser test passed: 3 cosmetic sheets extracted, no 번호/Total/회사명 noise.");
+  console.log("Intake parser test passed: 5 cosmetic sheets extracted, no 번호/Total/회사명 noise.");
 }
