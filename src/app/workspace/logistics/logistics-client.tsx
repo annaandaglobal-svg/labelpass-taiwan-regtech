@@ -26,9 +26,12 @@ import type {
 import {
   LOGISTICS_REQUESTS_STORAGE_KEY,
   MAX_LOGISTICS_REQUESTS,
+  deriveLogisticsDemoRequest,
   logisticsRequestStatusLabels,
+  logisticsTemperatureLabels,
   parseLogisticsRequests,
-  type LogisticsRequestDraft
+  type LogisticsRequestDraft,
+  type LogisticsTemperature
 } from "@/lib/logistics-request-drafts";
 
 const stateLabels: Record<string, string> = {
@@ -68,14 +71,23 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
   const [selectedReference, setSelectedReference] = useState<string | null>(shipments[0]?.reference ?? null);
   const [requests, setRequests] = useState<LogisticsRequestDraft[]>([]);
   const [productName, setProductName] = useState("");
+  const [originCountry, setOriginCountry] = useState("KR");
   const [originPort, setOriginPort] = useState("PUS");
   const [destinationPort, setDestinationPort] = useState("KEL");
   const [mode, setMode] = useState<"ocean" | "air">("ocean");
+  const [incoterms, setIncoterms] = useState("CIF");
+  const [weightKg, setWeightKg] = useState("");
+  const [temperature, setTemperature] = useState<LogisticsTemperature>("ambient");
+  const [docsNote, setDocsNote] = useState("");
   const [note, setNote] = useState("");
   const [toast, setToast] = useState("");
 
   useEffect(() => {
-    setRequests(parseLogisticsRequests(window.localStorage.getItem(LOGISTICS_REQUESTS_STORAGE_KEY)));
+    const loaded = parseLogisticsRequests(window.localStorage.getItem(LOGISTICS_REQUESTS_STORAGE_KEY)).map((request) =>
+      deriveLogisticsDemoRequest(request)
+    );
+    setRequests(loaded);
+    window.localStorage.setItem(LOGISTICS_REQUESTS_STORAGE_KEY, JSON.stringify(loaded.slice(0, MAX_LOGISTICS_REQUESTS)));
     const params = new URLSearchParams(window.location.search);
     const product = params.get("product");
     if (product?.trim()) setProductName(product.trim());
@@ -92,6 +104,11 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
     [shipments, selectedReference]
   );
 
+  function persistRequests(next: LogisticsRequestDraft[]) {
+    setRequests(next);
+    window.localStorage.setItem(LOGISTICS_REQUESTS_STORAGE_KEY, JSON.stringify(next.slice(0, MAX_LOGISTICS_REQUESTS)));
+  }
+
   function submitRequest() {
     if (!productName.trim()) {
       setToast("제품명을 입력해주세요.");
@@ -101,18 +118,29 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
       id: newId(),
       createdAt: new Date().toISOString(),
       productName: productName.trim(),
+      originCountry,
       originPort,
       destinationPort,
       mode,
+      incoterms,
+      weightKg: Number.parseFloat(weightKg) || 0,
+      temperature,
+      docsNote: docsNote.trim(),
       note: note.trim(),
-      status: "requested"
+      status: "requested",
+      quote: null
     };
-    const next = [request, ...requests].slice(0, MAX_LOGISTICS_REQUESTS);
-    setRequests(next);
-    window.localStorage.setItem(LOGISTICS_REQUESTS_STORAGE_KEY, JSON.stringify(next));
+    persistRequests([request, ...requests]);
     setProductName("");
+    setWeightKg("");
+    setDocsNote("");
     setNote("");
-    setToast("물류사 매칭 요청을 저장했습니다. 운영팀이 견적 가능한 물류사를 연결합니다.");
+    setToast("물류사 매칭 요청을 저장했습니다. 데모 모드에서는 약 1분 뒤 mock 견적이 도착합니다.");
+  }
+
+  function confirmBooking(requestId: string) {
+    persistRequests(requests.map((request) => (request.id === requestId ? { ...request, status: "booked" as const } : request)));
+    setToast("예약을 확정했습니다. 선적이 시작되면 항로 지도와 타임라인에 반영됩니다.");
   }
 
   return (
@@ -216,20 +244,30 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
               </label>
               <div className="logi-route-fields">
                 <label className="lp-field">
-                  <span>출발</span>
+                  <span>출발국</span>
+                  <select value={originCountry} onChange={(event) => setOriginCountry(event.target.value)}>
+                    <option value="KR">한국 KR</option>
+                    <option value="JP">일본 JP</option>
+                    <option value="CN">중국 CN</option>
+                  </select>
+                </label>
+                <label className="lp-field">
+                  <span>출발항</span>
                   <select value={originPort} onChange={(event) => setOriginPort(event.target.value)}>
                     <option value="PUS">부산 PUS</option>
                     <option value="ICN">인천 ICN</option>
                   </select>
                 </label>
                 <label className="lp-field">
-                  <span>도착</span>
+                  <span>도착항</span>
                   <select value={destinationPort} onChange={(event) => setDestinationPort(event.target.value)}>
                     <option value="KEL">기륭 KEL</option>
                     <option value="TPE">타이베이 TPE</option>
                     <option value="KHH">가오슝 KHH</option>
                   </select>
                 </label>
+              </div>
+              <div className="logi-route-fields">
                 <label className="lp-field">
                   <span>운송</span>
                   <select value={mode} onChange={(event) => setMode(event.target.value === "air" ? "air" : "ocean")}>
@@ -237,25 +275,84 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
                     <option value="air">항공</option>
                   </select>
                 </label>
+                <label className="lp-field">
+                  <span>Incoterms</span>
+                  <select value={incoterms} onChange={(event) => setIncoterms(event.target.value)}>
+                    <option value="EXW">EXW</option>
+                    <option value="FOB">FOB</option>
+                    <option value="CIF">CIF</option>
+                    <option value="DAP">DAP</option>
+                    <option value="DDP">DDP</option>
+                  </select>
+                </label>
+                <label className="lp-field">
+                  <span>예상 중량(kg)</span>
+                  <input
+                    type="number"
+                    min="0"
+                    inputMode="decimal"
+                    value={weightKg}
+                    onChange={(event) => setWeightKg(event.target.value)}
+                    placeholder="예: 480"
+                  />
+                </label>
+              </div>
+              <div className="logi-route-fields logi-route-fields-two">
+                <label className="lp-field">
+                  <span>온도조건</span>
+                  <select value={temperature} onChange={(event) => setTemperature(event.target.value as LogisticsTemperature)}>
+                    <option value="ambient">상온</option>
+                    <option value="chilled">냉장</option>
+                    <option value="frozen">냉동</option>
+                  </select>
+                </label>
+                <label className="lp-field">
+                  <span>서류조건</span>
+                  <input
+                    value={docsNote}
+                    onChange={(event) => setDocsNote(event.target.value)}
+                    placeholder="예: 위생증명 필요, 수입검사 사전예약"
+                  />
+                </label>
               </div>
               <label className="lp-field">
                 <span>요청 메모</span>
-                <textarea rows={2} value={note} onChange={(event) => setNote(event.target.value)} placeholder="수량, 희망 일정, 냉장 여부 등을 남겨주세요." />
+                <textarea rows={2} value={note} onChange={(event) => setNote(event.target.value)} placeholder="수량, 희망 일정 등을 남겨주세요." />
               </label>
               <button className="lp-button" type="button" onClick={submitRequest}>
                 <Send size={15} />
-                물류사 매칭 요청
+                물류 견적 요청
               </button>
               {requests.length > 0 && (
                 <div className="logi-request-list" aria-label="내 물류 요청">
                   {requests.map((request) => (
-                    <span key={request.id}>
-                      {request.mode === "air" ? <Plane size={13} /> : <Anchor size={13} />}
-                      <b>{request.productName}</b>
-                      <small>
-                        {request.originPort} → {request.destinationPort} · {logisticsRequestStatusLabels[request.status]}
-                      </small>
-                    </span>
+                    <div key={request.id} className="logi-request-row">
+                      <span>
+                        {request.mode === "air" ? <Plane size={13} /> : <Anchor size={13} />}
+                        <b>{request.productName}</b>
+                        <small>
+                          {request.originCountry} {request.originPort} → {request.destinationPort}
+                          {request.incoterms ? ` · ${request.incoterms}` : ""}
+                          {request.weightKg > 0 ? ` · ${request.weightKg}kg` : ""} · {logisticsTemperatureLabels[request.temperature]} ·{" "}
+                          {logisticsRequestStatusLabels[request.status]}
+                        </small>
+                      </span>
+                      {request.status === "quoted" && request.quote && (
+                        <div className="logi-request-quote">
+                          <b>
+                            USD {request.quote.amountRangeUsd[0]}–{request.quote.amountRangeUsd[1]} · {request.quote.transitDays}일 ·{" "}
+                            {request.quote.partner}
+                          </b>
+                          <small>{request.quote.detail}</small>
+                          <button className="lp-button secondary" type="button" onClick={() => confirmBooking(request.id)}>
+                            예약 확정
+                          </button>
+                        </div>
+                      )}
+                      {request.status === "booked" && (
+                        <small className="logi-request-booked">예약 확정됨 · 선적 준비 단계로 넘어갑니다.</small>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
