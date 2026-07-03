@@ -1,7 +1,9 @@
 import { AlertTriangle, CheckCircle2, Database, KeyRound, ListChecks, LockKeyhole, Route, ShieldCheck } from "lucide-react";
 import { aiReviewReadiness } from "@/lib/ai-review";
 import { handoffRequestReadiness } from "@/lib/handoff-requests";
+import { pifRequestReadiness } from "@/lib/pif-requests";
 import { platformOpsActionReadiness } from "@/lib/platform-ops-actions";
+import { portoneReadiness } from "@/lib/portone";
 import { AdminOpsDryRunButton } from "./admin-ops-dry-run-button";
 
 const storageLabels = {
@@ -15,6 +17,8 @@ export function AdminOpsReadinessCard() {
   const readiness = platformOpsActionReadiness();
   const handoffReadiness = handoffRequestReadiness();
   const aiReadiness = aiReviewReadiness();
+  const pifReadiness = pifRequestReadiness();
+  const payments = portoneReadiness();
   const flags = [
     {
       label: "운영 DB",
@@ -71,6 +75,20 @@ export function AdminOpsReadinessCard() {
       detail: "전문가, 결제, 채팅, 물류, 선적 상태 변경을 live로 적용",
       env: "LABELPASS_ENABLE_ADMIN_DB_WRITES=1 + LABELPASS_ADMIN_OPS_TOKEN",
       ready: readiness.writesReady
+    },
+    {
+      label: "PIF 신청 저장",
+      owner: "Supabase + 토큰",
+      detail: "고객 PIF 신청을 products·product_documents·audit_logs에 실기록 (현재는 데모/localStorage)",
+      env: "SUPABASE_DB_URL + LABELPASS_ENABLE_ADMIN_DB_WRITES=1 + LABELPASS_ADMIN_OPS_TOKEN",
+      ready: pifReadiness.writesReady
+    },
+    {
+      label: "PortOne 결제창",
+      owner: "결제 키",
+      detail: "실제 결제창·정산 연동 (현재는 mock 결제로 상담방 오픈까지만 진행)",
+      env: "PORTONE_STORE_ID + PORTONE_CHANNEL_KEY + PORTONE_API_SECRET + PORTONE_WEBHOOK_SECRET",
+      ready: payments.provider === "portone"
     }
   ];
   const apiChecks = [
@@ -91,6 +109,18 @@ export function AdminOpsReadinessCard() {
       endpoint: "/api/admin/ops/actions",
       detail: "운영자가 전문가, 결제, 채팅, 물류, 선적 상태를 변경",
       ready: readiness.writesReady
+    },
+    {
+      label: "PIF 신청 접수",
+      endpoint: "/api/pif/applications",
+      detail: "고객 PIF 신청과 첨부 메타데이터를 저장 (미연결 시 dry-run/데모)",
+      ready: pifReadiness.writesReady
+    },
+    {
+      label: "결제 checkout",
+      endpoint: "/api/payments/checkout",
+      detail: `상담 결제 세션 생성 (현재 provider: ${payments.provider === "portone" ? "PortOne" : "mock 데모"})`,
+      ready: payments.provider === "portone"
     }
   ];
   const readyCount = connectionChecks.filter((item) => item.ready).length;
