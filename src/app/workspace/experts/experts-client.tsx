@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
+  Receipt,
   CalendarClock,
   ClipboardCheck,
   CreditCard,
@@ -265,6 +266,10 @@ export function ExpertsClient() {
           <Link className="workspace-button primary" href="/experts/register">
             <BadgeCheck size={15} />
             전문가로 등록
+          </Link>
+          <Link className="workspace-button" href="/experts/quote">
+            <Receipt size={15} />
+            견적서 만들기
           </Link>
           <Link className="workspace-button" href="/workspace">
             <ClipboardCheck size={15} />

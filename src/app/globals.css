@@ -16796,3 +16796,58 @@ h2 {
 .expert-reg-note { font-size: 11.5px !important; }
 .expert-reg-done .btn { margin-top: 8px; }
 @media (max-width: 760px) { .expert-reg { padding: 18px 14px 80px; } }
+
+/* Quote (견적서) builder + customer view (v5) */
+.quote-builder { display: grid; gap: 14px; padding: 24px 26px 90px; max-width: 1040px; }
+.quote-head { display: flex; gap: 12px; align-items: flex-start; }
+.quote-head-badge { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--navy-bg); color: var(--navy); flex-shrink: 0; }
+.quote-head h1 { font-size: 21px; }
+.quote-head p { margin-top: 4px; }
+.quote-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 14px; align-items: start; }
+@media (max-width: 860px) { .quote-grid { grid-template-columns: 1fr; } }
+.quote-items { margin-top: 14px; }
+.quote-items-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.quote-currency { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.quote-currency select { border: 1.5px solid var(--line); border-radius: 8px; padding: 5px 8px; font: inherit; font-size: 12.5px; background: var(--panel); }
+.quote-item-row { display: grid; grid-template-columns: minmax(0, 1fr) 130px 34px; gap: 7px; margin-top: 7px; }
+.quote-item-row input { border: 1.5px solid var(--line); border-radius: 9px; padding: 8px 11px; font: inherit; font-size: 13px; background: var(--panel); min-width: 0; }
+.quote-item-row input:focus { outline: none; border-color: var(--navy); }
+.quote-item-amount { text-align: right; font-family: var(--mono); }
+.quote-item-remove { display: grid; place-items: center; border: 1.5px solid var(--line); border-radius: 9px; background: var(--panel); color: var(--muted); cursor: pointer; }
+.quote-item-remove:hover { border-color: var(--red); color: var(--red); }
+.quote-add { display: inline-flex; align-items: center; gap: 6px; margin-top: 9px; padding: 7px 12px; border: 1.5px dashed var(--line); border-radius: 9px; background: var(--panel); color: var(--navy); font-size: 12.5px; font-weight: 700; cursor: pointer; }
+.quote-add:hover { border-color: var(--navy); }
+.quote-escrow-toggle { display: flex; gap: 9px; align-items: center; margin-top: 14px; font-size: 12.5px; font-weight: 600; color: var(--ink); cursor: pointer; }
+.quote-escrow-toggle input { width: 16px; height: 16px; accent-color: var(--navy); }
+.quote-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.quote-share-url { margin-top: 10px; font-size: 11.5px; color: var(--navy); word-break: break-all; background: var(--navy-bg); border-radius: 8px; padding: 9px 11px; font-family: var(--mono); }
+.quote-preview-pane { position: sticky; top: 16px; }
+@media (max-width: 860px) { .quote-preview-pane { position: static; } }
+
+.quote-card { border: 1.5px solid var(--navy); border-radius: 14px; padding: 16px 17px; background: var(--panel); }
+.quote-card-title { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 800; color: var(--navy); letter-spacing: 0.3px; }
+.quote-card-meta { font-size: 12.5px; color: var(--muted); margin-top: 5px; }
+.quote-card-rows { margin-top: 11px; }
+.quote-card-row { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; padding: 6px 0; }
+.quote-card-row span:last-child { font-family: var(--mono); font-weight: 700; white-space: nowrap; }
+.quote-card-row.total { border-top: 1.5px solid var(--ink); margin-top: 5px; padding-top: 9px; font-weight: 800; font-size: 15px; }
+.quote-card-empty { font-size: 12.5px; color: var(--muted); padding: 6px 0; }
+.quote-card-escrow { display: flex; gap: 6px; align-items: center; margin-top: 11px; font-size: 11.5px; color: var(--green-dark); background: var(--green-soft); border-radius: 8px; padding: 8px 11px; font-weight: 600; }
+.quote-card-valid { font-size: 11.5px; color: var(--muted); margin-top: 8px; }
+.quote-card-by { font-size: 12px; color: var(--ink); font-weight: 700; margin-top: 9px; }
+
+.quote-view { display: grid; place-items: start center; padding: 40px 16px 90px; }
+.quote-view-card { max-width: 460px; width: 100%; }
+.quote-view-note { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
+.quote-view-pay { width: 100%; justify-content: center; margin-top: 15px; }
+.quote-view-error { color: var(--red); font-size: 12.5px; font-weight: 700; margin-top: 9px; text-align: center; }
+.quote-view-fineprint { font-size: 11px; color: var(--muted); margin-top: 10px; text-align: center; line-height: 1.6; }
+.quote-view-paid { display: flex; gap: 11px; align-items: flex-start; margin-top: 15px; padding: 13px 15px; border-radius: 11px; background: var(--green-soft); color: var(--green-dark); }
+.quote-view-paid b { display: block; font-size: 14px; }
+.quote-view-paid small { display: block; font-size: 11.5px; opacity: 0.9; margin: 2px 0 4px; }
+.quote-view-paid p { font-size: 12.5px; }
+.quote-view-empty { text-align: center; display: grid; place-items: center; gap: 8px; padding: 40px 24px; color: var(--navy); max-width: 460px; }
+.quote-view-empty h1 { font-size: 19px; color: var(--ink); }
+.quote-view-empty p { font-size: 13px; color: var(--muted); }
+.quote-view-loading { color: var(--muted); padding: 40px; }
+@media (max-width: 760px) { .quote-builder { padding: 18px 14px 80px; } }
