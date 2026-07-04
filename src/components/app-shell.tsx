@@ -12,13 +12,13 @@ const criticalShellCss = `
 .lp-content{min-width:0}
 .lp-sidebar{position:sticky;top:0;z-index:30;display:grid;grid-template-rows:auto auto auto auto 1fr;gap:12px;height:100dvh;overflow-y:auto;overscroll-behavior:contain;padding:16px 12px;border-right:1px solid #d8e1dd;background:rgba(255,255,255,.94);box-sizing:border-box}
 .lp-brand{display:flex;align-items:center;gap:10px;min-width:0}
-.lp-brand>span{display:grid;width:34px;height:34px;flex:0 0 34px;place-items:center;border-radius:8px;background:#102f3f;color:#fff;font-size:12px;font-weight:900}
+.lp-brand>span{display:grid;width:34px;height:34px;flex:0 0 34px;place-items:center;border:2.5px solid #1b3a5c;border-radius:50%;background:#fff;color:#1b3a5c;font-size:10.5px;font-weight:900;transform:rotate(-8deg)}
 .lp-brand strong,.lp-brand small,.lp-sidebar-note b,.lp-sidebar-note span{display:block}
 .lp-brand small,.lp-sidebar-note span{color:#61726e;font-size:12px;line-height:1.45}
 .lp-nav,.lp-utility-nav{display:grid;gap:6px}
 .lp-nav a,.lp-utility-nav a{display:inline-flex;align-items:center;min-width:0;border-radius:8px;text-decoration:none;box-sizing:border-box}
 .lp-nav a{gap:7px;min-height:34px;padding:7px 9px;color:#173c4c;font-size:13px;font-weight:850;white-space:nowrap}
-.lp-nav a.active,.lp-nav a:hover{background:#0d5d4d;color:#fff}
+.lp-nav a.active,.lp-nav a:hover{background:#1b3a5c;color:#fff}
 .lp-utility-label{padding:0 4px;color:#667772;font-size:10.5px;font-weight:900;text-transform:uppercase}
 .lp-utility-nav{grid-template-columns:1fr;gap:5px;border-top:1px solid #d8e1dd}
 .lp-utility-nav a{justify-content:center;gap:5px;min-height:26px;padding:4px;color:#667772;font-size:10.5px;font-weight:850;white-space:nowrap}

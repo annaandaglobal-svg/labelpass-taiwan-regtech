@@ -7,9 +7,10 @@
   --muted: #62736e;
   --line: #dbe4e0;
   --line-strong: #bfcec8;
-  --navy: #1f5067;
-  --navy-dark: #123646;
-  --navy-soft: #e5eef3;
+  --navy: #1b3a5c;
+  --navy-dark: #122a44;
+  --navy-soft: #edf2f7;
+  --navy-bg: #edf2f7;
   --green: #147b5c;
   --green-dark: #0c5a49;
   --green-soft: #e4f4ed;
@@ -10846,14 +10847,16 @@ h2 {
 
 .lp-brand > span {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   place-items: center;
-  border-radius: 8px;
-  background: #102f3f;
-  color: #fff;
-  font-size: 12px;
+  border: 2.5px solid var(--navy);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  font-size: 11px;
   font-weight: 900;
+  transform: rotate(-8deg);
 }
 
 .lp-brand strong,
@@ -10950,7 +10953,7 @@ h2 {
 
 .lp-nav a.active,
 .lp-nav a:hover {
-  background: #0d5d4d;
+  background: var(--navy);
   color: #fff;
 }
 

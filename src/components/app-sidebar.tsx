@@ -29,10 +29,10 @@ export function AppSidebar({ active }: AppSidebarProps) {
   return (
     <aside className="lp-sidebar" aria-label="LabelPass 핵심 내비게이션" data-shell-sidebar="persistent">
       <div className="lp-brand">
-        <span>LP</span>
+        <span aria-hidden="true">合格</span>
         <div>
           <strong>LabelPass</strong>
-          <small>Taiwan RegTech</small>
+          <small>대만 수출 · 검토부터 통관까지</small>
         </div>
       </div>
 
