@@ -1058,7 +1058,11 @@ export default function Home() {
     setIsReviewing(true);
     setActiveFindingId(null);
     try {
+      const startedAt = Date.now();
       const nextResult = await requestReview(nextInput);
+      // Keep the analysis animation visible briefly even when the API responds fast.
+      const elapsed = Date.now() - startedAt;
+      if (elapsed < 900) await new Promise((resolve) => setTimeout(resolve, 900 - elapsed));
       setResult(nextResult);
       const review = {
         id: globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -1335,6 +1339,21 @@ export default function Home() {
               {result && <em>{result.score}/100</em>}
             </div>
 
+            {isReviewing && !result && (
+              <div className="lp-analyzing" aria-live="polite">
+                <div className="lp-ana-seal" aria-hidden="true">審査中</div>
+                <b>대만 규제 기준으로 검토 중…</b>
+                <p>선택 품목 룰셋 적용 · 모든 판정에 근거 조문</p>
+                <ul className="lp-ana-steps">
+                  <li>업로드·입력 판독 — 라벨·전성분에서 표기 추출</li>
+                  <li>전성분 × 함량 — 금지·제한 성분 대조</li>
+                  <li>원산지·제조사 표기 교차 대조</li>
+                  <li>필수 기재사항·효능 표현 점검</li>
+                  <li>HS/CCC 추정 · 관세·세금 예상 계산</li>
+                </ul>
+              </div>
+            )}
+
             {result && currentStatus ? (
               <>
                 <div className={`lp-verdict ${currentStatus.tone}`}>
@@ -1567,7 +1586,7 @@ export default function Home() {
               </>
             ) : null}
 
-            {!result && (
+            {!result && !isReviewing && (
               <div className="lp-action-plan info lp-action-plan-pending" data-steady-handoff="true">
                 <div className="lp-action-plan-head">
                   <span>
