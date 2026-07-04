@@ -890,6 +890,8 @@ export default function Home() {
   const [isExtractingFiles, setIsExtractingFiles] = useState(false);
   const [toast, setToast] = useState("");
   const [activeFindingId, setActiveFindingId] = useState<string | null>(null);
+  const [cifValue, setCifValue] = useState("");
+  const [dutyRate, setDutyRate] = useState(5);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const selectedRoute = useMemo(() => findRoute(selectedRouteId), [selectedRouteId]);
@@ -1112,12 +1114,27 @@ export default function Home() {
   }
 
   const currentStatus = result ? statusCopy[result.status] : null;
+  const stampLabel: Record<"fail" | "warn" | "info" | "pass", string> = {
+    fail: "수정 필요",
+    warn: "확인 필요",
+    info: "자료 필요",
+    pass: "적합"
+  };
   const summaryItems = [
     { label: "즉시 수정", value: result?.summary.fail ?? 0, tone: "danger" },
     { label: "자료 필요", value: result?.summary.needsInfo ?? 0, tone: "info" },
     { label: "라벨/문구", value: result?.summary.warn ?? 0, tone: "warn" },
     { label: "통과", value: result?.summary.pass ?? 0, tone: "pass" }
   ];
+  // Estimated Taiwan import tax: customs duty (rate depends on HS/CCC, user-editable),
+  // 5% business tax, and the 0.04% trade-promotion service fee. Estimate only.
+  const cifNumber = Number(String(cifValue || input.invoiceValue || "").replace(/[^0-9.]/g, "")) || 0;
+  const dutyAmount = (cifNumber * dutyRate) / 100;
+  const businessTax = (cifNumber + dutyAmount) * 0.05;
+  const tradeFee = cifNumber * 0.0004;
+  const totalTax = dutyAmount + businessTax + tradeFee;
+  const taxPct = cifNumber > 0 ? (totalTax / cifNumber) * 100 : 0;
+  const usd = (value: number) => `USD ${Math.round(value).toLocaleString("en-US")}`;
   const planStats = result ? actionPlanStats(result) : null;
   const routeHandoffCards = handoffCards(result, selectedRoute);
   const currentDraftSaved = Boolean(
@@ -1321,8 +1338,12 @@ export default function Home() {
             {result && currentStatus ? (
               <>
                 <div className={`lp-verdict ${currentStatus.tone}`}>
-                  <span>{statusIcon(result.status)}</span>
-                  <div>
+                  <div className={`lp-stamp ${currentStatus.tone}`} aria-hidden="true">
+                    <small>1차 검토</small>
+                    <b>{stampLabel[currentStatus.icon]}</b>
+                    <small>{new Date(result.generatedAt).toLocaleDateString("ko-KR")}</small>
+                  </div>
+                  <div className="lp-verdict-body">
                     <b>{currentStatus.label}</b>
                     <p>{currentStatus.detail}</p>
                   </div>
@@ -1366,6 +1387,65 @@ export default function Home() {
                     ))}
                   </div>
                 )}
+
+                <div className="lp-taxcard" aria-label="관세·세금 예상">
+                  <div className="lp-taxcard-head">
+                    <b>참고 · 관세·세금 예상</b>
+                    <span className="lp-tax-badge">예상치</span>
+                  </div>
+                  <div className="lp-tax-boxes">
+                    <div className="lp-taxbox">
+                      <span className="tl">HS/CCC</span>
+                      <span className="tv">{input.hsCode?.trim() || "미입력"}</span>
+                    </div>
+                    <div className="lp-taxbox">
+                      <span className="tl">적용 세율(예상)</span>
+                      <span className="tv">관세 {dutyRate}% + 영업세 5%</span>
+                    </div>
+                  </div>
+                  <div className="lp-tax-calc">
+                    <label className="lp-tax-field">
+                      <span>인보이스 가액 (CIF, USD)</span>
+                      <input
+                        value={cifValue}
+                        onChange={(event) => setCifValue(event.target.value)}
+                        placeholder={input.invoiceValue?.trim() || "예: 10000"}
+                        inputMode="decimal"
+                      />
+                    </label>
+                    <label className="lp-tax-field lp-tax-rate">
+                      <span>관세율(%)</span>
+                      <input type="number" min={0} value={dutyRate} onChange={(event) => setDutyRate(Number(event.target.value) || 0)} />
+                    </label>
+                  </div>
+                  {cifNumber > 0 ? (
+                    <div className="lp-tax-rows">
+                      <div className="lp-taxrow">
+                        <span>① 관세 (CIF × {dutyRate}%)</span>
+                        <span>{usd(dutyAmount)}</span>
+                      </div>
+                      <div className="lp-taxrow">
+                        <span>② 영업세 ((CIF + 관세) × 5%)</span>
+                        <span>{usd(businessTax)}</span>
+                      </div>
+                      <div className="lp-taxrow">
+                        <span>③ 무역추진서비스비 (CIF × 0.04%)</span>
+                        <span>{usd(tradeFee)}</span>
+                      </div>
+                      <div className="lp-taxrow total">
+                        <span>예상 세부담 합계</span>
+                        <span>
+                          {usd(totalTax)} · CIF 대비 약 {taxPct.toFixed(1)}%
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="lp-tax-empty">인보이스 가액(CIF)을 넣으면 예상 세부담을 계산합니다.</p>
+                  )}
+                  <p className="lp-tax-hint">
+                    ⚠️ HS/CCC 세번 분류와 세율에 따른 예상치입니다. 실제 세액은 통관 시 확정되며, 정확한 세번·세율은 관세사 확인을 권장합니다.
+                  </p>
+                </div>
 
                 {result.aiAnalysis && (
                   <div className={`lp-ai-panel ${result.aiAnalysis.status === "generated" ? "ready" : "locked"}`}>
