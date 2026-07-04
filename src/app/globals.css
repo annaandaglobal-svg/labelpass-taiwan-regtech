@@ -16772,3 +16772,27 @@ h2 {
   .lp-ana-seal { animation: none; }
   .lp-ana-steps li { animation: none; opacity: 0.85; }
 }
+
+/* Expert registration / onboarding (v5) */
+.expert-reg { display: grid; gap: 14px; padding: 24px 26px 90px; max-width: 760px; }
+.expert-reg-head { display: flex; gap: 12px; align-items: flex-start; }
+.expert-reg-badge { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--navy-bg); color: var(--navy); flex-shrink: 0; }
+.expert-reg-head h1 { font-size: 21px; }
+.expert-reg-head p { margin-top: 4px; }
+.expert-reg-group { margin-top: 14px; }
+.expert-reg-label { display: block; font-size: 12.5px; font-weight: 800; color: var(--muted); margin-bottom: 8px; }
+.expert-reg-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.expert-reg-chips button { padding: 7px 13px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--panel); font-size: 12.5px; font-weight: 700; color: var(--muted); cursor: pointer; }
+.expert-reg-chips button:hover { border-color: var(--navy); color: var(--navy); }
+.expert-reg-chips button.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+.expert-reg .lp-field select { width: 100%; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 13.5px; background: var(--panel); }
+.expert-reg .lp-field select:focus { outline: none; border-color: var(--navy); }
+.expert-reg-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.expert-reg-actions small { font-size: 11.5px; color: var(--muted); }
+.expert-reg-error { margin-top: 12px; font-size: 12.5px; color: var(--red); font-weight: 700; }
+.expert-reg-done { text-align: center; display: grid; place-items: center; gap: 8px; padding: 40px 24px; color: var(--navy); }
+.expert-reg-done h1 { font-size: 20px; color: var(--ink); }
+.expert-reg-done p { font-size: 13px; color: var(--muted); max-width: 460px; }
+.expert-reg-note { font-size: 11.5px !important; }
+.expert-reg-done .btn { margin-top: 8px; }
+@media (max-width: 760px) { .expert-reg { padding: 18px 14px 80px; } }

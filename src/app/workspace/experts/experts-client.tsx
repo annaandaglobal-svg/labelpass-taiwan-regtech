@@ -262,6 +262,10 @@ export function ExpertsClient() {
           <h1>검토 결과를 전문가에게 넘기고, 견적과 상담을 한 화면에서 진행하세요.</h1>
         </div>
         <div className="workspace-topbar-actions">
+          <Link className="workspace-button primary" href="/experts/register">
+            <BadgeCheck size={15} />
+            전문가로 등록
+          </Link>
           <Link className="workspace-button" href="/workspace">
             <ClipboardCheck size={15} />
             워크스페이스
