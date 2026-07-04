@@ -1157,7 +1157,7 @@ export default function Home() {
           <div className="lp-top-actions">
             <Link className="lp-button" href="/workspace">
               <PackageCheck size={16} />
-              워크스페이스
+              내 제품
             </Link>
             <a className="lp-button secondary" href="#intake">
               <ClipboardCheck size={16} />
@@ -1165,6 +1165,19 @@ export default function Home() {
             </a>
           </div>
         </header>
+
+        <ol className="review-steps" aria-label="검토 진행 단계">
+          {["품목 선택", "파일·성분 입력", "AI 1차 검토", "판정 리포트"].map((stepLabel, stepIndex) => {
+            const currentStep = result ? 3 : isReviewing ? 2 : 1;
+            const stepState = stepIndex < currentStep ? "done" : stepIndex === currentStep ? "now" : "";
+            return (
+              <li key={stepLabel} className={stepState}>
+                <i>{stepIndex + 1}</i>
+                {stepLabel}
+              </li>
+            );
+          })}
+        </ol>
 
         <section className="lp-route-band" aria-label="품목 선택">
           <div className="lp-section-head">
