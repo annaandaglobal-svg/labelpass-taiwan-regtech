@@ -10,7 +10,11 @@ type AppShellProps = {
 const criticalShellCss = `
 .lp-shell{min-height:100vh;display:grid;grid-template-columns:224px minmax(0,1fr);background:#eef3f1;color:#101918;letter-spacing:0}
 .lp-content{min-width:0}
-.lp-sidebar{position:sticky;top:0;z-index:30;display:grid;grid-template-rows:auto auto auto auto 1fr;gap:12px;height:100dvh;overflow-y:auto;overscroll-behavior:contain;padding:16px 12px;border-right:1px solid #d8e1dd;background:rgba(255,255,255,.94);box-sizing:border-box}
+.lp-sidebar{position:sticky;top:0;z-index:30;display:flex;flex-direction:column;gap:10px;height:100dvh;overflow-y:auto;overscroll-behavior:contain;padding:16px 12px;border-right:1px solid #d8e1dd;background:rgba(255,255,255,.94);box-sizing:border-box}
+.lp-newbtn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:40px;border-radius:10px;background:#1b3a5c;color:#fff;font-size:13.5px;font-weight:800;text-decoration:none}
+.lp-plan{margin-top:auto;display:grid;gap:5px;padding:13px;border-radius:11px;background:#edf2f7;color:#5b6b7b;font-size:12px}
+.lp-plan b{color:#152433;font-size:13px}
+.lp-plan-link{color:#1b3a5c;font-weight:800;font-size:12px;text-decoration:none}
 .lp-brand{display:flex;align-items:center;gap:10px;min-width:0}
 .lp-brand>span{display:grid;width:34px;height:34px;flex:0 0 34px;place-items:center;border:2.5px solid #1b3a5c;border-radius:50%;background:#fff;color:#1b3a5c;font-size:10.5px;font-weight:900;transform:rotate(-8deg)}
 .lp-brand strong,.lp-brand small,.lp-sidebar-note b,.lp-sidebar-note span{display:block}
@@ -32,7 +36,7 @@ const criticalShellCss = `
 .admin-hero p,.admin-section-hero p{margin:0 0 5px;color:#0c5a49;font-size:10.5px;font-weight:900;text-transform:uppercase}
 .admin-hero h1,.admin-section-hero h1{max-width:760px;margin:0;font-size:14.5px;line-height:1.28;letter-spacing:0}
 .admin-secondary-action{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:26px;max-width:280px;padding:0 7px;border:1px solid #d9e5df;border-radius:6px;background:#f8fbfa;color:#0c5a49;font-size:10.5px;font-weight:900;text-decoration:none;white-space:nowrap}
-@media (max-width:980px){.lp-shell{grid-template-columns:1fr}.lp-sidebar{top:0;height:auto;grid-template-rows:auto auto auto auto;gap:10px;padding:10px 12px;border-right:0;border-bottom:1px solid #d8e1dd}.lp-sidebar-note{display:none}.lp-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.lp-nav a{flex-direction:column;justify-content:center;gap:3px;min-height:42px;padding:5px 3px;font-size:10.5px;text-align:center;white-space:normal}.lp-utility-nav{grid-template-columns:1fr}.lp-utility-nav a{justify-content:center;min-height:28px;padding:5px 6px}.admin-section-nav{grid-template-columns:repeat(4,minmax(0,1fr));overflow-x:visible}.admin-hero,.admin-section-hero{grid-template-columns:minmax(0,1fr) auto}}
+@media (max-width:980px){.lp-shell{grid-template-columns:1fr}.lp-sidebar{top:0;height:auto;flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 12px;border-right:0;border-bottom:1px solid #d8e1dd}.lp-sidebar-note,.lp-newbtn,.lp-plan{display:none}.lp-nav{flex:1;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.lp-nav a{flex-direction:column;justify-content:center;gap:3px;min-height:42px;padding:5px 3px;font-size:10.5px;text-align:center;white-space:normal}.lp-utility-nav{grid-template-columns:1fr}.lp-utility-nav a{justify-content:center;min-height:28px;padding:5px 6px}.admin-section-nav{grid-template-columns:repeat(4,minmax(0,1fr));overflow-x:visible}.admin-hero,.admin-section-hero{grid-template-columns:minmax(0,1fr) auto}}
 @media (max-width:720px){.lp-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.lp-nav a[data-shell-nav-item="knowledge"]{grid-column:1/-1;flex-direction:row}.admin-main{padding:12px}.admin-hero h1,.admin-section-hero h1{display:-webkit-box;overflow:hidden;font-size:13.5px;-webkit-box-orient:vertical;-webkit-line-clamp:2}.admin-hero .admin-secondary-action,.admin-section-hero .admin-secondary-action{justify-self:end;align-self:start;max-width:132px;overflow:hidden;text-overflow:ellipsis}}
 @media (max-width:420px){.lp-nav a{min-height:32px}}
 `;

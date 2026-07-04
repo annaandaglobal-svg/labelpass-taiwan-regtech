@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { BadgeCheck, Boxes, ClipboardCheck, Search } from "lucide-react";
+import { BadgeCheck, Boxes, ClipboardCheck, Home, Search, Ship, UserCheck } from "lucide-react";
 
-export type AppNavKey = "review" | "workspace" | "knowledge" | "admin";
+export type AppNavKey = "home" | "review" | "products" | "experts" | "logistics" | "knowledge" | "admin";
 
 type AppNavItem = {
   key: AppNavKey;
@@ -12,12 +12,14 @@ type AppNavItem = {
 };
 
 const primaryNavItems: AppNavItem[] = [
-  { key: "workspace", href: "/workspace", label: "워크스페이스", icon: Boxes },
-  { key: "review", href: "/", label: "검토", icon: ClipboardCheck },
-  { key: "knowledge", href: "/knowledge", label: "통합검색", ariaLabel: "성분, 통관, 라벨, 규정 통합검색", icon: Search }
+  { key: "home", href: "/", label: "홈", icon: Home },
+  { key: "products", href: "/workspace", label: "내 제품", ariaLabel: "내 제품 · 검토 이력", icon: Boxes },
+  { key: "experts", href: "/workspace/experts", label: "전문가 검수", icon: UserCheck },
+  { key: "logistics", href: "/workspace/logistics", label: "통관·물류", icon: Ship }
 ];
 
 const utilityNavItems: AppNavItem[] = [
+  { key: "knowledge", href: "/knowledge", label: "통합검색", ariaLabel: "성분·통관·라벨·규정 통합검색", icon: Search },
   { key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리", icon: BadgeCheck }
 ];
 
@@ -35,6 +37,11 @@ export function AppSidebar({ active }: AppSidebarProps) {
           <small>대만 수출 · 검토부터 통관까지</small>
         </div>
       </div>
+
+      <Link className="lp-newbtn" href="/review" data-shell-new-review="true">
+        <ClipboardCheck size={16} />
+        새 라벨 검토
+      </Link>
 
       <nav className="lp-nav" aria-label="핵심 업무" data-shell-nav="primary" data-shell-nav-count={primaryNavItems.length}>
         {primaryNavItems.map((item) => {
@@ -59,8 +66,8 @@ export function AppSidebar({ active }: AppSidebarProps) {
         })}
       </nav>
 
-      <span className="lp-utility-label">내부 도구</span>
-      <nav className="lp-utility-nav" aria-label="운영 업무" data-shell-nav="utility" data-shell-nav-count={utilityNavItems.length}>
+      <span className="lp-utility-label">도구</span>
+      <nav className="lp-utility-nav" aria-label="검색·운영 도구" data-shell-nav="utility" data-shell-nav-count={utilityNavItems.length}>
         {utilityNavItems.map((item) => {
           const Icon = item.icon;
           const className = item.key === active ? "active" : undefined;
@@ -83,9 +90,10 @@ export function AppSidebar({ active }: AppSidebarProps) {
         })}
       </nav>
 
-      <div className="lp-sidebar-note">
-        <b>대만 우선 범위</b>
-        <span>화장품 PIF, 식품 라벨, 첨가물, 수입검사, HS/CCC를 한 흐름으로 묶습니다.</span>
+      <div className="lp-plan">
+        <b>대만 규제 상시 반영</b>
+        <span>모든 판정에 근거 조문·룰셋 버전·확인일이 함께 남습니다.</span>
+        <Link className="lp-plan-link" href="/knowledge">규정 근거 살펴보기 →</Link>
       </div>
     </aside>
   );

@@ -8,13 +8,16 @@ import type { ReactNode } from "react";
 function activeNavForPath(pathname: string): AppNavKey {
   if (pathname.startsWith("/admin")) return "admin";
   if (pathname.startsWith("/knowledge")) return "knowledge";
-  if (pathname.startsWith("/workspace")) return "workspace";
-  return "review";
+  if (pathname.startsWith("/workspace/experts")) return "experts";
+  if (pathname.startsWith("/workspace/logistics")) return "logistics";
+  if (pathname.startsWith("/workspace")) return "products";
+  if (pathname.startsWith("/review")) return "review";
+  return "home";
 }
 
 function shellClassFor(active: AppNavKey) {
   if (active === "admin") return "admin-shell";
-  if (active === "workspace") return "workspace-shell";
+  if (active === "products" || active === "experts" || active === "logistics") return "workspace-shell";
   return undefined;
 }
 

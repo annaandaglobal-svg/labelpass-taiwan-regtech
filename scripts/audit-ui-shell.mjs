@@ -87,9 +87,9 @@ if (usesAppFrame) {
   requireIncludes(appFrameSource, 'pathname.startsWith("/admin")', `${appFramePath} admin active nav mapping`);
   requireIncludes(appFrameSource, 'pathname.startsWith("/knowledge")', `${appFramePath} knowledge active nav mapping`);
   requireIncludes(appFrameSource, 'pathname.startsWith("/workspace")', `${appFramePath} workspace active nav mapping`);
-  requireIncludes(appFrameSource, 'return "review";', `${appFramePath} review fallback active nav mapping`);
+  requireIncludes(appFrameSource, 'return "home";', `${appFramePath} home fallback active nav mapping`);
   requireIncludes(appFrameSource, 'if (active === "admin") return "admin-shell";', `${appFramePath} admin shell class mapping`);
-  requireIncludes(appFrameSource, 'if (active === "workspace") return "workspace-shell";', `${appFramePath} workspace shell class mapping`);
+  requireIncludes(appFrameSource, 'if (active === "products" || active === "experts" || active === "logistics") return "workspace-shell";', `${appFramePath} workspace shell class mapping`);
   requireIncludes(appFrameSource, "<AppShell active={active} className={shellClassFor(active)}>", `${appFramePath} persistent AppShell wrapper`);
 } else {
   const routeShells = [
@@ -188,7 +188,7 @@ for (const filePath of walk(join(repoRoot, "src/app"))) {
   }
 }
 
-const reviewHomeSource = read("src/app/page.tsx");
+const reviewHomeSource = read("src/app/review/page.tsx");
 requireIncludes(reviewHomeSource, "actionPlanStats", "src/app/page.tsx review action plan summary");
 requireIncludes(reviewHomeSource, "handoffCards", "src/app/page.tsx review operational handoff cards");
 requireIncludes(reviewHomeSource, "function handoffCards(result: ReviewResult | null", "src/app/page.tsx handoff cards visible before and after review");
@@ -324,14 +324,16 @@ requireIncludes(appSidebarSource, 'data-shell-nav-tier="utility"', "src/componen
 requireIncludes(appSidebarSource, "aria-label={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav accessible label fallback");
 requireIncludes(appSidebarSource, "title={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav title fallback");
 requireIncludes(appSidebarSource, 'className="lp-utility-label"', "src/components/app-sidebar.tsx internal utility label");
-for (const navLabel of ["워크스페이스", "검토", "통합검색"]) {
+for (const navLabel of ["홈", "내 제품", "전문가 검수", "통관·물류"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
+requireIncludes(appSidebarSource, 'label: "통합검색"', "src/components/app-sidebar.tsx utility search label");
 requireIncludes(appSidebarSource, 'label: "관리"', "src/components/app-sidebar.tsx utility admin visible label");
 requireIncludes(appSidebarSource, 'ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx utility admin accessible label");
 requireIncludes(appSidebarSource, '{ key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx compact admin utility label contract");
-if (appSidebarSource.indexOf('key: "workspace"') > appSidebarSource.indexOf('key: "review"')) {
-  fail("src/components/app-sidebar.tsx: workspace must be the first primary navigation item");
+requireIncludes(appSidebarSource, 'className="lp-newbtn" href="/review"', "src/components/app-sidebar.tsx new label review action");
+if (appSidebarSource.indexOf('key: "home"') > appSidebarSource.indexOf('key: "products"')) {
+  fail("src/components/app-sidebar.tsx: home must be the first primary navigation item");
 }
 
 const lpNavLink = cssRule(css, ".lp-nav a");
@@ -392,8 +394,8 @@ if (reviewWorkbenchBreakpoint < 0) {
   fail("src/app/globals.css: review console must keep the three-column workbench until the 1220px breakpoint");
 }
 
-const homePageSource = read("src/app/page.tsx");
-requireIncludes(homePageSource, 'href="/workspace"', "src/app/page.tsx workspace top action");
+const homePageSource = read("src/app/review/page.tsx");
+requireIncludes(homePageSource, 'href="/workspace"', "src/app/review/page.tsx workspace top action");
 requireIncludes(homePageSource, 'href="#intake"', "src/app/page.tsx top action");
 requireIncludes(homePageSource, 'className="lp-button secondary" href="#intake"', "src/app/page.tsx intake top action visual weight");
 requireIncludes(homePageSource, 'className="lp-intake-panel" id="intake"', "src/app/page.tsx intake anchor");

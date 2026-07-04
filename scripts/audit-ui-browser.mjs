@@ -7,12 +7,12 @@ import { join } from "node:path";
 
 const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").replace(/\/$/, "");
 const failures = [];
-const expectedPrimaryNavKeys = ["workspace", "review", "knowledge"];
-const expectedPrimaryNavHrefs = ["/workspace", "/", "/knowledge"];
-const expectedUtilityNavKeys = ["admin"];
-const expectedUtilityNavHrefs = ["/admin"];
-const expectedNavKeys = ["workspace", "review", "knowledge", "admin"];
-const expectedNavHrefs = ["/workspace", "/", "/knowledge", "/admin"];
+const expectedPrimaryNavKeys = ["home", "products", "experts", "logistics"];
+const expectedPrimaryNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics"];
+const expectedUtilityNavKeys = ["knowledge", "admin"];
+const expectedUtilityNavHrefs = ["/knowledge", "/admin"];
+const expectedNavKeys = ["home", "products", "experts", "logistics", "knowledge", "admin"];
+const expectedNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics", "/knowledge", "/admin"];
 const expectedAdminSectionHrefs = [
   "/admin",
   "/admin/companies",
@@ -25,8 +25,9 @@ const expectedAdminSectionHrefs = [
 ];
 
 const routes = [
-  { path: "/workspace", active: "workspace" },
-  { path: "/", active: "review" },
+  { path: "/", active: "home" },
+  { path: "/workspace", active: "products" },
+  { path: "/workspace/experts", active: "experts" },
   { path: `/knowledge?q=PIF&uiBrowserAudit=${Date.now()}`, active: "knowledge" },
   { path: "/admin", active: "admin", admin: true },
   { path: "/admin/experts", active: "admin", admin: true },
@@ -40,10 +41,10 @@ const viewports = [
 ];
 
 const shellTransitionSteps = [
-  { key: "review", path: "/", active: "review" },
+  { key: "home", path: "/", active: "home" },
   { key: "knowledge", path: "/knowledge", active: "knowledge" },
   { key: "admin", path: "/admin", active: "admin", admin: true },
-  { key: "workspace", path: "/workspace", active: "workspace" }
+  { key: "products", path: "/workspace", active: "products" }
 ];
 
 function fail(message) {
@@ -342,8 +343,8 @@ function assertSnapshot(snapshot, route, viewport) {
   if (snapshot.shellCount !== 1) fail(`${label}: expected one persistent app shell, found ${snapshot.shellCount}`);
   if (snapshot.sidebarCount !== 1) fail(`${label}: expected one persistent sidebar, found ${snapshot.sidebarCount}`);
   if (snapshot.contentCount !== 1) fail(`${label}: expected one stable content frame, found ${snapshot.contentCount}`);
-  if (snapshot.primaryCount !== 3) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
-  if (snapshot.utilityCount !== 1) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
+  if (snapshot.primaryCount !== 4) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
+  if (snapshot.utilityCount !== 2) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);
@@ -516,8 +517,8 @@ async function clickShellNavItem(client, key) {
 
 async function runShellTransitionAudit(client, viewport) {
   await client.command("Page.navigate", { url: routeUrl("/workspace") });
-  let previous = await waitForSnapshot(client, { path: "/workspace", active: "workspace" }, viewport);
-  assertSnapshot(previous, { path: "/workspace", active: "workspace" }, viewport);
+  let previous = await waitForSnapshot(client, { path: "/workspace", active: "products" }, viewport);
+  assertSnapshot(previous, { path: "/workspace", active: "products" }, viewport);
 
   for (const step of shellTransitionSteps) {
     await clickShellNavItem(client, step.key);
