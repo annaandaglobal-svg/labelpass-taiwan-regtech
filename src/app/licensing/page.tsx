@@ -2,8 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, CheckCircle2, FileText, ShieldCheck, UserCheck } from "lucide-react";
-import { licensingCategories, licensingTierCopy, requiredDocuments } from "@/lib/licensing-documents";
+import { ArrowRight, CheckCircle2, Download, FileText, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
+import {
+  licensingCategories,
+  licensingTierCopy,
+  refineCosmeticRequirements,
+  requiredDocuments,
+  type RequirementRefinement
+} from "@/lib/licensing-documents";
+import { templateForDocument } from "@/lib/document-templates";
 
 const STORAGE_KEY = "labelpass-licensing-checklist";
 
@@ -18,10 +25,38 @@ function readChecked(): CheckedMap {
   }
 }
 
+function loadLastReview(): { ingredientsText: string; labelText: string } | null {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem("labelpass-reviews") || "[]");
+    const first = Array.isArray(parsed) ? parsed[0] : null;
+    if (first?.input) return { ingredientsText: first.input.ingredientsText ?? "", labelText: first.input.labelText ?? "" };
+  } catch {
+    // ignore
+  }
+  return null;
+}
+
+function downloadTemplate(documentId: string) {
+  const template = templateForDocument(documentId);
+  if (!template || typeof window === "undefined") return;
+  const blob = new Blob([template.content], { type: template.mime });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = template.fileName;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
+}
+
 export default function LicensingPage() {
   const [activeId, setActiveId] = useState(licensingCategories[0].id);
   const [checked, setChecked] = useState<CheckedMap>({});
   const [loaded, setLoaded] = useState(false);
+  const [refineText, setRefineText] = useState("");
+  const [refinements, setRefinements] = useState<RequirementRefinement[]>([]);
+  const [refined, setRefined] = useState(false);
 
   useEffect(() => {
     setChecked(readChecked());
@@ -29,9 +64,18 @@ export default function LicensingPage() {
   }, []);
 
   const category = useMemo(() => licensingCategories.find((item) => item.id === activeId) ?? licensingCategories[0], [activeId]);
+  const isCosmetic = category.id === "cosmetic-pif";
+  const activeRefinements = isCosmetic ? refinements : [];
+  const refinementById = useMemo(() => new Map(activeRefinements.map((item) => [item.documentId, item.reason])), [activeRefinements]);
+
   const activeChecked = checked[activeId] ?? [];
-  const required = requiredDocuments(category);
-  const requiredReady = required.filter((document) => activeChecked.includes(document.id)).length;
+  const baseRequired = requiredDocuments(category);
+  // Docs upgraded to required for THIS product (recommended/deferrable that became required).
+  const upgradedRequired = category.documents.filter(
+    (document) => document.tier !== "required" && refinementById.has(document.id)
+  );
+  const effectiveRequired = [...baseRequired, ...upgradedRequired];
+  const requiredReady = effectiveRequired.filter((document) => activeChecked.includes(document.id)).length;
 
   function toggle(documentId: string) {
     setChecked((prev) => {
@@ -47,6 +91,25 @@ export default function LicensingPage() {
     });
   }
 
+  function runRefine() {
+    const label = refineText;
+    setRefinements(refineCosmeticRequirements({ ingredientsText: label, labelText: label }));
+    setRefined(true);
+  }
+
+  function loadReview() {
+    const review = loadLastReview();
+    if (review) {
+      const combined = [review.ingredientsText, review.labelText].filter(Boolean).join("\n");
+      setRefineText(combined);
+      setRefinements(refineCosmeticRequirements(review));
+      setRefined(true);
+    } else {
+      setRefined(true);
+      setRefinements([]);
+    }
+  }
+
   return (
     <section className="lpv5 licensing">
       <div className="licensing-head">
@@ -56,7 +119,7 @@ export default function LicensingPage() {
         <div>
           <h1>대만 인허가 서류 리스트</h1>
           <p className="sub">
-            품목별로 필요한 서류를 공식 명칭·규격과 함께 정리했습니다. 준비 상태를 체크하고, 전문가에게 검토를 넘기거나 PIF 신청으로 이어가세요.
+            품목별 필요 서류를 공식 명칭·규격과 함께 정리했습니다. 제품 성분·라벨을 넣으면 어떤 권장 서류가 이 제품엔 필수인지도 알려드립니다.
           </p>
         </div>
       </div>
@@ -85,24 +148,77 @@ export default function LicensingPage() {
         </div>
         <div className="licensing-readiness">
           <b>
-            {loaded ? requiredReady : "—"}/{required.length}
+            {loaded ? requiredReady : "—"}/{effectiveRequired.length}
           </b>
           <span>필수 서류 준비</span>
         </div>
       </div>
 
+      {isCosmetic && (
+        <div className="card licensing-refine">
+          <div className="licensing-refine-title">
+            <Sparkles size={15} />
+            제품 데이터로 정밀 판정 (선택) — 권장 서류가 이 제품엔 필수인지 확인
+          </div>
+          <div className="licensing-refine-body">
+            <textarea
+              value={refineText}
+              onChange={(event) => setRefineText(event.target.value)}
+              placeholder="전성분(함량 포함)과 라벨·효능 문구를 붙여넣으세요. 예: Water, Glycerin, Triclosan 0.5% ... / 美白 토너, 유효기한 2028"
+              rows={4}
+            />
+            <div className="licensing-refine-actions">
+              <button className="btn btn-primary btn-sm" type="button" onClick={runRefine} disabled={!refineText.trim()}>
+                <Sparkles size={14} />
+                정밀 판정
+              </button>
+              <button className="btn btn-ghost btn-sm" type="button" onClick={loadReview}>
+                최근 검토 결과 불러오기
+              </button>
+            </div>
+            {refined && (
+              <p className="licensing-refine-result">
+                {activeRefinements.length > 0
+                  ? `이 제품 기준으로 권장 서류 ${activeRefinements.length}건이 필수로 상향됐습니다. 아래에서 확인하세요.`
+                  : "이 제품 기준으로 추가 상향된 필수 서류는 없습니다. 기본 필수 항목을 준비하세요."}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="licensing-list">
         {category.documents.map((document) => {
           const tier = licensingTierCopy[document.tier];
           const isChecked = activeChecked.includes(document.id);
+          const upgradeReason = refinementById.get(document.id);
+          const upgraded = Boolean(upgradeReason) && document.tier !== "required";
+          const template = templateForDocument(document.id);
           return (
-            <label key={document.id} className={`licensing-doc${isChecked ? " ready" : ""}`}>
+            <label key={document.id} className={`licensing-doc${isChecked ? " ready" : ""}${upgraded ? " upgraded" : ""}`}>
               <input type="checkbox" checked={isChecked} onChange={() => toggle(document.id)} />
               <div className="licensing-doc-body">
                 <div className="licensing-doc-head">
-                  <span className={`chip ${tier.tone === "danger" ? "fail" : tier.tone === "warn" ? "warn" : "navy"}`}>{tier.label}</span>
+                  {upgraded ? (
+                    <span className="chip fail">필수(제품 기준)</span>
+                  ) : (
+                    <span className={`chip ${tier.tone === "danger" ? "fail" : tier.tone === "warn" ? "warn" : "navy"}`}>{tier.label}</span>
+                  )}
                   <b>{document.label}</b>
                   {isChecked && <CheckCircle2 size={14} className="licensing-doc-check" />}
+                  {template && (
+                    <button
+                      type="button"
+                      className="licensing-template-btn"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        downloadTemplate(document.id);
+                      }}
+                    >
+                      <Download size={13} />
+                      양식 다운로드
+                    </button>
+                  )}
                 </div>
                 <p className="licensing-doc-official">{document.officialName}</p>
                 <p className="licensing-doc-spec">
@@ -110,6 +226,7 @@ export default function LicensingPage() {
                   {document.spec}
                 </p>
                 <p className="licensing-doc-detail">{document.detail}</p>
+                {upgraded && <p className="licensing-doc-upgrade">↑ {upgradeReason}</p>}
                 <small className="licensing-doc-auth">{document.authority}</small>
               </div>
             </label>
@@ -135,7 +252,7 @@ export default function LicensingPage() {
       </div>
 
       <p className="licensing-foot">
-        ⚠️ 서류 요건은 품목 분류·시행일·개별 제품에 따라 달라질 수 있습니다. 최종 요건은 공식 근거와 전문가 확인을 권장합니다.
+        ⚠️ 서류 요건은 품목 분류·시행일·개별 제품에 따라 달라질 수 있습니다. 정밀 판정은 참고용이며, 최종 요건은 공식 근거와 전문가 확인을 권장합니다.
       </p>
     </section>
   );

@@ -382,3 +382,50 @@ export function licensingCategoryById(id: string) {
 export function requiredDocuments(category: LicensingCategory) {
   return category.documents.filter((document) => document.tier === "required");
 }
+
+// Optional context-aware refinement: given the product's own ingredient / label text,
+// decide which recommended (or deferrable) documents actually become REQUIRED for this
+// specific product, with a plain-language reason. This never downgrades a required item.
+export type RequirementRefinement = { documentId: string; reason: string };
+
+const CLAIM_PATTERNS: Array<{ re: RegExp; reason: string }> = [
+  { re: /미백|whiten|brighten|美白|亮白/i, reason: "미백 표현이 있어 인정 성분·시험 근거가 필요합니다." },
+  { re: /주름|안티에이징|anti[-\s]?aging|wrinkle|皺|抗老/i, reason: "주름 개선 표현이 있어 효능 근거가 필요합니다." },
+  { re: /자외선|선크림|선케어|spf|防曬|防晒|uva|uvb/i, reason: "자외선차단 표현은 특정용도 화장품 요건·SPF 근거가 필요합니다." },
+  { re: /여드름|acne|아토피|eczema|트러블|痘|抗痘/i, reason: "여드름·피부문제 표현은 의약품 경계로, 표현 근거·분류 확인이 필요합니다." },
+  { re: /탈모|육모|hair\s?loss|防脫|生髮/i, reason: "탈모·육모 표현은 의약품 경계로, 표현 근거·분류 확인이 필요합니다." }
+];
+
+// Substances that commonly need COA / concentration backing in Taiwan cosmetic review.
+const CONTROLLED_INGREDIENTS: Array<{ re: RegExp; reason: string }> = [
+  { re: /triclosan|트리클로산|三氯沙/i, reason: "제한 성분(Triclosan)이 있어 함량·규격 근거(COA)가 필요합니다." },
+  { re: /salicylic|살리실|水楊酸/i, reason: "살리실산은 함량 제한·경고문 대상으로 규격 근거가 필요합니다." },
+  { re: /hydroquinone|하이드로퀴논|對苯二酚/i, reason: "하이드로퀴논은 규제 대상 성분으로 확인·근거가 필요합니다." },
+  { re: /retinol|레티놀|retinoic|A醇/i, reason: "레티놀류는 함량·안정성 근거가 필요합니다." },
+  { re: /oxybenzone|benzophenone|자외선흡수|防曬劑/i, reason: "자외선차단 성분은 허용 한도·규격 근거가 필요합니다." },
+  { re: /mercury|수은|汞|hydroquinone/i, reason: "중금속·규제 성분 가능성으로 시험 성적서가 필요합니다." }
+];
+
+export function refineCosmeticRequirements(input: { ingredientsText?: string; labelText?: string }): RequirementRefinement[] {
+  const ingredients = (input.ingredientsText ?? "").toLowerCase();
+  const label = `${input.labelText ?? ""} ${input.ingredientsText ?? ""}`;
+  const refinements: RequirementRefinement[] = [];
+
+  const claim = CLAIM_PATTERNS.find((pattern) => pattern.re.test(label));
+  if (claim) refinements.push({ documentId: "claim-evidence", reason: claim.reason });
+
+  const controlled = CONTROLLED_INGREDIENTS.find((item) => item.re.test(ingredients));
+  if (controlled) refinements.push({ documentId: "coa", reason: controlled.reason });
+
+  // A declared shelf life / expiry claim needs stability data to back it.
+  if (/유효기한|유통기한|사용기한|exp\b|expiry|保存期限|有效期/i.test(label)) {
+    refinements.push({ documentId: "stability", reason: "유효기한 표기가 있어 안정성 시험 근거가 필요합니다." });
+  }
+
+  // A percentage concentration anywhere implies formula-level review → COA backing.
+  if (!refinements.some((item) => item.documentId === "coa") && /\d+(\.\d+)?\s*%/.test(ingredients)) {
+    refinements.push({ documentId: "coa", reason: "함량(%)이 명시되어 규격·시험 근거로 뒷받침하는 것이 좋습니다." });
+  }
+
+  return refinements;
+}
