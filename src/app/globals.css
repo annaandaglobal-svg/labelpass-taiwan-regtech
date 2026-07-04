@@ -11341,15 +11341,15 @@ h2 {
   align-items: center;
   min-height: 104px;
   padding: 13px;
-  border: 1px dashed #8fb8aa;
+  border: 1px dashed #b3c6d6;
   border-radius: 8px;
-  background: #f3faf6;
+  background: #f4f7fa;
   cursor: pointer;
 }
 
 .lp-ocr-dropzone:hover {
-  border-color: #0d5d4d;
-  background: #ecf8f2;
+  border-color: var(--navy);
+  background: var(--navy-bg);
 }
 
 .lp-ocr-icon {
@@ -11358,7 +11358,7 @@ h2 {
   height: 44px;
   place-items: center;
   border-radius: 8px;
-  background: #0d5d4d;
+  background: var(--navy);
   color: #fff;
 }
 
@@ -11388,7 +11388,7 @@ h2 {
   min-height: 32px;
   padding: 6px 10px;
   border-radius: 8px;
-  background: #123c50;
+  background: var(--navy);
   color: #fff;
   font-size: 12px;
   font-weight: 900;
@@ -13005,15 +13005,15 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
-  color: var(--green-dark);
+  color: var(--navy);
   font-size: 12px;
   font-weight: 900;
   text-decoration: none;
 }
 
 .workspace-button.primary {
-  border-color: var(--green-dark);
-  background: var(--green-dark);
+  border-color: var(--navy);
+  background: var(--navy);
   color: #fff;
 }
 

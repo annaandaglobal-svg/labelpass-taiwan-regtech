@@ -200,7 +200,7 @@ export default async function WorkspacePage() {
             <h1>대만 화장품·식품 제품, 증빙, 전문가, 물류 상태를 한 화면에서 정리합니다.</h1>
           </div>
           <div className="workspace-topbar-actions">
-            <Link className="workspace-button primary" href="/">
+            <Link className="workspace-button primary" href="/review">
               <ClipboardCheck size={15} />
               새 검토
             </Link>
