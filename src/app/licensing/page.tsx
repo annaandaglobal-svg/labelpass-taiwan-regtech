@@ -6,11 +6,12 @@ import { ArrowRight, CheckCircle2, Download, FileText, ShieldCheck, Sparkles, Us
 import {
   licensingCategories,
   licensingTierCopy,
-  refineCosmeticRequirements,
+  refineRequirements,
+  REFINABLE_CATEGORY_IDS,
   requiredDocuments,
   type RequirementRefinement
 } from "@/lib/licensing-documents";
-import { templateForDocument } from "@/lib/document-templates";
+import { FILLABLE_TEMPLATE_IDS, filledTemplate, templateForDocument, type ReviewFillData } from "@/lib/document-templates";
 
 const STORAGE_KEY = "labelpass-licensing-checklist";
 
@@ -25,19 +26,31 @@ function readChecked(): CheckedMap {
   }
 }
 
-function loadLastReview(): { ingredientsText: string; labelText: string } | null {
+function loadLastReview(): ReviewFillData | null {
   try {
     const parsed = JSON.parse(window.localStorage.getItem("labelpass-reviews") || "[]");
-    const first = Array.isArray(parsed) ? parsed[0] : null;
-    if (first?.input) return { ingredientsText: first.input.ingredientsText ?? "", labelText: first.input.labelText ?? "" };
+    const input = Array.isArray(parsed) ? parsed[0]?.input : null;
+    if (input) {
+      return {
+        productName: input.productName ?? "",
+        productType: input.productType ?? "",
+        manufacturer: input.manufacturer ?? "",
+        origin: input.origin ?? "",
+        ingredientsText: input.ingredientsText ?? "",
+        // labelText carried via ingredientsText+labelText for refinement below
+        brandName: input.productName ?? ""
+      };
+    }
   } catch {
     // ignore
   }
   return null;
 }
 
-function downloadTemplate(documentId: string) {
-  const template = templateForDocument(documentId);
+function downloadTemplate(documentId: string, fill: ReviewFillData | null) {
+  const template = fill && (FILLABLE_TEMPLATE_IDS as readonly string[]).includes(documentId)
+    ? filledTemplate(documentId, fill)
+    : templateForDocument(documentId);
   if (!template || typeof window === "undefined") return;
   const blob = new Blob([template.content], { type: template.mime });
   const url = URL.createObjectURL(blob);
@@ -57,6 +70,7 @@ export default function LicensingPage() {
   const [refineText, setRefineText] = useState("");
   const [refinements, setRefinements] = useState<RequirementRefinement[]>([]);
   const [refined, setRefined] = useState(false);
+  const [reviewFill, setReviewFill] = useState<ReviewFillData | null>(null);
 
   useEffect(() => {
     setChecked(readChecked());
@@ -64,8 +78,8 @@ export default function LicensingPage() {
   }, []);
 
   const category = useMemo(() => licensingCategories.find((item) => item.id === activeId) ?? licensingCategories[0], [activeId]);
-  const isCosmetic = category.id === "cosmetic-pif";
-  const activeRefinements = isCosmetic ? refinements : [];
+  const isRefinable = (REFINABLE_CATEGORY_IDS as readonly string[]).includes(category.id);
+  const activeRefinements = isRefinable ? refinements : [];
   const refinementById = useMemo(() => new Map(activeRefinements.map((item) => [item.documentId, item.reason])), [activeRefinements]);
 
   const activeChecked = checked[activeId] ?? [];
@@ -92,22 +106,28 @@ export default function LicensingPage() {
   }
 
   function runRefine() {
-    const label = refineText;
-    setRefinements(refineCosmeticRequirements({ ingredientsText: label, labelText: label }));
+    setRefinements(refineRequirements(activeId, { ingredientsText: refineText, labelText: refineText }));
     setRefined(true);
   }
 
   function loadReview() {
-    const review = loadLastReview();
-    if (review) {
-      const combined = [review.ingredientsText, review.labelText].filter(Boolean).join("\n");
-      setRefineText(combined);
-      setRefinements(refineCosmeticRequirements(review));
-      setRefined(true);
+    const fill = loadLastReview();
+    setReviewFill(fill);
+    let labelText = "";
+    try {
+      const parsed = JSON.parse(window.localStorage.getItem("labelpass-reviews") || "[]");
+      labelText = Array.isArray(parsed) ? parsed[0]?.input?.labelText ?? "" : "";
+    } catch {
+      labelText = "";
+    }
+    if (fill) {
+      const ingredientsText = fill.ingredientsText ?? "";
+      setRefineText([ingredientsText, labelText].filter(Boolean).join("\n"));
+      setRefinements(refineRequirements(activeId, { ingredientsText, labelText }));
     } else {
-      setRefined(true);
       setRefinements([]);
     }
+    setRefined(true);
   }
 
   return (
@@ -132,7 +152,11 @@ export default function LicensingPage() {
             role="tab"
             aria-selected={item.id === activeId}
             className={item.id === activeId ? "on" : ""}
-            onClick={() => setActiveId(item.id)}
+            onClick={() => {
+              setActiveId(item.id);
+              setRefinements([]);
+              setRefined(false);
+            }}
           >
             <span aria-hidden="true">{item.icon}</span>
             {item.label}
@@ -154,7 +178,7 @@ export default function LicensingPage() {
         </div>
       </div>
 
-      {isCosmetic && (
+      {isRefinable && (
         <div className="card licensing-refine">
           <div className="licensing-refine-title">
             <Sparkles size={15} />
@@ -212,11 +236,13 @@ export default function LicensingPage() {
                       className="licensing-template-btn"
                       onClick={(event) => {
                         event.preventDefault();
-                        downloadTemplate(document.id);
+                        downloadTemplate(document.id, reviewFill);
                       }}
                     >
                       <Download size={13} />
-                      양식 다운로드
+                      {reviewFill && (FILLABLE_TEMPLATE_IDS as readonly string[]).includes(document.id)
+                        ? "양식 (검토값 채움)"
+                        : "양식 다운로드"}
                     </button>
                   )}
                 </div>

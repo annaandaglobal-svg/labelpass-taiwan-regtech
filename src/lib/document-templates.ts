@@ -117,3 +117,89 @@ export const documentTemplates: Record<string, DocumentTemplate> = {
 export function templateForDocument(documentId: string): DocumentTemplate | null {
   return documentTemplates[documentId] ?? null;
 }
+
+// ---- Auto-fill from a saved review -------------------------------------------------
+
+export type ReviewFillData = {
+  productName?: string;
+  brandName?: string;
+  productType?: string;
+  manufacturer?: string;
+  origin?: string;
+  ingredientsText?: string;
+};
+
+// Documents whose template can be pre-filled from parsed review data.
+export const FILLABLE_TEMPLATE_IDS = ["full-formula", "product-basic"] as const;
+
+function parseIngredientRows(text: string): Array<{ name: string; percent: string }> {
+  return text
+    .split(/[,;\n]/)
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((raw) => {
+      const percent = raw.match(/(\d+(?:\.\d+)?)\s*%/)?.[1] ?? "";
+      const name = raw
+        .replace(/\[[^\]]*\]/g, " ")
+        .replace(/\d+(?:\.\d+)?\s*%/g, " ")
+        .replace(/\(([^)]*)\)/g, " ")
+        .replace(/함량\s*[\d.]+%?/g, " ")
+        .replace(/CAS\s*[\d-]+/gi, " ")
+        .replace(/^\d+[.)]\s*/, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      return { name, percent };
+    })
+    .filter((row) => row.name.length >= 2 && !/^(제품명|원재료|성분|파일 추출|영양)/i.test(row.name));
+}
+
+function csvCell(value: string) {
+  return /[",\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
+}
+
+function filledFullFormula(data: ReviewFillData): DocumentTemplate {
+  const rows = parseIngredientRows(data.ingredientsText ?? "");
+  const header = "No,원료명(INCI),원료명(中文),CAS No,함량(% w/w),배합목적(Function)";
+  const body = rows.length
+    ? rows.map((row, index) => [String(index + 1), csvCell(row.name), "", "", row.percent, ""].join(","))
+    : ["1,,,,,"];
+  const total = "합계(Total),,,,100.00,";
+  return {
+    fileName: `전성분표_${(data.productName || "제품").replace(/[^\w가-힣]+/g, "_").slice(0, 40)}.csv`,
+    mime: "text/csv;charset=utf-8",
+    content: CSV_BOM + [header, ...body, total].join("\r\n")
+  };
+}
+
+function filledProductSpec(data: ReviewFillData): DocumentTemplate {
+  const line = (label: string, value?: string) => `${label} ${value ?? ""}`.trimEnd();
+  return {
+    fileName: `제품규격서_${(data.productName || "제품").replace(/[^\w가-힣]+/g, "_").slice(0, 40)}.txt`,
+    mime: "text/plain;charset=utf-8",
+    content: [
+      "[제품 규격서 / Product Specification]",
+      "",
+      line("제품명 (Product Name):", data.productName),
+      line("브랜드 (Brand):", data.brandName),
+      line("제형·품목 (Form/Type):", data.productType),
+      "용량 (Net Content):",
+      "사용 부위 (Application Site):",
+      "사용 방법 (Directions):",
+      line("제조사·수입자 (Manufacturer / Importer):", data.manufacturer),
+      line("원산지 (Country of Origin):", data.origin),
+      "제조소 주소 (Manufacturing Site):",
+      "pH:",
+      "보관조건 (Storage):",
+      "유효기한 (Shelf Life):",
+      "",
+      "※ 검토 결과에서 자동 채운 항목은 확인 후 나머지를 채워 주세요. (PIF 제출용)"
+    ].join("\r\n")
+  };
+}
+
+// Returns a template pre-filled from review data when possible, else the blank template.
+export function filledTemplate(documentId: string, data: ReviewFillData): DocumentTemplate | null {
+  if (documentId === "full-formula") return filledFullFormula(data);
+  if (documentId === "product-basic") return filledProductSpec(data);
+  return templateForDocument(documentId);
+}

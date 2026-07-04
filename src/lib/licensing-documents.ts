@@ -429,3 +429,45 @@ export function refineCosmeticRequirements(input: { ingredientsText?: string; la
 
   return refinements;
 }
+
+// Categories that support the optional product-data refinement.
+export const REFINABLE_CATEGORY_IDS = ["cosmetic-pif", "food-import", "food-additive", "health-food"] as const;
+
+// General per-category refinement: upgrade recommended/deferrable docs to required based
+// on the product's own ingredient/label data.
+export function refineRequirements(categoryId: string, input: { ingredientsText?: string; labelText?: string }): RequirementRefinement[] {
+  if (categoryId === "cosmetic-pif") return refineCosmeticRequirements(input);
+
+  const text = `${input.labelText ?? ""} ${input.ingredientsText ?? ""}`;
+  const refinements: RequirementRefinement[] = [];
+
+  if (categoryId === "food-import") {
+    if (/땅콩|peanut|花生|우유|milk|乳|밀\b|wheat|麩|계란|달걀|egg|蛋|새우|shrimp|蝦|게살|crab|蟹|대두|콩\b|soy|견과|nut|고등어|mackerel|잣|호두|아몬드|알레르|allerg/i.test(text)) {
+      refinements.push({ documentId: "test-report", reason: "알레르기 유발 원료가 있어 성분·알레르겐 시험/관리 근거가 필요합니다." });
+    }
+    if (/육류|고기|meat|beef|pork|chicken|닭|돼지|소고기|유제품|dairy|치즈|cheese|버터|butter/i.test(text)) {
+      refinements.push({ documentId: "health-certificate-food", reason: "동물성·유제품 원료는 수출국 위생증명·검역 요건이 있을 수 있습니다." });
+    }
+    if (/저당|무설탕|무가당|고단백|저지방|무첨가|저나트륨|sugar[-\s]?free|high\s?protein|low\s?fat/i.test(text)) {
+      refinements.push({ documentId: "test-report", reason: "영양 강조표시가 있어 표시값을 뒷받침할 검사 성적서가 필요합니다." });
+    }
+  }
+
+  if (categoryId === "food-additive" && /복방|複方|compound|혼합제|blend/i.test(text)) {
+    refinements.push({ documentId: "additive-spec-sheet", reason: "복방 첨가물은 구성성분 규격·COA 근거가 필요합니다." });
+  }
+
+  if (
+    categoryId === "health-food" &&
+    /면역|항산화|혈압|혈당|콜레스테롤|다이어트|장\s?건강|기능성|효능|보건|immun|antioxidant|blood\s?pressure|cholesterol/i.test(text)
+  ) {
+    refinements.push({ documentId: "efficacy-safety-data", reason: "보건 효능 표현이 있어 효능·안전성 시험 근거가 필요합니다." });
+  }
+
+  const seen = new Set<string>();
+  return refinements.filter((item) => {
+    if (seen.has(item.documentId)) return false;
+    seen.add(item.documentId);
+    return true;
+  });
+}
