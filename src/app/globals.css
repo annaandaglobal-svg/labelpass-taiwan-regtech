@@ -16851,3 +16851,36 @@ h2 {
 .quote-view-empty p { font-size: 13px; color: var(--muted); }
 .quote-view-loading { color: var(--muted); padding: 40px; }
 @media (max-width: 760px) { .quote-builder { padding: 18px 14px 80px; } }
+
+/* Licensing document list / spec reference (v5) */
+.licensing { display: grid; gap: 14px; padding: 24px 26px 90px; max-width: 900px; }
+.licensing-head { display: flex; gap: 12px; align-items: flex-start; }
+.licensing-head-badge { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--navy-bg); color: var(--navy); flex-shrink: 0; }
+.licensing-head h1 { font-size: 21px; }
+.licensing-head p { margin-top: 4px; }
+.licensing-tabs { display: flex; gap: 7px; flex-wrap: wrap; }
+.licensing-tabs button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--panel); font-size: 12.5px; font-weight: 700; color: var(--muted); cursor: pointer; }
+.licensing-tabs button:hover { border-color: var(--navy); color: var(--navy); }
+.licensing-tabs button.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+.licensing-summary { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.licensing-summary b { font-size: 15px; }
+.licensing-summary p { font-size: 13px; color: var(--muted); margin-top: 4px; max-width: 620px; }
+.licensing-summary small { display: block; font-size: 11.5px; color: var(--navy); font-weight: 700; margin-top: 6px; }
+.licensing-readiness { text-align: center; flex-shrink: 0; border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 18px; }
+.licensing-readiness b { display: block; font-size: 22px; font-weight: 800; font-family: var(--mono); color: var(--navy); }
+.licensing-readiness span { font-size: 11px; color: var(--muted); font-weight: 700; }
+.licensing-list { display: grid; gap: 9px; }
+.licensing-doc { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; align-items: start; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); cursor: pointer; }
+.licensing-doc.ready { border-color: var(--green); background: var(--green-soft); }
+.licensing-doc > input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--green-dark); }
+.licensing-doc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.licensing-doc-head b { font-size: 14px; }
+.licensing-doc-check { color: var(--green-dark); }
+.licensing-doc-official { font-family: var(--mono); font-size: 12px; color: var(--navy); margin-top: 5px; }
+.licensing-doc-spec { font-size: 12.5px; color: var(--ink); margin-top: 6px; }
+.licensing-doc-spec span { display: inline-block; font-size: 10.5px; font-weight: 800; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 1px 7px; margin-right: 7px; }
+.licensing-doc-detail { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.55; }
+.licensing-doc-auth { display: block; font-size: 11px; color: var(--muted); margin-top: 6px; }
+.licensing-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.licensing-foot { font-size: 11.5px; color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 10px; padding: 11px 14px; line-height: 1.7; }
+@media (max-width: 760px) { .licensing { padding: 18px 14px 80px; } }

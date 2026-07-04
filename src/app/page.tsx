@@ -164,8 +164,8 @@ export default function Home() {
           <h2>
             대만 규제 근거 <span className="sub">— 공식 출처 기준</span>
           </h2>
-          <Link className="linkbtn" href="/knowledge">
-            통합검색 →
+          <Link className="linkbtn" href="/licensing">
+            인허가 서류 리스트 →
           </Link>
         </div>
         <div className="reg-list">
