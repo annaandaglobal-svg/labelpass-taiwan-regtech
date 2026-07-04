@@ -298,6 +298,13 @@ export function PifClient() {
                           {isReady ? <CheckCircle2 size={17} /> : <AlertTriangle size={17} />}
                           <span>
                             <b>{item.label}</b>
+                            {item.officialName && <i className="pif-req-official">{item.officialName}</i>}
+                            {item.spec && (
+                              <small className="pif-req-spec">
+                                <i>규격</i>
+                                {item.spec}
+                              </small>
+                            )}
                             <small>{item.detail}</small>
                           </span>
                           <em>{isReady ? "준비됨" : "필요"}</em>
