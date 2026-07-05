@@ -242,11 +242,14 @@ export default async function WorkspacePage() {
           <article className="workspace-panel workspace-panel-wide">
             <div className="workspace-panel-head">
               <div>
-                <span>제품별 진행</span>
+                <span>제품별 진행 <em className="workspace-demo-tag">예시</em></span>
                 <h2>이번 주 닫아야 할 대만 출시 작업</h2>
               </div>
               <PackageCheck size={18} />
             </div>
+            <p className="workspace-demo-note">
+              아래는 화면 구성을 보여 주는 <b>예시 제품</b>입니다. <Link href="/review">성분·라벨 검토</Link>를 실행하면 내 실제 제품이 여기에 쌓입니다.
+            </p>
             <div className="workspace-product-list">
               {productRows.map((product) => (
                 <section key={product.name} className={`workspace-product-row ${product.tone}`}>

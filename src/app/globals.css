@@ -17038,3 +17038,14 @@ h2 {
   .kb-verdict-banner.tone-red { background: #2c1a1a; border-color: #5a3232; }
   .kb-verdict-banner.tone-red b { color: #ec9c9c; }
 }
+
+/* Workspace: mark example/demo product rows so first-time users aren't misled */
+.workspace-demo-tag { display: inline-block; margin-left: 5px; padding: 1px 7px; border-radius: 99px; background: #eef3f8; color: #5b6675; font-size: 10px; font-weight: 800; font-style: normal; vertical-align: middle; }
+.workspace-demo-note { margin: -2px 0 10px; font-size: 12px; color: #5b6675; line-height: 1.5; }
+.workspace-demo-note b { color: #1B3A5C; }
+.workspace-demo-note a { color: #1B3A5C; font-weight: 700; text-decoration: underline; }
+@media (prefers-color-scheme: dark) {
+  .workspace-demo-tag { background: #22303f; color: #aeb6c0; }
+  .workspace-demo-note { color: #aeb6c0; }
+  .workspace-demo-note b, .workspace-demo-note a { color: #9cc2ea; }
+}
