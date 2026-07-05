@@ -137,7 +137,7 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
 
   const category = term.category;
 
-  if (category === "prohibited") {
+  if (category === "prohibited" || category === "prohibited_substance") {
     return {
       label: "화장품 사용불가",
       detail:
@@ -148,6 +148,23 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
     };
   }
 
+  if (category === "restricted_substance") {
+    return {
+      label: "성분 첨가 제한·한도 관리",
+      detail:
+        "대만 화장품에서 성분으로 의도 첨가가 제한되거나, 중금속·불순물처럼 엄격한 한도가 적용되는 항목입니다(예: 수은·납·비소). 원료로 넣는 용도라면 사용 불가로 보고, 불순물이라면 규격 한도 이내 시험 근거가 필요합니다.",
+      tone: "red",
+      state: "restricted_risk",
+      uncertainty:
+        "‘의도적 첨가’와 ‘불순물 한도 관리’는 다릅니다. 성분으로 넣었다면 사용 불가 가능성이 크고, 불순물이라면 한도 이내임을 COA로 입증해야 합니다.",
+      chips: ["첨가 제한", "중금속·불순물 한도", "COA 필요", "용도 확인"],
+      actions: [
+        "이 물질을 성분으로 의도 첨가했는지, 불순물로 존재하는지 먼저 구분하세요.",
+        "불순물이라면 대만 중금속·불순물 한도 이내임을 시험성적서(COA)로 확인하세요."
+      ]
+    };
+  }
+
   if (
     [
       "restricted",
@@ -155,6 +172,7 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
       "colorant",
       "sunscreen",
       "ph_adjuster",
+      "alkalizing_agent",
       "cosmetic_ingredient_restriction",
       "colorant_uv_filter",
       "uv_filter",
@@ -316,14 +334,66 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
     };
   }
 
-  if (["customs_trade", "trade_control"].includes(category)) {
+  if (
+    [
+      "customs_trade",
+      "trade_control",
+      "customs_classification",
+      "customs_document",
+      "trade_document",
+      "trade_operator",
+      "origin_marking",
+      "import_export_control",
+      "product_certification"
+    ].includes(category)
+  ) {
     return {
-      label: "통관분류 필요",
+      label: "통관분류·서류 확인",
       detail:
-        "통관·무역관리 용어에 연결된 항목입니다. 허용/금지 판단 전에 HS/CCC 코드, 원산지, 수입규정 코드, 수출입 허가, 전략물자 여부를 확정해야 합니다.",
+        "통관·무역관리 용어에 연결된 항목입니다. 허용/금지 판단 전에 HS/CCC 코드, 원산지증명, 수입규정 코드(輸入規定), 수출입 허가, 전략물자 여부, 필요 서류를 확정해야 합니다.",
       tone: "blue",
-      chips: ["HS/CCC", "원산지", "수입규정", "허가 가능성"],
-      actions: ["HS/CCC, 원산지, 수입규정 코드, 목적지와 최종 용도를 확인하세요."]
+      state: "needs_check",
+      chips: ["HS/CCC", "원산지", "수입규정", "필요 서류"],
+      actions: [
+        "HS/CCC(11자리)와 연결된 수입규정 코드(輸入規定), 원산지, 최종 용도를 확인하세요.",
+        "인보이스·패킹리스트·원산지증명 등 통관 서류가 표기와 일치하는지 대조하세요."
+      ]
+    };
+  }
+
+  if (category === "food_safety") {
+    return {
+      label: "식품안전·수입검사 확인",
+      detail:
+        "대만 식품 안전·위생 관리 또는 수입검사 경로에 연결된 항목입니다. 품목 허용 여부와 별개로 위생기준, 검사 방식, 수입자 등록, 위생증명 등 안전관리 요건을 확인해야 합니다.",
+      tone: "gold",
+      state: "needs_check",
+      chips: ["식품안전", "수입검사", "위생기준", "서류 확인"],
+      actions: ["해당 위생·안전 기준과 수입검사 방식(逐批/抽批/驗批), 필요 증빙을 확인하세요."]
+    };
+  }
+
+  if (category === "cosmetic_postmarket") {
+    return {
+      label: "사후관리·통보 확인",
+      detail:
+        "대만 화장품 사후관리(이상사례 통보, 회수, 제품등록/통보) 요건에 연결된 항목입니다. 판매 후 운영 의무가 준비됐는지 확인하세요.",
+      tone: "gold",
+      state: "needs_check",
+      chips: ["제품등록/통보", "이상사례 통보", "회수 SOP"],
+      actions: ["제품 등록/통보 상태, 이상사례 통보 절차, 회수 SOP 준비 여부를 확인하세요."]
+    };
+  }
+
+  if (category === "regulatory_concept") {
+    return {
+      label: "규정 개념·요건 확인",
+      detail:
+        "특정 성분이 아니라 규정상 개념·절차에 연결된 항목입니다. 관련 요건이 이 제품·품목에 적용되는지 공식 근거로 확인하세요.",
+      tone: "blue",
+      state: "needs_check",
+      chips: ["규정 개념", "적용 여부 확인", "공식 근거"],
+      actions: ["이 개념·요건이 해당 품목·용도에 적용되는지 공식 근거와 전문가로 확인하세요."]
     };
   }
 

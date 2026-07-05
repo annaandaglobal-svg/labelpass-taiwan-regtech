@@ -328,6 +328,7 @@ export default function KnowledgeSearchClient({
         detail: source.excerpt || "공식 원문, 고시, 데이터셋 또는 수동 보강 자료입니다.",
         score: source.score,
         chips: uniqueCompact([
+          authorityTier(source.authority),
           labelFor(source.jurisdiction),
           labelFor(source.sourceType),
           source.priority === "high" ? "우선 공식 소스" : source.priority === "medium" ? "일반 소스" : "참고 소스",
@@ -631,6 +632,7 @@ export default function KnowledgeSearchClient({
       score: source.score,
       href: source.url,
       chips: uniqueCompact([
+        authorityTier(source.authority),
         labelFor(source.jurisdiction),
         labelFor(source.sourceType),
         source.priority === "high" ? "우선 공식 소스" : source.priority === "medium" ? "일반 소스" : "참고 소스",
@@ -774,6 +776,19 @@ function matchesFreshness(source: SourceItem, value: string) {
   if (value === "browser") return source.browserCapture;
   if (value === "cache") return source.fromCache;
   return source.cacheStatus === value;
+}
+
+// Classify a source so a Korean user can tell official Taiwan law from foreign reference
+// data (e.g., EU CosIng, CAS, INCI) that may NOT reflect the Taiwan answer.
+function authorityTier(authority: string) {
+  const value = authority || "";
+  if (/TFDA|Food and Drug|衛生福利|MOHW|Ministry of Health|MOJ|Laws and Regulations|Customs|財政部|關務|BAPHIQ|防檢|經濟部|標準檢驗|Taiwan|臺灣|台灣/i.test(value)) {
+    return "🇹🇼 대만 공식";
+  }
+  if (/CosIng|European|Commission|CAS|Personal Care Products|INCI|EU\b|ECHA|US FDA/i.test(value)) {
+    return "🌐 참고(해외 표준)";
+  }
+  return "공개 데이터";
 }
 
 function freshnessMeta(source: SourceItem) {
