@@ -17012,3 +17012,29 @@ h2 {
   .customs-ref-grid li, .customs-ref-grid p { color: #d6dde4; }
   .customs-ref-notes { color: #aeb6c0; }
 }
+
+/* Knowledge evidence: beginner-facing verdict banner */
+.kb-verdict-banner { border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; border: 1px solid var(--line, #e2e6ec); display: grid; gap: 6px; }
+.kb-verdict-state { display: flex; align-items: center; gap: 8px; }
+.kb-verdict-icon { font-size: 18px; line-height: 1; }
+.kb-verdict-state b { font-size: 14.5px; }
+.kb-verdict-banner p { font-size: 12.5px; line-height: 1.55; color: #37424f; }
+.kb-verdict-banner.tone-green { background: #edf8f0; border-color: #bfe6cb; }
+.kb-verdict-banner.tone-green b { color: #1a7f43; }
+.kb-verdict-banner.tone-blue { background: #eef4fb; border-color: #c4d9f0; }
+.kb-verdict-banner.tone-blue b { color: #1B3A5C; }
+.kb-verdict-banner.tone-gold { background: #fff8ec; border-color: #f2dcae; }
+.kb-verdict-banner.tone-gold b { color: #9a6b12; }
+.kb-verdict-banner.tone-red { background: #fdeeee; border-color: #f2c4c4; }
+.kb-verdict-banner.tone-red b { color: #b02a2a; }
+@media (prefers-color-scheme: dark) {
+  .kb-verdict-banner p { color: #d6dde4; }
+  .kb-verdict-banner.tone-green { background: #172a1f; border-color: #2f5740; }
+  .kb-verdict-banner.tone-green b { color: #7fd3a0; }
+  .kb-verdict-banner.tone-blue { background: #182534; border-color: #2c4560; }
+  .kb-verdict-banner.tone-blue b { color: #9cc2ea; }
+  .kb-verdict-banner.tone-gold { background: #2a2416; border-color: #4a3f22; }
+  .kb-verdict-banner.tone-gold b { color: #e0c98a; }
+  .kb-verdict-banner.tone-red { background: #2c1a1a; border-color: #5a3232; }
+  .kb-verdict-banner.tone-red b { color: #ec9c9c; }
+}

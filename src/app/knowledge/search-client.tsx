@@ -18,7 +18,7 @@ import {
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import type { KnowledgeSearchResult } from "@/lib/knowledge-search";
-import { verdictForKnowledgeTerm } from "@/lib/knowledge-verdicts";
+import { verdictForKnowledgeTerm, verdictPlainAnswer } from "@/lib/knowledge-verdicts";
 
 const ALL = "all";
 
@@ -509,6 +509,18 @@ export default function KnowledgeSearchClient({
           </div>
 
           <RouteHintCard route={topRoute} hasQuery={hasQuery} />
+
+          {evidenceBundle?.verdict ? (
+            <div className={`kb-verdict-banner tone-${evidenceBundle.verdict.tone}`}>
+              <div className="kb-verdict-state">
+                <span className="kb-verdict-icon" aria-hidden="true">
+                  {verdictPlainAnswer[evidenceBundle.verdict.state].icon}
+                </span>
+                <b>{evidenceBundle.verdict.stateLabel}</b>
+              </div>
+              <p>{verdictPlainAnswer[evidenceBundle.verdict.state].text}</p>
+            </div>
+          ) : null}
 
           {evidenceBundle?.verdict &&
           (evidenceBundle.verdict.limits.length ||

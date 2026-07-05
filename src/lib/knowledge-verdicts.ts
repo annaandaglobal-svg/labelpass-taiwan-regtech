@@ -16,6 +16,31 @@ export const verdictStateLabels: Record<KnowledgeVerdictState, string> = {
   prohibited_confirmed: "금지 근거 확인"
 };
 
+// Plain, beginner-facing "can I export this?" answer for each state. The technical labels
+// ("조건부 가능", "추가 확인 필요") don't tell a first-time exporter whether to ship — these do.
+export const verdictPlainAnswer: Record<KnowledgeVerdictState, { icon: string; text: string }> = {
+  allowed_confirmed: {
+    icon: "✅",
+    text: "지금 기준 사용 가능 — 확인된 허용 근거가 있습니다. 라벨·서류만 갖추면 됩니다."
+  },
+  conditional: {
+    icon: "⚠️",
+    text: "조건을 맞추면 가능 — 아래 함량 한도·경고문·용도 조건을 지키면 쓸 수 있습니다. 초과·위반하면 불가."
+  },
+  needs_check: {
+    icon: "❓",
+    text: "아직 ‘된다/안된다’ 확정 아님 — 금지는 아니지만, 함량·용도·서류를 확인해야 최종 판단됩니다. (금지 뜻 아님)"
+  },
+  restricted_risk: {
+    icon: "⛔",
+    text: "제한·금지될 수 있음 — 예외 용도·한도에 정확히 맞지 않으면 사용 불가입니다. 전문가 확인을 권장합니다."
+  },
+  prohibited_confirmed: {
+    icon: "❌",
+    text: "그대로는 사용 불가 — 금지 근거가 확인됩니다. 성분을 빼거나, CAS로 다른 물질임을 입증해야 합니다."
+  }
+};
+
 export const verdictStateTone: Record<KnowledgeVerdictState, KnowledgeVerdictTone> = {
   allowed_confirmed: "green",
   conditional: "blue",
