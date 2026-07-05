@@ -15925,6 +15925,257 @@
         "global-cas-registry"
       ],
       "notes": "일반 화장품 용제(에탄올). 화장품에서 널리 허용. 금지성분 Methyl alcohol(메탄올, CAS 67-56-1)과 반드시 구분."
+    },
+    {
+      "id": "aspartame",
+      "canonical_name": "Aspartame",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "22839-47-0"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Aspartame",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "아스파탐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "阿斯巴甜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "E951",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "감미료(食品添加物). 대만 사용범위·한도 확인. 페닐케톤뇨증 관련 '含苯丙胺酸(페닐알라닌 함유)' 경고 표시 필요."
+    },
+    {
+      "id": "retinyl-palmitate",
+      "canonical_name": "Retinyl Palmitate",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "79-81-2"
+        ],
+        "inci": [
+          "Retinyl Palmitate"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Retinyl Palmitate",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Vitamin A Palmitate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "레티닐팔미테이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "팔미틴산레티놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "棕櫚酸視黃酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "비타민A 유도체. 함량·효능 표현·안정성 확인 필요."
+    },
+    {
+      "id": "adenosine",
+      "canonical_name": "Adenosine",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "58-61-7"
+        ],
+        "inci": [
+          "Adenosine"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Adenosine",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "아데노신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "腺苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "주름개선 등으로 쓰이는 원료. 효능 표현 시 근거·PIF 안전성 자료 확인."
+    },
+    {
+      "id": "red-yeast-rice",
+      "canonical_name": "Red Yeast Rice",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Red Yeast Rice",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "Monascus",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "홍국",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95
+        },
+        {
+          "value": "紅麴",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95
+        },
+        {
+          "value": "紅麴米",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-mohw-health-food-act"
+      ],
+      "notes": "홍국(발효 원료). 일반 식품/원료로 쓰이나, Monacolin K 함량·citrinin 한도 관리가 필요하고 콜레스테롤 등 건강 효능을 표방하면 健康食品 허가가 필요합니다."
+    },
+    {
+      "id": "p-phenylenediamine",
+      "canonical_name": "p-Phenylenediamine",
+      "category": "hair_dye_ingredient",
+      "identifiers": {
+        "cas": [
+          "106-50-3"
+        ],
+        "inci": [
+          "p-Phenylenediamine"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "p-Phenylenediamine",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1
+        },
+        {
+          "value": "PPD",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": "Abbreviation; confirm context."
+        },
+        {
+          "value": "1,4-Phenylenediamine",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "파라페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "對苯二胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "산화형 염모제 성분(限用). 대만에서 염모용으로 함량 한도(≤2% 등)·경고문구·패치테스트 조건 하 허용. 속눈썹·눈썹용 금지. 완전 금지가 아님."
     }
   ]
 }
