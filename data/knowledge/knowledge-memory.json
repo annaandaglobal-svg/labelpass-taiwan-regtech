@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1191,
-    "stored_aliases": 4387,
-    "searchable_aliases": 6879,
-    "identifier_aliases": 2492,
+    "terms": 1195,
+    "stored_aliases": 4409,
+    "searchable_aliases": 6897,
+    "identifier_aliases": 2488,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 41,
-    "alias_review_items": 1044,
+    "alias_review_items": 1040,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -4785,31 +4785,6 @@
       "score": 195
     },
     {
-      "id": "salicylic-acid",
-      "canonical_name": "Salicylic Acid",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "CAS 69-72-7",
-        "INCI Salicylic Acid",
-        "Salicylic Acid",
-        "2-Hydroxybenzoic acid",
-        "サリチル酸",
-        "水杨酸",
-        "水楊酸",
-        "살리실산",
-        "BHA"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-restricted-ingredients",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Common acne/keratolytic ingredient. Abbreviation BHA requires context check.",
-      "score": 193
-    },
-    {
       "id": "advance-tariff-classification-ruling",
       "canonical_name": "Advance Tariff Classification Ruling",
       "category": "customs_classification",
@@ -5511,23 +5486,40 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-200-4",
       "score": 156
+    },
+    {
+      "id": "tfda-ci-11710",
+      "canonical_name": "CI 11710",
+      "category": "colorant",
+      "category_label": "Colorant",
+      "aliases": [
+        "INCI CI 11710",
+        "CI CI 11710",
+        "CI 11710",
+        "Pigment Yellow 3"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "Generated from TFDA rule tw-cos-200-5",
+      "score": 156
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1191,
-      "aliases_scanned": 4387,
-      "alias_rows_scanned": 4382,
-      "collision_groups": 57,
-      "high_confidence_collisions": 46,
+      "terms_scanned": 1195,
+      "aliases_scanned": 4409,
+      "alias_rows_scanned": 4404,
+      "collision_groups": 55,
+      "high_confidence_collisions": 44,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 987,
+      "regulated_terms_without_local_alias": 985,
       "strict_blockers": 0,
-      "review_items": 1044
+      "review_items": 1040
     },
     "items": [
       {
@@ -6065,32 +6057,6 @@
         ]
       },
       {
-        "id": "alias-88df0cd8553ed4",
-        "alias": "p-phenylenediamine",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-p-phenylenediamine",
-            "canonical_name": "p-Phenylenediamine",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-p-phenylenediamine-and-its-salts",
-            "canonical_name": "p-Phenylenediamine and its salts",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          }
-        ]
-      },
-      {
         "id": "alias-bc677198fd5fc3",
         "alias": "permit number",
         "issue": "alias-collision-high-confidence",
@@ -6353,6 +6319,32 @@
       {
         "id": "alias-3c6dc732da809a",
         "alias": "화장품 의료효능 표현",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "cosmetic-labeling-claims",
+            "canonical_name": "Cosmetic Labeling and Claims",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "ko"
+          },
+          {
+            "term_id": "cosmetic-claims-criteria",
+            "canonical_name": "Cosmetic Claims Criteria",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "ko"
+          }
+        ]
+      },
+      {
+        "id": "alias-61ad88a6a5d41a",
+        "alias": "화장품 허위 과장 표시",
         "issue": "alias-collision-high-confidence",
         "priority": "high",
         "term_count": 2,
@@ -7024,8 +7016,8 @@
           "Tretinoin / Retinoic Acid",
           "Boric Acid",
           "Cosmetic Prohibited Ingredients",
-          "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
-          "Impatientis Semen（急性子）"
+          "p-Phenylenediamine",
+          "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

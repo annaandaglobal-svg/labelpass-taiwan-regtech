@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-06-29T12:20:17.961Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,191
-- Stored aliases: 4,387
-- Searchable aliases including identifiers: 6,879
+- Terms: 1,195
+- Stored aliases: 4,409
+- Searchable aliases including identifiers: 6,897
 - Term-rule links: 1,082
 - Regulatory update candidates: 41
-- Alias review items: 1,044
+- Alias review items: 1,040
 
 ## How To Use This Memory
 
@@ -383,10 +383,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
   - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
   - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
-- **Salicylic Acid** (`salicylic-acid`)
-  - Aliases: CAS 69-72-7; INCI Salicylic Acid; Salicylic Acid; 2-Hydroxybenzoic acid; サリチル酸; 水杨酸; 水楊酸; 살리실산; BHA
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
-  - Note: Common acne/keratolytic ingredient. Abbreviation BHA requires context check.
 - **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
   - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
@@ -481,6 +477,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI CI 11680; CI CI 11680; CI 11680; Pigment Yellow 1 Ext. D&C Yellow No. 5 Hansa Yellow G
   - Sources: `tw-tfda-cosmetic-colorants`
   - Note: Generated from TFDA rule tw-cos-200-4
+- **CI 11710** (`tfda-ci-11710`)
+  - Aliases: INCI CI 11710; CI CI 11710; CI 11710; Pigment Yellow 3
+  - Sources: `tw-tfda-cosmetic-colorants`
+  - Note: Generated from TFDA rule tw-cos-200-5
 
 ## Alias Ambiguity Queue
 

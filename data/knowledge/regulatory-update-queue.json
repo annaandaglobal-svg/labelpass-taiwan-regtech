@@ -1086,7 +1086,7 @@
         {
           "term_key": "salicylic-acid",
           "canonical_name": "Salicylic Acid",
-          "category": "cosmetic_ingredient"
+          "category": "cosmetic_ingredient_restriction"
         },
         {
           "term_key": "methylisothiazolinone",
@@ -1497,6 +1497,11 @@
           "category": "cosmetic_ingredient_restriction"
         },
         {
+          "term_key": "p-phenylenediamine",
+          "canonical_name": "p-Phenylenediamine",
+          "category": "hair_dye_ingredient"
+        },
+        {
           "term_key": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
           "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
           "category": "prohibited"
@@ -1559,11 +1564,6 @@
         {
           "term_key": "tfda-chlormethine-inn-and-its-salts",
           "canonical_name": "Chlormethine (INN) and its salts",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "tfda-cyclophosphamide-inn-and-its-salts",
-          "canonical_name": "Cyclophosphamide (INN) and its salts",
           "category": "prohibited"
         }
       ],
@@ -1634,7 +1634,7 @@
         {
           "term_key": "salicylic-acid",
           "canonical_name": "Salicylic Acid",
-          "category": "cosmetic_ingredient"
+          "category": "cosmetic_ingredient_restriction"
         },
         {
           "term_key": "hydrogen-peroxide",
@@ -1712,6 +1712,11 @@
           "category": "cosmetic_ingredient_restriction"
         },
         {
+          "term_key": "p-phenylenediamine",
+          "canonical_name": "p-Phenylenediamine",
+          "category": "hair_dye_ingredient"
+        },
+        {
           "term_key": "tfda-6-methylcoumarin",
           "canonical_name": "6-Methylcoumarin",
           "category": "restricted"
@@ -1724,11 +1729,6 @@
         {
           "term_key": "tfda-aluminum-potassium-bis-sulfate",
           "canonical_name": "Aluminum potassium bis(sulfate)",
-          "category": "restricted"
-        },
-        {
-          "term_key": "tfda-alcloxa",
-          "canonical_name": "Alcloxa",
           "category": "restricted"
         }
       ],
