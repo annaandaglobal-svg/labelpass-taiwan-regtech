@@ -510,6 +510,55 @@ export default function KnowledgeSearchClient({
 
           <RouteHintCard route={topRoute} hasQuery={hasQuery} />
 
+          {evidenceBundle?.verdict &&
+          (evidenceBundle.verdict.limits.length ||
+            evidenceBundle.verdict.warnings.length ||
+            evidenceBundle.verdict.officialSources.length) ? (
+            <div className="kb-limits-card">
+              <div className="kb-limits-title">
+                <ShieldCheck size={14} />
+                대만 공식 한도·경고문
+              </div>
+              {evidenceBundle.verdict.limits.length ? (
+                <div className="kb-limits-block">
+                  <b>사용 한도</b>
+                  <ul>
+                    {evidenceBundle.verdict.limits.map((item, index) => (
+                      <li key={`limit-${index}`}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {evidenceBundle.verdict.warnings.length ? (
+                <div className="kb-limits-block">
+                  <b>필수 주의·경고문구 (원문)</b>
+                  <ul>
+                    {evidenceBundle.verdict.warnings.map((item, index) => (
+                      <li key={`warn-${index}`}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {evidenceBundle.verdict.officialSources.length ? (
+                <div className="kb-limits-block">
+                  <b>공식 출처</b>
+                  <ul>
+                    {evidenceBundle.verdict.officialSources.map((source, index) => (
+                      <li key={`src-${index}`}>
+                        <a href={source.url} target="_blank" rel="noreferrer">
+                          {source.title}
+                          {source.datasetId ? ` · 데이터셋 ${source.datasetId}` : ""}
+                          {source.recordId ? ` · 항목 ${source.recordId}` : ""}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              <small>공식 원문은 중국어입니다. 통관·제출 전 최신 고시로 재확인하세요.</small>
+            </div>
+          ) : null}
+
           {activeEvidence ? (
             <div className="kb-evidence-card">
               <small>{activeEvidence.kind === "term" ? "용어 증빙" : "공식 소스"}</small>

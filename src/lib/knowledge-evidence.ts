@@ -1,6 +1,7 @@
 import type { KnowledgeSearchResult } from "./knowledge-search";
 import { searchKnowledgeRuntime } from "./knowledge-runtime";
 import { verdictForKnowledgeTerm, verdictStateLabels, type KnowledgeVerdictState } from "./knowledge-verdicts";
+import { regulatoryDetailFor, type OfficialSourceRef } from "./regulatory-rule-details";
 import evidenceTemplateData from "../../data/knowledge/evidence-bundle-templates.json";
 import productRouteData from "../../data/knowledge/product-routing-matrix.json";
 
@@ -50,6 +51,10 @@ export type KnowledgeEvidenceVerdict = {
   detail: string;
   uncertainty: string;
   tone: string;
+  limits: string[];
+  warnings: string[];
+  productScopes: string[];
+  officialSources: OfficialSourceRef[];
 };
 
 export type KnowledgeEvidenceBundle = {
@@ -221,7 +226,10 @@ export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12,
     score: source.score
   }));
 
-  const primary = verdictsFor(result)[0]?.verdict ?? null;
+  const primaryEntry = verdictsFor(result)[0] ?? null;
+  const primary = primaryEntry?.verdict ?? null;
+  const primaryRuleCodes = unique((primaryEntry?.term.rules ?? []).map((rule) => rule.ruleCode), 12);
+  const ruleDetail = regulatoryDetailFor(primaryRuleCodes);
   const verdict: KnowledgeEvidenceBundle["verdict"] =
     primary && primary.state
       ? {
@@ -230,7 +238,11 @@ export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12,
           label: primary.label,
           detail: primary.detail,
           uncertainty: primary.uncertainty ?? "",
-          tone: primary.tone
+          tone: primary.tone,
+          limits: ruleDetail.limits,
+          warnings: ruleDetail.warnings,
+          productScopes: ruleDetail.productScopes,
+          officialSources: ruleDetail.officialSources
         }
       : null;
 
