@@ -7,7 +7,6 @@ import {
   CalendarCheck,
   CheckCircle2,
   ClipboardCheck,
-  CreditCard,
   FileCheck2,
   Handshake,
   PackageCheck,
@@ -71,45 +70,6 @@ const productRows = [
       { href: "/workspace#shipment-events", label: "선적" },
       { href: "/workspace#review-queue", label: "리뷰 상태" }
     ]
-  }
-];
-
-const launchHandoffSteps = [
-  {
-    id: "pif",
-    label: "PIF 신청",
-    title: "화장품 PIF 자료 제출",
-    detail: "필수·권장 자료 체크리스트를 확인하고 첨부와 함께 신청서를 제출합니다.",
-    href: "/workspace/pif",
-    tone: "review",
-    icon: FileCheck2
-  },
-  {
-    id: "expert",
-    label: "상담 범위",
-    title: "전문가에게 넘길 항목 묶기",
-    detail: "PIF, INCI, 중문 라벨, 식품 클레임을 제품별 상담 범위로 고정합니다.",
-    href: "/workspace/experts",
-    tone: "review",
-    icon: Handshake
-  },
-  {
-    id: "payment",
-    label: "견적·결제",
-    title: "견적 확인 후 상담 시작",
-    detail: "예상 비용·범위·납기를 확인하고 수락하면 상담방이 열립니다.",
-    href: "/workspace/experts",
-    tone: "waiting",
-    icon: CreditCard
-  },
-  {
-    id: "shipment",
-    label: "선적·통관",
-    title: "물류사와 tracking 연결",
-    detail: "항로 지도, 통관 단계, 선적 이벤트를 트래킹 화면에서 확인합니다.",
-    href: "/workspace/logistics",
-    tone: "blocked",
-    icon: Truck
   }
 ];
 
@@ -221,20 +181,9 @@ export default async function WorkspacePage() {
           ))}
         </section>
 
-        <section className="workspace-handoff-strip" aria-label="전문가·결제·물류 요청 흐름">
-          {launchHandoffSteps.map((step) => {
-            const Icon = step.icon;
-
-            return (
-              <Link key={step.id} className={`workspace-handoff-step ${step.tone}`} href={step.href}>
-                <Icon size={16} />
-                <span>{step.label}</span>
-                <b>{step.title}</b>
-                <small>{step.detail}</small>
-              </Link>
-            );
-          })}
-        </section>
+        <p className="workspace-intro">
+          검토한 제품과 그 진행 상태를 한곳에서 봅니다. 다음 단계(인허가 서류·전문가 검수·물류)는 왼쪽 메뉴에서 이어가세요.
+        </p>
 
         <section className="workspace-dashboard">
           <WorkspaceHandoffDrafts />

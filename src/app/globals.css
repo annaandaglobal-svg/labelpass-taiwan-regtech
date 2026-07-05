@@ -17049,3 +17049,7 @@ h2 {
   .workspace-demo-note { color: #aeb6c0; }
   .workspace-demo-note b, .workspace-demo-note a { color: #9cc2ea; }
 }
+
+/* Workspace: one-line purpose intro for first-time users */
+.workspace-intro { margin: -4px 0 4px; font-size: 13px; color: #5b6675; line-height: 1.5; }
+@media (prefers-color-scheme: dark) { .workspace-intro { color: #aeb6c0; } }

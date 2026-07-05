@@ -218,8 +218,7 @@ requireIncludes(workspaceSource, "WorkspaceHandoffDrafts", "src/app/workspace/pa
 requireIncludes(workspaceSource, "getPlatformOpsSnapshot", "src/app/workspace/page.tsx workspace ops data");
 requireIncludes(workspaceSource, "buildPlatformOpsActionQueue", "src/app/workspace/page.tsx workspace action queue");
 requireIncludes(workspaceSource, "workspaceActionQueue", "src/app/workspace/page.tsx customer action queue");
-requireIncludes(workspaceSource, "launchHandoffSteps", "src/app/workspace/page.tsx customer launch handoff steps");
-requireIncludes(workspaceSource, 'aria-label="전문가·결제·물류 요청 흐름"', "src/app/workspace/page.tsx customer request flow strip");
+requireIncludes(workspaceSource, "workspace-intro", "src/app/workspace/page.tsx first-time purpose intro");
 requireIncludes(workspaceSource, 'item.href !== "/admin/settings"', "src/app/workspace/page.tsx filters internal admin settings");
 requireIncludes(workspaceSource, "customerActionHref", "src/app/workspace/page.tsx customer-safe operation href mapping");
 requireIncludes(workspaceSource, 'className="workspace-dashboard"', "src/app/workspace/page.tsx workspace layout");
