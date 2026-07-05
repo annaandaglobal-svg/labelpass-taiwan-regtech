@@ -33,7 +33,13 @@ export type RegulatoryRuleDetail = {
   warnings: string[];
   productScopes: string[];
   officialSources: OfficialSourceRef[];
+  // Exceptions attached to a *prohibited* rule (e.g. "使用於染髮產品除外" = allowed for hair
+  // dye) — a prohibited entry with an exception is NOT an absolute ban.
+  permittedExceptions: string[];
 };
+
+// Chinese markers that turn an otherwise-prohibited rule into a conditional one.
+const EXCEPTION_MARKERS = /除外|例外|不在此限|得使用|除.{0,12}外/;
 
 const rules: RawRule[] = Array.isArray((rulesData as { rules?: RawRule[] }).rules)
   ? ((rulesData as { rules: RawRule[] }).rules)
@@ -73,6 +79,7 @@ export function regulatoryDetailFor(ruleCodes: string[]): RegulatoryRuleDetail {
   const warnings: string[] = [];
   const productScopes: string[] = [];
   const officialSources: OfficialSourceRef[] = [];
+  const permittedExceptions: string[] = [];
   const seenSources = new Set<string>();
 
   for (const code of ruleCodes) {
@@ -85,6 +92,12 @@ export function regulatoryDetailFor(ruleCodes: string[]): RegulatoryRuleDetail {
     uniquePush(warnings, rule.caution_text ?? "", 4);
     uniquePush(warnings, rule.restriction_text ?? "", 4);
     uniquePush(productScopes, rule.product_scope ?? "", 4);
+
+    if (rule.category === "prohibited") {
+      for (const candidate of [rule.notes, rule.restriction_text, rule.limit_text]) {
+        if (candidate && EXCEPTION_MARKERS.test(candidate)) uniquePush(permittedExceptions, candidate, 3);
+      }
+    }
 
     const url = cleanText(rule.source_url);
     const datasetId = rule.source_info_id != null ? String(rule.source_info_id) : "";
@@ -100,7 +113,7 @@ export function regulatoryDetailFor(ruleCodes: string[]): RegulatoryRuleDetail {
     }
   }
 
-  return { limits, warnings, productScopes, officialSources };
+  return { limits, warnings, productScopes, officialSources, permittedExceptions };
 }
 
 export function hasRegulatoryDetail(detail: RegulatoryRuleDetail): boolean {

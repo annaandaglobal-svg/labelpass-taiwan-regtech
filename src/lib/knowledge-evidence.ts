@@ -228,17 +228,45 @@ export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12,
 
   const primaryEntry = verdictsFor(result)[0] ?? null;
   const primary = primaryEntry?.verdict ?? null;
-  const primaryRuleCodes = unique((primaryEntry?.term.rules ?? []).map((rule) => rule.ruleCode), 12);
+  // Gather rules from all top-tying terms (same substance's prohibited + restricted variants),
+  // so an exception on the prohibited rule and the limit on the sibling restricted rule are
+  // both visible when deciding the verdict.
+  const topScore = primaryEntry?.term.score ?? result.terms[0]?.score ?? 0;
+  const relatedTerms = result.terms.filter((term) => topScore - term.score <= 8).slice(0, 4);
+  const primaryRuleCodes = unique(
+    relatedTerms.flatMap((term) => (term.rules ?? []).map((rule) => rule.ruleCode)),
+    16
+  );
   const ruleDetail = regulatoryDetailFor(primaryRuleCodes);
+
+  // A "prohibited" match whose rule carries an explicit exception (e.g. PPD "使用於染髮產品除外")
+  // or a permitted concentration limit is NOT an absolute ban — soften it to 제한·금지 가능성 so
+  // the tool stops telling exporters a legally-usable ingredient is 사용불가.
+  const hasPermittedException = ruleDetail.permittedExceptions.length > 0 && ruleDetail.limits.length > 0;
+  let effectiveState = primary?.state ?? null;
+  let effectiveLabel = primary?.label ?? "";
+  let effectiveDetail = primary?.detail ?? "";
+  let effectiveTone = primary?.tone ?? "";
+  if (primary?.state === "prohibited_confirmed" && hasPermittedException) {
+    effectiveState = "restricted_risk";
+    effectiveLabel = "원칙 금지 · 조건부 예외 있음";
+    effectiveDetail =
+      "원칙적으로 화장품 사용이 금지되나, 특정 용도·제품군에서는 조건부로 허용되는 예외가 있습니다(아래 한도·예외 조건 참고). 예외 용도·함량을 벗어나면 사용 불가입니다.";
+    effectiveTone = "gold";
+  }
+
   const verdict: KnowledgeEvidenceBundle["verdict"] =
-    primary && primary.state
+    primary && effectiveState
       ? {
-          state: primary.state as KnowledgeVerdictState,
-          stateLabel: verdictStateLabels[primary.state],
-          label: primary.label,
-          detail: primary.detail,
-          uncertainty: primary.uncertainty ?? "",
-          tone: primary.tone,
+          state: effectiveState as KnowledgeVerdictState,
+          stateLabel: verdictStateLabels[effectiveState],
+          label: effectiveLabel,
+          detail: effectiveDetail,
+          uncertainty:
+            hasPermittedException && primary.state === "prohibited_confirmed"
+              ? "예외 용도(예: 염모용)에 해당하는지, 한도·경고문을 지키는지 반드시 확인하세요. 해당 없으면 금지입니다."
+              : primary.uncertainty ?? "",
+          tone: effectiveTone,
           limits: ruleDetail.limits,
           warnings: ruleDetail.warnings,
           productScopes: ruleDetail.productScopes,
@@ -246,9 +274,14 @@ export async function buildKnowledgeEvidenceBundle(rawQuery: string, limit = 12,
         }
       : null;
 
+  const summary =
+    verdict && verdict.state !== primary?.state
+      ? `"${query}"의 실무 판정: ${verdict.label}. ${verdict.detail}`
+      : buildSummary(query, result);
+
   return {
     query: result.query || query,
-    summary: buildSummary(query, result),
+    summary,
     verdict,
     confidence: confidenceFor(result),
     terms,
