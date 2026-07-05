@@ -17106,3 +17106,28 @@ h2 {
 /* Review result: action-first headline (시안 style) */
 .lp-verdict-eyebrow { display: inline-block; font-size: 11px; font-weight: 800; color: var(--muted); margin-bottom: 4px; }
 .lp-verdict-body b { line-height: 1.28; }
+
+/* Expert service marketplace (Kmong-style gigs) — navy/neutral + warn star only */
+.svc-market { display: grid; gap: 9px; }
+.svc-market-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.svc-sort { border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; font: inherit; font-size: 11.5px; font-weight: 700; color: var(--muted); background: var(--panel); cursor: pointer; }
+.svc-cats { display: flex; gap: 6px; flex-wrap: wrap; }
+.svc-cats button { border: 1px solid var(--line); background: var(--panel); border-radius: 99px; padding: 5px 12px; font: inherit; font-size: 12px; font-weight: 700; color: var(--muted); cursor: pointer; }
+.svc-cats button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.svc-list { display: grid; gap: 8px; max-height: 430px; overflow-y: auto; padding-right: 2px; }
+.svc-card { display: grid; gap: 5px; text-align: left; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--panel); cursor: pointer; }
+.svc-card:hover { border-color: var(--navy); }
+.svc-card.on { border-color: var(--navy); background: var(--navy-bg); }
+.svc-card-top { display: flex; align-items: center; gap: 6px; }
+.svc-tier { font-size: 9.5px; font-weight: 900; letter-spacing: 0.03em; padding: 2px 7px; border-radius: 5px; }
+.svc-tier.prime { background: var(--navy-dark, #122a44); color: #fff; }
+.svc-tier.top { background: var(--warn-bg); color: var(--warn); }
+.svc-tier.new { background: var(--navy-bg); color: var(--navy); }
+.svc-cat-tag { font-size: 10.5px; font-weight: 700; color: var(--muted); }
+.svc-check { color: var(--navy); margin-left: auto; }
+.svc-title { font-size: 13px; line-height: 1.4; color: var(--ink); }
+.svc-rating { font-size: 11.5px; color: var(--muted); }
+.svc-rating em { font-style: normal; }
+.svc-star { color: var(--warn); }
+.svc-seller { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: var(--muted); }
+.svc-price { font-size: 13.5px; font-weight: 800; color: var(--ink); }

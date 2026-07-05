@@ -215,3 +215,144 @@ export function recommendedExpertFor(category: string): ExpertProfile {
   const domain: ExpertDomain = /화장품|cosmetic|pif/i.test(category) ? "cosmetic" : "food";
   return EXPERT_ROSTER.find((expert) => expert.domains.includes(domain)) ?? EXPERT_ROSTER[0];
 }
+
+// Kmong-style service (gig) listings: each expert sells concrete, priced services with a
+// tier badge, star rating + review count, from-price, and delivery time. Customers browse
+// and pick a service, not just a person.
+export type ExpertServiceCategory = "all" | "cosmetic-pif" | "label" | "ad" | "customs";
+
+export type ExpertService = {
+  id: string;
+  expertId: string;
+  category: Exclude<ExpertServiceCategory, "all">;
+  categoryLabel: string;
+  title: string;
+  summary: string;
+  priceFrom: number; // KRW
+  deliveryDays: number;
+  rating: number;
+  reviews: number;
+  orders: number;
+  tier: "prime" | "top" | "new";
+  includes: string[];
+};
+
+export const EXPERT_SERVICE_CATEGORIES: { id: ExpertServiceCategory; label: string }[] = [
+  { id: "all", label: "전체" },
+  { id: "cosmetic-pif", label: "화장품·PIF" },
+  { id: "label", label: "중문 라벨" },
+  { id: "ad", label: "광고 심의" },
+  { id: "customs", label: "통관·HS" }
+];
+
+export const EXPERT_SERVICES: ExpertService[] = [
+  {
+    id: "svc-pif",
+    expertId: "kim",
+    category: "cosmetic-pif",
+    categoryLabel: "화장품·PIF",
+    title: "대만 화장품 PIF 목차·서류 작성 대행",
+    summary: "제품정보파일(PIF) 전체 목차 구성부터 필수 서류·안전성 자료 정리까지 대행합니다.",
+    priceFrom: 350000,
+    deliveryDays: 5,
+    rating: 4.9,
+    reviews: 142,
+    orders: 142,
+    tier: "prime",
+    includes: ["PIF 목차 구성", "필수 서류 체크", "안전성 자료 정리", "책임업자 표기 확인"]
+  },
+  {
+    id: "svc-register",
+    expertId: "kim",
+    category: "cosmetic-pif",
+    categoryLabel: "화장품·PIF",
+    title: "TFDA 제품 등록·통보 대행",
+    summary: "일반/특정용도 화장품 제품 등록(통보) 절차를 대행하고 진행 상태를 공유합니다.",
+    priceFrom: 250000,
+    deliveryDays: 7,
+    rating: 4.9,
+    reviews: 142,
+    orders: 96,
+    tier: "prime",
+    includes: ["등록 유형 판정", "제출 자료 준비", "TFDA 접수", "진행 상태 공유"]
+  },
+  {
+    id: "svc-screen",
+    expertId: "kim",
+    category: "cosmetic-pif",
+    categoryLabel: "화장품",
+    title: "성분·라벨 규제 1차 검수 (리포트 기반)",
+    summary: "검토 리포트를 바탕으로 금지·제한 성분, 효능 표현, 중문 표기를 전문가가 서면 확정합니다.",
+    priceFrom: 150000,
+    deliveryDays: 2,
+    rating: 4.9,
+    reviews: 142,
+    orders: 210,
+    tier: "prime",
+    includes: ["성분 규제 확정", "효능 표현 검토", "중문 표기 확인", "서면 의견서"]
+  },
+  {
+    id: "svc-label",
+    expertId: "lin",
+    category: "label",
+    categoryLabel: "중문 라벨",
+    title: "중문 라벨 감수 + 표시사항 확정",
+    summary: "타이베이 현지 RA(약사)가 중문 라벨 표기·필수 기재사항을 대만 기준으로 감수합니다.",
+    priceFrom: 200000,
+    deliveryDays: 3,
+    rating: 4.8,
+    reviews: 89,
+    orders: 89,
+    tier: "prime",
+    includes: ["중문 표기 감수", "필수 기재사항", "주의문구 확정", "한국어 상담"]
+  },
+  {
+    id: "svc-ad",
+    expertId: "lin",
+    category: "ad",
+    categoryLabel: "광고 심의",
+    title: "화장품·식품 광고 표현 심의 대응",
+    summary: "의료적·과대 표현 리스크를 점검하고 대만 광고 규정에 맞게 문구를 조정합니다.",
+    priceFrom: 180000,
+    deliveryDays: 4,
+    rating: 4.8,
+    reviews: 89,
+    orders: 64,
+    tier: "top",
+    includes: ["표현 리스크 점검", "위반 사례 대조", "대체 문구 제안", "한국어 상담"]
+  },
+  {
+    id: "svc-hs",
+    expertId: "park",
+    category: "customs",
+    categoryLabel: "통관·HS",
+    title: "HS/CCC 코드 확정 + 수입규정 확인",
+    summary: "관세사가 11자리 CCC 코드와 輸入規定(수입규정)·세율·검역 요건을 확정해 드립니다.",
+    priceFrom: 60000,
+    deliveryDays: 1,
+    rating: 4.7,
+    reviews: 310,
+    orders: 310,
+    tier: "prime",
+    includes: ["CCC 코드 확정", "수입규정 코드", "세율 안내", "검역 여부"]
+  },
+  {
+    id: "svc-export",
+    expertId: "park",
+    category: "customs",
+    categoryLabel: "통관·HS",
+    title: "수출신고 + 원산지증명(C/O) 대행",
+    summary: "수출신고와 원산지증명 발급을 건당으로 대행하고 통관 서류를 정리합니다.",
+    priceFrom: 120000,
+    deliveryDays: 2,
+    rating: 4.7,
+    reviews: 310,
+    orders: 188,
+    tier: "prime",
+    includes: ["수출신고", "C/O 발급", "통관 서류 정리", "선적 연계"]
+  }
+];
+
+export function expertById(id: string): ExpertProfile | undefined {
+  return EXPERT_ROSTER.find((expert) => expert.id === id);
+}

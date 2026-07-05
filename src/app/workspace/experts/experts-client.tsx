@@ -31,9 +31,13 @@ import {
   parseChatMessages,
   parseConsultCases,
   recommendedExpertFor,
+  expertById,
   EXPERT_ROSTER,
+  EXPERT_SERVICES,
+  EXPERT_SERVICE_CATEGORIES,
   type ChatMessage,
-  type ConsultCase
+  type ConsultCase,
+  type ExpertServiceCategory
 } from "@/lib/expert-chat";
 
 function newId() {
@@ -57,6 +61,9 @@ export function ExpertsClient() {
   const [newScope, setNewScope] = useState("");
   const [newCategory, setNewCategory] = useState("화장품");
   const [selectedExpertId, setSelectedExpertId] = useState<string>(() => recommendedExpertFor("화장품").id);
+  const [serviceCategory, setServiceCategory] = useState<ExpertServiceCategory>("all");
+  const [serviceSort, setServiceSort] = useState<"popular" | "reviews" | "price">("popular");
+  const [selectedServiceId, setSelectedServiceId] = useState<string>("");
   const [chatInput, setChatInput] = useState("");
   const [isQuoting, setIsQuoting] = useState(false);
   const [isPaying, setIsPaying] = useState(false);
@@ -93,6 +100,21 @@ export function ExpertsClient() {
     () => messages.filter((item) => item.caseId === selectedCaseId),
     [messages, selectedCaseId]
   );
+  const visibleServices = useMemo(() => {
+    const filtered =
+      serviceCategory === "all" ? EXPERT_SERVICES : EXPERT_SERVICES.filter((item) => item.category === serviceCategory);
+    return [...filtered].sort((left, right) => {
+      if (serviceSort === "reviews") return right.reviews - left.reviews;
+      if (serviceSort === "price") return left.priceFrom - right.priceFrom;
+      return right.orders - left.orders;
+    });
+  }, [serviceCategory, serviceSort]);
+
+  function chooseService(serviceId: string, expertId: string, includes: string[]) {
+    setSelectedServiceId(serviceId);
+    setSelectedExpertId(expertId);
+    setNewScope((prev) => (prev.trim() ? prev : includes.join(", ")));
+  }
 
   function persistCases(next: ConsultCase[]) {
     setCases(next);
@@ -343,43 +365,71 @@ export function ExpertsClient() {
                 <span>상담 범위 (줄바꿈 또는 쉼표로 구분)</span>
                 <textarea rows={3} value={newScope} onChange={(event) => setNewScope(event.target.value)} placeholder={"예: PIF 목차 검토\n중문 라벨 표현 확인"} />
               </label>
-              <div className="expert-pick">
-                <span className="expert-pick-label">담당 전문가 선택</span>
-                <div className="expert-pick-grid">
-                  {EXPERT_ROSTER.map((expert) => (
+              <div className="svc-market">
+                <div className="svc-market-head">
+                  <span className="expert-pick-label">전문가 서비스 선택</span>
+                  <select
+                    className="svc-sort"
+                    value={serviceSort}
+                    onChange={(event) => setServiceSort(event.target.value as typeof serviceSort)}
+                    aria-label="정렬"
+                  >
+                    <option value="popular">인기순</option>
+                    <option value="reviews">리뷰 많은순</option>
+                    <option value="price">낮은 가격순</option>
+                  </select>
+                </div>
+                <div className="svc-cats" role="tablist" aria-label="서비스 분야">
+                  {EXPERT_SERVICE_CATEGORIES.map((cat) => (
                     <button
-                      key={expert.id}
+                      key={cat.id}
                       type="button"
-                      className={expert.id === selectedExpertId ? "expert-pick-card on" : "expert-pick-card"}
-                      onClick={() => setSelectedExpertId(expert.id)}
-                      aria-pressed={expert.id === selectedExpertId}
+                      role="tab"
+                      aria-selected={cat.id === serviceCategory}
+                      className={cat.id === serviceCategory ? "on" : ""}
+                      onClick={() => setServiceCategory(cat.id)}
                     >
-                      <span className="expert-pick-top">
-                        <span className="expert-pick-av" aria-hidden="true">{expert.avatar}</span>
-                        <span className="expert-pick-id">
-                          <b>{expert.name}</b>
-                          <em>{expert.role}</em>
-                        </span>
-                        {expert.id === selectedExpertId && <BadgeCheck size={15} className="expert-pick-check" />}
-                      </span>
-                      <span className="expert-pick-tags">
-                        {expert.specialties.map((tag) => (
-                          <em key={tag}>{tag}</em>
-                        ))}
-                      </span>
-                      <span className="expert-pick-meta">
-                        처리 {expert.handledCount}건 · 평점 {expert.rating} · {expert.responseTime}
-                      </span>
-                      <span className="expert-pick-price">
-                        {expert.priceFrom} · {expert.note}
-                      </span>
+                      {cat.label}
                     </button>
                   ))}
+                </div>
+                <div className="svc-list">
+                  {visibleServices.map((svc) => {
+                    const expert = expertById(svc.expertId);
+                    const on = svc.id === selectedServiceId;
+                    return (
+                      <button
+                        key={svc.id}
+                        type="button"
+                        className={on ? "svc-card on" : "svc-card"}
+                        onClick={() => chooseService(svc.id, svc.expertId, svc.includes)}
+                        aria-pressed={on}
+                      >
+                        <span className="svc-card-top">
+                          <span className={`svc-tier ${svc.tier}`}>
+                            {svc.tier === "prime" ? "prime" : svc.tier === "top" ? "TOP" : "NEW"}
+                          </span>
+                          <span className="svc-cat-tag">{svc.categoryLabel}</span>
+                          {on && <BadgeCheck size={15} className="svc-check" />}
+                        </span>
+                        <b className="svc-title">{svc.title}</b>
+                        <span className="svc-rating">
+                          <span className="svc-star">★</span> {svc.rating.toFixed(1)}
+                          <em>({svc.reviews.toLocaleString("ko-KR")})</em> · {svc.deliveryDays}영업일
+                        </span>
+                        <span className="svc-seller">
+                          <span aria-hidden="true">{expert?.avatar}</span>
+                          {expert?.name.split(" · ")[0]}
+                        </span>
+                        <span className="svc-price">₩{svc.priceFrom.toLocaleString("ko-KR")}~</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
               <button className="lp-button" type="button" onClick={createCaseFromForm}>
                 <Handshake size={16} />
-                이 전문가로 매칭 요청
+                {selectedServiceId ? "이 서비스로 상담 요청" : "이 전문가로 매칭 요청"}
               </button>
             </div>
           </section>
