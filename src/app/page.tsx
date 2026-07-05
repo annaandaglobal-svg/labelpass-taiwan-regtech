@@ -195,7 +195,7 @@ export default function Home() {
 
       <div className="home-foot">
         <Sparkles size={14} />
-        1차 스크리닝 도구입니다. 최종 판정과 책임은 사용자·수입자·전문가에게 있으며, 모든 판정에 룰셋 버전과 확인일이 표기됩니다.
+        <b>체험 모드:</b> 로그인·실결제 없이 검토·서류·견적·전문가 상담까지 모든 기능을 바로 사용해볼 수 있습니다 (결제는 테스트 처리, 데이터는 브라우저에 저장). 1차 스크리닝 도구이며, 최종 판정과 책임은 사용자·수입자·전문가에게 있고 모든 판정에 룰셋 버전·확인일이 표기됩니다.
         <Link className="linkbtn" href="/review">
           <ClipboardCheck size={14} />
           검토 시작

@@ -12,6 +12,7 @@ import {
   type RequirementRefinement
 } from "@/lib/licensing-documents";
 import { FILLABLE_TEMPLATE_IDS, filledTemplate, templateForDocument, type ReviewFillData } from "@/lib/document-templates";
+import { RegGlossary } from "@/components/reg-glossary";
 
 const STORAGE_KEY = "labelpass-licensing-checklist";
 
@@ -276,6 +277,8 @@ export default function LicensingPage() {
           <ArrowRight size={15} />
         </Link>
       </div>
+
+      <RegGlossary />
 
       <p className="licensing-foot">
         ⚠️ 서류 요건은 품목 분류·시행일·개별 제품에 따라 달라질 수 있습니다. 정밀 판정은 참고용이며, 최종 요건은 공식 근거와 전문가 확인을 권장합니다.

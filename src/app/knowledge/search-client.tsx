@@ -330,7 +330,7 @@ export default function KnowledgeSearchClient({
         chips: uniqueCompact([
           labelFor(source.jurisdiction),
           labelFor(source.sourceType),
-          source.priority === "high" ? "우선 소스" : source.priority,
+          source.priority === "high" ? "우선 공식 소스" : source.priority === "medium" ? "일반 소스" : "참고 소스",
           meta.label
         ]).slice(0, 4),
         href: source.url,
@@ -633,7 +633,7 @@ export default function KnowledgeSearchClient({
       chips: uniqueCompact([
         labelFor(source.jurisdiction),
         labelFor(source.sourceType),
-        source.priority === "high" ? "우선 소스" : source.priority,
+        source.priority === "high" ? "우선 공식 소스" : source.priority === "medium" ? "일반 소스" : "참고 소스",
         meta.label,
         source.documentPath ? "문서 저장됨" : ""
       ]),
@@ -777,12 +777,12 @@ function matchesFreshness(source: SourceItem, value: string) {
 }
 
 function freshnessMeta(source: SourceItem) {
-  if (source.browserCapture) return { label: "브라우저 캡처", tone: "blue" };
-  if (source.manualFallback) return { label: "수동 보강", tone: "gold" };
-  if (source.cacheStatus === "stale") return { label: "갱신 필요", tone: "gold" };
-  if (source.fromCache) return { label: "캐시", tone: "neutral" };
-  if (source.cacheStatus === "fresh") return { label: "최신", tone: "green" };
-  return { label: "상태 확인", tone: "neutral" };
+  if (source.browserCapture) return { label: "브라우저 캡처", tone: "blue", hint: "1차 자동 수집분입니다. 통관·제출 전 공식 원문으로 재확인을 권장합니다." };
+  if (source.manualFallback) return { label: "수동 보강", tone: "gold", hint: "운영자가 직접 보강한 자료로, 자동 갱신 대상이 아닙니다." };
+  if (source.cacheStatus === "stale") return { label: "갱신 필요", tone: "gold", hint: "수집한 지 오래된 저장본입니다. 최신 고시 반영 여부를 재확인하세요." };
+  if (source.fromCache) return { label: "캐시", tone: "neutral", hint: "이전에 수집해 저장해 둔 자료입니다." };
+  if (source.cacheStatus === "fresh") return { label: "최신", tone: "green", hint: "최근에 수집한 자료입니다." };
+  return { label: "상태 확인", tone: "neutral", hint: "수집 상태가 확인되지 않았습니다." };
 }
 
 function termDecisionOverride(term: TermItem) {

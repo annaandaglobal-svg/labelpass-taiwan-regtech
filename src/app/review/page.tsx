@@ -27,6 +27,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { verdictStateTone } from "@/lib/knowledge-verdicts";
+import { RegGlossary } from "@/components/reg-glossary";
 import {
   HANDOFF_DRAFTS_STORAGE_KEY,
   MAX_HANDOFF_DRAFTS,
@@ -1583,6 +1584,8 @@ export default function Home() {
                     <div className="lp-muted-note">추가 항목 {sortedFindings.length - visibleFindings.length}개는 세부 보고서 화면에서 펼치도록 남겨두었습니다.</div>
                   )}
                 </div>
+
+                <RegGlossary />
               </>
             ) : null}
 

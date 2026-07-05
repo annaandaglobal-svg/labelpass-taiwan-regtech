@@ -111,6 +111,129 @@ export const documentTemplates: Record<string, DocumentTemplate> = {
       "",
       "※ 대만 판매 화장품은 중문 표시가 의무입니다. 누락 시 통관 보류 사유가 됩니다."
     ].join("\r\n")
+  },
+
+  // ---- 식품 수입 ----
+  "ingredient-breakdown": {
+    fileName: "식품_성분명세_템플릿.csv",
+    mime: "text/csv;charset=utf-8",
+    content:
+      CSV_BOM +
+      [
+        "No,원재료명(KR),원재료명(中文),함량(%),첨가물용도(있으면),알레르겐 해당(Y/N)",
+        "1,,,,,",
+        "2,,,,,",
+        "3,,,,,"
+      ].join("\r\n")
+  },
+  "chinese-food-label": {
+    fileName: "식품_중문라벨_영양표시_템플릿.txt",
+    mime: "text/plain;charset=utf-8",
+    content: [
+      "[대만 식품 중문 라벨 + 영양표시 / Chinese Food Label + Nutrition Facts]",
+      "",
+      "품명 (品名):",
+      "원재료명 (成分, 함량 많은 순):",
+      "내용량 (淨重/容量):",
+      "유효기한 (有效日期/保存期限):",
+      "원산지 (原產地):",
+      "수입업자·주소·전화 (輸入商/地址/電話):",
+      "제조업자 (製造商):",
+      "보관방법 (保存方法):",
+      "알레르기 원료 표시 (過敏原標示):",
+      "",
+      "[영양표시 / 營養標示 — 8대 항목 (每份 / 每100g)]",
+      "열량 (熱量) kcal:",
+      "단백질 (蛋白質) g:",
+      "지방 (脂肪) g:",
+      "  포화지방 (飽和脂肪) g:",
+      "  트랜스지방 (反式脂肪) g:",
+      "탄수화물 (碳水化合物) g:",
+      "  당류 (糖) g:",
+      "나트륨 (鈉) mg:",
+      "",
+      "※ 대만 판매 식품은 중문 표시·영양표시가 의무입니다."
+    ].join("\r\n")
+  },
+
+  // ---- 식품첨가물 ----
+  "composition-report": {
+    fileName: "첨가물_성분조성보고서_템플릿.csv",
+    mime: "text/csv;charset=utf-8",
+    content:
+      CSV_BOM +
+      [
+        "No,성분명(中文/EN),함량(%),기능(用途),규격(Spec),비고",
+        "1,,,,,",
+        "2,,,,,",
+        "합계(Total),100.00,,,,"
+      ].join("\r\n")
+  },
+
+  // ---- 건강식품 ----
+  "health-food-label": {
+    fileName: "건강식품_표시_체크템플릿.txt",
+    mime: "text/plain;charset=utf-8",
+    content: [
+      "[대만 건강식품 표시 / Health Food Labeling]",
+      "",
+      "건강식품 명칭 (健康食品名稱):",
+      "허가번호 (許可證字號, 衛部健食字第___號):",
+      "승인 보건효능 (核准保健功效):",
+      "성분·함량 (成分/含量):",
+      "권장 섭취량 (每日建議攝取量):",
+      "주의사항·경고문 (注意事項/警語):",
+      "건강식품 로고 표시 여부 (健康食品標章): Y/N",
+      "유효기한 (有效日期):",
+      "제조·수입업자 (製造/輸入商):",
+      "",
+      "※ 미허가 제품은 '건강식품' 명칭·로고·효능 표현을 사용할 수 없습니다."
+    ].join("\r\n")
+  },
+
+  // ---- 포장재 ----
+  "material-composition": {
+    fileName: "포장재_재질증명_템플릿.txt",
+    mime: "text/plain;charset=utf-8",
+    content: [
+      "[식품용 포장재 재질 증명 / Food-Contact Material Composition]",
+      "",
+      "제품·부품명 (品名/部位):",
+      "재질 (材質, 예: PP/PE/PET/유리/스테인리스):",
+      "용도 (用途):",
+      "사용조건 — 접촉 식품 (接觸食品種類):",
+      "사용조건 — 온도 (使用溫度, 예: 냉장/전자레인지/고온):",
+      "착색제·첨가제 (著色劑/添加劑):",
+      "위생규격 시험 여부 (溶出/衛生試驗): Y/N",
+      "",
+      "※ 재질·용도·온도 조건에 따라 위생(용출) 시험 성적서가 필요합니다."
+    ].join("\r\n")
+  },
+
+  // ---- 통관 공통 ----
+  "commercial-invoice": {
+    fileName: "상업송장_Commercial-Invoice_템플릿.csv",
+    mime: "text/csv;charset=utf-8",
+    content:
+      CSV_BOM +
+      [
+        "No,품명(Description),HS/CCC,수량(Qty),단가(Unit Price),금액(Amount),통화(Currency),인코텀즈(Incoterms)",
+        "1,,,,,,USD,",
+        "2,,,,,,USD,",
+        "합계(Total),,,,,,,"
+      ].join("\r\n")
+  },
+  "packing-list": {
+    fileName: "패킹리스트_Packing-List_템플릿.csv",
+    mime: "text/csv;charset=utf-8",
+    content:
+      CSV_BOM +
+      [
+        "No,품명(Description),박스수(Boxes),순중량 N/W(kg),총중량 G/W(kg),부피 CBM,포장형태",
+        "1,,,,,,",
+        "2,,,,,,",
+        "합계(Total),,,,,,"
+      ].join("\r\n")
   }
 };
 
