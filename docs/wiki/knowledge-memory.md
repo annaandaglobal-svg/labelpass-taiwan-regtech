@@ -5,14 +5,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ## Snapshot
 
 - Source registry version: `2026-06-26`
-- Crawl snapshot: `2026-06-29T12:20:17.961Z`
+- Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
 - Terms: 1,195
 - Stored aliases: 4,409
 - Searchable aliases including identifiers: 6,897
 - Term-rule links: 1,082
-- Regulatory update candidates: 41
+- Regulatory update candidates: 47
 - Alias review items: 1,040
 
 ## How To Use This Memory
@@ -504,18 +504,18 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 | Source | Status | Severity | Due in | Title |
 | --- | --- | --- | --- | --- |
-| tw-tfda-cosmetic-adverse-event-qms-platform | watching | medium | 5d | TFDA Post-Market Quality Management System |
-| tw-customs-tariff-database-download | watching | medium | 6d | GC453 Tariff Database Download |
-| tw-tfda-cosmetic-announcements | watching | medium | 6d | TFDA Cosmetic Latest Announcements |
-| tw-tfda-cosmetic-product-registration-system | watching | medium | 6d | TFDA Cosmetic Product Registration Platform |
-| tw-tfda-cosmetics-law-regulations-index | watching | medium | 6d | TFDA Cosmetics Guidance, Law and Regulations Index |
-| tw-tfda-food-additive-permit-query | watching | medium | 6d | Food Additive Permit Data Query |
-| tw-tfda-food-ingredient-query-platform-direct | watching | medium | 6d | Food Ingredient Integration Query Platform Direct Query |
-| tw-tfda-food-law-regulations-index | watching | medium | 6d | TFDA Food Guidance, Law and Regulations Index |
-| tw-tfda-health-food-permit-query | watching | medium | 6d | Health Food Permit Data Query |
-| tw-tfda-illegal-advertising-query | watching | medium | 6d | Illegal Food, Drug, and Cosmetics Advertising Query System |
-| tw-tfda-inspections-law-regulations-index | watching | medium | 6d | TFDA Inspections Guidance, Law and Regulations Index |
-| tw-tfda-pif-hub-zh | watching | medium | 6d | TFDA PIF laws and guidance hub |
+| cn-mofcom-export-control-portal | pending_refresh | medium | 4d | China Export Control Information Portal |
+| cn-nmpa-cosmetics-hub | pending_refresh | medium | 4d | NMPA Cosmetics Hub |
+| tw-customs-origin-importers | pending_refresh | low | 4d | Keelung Customs origin labeling notice |
+| tw-shtc-dual-use-list | pending_refresh | medium | 4d | Export Control List for Dual Use Items and Technology and Common Military List |
+| tw-shtc-dual-use-list | watching | medium | 4d | Export Control List for Dual Use Items and Technology and Common Military List |
+| tw-tfda-pif-implementation | pending_refresh | medium | 4d | Cosmetic Product Information Files to Be Implemented in Phases |
+| tw-tfda-pif-implementation | watching | medium | 4d | Cosmetic Product Information Files to Be Implemented in Phases |
+| tw-trade-import-export-regulations | pending_refresh | medium | 4d | Taiwan import and export related laws and regulations |
+| tw-trade-import-export-regulations | watching | medium | 4d | Taiwan import and export related laws and regulations |
+| tw-customs-import-cargo-clearance | watching | medium | 5d | Import Cargo Clearance |
+| tw-customs-imported-goods-advance-tariff-classification-ruling | watching | medium | 5d | Introduction to Advance Tariff Classification Ruling on Imported Goods |
+| tw-customs-tariff-system | watching | medium | 5d | Tariff System - Customs Administration |
 
 
 ## Retrieval Playbook

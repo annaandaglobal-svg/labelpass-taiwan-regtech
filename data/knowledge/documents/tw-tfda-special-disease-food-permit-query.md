@@ -8,12 +8,12 @@ domain: special_dietary_food
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-27T18:58:21.669Z
+fetched_at: 2026-07-05T13:58:48.367Z
 fetched_url: https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T18:58:21.669Z
-cache_status: stale
+cache_expires_at: 2026-07-12T13:58:48.367Z
+cache_status: fresh
 content_hash: 6542fdef6b75725d30e7d57ab88a28527397cb90a68be1366bd5d66e496a3ebd
 from_cache: false
 manual_fallback: true

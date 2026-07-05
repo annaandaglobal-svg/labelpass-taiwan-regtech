@@ -8,12 +8,12 @@ domain: trade_controls
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-27T18:58:25.289Z
+fetched_at: 2026-07-05T13:57:14.183Z
 fetched_url: https://fbfh.trade.gov.tw/fh/indexE.jsp
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T18:58:25.289Z
-cache_status: stale
+cache_expires_at: 2026-07-12T13:57:14.183Z
+cache_status: fresh
 content_hash: 3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b
 from_cache: false
 manual_fallback: true

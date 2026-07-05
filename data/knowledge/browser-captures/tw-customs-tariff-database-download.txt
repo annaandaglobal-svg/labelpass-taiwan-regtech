@@ -1,62 +1,15 @@
-id: tw-customs-tariff-database-download
-official_url: https://portal.sw.nat.gov.tw/APGQ/GC453
-captured_url: https://portal.sw.nat.gov.tw/APGQ/GC453
-title: GC453 Tariff Database Download
-captured_at: 2026-06-27T18:58:15.587Z
-capture_status: browser_capture_ok
-VISIBLE_BROWSER_TEXT:
-to include jquery library , struts2-jquery-plugin js files lie in /$contextPath/struts/ directory -->
-:::
-通關服務
-免證通關服務
-進口通關流程
-(GC453)Tariff Database Download
-(GC453)Tariff Database Download
-Friendly Print
-
-CCC CODE last modify date
-2026-06-24
-
-(1)Tariff Schedule
-(xls file) 、
-(pdf file) 、
-(ods file)
-
-(2)CCC Code and Description of Goods
-(txt file) 、
-(pdf file)
-
+Title: (GC453) Tariff Database Download
+URL: https://portal.sw.nat.gov.tw/APGQ/GC453
+Authority: Customs Administration, Ministry of Finance, Republic of China (Taiwan)
+Captured via browser. CCC CODE last modify date on page: 2026-07-03.
+---
+Tariff Database Download (通關服務 / 免證通關服務). Downloadable datasets:
+(1) Tariff Schedule (xls / pdf / ods)
+(2) CCC Code and Description of Goods (txt / pdf)
 (3) By Chapters
--->
-(3) By Chapters
+(4) Application for Import Goods Advance Tariff Rulings (doc / pdf / odt)
+(5) Tariff No. and Description of Goods (txt / pdf)
+(6) a. Schedule of Tariff Concession for FTA (xls / pdf / ods); b. Schedule of Tariff Concession for ITA (xls / pdf / ods)
+(7) Correlation Table between HS2012 and HS2017 versions of the Tariff Number (xls / pdf / ods)
 
-(4)Application for Import Goods Advance Tariff Rulings
-(doc file) 、
-(pdf file) 、
-(odt file)
-
-(5)Tariff No. and Description of Goods
-(txt file) 、
-(pdf file)
-
-(6) a. Schedule of Tariff Concession for FTA
-(xls file) 、
-(pdf file) 、
-(ods file)
-b. Schedule of Tariff Concession for ITA
-(xls file) 、
-(pdf file) 、
-(ods file)
-
-(7)Correlation Table between HS2012 version and HS2017 version of the Tariff Number
-(xls file) 、
-(pdf file) 、
-(ods file)
-Copyright 2012 Customs Administration, Republic of China.
-Address: No.13, Tacheng St., Taipei City 10341, Taiwan, R.O.C.
-TEL: 886-2-25505500 ext.2116 / FAX: 886-25508341
-Office Hours：08:30 ~ 12:30 A.M. 13:30 ~ 17:30 P.M. Monday ~ Friday
-Service Counter：08:30 A.M. ~ 17:30 P.M.
-close
-OFFICIAL_WORKFLOW_ANCHOR:
-Official CPT Single Window / Customs Administration page GC453 Tariff Database Download. The page is a browser-oriented official download page for Taiwan tariff and CCC-code reference data. It identifies the CCC CODE last modification date and presents official download options for tariff and commodity-code work. Listed resources include Tariff Schedule files in spreadsheet, PDF, and open-document formats; CCC Code and Description of Goods files in text and PDF formats; chapter-by-chapter tariff materials; Application for Import Goods Advance Tariff Rulings files in document, PDF, and open-document formats; and Tariff No. and Description of Goods files in text and PDF formats. The page is relevant when a product team needs to confirm the Taiwan customs statistical classification, compare HS candidates, download the current tariff schedule, or prepare an advance classification ruling before import. The tariff schedule and CCC goods-description files support screening for duty rate, import/export controls, TFDA routing, BSMI routing, SHTC routing, and other agency rules that depend on commodity classification. Advance tariff ruling materials are important when product composition, use, kit status, or mixed-material goods make the final CCC code uncertain. LabelPass uses this source to connect HS code and Taiwan CCC code searches with tariff classification, customs statistical code review, duty-rate routing, and import/export regulatory screening. Practical search terms mapped to this source include GC453, tariff database download, tariff schedule, CCC CODE, CCC code description of goods, tariff number, tariff no., customs tariff, HS code, Standard Classification of Commodities of the Republic of China, advance tariff ruling application, import goods advance tariff ruling, 관세율표, 대만 CCC 코드, 세번, 稅則號列, 貨品分類號列, 海關編碼, 進口貨物稅則預先審核, tariff no. and description of goods, and customs import tariff. Automated HTTP access may return a browser-only message, so LabelPass keeps this manual extract from the official page while retaining the live official URL for audit and refresh.
+Use this to look up the duty rate for an 11-digit CCC code and to check FTA/ITA preferential tariff concessions. Copyright Customs Administration, R.O.C.

@@ -16117,7 +16117,8 @@
         }
       ],
       "source_keys": [
-        "tw-mohw-health-food-act"
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-permit-query"
       ],
       "notes": "홍국(발효 원료). 일반 식품/원료로 쓰이나, Monacolin K 함량·citrinin 한도 관리가 필요하고 콜레스테롤 등 건강 효능을 표방하면 健康食品 허가가 필요합니다."
     },

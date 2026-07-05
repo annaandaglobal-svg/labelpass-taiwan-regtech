@@ -8,12 +8,12 @@ domain: cosmetics
 source_type: database
 priority: high
 format: manual
-fetched_at: 2026-06-26T19:21:16.738Z
+fetched_at: 2026-07-05T13:59:36.687Z
 fetched_url: https://qms.fda.gov.tw/
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-03T19:21:16.738Z
-cache_status: stale
+cache_expires_at: 2026-07-12T13:59:36.687Z
+cache_status: fresh
 content_hash: 4ff8c2bc4655b46d0fae93c8bdfd7ecbc2a0367033347269f5a6ca01731495ed
 from_cache: false
 manual_fallback: true
