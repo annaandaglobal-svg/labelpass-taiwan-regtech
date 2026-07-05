@@ -12786,17 +12786,22 @@ h2 {
   .lp-nav a {
     justify-content: center;
     flex-direction: column;
-    gap: 3px;
-    min-height: 42px;
-    padding: 5px 3px;
-    font-size: 10.5px;
+    gap: 2px;
+    min-height: 38px;
+    padding: 4px 3px;
+    font-size: 10px;
     text-align: center;
     white-space: normal;
   }
 
   .lp-utility-nav {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
     padding-top: 0;
+  }
+
+  .lp-utility-label {
+    display: none;
   }
 
   .lp-workbench,
@@ -12827,20 +12832,15 @@ h2 {
 
 @media (max-width: 680px) {
   .lp-nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lp-nav a {
     flex-direction: column;
     justify-content: center;
-    min-height: 40px;
-    padding: 5px 3px;
+    min-height: 38px;
+    padding: 4px 3px;
     text-align: center;
-  }
-
-  .lp-nav a[data-shell-nav-item="knowledge"] {
-    grid-column: 1 / -1;
-    flex-direction: row;
   }
 
   .lp-utility-nav a {

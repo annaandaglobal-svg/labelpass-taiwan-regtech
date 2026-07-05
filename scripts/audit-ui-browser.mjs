@@ -7,12 +7,12 @@ import { join } from "node:path";
 
 const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").replace(/\/$/, "");
 const failures = [];
-const expectedPrimaryNavKeys = ["home", "products", "experts", "logistics"];
-const expectedPrimaryNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics"];
-const expectedUtilityNavKeys = ["knowledge", "admin"];
-const expectedUtilityNavHrefs = ["/knowledge", "/admin"];
-const expectedNavKeys = ["home", "products", "experts", "logistics", "knowledge", "admin"];
-const expectedNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics", "/knowledge", "/admin"];
+const expectedPrimaryNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics"];
+const expectedPrimaryNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics"];
+const expectedUtilityNavKeys = ["knowledge", "products", "admin"];
+const expectedUtilityNavHrefs = ["/knowledge", "/workspace", "/admin"];
+const expectedNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics", "knowledge", "products", "admin"];
+const expectedNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics", "/knowledge", "/workspace", "/admin"];
 const expectedAdminSectionHrefs = [
   "/admin",
   "/admin/companies",
@@ -343,8 +343,8 @@ function assertSnapshot(snapshot, route, viewport) {
   if (snapshot.shellCount !== 1) fail(`${label}: expected one persistent app shell, found ${snapshot.shellCount}`);
   if (snapshot.sidebarCount !== 1) fail(`${label}: expected one persistent sidebar, found ${snapshot.sidebarCount}`);
   if (snapshot.contentCount !== 1) fail(`${label}: expected one stable content frame, found ${snapshot.contentCount}`);
-  if (snapshot.primaryCount !== 4) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
-  if (snapshot.utilityCount !== 2) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
+  if (snapshot.primaryCount !== 6) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
+  if (snapshot.utilityCount !== 3) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);

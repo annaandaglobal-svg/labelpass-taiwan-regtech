@@ -322,9 +322,9 @@ requireIncludes(appSidebarSource, 'data-shell-nav-item={item.key}', "src/compone
 requireIncludes(appSidebarSource, 'data-shell-nav-tier="primary"', "src/components/app-sidebar.tsx primary nav tier marker");
 requireIncludes(appSidebarSource, 'data-shell-nav-tier="utility"', "src/components/app-sidebar.tsx utility nav tier marker");
 requireIncludes(appSidebarSource, "aria-label={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav accessible label fallback");
-requireIncludes(appSidebarSource, "title={item.ariaLabel ?? item.label}", "src/components/app-sidebar.tsx nav title fallback");
+requireIncludes(appSidebarSource, "item.ariaLabel ?? item.label", "src/components/app-sidebar.tsx nav title fallback");
 requireIncludes(appSidebarSource, 'className="lp-utility-label"', "src/components/app-sidebar.tsx internal utility label");
-for (const navLabel of ["홈", "내 제품", "전문가 검수", "통관·물류"]) {
+for (const navLabel of ["홈", "성분·라벨 검토", "인허가 서류", "전문가 검수"]) {
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
 requireIncludes(appSidebarSource, 'label: "통합검색"', "src/components/app-sidebar.tsx utility search label");
@@ -418,7 +418,7 @@ requireCompactIncludes(
 );
 requireCompactIncludes(
   mobileCss,
-  "@media (max-width: 680px) { .lp-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lp-nav a { flex-direction: column; justify-content: center;",
+  "@media (max-width: 680px) { .lp-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); } .lp-nav a { flex-direction: column; justify-content: center;",
   "src/app/globals.css narrow mobile primary nav stability"
 );
 requireCompactIncludes(

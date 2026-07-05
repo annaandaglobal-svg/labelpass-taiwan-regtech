@@ -10,7 +10,9 @@ function activeNavForPath(pathname: string): AppNavKey {
   if (pathname.startsWith("/knowledge")) return "knowledge";
   if (pathname.startsWith("/workspace/experts")) return "experts";
   if (pathname.startsWith("/workspace/logistics")) return "logistics";
-  if (pathname.startsWith("/customs")) return "logistics";
+  if (pathname.startsWith("/customs")) return "customs";
+  // The 인허가 서류 flow spans the licensing checklist and the PIF application.
+  if (pathname.startsWith("/licensing") || pathname.startsWith("/workspace/pif")) return "licensing";
   if (pathname.startsWith("/workspace")) return "products";
   if (pathname.startsWith("/review")) return "review";
   return "home";
