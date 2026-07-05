@@ -41,9 +41,11 @@ export const verdictPlainAnswer: Record<KnowledgeVerdictState, { icon: string; t
   }
 };
 
+// Map the 5 verdict states onto the 시안's 3 semantic colors (green/amber/red) — the three
+// "caution" states share amber; differentiation comes from the label, not a 4th/5th hue.
 export const verdictStateTone: Record<KnowledgeVerdictState, KnowledgeVerdictTone> = {
   allowed_confirmed: "green",
-  conditional: "blue",
+  conditional: "gold",
   needs_check: "gold",
   restricted_risk: "gold",
   prohibited_confirmed: "red"
