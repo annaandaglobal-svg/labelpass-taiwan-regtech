@@ -17102,3 +17102,7 @@ h2 {
 .customs-ref-note { background: var(--warn-bg); border-color: #eddcb6; color: var(--warn); }
 .workspace-demo-tag { background: var(--navy-bg); color: var(--muted); }
 .workspace-demo-note b, .workspace-demo-note a, .kb-limits-block a, .customs-ref-codes .chip.navy { color: var(--navy); }
+
+/* Review result: action-first headline (시안 style) */
+.lp-verdict-eyebrow { display: inline-block; font-size: 11px; font-weight: 800; color: var(--muted); margin-bottom: 4px; }
+.lp-verdict-body b { line-height: 1.28; }

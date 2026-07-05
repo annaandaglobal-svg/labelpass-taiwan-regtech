@@ -1131,6 +1131,20 @@ export default function Home() {
     { label: "라벨/문구", value: result?.summary.warn ?? 0, tone: "warn" },
     { label: "통과", value: result?.summary.pass ?? 0, tone: "pass" }
   ];
+  // Action-first headline in the 시안's encouraging tone ("N건만 고치면 출고할 수 있습니다")
+  // instead of a flat status label.
+  const failCount = result?.summary.fail ?? 0;
+  const warnCount = result?.summary.warn ?? 0;
+  const infoCount = result?.summary.needsInfo ?? 0;
+  const verdictHeadline = !result
+    ? ""
+    : failCount > 0
+      ? `${failCount}건만 고치면 출고할 수 있습니다`
+      : warnCount > 0
+        ? `라벨 문구 ${warnCount}건만 다듬으면 출고 준비가 끝납니다`
+        : infoCount > 0
+          ? `자료 ${infoCount}건만 보완하면 판정이 확정됩니다`
+          : "출고 준비가 끝났습니다";
   // Estimated Taiwan import tax: customs duty (rate depends on HS/CCC, user-editable),
   // 5% business tax, and the 0.04% trade-promotion service fee. Estimate only.
   const cifNumber = Number(String(cifValue || input.invoiceValue || "").replace(/[^0-9.]/g, "")) || 0;
@@ -1364,7 +1378,8 @@ export default function Home() {
                     <small>{new Date(result.generatedAt).toLocaleDateString("ko-KR")}</small>
                   </div>
                   <div className="lp-verdict-body">
-                    <b>{currentStatus.label}</b>
+                    <span className="lp-verdict-eyebrow">{currentStatus.label}</span>
+                    <b>{verdictHeadline}</b>
                     <p>{currentStatus.detail}</p>
                   </div>
                 </div>
