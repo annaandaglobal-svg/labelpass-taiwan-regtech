@@ -359,6 +359,42 @@ function hasCjkOrHangul(value: string) {
   return /[\p{Script=Han}\p{Script=Hangul}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(value);
 }
 
+// Bounded Levenshtein edit distance; returns a value > max as soon as it is exceeded so a
+// cheap early-exit keeps typo checks fast.
+function boundedLevenshtein(a: string, b: string, max: number) {
+  if (a === b) return 0;
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  const prev = new Array(b.length + 1);
+  const curr = new Array(b.length + 1);
+  for (let j = 0; j <= b.length; j += 1) prev[j] = j;
+  for (let i = 1; i <= a.length; i += 1) {
+    curr[0] = i;
+    let rowMin = curr[0];
+    for (let j = 1; j <= b.length; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+      if (curr[j] < rowMin) rowMin = curr[j];
+    }
+    if (rowMin > max) return max + 1;
+    for (let j = 0; j <= b.length; j += 1) prev[j] = curr[j];
+  }
+  return prev[b.length];
+}
+
+// Typo tolerance for Korean/CJK queries only (Latin left to exact/substring tiers so that
+// distinct chemicals like ethyl vs methyl are never confused). Compares NFD (jamo-level)
+// forms so "에타놀" ~ "에탄올". Returns a LOW score so any exact/substring match always wins.
+function cjkTypoScore(target: string, query: string) {
+  if (!hasCjkOrHangul(query) || !hasCjkOrHangul(target)) return 0;
+  const q = query.normalize("NFD");
+  const t = target.normalize("NFD");
+  if (Math.min(q.length, t.length) < 3 || Math.abs(q.length - t.length) > 2) return 0;
+  const maxDistance = Math.max(1, Math.min(3, Math.floor(Math.max(q.length, t.length) * 0.25)));
+  const distance = boundedLevenshtein(q, t, maxDistance);
+  if (distance > maxDistance) return 0;
+  return distance === 1 ? 52 : 46;
+}
+
 function isShortLatin(value: string) {
   return /^[a-z0-9.+-]+$/i.test(value) && value.length <= 4;
 }
@@ -409,6 +445,12 @@ function tokenScore(target: string, query: string, exactOnly = false) {
   if (queryTokens.length > 1 && queryTokens.every((token) => target.includes(token))) return 58;
   if (query.length > 4 && query.includes(target)) return 44;
   if (canUseFolded && queryFolded.includes(targetFolded)) return 42;
+
+  // Last resort: Korean/CJK typo tolerance (e.g. "에타놀" → "에탄올"). Low score so any
+  // exact/substring/folded match above always wins.
+  const typoScore = cjkTypoScore(target, query);
+  if (typoScore) return typoScore;
+
   return 0;
 }
 
