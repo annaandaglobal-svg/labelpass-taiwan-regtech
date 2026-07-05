@@ -168,9 +168,21 @@ function mergeKnowledgeResult(
     )
     .slice(0, limit);
 
+  // The bundled index (fallback) is the complete catalog shipped with the deploy; the
+  // Supabase mirror (primary) can lag a seed behind. Report the knowledge-base size from
+  // whichever is larger per field so totals stay consistent with the deployed catalog and
+  // never undercount because a re-seed is pending.
+  const totals = {
+    ...primary.totals,
+    sources: Math.max(primary.totals.sources, fallback.totals.sources),
+    terms: Math.max(primary.totals.terms, fallback.totals.terms),
+    aliases: Math.max(primary.totals.aliases, fallback.totals.aliases),
+    ruleLinks: Math.max(primary.totals.ruleLinks, fallback.totals.ruleLinks)
+  };
+
   return {
     ...primary,
-    totals: primary.totals,
+    totals,
     ambiguity: primary.ambiguity ?? fallback.ambiguity,
     terms: mergedTerms,
     sources: mergedSources
