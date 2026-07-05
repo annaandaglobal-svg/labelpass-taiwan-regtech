@@ -15,7 +15,8 @@ import {
   PackageCheck,
   Send,
   Sparkles,
-  Truck
+  Truck,
+  UserCheck
 } from "lucide-react";
 import { HANDOFF_DRAFTS_STORAGE_KEY, parseHandoffDrafts, type HandoffDraft } from "@/lib/handoff-drafts";
 import {
@@ -270,6 +271,10 @@ export function ExpertsClient() {
           <Link className="workspace-button" href="/experts/quote">
             <Receipt size={15} />
             견적서 만들기
+          </Link>
+          <Link className="workspace-button" href="/expert">
+            <UserCheck size={15} />
+            전문가 포털
           </Link>
           <Link className="workspace-button" href="/workspace">
             <ClipboardCheck size={15} />

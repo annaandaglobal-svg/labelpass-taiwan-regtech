@@ -16913,3 +16913,53 @@ h2 {
 .reg-glossary dl { margin: 10px 0 0; display: grid; gap: 8px; }
 .reg-glossary-item dt { font-size: 12.5px; font-weight: 800; color: var(--ink); }
 .reg-glossary-item dd { margin: 2px 0 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* Expert portal (demo two-sided consult) */
+.expert-portal { display: grid; gap: 14px; padding: 24px 26px 90px; max-width: 1040px; }
+.ep-head { display: flex; gap: 12px; align-items: flex-start; }
+.ep-head-badge { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--navy-bg); color: var(--navy); flex-shrink: 0; }
+.ep-head h1 { font-size: 21px; }
+.ep-head p { margin-top: 4px; }
+.ep-empty { color: var(--muted); padding: 20px; }
+.ep-empty-card { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; color: var(--navy); }
+.ep-empty-card div { flex: 1; min-width: 200px; }
+.ep-empty-card b { font-size: 14px; color: var(--ink); }
+.ep-empty-card p { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+.ep-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 780px) { .ep-layout { grid-template-columns: 1fr; } }
+.ep-cases { display: grid; gap: 8px; }
+.ep-case { display: grid; gap: 4px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); cursor: pointer; text-align: left; }
+.ep-case:hover { border-color: var(--navy); }
+.ep-case.on { border-color: var(--navy); background: var(--navy-bg); }
+.ep-case b { font-size: 13.5px; }
+.ep-case-meta { font-size: 11.5px; color: var(--muted); }
+.ep-case .chip { justify-self: start; }
+.ep-detail { display: grid; gap: 12px; }
+.ep-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.ep-detail-head b { font-size: 15px; }
+.ep-detail-meta { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.ep-scope { display: flex; gap: 6px; flex-wrap: wrap; }
+.ep-chat { display: flex; flex-direction: column; gap: 10px; height: 320px; overflow-y: auto; padding: 12px; border: 1px solid var(--line); border-radius: 11px; background: var(--bg); }
+.ep-chat-empty { color: var(--muted); font-size: 12.5px; margin: auto; }
+.ep-msg { max-width: 82%; }
+.ep-msg p { font-size: 13px; padding: 9px 12px; border-radius: 11px; line-height: 1.5; }
+.ep-msg small { display: block; font-size: 10px; color: var(--muted); margin-top: 3px; }
+.ep-msg.expert { align-self: flex-end; text-align: right; }
+.ep-msg.expert p { background: var(--navy); color: #fff; border-bottom-right-radius: 4px; }
+.ep-msg.customer { align-self: flex-start; }
+.ep-msg.customer p { background: var(--panel); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.ep-msg.system { align-self: center; max-width: 100%; text-align: center; }
+.ep-msg.system em { font-size: 11.5px; color: var(--muted); font-style: normal; background: var(--panel); border-radius: 99px; padding: 5px 13px; }
+.ep-reply { display: flex; gap: 8px; }
+.ep-reply input { flex: 1; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 13px; background: var(--panel); }
+.ep-reply input:focus { outline: none; border-color: var(--navy); }
+.ep-quote { border: 1px dashed var(--line); border-radius: 11px; padding: 12px 14px; }
+.ep-quote-title { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; color: var(--navy); }
+.ep-quote-fields { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; margin-top: 9px; }
+.ep-quote-fields label { display: grid; gap: 3px; font-size: 11.5px; font-weight: 700; color: var(--muted); }
+.ep-quote-fields input { border: 1.5px solid var(--line); border-radius: 9px; padding: 8px 11px; font: inherit; font-size: 13px; width: 130px; background: var(--panel); }
+.ep-quote-fields input:focus { outline: none; border-color: var(--navy); }
+.ep-quote-link { display: inline-block; margin-top: 9px; font-size: 12px; font-weight: 700; color: var(--navy); text-decoration: none; }
+.ep-quote-link:hover { text-decoration: underline; }
+.ep-status-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 760px) { .expert-portal { padding: 18px 14px 80px; } }
