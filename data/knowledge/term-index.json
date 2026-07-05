@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 154,
+  "curated_term_count": 155,
   "generated_term_count": 1038,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -10,7 +10,7 @@
     {
       "id": "salicylic-acid",
       "canonical_name": "Salicylic Acid",
-      "category": "cosmetic_ingredient",
+      "category": "cosmetic_ingredient_restriction",
       "identifiers": {
         "cas": [
           "69-72-7"
@@ -98,7 +98,7 @@
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Common acne/keratolytic ingredient. Abbreviation BHA requires context check."
+      "notes": "대만 화장품 제한(限用) 성분. 사용 목적·제품군별 함량 한도(리브온 ≤2% 등)와 '3세 이하 사용 금지' 경고문구 확인. 보존 목적 사용 시 별도 한도. BHA 약어는 문맥 확인 필요."
     },
     {
       "id": "methylisothiazolinone",
@@ -20901,6 +20901,117 @@
         "jp-meti-security-export-control"
       ],
       "notes": "Export-control screening concept for intended use, final user, ultimate consignee, certificates of end use, written assurances, and restricted-area routing."
+    },
+    {
+      "id": "ethanol",
+      "canonical_name": "Ethanol (Alcohol)",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [
+          "64-17-5"
+        ],
+        "inci": [
+          "Alcohol Denat."
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Ethanol",
+          "normalized": "ethanol",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Ethyl Alcohol",
+          "normalized": "ethyl alcohol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 1,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Alcohol Denat.",
+          "normalized": "alcohol denat.",
+          "type": "INCI",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SD Alcohol",
+          "normalized": "sd alcohol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "에탄올",
+          "normalized": "에탄올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "에틸알코올",
+          "normalized": "에틸알코올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "변성알코올",
+          "normalized": "변성알코올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乙醇",
+          "normalized": "乙醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酒精",
+          "normalized": "酒精",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "일반 화장품 용제(에탄올). 화장품에서 널리 허용. 금지성분 Methyl alcohol(메탄올, CAS 67-56-1)과 반드시 구분."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
