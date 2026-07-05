@@ -13,7 +13,7 @@ fetched_url: https://portal.sw.nat.gov.tw/APGQ/GC453
 extra_fetched_urls:
 cache_days: 7
 cache_expires_at: 2026-07-04T19:29:07.294Z
-cache_status: fresh
+cache_status: stale
 content_hash: 0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719
 from_cache: false
 manual_fallback: true

@@ -13,7 +13,7 @@ fetched_url: https://consumer.fda.gov.tw/Food/SpecialFood.aspx?nodeID=163
 extra_fetched_urls:
 cache_days: 7
 cache_expires_at: 2026-07-04T18:58:21.669Z
-cache_status: fresh
+cache_status: stale
 content_hash: 6542fdef6b75725d30e7d57ab88a28527397cb90a68be1366bd5d66e496a3ebd
 from_cache: false
 manual_fallback: true

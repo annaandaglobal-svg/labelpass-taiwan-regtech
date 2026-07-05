@@ -8,13 +8,13 @@ domain: customs
 source_type: notice
 priority: medium
 format: html
-fetched_at: 2026-06-27T12:38:40.956Z
+fetched_at: 2026-07-05T08:22:00.714Z
 fetched_url: https://web.customs.gov.tw/ekaohsiung/singlehtml/3071?cntId=9efc8e5829ff4cbe9c1ded1a6c22302e
 extra_fetched_urls:
 cache_days: 7
-cache_expires_at: 2026-07-04T12:38:40.956Z
+cache_expires_at: 2026-07-12T08:22:00.714Z
 cache_status: fresh
-content_hash: b67c1e1cdfdf221ed18086601d7411b8a84cd661b10e9cf40b5bdd6a1c4332b7
+content_hash: badb262148778ef35c9e2e27420948a5b72e13e0d70e4670d84698198c9a45de
 from_cache: true
 manual_fallback: false
 browser_capture: false

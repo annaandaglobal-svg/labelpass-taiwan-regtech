@@ -13,7 +13,7 @@ fetched_url: http://pmds.fda.gov.tw/illegalad/
 extra_fetched_urls:
 cache_days: 7
 cache_expires_at: 2026-07-04T18:58:21.669Z
-cache_status: fresh
+cache_status: stale
 content_hash: 6937af3da999bb6833ed52af98451dd653a6ea32358c0c51ad170c364a770897
 from_cache: false
 manual_fallback: true
