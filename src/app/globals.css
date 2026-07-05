@@ -17053,3 +17053,52 @@ h2 {
 /* Workspace: one-line purpose intro for first-time users */
 .workspace-intro { margin: -4px 0 4px; font-size: 13px; color: #5b6675; line-height: 1.5; }
 @media (prefers-color-scheme: dark) { .workspace-intro { color: #aeb6c0; } }
+
+/* Review console: guided one-step-at-a-time flow (declutter per 시안) */
+[data-review-step="1"] .lp-result-panel,
+[data-review-step="1"] .lp-side-panel { display: none; }
+[data-review-step="1"] .lp-workbench { grid-template-columns: minmax(0, 1fr); }
+[data-review-step="2"] .lp-route-band,
+[data-review-step="2"] .lp-intake-panel,
+[data-review-step="2"] .lp-side-panel { display: none; }
+[data-review-step="2"] .lp-workbench { grid-template-columns: minmax(0, 640px); justify-content: center; }
+[data-review-step="3"] .lp-route-band,
+[data-review-step="3"] .lp-intake-panel { display: none; }
+
+/* Expert selection cards (customer chooses reviewer, per 시안) — navy/neutral tokens only */
+.expert-pick { display: grid; gap: 7px; }
+.expert-pick-label { font-size: 12px; font-weight: 800; color: var(--sub, #5B6B7B); }
+.expert-pick-grid { display: grid; gap: 8px; }
+.expert-pick-card { display: grid; gap: 6px; text-align: left; padding: 11px 13px; border: 1.5px solid var(--line, #E3E8EC); border-radius: 12px; background: var(--paper, #fff); cursor: pointer; }
+.expert-pick-card:hover { border-color: var(--navy, #1B3A5C); }
+.expert-pick-card.on { border-color: var(--navy, #1B3A5C); background: var(--navy-bg, #EDF2F7); }
+.expert-pick-top { display: flex; align-items: center; gap: 9px; }
+.expert-pick-av { font-size: 22px; line-height: 1; }
+.expert-pick-id { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.expert-pick-id b { font-size: 13px; color: var(--ink, #152433); }
+.expert-pick-id em { font-size: 11.5px; color: var(--sub, #5B6B7B); font-style: normal; }
+.expert-pick-check { color: var(--navy, #1B3A5C); flex-shrink: 0; }
+.expert-pick-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.expert-pick-tags em { font-style: normal; font-size: 10.5px; font-weight: 700; color: var(--navy, #1B3A5C); background: var(--navy-bg, #EDF2F7); border-radius: 99px; padding: 2px 8px; }
+.expert-pick-meta { font-size: 11.5px; color: var(--sub, #5B6B7B); }
+.expert-pick-price { font-size: 11.5px; font-weight: 700; color: var(--ink, #152433); }
+
+/* Palette discipline: collapse guide/verdict colors to 시안's navy + 3 semantics (pass/warn/fail).
+   No foreign blues/purples/extra golds. Overrides earlier ad-hoc values. */
+:root { --pass: #177A4C; --pass-bg: #EAF6F0; --warn: #A86E0A; --warn-bg: #FBF3E2; --fail: #B5382B; --fail-bg: #FBEDEB; }
+.kb-verdict-banner.tone-blue { background: var(--navy-bg); border-color: #d3ddea; }
+.kb-verdict-banner.tone-blue b { color: var(--navy); }
+.kb-verdict-banner.tone-green { background: var(--pass-bg); border-color: #c1e2ce; }
+.kb-verdict-banner.tone-green b { color: var(--pass); }
+.kb-verdict-banner.tone-gold { background: var(--warn-bg); border-color: #eddcb6; }
+.kb-verdict-banner.tone-gold b { color: var(--warn); }
+.kb-verdict-banner.tone-red { background: var(--fail-bg); border-color: #f1ccc7; }
+.kb-verdict-banner.tone-red b { color: var(--fail); }
+.kb-verdict-banner p { color: var(--ink); }
+/* Limits card + customs reference + workspace demo: neutral text on app tokens, warn box for cautions */
+.kb-limits-title, .customs-ref-k, .customs-ref-head h1 { color: var(--navy); }
+.kb-limits-block > b, .kb-limits-block li, .customs-ref-grid li, .customs-ref-grid p, .customs-ref-notes { color: var(--ink); }
+.kb-limits-card > small, .customs-ref-examples, .customs-ref-quar, .workspace-demo-note, .workspace-intro { color: var(--muted); }
+.customs-ref-note { background: var(--warn-bg); border-color: #eddcb6; color: var(--warn); }
+.workspace-demo-tag { background: var(--navy-bg); color: var(--muted); }
+.workspace-demo-note b, .workspace-demo-note a, .kb-limits-block a, .customs-ref-codes .chip.navy { color: var(--navy); }

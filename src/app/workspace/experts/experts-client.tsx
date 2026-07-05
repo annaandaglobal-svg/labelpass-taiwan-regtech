@@ -28,9 +28,10 @@ import {
   buildExpertAutoReply,
   consultStatusCopy,
   demoAssignedExpertFor,
-  demoExpertNameFor,
   parseChatMessages,
   parseConsultCases,
+  recommendedExpertFor,
+  EXPERT_ROSTER,
   type ChatMessage,
   type ConsultCase
 } from "@/lib/expert-chat";
@@ -55,6 +56,7 @@ export function ExpertsClient() {
   const [newProductName, setNewProductName] = useState("");
   const [newScope, setNewScope] = useState("");
   const [newCategory, setNewCategory] = useState("화장품");
+  const [selectedExpertId, setSelectedExpertId] = useState<string>(() => recommendedExpertFor("화장품").id);
   const [chatInput, setChatInput] = useState("");
   const [isQuoting, setIsQuoting] = useState(false);
   const [isPaying, setIsPaying] = useState(false);
@@ -111,7 +113,7 @@ export function ExpertsClient() {
     return next;
   }
 
-  function createCase(productName: string, category: string, scope: string[], sourceHandoffId?: string) {
+  function createCase(productName: string, category: string, scope: string[], sourceHandoffId?: string, expertName?: string) {
     const consultCase: ConsultCase = {
       id: newId(),
       createdAt: new Date().toISOString(),
@@ -120,7 +122,7 @@ export function ExpertsClient() {
       scope,
       status: "requested",
       quote: null,
-      expertName: demoExpertNameFor(category),
+      expertName: expertName ?? recommendedExpertFor(category).name,
       sourceHandoffId
     };
     const nextCases = [consultCase, ...cases].slice(0, MAX_CONSULT_CASES);
@@ -144,7 +146,8 @@ export function ExpertsClient() {
       .map((item) => item.trim())
       .filter(Boolean)
       .slice(0, 8);
-    createCase(newProductName.trim(), newCategory, scope);
+    const chosen = EXPERT_ROSTER.find((expert) => expert.id === selectedExpertId);
+    createCase(newProductName.trim(), newCategory, scope, undefined, chosen?.name);
     setNewProductName("");
     setNewScope("");
   }
@@ -340,9 +343,43 @@ export function ExpertsClient() {
                 <span>상담 범위 (줄바꿈 또는 쉼표로 구분)</span>
                 <textarea rows={3} value={newScope} onChange={(event) => setNewScope(event.target.value)} placeholder={"예: PIF 목차 검토\n중문 라벨 표현 확인"} />
               </label>
+              <div className="expert-pick">
+                <span className="expert-pick-label">담당 전문가 선택</span>
+                <div className="expert-pick-grid">
+                  {EXPERT_ROSTER.map((expert) => (
+                    <button
+                      key={expert.id}
+                      type="button"
+                      className={expert.id === selectedExpertId ? "expert-pick-card on" : "expert-pick-card"}
+                      onClick={() => setSelectedExpertId(expert.id)}
+                      aria-pressed={expert.id === selectedExpertId}
+                    >
+                      <span className="expert-pick-top">
+                        <span className="expert-pick-av" aria-hidden="true">{expert.avatar}</span>
+                        <span className="expert-pick-id">
+                          <b>{expert.name}</b>
+                          <em>{expert.role}</em>
+                        </span>
+                        {expert.id === selectedExpertId && <BadgeCheck size={15} className="expert-pick-check" />}
+                      </span>
+                      <span className="expert-pick-tags">
+                        {expert.specialties.map((tag) => (
+                          <em key={tag}>{tag}</em>
+                        ))}
+                      </span>
+                      <span className="expert-pick-meta">
+                        처리 {expert.handledCount}건 · 평점 {expert.rating} · {expert.responseTime}
+                      </span>
+                      <span className="expert-pick-price">
+                        {expert.priceFrom} · {expert.note}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
               <button className="lp-button" type="button" onClick={createCaseFromForm}>
                 <Handshake size={16} />
-                매칭 요청
+                이 전문가로 매칭 요청
               </button>
             </div>
           </section>

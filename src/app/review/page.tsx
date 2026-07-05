@@ -1170,7 +1170,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="lp-main" id="review">
+      <section className="lp-main" id="review" data-review-step={result ? 3 : isReviewing ? 2 : 1}>
         <header className="lp-topbar">
           <div>
             <p>대만 화장품·식품 라벨링 검토</p>

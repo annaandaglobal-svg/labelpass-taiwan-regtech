@@ -151,3 +151,67 @@ export function demoAssignedExpertFor(category: string) {
     ? "Chen Yi-Ting · 대만 화장품 인허가 (데모 배정)"
     : "Lin Wei-Chen · 대만 식품·수입검사 (데모 배정)";
 }
+
+export type ExpertDomain = "cosmetic" | "food" | "customs";
+
+export type ExpertProfile = {
+  id: string;
+  name: string;
+  avatar: string;
+  role: string;
+  specialties: string[];
+  handledCount: number;
+  rating: number;
+  responseTime: string;
+  priceFrom: string;
+  note: string;
+  domains: ExpertDomain[];
+};
+
+// Selectable expert roster (per v5 시안) — customers choose who reviews, not auto-matching.
+export const EXPERT_ROSTER: ExpertProfile[] = [
+  {
+    id: "kim",
+    name: "김O정 · 대만 인허가 컨설턴트 (12년)",
+    avatar: "👩‍💼",
+    role: "대만 인허가 컨설턴트 · 12년",
+    specialties: ["TFDA 등록", "PIF", "라벨 검수"],
+    handledCount: 142,
+    rating: 4.9,
+    responseTime: "평균 2시간",
+    priceFrom: "검수 ₩150,000~",
+    note: "등록대행 견적 가능",
+    domains: ["cosmetic"]
+  },
+  {
+    id: "lin",
+    name: "林O如 · 타이베이 현지 RA·약사",
+    avatar: "👨‍⚕️",
+    role: "타이베이 현지 RA · 약사",
+    specialties: ["중문 라벨 감수", "광고 심의"],
+    handledCount: 89,
+    rating: 4.8,
+    responseTime: "평균 5시간",
+    priceFrom: "중문 감수 ₩200,000~",
+    note: "한국어 가능",
+    domains: ["cosmetic", "food"]
+  },
+  {
+    id: "park",
+    name: "박O훈 · 관세사 (식품/화장품 통관)",
+    avatar: "👨‍💼",
+    role: "관세사 · 식품/화장품 통관",
+    specialties: ["HS코드 확정", "수출신고", "C/O"],
+    handledCount: 310,
+    rating: 4.7,
+    responseTime: "평균 4시간",
+    priceFrom: "HS코드 확정 ₩60,000",
+    note: "수출신고 건당 견적",
+    domains: ["customs", "food", "cosmetic"]
+  }
+];
+
+export function recommendedExpertFor(category: string): ExpertProfile {
+  const domain: ExpertDomain = /화장품|cosmetic|pif/i.test(category) ? "cosmetic" : "food";
+  return EXPERT_ROSTER.find((expert) => expert.domains.includes(domain)) ?? EXPERT_ROSTER[0];
+}
