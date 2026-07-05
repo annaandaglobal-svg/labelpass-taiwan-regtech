@@ -10,6 +10,7 @@ function activeNavForPath(pathname: string): AppNavKey {
   if (pathname.startsWith("/knowledge")) return "knowledge";
   if (pathname.startsWith("/workspace/experts")) return "experts";
   if (pathname.startsWith("/workspace/logistics")) return "logistics";
+  if (pathname.startsWith("/customs")) return "logistics";
   if (pathname.startsWith("/workspace")) return "products";
   if (pathname.startsWith("/review")) return "review";
   return "home";

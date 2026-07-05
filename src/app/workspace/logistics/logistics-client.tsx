@@ -159,6 +159,10 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
             <Handshake size={15} />
             전문가 상담
           </Link>
+          <Link className="workspace-button" href="/customs">
+            <FileCheck2 size={15} />
+            통관 참고 (HS/CCC·세율)
+          </Link>
         </div>
       </header>
 

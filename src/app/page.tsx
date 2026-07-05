@@ -188,6 +188,9 @@ export default function Home() {
             <div>
               <b>HS·CCC 코드와 수입검사 서류</b> <span className="law">Customs Administration</span>
               <p>품목 분류·원산지·수입자 등록 요건을 검토 결과와 함께 정리합니다.</p>
+              <Link className="linkbtn" href="/customs">
+                통관 참고표 (HS/CCC·세율·검역) →
+              </Link>
             </div>
           </div>
         </div>
