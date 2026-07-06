@@ -26,6 +26,7 @@ import {
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
+import { loadSavedReviews, mergeSavedReviews, persistSavedReviews } from "@/lib/saved-reviews";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { verdictStateTone } from "@/lib/knowledge-verdicts";
 import { RegGlossary } from "@/components/reg-glossary";
@@ -925,16 +926,8 @@ export default function Home() {
   const docs = useMemo(() => documentChecklist(selectedRoute, result), [result, selectedRoute]);
 
   useEffect(() => {
-    const raw = window.localStorage.getItem("labelpass-reviews");
     const rawDrafts = window.localStorage.getItem(HANDOFF_DRAFTS_STORAGE_KEY);
-    try {
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) setSavedReviews(parsed.slice(0, 5));
-      }
-    } catch {
-      window.localStorage.removeItem("labelpass-reviews");
-    }
+    setSavedReviews(loadSavedReviews());
 
     const parsedDrafts = parseHandoffDrafts(rawDrafts);
     setHandoffDrafts(parsedDrafts.slice(0, MAX_HANDOFF_DRAFTS));
@@ -1079,9 +1072,9 @@ export default function Home() {
         input: nextInput,
         result: nextResult
       };
-      const nextSaved = [review, ...savedReviews.filter((item) => item.input.productName !== nextInput.productName)].slice(0, 5);
+      const nextSaved = mergeSavedReviews(savedReviews, [review]);
       setSavedReviews(nextSaved);
-      window.localStorage.setItem("labelpass-reviews", JSON.stringify(nextSaved));
+      persistSavedReviews(nextSaved);
       const evidenceQuery = knowledgeQuery.trim() || nextInput.productName || route.query;
       setKnowledgeQuery(evidenceQuery);
       await runKnowledgeSearch(evidenceQuery, route);

@@ -9,12 +9,14 @@ import {
   ClipboardCheck,
   FileCheck2,
   Handshake,
+  Layers,
   PackageCheck,
   Search,
   Ship,
   Truck
 } from "lucide-react";
 import { WorkspaceHandoffDrafts } from "@/components/workspace-handoff-drafts";
+import { WorkspaceProducts } from "@/components/workspace-products";
 import { getKnowledgeOverview, searchKnowledge } from "@/lib/knowledge-search";
 import { buildPlatformOpsActionQueue, getPlatformOpsSnapshot } from "@/lib/platform-ops-store";
 
@@ -177,13 +179,13 @@ export default async function WorkspacePage() {
               <ClipboardCheck size={15} />
               새 검토
             </Link>
+            <Link className="workspace-button" href="/review/bulk">
+              <Layers size={15} />
+              일괄 검토
+            </Link>
             <Link className="workspace-button" href="/licensing">
               <FileCheck2 size={15} />
               인허가 서류
-            </Link>
-            <Link className="workspace-button" href="/customs">
-              <Search size={15} />
-              통관 참고
             </Link>
           </div>
         </header>
@@ -194,54 +196,7 @@ export default async function WorkspacePage() {
 
         <section className="workspace-dashboard">
           <WorkspaceHandoffDrafts />
-
-          <article className="workspace-panel workspace-panel-wide">
-            <div className="workspace-panel-head">
-              <div>
-                <span>제품별 진행 <em className="workspace-demo-tag">예시</em></span>
-                <h2>이번 주 닫아야 할 대만 출시 작업</h2>
-              </div>
-              <PackageCheck size={18} />
-            </div>
-            <p className="workspace-demo-note">
-              아래는 화면 구성을 보여 주는 <b>예시 제품</b>입니다. <Link href="/review">성분·라벨 검토</Link>를 실행하면 내 실제 제품이 여기에 쌓입니다.
-            </p>
-            <div className="workspace-product-list">
-              {productRows.map((product) => (
-                <div key={product.name} className="pipe-row">
-                  <div className="pipe-top">
-                    <div className="ic" aria-hidden="true">
-                      {product.category.includes("식품") ? "🥫" : "🧴"}
-                    </div>
-                    <div className="pipe-id">
-                      <div className="nm">{product.name}</div>
-                      <div className="mt">
-                        {product.route} · {product.due} · {product.owner}
-                      </div>
-                    </div>
-                    <div className="act">
-                      <span className={`chip ${productChipClass(product.tone)}`}>{product.status}</span>
-                      <Link className="linkbtn" href={product.links[0]?.href ?? "/review"}>
-                        {product.links[0]?.label ?? "검토"}
-                        <ArrowRight size={13} />
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="pipe-steps">
-                    {WORKSPACE_PIPELINE.map((label, index) => (
-                      <div
-                        key={label}
-                        className={`pstep${index < product.step ? " done" : index === product.step ? " now" : ""}`}
-                      >
-                        {label}
-                      </div>
-                    ))}
-                  </div>
-                  {product.next && <p className="pipe-next">다음: {product.next}</p>}
-                </div>
-              ))}
-            </div>
-          </article>
+          <WorkspaceProducts />
         </section>
       </section>
     </>

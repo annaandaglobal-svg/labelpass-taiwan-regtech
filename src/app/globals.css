@@ -17256,3 +17256,42 @@ h2 {
   body, .lp-shell, .lp-content { background: #fff !important; }
   @page { margin: 14mm; }
 }
+
+/* 일괄 검토 (bulk multi-SKU) + 내 제품 real-data list */
+.bulk-main { display: flex; flex-direction: column; gap: 14px; }
+.bulk-intro { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 760px; }
+.bulk-intro b { color: var(--navy); }
+.bulk-drop { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; border: 1.5px dashed var(--line); border-radius: 14px; padding: 26px 18px; background: var(--panel); color: var(--muted); }
+.bulk-drop[data-running="true"] { border-color: var(--navy); }
+.bulk-drop b { font-size: 14.5px; color: var(--navy); }
+.bulk-drop span { font-size: 12px; }
+.bulk-drop .lp-button { margin-top: 4px; }
+.bulk-saved-note { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--pass, #177A4C); background: rgba(23, 122, 76, 0.08); border: 1px solid rgba(23, 122, 76, 0.2); border-radius: 10px; padding: 9px 13px; }
+.bulk-saved-note a { color: var(--navy); font-weight: 700; }
+.bulk-summary { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.bulk-summary-total { font-size: 12.5px; color: var(--muted); margin-left: auto; }
+.bulk-filters, .wp-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.bulk-filters button, .wp-filters button { font-size: 12.5px; font-weight: 700; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: 99px; padding: 6px 13px; cursor: pointer; }
+.bulk-filters button.on, .wp-filters button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.wp-filters button em { font-style: normal; opacity: 0.7; }
+.bulk-table { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--card, #fff); }
+.bulk-row { display: grid; grid-template-columns: minmax(0, 2.4fr) 1fr 1.1fr 0.6fr 0.9fr; align-items: center; gap: 10px; padding: 11px 14px; border-top: 1px solid var(--line); font-size: 13px; }
+.bulk-row:first-child { border-top: none; }
+.bulk-head { background: var(--panel); font-size: 11.5px; font-weight: 800; color: var(--muted); text-transform: none; }
+.bulk-name { font-weight: 700; color: var(--navy); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bulk-cat { color: var(--muted); font-size: 12.5px; }
+.bulk-score { font-weight: 800; color: var(--navy); }
+.bulk-progress { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+.bulk-issues em { font-style: normal; font-weight: 800; margin-right: 6px; }
+.bulk-issues em.fail { color: var(--fail, #B5382B); }
+.bulk-issues em.warn { color: var(--warn, #A86E0A); }
+.bulk-err { font-size: 11.5px; color: var(--fail, #B5382B); }
+.bulk-empty, .wp-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 30px 18px; color: var(--muted); }
+.bulk-empty b, .wp-empty b { font-size: 14.5px; color: var(--navy); }
+.bulk-empty span, .wp-empty span { font-size: 12.5px; max-width: 460px; line-height: 1.6; }
+.wp-empty-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+
+@media (max-width: 680px) {
+  .bulk-row { grid-template-columns: minmax(0, 1.7fr) 1fr 0.7fr; }
+  .bulk-row span:nth-child(4), .bulk-row span:nth-child(5) { display: none; }
+}

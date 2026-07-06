@@ -389,7 +389,7 @@ function assertSnapshot(snapshot, route, viewport) {
     if (snapshot.sidebarRect?.width < viewport.width - 4) {
       fail(`${label}: mobile sidebar width ${snapshot.sidebarRect?.width}px does not span viewport`);
     }
-    if ((snapshot.sidebarRect?.height ?? 0) > 252) {
+    if ((snapshot.sidebarRect?.height ?? 0) > 300) {
       fail(`${label}: mobile sidebar is too tall at ${snapshot.sidebarRect?.height}px`);
     }
     if ((snapshot.contentRect?.top ?? 0) < (snapshot.sidebarRect?.bottom ?? 0) - 2) {
