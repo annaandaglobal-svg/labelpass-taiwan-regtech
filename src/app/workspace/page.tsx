@@ -28,6 +28,7 @@ const productRows = [
     owner: "Annaanda Global",
     due: "7월 1일",
     progress: 68,
+    step: 2,
     next: "PIF 목차, INCI 제한성분 대조표, 중문 라벨 표현을 전문가 상담 전 확정합니다.",
     docs: ["PIF", "GMP", "COA", "중문 라벨"],
     links: [
@@ -46,6 +47,7 @@ const productRows = [
     owner: "Green Spoon Co.",
     due: "7월 3일",
     progress: 54,
+    step: 1,
     next: "알레르겐, 영양성분, 원재료 별칭, GMO/non-GMO 증빙을 한 묶음으로 정리합니다.",
     docs: ["중문 라벨", "영양성분", "알레르겐", "원산지"],
     links: [
@@ -63,6 +65,7 @@ const productRows = [
     owner: "Green Market TW",
     due: "오늘",
     progress: 32,
+    step: 4,
     next: "첨가물 용도 설명, 라벨 번역본, CCC/HS 근거를 통관 이벤트에 붙입니다.",
     docs: ["성분표", "첨가물", "CCC/HS", "수입검사"],
     links: [
@@ -72,6 +75,16 @@ const productRows = [
     ]
   }
 ];
+
+// Same 5-step launch pipeline as the home, so 내 제품 reads the 시안's labeled progress line.
+const WORKSPACE_PIPELINE = ["라벨 검토", "수정 반영", "전문가 검수", "TFDA 등록", "통관·선적"];
+
+function productChipClass(tone: string) {
+  if (tone === "blocked") return "fail";
+  if (tone === "warn") return "warn";
+  if (tone === "pass") return "pass";
+  return "navy";
+}
 
 const stateLabels: Record<string, string> = {
   requested: "요청",
@@ -195,44 +208,37 @@ export default async function WorkspacePage() {
             </p>
             <div className="workspace-product-list">
               {productRows.map((product) => (
-                <section key={product.name} className={`workspace-product-row ${product.tone}`}>
-                  <div className="workspace-product-main">
-                    <div className="workspace-product-title">
-                      <div>
-                        <b>{product.name}</b>
-                        <span>{product.category} / {product.route}</span>
+                <div key={product.name} className="pipe-row">
+                  <div className="pipe-top">
+                    <div className="ic" aria-hidden="true">
+                      {product.category.includes("식품") ? "🥫" : "🧴"}
+                    </div>
+                    <div className="pipe-id">
+                      <div className="nm">{product.name}</div>
+                      <div className="mt">
+                        {product.route} · {product.due} · {product.owner}
                       </div>
-                      <em>{product.status}</em>
                     </div>
-                    <p>{product.next}</p>
-                    <div className="workspace-doc-grid" aria-label={`${product.name} 증빙`}>
-                      {product.docs.map((doc) => (
-                        <span key={`${product.name}-${doc}`}>
-                          <FileCheck2 size={14} />
-                          {doc}
-                        </span>
-                      ))}
+                    <div className="act">
+                      <span className={`chip ${productChipClass(product.tone)}`}>{product.status}</span>
+                      <Link className="linkbtn" href={product.links[0]?.href ?? "/review"}>
+                        {product.links[0]?.label ?? "검토"}
+                        <ArrowRight size={13} />
+                      </Link>
                     </div>
                   </div>
-                  <div className="workspace-product-aside">
-                    <span>
-                      <CalendarCheck size={14} />
-                      {product.due}
-                    </span>
-                    <i aria-label={`${product.progress}% 완료`}>
-                      <b style={{ width: `${product.progress}%` }} />
-                    </i>
-                    <small>{product.owner}</small>
-                    <div className="workspace-link-row">
-                      {product.links.map((link) => (
-                        <Link key={`${product.name}-${link.href}-${link.label}`} href={link.href}>
-                          {link.label}
-                          <ArrowRight size={13} />
-                        </Link>
-                      ))}
-                    </div>
+                  <div className="pipe-steps">
+                    {WORKSPACE_PIPELINE.map((label, index) => (
+                      <div
+                        key={label}
+                        className={`pstep${index < product.step ? " done" : index === product.step ? " now" : ""}`}
+                      >
+                        {label}
+                      </div>
+                    ))}
                   </div>
-                </section>
+                  {product.next && <p className="pipe-next">다음: {product.next}</p>}
+                </div>
               ))}
             </div>
           </article>
