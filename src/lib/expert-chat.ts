@@ -212,7 +212,13 @@ export const EXPERT_ROSTER: ExpertProfile[] = [
 ];
 
 export function recommendedExpertFor(category: string): ExpertProfile {
-  const domain: ExpertDomain = /화장품|cosmetic|pif/i.test(category) ? "cosmetic" : "food";
+  // Trade/customs/device products go to the 관세사, not the food default (a beauty device
+  // should never be handed a 식품 expert).
+  const domain: ExpertDomain = /화장품|cosmetic|pif/i.test(category)
+    ? "cosmetic"
+    : /통관|관세|customs|trade|hs|ccc|기기|device|electronic|general goods|일반 화물/i.test(category)
+      ? "customs"
+      : "food";
   return EXPERT_ROSTER.find((expert) => expert.domains.includes(domain)) ?? EXPERT_ROSTER[0];
 }
 

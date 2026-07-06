@@ -14,6 +14,7 @@ import {
   History,
   Loader2,
   PackageCheck,
+  Printer,
   Search,
   ShieldCheck,
   Ship,
@@ -59,7 +60,7 @@ type RoutePreset = {
 };
 
 type ProductPreset = {
-  id: "cosmetic" | "food" | "supplement" | "ingredient" | "packaging" | "other";
+  id: "cosmetic" | "food" | "supplement" | "ingredient" | "packaging" | "device" | "other";
   label: string;
   helper: string;
   productType: string;
@@ -241,12 +242,20 @@ const productPresets: ProductPreset[] = [
     examples: ["재질", "용출시험", "표시사항"]
   },
   {
+    id: "device",
+    label: "미용기기·전자제품",
+    helper: "LED 마스크, 진동 클렌저 등 기기류. 먼저 대만 醫療器材(의료기기) 대상인지 一般商品(일반 상품)인지 구분하고, 일반 상품이면 BSMI 전기·전자 검사와 HS/CCC를 봅니다. 성분이 없어도 됩니다.",
+    productType: "beauty device / electronic goods / Taiwan import",
+    routeId: "tw_trade",
+    examples: ["의료기기 여부", "BSMI 검사", "HS/CCC"]
+  },
+  {
     id: "other",
     label: "기타·일반 화물",
     helper: "위 품목이 아니면 여기로. HS/CCC 분류, 원산지 표시, 수출입 허가 코드를 먼저 봅니다.",
     productType: "general goods / import export / Taiwan",
-    routeId: "tw_trade",
-    examples: ["HS/CCC", "원산지", "허가 코드"]
+    examples: ["HS/CCC", "원산지", "허가 코드"],
+    routeId: "tw_trade"
   }
 ];
 
@@ -1356,7 +1365,15 @@ export default function Home() {
                 <span>판정</span>
                 <h2>{result ? "1차 검토 결과" : "아직 검토 전입니다"}</h2>
               </div>
-              {result && <em>{result.score}/100</em>}
+              {result && (
+                <div className="lp-result-head-actions">
+                  <button type="button" className="lp-print-btn" onClick={() => window.print()} title="검토 결과를 인쇄하거나 PDF로 저장해 상사·고객사에 공유하세요">
+                    <Printer size={14} />
+                    인쇄 · PDF
+                  </button>
+                  <em>{result.score}/100</em>
+                </div>
+              )}
             </div>
 
             {isReviewing && !result && (

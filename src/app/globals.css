@@ -17242,3 +17242,17 @@ h2 {
 .kb-empty-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
 .kb-empty-action.ghost { background: transparent; border: 1px solid var(--line); color: var(--navy); }
 .kb-empty-action.ghost:hover { background: var(--panel); }
+
+/* Review result: 인쇄·PDF export (share with boss/client) */
+.lp-result-head-actions { display: inline-flex; align-items: center; gap: 10px; }
+.lp-print-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: var(--navy); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 11px; cursor: pointer; }
+.lp-print-btn:hover { background: #eef2f6; }
+
+@media print {
+  .lp-sidebar, .lp-newbtn, .lp-plan, .lp-utility-nav, .lp-utility-label, .lp-print-btn,
+  .lp-intake-panel, .review-steps, .lp-top-actions, .lp-toast, .lp-sample-drawer { display: none !important; }
+  .lp-shell, .lp-content, .lp-main { display: block !important; grid-template-columns: none !important; padding: 0 !important; }
+  .lp-result-panel { box-shadow: none !important; border: none !important; margin: 0 !important; max-width: none !important; width: 100% !important; }
+  body, .lp-shell, .lp-content { background: #fff !important; }
+  @page { margin: 14mm; }
+}
