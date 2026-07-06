@@ -201,9 +201,8 @@ requireIncludes(reviewHomeSource, '"/api/handoff/requests?dryRun=1"', "src/app/p
 requireIncludes(reviewHomeSource, "isSubmittingHandoff", "src/app/page.tsx handoff duplicate submit guard");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-draft-row"', "src/app/page.tsx compact handoff draft save row");
 requireIncludes(reviewHomeSource, 'className="lp-handoff-grid"', "src/app/page.tsx review handoff grid");
-requireIncludes(reviewHomeSource, 'href: "/workspace#review-queue"', "src/app/page.tsx customer review status handoff link");
-requireIncludes(reviewHomeSource, 'href: "/workspace#expert-cases"', "src/app/page.tsx customer expert status handoff link");
-requireIncludes(reviewHomeSource, 'href: "/workspace#shipment-events"', "src/app/page.tsx customer shipment status handoff link");
+requireIncludes(reviewHomeSource, 'href: "/workspace/experts"', "src/app/page.tsx customer expert status handoff link");
+requireIncludes(reviewHomeSource, 'href: "/workspace/logistics"', "src/app/page.tsx customer shipment status handoff link");
 requireIncludes(reviewHomeSource, 'className="lp-route-summary"', "src/app/page.tsx compact selected route summary");
 if (reviewHomeSource.includes("<small>{route.description}</small>")) {
   fail("src/app/page.tsx: route selector must stay compact; selected route detail belongs in lp-route-summary");
@@ -542,8 +541,8 @@ if (css.includes(".admin-row-action button.admin-row-action-lock")) {
 const handoffDraftSource = read("src/components/workspace-handoff-drafts.tsx");
 requireNoMojibake(handoffDraftSource, "src/components/workspace-handoff-drafts.tsx");
 requireIncludes(handoffDraftSource, "parseHandoffDrafts", "src/components/workspace-handoff-drafts.tsx safe draft parsing");
-requireIncludes(handoffDraftSource, 'href="/workspace#expert-cases"', "src/components/workspace-handoff-drafts.tsx expert/payment customer anchors");
-requireIncludes(handoffDraftSource, 'href="/workspace#shipment-events"', "src/components/workspace-handoff-drafts.tsx logistics customer anchor");
+requireIncludes(handoffDraftSource, 'href="/workspace/experts"', "src/components/workspace-handoff-drafts.tsx expert/payment customer anchors");
+requireIncludes(handoffDraftSource, 'href="/workspace/logistics"', "src/components/workspace-handoff-drafts.tsx logistics customer anchor");
 if (/href\s*=\s*"\/admin\//.test(handoffDraftSource)) {
   fail("src/components/workspace-handoff-drafts.tsx: customer draft panel must not deep-link directly into admin routes");
 }
