@@ -312,6 +312,17 @@ export function ExpertsClient() {
             <ArrowLeft size={14} />
             전문가 목록
           </button>
+          {!selectedCase.quote && selectedCase.status === "requested" && (
+            <button className="ex-reqquote top" type="button" disabled={isQuoting} onClick={() => requestQuote(selectedCase)}>
+              {isQuoting ? (
+                <>
+                  <Loader2 className="lp-spin" size={15} /> 견적 산정 중…
+                </>
+              ) : (
+                "이 전문가에게 견적 요청 →"
+              )}
+            </button>
+          )}
           <div className="echat">
             <div className="bothead">
               <div className="exav sm" aria-hidden="true">
@@ -362,7 +373,8 @@ export function ExpertsClient() {
                       onClick={() => void payAndOpenConsult(selectedCase)}
                     >
                       {isPaying ? <Loader2 className="lp-spin" size={14} /> : null}
-                      결제하고 진행하기 (mock)
+                      에스크로로 결제하고 진행하기
+                      <span className="ex-mock-badge">체험</span>
                     </button>
                   )}
                   {(selectedCase.status === "in_progress" || selectedCase.status === "completed") && (
@@ -387,17 +399,6 @@ export function ExpertsClient() {
               </button>
             </div>
           </div>
-          {!selectedCase.quote && selectedCase.status === "requested" && (
-            <button className="ex-reqquote" type="button" disabled={isQuoting} onClick={() => requestQuote(selectedCase)}>
-              {isQuoting ? (
-                <>
-                  <Loader2 className="lp-spin" size={15} /> 견적 산정 중…
-                </>
-              ) : (
-                "이 전문가에게 견적 요청"
-              )}
-            </button>
-          )}
         </div>
       )}
 

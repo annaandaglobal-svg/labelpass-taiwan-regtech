@@ -76,8 +76,8 @@ export default function Home() {
             새 라벨 검토 시작
             <ArrowRight size={16} />
           </Link>
-          <Link className="linkbtn-light" href="/review">
-            샘플 데이터로 체험 →
+          <Link className="linkbtn-light" href="/review#sample">
+            검토 화면에서 샘플로 체험 →
           </Link>
         </div>
       </div>

@@ -12786,10 +12786,10 @@ h2 {
   .lp-nav a {
     justify-content: center;
     flex-direction: column;
-    gap: 2px;
-    min-height: 38px;
-    padding: 4px 3px;
-    font-size: 10px;
+    gap: 1px;
+    min-height: 33px;
+    padding: 3px 2px;
+    font-size: 9.5px;
     text-align: center;
     white-space: normal;
   }
@@ -12838,8 +12838,9 @@ h2 {
   .lp-nav a {
     flex-direction: column;
     justify-content: center;
-    min-height: 38px;
-    padding: 4px 3px;
+    min-height: 33px;
+    padding: 3px 2px;
+    font-size: 9.5px;
     text-align: center;
   }
 
@@ -17224,3 +17225,11 @@ h2 {
 .portal-back:hover { background: rgba(255, 255, 255, 0.12); }
 .portal-main { min-width: 0; }
 .portal-main .admin-main { max-width: 1120px; margin: 0 auto; }
+
+/* Persona-fix polish: review gate hint, top 견적 CTA, mock badge, C/O note */
+.lp-intake-gate { display: block; margin-top: 8px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+.lp-intake-gate b { color: var(--navy); }
+.ex-reqquote.top { margin-top: 0; margin-bottom: 12px; }
+.ex-mock-badge { margin-left: 7px; font-size: 10px; font-weight: 800; background: rgba(255,255,255,0.22); border-radius: 99px; padding: 1px 7px; }
+.customs-ref-co { border: 1px solid var(--line); border-radius: 11px; padding: 11px 14px; font-size: 12.5px; line-height: 1.6; color: var(--ink); background: var(--panel); }
+.customs-ref-co b { color: var(--navy); }

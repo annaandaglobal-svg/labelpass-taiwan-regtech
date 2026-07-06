@@ -1331,6 +1331,11 @@ export default function Home() {
                 {isReviewing ? <Loader2 className="lp-spin" size={16} /> : <ArrowRight size={16} />}
                 검토 시작
               </button>
+              {!readiness.canReview && !isReviewing && (
+                <span className="lp-intake-gate">
+                  제품명·세부 품목·성분/라벨 등 <b>필수 3개</b>를 채우면 시작됩니다 (현재 {Math.min(readiness.readyCount, 3)}/3).
+                </span>
+              )}
             </div>
 
             <details className="lp-sample-drawer">

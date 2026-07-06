@@ -7,12 +7,12 @@ import { join } from "node:path";
 
 const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").replace(/\/$/, "");
 const failures = [];
-const expectedPrimaryNavKeys = ["home", "products", "experts", "logistics"];
-const expectedPrimaryNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics"];
-const expectedUtilityNavKeys = ["knowledge"];
-const expectedUtilityNavHrefs = ["/knowledge"];
-const expectedNavKeys = ["home", "products", "experts", "logistics", "knowledge"];
-const expectedNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics", "/knowledge"];
+const expectedPrimaryNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics"];
+const expectedPrimaryNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics"];
+const expectedUtilityNavKeys = ["knowledge", "products"];
+const expectedUtilityNavHrefs = ["/knowledge", "/workspace"];
+const expectedNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics", "knowledge", "products"];
+const expectedNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics", "/knowledge", "/workspace"];
 const expectedAdminSectionHrefs = [
   "/admin",
   "/admin/companies",
@@ -27,11 +27,11 @@ const expectedAdminSectionHrefs = [
 const routes = [
   { path: "/", active: "home" },
   { path: "/workspace", active: "products" },
-  { path: "/review", active: "products" },
-  { path: "/licensing", active: "products" },
+  { path: "/review", active: "review" },
+  { path: "/licensing", active: "licensing" },
+  { path: "/customs", active: "customs" },
   { path: "/workspace/experts", active: "experts" },
   { path: "/workspace/logistics", active: "logistics" },
-  { path: "/customs", active: "logistics" },
   { path: `/knowledge?q=PIF&uiBrowserAudit=${Date.now()}`, active: "knowledge" }
 ];
 
@@ -343,8 +343,8 @@ function assertSnapshot(snapshot, route, viewport) {
   if (snapshot.shellCount !== 1) fail(`${label}: expected one persistent app shell, found ${snapshot.shellCount}`);
   if (snapshot.sidebarCount !== 1) fail(`${label}: expected one persistent sidebar, found ${snapshot.sidebarCount}`);
   if (snapshot.contentCount !== 1) fail(`${label}: expected one stable content frame, found ${snapshot.contentCount}`);
-  if (snapshot.primaryCount !== 4) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
-  if (snapshot.utilityCount !== 1) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
+  if (snapshot.primaryCount !== 6) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
+  if (snapshot.utilityCount !== 2) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);
@@ -389,7 +389,7 @@ function assertSnapshot(snapshot, route, viewport) {
     if (snapshot.sidebarRect?.width < viewport.width - 4) {
       fail(`${label}: mobile sidebar width ${snapshot.sidebarRect?.width}px does not span viewport`);
     }
-    if ((snapshot.sidebarRect?.height ?? 0) > 230) {
+    if ((snapshot.sidebarRect?.height ?? 0) > 252) {
       fail(`${label}: mobile sidebar is too tall at ${snapshot.sidebarRect?.height}px`);
     }
     if ((snapshot.contentRect?.top ?? 0) < (snapshot.sidebarRect?.bottom ?? 0) - 2) {

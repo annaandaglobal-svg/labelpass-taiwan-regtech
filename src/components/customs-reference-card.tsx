@@ -41,6 +41,11 @@ export function CustomsReferenceCard() {
         </p>
       </div>
 
+      <div className="customs-ref-co">
+        <b>원산지증명(C/O)</b> — 대만 일반 수입에는 필수가 아니지만, <b>ECFA 등 협정 특혜관세</b>를 적용받으려면
+        특혜 원산지증명이 필요합니다. 비특혜 C/O는 바이어 요구·품목별로 요구될 수 있어 계약 전 확인하세요.
+      </div>
+
       <div className="customs-ref-tabs" role="tablist" aria-label="품목 도메인">
         {domainTabs.map((tab) => (
           <button
