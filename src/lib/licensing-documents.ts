@@ -50,7 +50,7 @@ export const licensingCategories: LicensingCategory[] = [
       {
         id: "full-formula",
         tier: "required",
-        label: "전성분·배합비",
+        label: "전성분 및 함량표",
         officialName: "完整配方 / 全成分及其含量 (Full Formula with % w/w)",
         spec: "INCI명 + 원료명(中文) + 함량(% w/w) + 배합 목적, 합계 100%",
         detail: "금지·제한 성분 대조와 색소 허용목록(正面表列) 확인의 근거입니다.",
@@ -58,11 +58,11 @@ export const licensingCategories: LicensingCategory[] = [
       },
       {
         id: "chinese-label",
-        tier: "required",
-        label: "중문 라벨 시안",
+        tier: "deferrable",
+        label: "중문 표시안 (라벨)",
         officialName: "中文標示 / 標籤仿單包裝 (Chinese Label / Insert / Packaging)",
         spec: "PDF·AI. 품명·전성분·용량·용법·주의사항·유효기한·제조/수입자 중문 표기",
-        detail: "대만 판매 화장품은 중문 표시가 의무입니다. 표시 항목 누락은 통관 보류 사유입니다.",
+        detail: "PIF 준비 단계에서는 필수가 아닙니다. 판매(제품 등록·통관) 전에 완성하면 되며, 그때 중문 표시가 누락되면 통관 보류 사유가 됩니다.",
         authority: "TFDA · 化粧品標示"
       },
       {

@@ -59,19 +59,17 @@ function uniquePush(list: string[], value: string, max: number) {
   if (trimmed && !list.includes(trimmed) && list.length < max) list.push(trimmed);
 }
 
-// Build a Korean-readable limit line from a rule's numeric + text limit fields.
+// Build a clean Korean limit line. We keep the number in Korean and deliberately drop the
+// raw Chinese scope/limit text from the primary line so a Korean user isn't reading 중문.
 function limitLine(rule: RawRule): string {
-  const parts: string[] = [];
   if (typeof rule.max_limit_percent === "number") {
-    parts.push(`최대 함량 ${rule.max_limit_percent}%`);
-  } else if (Array.isArray(rule.limit_percent_values) && rule.limit_percent_values.length) {
-    parts.push(`함량 기준 ${rule.limit_percent_values.join(", ")}%`);
+    return `최대 함량 ${rule.max_limit_percent}%`;
   }
-  const scope = cleanText(rule.product_scope);
-  if (scope) parts.push(`적용 범위: ${scope}`);
+  if (Array.isArray(rule.limit_percent_values) && rule.limit_percent_values.length) {
+    return `함량 기준 ${rule.limit_percent_values.join(", ")}%`;
+  }
   const text = cleanText(rule.limit_text);
-  if (text && text !== scope) parts.push(text);
-  return parts.join(" · ");
+  return text ? `함량 기준: ${text}` : "";
 }
 
 export function regulatoryDetailFor(ruleCodes: string[]): RegulatoryRuleDetail {

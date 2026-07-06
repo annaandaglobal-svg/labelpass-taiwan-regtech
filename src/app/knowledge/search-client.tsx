@@ -543,7 +543,7 @@ export default function KnowledgeSearchClient({
               ) : null}
               {evidenceBundle.verdict.warnings.length ? (
                 <div className="kb-limits-block">
-                  <b>필수 주의·경고문구 (원문)</b>
+                  <b>대만 라벨 표기 문구 — 아래 중문을 라벨에 그대로 표기</b>
                   <ul>
                     {evidenceBundle.verdict.warnings.map((item, index) => (
                       <li key={`warn-${index}`}>{item}</li>
@@ -567,7 +567,7 @@ export default function KnowledgeSearchClient({
                   </ul>
                 </div>
               ) : null}
-              <small>공식 원문은 중국어입니다. 통관·제출 전 최신 고시로 재확인하세요.</small>
+              <small>중문 문구는 대만 라벨에 그대로 인쇄해야 하는 공식 표기입니다. 통관·제출 전 최신 고시로 재확인하세요.</small>
             </div>
           ) : null}
 
