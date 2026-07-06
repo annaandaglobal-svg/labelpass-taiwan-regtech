@@ -269,10 +269,13 @@ export function PifClient() {
           <div className="workspace-panel-head">
             <div>
               <span>서류 체크리스트</span>
-              <h2>필수 {readiness.requiredReady}/{readiness.requiredTotal} 준비됨</h2>
+              <h2>필수 {readiness.requiredReady}/{readiness.requiredTotal} 확인</h2>
             </div>
             <ShieldCheck size={18} />
           </div>
+          <p className="pif-checklist-note">
+            체크는 <b>“보유 확인”</b>입니다. 실제 파일은 접수·전문가 검토 시 제출해야 하며, 미첨부 항목은 <b>보완 요청</b>될 수 있습니다. 가능하면 <b>파일 첨부</b>까지 해두세요.
+          </p>
 
           {tierOrder.map((tier) => {
             const copy = pifTierCopy[tier];

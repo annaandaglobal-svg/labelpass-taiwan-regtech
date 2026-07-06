@@ -71,7 +71,7 @@ export function CustomsReferenceCard() {
               </div>
               <div className="customs-ref-codes">
                 <span className="chip navy">HS {entry.hs6}</span>
-                <span className="chip gray">CCC {entry.cccExample}</span>
+                <span className="chip gray">대표 예시 CCC {entry.cccExample}</span>
               </div>
             </div>
 

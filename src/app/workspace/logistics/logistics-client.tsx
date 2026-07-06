@@ -110,14 +110,10 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
   }
 
   function submitRequest() {
-    if (!productName.trim()) {
-      setToast("제품명을 입력해주세요.");
-      return;
-    }
     const request: LogisticsRequestDraft = {
       id: newId(),
       createdAt: new Date().toISOString(),
-      productName: productName.trim(),
+      productName: productName.trim() || "일반 화물",
       originCountry,
       originPort,
       destinationPort,
