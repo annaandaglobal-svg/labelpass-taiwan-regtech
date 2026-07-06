@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,200
-- Stored aliases: 4,441
-- Searchable aliases including identifiers: 6,929
+- Terms: 1,209
+- Stored aliases: 4,530
+- Searchable aliases including identifiers: 7,006
 - Term-rule links: 1,082
 - Regulatory update candidates: 47
-- Alias review items: 1,043
+- Alias review items: 1,038
 
 ## How To Use This Memory
 
@@ -332,6 +332,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: Probiotic; Probiotics; 乳酸菌; 益生菌; 유산균; 프로바이오틱스; Lactic acid bacteria; Bifidobacterium; Lactobacillus
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-health-food-permit-query`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`
   - Note: High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.
+- **Palm Oil** (`food-palm-oil`)
+  - Aliases: Palm Kernel Oil; Palm Oil; Palm Olein; 棕櫚油; 팜올레인; 팜유
+  - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`
+  - Note: 식용 유지. 사용 시 산가·과산화물가 등 품질기준·원산지 표시 확인.
 
 ### customs classification
 
@@ -477,10 +481,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI CI 11680; CI CI 11680; CI 11680; Pigment Yellow 1 Ext. D&C Yellow No. 5 Hansa Yellow G
   - Sources: `tw-tfda-cosmetic-colorants`
   - Note: Generated from TFDA rule tw-cos-200-4
-- **CI 11710** (`tfda-ci-11710`)
-  - Aliases: INCI CI 11710; CI CI 11710; CI 11710; Pigment Yellow 3
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-5
 
 ## Alias Ambiguity Queue
 

@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1200,
-    "stored_aliases": 4441,
-    "searchable_aliases": 6929,
-    "identifier_aliases": 2488,
+    "terms": 1209,
+    "stored_aliases": 4530,
+    "searchable_aliases": 7006,
+    "identifier_aliases": 2476,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1043,
+    "alias_review_items": 1038,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -3852,7 +3852,7 @@
         "tw-tfda-health-food-permit-query"
       ],
       "notes": "Approved-effect vocabulary prevents the product review from treating unapproved health claims as generic marketing phrases.",
-      "score": 1146
+      "score": 1150
     },
     {
       "id": "imported-food-inspection-forms",
@@ -4949,6 +4949,26 @@
       "score": 187
     },
     {
+      "id": "food-palm-oil",
+      "canonical_name": "Palm Oil",
+      "category": "food_ingredient",
+      "category_label": "Food ingredient",
+      "aliases": [
+        "Palm Kernel Oil",
+        "Palm Oil",
+        "Palm Olein",
+        "棕櫚油",
+        "팜올레인",
+        "팜유"
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct"
+      ],
+      "notes": "식용 유지. 사용 시 산가·과산화물가 등 품질기준·원산지 표시 확인.",
+      "score": 186
+    },
+    {
       "id": "foreign-trade-act",
       "canonical_name": "Foreign Trade Act",
       "category": "import_export_control",
@@ -5486,40 +5506,23 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-200-4",
       "score": 156
-    },
-    {
-      "id": "tfda-ci-11710",
-      "canonical_name": "CI 11710",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI CI 11710",
-        "CI CI 11710",
-        "CI 11710",
-        "Pigment Yellow 3"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-5",
-      "score": 156
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1200,
-      "aliases_scanned": 4441,
-      "alias_rows_scanned": 4436,
-      "collision_groups": 58,
+      "terms_scanned": 1209,
+      "aliases_scanned": 4530,
+      "alias_rows_scanned": 4525,
+      "collision_groups": 59,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 985,
+      "regulated_terms_without_local_alias": 979,
       "strict_blockers": 0,
-      "review_items": 1043
+      "review_items": 1038
     },
     "items": [
       {
@@ -6739,11 +6742,11 @@
           "Titanium Dioxide",
           "Zinc Oxide",
           "Cosmetic Colorants",
-          "CI 10006",
-          "CI 10020",
-          "CI 10316",
-          "CI 11680",
-          "CI 11710"
+          "Mica (CI 77019)",
+          "Iron Oxides (CI 77491/77492/77499)",
+          "Carmine (CI 75470)",
+          "CI 15850 (Red 6/7)",
+          "CI 10006"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

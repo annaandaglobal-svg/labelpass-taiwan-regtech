@@ -17237,3 +17237,8 @@ h2 {
 /* PIF checklist honesty note */
 .pif-checklist-note { margin: -2px 0 8px; font-size: 12px; color: var(--muted); line-height: 1.55; }
 .pif-checklist-note b { color: var(--navy); }
+
+/* Null-verdict empty state: honest guidance + expert route */
+.kb-empty-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+.kb-empty-action.ghost { background: transparent; border: 1px solid var(--line); color: var(--navy); }
+.kb-empty-action.ghost:hover { background: var(--panel); }

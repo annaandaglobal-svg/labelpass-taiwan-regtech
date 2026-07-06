@@ -588,6 +588,20 @@
           "language": "ja",
           "jurisdiction": "JP",
           "confidence": 0.9
+        },
+        {
+          "value": "티타늄디옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "티타늄 디옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
         }
       ],
       "source_keys": [
@@ -14188,6 +14202,111 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "면역력",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "면역",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "면역조절",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "장건강",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "장 건강",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "위장기능개선",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "소화기능",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "피로회복",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "항피로",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "혈당조절",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "혈당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "콜레스테롤개선",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "혈중지질",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "골밀도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "뼈건강",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
         }
       ],
       "source_keys": [
@@ -16488,6 +16607,844 @@
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
       "notes": "특정용도(染髮) 화장품 표현. 산화형 성분 한도·경고문·패치테스트 조건 하 허용. 인정 성분·등록 필요."
+    },
+    {
+      "id": "ing-bakuchiol",
+      "canonical_name": "Bakuchiol",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Bakuchiol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "바쿠치올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "바쿠치",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Psoralea Corylifolia",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "補骨脂酚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "레티놀 대체로 쓰이는 식물유래 성분. 대만 화장품 사용 시 함량·안전성 확인 필요."
+    },
+    {
+      "id": "ing-squalane",
+      "canonical_name": "Squalane",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Squalane",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "스쿠알란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Squalene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "스쿠알렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "角鯊烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "에몰리언트. 일반 허용 성분."
+    },
+    {
+      "id": "ing-panthenol",
+      "canonical_name": "Panthenol",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Panthenol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "판테놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Pro-Vitamin B5",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "프로비타민B5",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "D-Panthenol",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "泛醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "보습·진정 성분. 일반 허용."
+    },
+    {
+      "id": "cos-oatmeal",
+      "canonical_name": "Colloidal Oatmeal (cosmetic)",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Colloidal Oatmeal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "콜로이달 오트밀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Avena Sativa Kernel",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "아베나 사티바",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "燕麥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "화장품용 오트밀(진정). 식품 오트밀 알레르겐과 별개."
+    },
+    {
+      "id": "col-mica",
+      "canonical_name": "Mica (CI 77019)",
+      "category": "colorant_uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Mica",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "마이카",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "운모",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 77019",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "雲母",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "광물성 펄 색소. 대만 화장품 허용 색소, 사용 부위·순도 조건 확인."
+    },
+    {
+      "id": "col-iron-oxides",
+      "canonical_name": "Iron Oxides (CI 77491/77492/77499)",
+      "category": "colorant_uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Iron Oxides",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "Iron Oxide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "산화철",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 77491",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 77492",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 77499",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "氧化鐵",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "허용 무기 색소. 사용 부위·순도 조건 확인."
+    },
+    {
+      "id": "col-carmine",
+      "canonical_name": "Carmine (CI 75470)",
+      "category": "colorant_uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Carmine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "카민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Cochineal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "코치닐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "胭脂紅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "CI 75470",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "洋紅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "동물유래(연지벌레) 적색 색소. 알레르기 유발 가능·비건 아님. 허용 색소이나 표기·부위 조건 확인."
+    },
+    {
+      "id": "col-ci15850",
+      "canonical_name": "CI 15850 (Red 6/7)",
+      "category": "colorant_uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "CI 15850",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "Red 7",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "적색7호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Lithol Rubine",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "立索爾寶紅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "허용 유기 색소(레이크 포함). 사용 부위·순도 조건 확인."
+    },
+    {
+      "id": "bot-licorice",
+      "canonical_name": "Licorice / Glycyrrhiza",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Licorice",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "감초",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "감초추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Glycyrrhiza",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "Glabridin",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "甘草",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "감초 유래. 화장품 사용 가능 식물 원료(형태·부위 확인)."
+    },
+    {
+      "id": "med-foti",
+      "canonical_name": "Fo-ti / He Shou Wu (何首烏)",
+      "category": "cosmetic_medicinal_restricted",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Fo-ti",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "하수오",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "적하수오",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "何首烏",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "Polygonum Multiflorum",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "赤何首烏",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "대만에서 中藥材(약용)로 관리되는 한약재. 화장품·식품 사용 제한·금지 가능성 — 사용 전 적격성 확인 필수."
+    },
+    {
+      "id": "food-palm-oil",
+      "canonical_name": "Palm Oil",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Palm Oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "팜유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "棕櫚油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "Palm Olein",
+          "type": "chemical_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "팜올레인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Palm Kernel Oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct"
+      ],
+      "notes": "식용 유지. 사용 시 산가·과산화물가 등 품질기준·원산지 표시 확인."
+    },
+    {
+      "id": "claim-natural",
+      "canonical_name": "Natural claim (天然)",
+      "category": "cosmetic_marketing_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "천연",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Natural",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "天然",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "자연유래",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "naturally derived",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "천연 표방. 정의·근거 없이 쓰면 과대·부당표시 위험."
+    },
+    {
+      "id": "claim-organic",
+      "canonical_name": "Organic claim (有機)",
+      "category": "cosmetic_marketing_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "유기농",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Organic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "有機",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "오가닉",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "유기농 표방. 인증·근거 필요, 없으면 부당표시."
+    },
+    {
+      "id": "claim-additive-free",
+      "canonical_name": "Additive-free claim (無添加)",
+      "category": "cosmetic_marketing_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "무첨가",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "무방부제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Additive-free",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "Preservative-free",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "無添加",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "free from",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "무첨가/무방부제 표방. 대상·근거 명시 없으면 부당표시."
+    },
+    {
+      "id": "claim-hypoallergenic",
+      "canonical_name": "Hypoallergenic claim (低敏)",
+      "category": "cosmetic_marketing_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "무알러지",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "저자극",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "Hypoallergenic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.85
+        },
+        {
+          "value": "무자극",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        },
+        {
+          "value": "低敏",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.85
+        },
+        {
+          "value": "순한",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "저자극·무알러지 표방. 시험 근거 없이 쓰면 부당표시."
     }
   ]
 }

@@ -458,12 +458,21 @@ export default function KnowledgeSearchClient({
           {hasQuery && hasResults && unifiedResults.length === 0 && (
             <div className="kb-empty-state">
               <Search size={24} />
-              <b>아직 검색 기억장치에 없는 표현입니다.</b>
-              <span>검토 콘솔로 넘기면 제품 맥락과 함께 확인하고, 내부에서 필요한 검색어를 보강합니다.</span>
-              <Link className="kb-empty-action" href={reviewHref}>
-                검토 콘솔에 넣기
-                <ArrowRight size={14} />
-              </Link>
+              <b>아직 등록되지 않은 표현입니다 — “문제 없음”이라는 뜻은 아닙니다.</b>
+              <span>
+                철자·띄어쓰기를 확인해 보세요. 신규·특수 성분이거나 별칭일 수 있으며, 규제 대상일 수도 있습니다.
+                판정이 확인되지 않은 성분은 <b>전문가 검토</b>를 권장합니다.
+              </span>
+              <div className="kb-empty-actions">
+                <Link className="kb-empty-action" href={reviewHref}>
+                  검토 콘솔에 넣기
+                  <ArrowRight size={14} />
+                </Link>
+                <Link className="kb-empty-action ghost" href="/workspace/experts">
+                  전문가에게 확인 요청
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           )}
 

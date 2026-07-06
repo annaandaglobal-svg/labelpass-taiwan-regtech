@@ -1127,6 +1127,26 @@
           "category": "cosmetic_ingredient_restriction"
         },
         {
+          "term_key": "col-mica",
+          "canonical_name": "Mica (CI 77019)",
+          "category": "colorant_uv_filter"
+        },
+        {
+          "term_key": "col-iron-oxides",
+          "canonical_name": "Iron Oxides (CI 77491/77492/77499)",
+          "category": "colorant_uv_filter"
+        },
+        {
+          "term_key": "col-carmine",
+          "canonical_name": "Carmine (CI 75470)",
+          "category": "colorant_uv_filter"
+        },
+        {
+          "term_key": "col-ci15850",
+          "canonical_name": "CI 15850 (Red 6/7)",
+          "category": "colorant_uv_filter"
+        },
+        {
           "term_key": "tfda-ci-10006",
           "canonical_name": "CI 10006",
           "category": "colorant"
@@ -1189,26 +1209,6 @@
         {
           "term_key": "tfda-ci-12480",
           "canonical_name": "CI 12480",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-12490",
-          "canonical_name": "CI 12490",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-12700",
-          "canonical_name": "CI 12700",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-13015",
-          "canonical_name": "CI 13015",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-14270",
-          "canonical_name": "CI 14270",
           "category": "colorant"
         }
       ],
@@ -2657,6 +2657,11 @@
           "term_key": "green-tea-camellia-sinensis",
           "canonical_name": "Green Tea / Camellia Sinensis",
           "category": "botanical_ingredient"
+        },
+        {
+          "term_key": "food-palm-oil",
+          "canonical_name": "Palm Oil",
+          "category": "food_ingredient"
         }
       ],
       "affected_products": [
@@ -2757,6 +2762,11 @@
           "term_key": "green-tea-camellia-sinensis",
           "canonical_name": "Green Tea / Camellia Sinensis",
           "category": "botanical_ingredient"
+        },
+        {
+          "term_key": "food-palm-oil",
+          "canonical_name": "Palm Oil",
+          "category": "food_ingredient"
         }
       ],
       "affected_products": [
