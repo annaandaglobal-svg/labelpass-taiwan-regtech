@@ -17295,3 +17295,57 @@ h2 {
   .bulk-row { grid-template-columns: minmax(0, 1.7fr) 1fr 0.7fr; }
   .bulk-row span:nth-child(4), .bulk-row span:nth-child(5) { display: none; }
 }
+
+/* Shareable read-only 검토 리포트 (/report/view) — standalone, print-friendly */
+.report-standalone { min-height: 100vh; background: var(--bg, #f4f7f6); }
+.report-page { max-width: 780px; margin: 0 auto; padding: 0 16px 60px; }
+.report-loading { padding: 60px; text-align: center; color: var(--muted); }
+.report-bar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 4px; background: var(--bg, #f4f7f6); border-bottom: 1px solid var(--line); }
+.report-id { display: flex; align-items: center; gap: 10px; }
+.report-id .portal-seal { border-color: var(--navy); color: var(--navy); }
+.report-id strong { display: block; font-size: 14px; color: var(--navy); }
+.report-id small { display: block; font-size: 11px; color: var(--muted); }
+.report-body { display: flex; flex-direction: column; gap: 18px; padding-top: 18px; }
+.report-verdict { display: flex; gap: 16px; align-items: center; background: var(--card, #fff); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.report-verdict.fail { border-color: rgba(181, 56, 43, 0.32); }
+.report-verdict.warn { border-color: rgba(168, 110, 10, 0.32); }
+.report-verdict.pass { border-color: rgba(23, 122, 76, 0.32); }
+.report-verdict-body { min-width: 0; }
+.report-verdict-body h1 { font-size: 20px; color: var(--navy); margin: 2px 0 4px; }
+.report-verdict-body p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.report-eyebrow { font-size: 11.5px; font-weight: 800; color: var(--muted); letter-spacing: 0.02em; }
+.report-counts { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+.report-score { font-size: 12.5px; font-weight: 800; color: var(--navy); margin-left: 4px; }
+.report-section h2 { font-size: 14px; color: var(--navy); margin: 0 0 10px; }
+.report-issues { display: flex; flex-direction: column; gap: 8px; }
+.report-issue { border: 1px solid var(--line); border-left-width: 3px; border-radius: 10px; padding: 11px 13px; background: var(--card, #fff); }
+.report-issue.fail { border-left-color: var(--fail, #B5382B); }
+.report-issue.warn { border-left-color: var(--warn, #A86E0A); }
+.report-issue.navy { border-left-color: var(--navy); }
+.report-issue.pass { border-left-color: var(--pass, #177A4C); }
+.report-issue-head { display: flex; align-items: center; gap: 7px; }
+.report-issue-head b { font-size: 13.5px; color: var(--navy); }
+.report-issue-area { margin-left: auto; font-size: 11px; color: var(--muted); background: var(--panel); border-radius: 99px; padding: 2px 8px; white-space: nowrap; }
+.report-issue-why { font-size: 12.5px; color: var(--ink); line-height: 1.55; margin: 6px 0 0; }
+.report-issue-fix { font-size: 12.5px; color: var(--navy); font-weight: 600; margin: 5px 0 0; }
+.report-ing-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.report-ing-row { display: grid; grid-template-columns: minmax(0, 1.3fr) auto minmax(0, 1.7fr); gap: 10px; align-items: center; padding: 9px 13px; border-top: 1px solid var(--line); font-size: 12.5px; }
+.report-ing-row:first-child { border-top: none; }
+.report-ing-name { font-weight: 700; color: var(--navy); overflow: hidden; text-overflow: ellipsis; }
+.report-ing-state { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.report-ing-label { color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+.report-foot { display: flex; align-items: flex-start; gap: 8px; font-size: 11.5px; color: var(--muted); line-height: 1.5; padding: 14px; background: var(--panel); border-radius: 10px; }
+.report-empty { text-align: center; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--muted); }
+.report-empty h1 { font-size: 18px; color: var(--navy); }
+
+@media print {
+  .report-bar .lp-print-btn { display: none !important; }
+  .report-standalone, .report-page, .report-bar { background: #fff !important; }
+  @page { margin: 14mm; }
+}
+
+@media (max-width: 680px) {
+  .report-verdict { flex-direction: column; align-items: flex-start; }
+  .report-ing-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .report-ing-label { display: none; }
+}

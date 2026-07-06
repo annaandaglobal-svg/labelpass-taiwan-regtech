@@ -59,6 +59,11 @@ export function AppFrame({ children }: { children: ReactNode }) {
   if (pathname.startsWith("/expert")) {
     return <PortalShell label="전문가 포털 · 상담·검수">{children}</PortalShell>;
   }
+  // A shared 검토 리포트 is handed to an external boss/client — render it bare (no customer
+  // sidebar), with its own header, so the link stands alone and prints cleanly.
+  if (pathname.startsWith("/report")) {
+    return <div className="report-standalone">{children}</div>;
+  }
 
   const active = activeNavForPath(pathname);
   return (

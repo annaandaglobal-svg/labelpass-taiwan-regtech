@@ -31,7 +31,7 @@ export function formatMoney(amount: number, currency: string): string {
   return `${currency} ${rounded.toLocaleString("en-US")}`;
 }
 
-function toBase64(input: string): string {
+export function toBase64(input: string): string {
   if (typeof btoa !== "undefined") {
     const bytes = new TextEncoder().encode(input);
     let binary = "";
@@ -43,7 +43,7 @@ function toBase64(input: string): string {
   return Buffer.from(input, "utf8").toString("base64");
 }
 
-function fromBase64(input: string): string {
+export function fromBase64(input: string): string {
   if (typeof atob !== "undefined") {
     const binary = atob(input);
     const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));

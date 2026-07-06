@@ -16,6 +16,7 @@ import {
   PackageCheck,
   Printer,
   Search,
+  Share2,
   ShieldCheck,
   Ship,
   Sparkles,
@@ -27,6 +28,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
 import { loadSavedReviews, mergeSavedReviews, persistSavedReviews } from "@/lib/saved-reviews";
+import { buildShareableReport, encodeReport } from "@/lib/report-share";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { verdictStateTone } from "@/lib/knowledge-verdicts";
 import { RegGlossary } from "@/components/reg-glossary";
@@ -1086,6 +1088,18 @@ export default function Home() {
     }
   }
 
+  async function copyShareLink() {
+    if (!result) return;
+    const report = buildShareableReport(input, result);
+    const url = `${window.location.origin}/report/view?d=${encodeReport(report)}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setToast("읽기 전용 공유 링크를 복사했습니다. 상사·고객사에 그대로 전달하세요.");
+    } catch {
+      setToast("링크 복사에 실패했습니다. 브라우저의 클립보드 권한을 확인해 주세요.");
+    }
+  }
+
   async function saveHandoffDraft() {
     if (!result) return;
     const draft = handoffDraftFor(input, result, selectedRoute);
@@ -1360,6 +1374,10 @@ export default function Home() {
               </div>
               {result && (
                 <div className="lp-result-head-actions">
+                  <button type="button" className="lp-print-btn" onClick={() => void copyShareLink()} title="상사·고객사에 전달할 읽기 전용 공유 링크를 복사합니다">
+                    <Share2 size={14} />
+                    공유 링크
+                  </button>
                   <button type="button" className="lp-print-btn" onClick={() => window.print()} title="검토 결과를 인쇄하거나 PDF로 저장해 상사·고객사에 공유하세요">
                     <Printer size={14} />
                     인쇄 · PDF
