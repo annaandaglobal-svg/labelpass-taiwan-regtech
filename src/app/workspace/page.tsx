@@ -156,33 +156,27 @@ export default async function WorkspacePage() {
       <section className="lp-main workspace-main">
         <header className="workspace-topbar">
           <div>
-            <p>Annaanda Global 워크스페이스</p>
-            <h1>대만 화장품·식품 제품, 증빙, 전문가, 물류 상태를 한 화면에서 정리합니다.</h1>
+            <p>내 제품</p>
+            <h1>검토한 제품과 진행 상태를 한곳에서 관리합니다.</h1>
           </div>
           <div className="workspace-topbar-actions">
             <Link className="workspace-button primary" href="/review">
               <ClipboardCheck size={15} />
               새 검토
             </Link>
-            <Link className="workspace-button" href="/knowledge">
+            <Link className="workspace-button" href="/licensing">
+              <FileCheck2 size={15} />
+              인허가 서류
+            </Link>
+            <Link className="workspace-button" href="/customs">
               <Search size={15} />
-              근거 검색
+              통관 참고
             </Link>
           </div>
         </header>
 
-        <section className="workspace-metrics" aria-label="워크스페이스 상태">
-          {metrics.map((metric) => (
-            <span key={metric.label} className="workspace-metric">
-              <small>{metric.label}</small>
-              <b>{metric.value.toLocaleString("ko-KR")}</b>
-              <em>{metric.detail}</em>
-            </span>
-          ))}
-        </section>
-
         <p className="workspace-intro">
-          검토한 제품과 그 진행 상태를 한곳에서 봅니다. 다음 단계(인허가 서류·전문가 검수·물류)는 왼쪽 메뉴에서 이어가세요.
+          검토한 제품과 진행 단계를 봅니다. 인허가 서류·통관 참고는 위 버튼에서, 전문가 상담·물류는 왼쪽 메뉴에서 이어가세요.
         </p>
 
         <section className="workspace-dashboard">
@@ -240,125 +234,6 @@ export default async function WorkspacePage() {
                   </div>
                 </section>
               ))}
-            </div>
-          </article>
-
-          <article className="workspace-panel" id="review-queue">
-            <div className="workspace-panel-head">
-              <div>
-                <span>오늘 처리</span>
-                <h2>리뷰·전문가·물류 액션</h2>
-              </div>
-              <AlertTriangle size={18} />
-            </div>
-            <div className="workspace-action-list">
-              {workspaceActionQueue.map((item) => (
-                <Link key={item.id} className={`workspace-action-item ${item.tone}`} href={customerActionHref(item.href)}>
-                  <span>{item.label}</span>
-                  <b>{item.title}</b>
-                  <p>{item.next}</p>
-                  <small>{item.owner}</small>
-                </Link>
-              ))}
-            </div>
-          </article>
-
-          <article className="workspace-panel" id="expert-cases">
-            <div className="workspace-panel-head">
-              <div>
-                <span>전문가 매칭</span>
-                <h2>상담·결제·작업방</h2>
-              </div>
-              <Handshake size={18} />
-            </div>
-            <div className="workspace-expert-list">
-              {activeExpertCases.slice(0, 3).map((expertCase) => (
-                <div key={expertCase.id} className={`workspace-expert-row ${expertCase.queueTone}`}>
-                  <span>{expertCase.displayId ?? expertCase.id}</span>
-                  <b>{expertCase.product}</b>
-                  <small>{expertCase.expert} / {labelState(expertCase.state)} / {expertCase.payment}</small>
-                </div>
-              ))}
-            </div>
-            <Link className="workspace-wide-link" href="/workspace/experts">
-              <Handshake size={15} />
-              상담 요청·견적·채팅 열기
-              <ArrowRight size={14} />
-            </Link>
-          </article>
-
-          <article className="workspace-panel workspace-panel-wide" id="shipment-events">
-            <div className="workspace-panel-head">
-              <div>
-                <span>물류·선적</span>
-                <h2>운송과 통관 이벤트</h2>
-              </div>
-              <Ship size={18} />
-            </div>
-            <div className="workspace-shipment-grid">
-              {opsSnapshot.activeShipments.map((shipment) => (
-                <div key={shipment.reference} className={`workspace-shipment-row ${shipment.state}`}>
-                  <Truck size={17} />
-                  <div>
-                    <b>{shipment.reference}</b>
-                    <span>{shipment.product} / {shipment.route}</span>
-                    <small>{shipment.carrier} / {shipment.tracking}</small>
-                  </div>
-                  <em>{labelState(shipment.state)} · {shipment.eta}</em>
-                </div>
-              ))}
-            </div>
-            <Link className="workspace-wide-link" href="/workspace/logistics">
-              <Ship size={15} />
-              항로 지도·통관 단계·트래킹 타임라인 열기
-              <ArrowRight size={14} />
-            </Link>
-          </article>
-
-          <article className="workspace-panel">
-            <div className="workspace-panel-head">
-              <div>
-                <span>공식 근거</span>
-                <h2>재사용 지식베이스</h2>
-              </div>
-              <BookOpenCheck size={18} />
-            </div>
-            <div className="workspace-source-grid">
-              <span>
-                <b>{knowledgeTotals.sources.toLocaleString("ko-KR")}</b>
-                공식 소스
-              </span>
-              <span>
-                <b>{knowledgeTotals.aliases.toLocaleString("ko-KR")}</b>
-                별칭
-              </span>
-              <span>
-                <b>{overview.operations.browserCaptures.toLocaleString("ko-KR")}</b>
-                브라우저 캡처
-              </span>
-              <span>
-                <b>{overview.operations.updateCandidates.toLocaleString("ko-KR")}</b>
-                변경 감시
-              </span>
-            </div>
-            <Link className="workspace-wide-link" href="/knowledge">
-              <BadgeCheck size={15} />
-              출처와 용어 확인
-            </Link>
-          </article>
-
-          <article className="workspace-panel">
-            <div className="workspace-panel-head">
-              <div>
-                <span>완료 기준</span>
-                <h2>출시 전 체크</h2>
-              </div>
-              <CheckCircle2 size={18} />
-            </div>
-            <div className="workspace-check-list">
-              <span>제품별 검토 결과와 증빙 묶음 저장</span>
-              <span>전문가 상담 범위와 결제 상태 확정</span>
-              <span>물류사 배정, tracking, 통관 보류 이벤트 연결</span>
             </div>
           </article>
         </section>

@@ -222,11 +222,6 @@ requireIncludes(workspaceSource, "workspace-intro", "src/app/workspace/page.tsx 
 requireIncludes(workspaceSource, 'item.href !== "/admin/settings"', "src/app/workspace/page.tsx filters internal admin settings");
 requireIncludes(workspaceSource, "customerActionHref", "src/app/workspace/page.tsx customer-safe operation href mapping");
 requireIncludes(workspaceSource, 'className="workspace-dashboard"', "src/app/workspace/page.tsx workspace layout");
-requireIncludes(workspaceSource, 'className="workspace-action-list"', "src/app/workspace/page.tsx workspace action queue UI");
-requireIncludes(workspaceSource, 'id="review-queue"', "src/app/workspace/page.tsx review status anchor");
-requireIncludes(workspaceSource, 'id="expert-cases"', "src/app/workspace/page.tsx expert status anchor");
-requireIncludes(workspaceSource, 'id="shipment-events"', "src/app/workspace/page.tsx shipment status anchor");
-requireIncludes(workspaceSource, 'href="/knowledge"', "src/app/workspace/page.tsx knowledge handoff");
 if (/href\s*:\s*"\/admin\//.test(workspaceSource) || /href="\/admin\//.test(workspaceSource)) {
   fail("src/app/workspace/page.tsx: customer workspace must not deep-link directly into admin routes");
 }
