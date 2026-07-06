@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Receipt, Send, UserCheck } from "lucide-react";
+import { Receipt, Send, UserCheck } from "lucide-react";
 import {
   CHAT_MESSAGES_STORAGE_KEY,
   CONSULT_CASES_STORAGE_KEY,
@@ -96,11 +96,6 @@ export default function ExpertPortalPage() {
 
   return (
     <section className="lpv5 expert-portal">
-      <Link className="linkbtn" href="/workspace/experts">
-        <ArrowLeft size={14} />
-        고객 상담 화면
-      </Link>
-
       <div className="ep-head">
         <span className="ep-head-badge" aria-hidden="true">
           <UserCheck size={18} />

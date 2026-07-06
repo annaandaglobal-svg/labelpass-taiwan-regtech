@@ -17212,3 +17212,15 @@ h2 {
 .workspace-product-list .pstep:first-child::before { left: 50%; }
 .workspace-product-list .pstep:last-child::before { right: 50%; }
 .workspace-product-list .pipe-next { font-size: 12px; color: var(--muted); margin-top: 9px; }
+
+/* Separate portal chrome for the developer (관리) and expert portals */
+.portal-shell { min-height: 100vh; background: var(--bg, #f4f7f6); }
+.portal-bar { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 20px; background: #122a44; color: #fff; }
+.portal-id { display: flex; align-items: center; gap: 10px; }
+.portal-seal { display: grid; width: 30px; height: 30px; place-items: center; border: 2px solid #fff; border-radius: 50%; font-size: 9.5px; font-weight: 900; transform: rotate(-8deg); flex-shrink: 0; }
+.portal-id strong { display: block; font-size: 14px; }
+.portal-id small { display: block; font-size: 11px; color: #b9c8da; }
+.portal-back { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; color: #fff; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; padding: 6px 12px; }
+.portal-back:hover { background: rgba(255, 255, 255, 0.12); }
+.portal-main { min-width: 0; }
+.portal-main .admin-main { max-width: 1120px; margin: 0 auto; }

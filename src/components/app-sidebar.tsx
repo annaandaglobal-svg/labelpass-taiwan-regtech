@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BadgeCheck, Boxes, ClipboardCheck, Home, Search, Ship, UserCheck } from "lucide-react";
+import { Boxes, ClipboardCheck, Home, Search, Ship, UserCheck } from "lucide-react";
 
 export type AppNavKey =
   | "home"
@@ -32,8 +32,7 @@ const primaryNavItems: AppNavItem[] = [
 ];
 
 const utilityNavItems: AppNavItem[] = [
-  { key: "knowledge", href: "/knowledge", label: "통합검색", ariaLabel: "성분·통관·라벨·규정 통합검색", icon: Search },
-  { key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리", icon: BadgeCheck }
+  { key: "knowledge", href: "/knowledge", label: "통합검색", ariaLabel: "성분·통관·라벨·규정 통합검색", icon: Search }
 ];
 
 type AppSidebarProps = {

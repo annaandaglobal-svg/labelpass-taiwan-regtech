@@ -9,10 +9,10 @@ const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").repl
 const failures = [];
 const expectedPrimaryNavKeys = ["home", "products", "experts", "logistics"];
 const expectedPrimaryNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics"];
-const expectedUtilityNavKeys = ["knowledge", "admin"];
-const expectedUtilityNavHrefs = ["/knowledge", "/admin"];
-const expectedNavKeys = ["home", "products", "experts", "logistics", "knowledge", "admin"];
-const expectedNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics", "/knowledge", "/admin"];
+const expectedUtilityNavKeys = ["knowledge"];
+const expectedUtilityNavHrefs = ["/knowledge"];
+const expectedNavKeys = ["home", "products", "experts", "logistics", "knowledge"];
+const expectedNavHrefs = ["/", "/workspace", "/workspace/experts", "/workspace/logistics", "/knowledge"];
 const expectedAdminSectionHrefs = [
   "/admin",
   "/admin/companies",
@@ -27,12 +27,12 @@ const expectedAdminSectionHrefs = [
 const routes = [
   { path: "/", active: "home" },
   { path: "/workspace", active: "products" },
+  { path: "/review", active: "products" },
+  { path: "/licensing", active: "products" },
   { path: "/workspace/experts", active: "experts" },
-  { path: `/knowledge?q=PIF&uiBrowserAudit=${Date.now()}`, active: "knowledge" },
-  { path: "/admin", active: "admin", admin: true },
-  { path: "/admin/experts", active: "admin", admin: true },
-  { path: "/admin/payments", active: "admin", admin: true },
-  { path: "/admin/logistics", active: "admin", admin: true }
+  { path: "/workspace/logistics", active: "logistics" },
+  { path: "/customs", active: "logistics" },
+  { path: `/knowledge?q=PIF&uiBrowserAudit=${Date.now()}`, active: "knowledge" }
 ];
 
 const viewports = [
@@ -43,7 +43,7 @@ const viewports = [
 const shellTransitionSteps = [
   { key: "home", path: "/", active: "home" },
   { key: "knowledge", path: "/knowledge", active: "knowledge" },
-  { key: "admin", path: "/admin", active: "admin", admin: true },
+  { key: "experts", path: "/workspace/experts", active: "experts" },
   { key: "products", path: "/workspace", active: "products" }
 ];
 
@@ -344,7 +344,7 @@ function assertSnapshot(snapshot, route, viewport) {
   if (snapshot.sidebarCount !== 1) fail(`${label}: expected one persistent sidebar, found ${snapshot.sidebarCount}`);
   if (snapshot.contentCount !== 1) fail(`${label}: expected one stable content frame, found ${snapshot.contentCount}`);
   if (snapshot.primaryCount !== 4) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
-  if (snapshot.utilityCount !== 2) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
+  if (snapshot.utilityCount !== 1) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);

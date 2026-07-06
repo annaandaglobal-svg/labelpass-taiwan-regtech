@@ -322,10 +322,11 @@ for (const navLabel of ["홈", "내 제품", "전문가 검수", "통관·물류
   requireIncludes(appSidebarSource, `label: "${navLabel}"`, "src/components/app-sidebar.tsx primary nav labels");
 }
 requireIncludes(appSidebarSource, 'label: "통합검색"', "src/components/app-sidebar.tsx utility search label");
-requireIncludes(appSidebarSource, 'label: "관리"', "src/components/app-sidebar.tsx utility admin visible label");
-requireIncludes(appSidebarSource, 'ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx utility admin accessible label");
-requireIncludes(appSidebarSource, '{ key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리"', "src/components/app-sidebar.tsx compact admin utility label contract");
 requireIncludes(appSidebarSource, 'className="lp-newbtn" href="/review"', "src/components/app-sidebar.tsx new label review action");
+// 관리(개발자 포털) is deliberately NOT in the customer sidebar — it is a separate portal.
+const appFramePortalSource = read("src/components/app-frame.tsx");
+requireIncludes(appFramePortalSource, 'label="개발자 포털', "src/components/app-frame.tsx developer portal chrome");
+requireIncludes(appFramePortalSource, 'label="전문가 포털', "src/components/app-frame.tsx expert portal chrome");
 if (appSidebarSource.indexOf('key: "home"') > appSidebarSource.indexOf('key: "products"')) {
   fail("src/components/app-sidebar.tsx: home must be the first primary navigation item");
 }
