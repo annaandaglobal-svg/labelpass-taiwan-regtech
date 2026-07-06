@@ -17131,3 +17131,62 @@ h2 {
 .svc-star { color: var(--warn); }
 .svc-seller { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: var(--muted); }
 .svc-price { font-size: 13.5px; font-weight: 800; color: var(--ink); }
+
+/* Expert review — 시안 layout (clean 3-card list ↔ chat/quote/escrow) */
+.ex-screen { padding: 24px 26px 90px; max-width: 1080px; }
+.ex-list-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.ex-list-head h1 { font-size: 21px; }
+.ex-list-head .sub { margin-top: 4px; max-width: 640px; color: var(--muted); }
+.ex-list-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.exgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 13px; margin-top: 16px; }
+.excard { background: var(--panel); border: 1px solid var(--line); border-radius: 13px; padding: 17px; display: flex; flex-direction: column; gap: 9px; }
+.exhead { display: flex; gap: 11px; align-items: center; }
+.exav { width: 42px; height: 42px; border-radius: 50%; background: var(--navy-bg); display: grid; place-items: center; font-size: 18px; flex-shrink: 0; }
+.exav.sm { width: 34px; height: 34px; font-size: 15px; }
+.exhead b { font-size: 14px; display: block; }
+.exhead .role { font-size: 12px; color: var(--muted); }
+.exmeta { display: flex; gap: 6px; flex-wrap: wrap; }
+.exstats { font-size: 12px; color: var(--muted); line-height: 1.7; }
+.exstats b { color: var(--ink); }
+.exfoot { display: flex; gap: 7px; margin-top: auto; }
+.ex-start { flex: 1; justify-content: center; }
+.ex-resume { margin-top: 24px; }
+.ex-resume h2 { font-size: 15px; margin-bottom: 10px; }
+.ex-resume-list { display: grid; gap: 8px; }
+.ex-resume-row { display: flex; align-items: center; gap: 10px; text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 11px; padding: 11px 14px; cursor: pointer; }
+.ex-resume-row:hover { border-color: var(--navy); }
+.ex-resume-row > b { font-size: 13.5px; flex-shrink: 0; }
+.ex-resume-row > span { font-size: 12px; color: var(--muted); flex: 1; }
+.ex-resume-row .chip { margin-left: auto; }
+.ex-chatview { max-width: 720px; }
+.ex-back { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 12px; }
+.echat { display: flex; flex-direction: column; height: calc(100vh - 220px); min-height: 460px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.bothead { display: flex; align-items: center; gap: 10px; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+.bothead b { font-size: 14px; }
+.bothead .sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.botlog { flex: 1; overflow-y: auto; padding: 18px 16px; display: flex; flex-direction: column; gap: 13px; }
+.botlog .msg { max-width: 82%; }
+.botlog .msg p { padding: 11px 14px; border-radius: 13px; font-size: 13.5px; line-height: 1.6; }
+.botlog .msg.user { align-self: flex-end; }
+.botlog .msg.user p { background: var(--navy); color: #fff; border-bottom-right-radius: 4px; }
+.botlog .msg.bot { align-self: flex-start; }
+.botlog .msg.bot p { background: var(--bg); border-bottom-left-radius: 4px; }
+.botlog .msg.sys { align-self: center; max-width: 100%; text-align: center; }
+.botlog .msg.sys em { font-size: 11.5px; color: var(--muted); font-style: normal; background: var(--bg); border-radius: 99px; padding: 5px 13px; display: inline-block; }
+.quote { border: 1.5px solid var(--navy); border-radius: 12px; padding: 13px; background: var(--panel); max-width: 82%; align-self: flex-start; }
+.quote .qt { font-size: 11px; font-weight: 800; color: var(--navy); letter-spacing: 0.4px; margin-bottom: 6px; }
+.qrow { display: flex; justify-content: space-between; font-size: 12.5px; padding: 3px 0; gap: 14px; color: var(--ink); }
+.qrow.total { border-top: 1px solid var(--line); margin-top: 5px; padding-top: 7px; font-weight: 800; font-size: 13.5px; }
+.escrow { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+.ex-qbtn { margin-top: 10px; width: 100%; justify-content: center; }
+.botin { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }
+.botin input { flex: 1; border: 1.5px solid var(--line); border-radius: 10px; padding: 11px 13px; font: inherit; font-size: 13.5px; background: var(--panel); }
+.botin input:focus { outline: none; border-color: var(--navy); }
+.ex-reqquote { margin-top: 12px; width: 100%; padding: 12px; border: 1.5px solid var(--navy); background: var(--navy-bg); color: var(--navy); border-radius: 11px; font: inherit; font-size: 13.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; }
+.ex-reqquote:hover { background: var(--navy); color: #fff; }
+.ex-reqquote:disabled { opacity: 0.7; cursor: default; }
+.ex-profile-back { position: fixed; inset: 0; background: rgba(18, 31, 29, 0.42); display: grid; place-items: center; z-index: 50; padding: 20px; }
+.ex-profile { background: var(--panel); border-radius: 15px; padding: 20px; max-width: 380px; width: 100%; display: flex; flex-direction: column; gap: 11px; }
+.ex-reviews { display: grid; gap: 7px; }
+.ex-reviews p { font-size: 12px; color: var(--muted); line-height: 1.5; background: var(--bg); border-radius: 9px; padding: 8px 11px; }
+@media (max-width: 760px) { .ex-screen { padding: 18px 14px 80px; } .echat { height: auto; min-height: 420px; } }

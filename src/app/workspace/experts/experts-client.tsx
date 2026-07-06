@@ -2,22 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  ArrowRight,
-  BadgeCheck,
-  Receipt,
-  CalendarClock,
-  ClipboardCheck,
-  CreditCard,
-  Handshake,
-  Loader2,
-  MessageCircle,
-  PackageCheck,
-  Send,
-  Sparkles,
-  Truck,
-  UserCheck
-} from "lucide-react";
+import { ArrowLeft, Loader2 } from "lucide-react";
 import { HANDOFF_DRAFTS_STORAGE_KEY, parseHandoffDrafts, type HandoffDraft } from "@/lib/handoff-drafts";
 import {
   CHAT_MESSAGES_STORAGE_KEY,
@@ -30,14 +15,10 @@ import {
   demoAssignedExpertFor,
   parseChatMessages,
   parseConsultCases,
-  recommendedExpertFor,
-  expertById,
   EXPERT_ROSTER,
-  EXPERT_SERVICES,
-  EXPERT_SERVICE_CATEGORIES,
   type ChatMessage,
   type ConsultCase,
-  type ExpertServiceCategory
+  type ExpertProfile
 } from "@/lib/expert-chat";
 
 function newId() {
@@ -57,13 +38,7 @@ export function ExpertsClient() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [drafts, setDrafts] = useState<HandoffDraft[]>([]);
   const [selectedCaseId, setSelectedCaseId] = useState<string | null>(null);
-  const [newProductName, setNewProductName] = useState("");
-  const [newScope, setNewScope] = useState("");
-  const [newCategory, setNewCategory] = useState("화장품");
-  const [selectedExpertId, setSelectedExpertId] = useState<string>(() => recommendedExpertFor("화장품").id);
-  const [serviceCategory, setServiceCategory] = useState<ExpertServiceCategory>("all");
-  const [serviceSort, setServiceSort] = useState<"popular" | "reviews" | "price">("popular");
-  const [selectedServiceId, setSelectedServiceId] = useState<string>("");
+  const [profileExpert, setProfileExpert] = useState<ExpertProfile | null>(null);
   const [chatInput, setChatInput] = useState("");
   const [isQuoting, setIsQuoting] = useState(false);
   const [isPaying, setIsPaying] = useState(false);
@@ -76,10 +51,6 @@ export function ExpertsClient() {
     setCases(storedCases.slice(0, MAX_CONSULT_CASES));
     setMessages(parseChatMessages(window.localStorage.getItem(CHAT_MESSAGES_STORAGE_KEY)));
     setDrafts(parseHandoffDrafts(window.localStorage.getItem(HANDOFF_DRAFTS_STORAGE_KEY)));
-    if (storedCases.length) setSelectedCaseId(storedCases[0].id);
-    const params = new URLSearchParams(window.location.search);
-    const product = params.get("product");
-    if (product?.trim()) setNewProductName(product.trim());
     return () => {
       if (replyTimerRef.current) window.clearTimeout(replyTimerRef.current);
     };
@@ -100,20 +71,19 @@ export function ExpertsClient() {
     () => messages.filter((item) => item.caseId === selectedCaseId),
     [messages, selectedCaseId]
   );
-  const visibleServices = useMemo(() => {
-    const filtered =
-      serviceCategory === "all" ? EXPERT_SERVICES : EXPERT_SERVICES.filter((item) => item.category === serviceCategory);
-    return [...filtered].sort((left, right) => {
-      if (serviceSort === "reviews") return right.reviews - left.reviews;
-      if (serviceSort === "price") return left.priceFrom - right.priceFrom;
-      return right.orders - left.orders;
-    });
-  }, [serviceCategory, serviceSort]);
+  // Start a consult with a chosen expert (시안: 상담 시작). Pulls product context from the
+  // most recent saved review if there is one.
+  function startConsultWith(expert: ExpertProfile) {
+    const draft = drafts[0];
+    const productName = draft?.productName || `${expert.name.split(" · ")[0]} 상담`;
+    const category = draft?.routeLabel || "화장품";
+    const scope = draft?.expertScope?.slice(0, 6) ?? expert.specialties;
+    setProfileExpert(null);
+    createCase(productName, category, scope, draft?.id, expert.name);
+  }
 
-  function chooseService(serviceId: string, expertId: string, includes: string[]) {
-    setSelectedServiceId(serviceId);
-    setSelectedExpertId(expertId);
-    setNewScope((prev) => (prev.trim() ? prev : includes.join(", ")));
+  function expertAvatarFor(name: string) {
+    return EXPERT_ROSTER.find((expert) => name.startsWith(expert.name.split(" · ")[0]))?.avatar ?? "👤";
   }
 
   function persistCases(next: ConsultCase[]) {
@@ -144,7 +114,7 @@ export function ExpertsClient() {
       scope,
       status: "requested",
       quote: null,
-      expertName: expertName ?? recommendedExpertFor(category).name,
+      expertName: expertName ?? EXPERT_ROSTER[0].name,
       sourceHandoffId
     };
     const nextCases = [consultCase, ...cases].slice(0, MAX_CONSULT_CASES);
@@ -158,21 +128,6 @@ export function ExpertsClient() {
     setToast("전문가 매칭을 요청했습니다.");
   }
 
-  function createCaseFromForm() {
-    if (!newProductName.trim()) {
-      setToast("제품명을 입력해주세요.");
-      return;
-    }
-    const scope = newScope
-      .split(/\n|,/)
-      .map((item) => item.trim())
-      .filter(Boolean)
-      .slice(0, 8);
-    const chosen = EXPERT_ROSTER.find((expert) => expert.id === selectedExpertId);
-    createCase(newProductName.trim(), newCategory, scope, undefined, chosen?.name);
-    setNewProductName("");
-    setNewScope("");
-  }
 
   function createCaseFromDraft(draft: HandoffDraft) {
     if (cases.some((item) => item.sourceHandoffId === draft.id)) {
@@ -282,323 +237,203 @@ export function ExpertsClient() {
   const draftCandidates = drafts.filter((draft) => !cases.some((item) => item.sourceHandoffId === draft.id)).slice(0, 3);
 
   return (
-    <section className="lp-main workspace-main experts-main">
-      <header className="workspace-topbar">
-        <div>
-          <p>전문가 상담·견적</p>
-          <h1>검토 결과를 전문가에게 넘기고, 견적과 상담을 한 화면에서 진행하세요.</h1>
-        </div>
-        <div className="workspace-topbar-actions">
-          <Link className="workspace-button primary" href="/experts/register">
-            <BadgeCheck size={15} />
-            전문가로 등록
-          </Link>
-          <Link className="workspace-button" href="/experts/quote">
-            <Receipt size={15} />
-            견적서 만들기
-          </Link>
-          <Link className="workspace-button" href="/expert">
-            <UserCheck size={15} />
-            전문가 포털
-          </Link>
-          <Link className="workspace-button" href="/workspace">
-            <ClipboardCheck size={15} />
-            워크스페이스
-          </Link>
-          <Link className="workspace-button" href="/workspace/logistics">
-            <Truck size={15} />
-            물류·선적
-          </Link>
-        </div>
-      </header>
-
-      <div className="experts-layout">
-        <aside className="experts-side">
-          {draftCandidates.length > 0 && (
-            <section className="workspace-panel">
-              <div className="workspace-panel-head">
-                <div>
-                  <span>검토 결과 연결</span>
-                  <h2>저장된 검토에서 상담 만들기</h2>
-                </div>
-                <Sparkles size={18} />
-              </div>
-              <div className="experts-draft-list">
-                {draftCandidates.map((draft) => (
-                  <button key={draft.id} type="button" onClick={() => createCaseFromDraft(draft)}>
-                    <b>{draft.productName}</b>
-                    <span>{draft.routeLabel} · {draft.nextAction}</span>
-                    <em>
-                      상담 만들기
-                      <ArrowRight size={13} />
-                    </em>
-                  </button>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <section className="workspace-panel">
-            <div className="workspace-panel-head">
-              <div>
-                <span>새 요청</span>
-                <h2>전문가 매칭 요청</h2>
-              </div>
-              <Handshake size={18} />
+    <section className="lpv5 ex-screen">
+      {!selectedCase ? (
+        <div className="ex-list">
+          <div className="ex-list-head">
+            <div>
+              <h1>전문가 검수</h1>
+              <p className="sub">AI가 못 끝내는 판단은 사람이 끝냅니다. 리포트가 자동 공유되고, 결제는 작업 완료 확인 시까지 보호됩니다.</p>
             </div>
-            <div className="pif-form">
-              <label className="lp-field">
-                <span>제품명 *</span>
-                <input value={newProductName} onChange={(event) => setNewProductName(event.target.value)} placeholder="예: Cica Barrier Cream" />
-              </label>
-              <label className="lp-field">
-                <span>분야</span>
-                <select value={newCategory} onChange={(event) => setNewCategory(event.target.value)}>
-                  <option value="화장품">화장품 · PIF</option>
-                  <option value="식품">식품 · 라벨</option>
-                  <option value="식품첨가물">식품첨가물</option>
-                  <option value="건강식품">건강식품</option>
-                  <option value="수입검사·통관">수입검사·통관</option>
-                </select>
-              </label>
-              <label className="lp-field">
-                <span>상담 범위 (줄바꿈 또는 쉼표로 구분)</span>
-                <textarea rows={3} value={newScope} onChange={(event) => setNewScope(event.target.value)} placeholder={"예: PIF 목차 검토\n중문 라벨 표현 확인"} />
-              </label>
-              <div className="svc-market">
-                <div className="svc-market-head">
-                  <span className="expert-pick-label">전문가 서비스 선택</span>
-                  <select
-                    className="svc-sort"
-                    value={serviceSort}
-                    onChange={(event) => setServiceSort(event.target.value as typeof serviceSort)}
-                    aria-label="정렬"
-                  >
-                    <option value="popular">인기순</option>
-                    <option value="reviews">리뷰 많은순</option>
-                    <option value="price">낮은 가격순</option>
-                  </select>
+            <div className="ex-list-actions">
+              <Link className="linkbtn" href="/experts/register">전문가로 등록</Link>
+              <Link className="linkbtn" href="/expert">전문가 포털</Link>
+            </div>
+          </div>
+
+          <div className="exgrid">
+            {EXPERT_ROSTER.map((expert) => (
+              <div className="excard" key={expert.id}>
+                <div className="exhead">
+                  <div className="exav" aria-hidden="true">{expert.avatar}</div>
+                  <div>
+                    <b>{expert.name.split(" · ")[0]}</b>
+                    <span className="role">{expert.role}</span>
+                  </div>
                 </div>
-                <div className="svc-cats" role="tablist" aria-label="서비스 분야">
-                  {EXPERT_SERVICE_CATEGORIES.map((cat) => (
-                    <button
-                      key={cat.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={cat.id === serviceCategory}
-                      className={cat.id === serviceCategory ? "on" : ""}
-                      onClick={() => setServiceCategory(cat.id)}
-                    >
-                      {cat.label}
-                    </button>
+                <div className="exmeta">
+                  {expert.specialties.map((tag) => (
+                    <span key={tag} className="chip navy">{tag}</span>
                   ))}
                 </div>
-                <div className="svc-list">
-                  {visibleServices.map((svc) => {
-                    const expert = expertById(svc.expertId);
-                    const on = svc.id === selectedServiceId;
-                    return (
-                      <button
-                        key={svc.id}
-                        type="button"
-                        className={on ? "svc-card on" : "svc-card"}
-                        onClick={() => chooseService(svc.id, svc.expertId, svc.includes)}
-                        aria-pressed={on}
-                      >
-                        <span className="svc-card-top">
-                          <span className={`svc-tier ${svc.tier}`}>
-                            {svc.tier === "prime" ? "prime" : svc.tier === "top" ? "TOP" : "NEW"}
-                          </span>
-                          <span className="svc-cat-tag">{svc.categoryLabel}</span>
-                          {on && <BadgeCheck size={15} className="svc-check" />}
-                        </span>
-                        <b className="svc-title">{svc.title}</b>
-                        <span className="svc-rating">
-                          <span className="svc-star">★</span> {svc.rating.toFixed(1)}
-                          <em>({svc.reviews.toLocaleString("ko-KR")})</em> · {svc.deliveryDays}영업일
-                        </span>
-                        <span className="svc-seller">
-                          <span aria-hidden="true">{expert?.avatar}</span>
-                          {expert?.name.split(" · ")[0]}
-                        </span>
-                        <span className="svc-price">₩{svc.priceFrom.toLocaleString("ko-KR")}~</span>
-                      </button>
-                    );
-                  })}
+                <div className="exstats">
+                  처리 <b>{expert.handledCount}건</b> · 평점 <b>{expert.rating}</b> · 평균 응답{" "}
+                  <b>{expert.responseTime.replace("평균 ", "")}</b>
+                  <br />
+                  {expert.priceFrom} · {expert.note}
+                </div>
+                <div className="exfoot">
+                  <button className="btn btn-primary btn-sm ex-start" type="button" onClick={() => startConsultWith(expert)}>
+                    상담 시작
+                  </button>
+                  <button className="btn btn-ghost btn-sm" type="button" onClick={() => setProfileExpert(expert)}>
+                    프로필
+                  </button>
                 </div>
               </div>
-              <button className="lp-button" type="button" onClick={createCaseFromForm}>
-                <Handshake size={16} />
-                {selectedServiceId ? "이 서비스로 상담 요청" : "이 전문가로 매칭 요청"}
-              </button>
-            </div>
-          </section>
+            ))}
+          </div>
 
-          <section className="workspace-panel">
-            <div className="workspace-panel-head">
-              <div>
-                <span>내 상담</span>
-                <h2>진행 중 케이스</h2>
-              </div>
-              <MessageCircle size={18} />
-            </div>
-            <div className="experts-case-list">
-              {cases.length ? (
-                cases.map((item) => {
+          {cases.length > 0 && (
+            <div className="ex-resume">
+              <h2>진행 중인 상담</h2>
+              <div className="ex-resume-list">
+                {cases.map((item) => {
                   const copy = consultStatusCopy[item.status];
+                  const tone =
+                    copy.tone === "danger" ? "fail" : copy.tone === "warn" ? "warn" : copy.tone === "pass" ? "pass" : "navy";
                   return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      className={`experts-case-row ${copy.tone} ${item.id === selectedCaseId ? "active" : ""}`}
-                      onClick={() => setSelectedCaseId(item.id)}
-                    >
+                    <button key={item.id} type="button" className="ex-resume-row" onClick={() => setSelectedCaseId(item.id)}>
                       <b>{item.productName}</b>
-                      <span>{item.category}</span>
-                      <em>{copy.label}</em>
+                      <span>
+                        {item.expertName} · {item.category}
+                      </span>
+                      <em className={`chip ${tone}`}>{copy.label}</em>
                     </button>
                   );
-                })
-              ) : (
-                <span className="pif-empty">아직 상담 요청이 없습니다. 검토 결과 저장 후 여기서 이어가세요.</span>
-              )}
+                })}
+              </div>
             </div>
-          </section>
-        </aside>
-
-        <section className="experts-detail">
-          {selectedCase ? (
-            <>
-              <section className="workspace-panel experts-status-panel">
-                <div className="workspace-panel-head">
-                  <div>
-                    <span>{selectedCase.category}</span>
-                    <h2>{selectedCase.productName}</h2>
-                  </div>
-                  <BadgeCheck size={18} />
+          )}
+        </div>
+      ) : (
+        <div className="ex-chatview">
+          <button className="linkbtn ex-back" type="button" onClick={() => setSelectedCaseId(null)}>
+            <ArrowLeft size={14} />
+            전문가 목록
+          </button>
+          <div className="echat">
+            <div className="bothead">
+              <div className="exav sm" aria-hidden="true">
+                {expertAvatarFor(selectedCase.expertName)}
+              </div>
+              <div>
+                <b>{selectedCase.expertName}</b> <span className="chip pass">응답 빠름</span>
+                <div className="sub">{selectedCase.productName} · 리포트 자동 공유됨</div>
+              </div>
+            </div>
+            <div className="botlog" ref={chatScrollRef}>
+              {selectedMessages.map((message) => (
+                <div
+                  key={message.id}
+                  className={`msg ${message.author === "customer" ? "user" : message.author === "system" ? "sys" : "bot"}`}
+                >
+                  {message.author === "system" ? <em>{message.text}</em> : <p>{message.text}</p>}
                 </div>
-                <div className={`experts-status ${consultStatusCopy[selectedCase.status].tone}`}>
-                  <b>{consultStatusCopy[selectedCase.status].label}</b>
-                  <span>{consultStatusCopy[selectedCase.status].detail}</span>
-                </div>
-                {selectedCase.scope.length > 0 && (
-                  <div className="experts-scope" aria-label="상담 범위">
-                    {selectedCase.scope.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
+              ))}
+              {selectedCase.quote && (
+                <div className="quote">
+                  <div className="qt">📋 견적서</div>
+                  <div className="qrow">
+                    <span>포함 범위</span>
+                    <span>{selectedCase.quote.scope.join(", ")}</span>
                   </div>
-                )}
-
-                {selectedCase.quote ? (
-                  <div className="experts-quote" aria-label="견적">
-                    <div>
-                      <span>예상 비용</span>
-                      <b>USD {selectedCase.quote.feeRangeUsd[0]}–{selectedCase.quote.feeRangeUsd[1]}</b>
-                    </div>
-                    <div>
-                      <span>예상 납기</span>
-                      <b>
-                        <CalendarClock size={14} />
-                        영업일 {selectedCase.quote.leadTimeDays}일
-                      </b>
-                    </div>
-                    <div className="experts-quote-scope">
-                      <span>포함 범위</span>
-                      <small>{selectedCase.quote.scope.join(" · ")}</small>
-                    </div>
-                    <p>{selectedCase.quote.detail}</p>
+                  <div className="qrow">
+                    <span>예상 납기</span>
+                    <span>{selectedCase.quote.leadTimeDays}영업일</span>
                   </div>
-                ) : (
-                  <p className="experts-quote-empty">아직 견적이 없습니다. 범위 확인 후 견적을 요청하세요.</p>
-                )}
-
-                <div className="experts-actions">
-                  {selectedCase.status === "requested" && (
-                    <button className="lp-button" type="button" disabled={isQuoting} onClick={() => requestQuote(selectedCase)}>
-                      {isQuoting ? <Loader2 className="lp-spin" size={15} /> : <CreditCard size={15} />}
-                      견적 요청
-                    </button>
-                  )}
-                  {selectedCase.status === "quoting" && (
-                    <span className="experts-hint">
-                      <Loader2 className="lp-spin" size={14} />
-                      견적 산정 중입니다
+                  <div className="qrow total">
+                    <span>예상 비용</span>
+                    <span>
+                      USD {selectedCase.quote.feeRangeUsd[0]}–{selectedCase.quote.feeRangeUsd[1]}
                     </span>
-                  )}
+                  </div>
+                  <div className="escrow">🛡 에스크로 결제 — 작업 완료 확인 시까지 LabelPass가 대금을 보관합니다.</div>
                   {selectedCase.status === "quoted" && (
-                    <button className="lp-button" type="button" onClick={() => acceptQuote(selectedCase)}>
-                      <BadgeCheck size={15} />
+                    <button className="btn btn-primary btn-sm ex-qbtn" type="button" onClick={() => acceptQuote(selectedCase)}>
                       견적 수락
                     </button>
                   )}
                   {selectedCase.status === "payment_pending" && (
-                    <button className="lp-button" type="button" disabled={isPaying} onClick={() => void payAndOpenConsult(selectedCase)}>
-                      {isPaying ? <Loader2 className="lp-spin" size={15} /> : <CreditCard size={15} />}
-                      USD {selectedCase.quote?.feeRangeUsd[0] ?? 200} 결제 진행 (mock)
+                    <button
+                      className="btn btn-primary btn-sm ex-qbtn"
+                      type="button"
+                      disabled={isPaying}
+                      onClick={() => void payAndOpenConsult(selectedCase)}
+                    >
+                      {isPaying ? <Loader2 className="lp-spin" size={14} /> : null}
+                      결제하고 진행하기 (mock)
                     </button>
                   )}
                   {(selectedCase.status === "in_progress" || selectedCase.status === "completed") && (
-                    <Link className="lp-button secondary" href="/workspace/logistics">
-                      <PackageCheck size={15} />
-                      물류 요청으로 이어가기
+                    <Link className="btn btn-ghost btn-sm ex-qbtn" href="/workspace/logistics">
+                      물류 요청으로 이어가기 →
                     </Link>
                   )}
                 </div>
-              </section>
-
-              <section className="workspace-panel experts-chat-panel">
-                <div className="workspace-panel-head">
-                  <div>
-                    <span>상담 채팅</span>
-                    <h2>{selectedCase.expertName}</h2>
-                  </div>
-                  <MessageCircle size={18} />
-                </div>
-                <div className="experts-chat-scroll" ref={chatScrollRef}>
-                  {selectedMessages.length ? (
-                    selectedMessages.map((message) => (
-                      <div key={message.id} className={`experts-chat-message ${message.author}`}>
-                        <p>{message.text}</p>
-                        <small>{timeLabel(message.createdAt)}</small>
-                      </div>
-                    ))
-                  ) : (
-                    <span className="pif-empty">첫 메시지를 남기면 전문가가 확인 후 답변합니다.</span>
-                  )}
-                </div>
-                <div className="experts-chat-input">
-                  <textarea
-                    rows={2}
-                    value={chatInput}
-                    onChange={(event) => setChatInput(event.target.value)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter" && !event.shiftKey) {
-                        event.preventDefault();
-                        sendChat();
-                      }
-                    }}
-                    placeholder="질문이나 자료 설명을 남겨주세요. (Enter로 전송)"
-                  />
-                  <button className="lp-button" type="button" onClick={sendChat} disabled={!chatInput.trim()}>
-                    <Send size={15} />
-                    보내기
-                  </button>
-                </div>
-                <small className="experts-chat-note">
-                  지금은 데모 채팅으로, 대화가 이 브라우저에 저장됩니다. 운영 연결 후에는 같은 대화가 상담방(chat_threads)에
-                  기록되고 실시간으로 이어집니다.
-                </small>
-              </section>
-            </>
-          ) : (
-            <section className="workspace-panel experts-empty-panel">
-              <Handshake size={26} />
-              <b>상담 케이스를 선택하거나 새 매칭을 요청하세요.</b>
-              <span>검토 결과를 저장했다면 왼쪽에서 바로 상담으로 전환할 수 있습니다.</span>
-            </section>
+              )}
+            </div>
+            <div className="botin">
+              <input
+                value={chatInput}
+                onChange={(event) => setChatInput(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") sendChat();
+                }}
+                placeholder="메시지 입력…"
+              />
+              <button className="btn btn-primary" type="button" onClick={sendChat} disabled={!chatInput.trim()}>
+                전송
+              </button>
+            </div>
+          </div>
+          {!selectedCase.quote && selectedCase.status === "requested" && (
+            <button className="ex-reqquote" type="button" disabled={isQuoting} onClick={() => requestQuote(selectedCase)}>
+              {isQuoting ? (
+                <>
+                  <Loader2 className="lp-spin" size={15} /> 견적 산정 중…
+                </>
+              ) : (
+                "이 전문가에게 견적 요청"
+              )}
+            </button>
           )}
-        </section>
-      </div>
+        </div>
+      )}
+
+      {profileExpert && (
+        <div className="ex-profile-back" role="dialog" aria-modal="true" onClick={() => setProfileExpert(null)}>
+          <div className="ex-profile" onClick={(event) => event.stopPropagation()}>
+            <div className="exhead">
+              <div className="exav" aria-hidden="true">{profileExpert.avatar}</div>
+              <div>
+                <b>{profileExpert.name.split(" · ")[0]}</b>
+                <span className="role">{profileExpert.role}</span>
+              </div>
+            </div>
+            <div className="exstats">
+              처리 {profileExpert.handledCount}건 · 평점 {profileExpert.rating} · {profileExpert.responseTime} · 재의뢰율 68%
+            </div>
+            <div className="exmeta">
+              {profileExpert.specialties.map((tag) => (
+                <span key={tag} className="chip navy">{tag}</span>
+              ))}
+            </div>
+            <div className="ex-reviews">
+              <p>“지적사항을 조문 단위로 짚어줘서 디자이너 전달이 쉬웠어요.” — 고객사</p>
+              <p>“리포트 기반이라 빠르게 진행됐습니다.” — 고객사</p>
+            </div>
+            <div className="exfoot">
+              <button className="btn btn-primary btn-sm ex-start" type="button" onClick={() => startConsultWith(profileExpert)}>
+                상담 시작
+              </button>
+              <button className="btn btn-ghost btn-sm" type="button" onClick={() => setProfileExpert(null)}>
+                닫기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {toast && <div className="lp-toast">{toast}</div>}
     </section>
