@@ -22789,8 +22789,8 @@
     },
     {
       "id": "claim-organic",
-      "canonical_name": "Organic claim (有機)",
-      "category": "cosmetic_marketing_claim",
+      "canonical_name": "Organic food certification (有機)",
+      "category": "food_organic_certification",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -22836,12 +22836,103 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "유기농식품",
+          "normalized": "유기농식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유기농 식품",
+          "normalized": "유기농 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유기가공식품",
+          "normalized": "유기가공식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유기",
+          "normalized": "유기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "有機食品",
+          "normalized": "有機食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "有機農產品",
+          "normalized": "有機農產品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "organic food",
+          "normalized": "organic food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "certified organic",
+          "normalized": "certified organic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "有機農產加工品",
+          "normalized": "有機農產加工品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
-        "tw-tfda-cosmetic-restricted-ingredients"
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "유기농 표방. 인증·근거 필요, 없으면 부당표시."
+      "notes": "대만 식품 '有機(유기농)' 표시는 有機農業促進法(農業部) 인증 필수. 수입은 국가 동등성 필요 — 한국은 동등성 아님(대만 인정 인증기관 인증+수입검증 필요)."
     },
     {
       "id": "claim-additive-free",

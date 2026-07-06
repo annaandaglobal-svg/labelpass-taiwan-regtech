@@ -230,6 +230,7 @@ const verdictSurfacedCategories = new Set([
   "cosmetic_special_use_claim",
   "cosmetic_medicinal_restricted",
   "cosmetic_marketing_claim",
+  "food_organic_certification",
   "food_additive",
   "fermented_food_ingredient",
   "health_food",
