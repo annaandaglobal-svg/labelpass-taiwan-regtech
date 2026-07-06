@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BadgeCheck, Boxes, ClipboardCheck, FileText, Home, Landmark, Search, Ship, UserCheck } from "lucide-react";
+import { BadgeCheck, Boxes, ClipboardCheck, Home, Search, Ship, UserCheck } from "lucide-react";
 
 export type AppNavKey =
   | "home"
@@ -21,20 +21,18 @@ type AppNavItem = {
   icon: typeof ClipboardCheck;
 };
 
-// Core export journey, in order: 판정 → 서류 → 통관 → 협업. Each step is its own tab so a
-// first-time user can see the whole path and where they are, instead of hunting via links.
+// Matches the v5 시안: a short, calm nav (홈 / 내 제품 / 전문가 검수 / 통관·물류). 성분 검토 is
+// the "새 라벨 검토" button; 인허가 서류·통관 참고 are reached in context from 내 제품 and the
+// review result, keeping the sidebar uncluttered.
 const primaryNavItems: AppNavItem[] = [
   { key: "home", href: "/", label: "홈", icon: Home },
-  { key: "review", href: "/review", label: "성분·라벨 검토", hint: "규제 판정", icon: ClipboardCheck },
-  { key: "licensing", href: "/licensing", label: "인허가 서류", hint: "필요 서류·PIF 신청", icon: FileText },
-  { key: "customs", href: "/customs", label: "통관 (HS/CCC)", hint: "코드·세율·검역", icon: Landmark },
-  { key: "experts", href: "/workspace/experts", label: "전문가 검수", hint: "상담·견적", icon: UserCheck },
-  { key: "logistics", href: "/workspace/logistics", label: "물류·선적", hint: "운송·통관 추적", icon: Ship }
+  { key: "products", href: "/workspace", label: "내 제품", ariaLabel: "내 제품 · 검토 이력·인허가", icon: Boxes },
+  { key: "experts", href: "/workspace/experts", label: "전문가 검수", icon: UserCheck },
+  { key: "logistics", href: "/workspace/logistics", label: "통관·물류", icon: Ship }
 ];
 
 const utilityNavItems: AppNavItem[] = [
   { key: "knowledge", href: "/knowledge", label: "통합검색", ariaLabel: "성분·통관·라벨·규정 통합검색", icon: Search },
-  { key: "products", href: "/workspace", label: "내 제품", ariaLabel: "내 제품 · 검토 이력", icon: Boxes },
   { key: "admin", href: "/admin", label: "관리", ariaLabel: "운영 관리", icon: BadgeCheck }
 ];
 
