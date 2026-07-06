@@ -27,7 +27,8 @@ import {
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, ReviewInput, ReviewResult, ReviewStatus } from "@/lib/compliance";
-import { loadSavedReviews, mergeSavedReviews, persistSavedReviews } from "@/lib/saved-reviews";
+import { getOwnerKey, loadSavedReviews, mergeSavedReviews, persistSavedReviews } from "@/lib/saved-reviews";
+import { archiveReview } from "@/lib/review-archive-client";
 import { buildShareableReport, encodeReport } from "@/lib/report-share";
 import type { KnowledgeEvidenceBundle } from "@/lib/knowledge-evidence";
 import { verdictStateTone } from "@/lib/knowledge-verdicts";
@@ -1077,6 +1078,8 @@ export default function Home() {
       const nextSaved = mergeSavedReviews(savedReviews, [review]);
       setSavedReviews(nextSaved);
       persistSavedReviews(nextSaved);
+      // Persist to the Supabase archive too when it is enabled (no-op otherwise).
+      void archiveReview(review, getOwnerKey());
       const evidenceQuery = knowledgeQuery.trim() || nextInput.productName || route.query;
       setKnowledgeQuery(evidenceQuery);
       await runKnowledgeSearch(evidenceQuery, route);

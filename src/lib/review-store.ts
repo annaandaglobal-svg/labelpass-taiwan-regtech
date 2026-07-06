@@ -114,17 +114,31 @@ async function findStoredReviewByAppId(sql: DbClient, appReviewId: string) {
   return rows.map(toSavedReview).find((review): review is SavedReview => Boolean(review)) ?? null;
 }
 
-export async function listStoredReviews(limit = 20): Promise<ReviewStoreListResult> {
+// Reviews are scoped by a client-generated owner_key (a per-browser UUID) stored inside the
+// review payload, so one visitor never sees another's products. Passing no owner_key keeps the
+// legacy unscoped behaviour (used by the smoke test).
+export async function listStoredReviews(limit = 20, ownerKey?: string): Promise<ReviewStoreListResult> {
   const sql = getClient();
   if (!sql) return { storage: "disabled", reviews: [] };
 
-  const rows = await sql<ReviewRow[]>`
-    select id, source_version_summary
-    from public.reviews
-    where source_version_summary ? 'app_review_id'
-    order by created_at desc
-    limit ${Math.min(Math.max(Math.floor(limit), 1), 50)}
-  `;
+  const cappedLimit = Math.min(Math.max(Math.floor(limit), 1), 50);
+  const owner = ownerKey?.trim();
+  const rows = owner
+    ? await sql<ReviewRow[]>`
+        select id, source_version_summary
+        from public.reviews
+        where source_version_summary ? 'app_review_id'
+          and source_version_summary->>'owner_key' = ${owner}
+        order by created_at desc
+        limit ${cappedLimit}
+      `
+    : await sql<ReviewRow[]>`
+        select id, source_version_summary
+        from public.reviews
+        where source_version_summary ? 'app_review_id'
+        order by created_at desc
+        limit ${cappedLimit}
+      `;
 
   return {
     storage: "database",
@@ -132,10 +146,11 @@ export async function listStoredReviews(limit = 20): Promise<ReviewStoreListResu
   };
 }
 
-export async function saveStoredReview(review: SavedReview): Promise<ReviewStoreSaveResult> {
+export async function saveStoredReview(review: SavedReview, ownerKey?: string): Promise<ReviewStoreSaveResult> {
   const sql = getClient();
   if (!sql) return { storage: "disabled", review: null };
 
+  const owner = ownerKey?.trim() || null;
   const existingReview = await findStoredReviewByAppId(sql, review.id);
   if (existingReview) return { storage: "database", review: existingReview };
 
@@ -143,6 +158,7 @@ export async function saveStoredReview(review: SavedReview): Promise<ReviewStore
     const category = productCategory(review.input, review.result);
     const metadata = {
       app_review_id: review.id,
+      owner_key: owner,
       origin: review.input.origin,
       manufacturer: review.input.manufacturer,
       hsCode: review.input.hsCode,
@@ -180,6 +196,7 @@ export async function saveStoredReview(review: SavedReview): Promise<ReviewStore
 
     const resultPayload = {
       app_review_id: review.id,
+      owner_key: owner,
       input: review.input,
       result: review.result,
       ruleVersion: review.result.ruleVersion

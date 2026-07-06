@@ -64,9 +64,15 @@ const reviewResultSchema = z.object({
 
 const savedReviewSchema = z.object({
   id: z.string().min(1).max(160).optional(),
+  owner_key: z.string().min(1).max(80).optional(),
   input: reviewInputSchema,
   result: reviewResultSchema
 });
+
+function requestedOwnerKey(request: Request) {
+  const value = new URL(request.url).searchParams.get("owner_key")?.trim();
+  return value || undefined;
+}
 
 function makeId() {
   return globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -157,7 +163,7 @@ export async function GET(request: Request) {
   if (!access.allowed) return disabledArchiveResponse("read", access.restricted);
 
   try {
-    const result = await listStoredReviews(requestedLimit(request));
+    const result = await listStoredReviews(requestedLimit(request), requestedOwnerKey(request));
     return NextResponse.json(result);
   } catch {
     return NextResponse.json({ storage: "unavailable", reviews: [], error: "review_archive_unavailable" });
@@ -206,7 +212,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ storage: state.storage, reviewId: review.id, dryRun: true });
     }
 
-    const result = await saveStoredReview(review);
+    const result = await saveStoredReview(review, parsed.data.owner_key);
     return NextResponse.json(result);
   } catch {
     return NextResponse.json({ storage: "unavailable", review: null, error: "review_archive_unavailable" });

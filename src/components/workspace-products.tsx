@@ -2,8 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Boxes, Layers } from "lucide-react";
-import { deriveProductCard, loadSavedReviews, REVIEW_PIPELINE, type ProductCard } from "@/lib/saved-reviews";
+import { ArrowRight, Boxes, Cloud, Layers } from "lucide-react";
+import {
+  deriveProductCard,
+  getOwnerKey,
+  loadSavedReviews,
+  mergeSavedReviews,
+  persistSavedReviews,
+  REVIEW_PIPELINE,
+  type ProductCard
+} from "@/lib/saved-reviews";
+import { fetchArchivedReviews } from "@/lib/review-archive-client";
 
 function categoryEmoji(category: string) {
   if (category === "화장품") return "🧴";
@@ -31,9 +40,24 @@ const filters: Array<{ key: "all" | "fail" | "warn" | "pass"; label: string }> =
 export function WorkspaceProducts() {
   const [cards, setCards] = useState<ProductCard[]>([]);
   const [filter, setFilter] = useState<"all" | "fail" | "warn" | "pass">("all");
+  const [synced, setSynced] = useState(false);
 
   useEffect(() => {
-    setCards(loadSavedReviews().map(deriveProductCard));
+    const local = loadSavedReviews();
+    setCards(local.map(deriveProductCard));
+    // If the Supabase archive is enabled server-side, pull this browser's stored reviews and
+    // merge them in (survives a localStorage clear). Disabled/offline → silently stays local.
+    let active = true;
+    fetchArchivedReviews(getOwnerKey()).then((remote) => {
+      if (!active || remote.length === 0) return;
+      const merged = mergeSavedReviews(local, remote);
+      persistSavedReviews(merged);
+      setCards(merged.map(deriveProductCard));
+      setSynced(true);
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   const counts = useMemo(() => {
@@ -80,7 +104,15 @@ export function WorkspaceProducts() {
     <article className="workspace-panel workspace-panel-wide" data-real-products="true">
       <div className="workspace-panel-head">
         <div>
-          <span>내 제품 · 검토 결과</span>
+          <span>
+            내 제품 · 검토 결과
+            {synced && (
+              <em className="wp-sync" title="이 브라우저의 검토가 서버(Supabase)에 저장돼 있습니다">
+                <Cloud size={12} />
+                클라우드 저장됨
+              </em>
+            )}
+          </span>
           <h2>검토한 {counts.total}개 제품의 상태</h2>
         </div>
         <Link className="workspace-button" href="/review/bulk">

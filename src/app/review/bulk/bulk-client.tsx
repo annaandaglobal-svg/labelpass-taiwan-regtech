@@ -6,12 +6,14 @@ import { ArrowRight, Boxes, CheckCircle2, Loader2, UploadCloud } from "lucide-re
 import type { ReviewInput, ReviewResult } from "@/lib/compliance";
 import {
   deriveProductCard,
+  getOwnerKey,
   loadSavedReviews,
   mergeSavedReviews,
   persistSavedReviews,
   type ProductCard,
   type SavedReview
 } from "@/lib/saved-reviews";
+import { archiveReview } from "@/lib/review-archive-client";
 
 type RowStatus = "pending" | "extracting" | "reviewing" | "done" | "error";
 
@@ -107,6 +109,7 @@ export function BulkReviewClient() {
     }));
     setRows(initialRows);
 
+    const owner = getOwnerKey();
     const collected: SavedReview[] = [];
     for (let index = 0; index < list.length; index += 1) {
       const file = list[index];
@@ -132,6 +135,7 @@ export function BulkReviewClient() {
           result
         };
         collected.push(review);
+        void archiveReview(review, owner);
         patch({ status: "done", card: deriveProductCard(review) });
       } catch {
         patch({ status: "error", error: "이 파일은 읽거나 검토하지 못했습니다." });

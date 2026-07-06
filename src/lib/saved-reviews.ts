@@ -13,6 +13,20 @@ export const SAVED_REVIEWS_KEY = "labelpass-reviews";
 // Raised from 5 so a bulk run of many SKUs actually accumulates in 내 제품.
 export const MAX_SAVED_REVIEWS = 60;
 
+const OWNER_KEY_STORAGE = "labelpass-owner-key";
+
+// A stable per-browser id used to scope reviews in the (opt-in) Supabase archive so one
+// visitor never sees another's products. Generated once and kept in localStorage.
+export function getOwnerKey(): string {
+  if (typeof window === "undefined") return "";
+  let key = window.localStorage.getItem(OWNER_KEY_STORAGE);
+  if (!key) {
+    key = globalThis.crypto?.randomUUID?.() ?? `owner-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    window.localStorage.setItem(OWNER_KEY_STORAGE, key);
+  }
+  return key;
+}
+
 export function parseSavedReviews(raw: string | null): SavedReview[] {
   if (!raw) return [];
   try {
