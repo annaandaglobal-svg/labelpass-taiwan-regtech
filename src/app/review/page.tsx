@@ -800,7 +800,7 @@ function handoffCards(result: ReviewResult | null, route: RoutePreset) {
 
   return [
     {
-      href: "/workspace#review-queue",
+      href: "/workspace",
       icon: <ClipboardCheck size={16} />,
       label: "리뷰 상태",
       title: result ? `${stats?.actionCount ?? 0}개 조치 확인` : "검토 큐 고정",
@@ -808,7 +808,7 @@ function handoffCards(result: ReviewResult | null, route: RoutePreset) {
       tone: result ? actionPlanCopy[result.actionPlan.priority].tone : "info"
     },
     {
-      href: "/workspace#expert-cases",
+      href: "/workspace/experts",
       icon: <Handshake size={16} />,
       label: "상담 요청",
       title: hasExpertNeed ? "상담 인계 준비" : "필요 시 상담 예약",
@@ -816,7 +816,7 @@ function handoffCards(result: ReviewResult | null, route: RoutePreset) {
       tone: hasExpertNeed ? "info" : "pass"
     },
     {
-      href: "/workspace#shipment-events",
+      href: "/workspace/logistics",
       icon: <Truck size={16} />,
       label: "선적 상태",
       title: hasCustomsOrImport ? "통관 확인 필요" : "선적 준비",
@@ -1556,7 +1556,7 @@ export default function Home() {
                       {isSubmittingHandoff ? "저장 확인 중" : currentDraftSaved ? "초안 다시 저장" : "의뢰 초안 저장"}
                     </button>
                     {currentDraftSaved && (
-                      <Link href="/workspace#expert-cases">
+                      <Link href="/workspace/experts">
                         <ArrowRight size={14} />
                         워크스페이스에서 보기
                       </Link>

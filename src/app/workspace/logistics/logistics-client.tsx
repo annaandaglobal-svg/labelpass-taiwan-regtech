@@ -424,7 +424,7 @@ export function LogisticsClient({ shipments, shipmentEvents, shipmentRequests, l
               </div>
             ))}
           </div>
-          <Link className="workspace-wide-link" href="/workspace#shipment-events">
+          <Link className="workspace-wide-link" href="/workspace/logistics">
             워크스페이스 요약으로 돌아가기
             <ArrowRight size={14} />
           </Link>

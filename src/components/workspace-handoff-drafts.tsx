@@ -46,15 +46,15 @@ export function WorkspaceHandoffDrafts() {
                 ))}
               </div>
               <div className="workspace-draft-actions">
-                <Link href="/workspace#expert-cases">
+                <Link href="/workspace/experts">
                   <Handshake size={13} />
                   상담
                 </Link>
-                <Link href="/workspace#expert-cases">
+                <Link href="/workspace/experts">
                   <CreditCard size={13} />
                   결제
                 </Link>
-                <Link href="/workspace#shipment-events">
+                <Link href="/workspace/logistics">
                   <Truck size={13} />
                   물류
                 </Link>

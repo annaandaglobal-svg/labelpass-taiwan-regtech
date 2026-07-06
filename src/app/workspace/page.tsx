@@ -32,7 +32,7 @@ const productRows = [
     next: "PIF 목차, INCI 제한성분 대조표, 중문 라벨 표현을 전문가 상담 전 확정합니다.",
     docs: ["PIF", "GMP", "COA", "중문 라벨"],
     links: [
-      { href: "/#intake", label: "1차 검토" },
+      { href: "/review", label: "1차 검토" },
       { href: "/workspace/pif", label: "PIF 신청" },
       { href: "/workspace/experts", label: "상담 상태" },
       { href: "/workspace/logistics", label: "선적 상태" }
@@ -51,9 +51,9 @@ const productRows = [
     next: "알레르겐, 영양성분, 원재료 별칭, GMO/non-GMO 증빙을 한 묶음으로 정리합니다.",
     docs: ["중문 라벨", "영양성분", "알레르겐", "원산지"],
     links: [
-      { href: "/#intake", label: "1차 검토" },
+      { href: "/review", label: "1차 검토" },
       { href: "/knowledge?q=allergen", label: "근거" },
-      { href: "/workspace#expert-cases", label: "상담 상태" }
+      { href: "/workspace/experts", label: "상담 상태" }
     ]
   },
   {
@@ -70,8 +70,8 @@ const productRows = [
     docs: ["성분표", "첨가물", "CCC/HS", "수입검사"],
     links: [
       { href: "/knowledge?q=food additive", label: "첨가물" },
-      { href: "/workspace#shipment-events", label: "선적" },
-      { href: "/workspace#review-queue", label: "리뷰 상태" }
+      { href: "/workspace/logistics", label: "선적" },
+      { href: "/workspace", label: "리뷰 상태" }
     ]
   }
 ];
@@ -109,12 +109,12 @@ function labelState(value: string) {
 function customerActionHref(href: string) {
   switch (href) {
     case "/admin/reviews":
-      return "/workspace#review-queue";
+      return "/workspace";
     case "/admin/experts":
     case "/admin/payments":
-      return "/workspace#expert-cases";
+      return "/workspace/experts";
     case "/admin/logistics":
-      return "/workspace#shipment-events";
+      return "/workspace/logistics";
     default:
       return href.startsWith("/admin") ? "/workspace" : href;
   }
