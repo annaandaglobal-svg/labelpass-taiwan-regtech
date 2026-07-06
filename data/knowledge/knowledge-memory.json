@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1195,
-    "stored_aliases": 4409,
-    "searchable_aliases": 6897,
+    "terms": 1200,
+    "stored_aliases": 4441,
+    "searchable_aliases": 6929,
     "identifier_aliases": 2488,
     "term_rule_links": 1082,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1040,
+    "alias_review_items": 1043,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5509,17 +5509,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1195,
-      "aliases_scanned": 4409,
-      "alias_rows_scanned": 4404,
-      "collision_groups": 55,
-      "high_confidence_collisions": 44,
+      "terms_scanned": 1200,
+      "aliases_scanned": 4441,
+      "alias_rows_scanned": 4436,
+      "collision_groups": 58,
+      "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 985,
       "strict_blockers": 0,
-      "review_items": 1040
+      "review_items": 1043
     },
     "items": [
       {
@@ -6213,6 +6213,32 @@
         ]
       },
       {
+        "id": "alias-3ad37302ca9d7a",
+        "alias": "染髮",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "cosmetic-pif-product-registration-categories",
+            "canonical_name": "Cosmetic PIF and Product Registration Categories",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "claim-hairdye",
+            "canonical_name": "Hair dye claim (染髮)",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
         "id": "alias-19c3f770c78746",
         "alias": "自用",
         "issue": "alias-collision-high-confidence",
@@ -6291,60 +6317,34 @@
         ]
       },
       {
+        "id": "alias-f55da1a39cd532",
+        "alias": "防曬",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "cosmetic-pif-product-registration-categories",
+            "canonical_name": "Cosmetic PIF and Product Registration Categories",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "claim-sunscreen",
+            "canonical_name": "Sunscreen (SPF) claim (防曬)",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
         "id": "alias-515ebc8fb96848",
         "alias": "화장품 광고 근거자료",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "ko"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "ko"
-          }
-        ]
-      },
-      {
-        "id": "alias-3c6dc732da809a",
-        "alias": "화장품 의료효능 표현",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "ko"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "ko"
-          }
-        ]
-      },
-      {
-        "id": "alias-61ad88a6a5d41a",
-        "alias": "화장품 허위 과장 표시",
         "issue": "alias-collision-high-confidence",
         "priority": "high",
         "term_count": 2,

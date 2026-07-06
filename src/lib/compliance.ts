@@ -227,6 +227,7 @@ const verdictSurfacedCategories = new Set([
   "oxidizing_agent",
   "skin_lightening_agent",
   "hair_dye_ingredient",
+  "cosmetic_special_use_claim",
   "food_additive",
   "fermented_food_ingredient",
   "health_food",

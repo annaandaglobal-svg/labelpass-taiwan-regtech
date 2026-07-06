@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 160,
+  "curated_term_count": 165,
   "generated_term_count": 1036,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -21330,6 +21330,406 @@
         "tw-tfda-cosmetic-prohibited-ingredients"
       ],
       "notes": "산화형 염모제 성분(限用). 대만에서 염모용으로 함량 한도(≤2% 등)·경고문구·패치테스트 조건 하 허용. 속눈썹·눈썹용 금지. 완전 금지가 아님."
+    },
+    {
+      "id": "claim-whitening",
+      "canonical_name": "Whitening claim (美白)",
+      "category": "cosmetic_special_use_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "美白",
+          "normalized": "美白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "미백",
+          "normalized": "미백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Whitening",
+          "normalized": "whitening",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "brightening",
+          "normalized": "brightening",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "화이트닝",
+          "normalized": "화이트닝",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "白皙",
+          "normalized": "白皙",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "淨白",
+          "normalized": "淨白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "특정용도(美白) 화장품 표현. 대만 인정 미백 성분·함량·시험자료·등록 필요."
+    },
+    {
+      "id": "claim-antiwrinkle",
+      "canonical_name": "Anti-wrinkle claim (抗皺)",
+      "category": "cosmetic_special_use_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "抗皺",
+          "normalized": "抗皺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "주름개선",
+          "normalized": "주름개선",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Anti-wrinkle",
+          "normalized": "anti-wrinkle",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "除皺",
+          "normalized": "除皺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "안티링클",
+          "normalized": "안티링클",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抗老",
+          "normalized": "抗老",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "주름 개선",
+          "normalized": "주름 개선",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "특정용도(抗皺) 화장품 표현. 인정 성분·시험자료·등록 필요."
+    },
+    {
+      "id": "claim-acne",
+      "canonical_name": "Acne care claim (面皰)",
+      "category": "cosmetic_special_use_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "面皰",
+          "normalized": "面皰",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "여드름",
+          "normalized": "여드름",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Acne care",
+          "normalized": "acne care",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "acne",
+          "normalized": "acne",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抗痘",
+          "normalized": "抗痘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "여드름 개선",
+          "normalized": "여드름 개선",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "특정용도(面皰/여드름) 화장품 표현. 인정 성분·시험자료·등록 필요."
+    },
+    {
+      "id": "claim-sunscreen",
+      "canonical_name": "Sunscreen (SPF) claim (防曬)",
+      "category": "cosmetic_special_use_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "防曬",
+          "normalized": "防曬",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "자외선차단",
+          "normalized": "자외선차단",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Sunscreen (SPF)",
+          "normalized": "sunscreen spf",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sunscreen",
+          "normalized": "sunscreen",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SPF",
+          "normalized": "spf",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "선크림",
+          "normalized": "선크림",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "UV차단",
+          "normalized": "uv차단",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "특정용도(防曬) 화장품 표현. 인정 자외선 차단 성분·함량 한도·SPF/PA 표시 근거·등록 필요."
+    },
+    {
+      "id": "claim-hairdye",
+      "canonical_name": "Hair dye claim (染髮)",
+      "category": "cosmetic_special_use_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "染髮",
+          "normalized": "染髮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "염모",
+          "normalized": "염모",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Hair dye",
+          "normalized": "hair dye",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "염색",
+          "normalized": "염색",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "헤어컬러",
+          "normalized": "헤어컬러",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "특정용도(染髮) 화장품 표현. 산화형 성분 한도·경고문·패치테스트 조건 하 허용. 인정 성분·등록 필요."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",

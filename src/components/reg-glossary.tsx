@@ -16,7 +16,7 @@ const GLOSSARY: Array<{ term: string; gloss: string }> = [
 
 export function RegGlossary() {
   return (
-    <details className="reg-glossary">
+    <details className="reg-glossary" open>
       <summary>
         <BookOpen size={14} />
         자주 나오는 용어 쉽게 보기

@@ -117,15 +117,15 @@ const focusModes: Array<{
 
 const examples: Record<FocusMode, Array<{ label: string; query: string }>> = {
   cosmetics: [
-    { label: "PIF", query: "Taiwan cosmetic PIF" },
+    { label: "미백 표현", query: "미백" },
     { label: "Triclosan", query: "Triclosan" },
-    { label: "방부제", query: "Phenoxyethanol Chlorphenesin" },
-    { label: "효능 표현", query: "cosmetic claim criteria" }
+    { label: "방부제", query: "Phenoxyethanol" },
+    { label: "PIF", query: "Taiwan cosmetic PIF" }
   ],
   food: [
-    { label: "칼륨 글리세로인산", query: "POTASSIUM GLYCEROPHOSPHATE" },
-    { label: "오리재 발효분말", query: "아스퍼질러스 오리재발효분말" },
-    { label: "나이거 배양물", query: "아스퍼질러스 나이거 배양물" },
+    { label: "건강식품 효능", query: "홍국" },
+    { label: "감미료", query: "아스파탐" },
+    { label: "알레르겐", query: "peanut" },
     { label: "스테비아", query: "스테비아" }
   ],
   trade: [
@@ -428,7 +428,7 @@ export default function KnowledgeSearchClient({
           {!hasQuery && (
             <div className="kb-empty-state">
               <BookOpen size={26} />
-              <b>통관에서 문제가 된 성분명이나 라벨 문구를 그대로 붙여넣으세요.</b>
+              <b>성분명·효능 표현을 넣으면 대만에서 금지·제한·특정용도인지 알려드립니다.</b>
               <span>영어 원료명, 한글 표기, 중문명, HS/CCC, PIF 같은 단어를 함께 넣으면 공식 근거와 확인 경로를 찾습니다.</span>
             </div>
           )}

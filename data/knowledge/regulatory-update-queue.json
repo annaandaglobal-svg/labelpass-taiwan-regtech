@@ -2055,19 +2055,19 @@
           "category": "hair_dye_ingredient"
         },
         {
-          "term_key": "tfda-6-methylcoumarin",
-          "canonical_name": "6-Methylcoumarin",
-          "category": "restricted"
+          "term_key": "claim-whitening",
+          "canonical_name": "Whitening claim (美白)",
+          "category": "cosmetic_special_use_claim"
         },
         {
-          "term_key": "tfda-allantoin",
-          "canonical_name": "Allantoin",
-          "category": "restricted"
+          "term_key": "claim-antiwrinkle",
+          "canonical_name": "Anti-wrinkle claim (抗皺)",
+          "category": "cosmetic_special_use_claim"
         },
         {
-          "term_key": "tfda-aluminum-potassium-bis-sulfate",
-          "canonical_name": "Aluminum potassium bis(sulfate)",
-          "category": "restricted"
+          "term_key": "claim-acne",
+          "canonical_name": "Acne care claim (面皰)",
+          "category": "cosmetic_special_use_claim"
         }
       ],
       "affected_products": [

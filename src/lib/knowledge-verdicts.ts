@@ -295,6 +295,23 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
     };
   }
 
+  if (category === "cosmetic_special_use_claim") {
+    return {
+      label: "특정용도 화장품 표현",
+      detail:
+        "미백·자외선차단·주름개선·여드름·염모·제한 같은 특정용도(特定用途) 표현입니다. 일반 화장품보다 요건이 강합니다 — 대만이 인정한 성분(허용목록)만 쓸 수 있고, 함량·경고문·안전성/효능 시험자료, 특정용도 화장품 등록·통보가 필요합니다. 인정 성분·근거 없이 이 효능을 표기하면 위반입니다.",
+      tone: "gold",
+      state: "restricted_risk",
+      uncertainty:
+        "이 효능을 광고·라벨에 쓰려면 대만 인정 성분 + 시험자료 + 등록이 갖춰졌는지 확인하세요. 없으면 표현 불가입니다.",
+      chips: ["특정용도", "인정 성분 필요", "시험자료·등록", "근거 없으면 표기 불가"],
+      actions: [
+        "이 효능이 대만 특정용도 화장품 인정 성분·기준에 맞는지 확인하세요.",
+        "안전성·효능 시험자료와 특정용도 화장품 등록/통보 여부를 확인하세요."
+      ]
+    };
+  }
+
   if (category === "cosmetic_compliance") {
     return {
       label: "화장품 등록·PIF 확인",

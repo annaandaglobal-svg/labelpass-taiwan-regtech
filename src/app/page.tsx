@@ -64,7 +64,7 @@ export default function Home() {
         <div className="seal-h" aria-hidden="true">合格</div>
         <div className="herocheck-copy">
           <h2>보내기 전에, 판정받으세요</h2>
-          <p>라벨 시안·전성분 파일을 올리면 대만 법령·고시와 대조해 1차 판정합니다.</p>
+          <p>대만에 팔기 전, 라벨·전성분을 올리면 법령·고시와 대조해 무엇이 문제인지 1차로 알려드립니다.</p>
           <div className="pf">
             <span>근거 조문 표기</span>
             <span>수정안·대체 성분 제안</span>
