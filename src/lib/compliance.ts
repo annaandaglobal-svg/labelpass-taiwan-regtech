@@ -313,6 +313,33 @@ function computeIngredientVerdicts(input: ReviewInput, limit = 12): IngredientVe
     }
   }
 
+  // Also scan the label/표시 text so CLAIM and product-type triggers that never appear in the
+  // 전성분 list — 유기농(有機), 美白, GMO, 素食, 카페인, 회수, 의료효능 표현 등 — still surface.
+  const labelText = input.labelText ?? "";
+  if (labelText.trim()) {
+    for (const { term, verdict } of verdictEligibleTerms) {
+      if (verdicts.length >= limit) break;
+      if (seen.has(term.id)) continue;
+      if (!matchedAliasInText(labelText, term.aliases ?? [])) continue;
+
+      seen.add(term.id);
+      const state: KnowledgeVerdictState = verdict.state ?? "needs_check";
+      verdicts.push({
+        termId: term.id,
+        canonicalName: term.canonical_name,
+        category: term.category ?? "",
+        matchedText: "라벨·표시 문구",
+        state,
+        stateLabel: verdictStateLabels[state],
+        label: verdict.label,
+        detail: verdict.detail,
+        uncertainty: verdict.uncertainty ?? "",
+        actions: verdict.actions,
+        sourceKeys: term.source_keys ?? []
+      });
+    }
+  }
+
   return verdicts;
 }
 
