@@ -2157,13 +2157,13 @@
           "category": "cosmetic_ingredient_restriction"
         },
         {
-          "term_key": "tfda-2-ethylhexyl-4-dimethylamino-benzoate-padimate-o",
-          "canonical_name": "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
-          "category": "sunscreen"
+          "term_key": "cos-benzophenone",
+          "canonical_name": "Benzophenones (UV)",
+          "category": "cosmetic_ingredient"
         },
         {
-          "term_key": "tfda-2-hydroxy-4-methoxybenzophenone-5-sulfonic-acid-and-its-sodium-salt-sulisobenzon",
-          "canonical_name": "2-Hydroxy-4-methoxybenzophenone-5-sulfonic acid and its sodium salt/ Sulisobenzone",
+          "term_key": "tfda-2-ethylhexyl-4-dimethylamino-benzoate-padimate-o",
+          "canonical_name": "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
           "category": "sunscreen"
         },
         {

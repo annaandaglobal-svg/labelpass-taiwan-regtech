@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1266,
-    "stored_aliases": 5086,
-    "searchable_aliases": 7556,
-    "identifier_aliases": 2470,
+    "terms": 1293,
+    "stored_aliases": 5276,
+    "searchable_aliases": 7741,
+    "identifier_aliases": 2465,
     "term_rule_links": 1084,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1064,
+    "alias_review_items": 1072,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -4904,6 +4904,28 @@
       "score": 190
     },
     {
+      "id": "omega3-lutein",
+      "canonical_name": "Omega-3 / lutein / functional oils",
+      "category": "food_ingredient",
+      "category_label": "Food ingredient",
+      "aliases": [
+        "DHA",
+        "EPA",
+        "lutein",
+        "omega-3",
+        "葉黃素",
+        "루테인",
+        "오메가3",
+        "코엔자임큐텐"
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "기능성 원료 — 일반식품 표방 한계, 기능 표방 시 健康食品 허가.",
+      "score": 190
+    },
+    {
       "id": "commercial-invoice",
       "canonical_name": "Commercial Invoice",
       "category": "customs_document",
@@ -5120,6 +5142,26 @@
       "score": 185
     },
     {
+      "id": "protein-bar",
+      "canonical_name": "Protein/cereal bar (蛋白棒)",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "protein bar",
+        "蛋白棒",
+        "단백질바",
+        "시리얼바",
+        "에너지바",
+        "프로틴바"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "일반식품이면 기능 표방 불가, 기능 표방 시 健康食品 허가 필요.",
+      "score": 183
+    },
+    {
       "id": "tfda-alkyl-c12-22-trimethyl-ammonium-bromide-and-chloride",
       "canonical_name": "Alkyl (C12-22) trimethyl ammonium bromide and chloride",
       "category": "preservative",
@@ -5141,6 +5183,25 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-201-1",
       "score": 183
+    },
+    {
+      "id": "health-functional-food",
+      "canonical_name": "Health functional food (健康食品)",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "健康食品",
+        "小綠人",
+        "건강기능식품",
+        "기능성식품",
+        "보건기능식품"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "健康食品은 허가제 — 허가·小綠人 로고 없이 기능 표방 불가.",
+      "score": 181
     },
     {
       "id": "tfda-propionic-acid-and-its-salts",
@@ -5317,6 +5378,30 @@
       "score": 171
     },
     {
+      "id": "cos-common-actives",
+      "canonical_name": "Common cosmetic actives (allowed)",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "PDRN",
+        "aloe",
+        "ascorbic acid",
+        "ceramide",
+        "galactomyces",
+        "houttuynia",
+        "peptide",
+        "propolis",
+        "resveratrol",
+        "snail"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.",
+      "score": 169
+    },
+    {
       "id": "methylchloroisothiazolinone",
       "canonical_name": "Methylchloroisothiazolinone",
       "category": "preservative",
@@ -5388,6 +5473,25 @@
       "score": 164
     },
     {
+      "id": "cos-benzophenone",
+      "canonical_name": "Benzophenones (UV)",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "benzophenone",
+        "benzophenone-4",
+        "벤조페논",
+        "이산화규소"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "tw-tfda-cosmetic-sunscreen-ingredients"
+      ],
+      "notes": "벤조페논류 자외선 성분 — 종류별 한도 확인.",
+      "score": 162
+    },
+    {
       "id": "menthol",
       "canonical_name": "Menthol",
       "category": "cosmetic_ingredient",
@@ -5425,108 +5529,23 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-200-149",
       "score": 162
-    },
-    {
-      "id": "tfda-ci-77268-1",
-      "canonical_name": "CI 77268:1",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI CI 77268:1",
-        "CI CI 77268",
-        "CI 77268:1",
-        "CI 77268",
-        "Food Black 3 Coke Black"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-127",
-      "score": 158
-    },
-    {
-      "id": "tfda-caramel",
-      "canonical_name": "Caramel",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI Caramel",
-        "Caramel",
-        "Natural Brown 10"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-145",
-      "score": 156
-    },
-    {
-      "id": "tfda-ci-10006",
-      "canonical_name": "CI 10006",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI CI 10006",
-        "CI CI 10006",
-        "CI 10006",
-        "Pigment Green 8"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-1",
-      "score": 156
-    },
-    {
-      "id": "tfda-ci-10020",
-      "canonical_name": "CI 10020",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI CI 10020",
-        "CI CI 10020",
-        "CI 10020",
-        "Acid Green 1 Ext. D&C Green No. 1 Naphthol Green B"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-2",
-      "score": 156
-    },
-    {
-      "id": "tfda-ci-10316",
-      "canonical_name": "CI 10316",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI CI 10316",
-        "CI CI 10316",
-        "CI 10316",
-        "Acid Yellow 1 Ext. D&C Yellow No. 7 Naphthol Yellow S"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-3",
-      "score": 156
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1266,
-      "aliases_scanned": 5086,
-      "alias_rows_scanned": 5081,
-      "collision_groups": 88,
-      "high_confidence_collisions": 59,
+      "terms_scanned": 1293,
+      "aliases_scanned": 5276,
+      "alias_rows_scanned": 5271,
+      "collision_groups": 97,
+      "high_confidence_collisions": 65,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 976,
+      "regulated_terms_without_local_alias": 975,
       "strict_blockers": 0,
-      "review_items": 1064
+      "review_items": 1072
     },
     "items": [
       {
@@ -5715,6 +5734,32 @@
             "confidence": 0.95,
             "jurisdiction": "GLOBAL",
             "language": "en"
+          }
+        ]
+      },
+      {
+        "id": "alias-e8ebed4d37fb8a",
+        "alias": "健康食品",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "health-food",
+            "canonical_name": "Health Food",
+            "confidence": 1,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "health-functional-food",
+            "canonical_name": "Health functional food (健康食品)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
           }
         ]
       },
@@ -6246,6 +6291,58 @@
         ]
       },
       {
+        "id": "alias-7cccfa095b6c11",
+        "alias": "保存期限",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "food-label-required-items",
+            "canonical_name": "Food Label Required Items",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "shelf-life-date",
+            "canonical_name": "Shelf-life / expiry date (有效日期)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-7976bc897b4e58",
+        "alias": "動物用藥殘留",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "food-veterinary-drug-residue-limits",
+            "canonical_name": "Food Veterinary Drug Residue Limits",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "food-contaminant-safety",
+            "canonical_name": "Food contaminants (aflatoxin/heavy metal/residue)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
         "id": "alias-2a46293ce10b4d",
         "alias": "化粧品標示宣傳廣告",
         "issue": "alias-collision-high-confidence",
@@ -6292,84 +6389,6 @@
             "term_id": "food-label-required-items",
             "canonical_name": "Food Label Required Items",
             "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-3ad37302ca9d7a",
-        "alias": "染髮",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-pif-product-registration-categories",
-            "canonical_name": "Cosmetic PIF and Product Registration Categories",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "claim-hairdye",
-            "canonical_name": "Hair dye claim (染髮)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-93a5655db6e401",
-        "alias": "甲醛",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "formaldehyde",
-            "canonical_name": "Formaldehyde",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh"
-          },
-          {
-            "term_id": "commodity-label",
-            "canonical_name": "General commodity Chinese labeling (商品標示法)",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-19c3f770c78746",
-        "alias": "自用",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "shipment-purpose",
-            "canonical_name": "Shipment Purpose",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "food-import-inspection-exemption",
-            "canonical_name": "Food Import Inspection Exemption",
-            "confidence": 0.9,
             "jurisdiction": "TW",
             "language": "zh-Hant"
           }
@@ -6945,8 +6964,8 @@
           "Zinc Oxide",
           "Benzophenone-3",
           "Cosmetic Sunscreen Ingredients",
+          "Benzophenones (UV)",
           "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
-          "2-Hydroxy-4-methoxybenzophenone-5-sulfonic acid and its sodium salt/ Sulisobenzone",
           "Benzoic acid, 2-hydroxy-,3,3,5-trimethylcyclohexyl ester/ Homosalate",
           "2-Ethylhexyl 4-methoxycinnamate/ Octinoxate"
         ],

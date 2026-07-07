@@ -1046,7 +1046,9 @@
         "health-food-application-permit",
         "health-food-approved-effect-vocabulary",
         "health-food-label-required-items",
-        "novel-food-ingredient-safety-assessment"
+        "novel-food-ingredient-safety-assessment",
+        "health-functional-food",
+        "protein-bar"
       ],
       "match_sources": [
         "tw-moj-health-food-governing-act",

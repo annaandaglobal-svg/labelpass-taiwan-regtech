@@ -1603,7 +1603,9 @@
         "health-food-application-permit",
         "health-food-approved-effect-vocabulary",
         "health-food-label-required-items",
-        "novel-food-ingredient-safety-assessment"
+        "novel-food-ingredient-safety-assessment",
+        "health-functional-food",
+        "protein-bar"
       ],
       "sources": [
         {
@@ -1803,6 +1805,39 @@
           "source_keys": [
             "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
             "tw-tfda-food-ingredient-integration-query-platform"
+          ]
+        },
+        {
+          "id": "health-functional-food",
+          "canonical_name": "Health functional food (健康食品)",
+          "category": "health_food",
+          "aliases": [
+            "健康食品",
+            "小綠人",
+            "건강기능식품",
+            "기능성식품",
+            "보건기능식품"
+          ],
+          "source_keys": [
+            "tw-moj-health-food-governing-act",
+            "tw-tfda-health-food-enforcement-rules"
+          ]
+        },
+        {
+          "id": "protein-bar",
+          "canonical_name": "Protein/cereal bar (蛋白棒)",
+          "category": "health_food",
+          "aliases": [
+            "protein bar",
+            "蛋白棒",
+            "단백질바",
+            "시리얼바",
+            "에너지바",
+            "프로틴바"
+          ],
+          "source_keys": [
+            "tw-moj-health-food-governing-act",
+            "tw-tfda-health-food-enforcement-rules"
           ]
         }
       ]

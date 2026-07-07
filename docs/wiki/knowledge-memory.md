@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,266
-- Stored aliases: 5,086
-- Searchable aliases including identifiers: 7,556
+- Terms: 1,293
+- Stored aliases: 5,276
+- Searchable aliases including identifiers: 7,741
 - Term-rule links: 1,084
 - Regulatory update candidates: 47
-- Alias review items: 1,064
+- Alias review items: 1,072
 
 ## How To Use This Memory
 
@@ -231,6 +231,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: health food application permit; 健康食品查驗登記; health care effect assessment report; safety assessment report; 保健功效含量; 保健功效成分; 保健功效評估報告; 安全評估報告; package label product information sheet; 包裝標籤及產品說明書
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-application-permit-regulations`
   - Note: Use for Taiwan health-food products that require application files, health-care-effect substantiation and safety assessment before claim or label approval.
+- **Protein/cereal bar (蛋白棒)** (`protein-bar`)
+  - Aliases: protein bar; 蛋白棒; 단백질바; 시리얼바; 에너지바; 프로틴바
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 일반식품이면 기능 표방 불가, 기능 표방 시 健康食品 허가 필요.
+- **Health functional food (健康食品)** (`health-functional-food`)
+  - Aliases: 健康食品; 小綠人; 건강기능식품; 기능성식품; 보건기능식품
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 健康食品은 허가제 — 허가·小綠人 로고 없이 기능 표방 불가.
 
 ### Food labeling
 
@@ -332,6 +340,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: Probiotic; Probiotics; 乳酸菌; 益生菌; 유산균; 프로바이오틱스; Lactic acid bacteria; Bifidobacterium; Lactobacillus
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-health-food-permit-query`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`
   - Note: High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.
+- **Omega-3 / lutein / functional oils** (`omega3-lutein`)
+  - Aliases: DHA; EPA; lutein; omega-3; 葉黃素; 루테인; 오메가3; 코엔자임큐텐
+  - Sources: `tw-tfda-food-labeling-handbook-2026`, `tw-moj-food-safety-sanitation-act`
+  - Note: 기능성 원료 — 일반식품 표방 한계, 기능 표방 시 健康食品 허가.
 - **Palm Oil** (`food-palm-oil`)
   - Aliases: Palm Kernel Oil; Palm Oil; Palm Olein; 棕櫚油; 팜올레인; 팜유
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`
@@ -399,10 +411,18 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
   - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
+- **Common cosmetic actives (allowed)** (`cos-common-actives`)
+  - Aliases: PDRN; aloe; ascorbic acid; ceramide; galactomyces; houttuynia; peptide; propolis; resveratrol; snail
+  - Sources: `global-pcpc-inci`, `global-cas-registry`
+  - Note: 일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.
 - **Camphor** (`camphor`)
   - Aliases: INCI Camphor; Camphor; カンフル; 樟脑; 樟腦; 장뇌
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`
   - Note: Common cooling/fragrance ingredient; rule matching may depend on product type.
+- **Benzophenones (UV)** (`cos-benzophenone`)
+  - Aliases: benzophenone; benzophenone-4; 벤조페논; 이산화규소
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-sunscreen-ingredients`
+  - Note: 벤조페논류 자외선 성분 — 종류별 한도 확인.
 - **Menthol** (`menthol`)
   - Aliases: INCI Menthol; Menthol; メントール; 薄荷醇; 멘톨
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`
@@ -457,26 +477,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate; Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate; Aluminum stearate; Calcium stearate; Magnesium stearate; Zinc stearate
   - Sources: `tw-tfda-cosmetic-colorants`
   - Note: Generated from TFDA rule tw-cos-200-149
-- **CI 77268:1** (`tfda-ci-77268-1`)
-  - Aliases: INCI CI 77268:1; CI CI 77268; CI 77268:1; CI 77268; Food Black 3 Coke Black
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-127
-- **Caramel** (`tfda-caramel`)
-  - Aliases: INCI Caramel; Caramel; Natural Brown 10
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-145
-- **CI 10006** (`tfda-ci-10006`)
-  - Aliases: INCI CI 10006; CI CI 10006; CI 10006; Pigment Green 8
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-1
-- **CI 10020** (`tfda-ci-10020`)
-  - Aliases: INCI CI 10020; CI CI 10020; CI 10020; Acid Green 1 Ext. D&C Green No. 1 Naphthol Green B
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-2
-- **CI 10316** (`tfda-ci-10316`)
-  - Aliases: INCI CI 10316; CI CI 10316; CI 10316; Acid Yellow 1 Ext. D&C Yellow No. 7 Naphthol Yellow S
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-3
 
 ## Alias Ambiguity Queue
 
@@ -489,11 +489,11 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | inci | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | milk | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | preservative | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
+| 健康食品 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品字樣 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品查驗登記 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 化粧品標示 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 輸出許可證 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
-| 防腐劑 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 
 
 ## Refresh Queue

@@ -261,6 +261,8 @@ const verdictSurfacedCategories = new Set([
   "trans_fat_pho_ban",
   "dairy_fat_naming",
   "food_edible_oil",
+  "food_safety_contaminant",
+  "honey_naming",
   "food_synthetic_color",
   "chocolate_naming",
   "juice_naming",
