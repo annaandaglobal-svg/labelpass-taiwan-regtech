@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1251,
-    "stored_aliases": 4935,
-    "searchable_aliases": 7410,
-    "identifier_aliases": 2475,
-    "term_rule_links": 1083,
+    "terms": 1266,
+    "stored_aliases": 5086,
+    "searchable_aliases": 7556,
+    "identifier_aliases": 2470,
+    "term_rule_links": 1084,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1055,
+    "alias_review_items": 1064,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5516,17 +5516,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1251,
-      "aliases_scanned": 4935,
-      "alias_rows_scanned": 4930,
-      "collision_groups": 77,
-      "high_confidence_collisions": 53,
+      "terms_scanned": 1266,
+      "aliases_scanned": 5086,
+      "alias_rows_scanned": 5081,
+      "collision_groups": 88,
+      "high_confidence_collisions": 59,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 978,
+      "regulated_terms_without_local_alias": 976,
       "strict_blockers": 0,
-      "review_items": 1055
+      "review_items": 1064
     },
     "items": [
       {
@@ -5609,6 +5609,32 @@
             "term_id": "caseinates-food-additives",
             "canonical_name": "Casein and Caseinates",
             "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
+      {
+        "id": "alias-60d6b4c10509b0",
+        "alias": "dmdm hydantoin",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "dmdm-hydantoin",
+            "canonical_name": "DMDM Hydantoin",
+            "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "cosmetic-restricted-active",
+            "canonical_name": "Restricted cosmetic actives (arbutin/AHA/DMDM)",
+            "confidence": 0.9,
             "jurisdiction": "GLOBAL",
             "language": "en"
           }
@@ -6348,32 +6374,6 @@
             "language": "zh-Hant"
           }
         ]
-      },
-      {
-        "id": "alias-a1571bf77d8be5",
-        "alias": "虛偽誇大",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
       }
     ]
   },
@@ -6884,7 +6884,7 @@
           "Boric Acid",
           "Cosmetic Prohibited Ingredients",
           "p-Phenylenediamine",
-          "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)"
+          "Process contaminants (3-MCPD·acrylamide)"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

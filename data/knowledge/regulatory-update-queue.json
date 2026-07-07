@@ -1840,6 +1840,11 @@
           "category": "hair_dye_ingredient"
         },
         {
+          "term_key": "food-process-contaminant",
+          "canonical_name": "Process contaminants (3-MCPD·acrylamide)",
+          "category": "food_process_contaminant"
+        },
+        {
           "term_key": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
           "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
           "category": "prohibited"
@@ -1897,11 +1902,6 @@
         {
           "term_key": "tfda-n-n-bis-2-chloroethyl-methylamine-n-oxide-and-its-salts",
           "canonical_name": "N,N-bis(2-Chloroethyl)methylamine N-oxide and its salts",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "tfda-chlormethine-inn-and-its-salts",
-          "canonical_name": "Chlormethine (INN) and its salts",
           "category": "prohibited"
         }
       ],
@@ -2062,7 +2062,7 @@
         {
           "term_key": "claim-antiwrinkle",
           "canonical_name": "Anti-wrinkle claim (抗皺)",
-          "category": "cosmetic_special_use_claim"
+          "category": "cosmetic_marketing_claim"
         },
         {
           "term_key": "claim-acne",
@@ -2888,6 +2888,21 @@
           "term_key": "toy-inspection",
           "canonical_name": "Toy commodity inspection & phthalates (BSMI)",
           "category": "toy_inspection"
+        },
+        {
+          "term_key": "medical-device-import",
+          "canonical_name": "Medical device (contact lens/tampon/condom/mask)",
+          "category": "medical_device_import"
+        },
+        {
+          "term_key": "tobacco-vape",
+          "canonical_name": "Tobacco / e-cigarette (電子煙 banned)",
+          "category": "tobacco_vape"
+        },
+        {
+          "term_key": "disinfectant-class",
+          "canonical_name": "Disinfectant / sanitizer classification",
+          "category": "disinfectant_classification"
         }
       ],
       "affected_products": [
