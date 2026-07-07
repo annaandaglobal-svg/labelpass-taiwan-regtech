@@ -112,8 +112,9 @@ const GAP_BATTERY = [
 ];
 
 let serverUp = true;
+const BASE = process.env.LABELPASS_BASE_URL || "http://127.0.0.1:3000";
 const fetchVerdict = async (q) => {
-  const r = await fetch("http://127.0.0.1:3000/api/knowledge/evidence?q=" + encodeURIComponent(q));
+  const r = await fetch(BASE + "/api/knowledge/evidence?q=" + encodeURIComponent(q));
   const j = await r.json();
   return j.verdict ? j.verdict.label : null;
 };

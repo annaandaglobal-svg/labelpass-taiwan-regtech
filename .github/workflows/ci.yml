@@ -5,6 +5,10 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+  schedule:
+    # Weekly deep run (Mondays 00:00 UTC) so drift/regressions surface even with no push.
+    - cron: "0 0 * * 1"
+  workflow_dispatch: {}
 
 jobs:
   build:
@@ -81,6 +85,9 @@ jobs:
 
       - name: Smoke test review API
         run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:api
+
+      - name: Find knowledge problems (misroutes / gaps / structural)
+        run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm find:problems
 
       - name: Smoke test admin operations API
         run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:admin-ops
