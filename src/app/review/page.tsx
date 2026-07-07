@@ -64,7 +64,7 @@ type RoutePreset = {
 };
 
 type ProductPreset = {
-  id: "cosmetic" | "food" | "supplement" | "ingredient" | "packaging" | "device" | "other";
+  id: "cosmetic" | "food" | "infant-food" | "children-food" | "supplement" | "ingredient" | "packaging" | "alcohol" | "device" | "toy" | "other";
   label: string;
   helper: string;
   productType: string;
@@ -222,6 +222,22 @@ const productPresets: ProductPreset[] = [
     examples: ["원재료", "영양표시", "수입검사"]
   },
   {
+    id: "infant-food",
+    label: "영유아 식품 (조제식·이유식)",
+    helper: "조제분유·후속조제식·이유식·영아용 식품. 査驗登記 허가(조제식)·영유아 강화 오염물 한도·영유아 금지 첨가물(附表一)·모유대용품 광고 규제를 함께 봅니다.",
+    productType: "infant formula / baby food / 嬰兒配方 / weaning food / Taiwan import",
+    routeId: "tw_food_label",
+    examples: ["査驗登記", "영유아 첨가물", "강화 오염물 한도"]
+  },
+  {
+    id: "children-food",
+    label: "어린이 식품",
+    helper: "유아 간식·어린이 음료·과자 등. 어린이 대상 광고·판촉 제한(고지방·고당·고나트륨)과 학교 판매 기준(校園)을 함께 봅니다.",
+    productType: "children food / kids snack / Taiwan import",
+    routeId: "tw_food_label",
+    examples: ["어린이 광고 제한", "학교 판매 기준", "영양"]
+  },
+  {
     id: "supplement",
     label: "건강식품·단백질",
     helper: "단백질 파우더, 효소, 유산균, 기능성 제품. 성분 이슈와 광고 표현을 먼저 분리합니다.",
@@ -238,6 +254,14 @@ const productPresets: ProductPreset[] = [
     examples: ["허용목록", "사용기준", "규격 자료"]
   },
   {
+    id: "alcohol",
+    label: "주류·알코올 음료",
+    helper: "술·리큐르 등 알코올 음료. 財政部 菸酒 수입업 허가·주세(菸酒稅)가 사전에 필요하며, TFDA 식품 규정과 별개입니다.",
+    productType: "alcoholic beverage / 酒 / liquor / Taiwan import",
+    routeId: "tw_food_label",
+    examples: ["菸酒 수입허가", "주세", "라벨"]
+  },
+  {
     id: "packaging",
     label: "포장재·용기",
     helper: "식품 접촉 용기, 필름, 병뚜껑. 재질, 사용조건, 위생규격 시험자료를 확인합니다.",
@@ -252,6 +276,14 @@ const productPresets: ProductPreset[] = [
     productType: "beauty device / electronic goods / Taiwan import",
     routeId: "tw_trade",
     examples: ["의료기기 여부", "BSMI 검사", "HS/CCC"]
+  },
+  {
+    id: "toy",
+    label: "완구·유아용품",
+    helper: "장난감·어린이용품. BSMI 商品檢驗(CNS)·프탈레이트 6종 ≤0.1%·중문 표시(商品標示法)를 봅니다. 성분이 없어도 됩니다.",
+    productType: "toy / children product / Taiwan import",
+    routeId: "tw_trade",
+    examples: ["BSMI 商品檢驗", "프탈레이트", "중문 표시"]
   },
   {
     id: "other",
@@ -426,10 +458,11 @@ function productForRoute(routeId: RouteId) {
   const direct = productPresets.find((product) => product.routeId === routeId);
   if (direct) return direct;
   const route = findRoute(routeId);
-  if (route.family === "cosmetics") return productPresets[0];
-  if (route.id === "tw_health_food") return productPresets[2];
-  if (route.id === "tw_food_additive") return productPresets[3];
-  return productPresets[1];
+  const byId = (id: string) => productPresets.find((product) => product.id === id);
+  if (route.family === "cosmetics") return byId("cosmetic") ?? productPresets[0];
+  if (route.id === "tw_health_food") return byId("supplement") ?? productPresets[0];
+  if (route.id === "tw_food_additive") return byId("ingredient") ?? productPresets[0];
+  return byId("food") ?? productPresets[0];
 }
 
 function routeFromInput(input: ReviewInput) {
