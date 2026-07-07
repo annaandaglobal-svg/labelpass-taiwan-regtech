@@ -316,9 +316,10 @@ function computeIngredientVerdicts(input: ReviewInput, limit = 12): IngredientVe
     }
   }
 
-  // Also scan the label/표시 text so CLAIM and product-type triggers that never appear in the
-  // 전성분 list — 유기농(有機), 美白, GMO, 素食, 카페인, 회수, 의료효능 표현 등 — still surface.
-  const labelText = input.labelText ?? "";
+  // Also scan the label/표시 text + 제품명 + 세부 품목 so CLAIM and PRODUCT-TYPE triggers that
+  // never appear in the 전성분 list — 유기농(有機), 美白, GMO, 素食, 카페인, 회수, 의료효능 표현, 그리고
+  // 품목 선택(완구·주류·미용기기·영유아식 등) — still surface.
+  const labelText = `${input.labelText ?? ""} ${input.productName ?? ""} ${input.productType ?? ""}`;
   if (labelText.trim()) {
     for (const { term, verdict } of verdictEligibleTerms) {
       if (verdicts.length >= limit) break;

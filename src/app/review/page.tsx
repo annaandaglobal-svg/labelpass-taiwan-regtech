@@ -225,7 +225,7 @@ const productPresets: ProductPreset[] = [
     id: "infant-food",
     label: "영유아 식품 (조제식·이유식)",
     helper: "조제분유·후속조제식·이유식·영아용 식품. 査驗登記 허가(조제식)·영유아 강화 오염물 한도·영유아 금지 첨가물(附表一)·모유대용품 광고 규제를 함께 봅니다.",
-    productType: "infant formula / baby food / 嬰兒配方 / weaning food / Taiwan import",
+    productType: "영유아 식품 / 이유식 / infant formula / baby food / 嬰兒配方 / Taiwan import",
     routeId: "tw_food_label",
     examples: ["査驗登記", "영유아 첨가물", "강화 오염물 한도"]
   },
@@ -233,7 +233,7 @@ const productPresets: ProductPreset[] = [
     id: "children-food",
     label: "어린이 식품",
     helper: "유아 간식·어린이 음료·과자 등. 어린이 대상 광고·판촉 제한(고지방·고당·고나트륨)과 학교 판매 기준(校園)을 함께 봅니다.",
-    productType: "children food / kids snack / Taiwan import",
+    productType: "어린이 식품 / children food / kids snack / Taiwan import",
     routeId: "tw_food_label",
     examples: ["어린이 광고 제한", "학교 판매 기준", "영양"]
   },
@@ -257,7 +257,7 @@ const productPresets: ProductPreset[] = [
     id: "alcohol",
     label: "주류·알코올 음료",
     helper: "술·리큐르 등 알코올 음료. 財政部 菸酒 수입업 허가·주세(菸酒稅)가 사전에 필요하며, TFDA 식품 규정과 별개입니다.",
-    productType: "alcoholic beverage / 酒 / liquor / Taiwan import",
+    productType: "주류 / alcoholic beverage / 酒 / liquor / Taiwan import",
     routeId: "tw_food_label",
     examples: ["菸酒 수입허가", "주세", "라벨"]
   },
@@ -273,7 +273,7 @@ const productPresets: ProductPreset[] = [
     id: "device",
     label: "미용기기·전자제품",
     helper: "LED 마스크, 진동 클렌저 등 기기류. 먼저 대만 醫療器材(의료기기) 대상인지 一般商品(일반 상품)인지 구분하고, 일반 상품이면 BSMI 전기·전자 검사와 HS/CCC를 봅니다. 성분이 없어도 됩니다.",
-    productType: "beauty device / electronic goods / Taiwan import",
+    productType: "미용기기·전자제품 / beauty device / electronic goods / Taiwan import",
     routeId: "tw_trade",
     examples: ["의료기기 여부", "BSMI 검사", "HS/CCC"]
   },
@@ -281,7 +281,7 @@ const productPresets: ProductPreset[] = [
     id: "toy",
     label: "완구·유아용품",
     helper: "장난감·어린이용품. BSMI 商品檢驗(CNS)·프탈레이트 6종 ≤0.1%·중문 표시(商品標示法)를 봅니다. 성분이 없어도 됩니다.",
-    productType: "toy / children product / Taiwan import",
+    productType: "완구 / toy / children product / Taiwan import",
     routeId: "tw_trade",
     examples: ["BSMI 商品檢驗", "프탈레이트", "중문 표시"]
   },
