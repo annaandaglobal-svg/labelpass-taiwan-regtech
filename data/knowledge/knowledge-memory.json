@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1211,
-    "stored_aliases": 4568,
-    "searchable_aliases": 7044,
+    "terms": 1232,
+    "stored_aliases": 4733,
+    "searchable_aliases": 7209,
     "identifier_aliases": 2476,
-    "term_rule_links": 1082,
+    "term_rule_links": 1083,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1040,
+    "alias_review_items": 1049,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -4860,6 +4860,26 @@
       "score": 190
     },
     {
+      "id": "cmit-mit",
+      "canonical_name": "CMIT/MIT preservative (甲基異噻唑啉酮)",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CMIT",
+        "MIT",
+        "methylisothiazolinone",
+        "甲基異噻唑啉酮",
+        "메칠이소치아졸리논",
+        "메칠클로로이소치아졸리논"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "제한 방부제 — 씻어내는 제품만 한도 내 허용, 잔류형 제한.",
+      "score": 190
+    },
+    {
       "id": "commercial-invoice",
       "canonical_name": "Commercial Invoice",
       "category": "customs_document",
@@ -5323,29 +5343,6 @@
       "score": 169
     },
     {
-      "id": "tfda-benzenecarboximidamide-4-4-1-6-hexanediylbis-oxy-bis-and-its-salts-including-ise",
-      "canonical_name": "Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 3811-75-4",
-        "CAS 659-40-5",
-        "CAS 93841-83-9",
-        "INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)",
-        "INCI Hexamidine",
-        "INCI Hexamidine diisethionate",
-        "INCI Hexamidine paraben",
-        "Hexamidine",
-        "Hexamidine diisethionate",
-        "Hexamidine paraben"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-24",
-      "score": 167
-    },
-    {
       "id": "camphor",
       "canonical_name": "Camphor",
       "category": "cosmetic_ingredient",
@@ -5512,17 +5509,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1211,
-      "aliases_scanned": 4568,
-      "alias_rows_scanned": 4563,
-      "collision_groups": 61,
+      "terms_scanned": 1232,
+      "aliases_scanned": 4733,
+      "alias_rows_scanned": 4728,
+      "collision_groups": 70,
       "high_confidence_collisions": 46,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 979,
       "strict_blockers": 0,
-      "review_items": 1040
+      "review_items": 1049
     },
     "items": [
       {

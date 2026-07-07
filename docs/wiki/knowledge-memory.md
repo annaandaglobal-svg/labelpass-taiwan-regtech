@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,211
-- Stored aliases: 4,568
-- Searchable aliases including identifiers: 7,044
-- Term-rule links: 1,082
+- Terms: 1,232
+- Stored aliases: 4,733
+- Searchable aliases including identifiers: 7,209
+- Term-rule links: 1,083
 - Regulatory update candidates: 47
-- Alias review items: 1,040
+- Alias review items: 1,049
 
 ## How To Use This Memory
 
@@ -414,6 +414,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 8001-54-5; CAS 63449-41-2; CAS 68391-01-5; CAS 68424-85-1; INCI Benzalkonium Chloride; INCI Benzalkonium Bromide; INCI Benzalkonium Saccharinate; Benzalkonium Chloride; 塩化ベンザルコニウム; 벤잘코늄클로라이드
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Family term for chloride, bromide, and saccharinate variants listed by TFDA.
+- **CMIT/MIT preservative (甲基異噻唑啉酮)** (`cmit-mit`)
+  - Aliases: CMIT; MIT; methylisothiazolinone; 甲基異噻唑啉酮; 메칠이소치아졸리논; 메칠클로로이소치아졸리논
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 제한 방부제 — 씻어내는 제품만 한도 내 허용, 잔류형 제한.
 - **Climbazole** (`climbazole`)
   - Aliases: CAS 38083-17-9; INCI Climbazole; Climbazole; クリンバゾール; 클림바졸; 甘宝素; 甘寶素
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
@@ -446,10 +450,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 2682-20-4; INCI Methylisothiazolinone; Methylisothiazolinone; 甲基异噻唑啉酮; 甲基異噻唑啉酮; 2-Methyl-4-isothiazolin-3-one; 메칠이소치아졸리논; 메틸이소치아졸리논; MI; MIT
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
   - Note: Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists.
-- **Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)** (`tfda-benzenecarboximidamide-4-4-1-6-hexanediylbis-oxy-bis-and-its-salts-including-ise`)
-  - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate); INCI Hexamidine; INCI Hexamidine diisethionate; INCI Hexamidine paraben; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-24
 
 ### Colorant
 

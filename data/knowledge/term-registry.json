@@ -17746,6 +17746,1512 @@
         "tw-tfda-imported-food-inspection-regulations"
       ],
       "notes": "동물성·식물성 원료(새우·육류·유제품·종자 등)는 農業部 APHIA 수입 검역 대상. 수출국 공식 위생/식물검역 증명 필요, 육류는 ASF 등 반입 제한 다수."
+    },
+    {
+      "id": "ban-melatonin",
+      "canonical_name": "Melatonin (褪黑激素) — banned in food",
+      "category": "banned_drug_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "멜라토닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "melatonin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "褪黑激素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "멜라토닌 수면",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "대만 처방의약품 — 식품·보충제 사용·수입 불가."
+    },
+    {
+      "id": "ban-nonfood-actives",
+      "canonical_name": "Ephedra/DHEA/Yohimbe/Kava (non-food actives)",
+      "category": "banned_drug_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "마황",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "ephedra",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "麻黃",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "DHEA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "요힘빈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "yohimbe",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "育亨賓",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "카바",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "kava",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "컴프리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "comfrey",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "대만 의약품/비식품 원료 — 식품·보충제 사용 불가."
+    },
+    {
+      "id": "nutrient-upper-limit",
+      "canonical_name": "Vitamin/mineral upper limit",
+      "category": "nutrient_upper_limit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "비타민 상한",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "고함량 비타민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "비타민A",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "비타민D",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "나이아신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "niacin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "철분 과다",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "vitamin upper limit",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "維生素上限",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "비타민·미네랄 1일 상한 초과 시 약품 분류·반려 위험."
+    },
+    {
+      "id": "capsule-tablet-food",
+      "canonical_name": "Capsule/tablet-form food (錠狀膠囊食品)",
+      "category": "capsule_tablet_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "錠狀膠囊食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "정제 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "캡슐 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "錠劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "capsule food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "tablet food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "알약형 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "정·캡슐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "정·캡슐 형태 식품 별도 표시·경고문(多食無益) 규정."
+    },
+    {
+      "id": "novel-food",
+      "canonical_name": "Novel food ingredient (新型態食品原料)",
+      "category": "novel_food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "新型態食品原料",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "신규 식품원료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "novel food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "신소재 원료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "신규 원료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "1999.12.31 이전 식용 이력 없으면 사전 안전성평가 필요(2026.1 시행)."
+    },
+    {
+      "id": "med-claim-ban",
+      "canonical_name": "Prohibited medical-efficacy claim (誇大醫療效能)",
+      "category": "prohibited_medical_claim",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "換膚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "醫美",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "醫學美容",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "藥用",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "除疤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "흉터 제거",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "豐胸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "가슴 확대",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "瘦身",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "塑身",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "拉提",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "療效",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "의료효능",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "치료 효과",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "消炎",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "질병 치료·예방·의약품 연상 표현 금지(화장품·식품). 고액 벌금."
+    },
+    {
+      "id": "heavy-metal",
+      "canonical_name": "Heavy metal residue limit (重金屬殘留)",
+      "category": "heavy_metal_limit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "중금속",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "重金屬",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "heavy metal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "중금속 한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "중금속 잔류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "비소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "砷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "arsenic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "카드뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "鎘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "cadmium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "화장품 중금속 한도: 汞1·鉛10·砷3·鎘5 ppm. 첨가 금지·불순물 미량만."
+    },
+    {
+      "id": "microplastic",
+      "canonical_name": "Plastic microbeads ban (塑膠微粒)",
+      "category": "microplastic_ban",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "미세플라스틱",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "microplastic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "塑膠微粒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "마이크로비드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "microbead",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "스크럽 알갱이",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "씻어내는 화장품 6종 마이크로비드 제조·판매 금지(環境部)."
+    },
+    {
+      "id": "gmo-label",
+      "canonical_name": "GMO labeling (基因改造)",
+      "category": "food_gmo_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "GMO",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "유전자변형",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "基因改造",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "유전자재조합",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "genetically modified",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "non-GMO",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "비유전자변형",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "含基因改造",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "대두·옥수수 등 GMO 3% 초과·의도적 사용 시 基因改造 표시 의무."
+    },
+    {
+      "id": "caffeine-label",
+      "canonical_name": "Caffeine content labeling (咖啡因含量標示)",
+      "category": "caffeine_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카페인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "caffeine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "咖啡因",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "카페인 함량",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "카페인 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "카페인 음료 함량 표시 의무(≥20mg/100mL 주의문구)."
+    },
+    {
+      "id": "vegetarian-label",
+      "canonical_name": "Vegetarian labeling (素食標示)",
+      "category": "vegetarian_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "素食",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "채식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "vegetarian",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "vegan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "비건",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "全素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "純素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "奶蛋素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "채식 표방 시 素食 5분류 중 하나 명시 의무."
+    },
+    {
+      "id": "env-recycling",
+      "canonical_name": "資源回收標誌 recycling mark & fee (環境部)",
+      "category": "environment_recycling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "資源回收標誌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "재활용 마크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "재활용",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "recycling mark",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "회수처리비",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "責任業者",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "포장 재활용",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "回收標誌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "전지 회수",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "지정 용기·포장·전지·가전 수입자는 責任業者 등록·회수비·재활용마크 의무(環境部)."
+    },
+    {
+      "id": "commodity-label",
+      "canonical_name": "General commodity Chinese labeling (商品標示法)",
+      "category": "commodity_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "商品標示法",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "일반상품 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "commodity labeling",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "섬유 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "의류 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "textile labeling",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "성분표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "식품·화장품 외 일반상품(의류·생활용품 등) 중문 표시 의무(經濟部)."
+    },
+    {
+      "id": "alcohol-licence",
+      "canonical_name": "Alcohol/tobacco import licence (菸酒管理法)",
+      "category": "alcohol_tobacco_licence",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "菸酒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "주류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "술 수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "alcohol import",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "酒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "주세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "담배",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "tobacco",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "알코올 음료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "주류 수입은 財政部 菸酒 수입허가·주세 필요."
+    },
+    {
+      "id": "energy-label",
+      "canonical_name": "Energy efficiency label / MEPS (能源署)",
+      "category": "energy_efficiency_label",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "能源效率",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "에너지효율",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "energy label",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "MEPS",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "능원효율",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "節能標章",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "에너지 등급",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "지정 가전 능원효율 등급표시·MEPS 의무(能源署). 節能標章(자발)과 별개."
+    },
+    {
+      "id": "env-agent",
+      "canonical_name": "Environmental agent / sanitizer borderline (環境用藥)",
+      "category": "environmental_agent_pesticide",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "환경용약",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "環境用藥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "방충제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "모기 기피제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "insect repellent",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "손소독제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "hand sanitizer",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "소독제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "살충제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "방충·소독·살균 제품은 환경용약(環境部)/의약품(TFDA)/일반상품 3분류 확인."
+    },
+    {
+      "id": "cites",
+      "canonical_name": "CITES endangered-species permit",
+      "category": "cites_endangered",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "CITES",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "멸종위기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "瀕臨絕種",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "사향",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "麝香",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "침향",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "沉香",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "석곡",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "endangered species",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "멸종위기종 유래 원료·소재는 CITES 수출입 허가 필요."
+    },
+    {
+      "id": "toy-inspection",
+      "canonical_name": "Toy commodity inspection & phthalates (BSMI)",
+      "category": "toy_inspection",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "완구",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "장난감",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "toy",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "어린이용품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "프탈레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "phthalate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "DEHP",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "완구·어린이용품 BSMI 상품검사·마크와 프탈레이트 6종 ≤0.1% 의무."
+    },
+    {
+      "id": "cmit-mit",
+      "canonical_name": "CMIT/MIT preservative (甲基異噻唑啉酮)",
+      "category": "preservative",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "CMIT",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "MIT",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "甲基異噻唑啉酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "메칠이소치아졸리논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "methylisothiazolinone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "메칠클로로이소치아졸리논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "제한 방부제 — 씻어내는 제품만 한도 내 허용, 잔류형 제한."
+    },
+    {
+      "id": "nitrite",
+      "canonical_name": "Nitrites/nitrates (亞硝酸鹽) preservative limit",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "亞硝酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "아질산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "nitrite",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "硝酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "보색제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "발색제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "보색제 — 잔류 ≤0.07 g/kg, 신선 육·어·알에는 금지."
+    },
+    {
+      "id": "food-colorant",
+      "canonical_name": "Food colorant limits (食用色素)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "食用色素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "식용색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "타르색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "food color",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "食用紅色6號",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "식용 색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식용색소만 사용, 신선·영유아 식품엔 금지. 화장품 색소와 별개."
     }
   ]
 }

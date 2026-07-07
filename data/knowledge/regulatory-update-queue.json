@@ -2853,6 +2853,41 @@
           "term_key": "dev-bsmi-ncc",
           "canonical_name": "Beauty device / electronics import regulation (BSMI·NCC·醫療器材)",
           "category": "device_import_regulation"
+        },
+        {
+          "term_key": "env-recycling",
+          "canonical_name": "資源回收標誌 recycling mark & fee (環境部)",
+          "category": "environment_recycling"
+        },
+        {
+          "term_key": "commodity-label",
+          "canonical_name": "General commodity Chinese labeling (商品標示法)",
+          "category": "commodity_labeling"
+        },
+        {
+          "term_key": "alcohol-licence",
+          "canonical_name": "Alcohol/tobacco import licence (菸酒管理法)",
+          "category": "alcohol_tobacco_licence"
+        },
+        {
+          "term_key": "energy-label",
+          "canonical_name": "Energy efficiency label / MEPS (能源署)",
+          "category": "energy_efficiency_label"
+        },
+        {
+          "term_key": "env-agent",
+          "canonical_name": "Environmental agent / sanitizer borderline (環境用藥)",
+          "category": "environmental_agent_pesticide"
+        },
+        {
+          "term_key": "cites",
+          "canonical_name": "CITES endangered-species permit",
+          "category": "cites_endangered"
+        },
+        {
+          "term_key": "toy-inspection",
+          "canonical_name": "Toy commodity inspection & phthalates (BSMI)",
+          "category": "toy_inspection"
         }
       ],
       "affected_products": [
