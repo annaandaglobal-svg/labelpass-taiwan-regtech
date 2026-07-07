@@ -13,12 +13,12 @@
     "sources": 166,
     "source_registry_sources": 166,
     "terms": 1243,
-    "stored_aliases": 4825,
-    "searchable_aliases": 7301,
+    "stored_aliases": 4833,
+    "searchable_aliases": 7309,
     "identifier_aliases": 2476,
     "term_rule_links": 1083,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1051,
+    "alias_review_items": 1052,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5510,16 +5510,16 @@
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
       "terms_scanned": 1243,
-      "aliases_scanned": 4825,
-      "alias_rows_scanned": 4820,
-      "collision_groups": 72,
-      "high_confidence_collisions": 48,
+      "aliases_scanned": 4833,
+      "alias_rows_scanned": 4828,
+      "collision_groups": 73,
+      "high_confidence_collisions": 49,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 979,
       "strict_blockers": 0,
-      "review_items": 1051
+      "review_items": 1052
     },
     "items": [
       {
@@ -6239,6 +6239,32 @@
         ]
       },
       {
+        "id": "alias-93a5655db6e401",
+        "alias": "甲醛",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "formaldehyde",
+            "canonical_name": "Formaldehyde",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh"
+          },
+          {
+            "term_id": "commodity-label",
+            "canonical_name": "General commodity Chinese labeling (商品標示法)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
         "id": "alias-19c3f770c78746",
         "alias": "自用",
         "issue": "alias-collision-high-confidence",
@@ -6339,32 +6365,6 @@
             "confidence": 0.95,
             "jurisdiction": "TW",
             "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-515ebc8fb96848",
-        "alias": "화장품 광고 근거자료",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "ko"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "ko"
           }
         ]
       }

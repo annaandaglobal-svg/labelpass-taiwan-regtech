@@ -64,7 +64,7 @@ type RoutePreset = {
 };
 
 type ProductPreset = {
-  id: "cosmetic" | "food" | "infant-food" | "children-food" | "supplement" | "ingredient" | "packaging" | "alcohol" | "device" | "toy" | "other";
+  id: "cosmetic" | "food" | "infant-food" | "children-food" | "supplement" | "ingredient" | "packaging" | "alcohol" | "device" | "toy" | "textile" | "other";
   label: string;
   helper: string;
   productType: string;
@@ -284,6 +284,14 @@ const productPresets: ProductPreset[] = [
     productType: "완구 / toy / children product / Taiwan import",
     routeId: "tw_trade",
     examples: ["BSMI 商品檢驗", "프탈레이트", "중문 표시"]
+  },
+  {
+    id: "textile",
+    label: "섬유·의류",
+    helper: "의류·패션·직물. 商品標示法 중문 표시(성분 ≥5%·취급·치수·원산지)와 유아용 섬유 甲醛(포름알데히드) 한도(유아 20ppm 등)를 봅니다. 성분이 없어도 됩니다.",
+    productType: "섬유·의류 / textile / apparel / Taiwan import",
+    routeId: "tw_trade",
+    examples: ["商品標示法", "섬유 성분표시", "甲醛 한도"]
   },
   {
     id: "other",
@@ -1473,6 +1481,11 @@ export default function Home() {
                         <div className="lp-verdict-row-head">
                           <em>{verdict.stateLabel}</em>
                           <b>{verdict.canonicalName}</b>
+                          {verdict.matchedText && (
+                            <span className="lp-verdict-match" title="이 판정이 잡힌 위치">
+                              {verdict.matchedText === "라벨·표시 문구" ? "라벨·품목에서" : `성분: ${verdict.matchedText}`}
+                            </span>
+                          )}
                         </div>
                         <p>{verdict.detail}</p>
                         {verdict.uncertainty && <small className="lp-verdict-uncertainty">확인 필요: {verdict.uncertainty}</small>}

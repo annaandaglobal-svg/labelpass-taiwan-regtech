@@ -17352,3 +17352,6 @@ h2 {
 
 /* 내 제품 cloud-sync indicator (Supabase archive enabled) */
 .wp-sync { display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; font-size: 10.5px; font-weight: 700; font-style: normal; color: var(--pass, #177A4C); background: rgba(23, 122, 76, 0.1); border-radius: 99px; padding: 2px 8px; vertical-align: middle; }
+
+/* Provenance chip on 성분별 규제 판정 rows */
+.lp-verdict-match { margin-left: auto; font-size: 10.5px; font-weight: 700; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: 99px; padding: 2px 8px; white-space: nowrap; }
