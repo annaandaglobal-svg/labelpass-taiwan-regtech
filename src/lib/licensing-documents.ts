@@ -268,6 +268,134 @@ export const licensingCategories: LicensingCategory[] = [
     ]
   },
   {
+    id: "infant-formula",
+    label: "영유아 조제식 (査驗登記)",
+    icon: "🍼",
+    authority: "TFDA (衛福部) · 特殊營養食品",
+    summary:
+      "조제분유(0~6개월)·후속조제식(6~12개월)·특수의료용도 조제식은 特殊營養食品으로, 수입 전 査驗登記 허가(許可證)가 필수입니다(食安法§21). 일반 수입신고로는 불가하며, 조성 기준(CNS)·서류 심사를 거치고 2025 개정 표시·모유대용품 광고 규제를 지켜야 합니다.",
+    documents: [
+      {
+        id: "if-permit",
+        tier: "required",
+        label: "① 査驗登記 허가 신청",
+        officialName: "查驗登記許可證 (Registration Permit for Special Nutrition Food)",
+        spec: "TFDA 査驗登記 신청·허가번호. 심사 약 6개월.",
+        detail: "허가 없이 조제식을 수입·판매할 수 없습니다(일반 수입신고 불가).",
+        authority: "TFDA · CDE(査驗中心)"
+      },
+      {
+        id: "if-composition",
+        tier: "required",
+        label: "② 조성·규격 적합 증명",
+        officialName: "組成成分符合國家標準 (CNS 6849 / 13235 / 15224)",
+        spec: "조제분유·후속·특수의료용도 조성 기준 적합 자료.",
+        detail: "조성이 대만 CNS 기준에 맞아야 허가됩니다.",
+        authority: "제조사 / TFDA"
+      },
+      {
+        id: "if-formula-process",
+        tier: "required",
+        label: "③ 배합표·제조공정·시험성적",
+        officialName: "配方表 / 製程 / 檢驗報告 (Formula, Process, Test Reports)",
+        spec: "전배합표, 제조공정, 오염물(납0.05·카드뮴0.04ppm 등)·아플라톡신 M1 등 시험성적.",
+        detail: "영유아식 강화 오염물 한도 적합성을 함께 확인합니다.",
+        authority: "제조사 / 공인시험기관"
+      },
+      {
+        id: "if-foreign-sale",
+        tier: "required",
+        label: "④ 해외 판매·자유판매 증명",
+        officialName: "國外販售證明 / 自由銷售證明 (Free Sale / Marketing Proof)",
+        spec: "수출국에서 합법 판매 중임을 증명.",
+        detail: "심사 서류의 필수 항목입니다.",
+        authority: "수출국 주무기관"
+      },
+      {
+        id: "if-label",
+        tier: "required",
+        label: "⑤ 중문 라벨 (2025 필수 문구)",
+        officialName: "中文標示 (2025 강화: 調配不當 경고 · 母乳最佳 · 適用月齡)",
+        spec: "조제·보관법, '調配不當將對嬰兒健康造成危害', '母乳是嬰兒最佳的營養來源', 適用月齡, 영양표시(CNS 2925).",
+        detail: "2025-01-01부터 강화된 표시 문구가 없으면 미준수입니다.",
+        authority: "TFDA"
+      },
+      {
+        id: "if-marketing",
+        tier: "required",
+        label: "⑥ 모유대용품 광고·판촉 준수",
+        officialName: "母乳代用品廣告及促銷限制 (Breast-milk Substitute Marketing Ban)",
+        spec: "0~6개월 조제분유 광고·무료샘플·사은품·할인·묶음판촉 금지.",
+        detail: "한국식 이상적 이미지·샘플 마케팅은 위법(食安法§28, NT$4만~500만).",
+        authority: "TFDA"
+      }
+    ]
+  },
+  {
+    id: "device-cert",
+    label: "미용기기·전자제품 인증",
+    icon: "🔌",
+    authority: "BSMI(經濟部) · NCC · TFDA(醫療器材)",
+    summary:
+      "미용기기·전자제품은 화장품이 아니라 여러 부처의 별도 인증 대상입니다. 화장품 기준만 보면 누락되니 아래 ①~⑥을 순서대로 확인하세요.",
+    documents: [
+      {
+        id: "dev-classify",
+        tier: "required",
+        label: "① 의료기기 해당 여부 판정",
+        officialName: "醫療器材 vs 一般商品 分類判定 (Medical Device vs General Goods)",
+        spec: "EMS·RF·IPL·레이저·미세전류·치료 표방이면 醫療器材 가능.",
+        detail: "분류에 따라 이후 절차(②~④)가 달라집니다.",
+        authority: "TFDA"
+      },
+      {
+        id: "dev-bsmi",
+        tier: "required",
+        label: "② BSMI 商品檢驗 등록·검사·마크",
+        officialName: "商品檢驗 登錄/檢驗 + BSMI 標識 (Commodity Inspection)",
+        spec: "전기·전자 안전·EMC 시험, 등록(RPC/DoC), BSMI 마크.",
+        detail: "미검사 전기·전자제품은 통관 불가입니다.",
+        authority: "經濟部 標準檢驗局(BSMI)"
+      },
+      {
+        id: "dev-ncc",
+        tier: "recommended",
+        label: "③ NCC 무선 형식인증",
+        officialName: "電信管制射頻器材審驗 (NCC Type Approval)",
+        spec: "WiFi·블루투스·RF 기능 시 형식인증·수입 승인.",
+        detail: "무선 기능이 있으면 BSMI와 별개로 필요합니다.",
+        authority: "國家通訊傳播委員會(NCC)"
+      },
+      {
+        id: "dev-medical",
+        tier: "recommended",
+        label: "④ 醫療器材 등록·QMS·대만 대리인",
+        officialName: "醫療器材許可證 + QMS(QSD) + 台灣代理人 (if medical device)",
+        spec: "의료기기 해당 시 등록·품질시스템·대만 대리인.",
+        detail: "①에서 醫療器材로 판정되면 필수입니다(장기 소요).",
+        authority: "TFDA 醫療器材"
+      },
+      {
+        id: "dev-label",
+        tier: "required",
+        label: "⑤ 商品標示法 중문 표시",
+        officialName: "中文標示 (商品標示法)",
+        spec: "품명·수입자 중문 명칭·주소·전화·원산지·주요 재질.",
+        detail: "일반상품 중문 표시가 판매 전 필수입니다.",
+        authority: "經濟部"
+      },
+      {
+        id: "dev-recycling",
+        tier: "recommended",
+        label: "⑥ 資源回收·전지 (해당 시)",
+        officialName: "資源回收標誌 / 電池汞含量 (Recycling mark / Battery Hg)",
+        spec: "가전·전지 회수 등록·마크, 건전지 수은 ≤5ppm 확인문서.",
+        detail: "전지·가전이면 環境部 회수·전지 규정을 확인합니다.",
+        authority: "環境部"
+      }
+    ]
+  },
+  {
     id: "food-additive",
     label: "식품첨가물",
     icon: "🧪",
