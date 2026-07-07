@@ -234,6 +234,20 @@ export function presentFinding(finding: Finding): PresentedFinding {
     };
   }
 
+  if (id.includes("infant-additive")) {
+    return {
+      area: "식품첨가물",
+      title: "영유아식 금지 첨가물 가능성",
+      why: "영유아식(嬰兒·較大嬰兒·嬰兒 보조식품)은 附表一 포지티브 리스트로, 명시된 첨가물만 허용됩니다. 당알코올·인공감미료·보존료·합성색소·아질산/질산염·카페인 등은 영유아식에 사용할 수 없습니다.",
+      fixes: [
+        "해당 첨가물을 영유아식 배합에서 제거하거나 附表一 허용 성분으로 대체",
+        "영양강화제(비타민·미네랄)는 영유아 상한(비타민C 60mg·철 15mg·칼슘 750mg 등) 준수",
+        "조제식 등 특수영양식품은 중앙기관 사전 심사 확인"
+      ],
+      severity: "high"
+    };
+  }
+
   if (id.includes("food-gmo-label")) {
     return {
       area: "식품표시",

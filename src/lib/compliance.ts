@@ -257,6 +257,7 @@ const verdictSurfacedCategories = new Set([
   "children_food_marketing",
   "school_food",
   "toddler_formula",
+  "infant_additive_restriction",
   "food_additive",
   "fermented_food_ingredient",
   "health_food",
@@ -2229,6 +2230,45 @@ function addFoodPostMarketFindings(input: ReviewInput, findings: Finding[]) {
   }
 }
 
+const INFANT_FOOD_MARKERS =
+  /嬰兒|嬰幼兒|較大嬰兒|嬰兒配方|嬰兒食品|副食品|영유아|영아|이유식|조제분유|조제식|유아식|baby\s*food|infant|follow-?up formula/i;
+
+const INFANT_PROHIBITED_ADDITIVES: Array<{ re: RegExp; label: string }> = [
+  { re: /아스파탐|aspartame|阿斯巴甜|아세설팜|acesulfame|醋磺內酯鉀|수크랄로스|sucralose|蔗糖素|사카린|saccharin|糖精|네오탐|neotame|시클라메이트|cyclamate/i, label: "인공감미료" },
+  { re: /소르비톨|sorbitol|山梨醇|자일리톨|xylitol|木糖醇|만니톨|mannitol|말티톨|maltitol|이소말트|isomalt|락티톨|lactitol|당알코올|polyol/i, label: "당알코올 감미료" },
+  { re: /소르빈산|sorbic|己二烯酸|안식향산|benzoic|苯甲酸|파라벤|paraben|對羥苯甲酸/i, label: "보존료" },
+  { re: /타르색소|食用色素|적색\s*\d|황색\s*\d|청색\s*\d|CI\s?1[0-9]{4}|coal.?tar/i, label: "합성 타르색소" },
+  { re: /아질산|亞硝酸|질산염|硝酸鹽|nitrite|nitrate/i, label: "아질산/질산염" },
+  { re: /카페인|caffeine|咖啡因/i, label: "카페인" }
+];
+
+// 영유아식일 때만 발동하는 문맥 인식 규칙: 附表一 포지티브 리스트상 영유아식에 금지된 첨가물류가
+// 전성분에 있으면 지적. 일반 식품에서는 발동하지 않아 오탐을 피한다.
+function addInfantAdditiveFindings(input: ReviewInput, findings: Finding[]) {
+  const context = `${input.productName} ${input.productType} ${input.labelText}`;
+  if (!INFANT_FOOD_MARKERS.test(context)) return;
+
+  const ingredients = input.ingredientsText ?? "";
+  const hits = [...new Set(INFANT_PROHIBITED_ADDITIVES.filter((entry) => entry.re.test(ingredients)).map((entry) => entry.label))];
+  if (hits.length === 0) return;
+
+  findings.push({
+    id: "infant-additive-prohibited",
+    status: "fail",
+    area: "성분",
+    title: `영유아식 금지 첨가물 가능성: ${hits.join(", ")}`,
+    severity: "높음",
+    why: "대만 첨가물 기준(附表一)은 포지티브 리스트로, 영유아식(嬰兒·較大嬰兒·嬰兒 보조식품)에는 명시된 첨가물만 허용됩니다. 당알코올·인공감미료·보존료·합성색소·아질산/질산염·카페인 등은 영유아식에 사용할 수 없습니다.",
+    fix: [
+      "해당 첨가물을 영유아식 배합에서 제거하거나, 附表一가 영유아 식품군에 허용한 성분으로 대체하세요.",
+      "영양강화제(비타민·미네랄)는 영유아 상한(비타민C 60mg·철 15mg·칼슘 750mg 등)을 지키세요."
+    ],
+    source: SOURCE_FOOD_ACT,
+    sourceUrl: SOURCE_FOOD_ACT_URL,
+    evidence: hits.join(", ")
+  });
+}
+
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   if (!hasTaiwanChineseLabelText(input.labelText, foodChineseLabelMarkers)) {
     findings.push({
@@ -2265,6 +2305,7 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   }
 
   addFoodGmoFindings(input, findings);
+  addInfantAdditiveFindings(input, findings);
 
   const combinedText = `${input.ingredientsText} ${input.labelText}`;
   const matchedAllergens = taiwanFoodAllergens.filter((allergen) => allergen.pattern.test(combinedText));
