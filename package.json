@@ -22,6 +22,7 @@
     "validate:coverage": "node scripts/validate-knowledge-coverage.mjs",
     "audit:knowledge": "node scripts/audit-knowledge-quality.mjs",
     "audit:knowledge-verdicts": "node scripts/audit-knowledge-verdicts.mjs",
+    "find:problems": "node scripts/audit-find-problems.mjs",
     "audit:knowledge-ops": "node scripts/audit-knowledge-ops-readiness.mjs && pnpm audit:knowledge-verdicts",
     "audit:ui-shell": "node scripts/audit-ui-shell.mjs",
     "audit:ui-browser": "node scripts/audit-ui-browser.mjs",

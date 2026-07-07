@@ -193,19 +193,16 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
   }
 
   if (
+    // NOTE: preservative / cosmetic_ingredient_restriction / colorant_uv_filter / uv_filter /
+    // oxidizing_agent / skin_lightening_agent / hair_dye_ingredient are handled by dedicated
+    // branches below (染髮 patch-test, 美白, 防曬 UV filter, 방부제 positive-list, …) — do NOT add
+    // them here or this generic branch will shadow them.
     [
       "restricted",
-      "preservative",
       "colorant",
       "sunscreen",
       "ph_adjuster",
-      "alkalizing_agent",
-      "cosmetic_ingredient_restriction",
-      "colorant_uv_filter",
-      "uv_filter",
-      "oxidizing_agent",
-      "skin_lightening_agent",
-      "hair_dye_ingredient"
+      "alkalizing_agent"
     ].includes(category)
   ) {
     return {
@@ -442,6 +439,97 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
       uncertainty: "채식/비건 표방 시 5분류(全素·蛋素·奶素·奶蛋素·植物五辛素) 중 정확한 유형을 표기했는지 확인하세요.",
       chips: ["素食 5분류", "全素·蛋素·奶素·奶蛋素·五辛素"],
       actions: ["채식 표방 제품은 대만 素食 5분류 중 해당 유형을 라벨에 명시하세요."]
+    };
+  }
+
+  if (category === "hair_dye_ingredient") {
+    return {
+      label: "염모 성분 (染髮) — 특정용도·패치테스트 경고",
+      detail:
+        "PPD(p-페닐렌디아민)·톨루엔-2,5-디아민·레조르시놀 등 산화 염모 성분은 대만 特定用途(染髮) 화장품 성분으로, 인정 목록·혼합 후 최대 함량 이내에서만 쓸 수 있습니다. 라벨에 알레르기 경고와 '사용 48시간 전 피부 감작성(패치) 시험' 문구, 만 16세 미만 사용 금지, 속눈썹·눈썹 염색 금지 문구가 의무입니다. 제품 등록·PIF도 필요합니다.",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "염모 성분의 혼합 후 함량이 한도 이내인지, 패치테스트·연령·부위 경고문이 있는지 확인하세요.",
+      chips: ["染髮 특정용도", "패치테스트 경고", "16세 미만 금지", "혼합 후 한도"],
+      actions: ["염모 성분 함량을 인정 한도로 맞추고 패치테스트·연령·부위 경고문과 제품 등록·PIF를 준비하세요."]
+    };
+  }
+
+  if (category === "skin_lightening_agent") {
+    return {
+      label: "미백 성분 (美白) — 특정용도·인정목록",
+      detail:
+        "코직산·알부틴·나이아신아마이드 등 미백 소구 성분은 대만 特定用途(美白) 화장품에 해당하여, 대만이 인정한 미백 성분 목록과 함량 이내에서만 쓸 수 있고 제품 등록·PIF·안전성/효능 자료가 필요합니다. 인정 성분·근거 없이 '美白/미백' 효능을 표기하면 위반입니다. (하이드로퀴논은 화장품 금지.)",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "미백 성분이 대만 인정 목록·한도 이내인지, 美白 표현 근거(등록·자료)가 있는지 확인하세요.",
+      chips: ["美白 특정용도", "인정 성분·한도", "하이드로퀴논 금지"],
+      actions: ["미백 성분을 대만 인정 목록·한도로 확인하고 特定用途(美白) 등록·PIF를 준비하세요."]
+    };
+  }
+
+  if (category === "uv_filter") {
+    return {
+      label: "자외선 차단 성분 (防曬 UV필터)",
+      detail:
+        "옥시벤존·아보벤존·옥토크릴렌·산화아연·이산화티타늄 등 자외선 차단 성분은 대만 特定用途(防曬) 화장품의 인정 UV필터 목록·최대 함량 이내에서만 쓸 수 있습니다(예: 아보벤존 5% 등 — 정확 한도는 성분표로 확인). SPF/PA 표시는 시험자료 근거가 필요하고, 나노 형태(nano ZnO/TiO₂)는 별도 표기·규격을 확인해야 합니다. 제품 등록·PIF 대상입니다.",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "UV필터가 인정 목록·최대 함량 이내인지, SPF/PA 근거와 나노 표기를 확인하세요.",
+      chips: ["防曬 특정용도", "UV필터 최대 함량", "SPF/PA 시험근거", "나노 표기"],
+      actions: ["UV필터 종류·함량을 대만 防曬 인정 목록·한도로 대조하고 SPF/PA 시험자료·등록을 준비하세요."]
+    };
+  }
+
+  if (category === "oxidizing_agent") {
+    return {
+      label: "산화제 (과산화수소 등) — 한도·경고",
+      detail:
+        "과산화수소 등 산화제는 염모·펌·미백 등 용도별로 최대 함량이 제한되고(예: 두발용 과산화수소 등급별 한도) 경고문이 필요합니다. 인정 용도·함량 이내인지, 어린이 접근 금지 등 주의문구가 있는지 확인하세요.",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "산화제의 용도별 최대 함량과 경고문이 대만 기준에 맞는지 확인하세요.",
+      chips: ["용도별 함량 한도", "경고문 필요"],
+      actions: ["산화제 함량을 용도별 한도로 맞추고 주의문구·등록 요건을 확인하세요."]
+    };
+  }
+
+  if (category === "colorant_uv_filter") {
+    return {
+      label: "화장품 색소·자외선산란제 (positive list)",
+      detail:
+        "이산화티타늄·마이카·산화철(CI 77xxx) 등 색소·물리 자외선산란제는 대만 화장품 색소 성분 사용제한표의 인정 목록·용도(눈 주위 등)·함량 이내에서만 쓸 수 있습니다. 나노 형태는 별도 규격·표기를 확인해야 합니다. 목록에 없는 색소는 사용 불가입니다.",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "색소가 대만 화장품 색소 인정 목록·용도·함량 이내인지, 나노 표기가 필요한지 확인하세요.",
+      chips: ["색소 positive list", "용도·함량 제한", "나노 표기"],
+      actions: ["색소를 대만 化粧品色素成分使用限制表로 대조하고 나노 규격·표기를 확인하세요."]
+    };
+  }
+
+  if (category === "preservative") {
+    return {
+      label: "화장품 방부제 — positive list·한도",
+      detail:
+        "화장품 방부제는 대만 化粧品防腐劑成分使用限制表의 인정 목록·최대 함량·사용 조건(리브온/린스오프, 점막 사용 금지 등) 이내에서만 쓸 수 있습니다. 예: 페녹시에탄올 1%, MIT 리브온 금지·린스오프 15ppm 등(정확 한도는 성분표로 확인). 목록에 없는 방부제나 한도 초과는 위반입니다.",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "방부제가 대만 인정 목록·최대 함량·사용조건 이내인지 성분표로 확인하세요.",
+      chips: ["방부제 positive list", "최대 함량", "리브온/린스오프 조건"],
+      actions: ["방부제 종류·함량을 대만 化粧品防腐劑成分使用限制表로 대조하세요."]
+    };
+  }
+
+  if (category === "cosmetic_ingredient_restriction") {
+    return {
+      label: "화장품 제한 성분 — 한도·경고문",
+      detail:
+        "대만 化粧品成分使用限制表에 함량·사용조건·경고문이 정해진 제한 성분입니다(예: 살리실산 3세 미만 금지 경고, AHA pH≥3.5 등). 인정 한도·조건·경고문을 지켜야 하며, 정확한 수치는 성분표로 최종 확인하세요.",
+      tone: "gold",
+      state: "needs_check",
+      uncertainty: "제한 성분의 함량·사용조건·경고문이 대만 성분 사용제한표에 맞는지 확인하세요.",
+      chips: ["함량·조건 제한", "경고문 필요", "성분표 확인"],
+      actions: ["제한 성분의 한도·경고문을 化粧品成分使用限制表로 대조하세요."]
     };
   }
 
