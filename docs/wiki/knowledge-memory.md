@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,249
-- Stored aliases: 4,894
-- Searchable aliases including identifiers: 7,370
+- Terms: 1,251
+- Stored aliases: 4,935
+- Searchable aliases including identifiers: 7,410
 - Term-rule links: 1,083
 - Regulatory update candidates: 47
-- Alias review items: 1,056
+- Alias review items: 1,055
 
 ## How To Use This Memory
 
@@ -123,6 +123,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: Calcium pantothenate; Sodium pantothenate; 本多酸鈉; 本多酸鈣; 泛酸鈉; 泛酸鈣; 판토텐산칼슘; Pantothenate; 판토텐산 칼슘; 판토텐산나트륨
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Vitamin-related food additive common names; use additive standards for scope and limitations.
+- **Riboflavin / Vitamin B2 (核黃素)** (`riboflavin-b2`)
+  - Aliases: E101; riboflavin; vitamin B; vitamin B2; 核黃素; 維生素B2; 리보플라빈; 비타민 B군; 비타민B; 비타민B2
+  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-colorants`
+  - Note: 영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.
 - **Sodium Bicarbonate** (`sodium-bicarbonate-food-additive`)
   - Aliases: CAS 144-55-8; Baking soda; Sodium bicarbonate; 小蘇打; 碳酸氫鈉; 베이킹소다; 탄산수소나트륨; 중탄산나트륨; 탄산수소 나트륨; NaHCO3
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
@@ -131,10 +135,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 50-70-4; D-Sorbitol; D-山梨醇; Sorbitol; 山梨糖醇; 소르비톨; 솔비톨
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.
-- **Xanthan Gum** (`xanthan-gum-food-additive`)
-  - Aliases: CAS 11138-66-2; Xanthan gum; 잔탄검; 三仙膠; 산탄검; Xanthan; 玉米糖膠
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Food thickener/stabilizer alias set.
 
 ### import export control
 
@@ -477,10 +477,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI CI 10316; CI CI 10316; CI 10316; Acid Yellow 1 Ext. D&C Yellow No. 7 Naphthol Yellow S
   - Sources: `tw-tfda-cosmetic-colorants`
   - Note: Generated from TFDA rule tw-cos-200-3
-- **CI 11680** (`tfda-ci-11680`)
-  - Aliases: INCI CI 11680; CI CI 11680; CI 11680; Pigment Yellow 1 Ext. D&C Yellow No. 5 Hansa Yellow G
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-4
 
 ## Alias Ambiguity Queue
 

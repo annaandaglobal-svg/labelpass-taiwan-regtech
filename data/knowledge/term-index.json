@@ -2,8 +2,8 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 220,
-  "generated_term_count": 1030,
+  "curated_term_count": 223,
+  "generated_term_count": 1029,
   "rule_count": 1081,
   "rule_alias_count": 1081,
   "terms": [
@@ -26785,6 +26785,86 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "hydrogenated oil",
+          "normalized": "hydrogenated oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hydrogenated",
+          "normalized": "hydrogenated",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "vegetable hardening oil",
+          "normalized": "vegetable hardening oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hardening oil",
+          "normalized": "hardening oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hardened oil",
+          "normalized": "hardened oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식물성 경화유",
+          "normalized": "식물성 경화유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "완전경화유",
+          "normalized": "완전경화유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "完全氫化油",
+          "normalized": "完全氫化油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -27304,6 +27384,406 @@
         "global-cas-registry"
       ],
       "notes": "화장품 버터류 — 일반 허용 성분."
+    },
+    {
+      "id": "food-edible-oil",
+      "canonical_name": "Edible vegetable oil (食用油脂)",
+      "category": "food_edible_oil",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "식용유지",
+          "normalized": "식용유지",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "vegetable oil",
+          "normalized": "vegetable oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식물성 유지",
+          "normalized": "식물성 유지",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "해바라기유",
+          "normalized": "해바라기유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sunflower oil",
+          "normalized": "sunflower oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "코코넛오일",
+          "normalized": "코코넛오일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "coconut oil",
+          "normalized": "coconut oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "椰子油",
+          "normalized": "椰子油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대두유",
+          "normalized": "대두유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "soybean oil",
+          "normalized": "soybean oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카놀라유",
+          "normalized": "카놀라유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "canola oil",
+          "normalized": "canola oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "edible oil",
+          "normalized": "edible oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식용유",
+          "normalized": "식용유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "葵花油",
+          "normalized": "葵花油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "식용 유지 — 품질기준(산가·과산화물)·원산지 표시, 경화 시 PHO 확인."
+    },
+    {
+      "id": "milk-powder",
+      "canonical_name": "Milk powder (脫脂奶粉·全脂奶粉)",
+      "category": "animal_plant_quarantine",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "탈지분유",
+          "normalized": "탈지분유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "전지분유",
+          "normalized": "전지분유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "skimmed milk powder",
+          "normalized": "skimmed milk powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "whole milk powder",
+          "normalized": "whole milk powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "milk powder",
+          "normalized": "milk powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "脫脂奶粉",
+          "normalized": "脫脂奶粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "全脂奶粉",
+          "normalized": "全脂奶粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "奶粉",
+          "normalized": "奶粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유청분말",
+          "normalized": "유청분말",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "whey powder",
+          "normalized": "whey powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "유제품 분말 — 動物產品 수입검역(APHIA)·수출국 위생증명 필요. 우유 알레르겐."
+    },
+    {
+      "id": "riboflavin-b2",
+      "canonical_name": "Riboflavin / Vitamin B2 (核黃素)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "리보플라빈",
+          "normalized": "리보플라빈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "riboflavin",
+          "normalized": "riboflavin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "核黃素",
+          "normalized": "核黃素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비타민B2",
+          "normalized": "비타민b2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "vitamin B2",
+          "normalized": "vitamin b2",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "E101",
+          "normalized": "e101",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비타민B",
+          "normalized": "비타민b",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "vitamin B",
+          "normalized": "vitamin b",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비타민 B군",
+          "normalized": "비타민 b군",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "維生素B2",
+          "normalized": "維生素b2",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -69476,44 +69956,6 @@
       "notes": "Generated from TFDA rule tw-cos-200-141"
     },
     {
-      "id": "tfda-lactoflavin",
-      "canonical_name": "Lactoflavin",
-      "category": "colorant",
-      "identifiers": {
-        "cas": [],
-        "inci": [
-          "Lactoflavin"
-        ],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "Lactoflavin",
-          "normalized": "lactoflavin",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
-          "note": null,
-          "source": "tfda-rule"
-        },
-        {
-          "value": "Riboflavin",
-          "normalized": "riboflavin",
-          "type": "official_alias",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "tfda-rule"
-        }
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-144"
-    },
-    {
       "id": "tfda-caramel",
       "canonical_name": "Caramel",
       "category": "colorant",
@@ -81787,12 +82229,12 @@
       "confidence": 1
     },
     {
-      "term_id": "tfda-lactoflavin",
+      "term_id": "riboflavin-b2",
       "rule_id": "tw-cos-200-144",
       "rule_code": "tw-cos-200-144",
-      "match_basis": "generated_tfda_rule",
+      "match_basis": "alias",
       "jurisdiction": "TW",
-      "confidence": 0.8
+      "confidence": 0.9
     },
     {
       "term_id": "tfda-caramel",
@@ -115475,28 +115917,108 @@
     {
       "rule_id": "tw-cos-200-144",
       "term_ids": [
-        "tfda-lactoflavin"
+        "riboflavin-b2"
       ],
       "aliases": [
         {
-          "value": "Lactoflavin",
-          "normalized": "lactoflavin",
-          "type": "official_rule_name",
-          "language": "und",
-          "jurisdiction": "TW",
-          "confidence": 0.95,
+          "value": "리보플라빈",
+          "normalized": "리보플라빈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "alias"
         },
         {
-          "value": "Riboflavin",
+          "value": "riboflavin",
           "normalized": "riboflavin",
-          "type": "official_alias",
-          "language": "und",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "核黃素",
+          "normalized": "核黃素",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
-          "source": "generated_tfda_rule"
+          "source": "alias"
+        },
+        {
+          "value": "비타민B2",
+          "normalized": "비타민b2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "vitamin B2",
+          "normalized": "vitamin b2",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "E101",
+          "normalized": "e101",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "비타민B",
+          "normalized": "비타민b",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "vitamin B",
+          "normalized": "vitamin b",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "비타민 B군",
+          "normalized": "비타민 b군",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "維生素B2",
+          "normalized": "維生素b2",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },

@@ -260,6 +260,7 @@ const verdictSurfacedCategories = new Set([
   "infant_additive_restriction",
   "trans_fat_pho_ban",
   "dairy_fat_naming",
+  "food_edible_oil",
   "food_additive",
   "fermented_food_ingredient",
   "health_food",

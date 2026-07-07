@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1249,
-    "stored_aliases": 4894,
-    "searchable_aliases": 7370,
-    "identifier_aliases": 2476,
+    "terms": 1251,
+    "stored_aliases": 4935,
+    "searchable_aliases": 7410,
+    "identifier_aliases": 2475,
     "term_rule_links": 1083,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1056,
+    "alias_review_items": 1055,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -4761,6 +4761,30 @@
       "score": 195
     },
     {
+      "id": "riboflavin-b2",
+      "canonical_name": "Riboflavin / Vitamin B2 (核黃素)",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "E101",
+        "riboflavin",
+        "vitamin B",
+        "vitamin B2",
+        "核黃素",
+        "維生素B2",
+        "리보플라빈",
+        "비타민 B군",
+        "비타민B",
+        "비타민B2"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.",
+      "score": 195
+    },
+    {
       "id": "sodium-bicarbonate-food-additive",
       "canonical_name": "Sodium Bicarbonate",
       "category": "food_additive",
@@ -5486,40 +5510,23 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-200-3",
       "score": 156
-    },
-    {
-      "id": "tfda-ci-11680",
-      "canonical_name": "CI 11680",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI CI 11680",
-        "CI CI 11680",
-        "CI 11680",
-        "Pigment Yellow 1 Ext. D&C Yellow No. 5 Hansa Yellow G"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-4",
-      "score": 156
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1249,
-      "aliases_scanned": 4894,
-      "alias_rows_scanned": 4889,
+      "terms_scanned": 1251,
+      "aliases_scanned": 4935,
+      "alias_rows_scanned": 4930,
       "collision_groups": 77,
       "high_confidence_collisions": 53,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 979,
+      "regulated_terms_without_local_alias": 978,
       "strict_blockers": 0,
-      "review_items": 1056
+      "review_items": 1055
     },
     "items": [
       {
@@ -6743,7 +6750,7 @@
           "Iron Oxides (CI 77491/77492/77499)",
           "Carmine (CI 75470)",
           "CI 15850 (Red 6/7)",
-          "CI 10006"
+          "Riboflavin / Vitamin B2 (核黃素)"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

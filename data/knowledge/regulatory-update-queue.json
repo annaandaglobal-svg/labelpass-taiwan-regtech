@@ -1147,6 +1147,11 @@
           "category": "colorant_uv_filter"
         },
         {
+          "term_key": "riboflavin-b2",
+          "canonical_name": "Riboflavin / Vitamin B2 (核黃素)",
+          "category": "food_additive"
+        },
+        {
           "term_key": "tfda-ci-10006",
           "canonical_name": "CI 10006",
           "category": "colorant"
@@ -1204,11 +1209,6 @@
         {
           "term_key": "tfda-ci-12420",
           "canonical_name": "CI 12420",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-12480",
-          "canonical_name": "CI 12480",
           "category": "colorant"
         }
       ],
