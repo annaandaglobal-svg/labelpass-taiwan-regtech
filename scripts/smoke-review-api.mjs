@@ -1580,6 +1580,29 @@ if (!cosmeticClaimGapResult.actionPlan?.documentChecklist?.some((doc) => doc.id 
 }
 
 const knowledgeCases = [
+  // Regression guard: queries that previously MISROUTED via fuzzy substring matching, plus the
+  // non-TFDA / children / dairy coverage. If a later term addition causes a misroute (e.g. a
+  // short query matching inside a longer alias), preflight fails here instead of a user finding it.
+  { query: "크림", expectedTerm: "Butter/cream/margarine naming & milkfat (奶油·鮮奶油·人造奶油)" },
+  { query: "생크림", expectedTerm: "Butter/cream/margarine naming & milkfat (奶油·鮮奶油·人造奶油)" },
+  { query: "버터", expectedTerm: "Butter/cream/margarine naming & milkfat (奶油·鮮奶油·人造奶油)" },
+  { query: "부분경화유", expectedTerm: "Partially hydrogenated oil ban / trans fat (不完全氫化油)" },
+  { query: "트랜스지방", expectedTerm: "Partially hydrogenated oil ban / trans fat (不完全氫化油)" },
+  { query: "유기농", expectedTerm: "Organic food certification (有機)" },
+  { query: "멜라토닌", expectedTerm: "Melatonin (褪黑激素) — banned in food" },
+  { query: "어린이 음료", expectedTerm: "Children's food advertising limits (不適合兒童長期食用)" },
+  { query: "어린이 식품", expectedTerm: "Children's food advertising limits (不適合兒童長期食用)" },
+  { query: "재활용 마크", expectedTerm: "資源回收標誌 recycling mark & fee (環境部)" },
+  { query: "미세플라스틱", expectedTerm: "Plastic microbeads ban (塑膠微粒)" },
+  { query: "GMO", expectedTerm: "GMO labeling (基因改造)" },
+  { query: "素食", expectedTerm: "Vegetarian labeling (素食標示)" },
+  { query: "조제분유", expectedTerm: "Infant / follow-up formula permit (查驗登記)" },
+  { query: "완구", expectedTerm: "Toy commodity inspection & phthalates (BSMI)" },
+  { query: "주류", expectedTerm: "Alcohol/tobacco import licence (菸酒管理法)" },
+  { query: "하수오", expectedTerm: "Fo-ti / He Shou Wu (何首烏)" },
+  { query: "레시틴", expectedTerm: "Lecithin (卵磷脂)" },
+  { query: "학교 급식", expectedTerm: "School food sale standard (校園飲品及點心販售範圍)" },
+  { query: "카페인", expectedTerm: "Caffeine content labeling (咖啡因含量標示)" },
   { query: "살리실산", expectedTerm: "Salicylic Acid" },
   { query: "水楊酸", expectedTerm: "Salicylic Acid" },
   { query: "IPBC", expectedTerm: "Iodopropynyl Butylcarbamate" },

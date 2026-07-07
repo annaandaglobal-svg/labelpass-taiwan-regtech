@@ -412,6 +412,17 @@ function isBroadOrAmbiguous(alias: Alias) {
   return confidence < 0.75 || /ambiguous|broad|short/i.test(alias.note ?? "");
 }
 
+// True if `query` occurs in `target` at a token boundary — the string start, or right after a
+// separator — rather than only buried inside a longer compound word.
+function occursAtSeparatorBoundary(target: string, query: string) {
+  let idx = target.indexOf(query);
+  while (idx >= 0) {
+    if (idx === 0 || /[\s\-_./·,、；;：:()[\]]/.test(target[idx - 1] ?? "")) return true;
+    idx = target.indexOf(query, idx + 1);
+  }
+  return false;
+}
+
 function tokenScore(target: string, query: string, exactOnly = false) {
   if (!target || !query) return 0;
   if (target === query) return 100;
@@ -433,7 +444,14 @@ function tokenScore(target: string, query: string, exactOnly = false) {
     return 0;
   }
   if (target.startsWith(query)) return 88;
-  if (target.includes(query)) return 72;
+  if (target.includes(query)) {
+    // A short query buried INSIDE a longer compound token (e.g. "크림" inside "선크림", "면역"
+    // inside "면역크림") is almost always a false match. Only keep the strong 72 score when the
+    // query starts at a token boundary (string start or after a separator) or is long enough
+    // for an internal fragment to be meaningful; otherwise demote so it can't cause a misroute.
+    if (query.length >= 5 || occursAtSeparatorBoundary(target, query)) return 72;
+    return 30;
+  }
 
   const targetSpaced = spaceKnowledgeSeparators(target);
   const querySpaced = spaceKnowledgeSeparators(query);
