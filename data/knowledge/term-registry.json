@@ -17920,13 +17920,34 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.88
+        },
+        {
+          "value": "yohimbine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "디하이드로에피안드로스테론",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "製何首烏",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "대만 의약품/비식품 원료 — 식품·보충제 사용 불가."
+      "notes": "대만 의약품/비식품 원료 — 식품·보충제 사용 불가. 마황·요힘빈(禁藥)·DHEA(藥品)·製何首烏는 식품 사용 불가; 甘草는 허용(215품목)."
     },
     {
       "id": "nutrient-upper-limit",
@@ -22038,7 +22059,7 @@
     {
       "id": "histamine-fish",
       "canonical_name": "Histamine in fish products (組織胺)",
-      "category": "food_safety",
+      "category": "food_safety_contaminant",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -22078,7 +22099,7 @@
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "어류·액젓 히스타민(스콤브로톡신) 식품안전 위험 — 대만 수산 특정 한도는 확인 필요(수치 미확정)."
+      "notes": "어류 히스타민 법정 한도 — 200 mg/kg(히스티딘 높은 어류)/400 mg/kg(염장·발효·魚醬). 附表三."
     },
     {
       "id": "benzoyl-peroxide-flour",
@@ -23686,7 +23707,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "알루미늄 함유 팽창제 — 대만 鋁 잔류 한도 준수."
+      "notes": "알루미늄 함유 팽창제 — 현행 膨脹劑 기준은 GMP 適量使用(고정 수치 한도 없음), 과잉 사용 주의."
     },
     {
       "id": "flavoring-add",

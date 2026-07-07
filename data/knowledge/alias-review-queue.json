@@ -11,8 +11,8 @@
     "generated_at": "2026-06-25T07:47:54.729Z",
     "registry_version": "2026-06-27",
     "terms_scanned": 1293,
-    "aliases_scanned": 5275,
-    "alias_rows_scanned": 5270,
+    "aliases_scanned": 5278,
+    "alias_rows_scanned": 5273,
     "collision_groups": 97,
     "high_confidence_collisions": 65,
     "short_ambiguous_aliases_without_notes": 0,
@@ -3284,7 +3284,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "대만 의약품/비식품 원료 — 식품·보충제 사용 불가."
+          "notes": "대만 의약품/비식품 원료 — 식품·보충제 사용 불가. 마황·요힘빈(禁藥)·DHEA(藥品)·製何首烏는 식품 사용 불가; 甘草는 허용(215품목)."
         },
         {
           "term_id": "tfda-ephedratourn-ex-l-ephedraceae",
