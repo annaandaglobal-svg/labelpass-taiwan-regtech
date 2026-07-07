@@ -255,6 +255,8 @@ const verdictSurfacedCategories = new Set([
   "infant_food_labeling",
   "infant_food_safety_limit",
   "children_food_marketing",
+  "school_food",
+  "toddler_formula",
   "food_additive",
   "fermented_food_ingredient",
   "health_food",
