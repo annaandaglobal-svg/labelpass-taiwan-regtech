@@ -203,6 +203,71 @@ export const licensingCategories: LicensingCategory[] = [
     ]
   },
   {
+    id: "organic-food",
+    label: "유기농 식품 인증 (有機)",
+    icon: "🌱",
+    authority: "農業部 農糧署 (Ministry of Agriculture · AFA)",
+    summary:
+      "식품에 '有機(유기농)'을 표시·판매하려면 有機農業促進法(2019.5.30 시행, TFDA 아님)에 따른 인증이 필수입니다. 수입은 수출국이 대만과 유기 동등성 협정이 있어야 자국 인증으로 표시 가능한데, 한국은 동등성 국가가 아닙니다(동등성: 일본·미국·캐나다·호주·뉴질랜드·인도·파라과이·영국). 따라서 아래 ①~⑤ 절차로 대만 인정 인증 + 수입 검증을 받아야 합니다.",
+    documents: [
+      {
+        id: "organic-equivalence-check",
+        tier: "required",
+        label: "① 유기 동등성 여부 확인",
+        officialName: "有機同等性認可國家確認 (Organic Equivalency Country Check)",
+        spec: "수출국이 대만 동등성 인정 국가인지 확인. 한국은 미포함.",
+        detail:
+          "동등성 국가(일본·미국·캐나다·호주·뉴질랜드·인도·파라과이·영국)면 자국 유기 인증으로 표시 가능. 한국은 아니므로 ②~⑤ 절차가 필요합니다.",
+        authority: "農業部 農糧署"
+      },
+      {
+        id: "organic-tw-certification",
+        tier: "required",
+        label: "② 대만 인정 인증기관 유기 인증 취득",
+        officialName: "有機農產品/有機農產加工品驗證 (Organic Certification by TW-accredited body)",
+        spec: "대만이 인정하는 驗證機構의 유기 인증. 가공품은 유기 원료 비율 기준(예: 有機 95%↑) 충족.",
+        detail: "동등성이 없는 한국 제품은 대만 인정 인증기관의 유기 인증을 받아야 '有機' 표시가 가능합니다.",
+        authority: "대만 인정 驗證機構 (農業部 인정)"
+      },
+      {
+        id: "organic-certificate",
+        tier: "required",
+        label: "③ 유기 인증서·인증기관 증빙",
+        officialName: "有機驗證證書 (Organic Certification Certificate)",
+        spec: "인증서 번호·유효기간·인증기관명·인증 범위(품목).",
+        detail: "라벨·수입 심사에 제출하는 핵심 증빙입니다.",
+        authority: "인증기관"
+      },
+      {
+        id: "organic-import-verification",
+        tier: "required",
+        label: "④ 수입 검증·표시 심사",
+        officialName: "進口有機農產品及有機農產加工品證明文件審查 (Import Organic Verification / Label Review)",
+        spec: "農業部 農糧署에 수입 유기 증명문서 심사 신청 + 라벨(有機 표시·인증기관명) 심사.",
+        detail: "통관·판매 전 수입 검증과 표시 심사를 통과해야 '有機' 표시로 유통할 수 있습니다.",
+        authority: "農業部 農糧署"
+      },
+      {
+        id: "organic-label",
+        tier: "required",
+        label: "⑤ 有機 표시·인증기관명 라벨",
+        officialName: "有機標示 + 驗證機構名稱 (Organic Label + Certifier Name)",
+        spec: "중문 라벨에 '有機' + 인증기관명/인증번호 표기. 무인증 유기 표시는 금지.",
+        detail: "인증·검증 완료 전에는 라벨·광고에 有機/유기농/organic을 쓸 수 없습니다(위반 시 有機農業促進法 제재).",
+        authority: "農業部 農糧署"
+      },
+      {
+        id: "organic-traceability",
+        tier: "recommended",
+        label: "유기 원료·이력 증빙",
+        officialName: "有機原料及流程證明 (Organic Ingredient & Process Records)",
+        spec: "유기 원료 비율·공급망 이력·가공 흐름 기록.",
+        detail: "가공품 유기 비율·물질흐름 추적 근거로, 인증·검증 시 요구될 수 있습니다.",
+        authority: "제조사 / 인증기관"
+      }
+    ]
+  },
+  {
     id: "food-additive",
     label: "식품첨가물",
     icon: "🧪",

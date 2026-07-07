@@ -2848,6 +2848,11 @@
           "term_key": "food-label-required-items",
           "canonical_name": "Food Label Required Items",
           "category": "food_labeling"
+        },
+        {
+          "term_key": "dev-bsmi-ncc",
+          "canonical_name": "Beauty device / electronics import regulation (BSMI·NCC·醫療器材)",
+          "category": "device_import_regulation"
         }
       ],
       "affected_products": [

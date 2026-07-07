@@ -17509,6 +17509,243 @@
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
       "notes": "저자극·무알러지 표방. 시험 근거 없이 쓰면 부당표시."
+    },
+    {
+      "id": "dev-bsmi-ncc",
+      "canonical_name": "Beauty device / electronics import regulation (BSMI·NCC·醫療器材)",
+      "category": "device_import_regulation",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "미용기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "전자제품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "BSMI",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "商品檢驗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "NCC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "형식인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "LED 마스크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "LED마스크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "진동 클렌저",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "EMS 기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "RF 기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "IPL",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "醫療器材",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "의료기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "beauty device",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "type approval",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "電子產品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "미용기기·전자제품은 BSMI 商品檢驗·NCC 무선인증·醫療器材 재분류 대상일 수 있음(모두 TFDA 밖). 화장품 기준으로는 누락됨."
+    },
+    {
+      "id": "quarantine-aphia",
+      "canonical_name": "Import quarantine (動植物防疫檢疫署 APHIA)",
+      "category": "animal_plant_quarantine",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "검역",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "수입검역",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "동물검역",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "식물검역",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "輸入檢疫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "BAPHIQ",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "APHIA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "動植物防疫檢疫署",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        },
+        {
+          "value": "phytosanitary",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "검역증명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.88
+        },
+        {
+          "value": "veterinary certificate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.88
+        },
+        {
+          "value": "植物檢疫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.88
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food",
+        "tw-tfda-imported-food-inspection-regulations"
+      ],
+      "notes": "동물성·식물성 원료(새우·육류·유제품·종자 등)는 農業部 APHIA 수입 검역 대상. 수출국 공식 위생/식물검역 증명 필요, 육류는 ASF 등 반입 제한 다수."
     }
   ]
 }
