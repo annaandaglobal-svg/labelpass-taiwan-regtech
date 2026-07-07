@@ -31237,16 +31237,6 @@
           "source": "curated"
         },
         {
-          "value": "phosphate",
-          "normalized": "phosphate",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "피로인산나트륨",
           "normalized": "피로인산나트륨",
           "type": "local_name",

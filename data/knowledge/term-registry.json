@@ -23611,13 +23611,6 @@
           "confidence": 0.9
         },
         {
-          "value": "phosphate",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.9
-        },
-        {
           "value": "피로인산나트륨",
           "type": "local_name",
           "language": "ko",
