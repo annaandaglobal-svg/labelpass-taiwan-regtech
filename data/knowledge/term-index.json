@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 203,
+  "curated_term_count": 208,
   "generated_term_count": 1030,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -25411,6 +25411,481 @@
         "tw-tfda-food-additive-standards"
       ],
       "notes": "허용 식용색소만 사용, 신선·영유아 식품엔 금지. 화장품 색소와 별개."
+    },
+    {
+      "id": "infant-formula-permit",
+      "canonical_name": "Infant / follow-up formula permit (查驗登記)",
+      "category": "infant_formula_permit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "조제분유",
+          "normalized": "조제분유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영아분유",
+          "normalized": "영아분유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "분유",
+          "normalized": "분유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "infant formula",
+          "normalized": "infant formula",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒配方食品",
+          "normalized": "嬰兒配方食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "較大嬰兒配方",
+          "normalized": "較大嬰兒配方",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "follow-up formula",
+          "normalized": "follow-up formula",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영유아 조제식",
+          "normalized": "영유아 조제식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "특수의료용도 조제식",
+          "normalized": "특수의료용도 조제식",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영아용 조제식",
+          "normalized": "영아용 조제식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-special-disease-food-permit-query",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21)."
+    },
+    {
+      "id": "infant-formula-marketing",
+      "canonical_name": "Breast-milk substitute advertising ban (母乳代用品)",
+      "category": "infant_formula_marketing",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "모유대용품",
+          "normalized": "모유대용품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "母乳代用品",
+          "normalized": "母乳代用品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "분유 광고",
+          "normalized": "분유 광고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "breast milk substitute",
+          "normalized": "breast milk substitute",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "조제분유 광고",
+          "normalized": "조제분유 광고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "母乳最佳",
+          "normalized": "母乳最佳",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "0~6개월 조제분유 광고·샘플·사은품·할인 판촉 금지(食安法§28)."
+    },
+    {
+      "id": "infant-food-labeling",
+      "canonical_name": "Infant food labeling (2025 개정)",
+      "category": "infant_food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "영유아식 표시",
+          "normalized": "영유아식 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒配方食品標示",
+          "normalized": "嬰兒配方食品標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "조제식 표시",
+          "normalized": "조제식 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "調配不當",
+          "normalized": "調配不當",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "적용 월령",
+          "normalized": "적용 월령",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "適用月齡",
+          "normalized": "適用月齡",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "조제식 표시 의무 2025-01-01 강화(調配不當 경고·母乳最佳·적용 월령)."
+    },
+    {
+      "id": "infant-food-safety-limit",
+      "canonical_name": "Infant food stricter contaminant/additive limits",
+      "category": "infant_food_safety_limit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "이유식",
+          "normalized": "이유식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "副食品",
+          "normalized": "副食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "baby food",
+          "normalized": "baby food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영유아 식품",
+          "normalized": "영유아 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "weaning food",
+          "normalized": "weaning food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아기 쌀과자",
+          "normalized": "아기 쌀과자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰幼兒穀物類輔助食品",
+          "normalized": "嬰幼兒穀物類輔助食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "영유아 이유식",
+          "normalized": "영유아 이유식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "이유식 중금속",
+          "normalized": "이유식 중금속",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "영유아식 강화 오염물 한도(납0.05·카드뮴0.04ppm 등)·영유아 금지 첨가물."
+    },
+    {
+      "id": "children-food-marketing",
+      "canonical_name": "Children's food advertising limits (不適合兒童長期食用)",
+      "category": "children_food_marketing",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "어린이 식품",
+          "normalized": "어린이 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아동 식품",
+          "normalized": "아동 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "kids food",
+          "normalized": "kids food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "어린이 간식",
+          "normalized": "어린이 간식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "어린이 광고",
+          "normalized": "어린이 광고",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "不適合兒童長期食用",
+          "normalized": "不適合兒童長期食用",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "어린이 스낵",
+          "normalized": "어린이 스낵",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아동 간식",
+          "normalized": "아동 간식",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-labeling-handbook-2026",
+        "tw-moj-food-safety-sanitation-act"
+      ],
+      "notes": "고지방·고당·고나트륨 어린이 식품 광고·장난감 사은품·식사대체 표현 제한(食安法§28)."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",

@@ -3567,6 +3567,11 @@
           "term_key": "formula-for-certain-disease",
           "canonical_name": "Formula for Certain Disease",
           "category": "special_dietary_food"
+        },
+        {
+          "term_key": "infant-formula-permit",
+          "canonical_name": "Infant / follow-up formula permit (查驗登記)",
+          "category": "infant_formula_permit"
         }
       ],
       "affected_products": [
