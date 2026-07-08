@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,260
-- Stored aliases: 6,981
-- Searchable aliases including identifiers: 8,133
+- Terms: 2,262
+- Stored aliases: 7,006
+- Searchable aliases including identifiers: 8,158
 - Term-rule links: 1,100
 - Regulatory update candidates: 47
 - Alias review items: 906
