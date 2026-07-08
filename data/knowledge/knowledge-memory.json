@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2262,
-    "stored_aliases": 7006,
-    "searchable_aliases": 8158,
+    "terms": 2274,
+    "stored_aliases": 7103,
+    "searchable_aliases": 8255,
     "identifier_aliases": 1152,
-    "term_rule_links": 1100,
+    "term_rule_links": 1101,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 906,
+    "alias_review_items": 921,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5506,17 +5506,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2262,
-      "aliases_scanned": 7006,
-      "alias_rows_scanned": 7006,
-      "collision_groups": 90,
-      "high_confidence_collisions": 59,
+      "terms_scanned": 2274,
+      "aliases_scanned": 7103,
+      "alias_rows_scanned": 7103,
+      "collision_groups": 105,
+      "high_confidence_collisions": 75,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 816,
       "strict_blockers": 0,
-      "review_items": 906
+      "review_items": 921
     },
     "items": [
       {
@@ -5605,6 +5605,32 @@
         ]
       },
       {
+        "id": "alias-62c09de48d2dfb",
+        "alias": "country of origin",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "country-of-origin-marking",
+            "canonical_name": "Country of Origin Marking",
+            "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "trap-origin-fraud",
+            "canonical_name": "Origin marking / laundering",
+            "confidence": 0.9,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
+      {
         "id": "alias-60d6b4c10509b0",
         "alias": "dmdm hydantoin",
         "issue": "alias-collision-high-confidence",
@@ -5676,6 +5702,32 @@
           {
             "term_id": "quarantine-aphia",
             "canonical_name": "Import quarantine (動植物防疫檢疫署 APHIA)",
+            "confidence": 0.9,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
+      {
+        "id": "alias-7dd9da56784662",
+        "alias": "nutrition label",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "nutrition-labeling",
+            "canonical_name": "Nutrition Labeling",
+            "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "trap-nutrition-format",
+            "canonical_name": "Nutrition label format (Taiwan)",
             "confidence": 0.9,
             "jurisdiction": "GLOBAL",
             "language": "en"
@@ -5839,6 +5891,32 @@
         ]
       },
       {
+        "id": "alias-f5432e30a8db52",
+        "alias": "營養標示",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "nutrition-labeling",
+            "canonical_name": "Nutrition Labeling",
+            "confidence": 1,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "trap-nutrition-format",
+            "canonical_name": "Nutrition label format (Taiwan)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
         "id": "alias-bce4bd02ff7c20",
         "alias": "輸出許可證",
         "issue": "alias-collision-high-confidence",
@@ -5943,6 +6021,84 @@
         ]
       },
       {
+        "id": "alias-b58fe64d74dda6",
+        "alias": "대만 수입자",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "taiwan-importer-responsible-firm",
+            "canonical_name": "Taiwan Importer and Responsible Firm",
+            "confidence": 1,
+            "jurisdiction": "TW",
+            "language": "ko"
+          },
+          {
+            "term_id": "trap-ior",
+            "canonical_name": "Importer of record (Taiwan)",
+            "confidence": 0.9,
+            "jurisdiction": "KR",
+            "language": "ko"
+          }
+        ]
+      },
+      {
+        "id": "alias-45099578b90564",
+        "alias": "수입자",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "taiwan-importer-responsible-firm",
+            "canonical_name": "Taiwan Importer and Responsible Firm",
+            "confidence": 1,
+            "jurisdiction": "KR",
+            "language": "ko"
+          },
+          {
+            "term_id": "trap-ior",
+            "canonical_name": "Importer of record (Taiwan)",
+            "confidence": 0.9,
+            "jurisdiction": "KR",
+            "language": "ko"
+          }
+        ]
+      },
+      {
+        "id": "alias-c869a81a16274c",
+        "alias": "영양성분표",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "nutrition-labeling",
+            "canonical_name": "Nutrition Labeling",
+            "confidence": 1,
+            "jurisdiction": "KR",
+            "language": "ko"
+          },
+          {
+            "term_id": "trap-nutrition-format",
+            "canonical_name": "Nutrition label format (Taiwan)",
+            "confidence": 0.9,
+            "jurisdiction": "KR",
+            "language": "ko"
+          }
+        ]
+      },
+      {
         "id": "alias-3449c4d6d07923",
         "alias": "우유",
         "issue": "alias-collision-high-confidence",
@@ -5962,6 +6118,32 @@
           {
             "term_id": "quarantine-aphia",
             "canonical_name": "Import quarantine (動植物防疫檢疫署 APHIA)",
+            "confidence": 0.9,
+            "jurisdiction": "KR",
+            "language": "ko"
+          }
+        ]
+      },
+      {
+        "id": "alias-3ceea911601c4c",
+        "alias": "원산지 표시",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "country-of-origin-marking",
+            "canonical_name": "Country of Origin Marking",
+            "confidence": 1,
+            "jurisdiction": "KR",
+            "language": "ko"
+          },
+          {
+            "term_id": "trap-origin-fraud",
+            "canonical_name": "Origin marking / laundering",
             "confidence": 0.9,
             "jurisdiction": "KR",
             "language": "ko"
@@ -6106,6 +6288,32 @@
         ]
       },
       {
+        "id": "alias-1cff5f29efdbb1",
+        "alias": "importer of record",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "taiwan-importer-responsible-firm",
+            "canonical_name": "Taiwan Importer and Responsible Firm",
+            "confidence": 0.95,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "trap-ior",
+            "canonical_name": "Importer of record (Taiwan)",
+            "confidence": 0.9,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
+      {
         "id": "alias-bc677198fd5fc3",
         "alias": "permit number",
         "issue": "alias-collision-high-confidence",
@@ -6152,214 +6360,6 @@
             "term_id": "shelf-life-date",
             "canonical_name": "Shelf-life / expiry date (有效日期)",
             "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-7976bc897b4e58",
-        "alias": "動物用藥殘留",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "food-veterinary-drug-residue-limits",
-            "canonical_name": "Food Veterinary Drug Residue Limits",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "food-contaminant-safety",
-            "canonical_name": "Food contaminants (aflatoxin/heavy metal/residue)",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-2a46293ce10b4d",
-        "alias": "化粧品標示宣傳廣告",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-4443b63e66c2c8",
-        "alias": "國內負責廠商",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "taiwan-importer-responsible-firm",
-            "canonical_name": "Taiwan Importer and Responsible Firm",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "food-label-required-items",
-            "canonical_name": "Food Label Required Items",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-15cb6ac186fada",
-        "alias": "有效日期",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "food-label-required-items",
-            "canonical_name": "Food Label Required Items",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "shelf-life-date",
-            "canonical_name": "Shelf-life / expiry date (有效日期)",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-3ad37302ca9d7a",
-        "alias": "染髮",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-pif-product-registration-categories",
-            "canonical_name": "Cosmetic PIF and Product Registration Categories",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "claim-hairdye",
-            "canonical_name": "Hair dye claim (染髮)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-93a5655db6e401",
-        "alias": "甲醛",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "formaldehyde",
-            "canonical_name": "Formaldehyde",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "commodity-label",
-            "canonical_name": "General commodity Chinese labeling (商品標示法)",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-19c3f770c78746",
-        "alias": "自用",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "shipment-purpose",
-            "canonical_name": "Shipment Purpose",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "food-import-inspection-exemption",
-            "canonical_name": "Food Import Inspection Exemption",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-a1571bf77d8be5",
-        "alias": "虛偽誇大",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
             "jurisdiction": "TW",
             "language": "zh-Hant"
           }

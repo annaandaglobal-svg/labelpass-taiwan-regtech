@@ -85579,6 +85579,877 @@
         "tw-trade-import-regulation-code-instruction"
       ],
       "notes": "영유아용(1901.10) 관세 5% vs 일반 조제분유(1901.90.22) 12%. 조성·소매포장 조건 + 配方은 TFDA 査驗登記."
+    },
+    {
+      "id": "trap-ethylene-oxide",
+      "canonical_name": "Ethylene oxide residue ban (環氧乙烷)",
+      "category": "ethylene_oxide_ban",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "에틸렌옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ethylene oxide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "環氧乙烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "EtO",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "2-클로로에탄올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "라면 스프 살균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "산화에틸렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "에틸렌 옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "조미료·향신료·건조식품 EtO 불검출. 라면 스프 별도 시험."
+    },
+    {
+      "id": "trap-pesticide-nondetect",
+      "canonical_name": "Pesticide non-detect (unlisted, no PLS)",
+      "category": "pesticide_non_detect",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "잔류농약 불검출",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "미등재 농약",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "PLS",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "農藥不得檢出",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "잔류농약 대만",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "농약 허용기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "positive list system",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 미등재 농약×작물=불검출. 한국 PLS 0.01 기본값 없음."
+    },
+    {
+      "id": "trap-inspection-escalation",
+      "canonical_name": "Border inspection escalation/de-escalation",
+      "category": "inspection_escalation",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "국경검사 상향",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "매건검사",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "逐批查驗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "강화검사",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "複驗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "재검사",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "검사 해제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "batch by batch",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "국경검사 강화",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "1회 불합격→100%(원산지+CCC). 해제 5배치·3배량. 複驗 1회."
+    },
+    {
+      "id": "trap-seafood-metal",
+      "canonical_name": "Seafood heavy metal (stricter than Korea)",
+      "category": "seafood_heavy_metal",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "수산물 중금속",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "오징어 납",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "문어 중금속",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "어류 카드뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "두족류 납",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "수산 납",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "오징어 중금속",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "생선 카드뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "두족류 납 0.3·어류 Cd 0.05(한국보다 엄격). 버섯건조/해조습중량."
+    },
+    {
+      "id": "trap-microbiology",
+      "canonical_name": "Microbiology standard 2021 (E.coli MPN)",
+      "category": "microbiology_standard",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "미생물 기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "E.coli",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "대장균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "대장균군",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "리스테리아",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "장내세균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "微生物標準",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "식중독균 검사",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Listeria",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "2021 기준: 대장균군 아닌 E.coli MPN. 생RTE 리스테리아 25g 불검출."
+    },
+    {
+      "id": "trap-trq",
+      "canonical_name": "Tariff-rate quota (關稅配額)",
+      "category": "tariff_rate_quota",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "관세할당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "TRQ",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "關稅配額",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "쿼터 관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "분유 쿼터",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "쌀 쿼터",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "관세 쿼터",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "tariff rate quota",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "분유·쌀·닭·마늘·땅콩 등 쿼터밖 징벌관세."
+    },
+    {
+      "id": "trap-valuation",
+      "canonical_name": "Customs valuation (royalty/assist added)",
+      "category": "customs_valuation",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "완세가격",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "로열티 관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "상표료 관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "關稅估價",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "완세가",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "assist 관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "customs valuation",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "과세가격",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "로열티·상표료·assist를 CIF에 가산. 저가송장 추징."
+    },
+    {
+      "id": "trap-origin-fraud",
+      "canonical_name": "Origin marking / laundering",
+      "category": "origin_marking_fraud",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "원산지 세탁",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "원산지 표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "原產地",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "실질변형",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "원산지 위반",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "원산지 규정",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "substantial transformation",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "country of origin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "허위 원산지 3배 벌금·몰수. 외국원료는 한국 실질변형 필요."
+    },
+    {
+      "id": "trap-tariff-class",
+      "canonical_name": "Tariff classification / MFN column",
+      "category": "tariff_classification_duty",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "세번 분류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "HS 분류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "CCC 분류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "稅則",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "관세 분류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "MFN",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "稅則預先審核",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "세번 사전심사",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "관세율표",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "한국=1란 MFN. 세번이 관세 좌우. 稅則預先審核 권장."
+    },
+    {
+      "id": "trap-ior",
+      "canonical_name": "Importer of record (Taiwan)",
+      "category": "importer_of_record",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "수입자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "IOR",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "대만 수입자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "통관 대행",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "責任廠商",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "importer of record",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "수입 대행",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "통일사업자번호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "한국 수출자 직접 통관 불가. 대만 UBN 수입자 필요."
+    },
+    {
+      "id": "trap-personal-commercial",
+      "canonical_name": "Personal vs commercial import",
+      "category": "personal_vs_commercial",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "개인수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "샘플 통관",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "상업 수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "소량 수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "개인 수입 한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "personal import",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "샘플 수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "자가사용",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "개인수입 면세·판매불가(정제 12/36병). 샘플 통관≠상업."
+    },
+    {
+      "id": "trap-nutrition-format",
+      "canonical_name": "Nutrition label format (Taiwan)",
+      "category": "nutrition_label_format",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "영양성분표",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "영양표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "營養標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "영양 라벨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "영양성분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "nutrition label",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "영양표시 포맷",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 형식: 100g/100mL+1회분 동시, 당류·나트륨 분리."
     }
   ]
 }

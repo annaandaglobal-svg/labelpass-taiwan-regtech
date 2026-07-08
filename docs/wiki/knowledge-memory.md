@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,262
-- Stored aliases: 7,006
-- Searchable aliases including identifiers: 8,158
-- Term-rule links: 1,100
+- Terms: 2,274
+- Stored aliases: 7,103
+- Searchable aliases including identifiers: 8,255
+- Term-rule links: 1,101
 - Regulatory update candidates: 47
-- Alias review items: 906
+- Alias review items: 921
 
 ## How To Use This Memory
 
@@ -478,15 +478,15 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | 保健功效 | alias-collision-high-confidence | high | 3 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | approved health care effects | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | casein | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
+| country of origin | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | dmdm hydantoin | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | inci | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | milk | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
+| nutrition label | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | preservative | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | propylparaben | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品字樣 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
-| 健康食品查驗登記 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
-| 化粧品標示 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 
 
 ## Refresh Queue
