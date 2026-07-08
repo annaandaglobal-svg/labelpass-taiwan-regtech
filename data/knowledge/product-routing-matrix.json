@@ -1606,7 +1606,8 @@
         "novel-food-ingredient-safety-assessment",
         "gaba-food",
         "health-functional-food",
-        "protein-bar"
+        "hfun-beta-glucan",
+        "hfun-chitosan"
       ],
       "sources": [
         {
@@ -1841,16 +1842,27 @@
           ]
         },
         {
-          "id": "protein-bar",
-          "canonical_name": "Protein/cereal bar (蛋白棒)",
+          "id": "hfun-beta-glucan",
+          "canonical_name": "Beta-glucan",
           "category": "health_food",
           "aliases": [
-            "protein bar",
-            "蛋白棒",
-            "단백질바",
-            "시리얼바",
-            "에너지바",
-            "프로틴바"
+            "Beta-glucan",
+            "β-葡聚醣",
+            "베타글루칸"
+          ],
+          "source_keys": [
+            "tw-moj-health-food-governing-act",
+            "tw-tfda-health-food-enforcement-rules"
+          ]
+        },
+        {
+          "id": "hfun-chitosan",
+          "canonical_name": "Chitosan",
+          "category": "health_food",
+          "aliases": [
+            "Chitosan",
+            "甲殼素",
+            "키토산"
           ],
           "source_keys": [
             "tw-moj-health-food-governing-act",

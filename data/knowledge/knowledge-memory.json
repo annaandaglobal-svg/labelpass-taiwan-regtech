@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1522,
-    "stored_aliases": 6029,
-    "searchable_aliases": 8317,
-    "identifier_aliases": 2288,
+    "terms": 1614,
+    "stored_aliases": 6315,
+    "searchable_aliases": 8595,
+    "identifier_aliases": 2280,
     "term_rule_links": 1093,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 990,
+    "alias_review_items": 987,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5054,6 +5054,23 @@
       "score": 185
     },
     {
+      "id": "cadd-benzyl-alcohol",
+      "canonical_name": "Benzyl Alcohol",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "Benzyl Alcohol",
+        "苯甲醇",
+        "벤질알코올"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).",
+      "score": 185
+    },
+    {
       "id": "glycine-food-additive",
       "canonical_name": "Glycine",
       "category": "food_additive",
@@ -5092,24 +5109,6 @@
       ],
       "notes": "Taiwan food additive common-name table maps 二胺基己酸 to 離胺酸.",
       "score": 185
-    },
-    {
-      "id": "fadd-calcium-propionate",
-      "canonical_name": "Calcium Propionate",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "Calcium Propionate",
-        "丙酸鈣",
-        "프로피온산칼슘",
-        "E282"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-standards",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
-      "score": 183
     },
     {
       "id": "protein-bar",
@@ -5191,6 +5190,74 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-201-47",
       "score": 179
+    },
+    {
+      "id": "hfun-beta-glucan",
+      "canonical_name": "Beta-glucan",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "Beta-glucan",
+        "β-葡聚醣",
+        "베타글루칸"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.",
+      "score": 177
+    },
+    {
+      "id": "hfun-chitosan",
+      "canonical_name": "Chitosan",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "Chitosan",
+        "甲殼素",
+        "키토산"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.",
+      "score": 177
+    },
+    {
+      "id": "hfun-fish-oil",
+      "canonical_name": "Fish oil",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "Fish oil",
+        "魚油",
+        "피쉬오일"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.",
+      "score": 177
+    },
+    {
+      "id": "hfun-green-tea-catechin",
+      "canonical_name": "Green tea catechin",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "Green tea catechin",
+        "綠茶兒茶素",
+        "녹차카테킨"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.",
+      "score": 177
     },
     {
       "id": "hyaluronic-acid-sodium-hyaluronate",
@@ -5438,111 +5505,23 @@
       ],
       "notes": "Generated from TFDA rule tw-cos-201-24",
       "score": 167
-    },
-    {
-      "id": "chlorhexidine-family",
-      "canonical_name": "Chlorhexidine Family",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 55-56-1",
-        "CAS 18472-51-0",
-        "CAS 3697-42-5",
-        "CAS 56-95-1",
-        "INCI Chlorhexidine",
-        "INCI Chlorhexidine Digluconate",
-        "INCI Chlorhexidine Dihydrochloride",
-        "INCI Chlorhexidine Diacetate",
-        "Chlorhexidine",
-        "Chlorhexidine Digluconate"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Antimicrobial preservative family; salt form matters for limits.",
-      "score": 165
-    },
-    {
-      "id": "tfda-poly-methylene-alpha-ome-ga-bis-aminoiminomethyl-amino-iminomethyl-amino-dihydro",
-      "canonical_name": "Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 32289-58-0",
-        "CAS 133029-32-0",
-        "CAS 28757-47-3",
-        "CAS 27083-27-8",
-        "INCI Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride",
-        "INCI Polyaminopropyl biguanide",
-        "Polyaminopropyl biguanide",
-        "133029-32-0",
-        "27083-27-8",
-        "28757-47-3"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-39",
-      "score": 165
-    },
-    {
-      "id": "camphor",
-      "canonical_name": "Camphor",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "INCI Camphor",
-        "Camphor",
-        "カンフル",
-        "樟脑",
-        "樟腦",
-        "장뇌"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-restricted-ingredients"
-      ],
-      "notes": "Common cooling/fragrance ingredient; rule matching may depend on product type.",
-      "score": 164
-    },
-    {
-      "id": "cos-benzophenone",
-      "canonical_name": "Benzophenones (UV)",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "benzophenone",
-        "benzophenone-4",
-        "벤조페논",
-        "이산화규소"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-sunscreen-ingredients"
-      ],
-      "notes": "벤조페논류 자외선 성분 — 종류별 한도 확인.",
-      "score": 162
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1522,
-      "aliases_scanned": 6029,
-      "alias_rows_scanned": 6024,
+      "terms_scanned": 1614,
+      "aliases_scanned": 6315,
+      "alias_rows_scanned": 6310,
       "collision_groups": 88,
       "high_confidence_collisions": 56,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 902,
+      "regulated_terms_without_local_alias": 899,
       "strict_blockers": 0,
-      "review_items": 990
+      "review_items": 987
     },
     "items": [
       {

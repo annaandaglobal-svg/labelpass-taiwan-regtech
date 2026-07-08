@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,522
-- Stored aliases: 6,029
-- Searchable aliases including identifiers: 8,317
+- Terms: 1,614
+- Stored aliases: 6,315
+- Searchable aliases including identifiers: 8,595
 - Term-rule links: 1,093
 - Regulatory update candidates: 47
-- Alias review items: 990
+- Alias review items: 987
 
 ## How To Use This Memory
 
@@ -243,6 +243,22 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: 健康食品; 小綠人; 건강기능식품; 기능성식품; 보건기능식품
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
   - Note: 健康食品은 허가제 — 허가·小綠人 로고 없이 기능 표방 불가.
+- **Beta-glucan** (`hfun-beta-glucan`)
+  - Aliases: Beta-glucan; β-葡聚醣; 베타글루칸
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.
+- **Chitosan** (`hfun-chitosan`)
+  - Aliases: Chitosan; 甲殼素; 키토산
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.
+- **Fish oil** (`hfun-fish-oil`)
+  - Aliases: Fish oil; 魚油; 피쉬오일
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.
+- **Green tea catechin** (`hfun-green-tea-catechin`)
+  - Aliases: Green tea catechin; 綠茶兒茶素; 녹차카테킨
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.
 
 ### Food labeling
 
@@ -403,6 +419,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
   - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
   - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
+- **Benzyl Alcohol** (`cadd-benzyl-alcohol`)
+  - Aliases: Benzyl Alcohol; 苯甲醇; 벤질알코올
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).
 - **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
   - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
@@ -419,14 +439,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: PDRN; aloe; ascorbic acid; ceramide; galactomyces; houttuynia; peptide; propolis; resveratrol; snail
   - Sources: `global-pcpc-inci`, `global-cas-registry`
   - Note: 일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.
-- **Camphor** (`camphor`)
-  - Aliases: INCI Camphor; Camphor; カンフル; 樟脑; 樟腦; 장뇌
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`
-  - Note: Common cooling/fragrance ingredient; rule matching may depend on product type.
-- **Benzophenones (UV)** (`cos-benzophenone`)
-  - Aliases: benzophenone; benzophenone-4; 벤조페논; 이산화규소
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-sunscreen-ingredients`
-  - Note: 벤조페논류 자외선 성분 — 종류별 한도 확인.
 
 ### Preservative
 
@@ -462,14 +474,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate); INCI Hexamidine; INCI Hexamidine diisethionate; INCI Hexamidine paraben; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
   - Sources: `tw-tfda-cosmetic-preservatives`
   - Note: Generated from TFDA rule tw-cos-201-24
-- **Chlorhexidine Family** (`chlorhexidine-family`)
-  - Aliases: CAS 55-56-1; CAS 18472-51-0; CAS 3697-42-5; CAS 56-95-1; INCI Chlorhexidine; INCI Chlorhexidine Digluconate; INCI Chlorhexidine Dihydrochloride; INCI Chlorhexidine Diacetate; Chlorhexidine; Chlorhexidine Digluconate
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Antimicrobial preservative family; salt form matters for limits.
-- **Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride** (`tfda-poly-methylene-alpha-ome-ga-bis-aminoiminomethyl-amino-iminomethyl-amino-dihydro`)
-  - Aliases: CAS 32289-58-0; CAS 133029-32-0; CAS 28757-47-3; CAS 27083-27-8; INCI Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride; INCI Polyaminopropyl biguanide; Polyaminopropyl biguanide; 133029-32-0; 27083-27-8; 28757-47-3
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-39
 
 ## Alias Ambiguity Queue
 

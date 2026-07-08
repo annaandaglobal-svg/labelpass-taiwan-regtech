@@ -1157,6 +1157,11 @@
           "category": "food_additive"
         },
         {
+          "term_key": "fcol-anthocyanins",
+          "canonical_name": "Anthocyanins",
+          "category": "food_additive"
+        },
+        {
           "term_key": "tfda-ci-10006",
           "canonical_name": "CI 10006",
           "category": "colorant"
@@ -1204,11 +1209,6 @@
         {
           "term_key": "tfda-ci-12120",
           "canonical_name": "CI 12120",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-12370",
-          "canonical_name": "CI 12370",
           "category": "colorant"
         }
       ],

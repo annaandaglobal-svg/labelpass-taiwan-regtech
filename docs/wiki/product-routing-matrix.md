@@ -10,7 +10,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 | Taiwan prepackaged food label, allergens, nutrition and claims | food | 9 | 10 | Run food label review and resolve allergen/nutrition/claim blockers before shipment release. |
 | Taiwan food additive or ingredient permissibility | food_additive | 9 | 10 | Confirm additive/common-name status before treating the substance as allowed on a food label. |
 | Taiwan food import inspection and customs packet | food_import | 9 | 10 | Route to food import inspection checklist before final label or logistics approval. |
-| Taiwan health food permit, label and approved effect wording | health_food | 9 | 9 | Confirm permit scope before allowing any health-food wording or approved-effect claim. |
+| Taiwan health food permit, label and approved effect wording | health_food | 9 | 10 | Confirm permit scope before allowing any health-food wording or approved-effect claim. |
 | Taiwan food-contact packaging and container labeling | food_contact | 9 | 10 | Classify food-contact status before applying ordinary food label or customs routing. |
 | Taiwan customs, HS/CCC, origin and trade label routing | customs_trade | 9 | 10 | Resolve HS/CCC and origin before final Taiwan label or import/export document release. |
 | Taiwan SHTC and import/export control screening | trade_control | 9 | 10 | Escalate to trade-control review when CCC, destination, or technical specs match SHTC signals. |
@@ -130,7 +130,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: permit record; approved effect scope; functional ingredient report; safety/effect assessment; label and product description
 - Evidence template IDs: `tw_health_food_claims_evidence_bundle`
 - Source IDs: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-application-permit-regulations`, `tw-tfda-health-food-enforcement-rules`, `tw-tfda-health-food-health-care-effect-items-2025`, `tw-tfda-health-food-labeling-regulations`, `tw-tfda-health-food-permit-query`, `tw-tfda-health-food-effect-assessment-methods-hub`, `tw-tfda-special-disease-food-permit-query`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`
-- Term IDs: `health-food-permit`, `health-food`, `health-food-application-permit`, `health-food-approved-effect-vocabulary`, `health-food-label-required-items`, `novel-food-ingredient-safety-assessment`, `gaba-food`, `health-functional-food`, `protein-bar`
+- Term IDs: `health-food-permit`, `health-food`, `health-food-application-permit`, `health-food-approved-effect-vocabulary`, `health-food-label-required-items`, `novel-food-ingredient-safety-assessment`, `gaba-food`, `health-functional-food`, `hfun-beta-glucan`, `hfun-chitosan`
 
 ### Entry Questions
 
