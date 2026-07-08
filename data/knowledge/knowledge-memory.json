@@ -12,9 +12,9 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1296,
-    "stored_aliases": 5309,
-    "searchable_aliases": 7774,
+    "terms": 1299,
+    "stored_aliases": 5334,
+    "searchable_aliases": 7799,
     "identifier_aliases": 2465,
     "term_rule_links": 1084,
     "regulatory_update_candidates": 47,
@@ -4638,31 +4638,6 @@
       "score": 206
     },
     {
-      "id": "cosmetic-gmp",
-      "canonical_name": "Cosmetic Good Manufacturing Practice",
-      "category": "cosmetic_compliance",
-      "category_label": "Cosmetic compliance",
-      "aliases": [
-        "cosmetic GMP",
-        "化粧品優良製造準則",
-        "Good Manufacturing Practice for cosmetics",
-        "cosmetic good manufacturing practice",
-        "化粧品GMP",
-        "화장품 GMP",
-        "化粧品優良製造規範",
-        "化粧品優良製造證明書",
-        "化粧品製造場所GMP符合性檢查",
-        "화장품 우수제조관리기준"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-announcements",
-        "tw-tfda-cosmetics-business-area",
-        "tw-moj-cosmetic-hygiene-safety-act"
-      ],
-      "notes": "Taiwan cosmetic GMP concept used with the post-2024 unified cosmetics management system and PIF implementation stages.",
-      "score": 204
-    },
-    {
       "id": "methionine-food-additive",
       "canonical_name": "Methionine",
       "category": "food_additive",
@@ -5421,6 +5396,28 @@
       "score": 169
     },
     {
+      "id": "inci-ingredient-name",
+      "canonical_name": "INCI Ingredient Name",
+      "category": "cosmetic_compliance",
+      "category_label": "Cosmetic compliance",
+      "aliases": [
+        "INCI",
+        "International Nomenclature Cosmetic Ingredient",
+        "화장품 성분명",
+        "cosmetic ingredient name",
+        "化妆品成分名称",
+        "化粧品成分名稱",
+        "국제화장품성분명"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-product-notification"
+      ],
+      "notes": "Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping.",
+      "score": 169
+    },
+    {
       "id": "methylchloroisothiazolinone",
       "canonical_name": "Methylchloroisothiazolinone",
       "category": "preservative",
@@ -5535,9 +5532,9 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1296,
-      "aliases_scanned": 5309,
-      "alias_rows_scanned": 5304,
+      "terms_scanned": 1299,
+      "aliases_scanned": 5334,
+      "alias_rows_scanned": 5329,
       "collision_groups": 97,
       "high_confidence_collisions": 65,
       "short_ambiguous_aliases_without_notes": 0,

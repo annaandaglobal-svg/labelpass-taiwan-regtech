@@ -1630,6 +1630,8 @@ const knowledgeCases = [
   { query: "사카린", expectedTerm: "Saccharin (糖精)" },
   { query: "고춧가루", expectedTerm: "Chili/red-pepper powder pesticide border risk" },
   { query: "리모넨", expectedTerm: "Cosmetic fragrance allergens (24 components)" },
+  { query: "화장품 GMP", expectedTerm: "Cosmetic GMP / ISO 22716" },
+  { query: "수입자 모니터링", expectedTerm: "Importer food-safety monitoring plan" },
   { query: "학교 급식", expectedTerm: "School food sale standard (校園飲品及點心販售範圍)" },
   { query: "카페인", expectedTerm: "Caffeine content labeling (咖啡因含量標示)" },
   { query: "살리실산", expectedTerm: "Salicylic Acid" },

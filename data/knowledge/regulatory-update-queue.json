@@ -1041,7 +1041,7 @@
         {
           "term_key": "cosmetic-gmp",
           "canonical_name": "Cosmetic Good Manufacturing Practice",
-          "category": "cosmetic_compliance"
+          "category": "cosmetic_gmp"
         },
         {
           "term_key": "cosmetic-labeling-claims",
@@ -2903,6 +2903,16 @@
           "term_key": "disinfectant-class",
           "canonical_name": "Disinfectant / sanitizer classification",
           "category": "disinfectant_classification"
+        },
+        {
+          "term_key": "pfas-chemical",
+          "canonical_name": "PFAS concern chemical substances (環境部)",
+          "category": "environmental_agent_pesticide"
+        },
+        {
+          "term_key": "bsmi-2026-scope",
+          "canonical_name": "BSMI 2026 inspection scope additions",
+          "category": "device_import_regulation"
         }
       ],
       "affected_products": [

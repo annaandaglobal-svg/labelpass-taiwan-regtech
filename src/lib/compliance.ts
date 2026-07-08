@@ -264,6 +264,8 @@ const verdictSurfacedCategories = new Set([
   "food_safety_contaminant",
   "pesticide_border_risk",
   "fragrance_allergen_labeling",
+  "cosmetic_gmp",
+  "importer_monitoring_plan",
   "honey_naming",
   "food_synthetic_color",
   "chocolate_naming",

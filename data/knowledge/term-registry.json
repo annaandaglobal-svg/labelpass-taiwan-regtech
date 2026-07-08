@@ -9297,7 +9297,7 @@
     {
       "id": "cosmetic-gmp",
       "canonical_name": "Cosmetic Good Manufacturing Practice",
-      "category": "cosmetic_compliance",
+      "category": "cosmetic_gmp",
       "identifiers": {
         "cas": [],
         "inci": [],
@@ -9395,6 +9395,27 @@
           "language": "zh-Hans",
           "jurisdiction": "CN",
           "confidence": 0.85
+        },
+        {
+          "value": "ISO 22716",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "우수화장품제조기준",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "GMP 적합성",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -9402,7 +9423,7 @@
         "tw-tfda-cosmetics-business-area",
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "Taiwan cosmetic GMP concept used with the post-2024 unified cosmetics management system and PIF implementation stages."
+      "notes": "ISO 22716 기반 화장품 GMP 제조소 의무 — 일반 화장품 전체 2026-07-01 시행."
     },
     {
       "id": "cosmetic-labeling-claims",
@@ -24510,6 +24531,210 @@
         "tw-tfda-health-food-enforcement-rules"
       ],
       "notes": "발효 GABA 분말 식품원료 허용(2025) — GABA ≥20%, 1일 100mg 상한, 음주·혈압강하제·진정제 병용 주의 표시."
+    },
+    {
+      "id": "importer-monitoring",
+      "canonical_name": "Importer food-safety monitoring plan",
+      "category": "importer_monitoring_plan",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "수입자 모니터링",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "식품안전 모니터링 계획",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "食品安全監測計畫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "땅콩 수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "각란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "국경검사 2회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "자가검사 의무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "특정 식품업자(땅콩·각란·2회 불합격 품목 수입자) 모니터링 계획·배치 검사 의무, 2026-01-01."
+    },
+    {
+      "id": "pfas-chemical",
+      "canonical_name": "PFAS concern chemical substances (環境部)",
+      "category": "environmental_agent_pesticide",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "PFAS",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "과불화화합물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "全氟",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "퍼플루오로",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "PFOA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "PFOS",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "관注화학물질",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "環境部 269종 PFAS 관注化學物質 지정 — 섬유·조리기구·코팅·포장·원료. 임계치 이상 등록·표시. 시행일 미확정(~2027, 음용수 기준 2027-07)."
+    },
+    {
+      "id": "bsmi-2026-scope",
+      "canonical_name": "BSMI 2026 inspection scope additions",
+      "category": "device_import_regulation",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "전기차 충전기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "EV 충전기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "충전 설비",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "電動車充電",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "LED 조명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "PVC 장갑",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "에너지저장장치",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "리튬 저장",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "BSMI 강제검사 확대 2026-07-01 — EV충전기(≤30kW)·PVC장갑·LED제어기·리튬 ESS 등 검사·표시 필요."
     }
   ]
 }

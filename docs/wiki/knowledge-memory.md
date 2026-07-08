@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,296
-- Stored aliases: 5,309
-- Searchable aliases including identifiers: 7,774
+- Terms: 1,299
+- Stored aliases: 5,334
+- Searchable aliases including identifiers: 7,799
 - Term-rule links: 1,084
 - Regulatory update candidates: 47
 - Alias review items: 1,072
@@ -208,14 +208,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: cosmetic claims criteria; 化粧品標示宣傳廣告涉及虛偽誇大或醫療效能認定準則; 화장품 효능표현 판단기준; cosmetic claim evidence; cosmetic claim substantiation; cosmetic medical efficacy claim; false exaggerated cosmetic label; 化粧品標示宣傳廣告; 虛偽誇大; 醫療效能
   - Sources: `tw-moj-cosmetic-claims-criteria`, `tw-moj-cosmetic-hygiene-safety-act`, `tw-tfda-cosmetics-law-regulations-index`, `tw-tfda-illegal-advertising-query`
   - Note: Taiwan criteria for judging cosmetic labels, promotion, and advertisements by overall consumer presentation. False or exaggerated claims include content not conforming to facts, lacking evidence, having insufficient evidence, or exceedin...
-- **Cosmetic Good Manufacturing Practice** (`cosmetic-gmp`)
-  - Aliases: cosmetic GMP; 化粧品優良製造準則; Good Manufacturing Practice for cosmetics; cosmetic good manufacturing practice; 化粧品GMP; 화장품 GMP; 化粧品優良製造規範; 化粧品優良製造證明書; 化粧品製造場所GMP符合性檢查; 화장품 우수제조관리기준
-  - Sources: `tw-tfda-cosmetic-announcements`, `tw-tfda-cosmetics-business-area`, `tw-moj-cosmetic-hygiene-safety-act`
-  - Note: Taiwan cosmetic GMP concept used with the post-2024 unified cosmetics management system and PIF implementation stages.
 - **Imported Cosmetics Inspection** (`imported-cosmetics-inspection`)
   - Aliases: imported cosmetics inspection; 輸入化粧品檢驗; cosmetics import inspection; 先行放行; 抽批檢驗; 輸入化粧品查驗; 輸入化粧品邊境查驗; 수입 화장품 검사; 取樣; 輸入不符合通知書
   - Sources: `tw-tfda-imported-cosmetics-inspection`, `tw-moj-cosmetic-hygiene-safety-act`
   - Note: Border inspection concept for imported cosmetics, including sampling, release, and nonconforming goods workflows.
+- **INCI Ingredient Name** (`inci-ingredient-name`)
+  - Aliases: INCI; International Nomenclature Cosmetic Ingredient; 화장품 성분명; cosmetic ingredient name; 化妆品成分名称; 化粧品成分名稱; 국제화장품성분명
+  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-product-notification`
+  - Note: Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping.
 
 ### Health food
 
