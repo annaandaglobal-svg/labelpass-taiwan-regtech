@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1614,
-    "stored_aliases": 6315,
-    "searchable_aliases": 8595,
-    "identifier_aliases": 2280,
+    "terms": 1642,
+    "stored_aliases": 6430,
+    "searchable_aliases": 8702,
+    "identifier_aliases": 2272,
     "term_rule_links": 1093,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 987,
+    "alias_review_items": 986,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -4300,7 +4300,8 @@
         "프로바이오틱스",
         "Lactic acid bacteria",
         "Bifidobacterium",
-        "Lactobacillus"
+        "Lactobacillus",
+        "비피더스"
       ],
       "source_keys": [
         "tw-tfda-food-ingredient-integration-query-platform",
@@ -4309,7 +4310,7 @@
         "tw-tfda-food-false-exaggerated-medical-efficacy-claims"
       ],
       "notes": "High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.",
-      "score": 242
+      "score": 246
     },
     {
       "id": "benzoates-food-additives",
@@ -4359,7 +4360,7 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup.",
-      "score": 238
+      "score": 240
     },
     {
       "id": "hs-code-classification",
@@ -4925,6 +4926,28 @@
       "score": 189
     },
     {
+      "id": "xanthan-gum-food-additive",
+      "canonical_name": "Xanthan Gum",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 11138-66-2",
+        "Xanthan gum",
+        "잔탄검",
+        "三仙膠",
+        "산탄검",
+        "Xanthan",
+        "玉米糖膠",
+        "E415"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Food thickener/stabilizer alias set.",
+      "score": 189
+    },
+    {
       "id": "climbazole",
       "canonical_name": "Climbazole",
       "category": "preservative",
@@ -4966,27 +4989,6 @@
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.",
-      "score": 187
-    },
-    {
-      "id": "xanthan-gum-food-additive",
-      "canonical_name": "Xanthan Gum",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "CAS 11138-66-2",
-        "Xanthan gum",
-        "잔탄검",
-        "三仙膠",
-        "산탄검",
-        "Xanthan",
-        "玉米糖膠"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
-      ],
-      "notes": "Food thickener/stabilizer alias set.",
       "score": 187
     },
     {
@@ -5484,44 +5486,41 @@
       "score": 169
     },
     {
-      "id": "tfda-benzenecarboximidamide-4-4-1-6-hexanediylbis-oxy-bis-and-its-salts-including-ise",
-      "canonical_name": "Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)",
-      "category": "preservative",
-      "category_label": "Preservative",
+      "id": "cdict-ubiquinone",
+      "canonical_name": "Ubiquinone",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
       "aliases": [
-        "CAS 3811-75-4",
-        "CAS 659-40-5",
-        "CAS 93841-83-9",
-        "INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)",
-        "INCI Hexamidine",
-        "INCI Hexamidine diisethionate",
-        "INCI Hexamidine paraben",
-        "Hexamidine",
-        "Hexamidine diisethionate",
-        "Hexamidine paraben"
+        "CoQ10",
+        "Ubiquinone",
+        "輔酶Q10",
+        "유비퀴논",
+        "코엔자임Q10",
+        "코엔자임큐텐",
+        "코큐텐"
       ],
       "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
+        "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "Generated from TFDA rule tw-cos-201-24",
-      "score": 167
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).",
+      "score": 168
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1614,
-      "aliases_scanned": 6315,
-      "alias_rows_scanned": 6310,
-      "collision_groups": 88,
-      "high_confidence_collisions": 56,
+      "terms_scanned": 1642,
+      "aliases_scanned": 6430,
+      "alias_rows_scanned": 6425,
+      "collision_groups": 90,
+      "high_confidence_collisions": 58,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 899,
+      "regulated_terms_without_local_alias": 896,
       "strict_blockers": 0,
-      "review_items": 987
+      "review_items": 986
     },
     "items": [
       {
@@ -6941,9 +6940,9 @@
           "Benzophenone-3",
           "Cosmetic Sunscreen Ingredients",
           "Benzophenones (UV)",
+          "Octocrylene",
           "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
-          "Benzoic acid, 2-hydroxy-,3,3,5-trimethylcyclohexyl ester/ Homosalate",
-          "2-Ethylhexyl 4-methoxycinnamate/ Octinoxate"
+          "Benzoic acid, 2-hydroxy-,3,3,5-trimethylcyclohexyl ester/ Homosalate"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

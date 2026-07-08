@@ -2162,6 +2162,11 @@
           "category": "cosmetic_ingredient"
         },
         {
+          "term_key": "uv-octocrylene",
+          "canonical_name": "Octocrylene",
+          "category": "uv_filter"
+        },
+        {
           "term_key": "tfda-2-ethylhexyl-4-dimethylamino-benzoate-padimate-o",
           "canonical_name": "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
           "category": "sunscreen"
@@ -2194,11 +2199,6 @@
         {
           "term_key": "tfda-3-3-1-4-phenylenedimethylene-bis-7-7-dimethyl-2-oxobicyclo-2-2-1-hept-1-ylmethan",
           "canonical_name": "3,3'-(1,4-Phenylenedimethylene)bis(7, 7-dimethyl-2-oxobicyclo-[2.2.1]hept-1-ylmethanesulfonic acid) and its salts/ Ecamsule",
-          "category": "sunscreen"
-        },
-        {
-          "term_key": "tfda-2-cyano-3-3-diphenylacrylic-acid-2-ethylhexyl-ester-octocrilene",
-          "canonical_name": "2-Cyano-3,3-diphenylacrylic acid, 2-ethylhexyl ester/ Octocrilene",
           "category": "sunscreen"
         },
         {

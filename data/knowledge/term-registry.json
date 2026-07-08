@@ -740,6 +740,13 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
+        },
+        {
+          "value": "벤조페논-3",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -1212,6 +1219,13 @@
           "language": "ja",
           "jurisdiction": "JP",
           "confidence": 0.95
+        },
+        {
+          "value": "소듐하이드록사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -3260,6 +3274,13 @@
           "jurisdiction": "GLOBAL",
           "confidence": 0.8,
           "note": "Spacing variant of E202."
+        },
+        {
+          "value": "포타슘소르베이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -3661,6 +3682,13 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
+        },
+        {
+          "value": "E415",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
         }
       ],
       "source_keys": [
@@ -15346,6 +15374,20 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95
+        },
+        {
+          "value": "비피더스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "비피도박테리움",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -16954,6 +16996,13 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.85
+        },
+        {
+          "value": "아이런옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -20572,6 +20621,13 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "E322",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
         }
       ],
       "source_keys": [
@@ -22189,6 +22245,20 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "E412",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "E407",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
         }
       ],
       "source_keys": [
@@ -23579,6 +23649,13 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "E440",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
         }
       ],
       "source_keys": [
@@ -29343,6 +29420,13 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7
+        },
+        {
+          "value": "수크로스에스터",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -31371,6 +31455,13 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "aqua",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
         }
       ],
       "source_keys": [
@@ -34775,6 +34866,34 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "코엔자임Q10",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "코엔자임큐텐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "CoQ10",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "코큐텐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -35182,6 +35301,20 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "로즈마리추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "로즈마리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -35218,6 +35351,27 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "캐모마일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "캐모마일꽃추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "카밀레",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -35699,6 +35853,13 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "비피더스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -36893,6 +37054,20 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "파프리카추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "파프리카",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -39997,6 +40172,1202 @@
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
       "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인)."
+    },
+    {
+      "id": "cdict-allantoin",
+      "canonical_name": "Allantoin",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "알란토인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Allantoin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "尿囊素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료(진정) — 대부분 허용, 함량·용도 확인."
+    },
+    {
+      "id": "cdict-talc",
+      "canonical_name": "Talc",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "탈크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Talc",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "滑石",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "탤크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "화장품 원료 — 석면 불검출 요건. 식품·의약외품은 별도 기준."
+    },
+    {
+      "id": "cdict-paraffin",
+      "canonical_name": "Paraffin",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "파라핀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Paraffin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "石蠟",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "파라핀왁스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료(유성기제) — 대부분 허용."
+    },
+    {
+      "id": "cos-rest-azelaic-acid",
+      "canonical_name": "Azelaic Acid",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아젤라익애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Azelaic Acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "壬二酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "아젤라산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "여드름·미백 소구 성분 — 특정용도/제한 여부·함량 확인(고농도는 의약품 경계)."
+    },
+    {
+      "id": "cos-rest-tranexamic-acid",
+      "canonical_name": "Tranexamic Acid",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "트라넥삼산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Tranexamic Acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "傳明酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "트라넥사믹애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "미백 소구 성분 — 대만 제한 성분(함량·조건 확인)."
+    },
+    {
+      "id": "fadd-citric-acid-e330",
+      "canonical_name": "Citric Acid",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "시트르산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "구연산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Citric Acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "檸檬酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "E330",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "산미료 — 포지티브 리스트, 사용범위·한도 확인."
+    },
+    {
+      "id": "cbot-calendula-officinalis-flower-extract",
+      "canonical_name": "Calendula Officinalis Flower Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카렌둘라",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Calendula Officinalis Flower Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "金盞花萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-oenothera-biennis-extract",
+      "canonical_name": "Oenothera Biennis Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "달맞이꽃추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Oenothera Biennis Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "月見草萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-punica-granatum-extract",
+      "canonical_name": "Punica Granatum Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "석류추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Punica Granatum Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "石榴萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-paeonia-extract",
+      "canonical_name": "Paeonia Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "작약추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Paeonia Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "芍藥萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-chestnut-shell-extract",
+      "canonical_name": "Chestnut Shell Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "율피추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Chestnut Shell Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "栗殼萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-nelumbo-nucifera-extract",
+      "canonical_name": "Nelumbo Nucifera Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "연꽃추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Nelumbo Nucifera Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蓮花萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-camellia-japonica-extract",
+      "canonical_name": "Camellia Japonica Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "동백꽃추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Camellia Japonica Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "山茶花萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-snail-secretion-filtrate",
+      "canonical_name": "Snail Secretion Filtrate",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "달팽이점액",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Snail Secretion Filtrate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蝸牛黏液",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "cbot-propolis-extract",
+      "canonical_name": "Propolis Extract",
+      "category": "botanical_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프로폴리스추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Propolis Extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蜂膠萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "식물 추출 화장품 원료 — 대부분 허용, 성분·안전성 확인."
+    },
+    {
+      "id": "fsug-sucrose",
+      "canonical_name": "Sucrose",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "수크로스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Sucrose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蔗糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 원료(당류) — 대부분 허용."
+    },
+    {
+      "id": "fsug-maltose",
+      "canonical_name": "Maltose",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "말토스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Maltose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "麥芽糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 원료(당류) — 대부분 허용."
+    },
+    {
+      "id": "fsug-polyglycitol-syrup",
+      "canonical_name": "Polyglycitol Syrup",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리글리시톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Polyglycitol Syrup",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚甘油醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 원료(당류) — 대부분 허용."
+    },
+    {
+      "id": "fsug-dextran",
+      "canonical_name": "Dextran",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "덱스트란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Dextran",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "葡聚糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 원료(당류) — 대부분 허용."
+    },
+    {
+      "id": "cinc-stearoxymethicone",
+      "canonical_name": "Stearoxymethicone",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "스테아록시메티콘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Stearoxymethicone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "硬脂氧基聚二甲基矽氧烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-sodium-acrylates-copolymer",
+      "canonical_name": "Sodium Acrylates Copolymer",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "소듐아크릴레이트코폴리머",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Sodium Acrylates Copolymer",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "丙烯酸鈉共聚物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-cocamide-dea",
+      "canonical_name": "Cocamide DEA",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "코카마이드다이에탄올아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Cocamide DEA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "椰油醯胺DEA",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "코카마이드DEA",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-lauryl-lactate",
+      "canonical_name": "Lauryl Lactate",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "라우릴락테이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Lauryl Lactate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "乳酸月桂酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-isododecane",
+      "canonical_name": "Isododecane",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아이소도데케인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Isododecane",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "異十二烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-pentaerythrityl-tetraisostearate",
+      "canonical_name": "Pentaerythrityl Tetraisostearate",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "펜타에리스리틸테트라이소스테아레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Pentaerythrityl Tetraisostearate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "四異硬脂酸季戊四醇酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-polyglyceryl-4-caprate",
+      "canonical_name": "Polyglyceryl-4 Caprate",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리글리세릴-4카프레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Polyglyceryl-4 Caprate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚甘油-4癸酸酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-behentrimonium-methosulfate",
+      "canonical_name": "Behentrimonium Methosulfate",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "베헨트라이모늄메토설페이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Behentrimonium Methosulfate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "山萮基三甲基硫酸甲酯銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-capryloyl-glycine",
+      "canonical_name": "Capryloyl Glycine",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카프릴로일글리신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Capryloyl Glycine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "辛醯甘胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-acetyl-glucosamine",
+      "canonical_name": "Acetyl Glucosamine",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아세틸글루코사민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Acetyl Glucosamine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "乙醯葡萄糖胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "cinc-marine-collagen",
+      "canonical_name": "Marine Collagen",
+      "category": "cosmetic_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "마린콜라겐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Marine Collagen",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "海洋膠原蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용."
+    },
+    {
+      "id": "uv-octocrylene",
+      "canonical_name": "Octocrylene",
+      "category": "uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "옥토크릴렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Octocrylene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "辛氧基巴豆酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "자외선차단 성분(防曬) — 최대 10%."
     }
   ]
 }

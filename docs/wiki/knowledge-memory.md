@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,614
-- Stored aliases: 6,315
-- Searchable aliases including identifiers: 8,595
+- Terms: 1,642
+- Stored aliases: 6,430
+- Searchable aliases including identifiers: 8,702
 - Term-rule links: 1,093
 - Regulatory update candidates: 47
-- Alias review items: 987
+- Alias review items: 986
 
 ## How To Use This Memory
 
@@ -131,10 +131,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 144-55-8; Baking soda; Sodium bicarbonate; 小蘇打; 碳酸氫鈉; 베이킹소다; 탄산수소나트륨; 중탄산나트륨; 탄산수소 나트륨; NaHCO3
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Common food additive and common-name alias.
-- **Sorbitol** (`sorbitol-food-additive`)
-  - Aliases: CAS 50-70-4; D-Sorbitol; D-山梨醇; Sorbitol; 山梨糖醇; 소르비톨; 솔비톨
+- **Xanthan Gum** (`xanthan-gum-food-additive`)
+  - Aliases: CAS 11138-66-2; Xanthan gum; 잔탄검; 三仙膠; 산탄검; Xanthan; 玉米糖膠; E415
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.
+  - Note: Food thickener/stabilizer alias set.
 
 ### import export control
 
@@ -357,7 +357,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ### Food ingredient
 
 - **Probiotics and Lactic Acid Bacteria** (`probiotics-lactic-acid-bacteria`)
-  - Aliases: Probiotic; Probiotics; 乳酸菌; 益生菌; 유산균; 프로바이오틱스; Lactic acid bacteria; Bifidobacterium; Lactobacillus
+  - Aliases: Probiotic; Probiotics; 乳酸菌; 益生菌; 유산균; 프로바이오틱스; Lactic acid bacteria; Bifidobacterium; Lactobacillus; 비피더스
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-health-food-permit-query`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`
   - Note: High-frequency food and health-food ingredient cluster. Strain identity, viable count, shelf-life condition, and gastrointestinal or immunity claims need evidence and Taiwan permit checks.
 - **Omega-3 / lutein / functional oils** (`omega3-lutein`)
@@ -439,6 +439,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: PDRN; aloe; ascorbic acid; ceramide; galactomyces; houttuynia; peptide; propolis; resveratrol; snail
   - Sources: `global-pcpc-inci`, `global-cas-registry`
   - Note: 일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.
+- **Ubiquinone** (`cdict-ubiquinone`)
+  - Aliases: CoQ10; Ubiquinone; 輔酶Q10; 유비퀴논; 코엔자임Q10; 코엔자임큐텐; 코큐텐
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`
+  - Note: 일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).
 
 ### Preservative
 
@@ -470,10 +474,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 2682-20-4; INCI Methylisothiazolinone; Methylisothiazolinone; 甲基异噻唑啉酮; 甲基異噻唑啉酮; 2-Methyl-4-isothiazolin-3-one; 메칠이소치아졸리논; 메틸이소치아졸리논; MI; MIT
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
   - Note: Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists.
-- **Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)** (`tfda-benzenecarboximidamide-4-4-1-6-hexanediylbis-oxy-bis-and-its-salts-including-ise`)
-  - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate); INCI Hexamidine; INCI Hexamidine diisethionate; INCI Hexamidine paraben; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-24
 
 ## Alias Ambiguity Queue
 
