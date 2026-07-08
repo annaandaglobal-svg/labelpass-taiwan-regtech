@@ -200,9 +200,15 @@ function sanitize(raw: unknown): AiIngredientVerdict | null {
 }
 
 // Remove concrete ppm/%/mg figures so an unverified inference can never present a fabricated limit.
+// Exported for the safety test (scripts/verify-ai-fallback-safety.mjs).
+export function scrubInferredText(s: string) {
+  return stripNumbers(s);
+}
 function stripNumbers(s: string) {
+  // No trailing \b: "%" is a non-word char, so \b after it fails to match "6% " — dropping it lets
+  // percent figures (the most common fabricated limit) get scrubbed too.
   return s
-    .replace(/\d+(?:[.,]\d+)?\s*(?:ppm|%|mg|g\/kg|µg|mcg|iu)\b/gi, "해당 한도(공식 목록 확인)")
+    .replace(/\d+(?:[.,]\d+)?\s*(?:ppm|%|mg|g\/kg|µg|mcg|iu|퍼센트)/gi, "해당 한도(공식 목록 확인)")
     .trim();
 }
 
