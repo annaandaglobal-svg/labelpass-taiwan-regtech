@@ -85861,6 +85861,48 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "김 카드뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "미역 카드뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "유아 김",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "김 중금속",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "노리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "laver cadmium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -87602,6 +87644,661 @@
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
       "notes": "2027-10 성분제한 확대(레티놀·알부틴·코직산)+구강 불소 0.15%."
+    },
+    {
+      "id": "trap-cos-device",
+      "canonical_name": "Cosmetic/medical-device boundary",
+      "category": "cosmetic_device_boundary",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "컬러렌즈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "서클렌즈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "미용기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "의료기기 경계",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "LED마스크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "마이크로니들",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "더마롤러",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "화장품 의료기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "컬러렌즈·미용기기·치아미백 등은 화장품 아닌 의료기기."
+    },
+    {
+      "id": "trap-bsmi-ncc",
+      "canonical_name": "Electrical/RF certification (BSMI/NCC)",
+      "category": "electrical_bsmi_ncc",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "BSMI",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "NCC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "미용기기 인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "전기 미용기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "충전기 인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "商品檢驗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "전파인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "기기 인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "전기 미용기기 BSMI+무선은 NCC 필수."
+    },
+    {
+      "id": "trap-doc-legal",
+      "canonical_name": "Import document legalization",
+      "category": "import_document_legalization",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "Free Sale",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "자유판매증명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "영사인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "원산지증명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "위생증명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "TECO",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "아포스티유",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "수입 서류 인증",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "Free Sale·원산지·위생증명 TECO 영사인증(아포스티유 불가)+명칭 일치."
+    },
+    {
+      "id": "trap-alcohol",
+      "canonical_name": "Alcohol import regime / tax",
+      "category": "alcohol_import_regime",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "주류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "소주",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "막걸리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "맥주",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "菸酒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "주세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "과실주",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "주류 수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "酒類",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "주류는 재정부 菸酒管理法 관할+수입허가+주세+메탄올/SO2."
+    },
+    {
+      "id": "trap-commodity-tax",
+      "canonical_name": "Commodity tax on beverages",
+      "category": "commodity_tax_beverage",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "화물세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "貨物稅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "음료세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "음료 화물세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "상품세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "음료 세금",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "commodity tax",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "음료 화물세 15%(주스 8%), 무가당·100%주스 면제(2025)."
+    },
+    {
+      "id": "trap-raw-material",
+      "canonical_name": "Food raw material eligibility",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "식품원료 적격성",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "可供食品原料",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "한약재 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "신소재식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "비전통 식품원료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "원료 적격성",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "하수오",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "백수오",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "中藥材",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "목록 없으면 식품 아님+한약재 식약경계+非傳統성 사전승인+균주/곤충."
+    },
+    {
+      "id": "trap-supp-drug",
+      "canonical_name": "Supplement ingredient = drug",
+      "category": "supplement_ingredient_drug",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "멜라토닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "글루코사민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "홍국",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "紅麴",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "모나콜린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "보충제 약품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "melatonin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "수면영양제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "멜라토닌·글루코사민 황산염=약품, 홍국 모나콜린/시트리닌 한도."
+    },
+    {
+      "id": "trap-cbd",
+      "canonical_name": "CBD / cannabis food ban",
+      "category": "cbd_cannabis_ban",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "CBD",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "대마",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "칸나비디올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "헴프",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "마리화나",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "hemp",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "대마 식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "THC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "CBD·대마 식품 금지, 헴프씨드오일=화장품만, THC 10ppm=마약."
+    },
+    {
+      "id": "trap-irradiated",
+      "canonical_name": "Irradiated food labeling",
+      "category": "irradiated_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "조사식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "방사선 조사",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "輻照",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "라두라",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "輻射照射",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "irradiated food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "감마선 살균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "방사선 살균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "조사식품 허용품목+라두라 마크+輻射照射處理 표시."
     }
   ]
 }
