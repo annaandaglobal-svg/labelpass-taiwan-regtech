@@ -476,6 +476,8 @@ export default function KnowledgeSearchClient({
             </div>
           )}
 
+          <BatchVerdicts query={query} reviewHref={reviewHref} />
+
           <div className="kb-result-list">
             {visibleResults.map((result) => {
               const decision = decisionForResult(result);
@@ -486,6 +488,9 @@ export default function KnowledgeSearchClient({
                     <div>
                       <h3>{result.title}</h3>
                       <p>{decision.detail}</p>
+                      {result.kind === "term" && result.term?.notes && result.term.notes.trim() && !decision.detail.includes(result.term.notes.trim().slice(0, 16)) ? (
+                        <p className="kb-term-note">📌 {result.term.notes.trim()}</p>
+                      ) : null}
                       {result.kind === "term" ? <CollisionInline term={result.term} /> : null}
                       <div className="kb-chip-row">
                         <span>{result.subtitle}</span>
@@ -1004,4 +1009,73 @@ function labelFor(value: string) {
   };
 
   return labels[value] ?? String(value ?? "").replaceAll("_", " ");
+}
+
+// Per-ingredient batch verdict — paste a comma/newline list into search and get one verdict per
+// ingredient (the review console itemizes; this brings the same to the search page).
+function BatchVerdicts({ query, reviewHref }: { query: string; reviewHref: string }) {
+  const items = useMemo(
+    () => [...new Set(query.split(/[,、;\n·]+/).map((s) => s.trim()).filter((s) => s.length >= 2))].slice(0, 15),
+    [query]
+  );
+  const [rows, setRows] = useState<Array<{ name: string; label: string; tone: string }>>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (items.length < 2) {
+      setRows([]);
+      return;
+    }
+    let active = true;
+    setLoading(true);
+    (async () => {
+      const out = await Promise.all(
+        items.map(async (name) => {
+          try {
+            const response = await fetch(`/api/knowledge/evidence?q=${encodeURIComponent(name)}&limit=1`, { cache: "no-store" });
+            const payload = await response.json();
+            const verdict = payload?.verdict;
+            return verdict
+              ? { name, label: verdict.stateLabel || verdict.label || "확인 필요", tone: verdict.tone || "gold" }
+              : { name, label: "미등록 성분", tone: "muted" };
+          } catch {
+            return { name, label: "확인 실패", tone: "muted" };
+          }
+        })
+      );
+      if (active) {
+        setRows(out);
+        setLoading(false);
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [items]);
+
+  if (items.length < 2) return null;
+  const display = rows.length ? rows : items.map((name) => ({ name, label: "판정 중…", tone: "muted" }));
+  return (
+    <div className="kb-batch" aria-label="성분별 일괄 판정">
+      <div className="kb-batch-head">
+        <b>성분별 일괄 판정 · {items.length}건</b>
+        {loading ? (
+          <small>판정 중…</small>
+        ) : (
+          <Link className="lp-inline-link" href={reviewHref}>
+            검토 콘솔에서 상세 보기
+            <ArrowRight size={13} />
+          </Link>
+        )}
+      </div>
+      <div className="kb-batch-grid">
+        {display.map((row) => (
+          <div key={row.name} className={`kb-batch-cell tone-${row.tone}`}>
+            <span className="kb-batch-name" title={row.name}>{row.name}</span>
+            <span className="kb-batch-label">{row.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
