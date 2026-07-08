@@ -543,7 +543,18 @@ function tokenScoreWithQueryFallback(target: string, query: string, exactOnly = 
 function scoreAlias(alias: Alias, query: string) {
   const normalized = normalize(alias.value || alias.normalized || "");
   const exactOnly = isShortLatin(normalized) || isBroadOrAmbiguous(alias);
-  const base = tokenScoreWithQueryFallback(normalized, query, exactOnly);
+  // Some rule-derived terms carry paragraph-length "aliases" (whole regulatory clauses). A short
+  // single-token query buried inside such text is a false match (e.g. "glycerin"/"talc" inside a
+  // BSE prohibited-material clause). Trust only exact/prefix there; real ingredient matches come
+  // from proper short aliases. Multi-word / longer queries are scored normally.
+  const aliasIsParagraph = normalized.length > 80 && !query.includes(" ") && query.length <= 16;
+  const base = aliasIsParagraph
+    ? normalized === query
+      ? 100
+      : normalized.startsWith(`${query} `)
+        ? 88
+        : 0
+    : tokenScoreWithQueryFallback(normalized, query, exactOnly);
   if (!base) return 0;
 
   const confidence = typeof alias.confidence === "number" ? alias.confidence : 0.85;
@@ -605,7 +616,20 @@ function scoreTerm(term: KnowledgeTerm, query: string) {
     .sort((a, b) => b.score - a.score);
 
   const normalizedCanonical = normalize(term.canonical_name);
-  const canonicalBase = tokenScoreWithQueryFallback(normalizedCanonical, query);
+  // Rule-derived terms carry a paragraph-length canonical (an entire regulatory clause). A short
+  // single-token query that merely appears somewhere inside such a paragraph is a false match —
+  // e.g. "glycerin"/"talc" fuzzing into a BSE prohibited-material clause that actually EXEMPTS
+  // glycerin. For those, only trust an exact/prefix canonical match; ingredient matches should come
+  // from curated aliases, not from being buried in a rule description. (Multi-word queries and
+  // shorter canonicals are scored normally, so GHS concept phrases etc. are unaffected.)
+  const canonicalIsParagraph = normalizedCanonical.length > 80 && !query.includes(" ") && query.length <= 16;
+  const canonicalBase = canonicalIsParagraph
+    ? normalizedCanonical === query
+      ? 94
+      : normalizedCanonical.startsWith(`${query} `)
+        ? 82
+        : 0
+    : tokenScoreWithQueryFallback(normalizedCanonical, query);
   const canonicalPrefixBoost = canonicalBase && query.length >= 2 && normalizedCanonical.startsWith(`${query} `) ? 12 : 0;
   const canonicalScore = canonicalBase
     ? canonicalBase + (normalizedCanonical === query ? 16 : 0) + canonicalPrefixBoost + (aliasScores.length ? 6 : 0)
