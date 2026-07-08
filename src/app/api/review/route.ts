@@ -3,10 +3,16 @@ import { z } from "zod";
 import { generateAiReviewInsight } from "@/lib/ai-review";
 import { aiIngredientFallbackReadiness, classifyUnknownIngredients } from "@/lib/ai-ingredient-fallback";
 import { evaluateReview } from "@/lib/compliance";
+import { searchKnowledge } from "@/lib/knowledge-search";
 import { presentReviewResult } from "@/lib/review-presentation";
 
-// Ingredients the curated KB did not match — candidates for the optional AI fallback. Approximate
-// split; over-including a matched item is harmless (the fallback is gated and best-effort).
+// Score above which the curated KB is considered to already KNOW an ingredient (so the AI fallback
+// should NOT run for it, even if its category is not surfaced as a review verdict).
+const KB_KNOWN_SCORE = 70;
+
+// Ingredients TRULY unknown to the curated KB — the only candidates for the optional AI fallback.
+// Two filters: not already surfaced as a review verdict, AND the bundled search index has no
+// confident match (so curated-but-unsurfaced ingredients like glycerin are excluded, not re-inferred).
 function unmatchedIngredients(ingredientsText: string, matchedTexts: string[]): string[] {
   const matched = matchedTexts.map((m) => m.toLowerCase()).filter(Boolean);
   const seen = new Set<string>();
@@ -19,6 +25,13 @@ function unmatchedIngredients(ingredientsText: string, matchedTexts: string[]): 
       return !matched.some((m) => lower.includes(m) || m.includes(lower));
     })
     .filter((s) => (seen.has(s.toLowerCase()) ? false : (seen.add(s.toLowerCase()), true)))
+    .filter((s) => {
+      try {
+        return (searchKnowledge(s, 1).terms[0]?.score ?? 0) < KB_KNOWN_SCORE;
+      } catch {
+        return true;
+      }
+    })
     .slice(0, 30);
 }
 
