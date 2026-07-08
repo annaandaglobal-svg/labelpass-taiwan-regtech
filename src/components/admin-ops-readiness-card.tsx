@@ -1,5 +1,6 @@
 import { AlertTriangle, CheckCircle2, Database, KeyRound, ListChecks, LockKeyhole, Route, ShieldCheck } from "lucide-react";
 import { aiReviewReadiness } from "@/lib/ai-review";
+import { aiIngredientFallbackReadiness } from "@/lib/ai-ingredient-fallback";
 import { handoffRequestReadiness } from "@/lib/handoff-requests";
 import { pifRequestReadiness } from "@/lib/pif-requests";
 import { platformOpsActionReadiness } from "@/lib/platform-ops-actions";
@@ -17,6 +18,7 @@ export function AdminOpsReadinessCard() {
   const readiness = platformOpsActionReadiness();
   const handoffReadiness = handoffRequestReadiness();
   const aiReadiness = aiReviewReadiness();
+  const ingredientFallbackReadiness = aiIngredientFallbackReadiness();
   const pifReadiness = pifRequestReadiness();
   const payments = portoneReadiness();
   const flags = [
@@ -61,6 +63,13 @@ export function AdminOpsReadinessCard() {
       detail: "규정·근거 기반 판정에 GPT 맥락 분석을 추가합니다.",
       env: "OPENAI_API_KEY + LABELPASS_ENABLE_AI_REVIEW=1",
       ready: aiReadiness.ready
+    },
+    {
+      label: "AI 성분 폴백",
+      owner: "미등록 성분",
+      detail: "큐레이션 DB에 없는 성분을 AI가 '추론(미검증)'으로 분류합니다. 큐레이션 판정이 항상 우선합니다.",
+      env: "OPENAI_API_KEY + LABELPASS_ENABLE_AI_INGREDIENT_FALLBACK=1",
+      ready: ingredientFallbackReadiness.ready
     },
     {
       label: "관리자 DB 미리보기",

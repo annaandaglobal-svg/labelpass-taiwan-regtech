@@ -1,8 +1,26 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { generateAiReviewInsight } from "@/lib/ai-review";
+import { aiIngredientFallbackReadiness, classifyUnknownIngredients } from "@/lib/ai-ingredient-fallback";
 import { evaluateReview } from "@/lib/compliance";
 import { presentReviewResult } from "@/lib/review-presentation";
+
+// Ingredients the curated KB did not match — candidates for the optional AI fallback. Approximate
+// split; over-including a matched item is harmless (the fallback is gated and best-effort).
+function unmatchedIngredients(ingredientsText: string, matchedTexts: string[]): string[] {
+  const matched = matchedTexts.map((m) => m.toLowerCase()).filter(Boolean);
+  const seen = new Set<string>();
+  return ingredientsText
+    .split(/[,;\n·、/()[\]{}|]+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length >= 2 && /[a-z가-힣]/i.test(s))
+    .filter((s) => {
+      const lower = s.toLowerCase();
+      return !matched.some((m) => lower.includes(m) || m.includes(lower));
+    })
+    .filter((s) => (seen.has(s.toLowerCase()) ? false : (seen.add(s.toLowerCase()), true)))
+    .slice(0, 30);
+}
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,5 +55,22 @@ export async function POST(request: Request) {
   const result = presentReviewResult(parsed.data, evaluateReview(parsed.data));
   const aiAnalysis = await generateAiReviewInsight(parsed.data, result);
 
-  return NextResponse.json(aiAnalysis ? { ...result, aiAnalysis } : result);
+  // Optional AI fallback for ingredients the curated KB didn't recognise. Fully gated: with the
+  // flag/key off this branch is skipped and the response is byte-identical to before.
+  let aiIngredientVerdicts: Awaited<ReturnType<typeof classifyUnknownIngredients>> = [];
+  if (aiIngredientFallbackReadiness().ready) {
+    const unmatched = unmatchedIngredients(
+      parsed.data.ingredientsText,
+      result.ingredientVerdicts.map((v) => v.matchedText)
+    );
+    if (unmatched.length) {
+      aiIngredientVerdicts = await classifyUnknownIngredients(unmatched, parsed.data.productType);
+    }
+  }
+
+  return NextResponse.json({
+    ...result,
+    ...(aiAnalysis ? { aiAnalysis } : {}),
+    ...(aiIngredientVerdicts.length ? { aiIngredientVerdicts } : {})
+  });
 }
