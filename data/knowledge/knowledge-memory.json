@@ -12,9 +12,9 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1293,
-    "stored_aliases": 5278,
-    "searchable_aliases": 7743,
+    "terms": 1296,
+    "stored_aliases": 5309,
+    "searchable_aliases": 7774,
     "identifier_aliases": 2465,
     "term_rule_links": 1084,
     "regulatory_update_candidates": 47,
@@ -5185,6 +5185,25 @@
       "score": 183
     },
     {
+      "id": "gaba-food",
+      "canonical_name": "GABA (γ-aminobutyric acid) food ingredient",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "GABA",
+        "γ-aminobutyric acid",
+        "가바",
+        "가바분말",
+        "감마아미노부티르산"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "발효 GABA 분말 식품원료 허용(2025) — GABA ≥20%, 1일 100mg 상한, 음주·혈압강하제·진정제 병용 주의 표시.",
+      "score": 181
+    },
+    {
       "id": "health-functional-food",
       "canonical_name": "Health functional food (健康食品)",
       "category": "health_food",
@@ -5510,34 +5529,15 @@
       ],
       "notes": "Common cooling ingredient with multilingual label variants.",
       "score": 162
-    },
-    {
-      "id": "tfda-aluminum-stearate-zinc-stearate-magnesium-stearate-calcium-stearate",
-      "canonical_name": "Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate",
-      "category": "colorant",
-      "category_label": "Colorant",
-      "aliases": [
-        "INCI Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate",
-        "Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate",
-        "Aluminum stearate",
-        "Calcium stearate",
-        "Magnesium stearate",
-        "Zinc stearate"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-colorants"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-200-149",
-      "score": 162
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1293,
-      "aliases_scanned": 5278,
-      "alias_rows_scanned": 5273,
+      "terms_scanned": 1296,
+      "aliases_scanned": 5309,
+      "alias_rows_scanned": 5304,
       "collision_groups": 97,
       "high_confidence_collisions": 65,
       "short_ambiguous_aliases_without_notes": 0,

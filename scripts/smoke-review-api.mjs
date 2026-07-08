@@ -1628,6 +1628,8 @@ const knowledgeCases = [
   { query: "꿀", expectedTerm: "Honey naming (蜂蜜)" },
   { query: "아플라톡신", expectedTerm: "Food contaminants (aflatoxin/heavy metal/residue)" },
   { query: "사카린", expectedTerm: "Saccharin (糖精)" },
+  { query: "고춧가루", expectedTerm: "Chili/red-pepper powder pesticide border risk" },
+  { query: "리모넨", expectedTerm: "Cosmetic fragrance allergens (24 components)" },
   { query: "학교 급식", expectedTerm: "School food sale standard (校園飲品及點心販售範圍)" },
   { query: "카페인", expectedTerm: "Caffeine content labeling (咖啡因含量標示)" },
   { query: "살리실산", expectedTerm: "Salicylic Acid" },

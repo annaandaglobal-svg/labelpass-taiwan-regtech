@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,293
-- Stored aliases: 5,278
-- Searchable aliases including identifiers: 7,743
+- Terms: 1,296
+- Stored aliases: 5,309
+- Searchable aliases including identifiers: 7,774
 - Term-rule links: 1,084
 - Regulatory update candidates: 47
 - Alias review items: 1,072
@@ -235,6 +235,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: protein bar; 蛋白棒; 단백질바; 시리얼바; 에너지바; 프로틴바
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
   - Note: 일반식품이면 기능 표방 불가, 기능 표방 시 健康食品 허가 필요.
+- **GABA (γ-aminobutyric acid) food ingredient** (`gaba-food`)
+  - Aliases: GABA; γ-aminobutyric acid; 가바; 가바분말; 감마아미노부티르산
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: 발효 GABA 분말 식품원료 허용(2025) — GABA ≥20%, 1일 100mg 상한, 음주·혈압강하제·진정제 병용 주의 표시.
 - **Health functional food (健康食品)** (`health-functional-food`)
   - Aliases: 健康食品; 小綠人; 건강기능식품; 기능성식품; 보건기능식품
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
@@ -470,13 +474,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 2682-20-4; INCI Methylisothiazolinone; Methylisothiazolinone; 甲基异噻唑啉酮; 甲基異噻唑啉酮; 2-Methyl-4-isothiazolin-3-one; 메칠이소치아졸리논; 메틸이소치아졸리논; MI; MIT
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
   - Note: Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists.
-
-### Colorant
-
-- **Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate** (`tfda-aluminum-stearate-zinc-stearate-magnesium-stearate-calcium-stearate`)
-  - Aliases: INCI Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate; Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate; Aluminum stearate; Calcium stearate; Magnesium stearate; Zinc stearate
-  - Sources: `tw-tfda-cosmetic-colorants`
-  - Note: Generated from TFDA rule tw-cos-200-149
 
 ## Alias Ambiguity Queue
 

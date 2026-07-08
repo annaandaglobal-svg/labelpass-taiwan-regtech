@@ -1604,6 +1604,7 @@
         "health-food-approved-effect-vocabulary",
         "health-food-label-required-items",
         "novel-food-ingredient-safety-assessment",
+        "gaba-food",
         "health-functional-food",
         "protein-bar"
       ],
@@ -1805,6 +1806,22 @@
           "source_keys": [
             "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
             "tw-tfda-food-ingredient-integration-query-platform"
+          ]
+        },
+        {
+          "id": "gaba-food",
+          "canonical_name": "GABA (γ-aminobutyric acid) food ingredient",
+          "category": "health_food",
+          "aliases": [
+            "GABA",
+            "γ-aminobutyric acid",
+            "가바",
+            "가바분말",
+            "감마아미노부티르산"
+          ],
+          "source_keys": [
+            "tw-moj-health-food-governing-act",
+            "tw-tfda-health-food-enforcement-rules"
           ]
         },
         {

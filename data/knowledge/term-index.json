@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 268,
+  "curated_term_count": 271,
   "generated_term_count": 1026,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -32084,6 +32084,365 @@
         "tw-tfda-health-food-enforcement-rules"
       ],
       "notes": "식물성 기능 원료 — 원료 적격성·기능 표방(健康食品) 확인. 일부(은행 등)는 사용 제한."
+    },
+    {
+      "id": "chili-pesticide-risk",
+      "canonical_name": "Chili/red-pepper powder pesticide border risk",
+      "category": "pesticide_border_risk",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "고춧가루",
+          "normalized": "고춧가루",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "고추가루",
+          "normalized": "고추가루",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "고추분말",
+          "normalized": "고추분말",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "건고추",
+          "normalized": "건고추",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "홍고추",
+          "normalized": "홍고추",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "辣椒粉",
+          "normalized": "辣椒粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "chili powder",
+          "normalized": "chili powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "red pepper powder",
+          "normalized": "red pepper powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "番椒",
+          "normalized": "番椒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "고추",
+          "normalized": "고추",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.8,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "한국산 고춧가루 국경검사 잔류농약 반복 반려(chlormequat·chlorpyrifos·2,4-D), 업체 수입중단 사례."
+    },
+    {
+      "id": "fragrance-allergen",
+      "canonical_name": "Cosmetic fragrance allergens (24 components)",
+      "category": "fragrance_allergen_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "향료 알레르겐",
+          "normalized": "향료 알레르겐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "향료알레르겐",
+          "normalized": "향료알레르겐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "fragrance allergen",
+          "normalized": "fragrance allergen",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "리모넨",
+          "normalized": "리모넨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "limonene",
+          "normalized": "limonene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "리날룰",
+          "normalized": "리날룰",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "linalool",
+          "normalized": "linalool",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "쿠마린",
+          "normalized": "쿠마린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "coumarin",
+          "normalized": "coumarin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "게라니올",
+          "normalized": "게라니올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "geraniol",
+          "normalized": "geraniol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유제놀",
+          "normalized": "유제놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "eugenol",
+          "normalized": "eugenol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시트랄",
+          "normalized": "시트랄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "citral",
+          "normalized": "citral",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시트로넬올",
+          "normalized": "시트로넬올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "화장품 향료 알레르겐 24종 개별표시 예고(2025-01, 리브온 0.001%/린스오프 0.01%). 시행일 미확정."
+    },
+    {
+      "id": "gaba-food",
+      "canonical_name": "GABA (γ-aminobutyric acid) food ingredient",
+      "category": "health_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "GABA",
+          "normalized": "gaba",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가바",
+          "normalized": "가바",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "감마아미노부티르산",
+          "normalized": "감마아미노부티르산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "γ-aminobutyric acid",
+          "normalized": "γ-aminobutyric acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가바분말",
+          "normalized": "가바분말",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "발효 GABA 분말 식품원료 허용(2025) — GABA ≥20%, 1일 100mg 상한, 음주·혈압강하제·진정제 병용 주의 표시."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
