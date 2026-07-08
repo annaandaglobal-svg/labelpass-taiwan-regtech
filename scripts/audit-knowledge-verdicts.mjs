@@ -21,6 +21,7 @@ const coveredCategories = new Set([
   "oxidizing_agent",
   "skin_lightening_agent",
   "hair_dye_ingredient",
+  "cosmetic_gmp",
   "food_additive",
   "food_allergen",
   "food_allergen_advisory",
