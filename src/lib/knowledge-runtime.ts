@@ -137,6 +137,15 @@ function mergeKnowledgeResult(
   }
 
   const query = primary.query || fallback.query;
+  // Drop STALE Supabase duplicates: a primary (Supabase mirror) term whose canonical name matches a
+  // bundled term but whose id is not in the bundle is an out-of-date seed row from a previous
+  // registry version. The bundled catalog ships with the deploy and is authoritative, so the stale
+  // duplicate (which may carry an old category → wrong verdict) must not outrank the fresh term.
+  const canonKey = (name: string) =>
+    String(name ?? "").toLowerCase().normalize("NFKC").replace(/[^a-z0-9가-힣一-鿿]+/g, "");
+  const fallbackIds = new Set(fallback.terms.map((t) => t.id));
+  const fallbackCanon = new Set(fallback.terms.map((t) => canonKey(t.canonicalName)));
+  const seenCanon = new Set<string>();
   const mergedTerms = terms
     .sort(
       (a, b) =>
@@ -144,6 +153,14 @@ function mergeKnowledgeResult(
         termQueryRank(a, query) - termQueryRank(b, query) ||
         compareStable(a.canonicalName, b.canonicalName)
     )
+    .filter((t) => {
+      const key = canonKey(t.canonicalName);
+      if (!key) return true;
+      if (!fallbackIds.has(t.id) && fallbackCanon.has(key)) return false; // stale Supabase duplicate
+      if (seenCanon.has(key)) return false; // keep the highest-scored per canonical name
+      seenCanon.add(key);
+      return true;
+    })
     .slice(0, limit);
 
   const mergedSources = [...sourcesById.values()]
