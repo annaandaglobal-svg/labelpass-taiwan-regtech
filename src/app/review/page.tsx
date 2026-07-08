@@ -1505,6 +1505,41 @@ export default function Home() {
                   </div>
                 )}
 
+                {result.aiIngredientVerdicts && result.aiIngredientVerdicts.length > 0 && (
+                  <details className="lp-ai-ingredients" aria-label="AI 추론 · 미검증 성분">
+                    <summary>
+                      <b>AI 추론 · 미검증 성분 {result.aiIngredientVerdicts.length}건</b>
+                      <span className="lp-ai-ing-badge">큐레이션 DB에 없음</span>
+                    </summary>
+                    <p className="lp-ai-ing-warn">
+                      ⚠️ 아래는 큐레이션 규제 DB에 없는 성분을 AI가 <b>추론</b>한 결과입니다. 검증된 판정이 아니며,
+                      구체적 수치는 표시하지 않습니다. <b>대만 공식 성분 목록으로 반드시 확인</b>하세요.
+                    </p>
+                    {result.aiIngredientVerdicts.map((v) => {
+                      const tone =
+                        v.status === "likely_prohibited" ? "red" : v.status === "generally_permitted" ? "green" : "gold";
+                      const label =
+                        v.status === "generally_permitted"
+                          ? "일반 허용 가능성"
+                          : v.status === "restricted_or_conditional"
+                            ? "제한·조건부 가능성"
+                            : v.status === "likely_prohibited"
+                              ? "금지 가능성"
+                              : "확인 필요";
+                      return (
+                        <div key={v.name} className={`lp-ai-ing-row tone-${tone}`}>
+                          <div className="lp-ai-ing-head">
+                            <em>AI 추론: {label}</em>
+                            <b>{v.name}</b>
+                            <span className="lp-ai-ing-flag">미검증 · {v.confidence}</span>
+                          </div>
+                          {(v.reason || v.note) && <p>{`${v.reason} ${v.note}`.trim()}</p>}
+                        </div>
+                      );
+                    })}
+                  </details>
+                )}
+
                 <div className="lp-taxcard" aria-label="관세·세금 예상">
                   <div className="lp-taxcard-head">
                     <b>참고 · 관세·세금 예상</b>

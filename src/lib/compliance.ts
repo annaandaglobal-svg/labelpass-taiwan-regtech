@@ -1,6 +1,7 @@
 import rulesData from "../../data/rules/tw-cosmetics-rules.json";
 import termIndexData from "../../data/knowledge/term-index.json";
 import type { AiReviewInsight } from "./ai-review";
+import type { AiIngredientVerdict } from "./ai-ingredient-fallback";
 import { buildReviewActionPlan, type ReviewActionPlan } from "./review-action-plan";
 import { verdictForKnowledgeTerm, verdictStateLabels, type KnowledgeVerdictState } from "./knowledge-verdicts";
 
@@ -68,6 +69,7 @@ export type ReviewResult = {
     needsInfo: number;
   };
   aiAnalysis?: AiReviewInsight;
+  aiIngredientVerdicts?: AiIngredientVerdict[];
 };
 
 const SOURCE_ACT = "Cosmetic Hygiene and Safety Act, Articles 6, 7, 10";

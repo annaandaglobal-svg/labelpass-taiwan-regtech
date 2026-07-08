@@ -17355,3 +17355,66 @@ h2 {
 
 /* Provenance chip on 성분별 규제 판정 rows */
 .lp-verdict-match { margin-left: auto; font-size: 10.5px; font-weight: 700; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: 99px; padding: 2px 8px; white-space: nowrap; }
+
+/* AI ingredient fallback — clearly-flagged UNVERIFIED inference section */
+.lp-ai-ingredients {
+  margin: 14px 0;
+  border: 1px dashed var(--gold, #c98a1a);
+  border-radius: 12px;
+  background: var(--gold-soft, #fff8ec);
+  padding: 4px 14px 12px;
+}
+.lp-ai-ingredients > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.lp-ai-ingredients > summary::-webkit-details-marker { display: none; }
+.lp-ai-ingredients > summary::before { content: "▸"; color: var(--gold, #c98a1a); font-size: 12px; }
+.lp-ai-ingredients[open] > summary::before { content: "▾"; }
+.lp-ai-ing-badge {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold, #8a5a00);
+  background: rgba(201, 138, 26, 0.14);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.lp-ai-ing-warn {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-soft, #5b5347);
+  margin: 2px 0 10px;
+}
+.lp-ai-ing-row {
+  border-left: 3px solid var(--gold, #c98a1a);
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+.lp-ai-ing-row.tone-red { border-left-color: var(--red, #c0392b); }
+.lp-ai-ing-row.tone-green { border-left-color: #2e9e5b; }
+.lp-ai-ing-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.lp-ai-ing-head em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold, #8a5a00);
+  background: rgba(201, 138, 26, 0.14);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.lp-ai-ing-row.tone-red .lp-ai-ing-head em { color: var(--red, #c0392b); background: var(--red-soft, #fdecea); }
+.lp-ai-ing-row.tone-green .lp-ai-ing-head em { color: #2e9e5b; background: rgba(46, 158, 91, 0.12); }
+.lp-ai-ing-head b { font-size: 13.5px; }
+.lp-ai-ing-flag { margin-left: auto; font-size: 10.5px; color: var(--ink-soft, #7a7266); opacity: 0.85; }
+.lp-ai-ing-row p { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft, #4a4438); margin: 5px 0 0; }
+@media (prefers-color-scheme: dark) {
+  .lp-ai-ingredients { background: rgba(201, 138, 26, 0.08); }
+  .lp-ai-ing-row { background: rgba(255, 255, 255, 0.04); }
+}
