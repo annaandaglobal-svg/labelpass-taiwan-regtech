@@ -6,7 +6,10 @@ const datasets = [
   { id: 199, slug: "cosmetic-restricted-ingredients", label: "화장품 제한 성분" },
   { id: 201, slug: "cosmetic-preservatives", label: "화장품 방부제 제한" },
   { id: 202, slug: "cosmetic-sunscreens", label: "화장품 자외선차단제 제한" },
-  { id: 200, slug: "cosmetic-colorants", label: "화장품 색소 제한" }
+  { id: 200, slug: "cosmetic-colorants", label: "화장품 색소 제한" },
+  { id: 61, slug: "food-additives", label: "식품첨가물 사용범위·한도" },
+  { id: 15, slug: "banned-pesticides", label: "공고 금지 농약" },
+  { id: 1, slug: "gmo-approved", label: "승인 유전자변형 식품" }
 ];
 
 const outDir = path.join(process.cwd(), "data", "tfda");

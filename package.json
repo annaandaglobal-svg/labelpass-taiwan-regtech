@@ -49,8 +49,9 @@
     "test:intake": "node --experimental-strip-types --no-warnings scripts/verify-intake-parser.mjs",
     "test:verdicts": "node --experimental-strip-types --no-warnings scripts/verify-verdict-states.mjs",
     "smoke:api": "node scripts/smoke-review-api.mjs",
-    "refresh:tfda": "node scripts/fetch-tfda-data.mjs && node scripts/build-tfda-terms.mjs --apply",
-    "build:tfda-terms": "node scripts/build-tfda-terms.mjs"
+    "refresh:tfda": "node scripts/fetch-tfda-data.mjs && node scripts/build-tfda-terms.mjs --apply && node scripts/build-tfda-food-terms.mjs --apply",
+    "build:tfda-terms": "node scripts/build-tfda-terms.mjs",
+    "build:tfda-food-terms": "node scripts/build-tfda-food-terms.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

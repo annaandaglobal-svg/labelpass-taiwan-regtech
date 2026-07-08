@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,640
-- Stored aliases: 5,671
-- Searchable aliases including identifiers: 6,823
-- Term-rule links: 1,098
+- Terms: 2,260
+- Stored aliases: 6,981
+- Searchable aliases including identifiers: 8,133
+- Term-rule links: 1,100
 - Regulatory update candidates: 47
-- Alias review items: 918
+- Alias review items: 906
 
 ## How To Use This Memory
 
@@ -99,14 +99,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; CAS 7492-55-9; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
-- **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
-  - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
-  - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
 - **Casein and Caseinates** (`caseinates-food-additives`)
   - Aliases: CAS 9000-71-9; Calcium caseinate; Casein; Sodium caseinate; 乾酪素; 乾酪素鈉; 乾酪素鈣; 酪蛋白; 酪蛋白鈉; 酪蛋白鈣
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
   - Note: Food additive common-name set that also overlaps with milk allergen review.
+- **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
+  - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
+  - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
 - **Dehydroacetic Acid** (`dehydroacetic-acid-food-additive`)
   - Aliases: CAS 520-45-6; CAS 16807-48-0; CAS 4418-26-2; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts; Sodium dehydroacetate; 탈수초산
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
@@ -124,15 +124,15 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
 - **Riboflavin / Vitamin B2 (核黃素)** (`riboflavin-b2`)
-  - Aliases: E101; Lactoflavin; riboflavin; vitamin B; vitamin B2; 核黃素; 維生素B2; 리보플라빈; 비타민 B군; 비타민B
+  - Aliases: E101; Lactoflavin; riboflavin; vitamin B; vitamin B2; 核黃素; 核黃素（維生素B2）; 維生素B2; 리보플라빈; 비타민 B군
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-colorants`
   - Note: 영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.
-- **Propionic Acid** (`fadd-propionic-acid`)
-  - Aliases: CAS 79-09-4; CAS 137-40-6; CAS 17496-08-1; CAS 4075-81-4; CAS 557-27-7; CAS 327-62-8; Ammonium propionate; Calcium propionate; Magnesium propionate; Potassium propionate
+- **Butylparaben** (`fadd-butylparaben`)
+  - Aliases: CAS 94-26-8; CAS 94-13-3; CAS 35285-69-9; CAS 36457-20-2; CAS 38566-94-8; CAS 84930-16-5; Butyl 4-hydroxybenzoate and its salts Propyl 4-hydroxybenzoate and its salts(2); Butylp-Hydroxybenzoate; Butylparaben; Potassium butylparaben
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
-- **Butylparaben** (`fadd-butylparaben`)
-  - Aliases: CAS 94-26-8; CAS 94-13-3; CAS 35285-69-9; CAS 36457-20-2; CAS 38566-94-8; CAS 84930-16-5; Butyl 4-hydroxybenzoate and its salts Propyl 4-hydroxybenzoate and its salts(2); Butylparaben; Potassium butylparaben; Potassium propylparaben
+- **Propionic Acid** (`fadd-propionic-acid`)
+  - Aliases: CAS 79-09-4; CAS 137-40-6; CAS 17496-08-1; CAS 4075-81-4; CAS 557-27-7; CAS 327-62-8; Ammonium propionate; Calcium propionate; Magnesium propionate; Potassium propionate
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
 
