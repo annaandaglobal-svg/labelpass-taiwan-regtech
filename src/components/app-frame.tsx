@@ -34,6 +34,7 @@ function PortalShell({ label, children }: { label: string; children: ReactNode }
 function activeNavForPath(pathname: string): AppNavKey {
   if (pathname.startsWith("/admin")) return "admin";
   if (pathname.startsWith("/knowledge")) return "knowledge";
+  if (pathname.startsWith("/consult")) return "consult";
   if (pathname.startsWith("/workspace/experts")) return "experts";
   if (pathname.startsWith("/workspace/logistics")) return "logistics";
   if (pathname.startsWith("/customs")) return "customs";

@@ -932,6 +932,9 @@ function handoffDraftFor(input: ReviewInput, result: ReviewResult, route: RouteP
 
 export default function Home() {
   const [selectedRouteId, setSelectedRouteId] = useState<RouteId>("tw_cosmetic");
+  // Track the exact product the user clicked. Many products share one routeId, so deriving the
+  // active product from the route alone snapped every click back to the first sibling.
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [input, setInput] = useState<ReviewInput>(emptyInput);
   const [result, setResult] = useState<ReviewResult | null>(null);
   const [evidenceBundle, setEvidenceBundle] = useState<KnowledgeEvidenceBundle | null>(null);
@@ -950,7 +953,13 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const selectedRoute = useMemo(() => findRoute(selectedRouteId), [selectedRouteId]);
-  const selectedProduct = useMemo(() => productForRoute(selectedRouteId), [selectedRouteId]);
+  const selectedProduct = useMemo(() => {
+    if (selectedProductId) {
+      const clicked = productPresets.find((product) => product.id === selectedProductId);
+      if (clicked) return clicked;
+    }
+    return productForRoute(selectedRouteId);
+  }, [selectedProductId, selectedRouteId]);
   const readiness = useMemo(() => readinessFor(input), [input]);
   const sortedFindings = useMemo(() => {
     if (!result) return [];
@@ -987,6 +996,7 @@ export default function Home() {
     const routeParam = params.get("route_id");
     if (routeParam && routePresets.some((route) => route.id === routeParam)) {
       setSelectedRouteId(routeParam as RouteId);
+      setSelectedProductId(null);
     }
   }, []);
 
@@ -1016,6 +1026,7 @@ export default function Home() {
   function selectProduct(product: ProductPreset) {
     const route = findRoute(product.routeId);
     setSelectedRouteId(route.id);
+    setSelectedProductId(product.id);
     setResult(null);
     setEvidenceBundle(null);
     setInput((current) => ({
@@ -1030,6 +1041,7 @@ export default function Home() {
 
   function loadSample(sample: SampleReview) {
     setSelectedRouteId(sample.routeId);
+    setSelectedProductId(null);
     setInput(sample.input);
     setResult(null);
     setEvidenceBundle(null);
@@ -1055,6 +1067,7 @@ export default function Home() {
       });
 
       setSelectedRouteId(inferredRoute.id);
+      setSelectedProductId(null);
       setResult(null);
       setEvidenceBundle(null);
       setActiveFindingId(null);
@@ -1881,6 +1894,7 @@ export default function Home() {
                       setInput(review.input);
                       setResult(review.result);
                       setSelectedRouteId(routeFromInput(review.input).id);
+                      setSelectedProductId(null);
                     }}>
                       <History size={15} />
                       <span>

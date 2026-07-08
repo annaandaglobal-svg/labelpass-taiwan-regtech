@@ -9,10 +9,10 @@ const baseUrl = (process.env.LABELPASS_BASE_URL ?? "http://127.0.0.1:3000").repl
 const failures = [];
 const expectedPrimaryNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics"];
 const expectedPrimaryNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics"];
-const expectedUtilityNavKeys = ["knowledge", "products"];
-const expectedUtilityNavHrefs = ["/knowledge", "/workspace"];
-const expectedNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics", "knowledge", "products"];
-const expectedNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics", "/knowledge", "/workspace"];
+const expectedUtilityNavKeys = ["knowledge", "consult", "products"];
+const expectedUtilityNavHrefs = ["/knowledge", "/consult", "/workspace"];
+const expectedNavKeys = ["home", "review", "licensing", "customs", "experts", "logistics", "knowledge", "consult", "products"];
+const expectedNavHrefs = ["/", "/review", "/licensing", "/customs", "/workspace/experts", "/workspace/logistics", "/knowledge", "/consult", "/workspace"];
 const expectedAdminSectionHrefs = [
   "/admin",
   "/admin/companies",
@@ -344,7 +344,7 @@ function assertSnapshot(snapshot, route, viewport) {
   if (snapshot.sidebarCount !== 1) fail(`${label}: expected one persistent sidebar, found ${snapshot.sidebarCount}`);
   if (snapshot.contentCount !== 1) fail(`${label}: expected one stable content frame, found ${snapshot.contentCount}`);
   if (snapshot.primaryCount !== 6) fail(`${label}: primary nav count drifted to ${snapshot.primaryCount}`);
-  if (snapshot.utilityCount !== 2) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
+  if (snapshot.utilityCount !== 3) fail(`${label}: utility nav count drifted to ${snapshot.utilityCount}`);
 
   const keys = snapshot.navItems.map((item) => item.key);
   const hrefs = snapshot.navItems.map((item) => item.href);

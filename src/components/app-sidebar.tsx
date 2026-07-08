@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Boxes, ClipboardCheck, FileText, Home, Landmark, Search, Ship, UserCheck } from "lucide-react";
+import { Boxes, ClipboardCheck, FileText, Home, Landmark, MessageCircle, Search, Ship, UserCheck } from "lucide-react";
 
 export type AppNavKey =
   | "home"
@@ -10,6 +10,7 @@ export type AppNavKey =
   | "experts"
   | "logistics"
   | "knowledge"
+  | "consult"
   | "admin";
 
 type AppNavItem = {
@@ -34,6 +35,7 @@ const primaryNavItems: AppNavItem[] = [
 
 const utilityNavItems: AppNavItem[] = [
   { key: "knowledge", href: "/knowledge", label: "성분·규제 검색", ariaLabel: "성분이 대만에서 금지·제한인지 검색", icon: Search },
+  { key: "consult", href: "/consult", label: "AI 상담", ariaLabel: "규제 지식 기반 AI 상담 챗", icon: MessageCircle },
   { key: "products", href: "/workspace", label: "내 제품", ariaLabel: "내 제품 · 검토 이력", icon: Boxes }
 ];
 
