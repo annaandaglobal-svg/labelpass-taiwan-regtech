@@ -102,6 +102,13 @@ function mergeKnowledgeResult(
   for (const fallbackTerm of fallback.terms) {
     const primaryTerm = termsById.get(fallbackTerm.id);
     if (primaryTerm) {
+      // The bundled catalog (fallback) ships with the current deploy and defines the verdict
+      // branches keyed on category, so its category/canonical/notes are authoritative even when
+      // the Supabase mirror (primary) lags a seed behind. Without this, a term whose category was
+      // changed in the deploy keeps its stale Supabase category and renders an outdated verdict.
+      primaryTerm.category = fallbackTerm.category ?? primaryTerm.category;
+      primaryTerm.canonicalName = fallbackTerm.canonicalName ?? primaryTerm.canonicalName;
+      primaryTerm.notes = fallbackTerm.notes ?? primaryTerm.notes;
       primaryTerm.sourceKeys = uniqueValues([...(primaryTerm.sourceKeys ?? []), ...(fallbackTerm.sourceKeys ?? [])]);
       primaryTerm.rules = primaryTerm.rules.length
         ? [...primaryTerm.rules, ...fallbackTerm.rules].filter(
