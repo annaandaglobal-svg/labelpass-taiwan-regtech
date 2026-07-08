@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,642
-- Stored aliases: 6,430
-- Searchable aliases including identifiers: 8,702
-- Term-rule links: 1,093
+- Terms: 1,640
+- Stored aliases: 5,671
+- Searchable aliases including identifiers: 6,823
+- Term-rule links: 1,098
 - Regulatory update candidates: 47
-- Alias review items: 986
+- Alias review items: 918
 
 ## How To Use This Memory
 
@@ -92,11 +92,11 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`
   - Note: Functional-class search bridge for Taiwan food additives. Use alongside the additive standards and permit query to map broad function terms such as sweetener, preservative, thickener, emulsifier, antioxidant, and colorant to specific per...
 - **Benzoic Acid and Benzoates** (`benzoates-food-additives`)
-  - Aliases: CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; Benzoic acid; Potassium benzoate; Sodium benzoate; 苯甲酸; 苯甲酸鈉; 苯甲酸鉀; 벤조산
+  - Aliases: CAS 65-85-0; CAS 532-32-1; CAS 582-25-2; CAS 1863-63-4; CAS 2090-05-3; CAS 553-70-8; CAS 4337-66-0; CAS 93-58-3; CAS 93-89-0; CAS 2315-68-6
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
 - **Sorbic Acid and Sorbates** (`sorbates-food-additives`)
-  - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀; 소르빈산
+  - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; CAS 7492-55-9; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
 - **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
@@ -108,33 +108,33 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
   - Note: Food additive common-name set that also overlaps with milk allergen review.
 - **Dehydroacetic Acid** (`dehydroacetic-acid-food-additive`)
-  - Aliases: CAS 520-45-6; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 탈수초산; DHA
+  - Aliases: CAS 520-45-6; CAS 16807-48-0; CAS 4418-26-2; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts; Sodium dehydroacetate; 탈수초산
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸.
 - **Monosodium Glutamate** (`monosodium-glutamate`)
-  - Aliases: CAS 142-47-2; Monosodium Glutamate; 味精; 글루탐산나트륨; Monosodium L-glutamate; Monosodium glutamate (MSG); Sodium glutamate; 麩胺酸鈉; 麩酸鈉; 글루탐산 나트륨
+  - Aliases: CAS 142-47-2; Monosodium Glutamate; 味精; 글루탐산나트륨; Monosodium L-glutamate; Monosodium glutamate (MSG); Sodium glutamate; 麩胺酸鈉; 麩酸鈉; L-Glutamate Monosodium
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Representative food additive alias set from Taiwan common-name material.
 - **Methionine** (`methionine-food-additive`)
   - Aliases: DL-Methionine; DL-蛋胺酸; L-Methionine; L-蛋胺酸; Methionine; DL-甲硫胺酸; L-甲硫胺酸; 메티오닌; DL-甲硫氨酸; DL-蛋氨酸
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Food additive common-name aliases for methionine forms; verify product-specific permission before use.
-- **Pantothenates** (`pantothenate-food-additives`)
-  - Aliases: Calcium pantothenate; Sodium pantothenate; 本多酸鈉; 本多酸鈣; 泛酸鈉; 泛酸鈣; 판토텐산칼슘; Pantothenate; 판토텐산 칼슘; 판토텐산나트륨
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Vitamin-related food additive common names; use additive standards for scope and limitations.
+- **Sodium Bisulfite** (`fadd-sodium-bisulfite`)
+  - Aliases: CAS 7757-83-7; CAS 7631-90-5; CAS 7681-57-4; CAS 10117-38-1; CAS 16731-55-8; CAS 10196-04-0; CAS 10192-30-0; CAS 7773-03-7; Ammonium bisulfite; Ammonium sulfite
+  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
 - **Riboflavin / Vitamin B2 (核黃素)** (`riboflavin-b2`)
-  - Aliases: E101; riboflavin; vitamin B; vitamin B2; 核黃素; 維生素B2; 리보플라빈; 비타민 B군; 비타민B; 비타민B2
+  - Aliases: E101; Lactoflavin; riboflavin; vitamin B; vitamin B2; 核黃素; 維生素B2; 리보플라빈; 비타민 B군; 비타민B
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-colorants`
   - Note: 영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.
-- **Sodium Bicarbonate** (`sodium-bicarbonate-food-additive`)
-  - Aliases: CAS 144-55-8; Baking soda; Sodium bicarbonate; 小蘇打; 碳酸氫鈉; 베이킹소다; 탄산수소나트륨; 중탄산나트륨; 탄산수소 나트륨; NaHCO3
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Common food additive and common-name alias.
-- **Xanthan Gum** (`xanthan-gum-food-additive`)
-  - Aliases: CAS 11138-66-2; Xanthan gum; 잔탄검; 三仙膠; 산탄검; Xanthan; 玉米糖膠; E415
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Food thickener/stabilizer alias set.
+- **Propionic Acid** (`fadd-propionic-acid`)
+  - Aliases: CAS 79-09-4; CAS 137-40-6; CAS 17496-08-1; CAS 4075-81-4; CAS 557-27-7; CAS 327-62-8; Ammonium propionate; Calcium propionate; Magnesium propionate; Potassium propionate
+  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
+- **Butylparaben** (`fadd-butylparaben`)
+  - Aliases: CAS 94-26-8; CAS 94-13-3; CAS 35285-69-9; CAS 36457-20-2; CAS 38566-94-8; CAS 84930-16-5; Butyl 4-hydroxybenzoate and its salts Propyl 4-hydroxybenzoate and its salts(2); Butylparaben; Potassium butylparaben; Potassium propylparaben
+  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
 
 ### import export control
 
@@ -143,7 +143,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-moj-shtc-export-import-regulations`, `tw-shtc-regulations`, `tw-trade-shtc-bilingual-glossary`, `tw-trade-ccc-import-export-regulations`
   - Note: Permit concept for Taiwan SHTC export control, including ordinary permits, ICP exporter programs, validity periods, and case-closing evidence after export.
 - **End Use and End User** (`end-use-end-user`)
-  - Aliases: end use; end user; end-use; end-user; 最終使用者; 最終用途; 최종사용자; 최종용도; Certificate of End Uses; Written Assurance of End Uses
+  - Aliases: end use; end user; 最終使用者; 最終用途; 최종사용자; 최종용도; Certificate of End Uses; Written Assurance of End Uses; 最終用途保證書; ultimate consignee
   - Sources: `tw-moj-shtc-export-import-regulations`, `tw-trade-shtc-bilingual-glossary`, `global-wassenaar-control-lists`, `us-bis-ear-overview`, `jp-meti-security-export-control`
   - Note: Export-control screening concept for intended use, final user, ultimate consignee, certificates of end use, written assurances, and restricted-area routing.
 - **Strategic High-Tech Commodities** (`strategic-high-tech-commodities`)
@@ -166,11 +166,11 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 ### fermented food ingredient
 
 - **Aspergillus Oryzae Fermented Powder** (`aspergillus-oryzae-fermented-powder`)
-  - Aliases: Aspergillus oryzae fermented powder; 아스퍼질러스 오리재 발효분말; 아스퍼질러스 오리재발효분말; Aspergillus oryzae; Aspergillus oryzae fermentation product; 아스퍼질러스 오리자에 발효분말; Aspergillus oryzae culture; 米麴菌發酵粉; 아스퍼질러스 오리제 발효분말; 米麴菌
+  - Aliases: Aspergillus oryzae fermented powder; 아스퍼질러스 오리재발효분말; Aspergillus oryzae; Aspergillus oryzae fermentation product; 아스퍼질러스 오리자에 발효분말; Aspergillus oryzae culture; 米麴菌發酵粉; 아스퍼질러스 오리제 발효분말; 米麴菌; 황국균 발효분말
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
   - Note: Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...
 - **Aspergillus Niger Culture** (`aspergillus-niger-culture`)
-  - Aliases: Aspergillus niger culture; 아스퍼질러스 나이거 배양물; 아스퍼질러스 나이거배양물; Aspergillus niger; Aspergillus niger culture powder; Aspergillus niger fermentation product; 黑麴菌培養物; 아스퍼질러스 니거 배양물; 黑曲霉培養物; 흑국균 배양물
+  - Aliases: Aspergillus niger culture; 아스퍼질러스 나이거 배양물; Aspergillus niger; Aspergillus niger culture powder; Aspergillus niger fermentation product; 黑麴菌培養物; 아스퍼질러스 니거 배양물; 黑曲霉培養物; 흑국균 배양물; 黑麴菌
   - Sources: `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-novel-food-ingredient-safety-assessment-principles-2026`, `tw-tfda-imported-food-inspection-regulations`
   - Note: Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-...
 
@@ -212,10 +212,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: imported cosmetics inspection; 輸入化粧品檢驗; cosmetics import inspection; 先行放行; 抽批檢驗; 輸入化粧品查驗; 輸入化粧品邊境查驗; 수입 화장품 검사; 取樣; 輸入不符合通知書
   - Sources: `tw-tfda-imported-cosmetics-inspection`, `tw-moj-cosmetic-hygiene-safety-act`
   - Note: Border inspection concept for imported cosmetics, including sampling, release, and nonconforming goods workflows.
-- **INCI Ingredient Name** (`inci-ingredient-name`)
-  - Aliases: INCI; International Nomenclature Cosmetic Ingredient; 화장품 성분명; cosmetic ingredient name; 化妆品成分名称; 化粧品成分名稱; 국제화장품성분명
-  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-product-notification`
-  - Note: Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping.
 
 ### Health food
 
@@ -324,17 +320,17 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`
   - Note: Taiwan mandatory allergen cluster for sulphites at the sulfur-dioxide residual threshold.
 - **Crustacea Allergen** (`crustacea-allergen`)
-  - Aliases: Crustacea; 甲殼類; crustacean; 갑각류; crab; shrimp; 蝦; 蟹; 게; 새우
+  - Aliases: Crustacea; 甲殼類; crustacean; 갑각류; crab; shrimp; 새우
   - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`
   - Note: Taiwan mandatory allergen cluster for crustacea and crustacea products.
-- **Fish Allergen** (`fish-allergen`)
-  - Aliases: Fish; 魚類; fish products; 어류; 생선; 魚
-  - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`
-  - Note: Taiwan mandatory allergen cluster for fish and fish products.
 - **Tree Nuts Allergen** (`tree-nuts-allergen`)
   - Aliases: Tree Nuts; 堅果類; 견과류; nut products; 堅果; nuts
   - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`
   - Note: Taiwan mandatory allergen cluster for tree nuts and tree-nut products.
+- **Fish Allergen** (`fish-allergen`)
+  - Aliases: Fish; 魚類; fish products; 어류; 생선
+  - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`
+  - Note: Taiwan mandatory allergen cluster for fish and fish products.
 - **Mango Allergen** (`mango-allergen`)
   - Aliases: Mango; 芒果; mango products; 망고
   - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`
@@ -387,7 +383,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`, `tw-tfda-food-import-inspection-exemptions`
   - Note: Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments.
 - **Incoterms** (`incoterms`)
-  - Aliases: Incoterms; 인코텀즈; delivery terms; インコタームズ; 交貨條件; 国际贸易术语; 國際貿易條件; 무역조건; shipping terms; trade terms
+  - Aliases: Incoterms; 인코텀즈; delivery terms; 交貨條件; 国际贸易术语; 國際貿易條件; 무역조건; shipping terms; trade terms; 交货条件
   - Sources: `tw-trade-import-export-regulations`, `tw-trade-ccc-import-export-regulations`
   - Note: Operational trade term for allocating freight, insurance, delivery, and import-clearance responsibilities.
 
@@ -397,14 +393,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: customs declaration; export declaration; import declaration; 出口報單; 進口報單; 수입신고; 수출신고; export declaration form; import declaration form; 報關
   - Sources: `tw-moj-customs-act`, `tw-customs-tariff-database-download`, `tw-trade-ccc-import-export-regulations`
   - Note: Customs-entry concept for import/export declaration forms, invoice, packing list, permits, single-window transmission, and post-clearance evidence.
-- **Packing List** (`packing-list`)
-  - Aliases: packing list; 裝箱單; 포장명세서; shipment packing list; パッキングリスト; 包裝明細表; 梱包明細書; 装箱单; 패킹리스트; 包装明细表
-  - Sources: `tw-trade-import-export-regulations`, `tw-customs-tariff-database-download`
-  - Note: Customs and logistics document concept for carton, quantity, weight, and package details.
 - **Commercial Invoice** (`commercial-invoice`)
   - Aliases: commercial invoice; 商業發票; 상업송장; trade invoice; 商业发票; 商業インボイス; 商業送り状; 인보이스; invoice; 發票
   - Sources: `tw-trade-import-export-regulations`, `tw-customs-tariff-database-download`
   - Note: Customs document concept for declared value, buyer/seller, shipment description, and trade terms.
+- **Packing List** (`packing-list`)
+  - Aliases: packing list; 裝箱單; 포장명세서; shipment packing list; 包裝明細表; 梱包明細書; 装箱单; 패킹리스트; 包装明细表; packing slip
+  - Sources: `tw-trade-import-export-regulations`, `tw-customs-tariff-database-download`
+  - Note: Customs and logistics document concept for carton, quantity, weight, and package details.
 
 ### trade operator
 
@@ -419,10 +415,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
   - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
   - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
-- **Benzyl Alcohol** (`cadd-benzyl-alcohol`)
-  - Aliases: Benzyl Alcohol; 苯甲醇; 벤질알코올
-  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
-  - Note: 일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).
 - **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
   - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
@@ -435,45 +427,49 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
   - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
-- **Common cosmetic actives (allowed)** (`cos-common-actives`)
-  - Aliases: PDRN; aloe; ascorbic acid; ceramide; galactomyces; houttuynia; peptide; propolis; resveratrol; snail
-  - Sources: `global-pcpc-inci`, `global-cas-registry`
-  - Note: 일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.
-- **Ubiquinone** (`cdict-ubiquinone`)
-  - Aliases: CoQ10; Ubiquinone; 輔酶Q10; 유비퀴논; 코엔자임Q10; 코엔자임큐텐; 코큐텐
-  - Sources: `tw-tfda-cosmetic-restricted-ingredients`
-  - Note: 일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).
 
 ### Preservative
 
 - **Benzalkonium Chloride Family** (`benzalkonium-chloride-family`)
-  - Aliases: CAS 8001-54-5; CAS 63449-41-2; CAS 68391-01-5; CAS 68424-85-1; INCI Benzalkonium Chloride; INCI Benzalkonium Bromide; INCI Benzalkonium Saccharinate; Benzalkonium Chloride; 塩化ベンザルコニウム; 벤잘코늄클로라이드
+  - Aliases: CAS 8001-54-5; CAS 63449-41-2; CAS 68391-01-5; CAS 68424-85-1; CAS 91080-29-4; CAS 85409-22-9; CAS 68989-01-5; CAS 61789-71-7; INCI Benzalkonium Chloride; INCI Benzalkonium Bromide
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Family term for chloride, bromide, and saccharinate variants listed by TFDA.
 - **CMIT/MIT preservative (甲基異噻唑啉酮)** (`cmit-mit`)
-  - Aliases: CMIT; MIT; methylisothiazolinone; 甲基異噻唑啉酮; 메칠이소치아졸리논; 메칠클로로이소치아졸리논
+  - Aliases: CAS 2682-20-4; 2-Methyl-2H-isothiazol-3-one; CMIT; MIT; methylisothiazolinone; 甲基異噻唑啉酮; 메칠이소치아졸리논; 메칠클로로이소치아졸리논
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 제한 방부제 — 씻어내는 제품만 한도 내 허용, 잔류형 제한.
+- **Undecylenic acid** (`tfda-preserv-undecylenic-acid`)
+  - Aliases: CAS 112-38-9; CAS 6159-41-7; CAS 1322-14-1; CAS 3398-33-2; CAS 56532-40-2; CAS 84471-25-0; Calcium undecylenate; MEA-undecylenate; Potassium undecylenate; Sodium undecylenate
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以acid計)
 - **Climbazole** (`climbazole`)
-  - Aliases: CAS 38083-17-9; INCI Climbazole; Climbazole; クリンバゾール; 클림바졸; 甘宝素; 甘寶素
+  - Aliases: CAS 38083-17-9; INCI Climbazole; Climbazole; 클림바졸; 1-(4-Chlorophenoxy)- 1-(imidazol-1-yl)-3,3- dimethylbutan-2-one 註; 甘宝素; 甘寶素
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Often appears in anti-dandruff or scalp-care contexts.
-- **Undec-10-enoic acid and its salts** (`tfda-undec-10-enoic-acid-and-its-salts`)
-  - Aliases: CAS 112-38-9; CAS 6159-41-7; CAS 1322-14-1; CAS 3398-33-2; CAS 56532-40-2; CAS 84471-25-0; INCI Undec-10-enoic acid and its salts; INCI Undecylenic acid; INCI Potassium undecylenate; INCI Calcium undecylenate
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-47
-- **Biphenyl-2-ol, and its salts** (`tfda-biphenyl-2-ol-and-its-salts`)
-  - Aliases: CAS 90-43-7; CAS 132-27-4; CAS 84145-04-0; CAS 13707-65-8; INCI Biphenyl-2-ol, and its salts; INCI o-Phenylphenol; INCI Sodium o-phenylphenate; INCI MEA o-phenylphenate; INCI Potassium o-phenylphenate; Biphenyl-2-ol, and its salts
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-31
-- **Methylchloroisothiazolinone** (`methylchloroisothiazolinone`)
-  - Aliases: CAS 26172-55-4; INCI Methylchloroisothiazolinone; Methylchloroisothiazolinone; 5-Chloro-2-methyl-4-isothiazolin-3-one; 甲基氯异噻唑啉酮; 甲基氯異噻唑啉酮; 메칠클로로이소치아졸리논; 메틸클로로이소치아졸리논; CMIT; MCI
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Often appears with methylisothiazolinone as an MCI/MI mixture.
-- **Methylisothiazolinone** (`methylisothiazolinone`)
-  - Aliases: CAS 2682-20-4; INCI Methylisothiazolinone; Methylisothiazolinone; 甲基异噻唑啉酮; 甲基異噻唑啉酮; 2-Methyl-4-isothiazolin-3-one; 메칠이소치아졸리논; 메틸이소치아졸리논; MI; MIT
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists.
+- **o-Phenylphenol** (`tfda-preserv-o-phenylphenol`)
+  - Aliases: CAS 90-43-7; CAS 132-27-4; CAS 84145-04-0; CAS 13707-65-8; Biphenyl-2-ol, and its salts; MEA o-phenylphenate; Potassium o-phenylphenate; Sodium o-phenylphenate; o-Phenylphenol
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以phenol計)
+- **Hexamidine** (`tfda-preserv-hexamidine`)
+  - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.1 %
+- **Benzyl Alcohol** (`cadd-benzyl-alcohol`)
+  - Aliases: Benzyl Alcohol; 苯甲醇; 벤질알코올
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 1 %
+- **1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon** (`tfda-preserv-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2`)
+  - Aliases: CAS 50650-76-5; CAS 68890-66-4; 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt; 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon; Piroctone olamine
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 (a) 1 % (b) 0.5 %
+- **Formic acid** (`tfda-preserv-formic-acid`)
+  - Aliases: CAS 64-18-6; CAS 141-53-7; Formic acid; Formic acid and its sodium salt; Sodium formate
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)
+- **Phenyl mercuric acetate** (`tfda-preserv-phenyl-mercuric-acetate`)
+  - Aliases: CAS 62-38-4; CAS 94-43-9; Phenyl mercuric acetate; Phenyl mercuric benzoate; Phenylmercuric salts (including borate)
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.007 % (以Hg計) · 倘混合使用其他我國準用之汞化合物，其汞總殘留量為0.007 %。 · 경고 含Phenylmercuric compounds。
 
 ## Alias Ambiguity Queue
 
@@ -486,11 +482,11 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | inci | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | milk | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | preservative | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
+| propylparaben | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品字樣 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 健康食品查驗登記 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | 化粧品標示 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
-| 輸出許可證 | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 
 
 ## Refresh Queue

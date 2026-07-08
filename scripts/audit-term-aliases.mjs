@@ -184,7 +184,9 @@ function queueItemForFinding(finding, index) {
     issue,
     priority: priorityLabel(finding.priority),
     sort_order: index + 1,
-    alias: finding.alias,
+    // A "missing-local-alias" finding has no alias under review (the issue IS the absence of one),
+    // so surface the term's canonical name instead of an empty string.
+    alias: finding.alias || terms[0]?.canonical_name || "(local alias 필요)",
     term_count: finding.termCount,
     max_confidence: Number(finding.maxConfidence ?? 0),
     strict_blocker: Boolean(finding.strictBlocker),

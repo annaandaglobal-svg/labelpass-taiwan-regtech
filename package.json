@@ -48,7 +48,9 @@
     "test:rules": "node scripts/verify-rules.mjs && pnpm test:intake && pnpm test:verdicts",
     "test:intake": "node --experimental-strip-types --no-warnings scripts/verify-intake-parser.mjs",
     "test:verdicts": "node --experimental-strip-types --no-warnings scripts/verify-verdict-states.mjs",
-    "smoke:api": "node scripts/smoke-review-api.mjs"
+    "smoke:api": "node scripts/smoke-review-api.mjs",
+    "refresh:tfda": "node scripts/fetch-tfda-data.mjs && node scripts/build-tfda-terms.mjs --apply",
+    "build:tfda-terms": "node scripts/build-tfda-terms.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1642,
-    "stored_aliases": 6430,
-    "searchable_aliases": 8702,
-    "identifier_aliases": 2272,
-    "term_rule_links": 1093,
+    "terms": 1640,
+    "stored_aliases": 5671,
+    "searchable_aliases": 6823,
+    "identifier_aliases": 1152,
+    "term_rule_links": 1098,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 986,
+    "alias_review_items": 918,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -3442,14 +3442,14 @@
       "aliases": [
         "end use",
         "end user",
-        "end-use",
-        "end-user",
         "最終使用者",
         "最終用途",
         "최종사용자",
         "최종용도",
         "Certificate of End Uses",
-        "Written Assurance of End Uses"
+        "Written Assurance of End Uses",
+        "最終用途保證書",
+        "ultimate consignee"
       ],
       "source_keys": [
         "tw-moj-shtc-export-import-regulations",
@@ -3459,33 +3459,7 @@
         "jp-meti-security-export-control"
       ],
       "notes": "Export-control screening concept for intended use, final user, ultimate consignee, certificates of end use, written assurances, and restricted-area routing.",
-      "score": 2146
-    },
-    {
-      "id": "aspergillus-oryzae-fermented-powder",
-      "canonical_name": "Aspergillus Oryzae Fermented Powder",
-      "category": "fermented_food_ingredient",
-      "category_label": "fermented food ingredient",
-      "aliases": [
-        "Aspergillus oryzae fermented powder",
-        "아스퍼질러스 오리재 발효분말",
-        "아스퍼질러스 오리재발효분말",
-        "Aspergillus oryzae",
-        "Aspergillus oryzae fermentation product",
-        "아스퍼질러스 오리자에 발효분말",
-        "Aspergillus oryzae culture",
-        "米麴菌發酵粉",
-        "아스퍼질러스 오리제 발효분말",
-        "米麴菌"
-      ],
-      "source_keys": [
-        "tw-tfda-food-ingredient-integration-query-platform",
-        "tw-tfda-food-ingredient-query-platform-direct",
-        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
-        "tw-tfda-imported-food-inspection-regulations"
-      ],
-      "notes": "Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...",
-      "score": 2138
+      "score": 2142
     },
     {
       "id": "strategic-high-tech-commodities",
@@ -3515,6 +3489,32 @@
       "score": 2138
     },
     {
+      "id": "aspergillus-oryzae-fermented-powder",
+      "canonical_name": "Aspergillus Oryzae Fermented Powder",
+      "category": "fermented_food_ingredient",
+      "category_label": "fermented food ingredient",
+      "aliases": [
+        "Aspergillus oryzae fermented powder",
+        "아스퍼질러스 오리재발효분말",
+        "Aspergillus oryzae",
+        "Aspergillus oryzae fermentation product",
+        "아스퍼질러스 오리자에 발효분말",
+        "Aspergillus oryzae culture",
+        "米麴菌發酵粉",
+        "아스퍼질러스 오리제 발효분말",
+        "米麴菌",
+        "황국균 발효분말"
+      ],
+      "source_keys": [
+        "tw-tfda-food-ingredient-integration-query-platform",
+        "tw-tfda-food-ingredient-query-platform-direct",
+        "tw-tfda-novel-food-ingredient-safety-assessment-principles-2026",
+        "tw-tfda-imported-food-inspection-regulations"
+      ],
+      "notes": "Fermented protein-powder ingredients need species, strain, substrate, fermentation medium, enzyme activity, viable organism status, and Taiwan food-ingredient query confirmation. If the exact form is not found, route to novel/non-traditi...",
+      "score": 2136
+    },
+    {
       "id": "aspergillus-niger-culture",
       "canonical_name": "Aspergillus Niger Culture",
       "category": "fermented_food_ingredient",
@@ -3522,14 +3522,14 @@
       "aliases": [
         "Aspergillus niger culture",
         "아스퍼질러스 나이거 배양물",
-        "아스퍼질러스 나이거배양물",
         "Aspergillus niger",
         "Aspergillus niger culture powder",
         "Aspergillus niger fermentation product",
         "黑麴菌培養物",
         "아스퍼질러스 니거 배양물",
         "黑曲霉培養物",
-        "흑국균 배양물"
+        "흑국균 배양물",
+        "黑麴菌"
       ],
       "source_keys": [
         "tw-tfda-food-ingredient-integration-query-platform",
@@ -3538,7 +3538,7 @@
         "tw-tfda-imported-food-inspection-regulations"
       ],
       "notes": "Culture or fermentation-derived protein-powder ingredients need strain identity, substrate, viable-organism status, enzyme/processing purpose, and Taiwan food-ingredient query confirmation. If the product is an enzyme preparation or non-...",
-      "score": 2132
+      "score": 2130
     },
     {
       "id": "cosmetic-product-information-file",
@@ -4004,7 +4004,7 @@
         "tw-tfda-food-allergen-labeling-consumer-notice"
       ],
       "notes": "Taiwan mandatory allergen cluster for sulphites at the sulfur-dioxide residual threshold.",
-      "score": 1117
+      "score": 1115
     },
     {
       "id": "food-allergen-labeling",
@@ -4069,9 +4069,6 @@
         "갑각류",
         "crab",
         "shrimp",
-        "蝦",
-        "蟹",
-        "게",
         "새우"
       ],
       "source_keys": [
@@ -4080,28 +4077,7 @@
         "tw-tfda-food-allergen-labeling-consumer-notice"
       ],
       "notes": "Taiwan mandatory allergen cluster for crustacea and crustacea products.",
-      "score": 1105
-    },
-    {
-      "id": "fish-allergen",
-      "canonical_name": "Fish Allergen",
-      "category": "food_allergen",
-      "category_label": "food allergen",
-      "aliases": [
-        "Fish",
-        "魚類",
-        "fish products",
-        "어류",
-        "생선",
-        "魚"
-      ],
-      "source_keys": [
-        "tw-tfda-food-allergen-labeling",
-        "tw-tfda-food-allergen-labeling-en",
-        "tw-tfda-food-allergen-labeling-consumer-notice"
-      ],
-      "notes": "Taiwan mandatory allergen cluster for fish and fish products.",
-      "score": 1097
+      "score": 1099
     },
     {
       "id": "tree-nuts-allergen",
@@ -4123,6 +4099,26 @@
       ],
       "notes": "Taiwan mandatory allergen cluster for tree nuts and tree-nut products.",
       "score": 1097
+    },
+    {
+      "id": "fish-allergen",
+      "canonical_name": "Fish Allergen",
+      "category": "food_allergen",
+      "category_label": "food allergen",
+      "aliases": [
+        "Fish",
+        "魚類",
+        "fish products",
+        "어류",
+        "생선"
+      ],
+      "source_keys": [
+        "tw-tfda-food-allergen-labeling",
+        "tw-tfda-food-allergen-labeling-en",
+        "tw-tfda-food-allergen-labeling-consumer-notice"
+      ],
+      "notes": "Taiwan mandatory allergen cluster for fish and fish products.",
+      "score": 1095
     },
     {
       "id": "mango-allergen",
@@ -4321,38 +4317,13 @@
         "CAS 65-85-0",
         "CAS 532-32-1",
         "CAS 582-25-2",
-        "Benzoic acid",
-        "Potassium benzoate",
-        "Sodium benzoate",
-        "苯甲酸",
-        "苯甲酸鈉",
-        "苯甲酸鉀",
-        "벤조산"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup.",
-      "score": 240
-    },
-    {
-      "id": "sorbates-food-additives",
-      "canonical_name": "Sorbic Acid and Sorbates",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "CAS 110-44-1",
-        "CAS 24634-61-5",
-        "CAS 7757-81-5",
-        "Potassium sorbate",
-        "Sodium sorbate",
-        "Sorbic acid",
-        "山梨酸",
-        "山梨酸鈉",
-        "山梨酸鉀",
-        "소르빈산"
+        "CAS 1863-63-4",
+        "CAS 2090-05-3",
+        "CAS 553-70-8",
+        "CAS 4337-66-0",
+        "CAS 93-58-3",
+        "CAS 93-89-0",
+        "CAS 2315-68-6"
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
@@ -4416,6 +4387,31 @@
       ],
       "notes": "Operational concept for sale, sample, demo, testing, repair, return, gift, and personal-use shipments.",
       "score": 233
+    },
+    {
+      "id": "sorbates-food-additives",
+      "canonical_name": "Sorbic Acid and Sorbates",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 110-44-1",
+        "CAS 24634-61-5",
+        "CAS 7757-81-5",
+        "CAS 7492-55-9",
+        "Potassium sorbate",
+        "Sodium sorbate",
+        "Sorbic acid",
+        "山梨酸",
+        "山梨酸鈉",
+        "山梨酸鉀"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "Food preservative alias family; concentration/use limits need separate additive standards lookup.",
+      "score": 232
     },
     {
       "id": "import-export-permit",
@@ -4544,6 +4540,31 @@
       "score": 224
     },
     {
+      "id": "dehydroacetic-acid-food-additive",
+      "canonical_name": "Dehydroacetic Acid",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 520-45-6",
+        "CAS 16807-48-0",
+        "CAS 4418-26-2",
+        "Dehydroacetic acid",
+        "去水醋酸",
+        "脫氫乙酸",
+        "데하이드로초산",
+        "3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts",
+        "Sodium dehydroacetate",
+        "탈수초산"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸.",
+      "score": 216
+    },
+    {
       "id": "exporter-importer-registration",
       "canonical_name": "Exporter and Importer Registration",
       "category": "import_export_control",
@@ -4569,28 +4590,6 @@
       "score": 213
     },
     {
-      "id": "dehydroacetic-acid-food-additive",
-      "canonical_name": "Dehydroacetic Acid",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "CAS 520-45-6",
-        "Dehydroacetic acid",
-        "去水醋酸",
-        "脫氫乙酸",
-        "데하이드로초산",
-        "탈수초산",
-        "DHA"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Taiwan food additive common-name table maps 去水醋酸 to 脫氫乙酸.",
-      "score": 212
-    },
-    {
       "id": "monosodium-glutamate",
       "canonical_name": "Monosodium Glutamate",
       "category": "food_additive",
@@ -4605,14 +4604,14 @@
         "Sodium glutamate",
         "麩胺酸鈉",
         "麩酸鈉",
-        "글루탐산 나트륨"
+        "L-Glutamate Monosodium"
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Representative food additive alias set from Taiwan common-name material.",
-      "score": 211
+      "score": 205
     },
     {
       "id": "incoterms",
@@ -4623,20 +4622,20 @@
         "Incoterms",
         "인코텀즈",
         "delivery terms",
-        "インコタームズ",
         "交貨條件",
         "国际贸易术语",
         "國際貿易條件",
         "무역조건",
         "shipping terms",
-        "trade terms"
+        "trade terms",
+        "交货条件"
       ],
       "source_keys": [
         "tw-trade-import-export-regulations",
         "tw-trade-ccc-import-export-regulations"
       ],
       "notes": "Operational trade term for allocating freight, insurance, delivery, and import-clearance responsibilities.",
-      "score": 206
+      "score": 204
     },
     {
       "id": "methionine-food-additive",
@@ -4689,28 +4688,102 @@
       "score": 199
     },
     {
-      "id": "pantothenate-food-additives",
-      "canonical_name": "Pantothenates",
+      "id": "benzalkonium-chloride-family",
+      "canonical_name": "Benzalkonium Chloride Family",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 8001-54-5",
+        "CAS 63449-41-2",
+        "CAS 68391-01-5",
+        "CAS 68424-85-1",
+        "CAS 91080-29-4",
+        "CAS 85409-22-9",
+        "CAS 68989-01-5",
+        "CAS 61789-71-7",
+        "INCI Benzalkonium Chloride",
+        "INCI Benzalkonium Bromide"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "Family term for chloride, bromide, and saccharinate variants listed by TFDA.",
+      "score": 198
+    },
+    {
+      "id": "fadd-sodium-bisulfite",
+      "canonical_name": "Sodium Bisulfite",
       "category": "food_additive",
       "category_label": "Food additive",
       "aliases": [
-        "Calcium pantothenate",
-        "Sodium pantothenate",
-        "本多酸鈉",
-        "本多酸鈣",
-        "泛酸鈉",
-        "泛酸鈣",
-        "판토텐산칼슘",
-        "Pantothenate",
-        "판토텐산 칼슘",
-        "판토텐산나트륨"
+        "CAS 7757-83-7",
+        "CAS 7631-90-5",
+        "CAS 7681-57-4",
+        "CAS 10117-38-1",
+        "CAS 16731-55-8",
+        "CAS 10196-04-0",
+        "CAS 10192-30-0",
+        "CAS 7773-03-7",
+        "Ammonium bisulfite",
+        "Ammonium sulfite"
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Vitamin-related food additive common names; use additive standards for scope and limitations.",
+      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
       "score": 197
+    },
+    {
+      "id": "riboflavin-b2",
+      "canonical_name": "Riboflavin / Vitamin B2 (核黃素)",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "E101",
+        "Lactoflavin",
+        "riboflavin",
+        "vitamin B",
+        "vitamin B2",
+        "核黃素",
+        "維生素B2",
+        "리보플라빈",
+        "비타민 B군",
+        "비타민B"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.",
+      "score": 197
+    },
+    {
+      "id": "fadd-propionic-acid",
+      "canonical_name": "Propionic Acid",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 79-09-4",
+        "CAS 137-40-6",
+        "CAS 17496-08-1",
+        "CAS 4075-81-4",
+        "CAS 557-27-7",
+        "CAS 327-62-8",
+        "Ammonium propionate",
+        "Calcium propionate",
+        "Magnesium propionate",
+        "Potassium propionate"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
+      "score": 195
     },
     {
       "id": "imported-cosmetics-inspection",
@@ -4737,52 +4810,51 @@
       "score": 195
     },
     {
-      "id": "riboflavin-b2",
-      "canonical_name": "Riboflavin / Vitamin B2 (核黃素)",
+      "id": "fadd-butylparaben",
+      "canonical_name": "Butylparaben",
       "category": "food_additive",
       "category_label": "Food additive",
       "aliases": [
-        "E101",
-        "riboflavin",
-        "vitamin B",
-        "vitamin B2",
-        "核黃素",
-        "維生素B2",
-        "리보플라빈",
-        "비타민 B군",
-        "비타민B",
-        "비타민B2"
+        "CAS 94-26-8",
+        "CAS 94-13-3",
+        "CAS 35285-69-9",
+        "CAS 36457-20-2",
+        "CAS 38566-94-8",
+        "CAS 84930-16-5",
+        "Butyl 4-hydroxybenzoate and its salts Propyl 4-hydroxybenzoate and its salts(2)",
+        "Butylparaben",
+        "Potassium butylparaben",
+        "Potassium propylparaben"
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards",
-        "tw-tfda-cosmetic-colorants"
+        "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.",
-      "score": 195
+      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
+      "score": 193
     },
     {
-      "id": "sodium-bicarbonate-food-additive",
-      "canonical_name": "Sodium Bicarbonate",
+      "id": "pantothenate-food-additives",
+      "canonical_name": "Pantothenates",
       "category": "food_additive",
       "category_label": "Food additive",
       "aliases": [
-        "CAS 144-55-8",
-        "Baking soda",
-        "Sodium bicarbonate",
-        "小蘇打",
-        "碳酸氫鈉",
-        "베이킹소다",
-        "탄산수소나트륨",
-        "중탄산나트륨",
-        "탄산수소 나트륨",
-        "NaHCO3"
+        "Calcium pantothenate",
+        "Sodium pantothenate",
+        "本多酸鈉",
+        "本多酸鈣",
+        "泛酸鈉",
+        "泛酸鈣",
+        "판토텐산칼슘",
+        "Pantothenate",
+        "판토텐산나트륨"
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Common food additive and common-name alias.",
-      "score": 195
+      "notes": "Vitamin-related food additive common names; use additive standards for scope and limitations.",
+      "score": 193
     },
     {
       "id": "advance-tariff-classification-ruling",
@@ -4810,61 +4882,13 @@
       "score": 192
     },
     {
-      "id": "packing-list",
-      "canonical_name": "Packing List",
-      "category": "customs_document",
-      "category_label": "customs document",
-      "aliases": [
-        "packing list",
-        "裝箱單",
-        "포장명세서",
-        "shipment packing list",
-        "パッキングリスト",
-        "包裝明細表",
-        "梱包明細書",
-        "装箱单",
-        "패킹리스트",
-        "包装明细表"
-      ],
-      "source_keys": [
-        "tw-trade-import-export-regulations",
-        "tw-customs-tariff-database-download"
-      ],
-      "notes": "Customs and logistics document concept for carton, quantity, weight, and package details.",
-      "score": 191
-    },
-    {
-      "id": "benzalkonium-chloride-family",
-      "canonical_name": "Benzalkonium Chloride Family",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 8001-54-5",
-        "CAS 63449-41-2",
-        "CAS 68391-01-5",
-        "CAS 68424-85-1",
-        "INCI Benzalkonium Chloride",
-        "INCI Benzalkonium Bromide",
-        "INCI Benzalkonium Saccharinate",
-        "Benzalkonium Chloride",
-        "塩化ベンザルコニウム",
-        "벤잘코늄클로라이드"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-restricted-ingredients",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Family term for chloride, bromide, and saccharinate variants listed by TFDA.",
-      "score": 190
-    },
-    {
       "id": "cmit-mit",
       "canonical_name": "CMIT/MIT preservative (甲基異噻唑啉酮)",
       "category": "preservative",
       "category_label": "Preservative",
       "aliases": [
+        "CAS 2682-20-4",
+        "2-Methyl-2H-isothiazol-3-one",
         "CMIT",
         "MIT",
         "methylisothiazolinone",
@@ -4877,7 +4901,76 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "제한 방부제 — 씻어내는 제품만 한도 내 허용, 잔류형 제한.",
-      "score": 190
+      "score": 192
+    },
+    {
+      "id": "tfda-preserv-undecylenic-acid",
+      "canonical_name": "Undecylenic acid",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 112-38-9",
+        "CAS 6159-41-7",
+        "CAS 1322-14-1",
+        "CAS 3398-33-2",
+        "CAS 56532-40-2",
+        "CAS 84471-25-0",
+        "Calcium undecylenate",
+        "MEA-undecylenate",
+        "Potassium undecylenate",
+        "Sodium undecylenate"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以acid計)",
+      "score": 192
+    },
+    {
+      "id": "fadd-magnesium-stearate",
+      "canonical_name": "Magnesium Stearate",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "Aluminum stearate",
+        "Aluminum stearate/ Zinc stearate/ Magnesium stearate/ Calcium stearate",
+        "Calcium stearate",
+        "E470b",
+        "Magnesium Stearate",
+        "Zinc stearate",
+        "硬脂酸鎂",
+        "스테아린산마그네슘"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards",
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
+      "score": 191
+    },
+    {
+      "id": "sodium-bicarbonate-food-additive",
+      "canonical_name": "Sodium Bicarbonate",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 144-55-8",
+        "Baking soda",
+        "Sodium bicarbonate",
+        "小蘇打",
+        "碳酸氫鈉",
+        "베이킹소다",
+        "탄산수소나트륨",
+        "중탄산나트륨",
+        "NaHCO3"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Common food additive and common-name alias.",
+      "score": 191
     },
     {
       "id": "omega3-lutein",
@@ -4926,6 +5019,30 @@
       "score": 189
     },
     {
+      "id": "packing-list",
+      "canonical_name": "Packing List",
+      "category": "customs_document",
+      "category_label": "customs document",
+      "aliases": [
+        "packing list",
+        "裝箱單",
+        "포장명세서",
+        "shipment packing list",
+        "包裝明細表",
+        "梱包明細書",
+        "装箱单",
+        "패킹리스트",
+        "包装明细表",
+        "packing slip"
+      ],
+      "source_keys": [
+        "tw-trade-import-export-regulations",
+        "tw-customs-tariff-database-download"
+      ],
+      "notes": "Customs and logistics document concept for carton, quantity, weight, and package details.",
+      "score": 189
+    },
+    {
       "id": "xanthan-gum-food-additive",
       "canonical_name": "Xanthan Gum",
       "category": "food_additive",
@@ -4956,8 +5073,8 @@
         "CAS 38083-17-9",
         "INCI Climbazole",
         "Climbazole",
-        "クリンバゾール",
         "클림바졸",
+        "1-(4-Chlorophenoxy)- 1-(imidazol-1-yl)-3,3- dimethylbutan-2-one 註",
         "甘宝素",
         "甘寶素"
       ],
@@ -4968,6 +5085,29 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "Often appears in anti-dandruff or scalp-care contexts.",
+      "score": 188
+    },
+    {
+      "id": "tfda-preserv-o-phenylphenol",
+      "canonical_name": "o-Phenylphenol",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 90-43-7",
+        "CAS 132-27-4",
+        "CAS 84145-04-0",
+        "CAS 13707-65-8",
+        "Biphenyl-2-ol, and its salts",
+        "MEA o-phenylphenate",
+        "Potassium o-phenylphenate",
+        "Sodium o-phenylphenate",
+        "o-Phenylphenol"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以phenol計)",
       "score": 188
     },
     {
@@ -5036,30 +5176,30 @@
       "score": 186
     },
     {
-      "id": "alanine-food-additive",
-      "canonical_name": "Alanine",
-      "category": "food_additive",
-      "category_label": "Food additive",
+      "id": "tfda-preserv-hexamidine",
+      "canonical_name": "Hexamidine",
+      "category": "preservative",
+      "category_label": "Preservative",
       "aliases": [
-        "CAS 56-41-7",
-        "Alanine",
-        "丙胺酸",
-        "胺基丙酸",
-        "알라닌",
-        "Ala"
+        "CAS 3811-75-4",
+        "CAS 659-40-5",
+        "CAS 93841-83-9",
+        "Hexamidine",
+        "Hexamidine diisethionate",
+        "Hexamidine paraben"
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Taiwan food additive common-name table maps 胺基丙酸 to 丙胺酸.",
-      "score": 185
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.1 %",
+      "score": 186
     },
     {
       "id": "cadd-benzyl-alcohol",
       "canonical_name": "Benzyl Alcohol",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
+      "category": "preservative",
+      "category_label": "Preservative",
       "aliases": [
         "Benzyl Alcohol",
         "苯甲醇",
@@ -5069,48 +5209,65 @@
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).",
-      "score": 185
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 1 %",
+      "score": 184
     },
     {
-      "id": "glycine-food-additive",
-      "canonical_name": "Glycine",
-      "category": "food_additive",
-      "category_label": "Food additive",
+      "id": "tfda-preserv-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2",
+      "canonical_name": "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
+      "category": "preservative",
+      "category_label": "Preservative",
       "aliases": [
-        "CAS 56-40-6",
-        "Glycine",
-        "甘胺酸",
-        "胺基乙酸",
-        "글리신",
-        "Gly"
+        "CAS 50650-76-5",
+        "CAS 68890-66-4",
+        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt",
+        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
+        "Piroctone olamine"
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Taiwan food additive common-name table maps 胺基乙酸 to 甘胺酸.",
-      "score": 185
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 (a) 1 % (b) 0.5 %",
+      "score": 184
     },
     {
-      "id": "lysine-food-additive",
-      "canonical_name": "Lysine",
-      "category": "food_additive",
-      "category_label": "Food additive",
+      "id": "tfda-preserv-formic-acid",
+      "canonical_name": "Formic acid",
+      "category": "preservative",
+      "category_label": "Preservative",
       "aliases": [
-        "CAS 56-87-1",
-        "Lysine",
-        "二胺基己酸",
-        "離胺酸",
-        "라이신",
-        "리신"
+        "CAS 64-18-6",
+        "CAS 141-53-7",
+        "Formic acid",
+        "Formic acid and its sodium salt",
+        "Sodium formate"
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Taiwan food additive common-name table maps 二胺基己酸 to 離胺酸.",
-      "score": 185
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)",
+      "score": 184
+    },
+    {
+      "id": "tfda-preserv-phenyl-mercuric-acetate",
+      "canonical_name": "Phenyl mercuric acetate",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 62-38-4",
+        "CAS 94-43-9",
+        "Phenyl mercuric acetate",
+        "Phenyl mercuric benzoate",
+        "Phenylmercuric salts (including borate)"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.007 % (以Hg計) · 倘混合使用其他我國準用之汞化合物，其汞總殘留量為0.007 %。 · 경고 含Phenylmercuric compounds。",
+      "score": 184
     },
     {
       "id": "protein-bar",
@@ -5169,29 +5326,6 @@
       ],
       "notes": "健康食品은 허가제 — 허가·小綠人 로고 없이 기능 표방 불가.",
       "score": 181
-    },
-    {
-      "id": "tfda-undec-10-enoic-acid-and-its-salts",
-      "canonical_name": "Undec-10-enoic acid and its salts",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 112-38-9",
-        "CAS 6159-41-7",
-        "CAS 1322-14-1",
-        "CAS 3398-33-2",
-        "CAS 56532-40-2",
-        "CAS 84471-25-0",
-        "INCI Undec-10-enoic acid and its salts",
-        "INCI Undecylenic acid",
-        "INCI Potassium undecylenate",
-        "INCI Calcium undecylenate"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-47",
-      "score": 179
     },
     {
       "id": "hfun-beta-glucan",
@@ -5365,162 +5499,23 @@
       ],
       "notes": "Taiwan food-additive inspection registration concept, especially single food additives under TFDA registration and permit-document management.",
       "score": 171
-    },
-    {
-      "id": "tfda-biphenyl-2-ol-and-its-salts",
-      "canonical_name": "Biphenyl-2-ol, and its salts",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 90-43-7",
-        "CAS 132-27-4",
-        "CAS 84145-04-0",
-        "CAS 13707-65-8",
-        "INCI Biphenyl-2-ol, and its salts",
-        "INCI o-Phenylphenol",
-        "INCI Sodium o-phenylphenate",
-        "INCI MEA o-phenylphenate",
-        "INCI Potassium o-phenylphenate",
-        "Biphenyl-2-ol, and its salts"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-31",
-      "score": 171
-    },
-    {
-      "id": "cos-common-actives",
-      "canonical_name": "Common cosmetic actives (allowed)",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "PDRN",
-        "aloe",
-        "ascorbic acid",
-        "ceramide",
-        "galactomyces",
-        "houttuynia",
-        "peptide",
-        "propolis",
-        "resveratrol",
-        "snail"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry"
-      ],
-      "notes": "일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.",
-      "score": 169
-    },
-    {
-      "id": "inci-ingredient-name",
-      "canonical_name": "INCI Ingredient Name",
-      "category": "cosmetic_compliance",
-      "category_label": "Cosmetic compliance",
-      "aliases": [
-        "INCI",
-        "International Nomenclature Cosmetic Ingredient",
-        "화장품 성분명",
-        "cosmetic ingredient name",
-        "化妆品成分名称",
-        "化粧品成分名稱",
-        "국제화장품성분명"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "eu-cosing-cosmetic-ingredients",
-        "tw-moj-cosmetic-product-notification"
-      ],
-      "notes": "Concept term for cosmetic ingredient naming, INCI lookup, and synonym mapping.",
-      "score": 169
-    },
-    {
-      "id": "methylchloroisothiazolinone",
-      "canonical_name": "Methylchloroisothiazolinone",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 26172-55-4",
-        "INCI Methylchloroisothiazolinone",
-        "Methylchloroisothiazolinone",
-        "5-Chloro-2-methyl-4-isothiazolin-3-one",
-        "甲基氯异噻唑啉酮",
-        "甲基氯異噻唑啉酮",
-        "메칠클로로이소치아졸리논",
-        "메틸클로로이소치아졸리논",
-        "CMIT",
-        "MCI"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Often appears with methylisothiazolinone as an MCI/MI mixture.",
-      "score": 169
-    },
-    {
-      "id": "methylisothiazolinone",
-      "canonical_name": "Methylisothiazolinone",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 2682-20-4",
-        "INCI Methylisothiazolinone",
-        "Methylisothiazolinone",
-        "甲基异噻唑啉酮",
-        "甲基異噻唑啉酮",
-        "2-Methyl-4-isothiazolin-3-one",
-        "메칠이소치아졸리논",
-        "메틸이소치아졸리논",
-        "MI",
-        "MIT"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists.",
-      "score": 169
-    },
-    {
-      "id": "cdict-ubiquinone",
-      "canonical_name": "Ubiquinone",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "CoQ10",
-        "Ubiquinone",
-        "輔酶Q10",
-        "유비퀴논",
-        "코엔자임Q10",
-        "코엔자임큐텐",
-        "코큐텐"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-restricted-ingredients"
-      ],
-      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인).",
-      "score": 168
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1642,
-      "aliases_scanned": 6430,
-      "alias_rows_scanned": 6425,
+      "terms_scanned": 1640,
+      "aliases_scanned": 5671,
+      "alias_rows_scanned": 5671,
       "collision_groups": 90,
-      "high_confidence_collisions": 58,
+      "high_confidence_collisions": 59,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 896,
+      "regulated_terms_without_local_alias": 828,
       "strict_blockers": 0,
-      "review_items": 986
+      "review_items": 918
     },
     "items": [
       {
@@ -5708,6 +5703,32 @@
             "canonical_name": "Food Additive Functional Classes",
             "confidence": 0.95,
             "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
+      {
+        "id": "alias-9c28ea49f682a3",
+        "alias": "propylparaben",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "propylparaben",
+            "canonical_name": "Propylparaben",
+            "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "fadd-butylparaben",
+            "canonical_name": "Butylparaben",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
             "language": "en"
           }
         ]
@@ -6006,58 +6027,6 @@
         ]
       },
       {
-        "id": "alias-52044029f18b94",
-        "alias": "acid blue 62",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-sodium-1-amino-4-cyclohexylamino-9-10-dihydro-9-10-dioxoanthracene-2-sulphonate-",
-            "canonical_name": "Sodium 1-amino-4-(cyclohexylamino)-9,10-dihydro-9,10-dioxoanthracene-2-sulphonate (CI 62045)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-ci-62045",
-            "canonical_name": "CI 62045",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "und"
-          }
-        ]
-      },
-      {
-        "id": "alias-f2a0c8aa75eae7",
-        "alias": "basic violet 2",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-4-4-amino-3-methylphenyl-4-imino-3-methyl-2-5-cyclohexadien-1-ylidene-methyl-2-m",
-            "canonical_name": "4-((4-Amino-3-methylphenyl)(4-imino-3-methyl-2,5-cyclohexadien-1-ylidene) methyl)-2-methylphenylamine monohydrochloride (CI 42520)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-ci-42520",
-            "canonical_name": "CI 42520",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "und"
-          }
-        ]
-      },
-      {
         "id": "alias-ffe6cf880a20a4",
         "alias": "cosmetic claim evidence",
         "issue": "alias-collision-high-confidence",
@@ -6106,32 +6075,6 @@
             "confidence": 0.95,
             "jurisdiction": "TW",
             "language": "en"
-          }
-        ]
-      },
-      {
-        "id": "alias-ef6566f2d23957",
-        "alias": "ethyl lauroyl arginate hcl",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-ethyl-n-alphadodecanoyl-larginate-hydrochloride",
-            "canonical_name": "Ethyl-N-alphadodecanoyl-Larginate hydrochloride 註",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-ethyl-n-alpha-dodecanoyl-l-arginate-hydrochloride-1",
-            "canonical_name": "Ethyl-N-alpha-dodecanoyl-L-arginate hydrochloride(1)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
           }
         ]
       },
@@ -6358,12 +6301,64 @@
             "canonical_name": "Formaldehyde",
             "confidence": 0.95,
             "jurisdiction": "TW",
-            "language": "zh"
+            "language": "zh-Hant"
           },
           {
             "term_id": "commodity-label",
             "canonical_name": "General commodity Chinese labeling (商品標示法)",
             "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-19c3f770c78746",
+        "alias": "自用",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "shipment-purpose",
+            "canonical_name": "Shipment Purpose",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "food-import-inspection-exemption",
+            "canonical_name": "Food Import Inspection Exemption",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-a1571bf77d8be5",
+        "alias": "虛偽誇大",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "cosmetic-labeling-claims",
+            "canonical_name": "Cosmetic Labeling and Claims",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "cosmetic-claims-criteria",
+            "canonical_name": "Cosmetic Claims Criteria",
+            "confidence": 0.95,
             "jurisdiction": "TW",
             "language": "zh-Hant"
           }
@@ -6941,8 +6936,8 @@
           "Cosmetic Sunscreen Ingredients",
           "Benzophenones (UV)",
           "Octocrylene",
-          "2-Ethylhexyl 4-(dimethylamino)benzoate/ Padimate O",
-          "Benzoic acid, 2-hydroxy-,3,3,5-trimethylcyclohexyl ester/ Homosalate"
+          "Ethylhexyl dimethyl PABA",
+          "Homosalate"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },

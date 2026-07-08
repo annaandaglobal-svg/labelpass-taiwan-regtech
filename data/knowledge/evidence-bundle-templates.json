@@ -1890,10 +1890,10 @@
           "aliases": [
             "end use",
             "end user",
-            "end-use",
-            "end-user",
             "最終使用者",
-            "最終用途"
+            "最終用途",
+            "최종사용자",
+            "최종용도"
           ],
           "source_keys": [
             "tw-moj-shtc-export-import-regulations",

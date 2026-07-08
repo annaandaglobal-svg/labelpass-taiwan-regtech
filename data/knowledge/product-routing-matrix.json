@@ -360,8 +360,8 @@
             "CAS 63449-41-2",
             "CAS 68391-01-5",
             "CAS 68424-85-1",
-            "INCI Benzalkonium Chloride",
-            "INCI Benzalkonium Bromide"
+            "CAS 91080-29-4",
+            "CAS 85409-22-9"
           ],
           "source_keys": [
             "global-pcpc-inci",
@@ -705,8 +705,7 @@
             "魚類",
             "fish products",
             "어류",
-            "생선",
-            "魚"
+            "생선"
           ],
           "source_keys": [
             "tw-tfda-food-allergen-labeling",
@@ -1098,9 +1097,9 @@
             "CAS 65-85-0",
             "CAS 532-32-1",
             "CAS 582-25-2",
-            "Benzoic acid",
-            "Potassium benzoate",
-            "Sodium benzoate"
+            "CAS 1863-63-4",
+            "CAS 2090-05-3",
+            "CAS 553-70-8"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -1116,9 +1115,9 @@
             "CAS 110-44-1",
             "CAS 24634-61-5",
             "CAS 7757-81-5",
+            "CAS 7492-55-9",
             "Potassium sorbate",
-            "Sodium sorbate",
-            "Sorbic acid"
+            "Sodium sorbate"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
@@ -2847,10 +2846,10 @@
           "aliases": [
             "end use",
             "end user",
-            "end-use",
-            "end-user",
             "最終使用者",
-            "最終用途"
+            "最終用途",
+            "최종사용자",
+            "최종용도"
           ],
           "source_keys": [
             "tw-moj-shtc-export-import-regulations",

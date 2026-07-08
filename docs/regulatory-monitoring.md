@@ -48,3 +48,20 @@ Run `pnpm monitor:regulatory`, then give an agent this task (adjust the source l
 2. Add a golden-set guard case in `scripts/smoke-review-api.mjs` pinning the new routing.
 3. `pnpm build:terms && pnpm build:knowledge-seed && pnpm export:knowledge-playbooks`, then
    `pnpm smoke:api`, `pnpm find:problems`, `pnpm check:knowledge-drift`, commit.
+
+## Authoritative TFDA dataset refresh (official source of truth)
+
+`data/tfda/*.json` are the TFDA open datasets (cosmetic prohibited/restricted/preservative/
+sunscreen/colorant) fetched verbatim — the source of truth for those categories. Refresh them
+alongside the monthly web pass:
+
+```
+pnpm refresh:tfda      # fetch:tfda (re-download official data) + build:tfda-terms --apply (re-ingest + reconcile)
+pnpm build:tfda-terms  # report-only: show conflicts between the registry and the official data
+```
+
+`build:tfda-terms --apply` re-ingests the official lists and RECONCILES: any registry term that
+says "permitted" while the official list says prohibited/restricted is corrected to the official
+category (conflicts are printed). Then run the standard `build:terms → build:knowledge-seed →
+smoke:api → find:problems → check:knowledge-drift`, commit. Note: CI can't auto-commit refreshed
+data, so run this manually (monthly) or in a PR-opening workflow.

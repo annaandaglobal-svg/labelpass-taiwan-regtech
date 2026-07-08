@@ -26,7 +26,7 @@
 - **SHTC Export Permit** (`shtc-export-permit`): Export Permit of Strategic High-Tech Commodities; SHTC export permit; 戰略性高科技貨品輸出許可證; SHTC 수출허가
 - **Strategic High-Tech Commodities** (`strategic-high-tech-commodities`): SHTC; Strategic High-Tech Commodities; 戰略性高科技貨品; 전략성 고기술 화물
 - **Import and Export Permit** (`import-export-permit`): export permit; import permit; 輸入許可證; 輸出許可證
-- **End Use and End User** (`end-use-end-user`): end use; end user; end-use; end-user
+- **End Use and End User** (`end-use-end-user`): end use; end user; 最終使用者; 最終用途
 - **HS Code Classification** (`hs-code-classification`): CCC code; CCC碼; HS code; HS코드
 - **Shipment Purpose** (`shipment-purpose`): shipment purpose; 출하 목적; import purpose; 自用
 
