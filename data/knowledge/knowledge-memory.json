@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2274,
-    "stored_aliases": 7103,
-    "searchable_aliases": 8255,
+    "terms": 2290,
+    "stored_aliases": 7231,
+    "searchable_aliases": 8383,
     "identifier_aliases": 1152,
     "term_rule_links": 1101,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 921,
+    "alias_review_items": 934,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5506,17 +5506,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2274,
-      "aliases_scanned": 7103,
-      "alias_rows_scanned": 7103,
-      "collision_groups": 105,
-      "high_confidence_collisions": 75,
+      "terms_scanned": 2290,
+      "aliases_scanned": 7231,
+      "alias_rows_scanned": 7231,
+      "collision_groups": 118,
+      "high_confidence_collisions": 84,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 816,
       "strict_blockers": 0,
-      "review_items": 921
+      "review_items": 934
     },
     "items": [
       {
@@ -5650,6 +5650,32 @@
           {
             "term_id": "cosmetic-restricted-active",
             "canonical_name": "Restricted cosmetic actives (arbutin/AHA/DMDM)",
+            "confidence": 0.9,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
+      {
+        "id": "alias-ffd3fbe25da7c4",
+        "alias": "hydroquinone",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "hydroquinone",
+            "canonical_name": "Hydroquinone",
+            "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "trap-cos-drug",
+            "canonical_name": "Cosmetic/drug boundary actives",
             "confidence": 0.9,
             "jurisdiction": "GLOBAL",
             "language": "en"
@@ -6336,32 +6362,6 @@
             "confidence": 0.9,
             "jurisdiction": "TW",
             "language": "en"
-          }
-        ]
-      },
-      {
-        "id": "alias-7cccfa095b6c11",
-        "alias": "保存期限",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "food-label-required-items",
-            "canonical_name": "Food Label Required Items",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "shelf-life-date",
-            "canonical_name": "Shelf-life / expiry date (有效日期)",
-            "confidence": 0.9,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
           }
         ]
       }
