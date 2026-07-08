@@ -1152,6 +1152,11 @@
           "category": "food_additive"
         },
         {
+          "term_key": "fadd-magnesium-stearate",
+          "canonical_name": "Magnesium Stearate",
+          "category": "food_additive"
+        },
+        {
           "term_key": "tfda-ci-10006",
           "canonical_name": "CI 10006",
           "category": "colorant"
@@ -1204,11 +1209,6 @@
         {
           "term_key": "tfda-ci-12370",
           "canonical_name": "CI 12370",
-          "category": "colorant"
-        },
-        {
-          "term_key": "tfda-ci-12420",
-          "canonical_name": "CI 12420",
           "category": "colorant"
         }
       ],
@@ -1845,63 +1845,63 @@
           "category": "food_process_contaminant"
         },
         {
-          "term_key": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
-          "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
+          "term_key": "cos-proh-lead-and-compounds",
+          "canonical_name": "Lead and compounds",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-impatientis-semen",
-          "canonical_name": "Impatientis Semen（急性子）",
+          "term_key": "cos-proh-lead-acetate",
+          "canonical_name": "Lead acetate",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-knoxiae-radix",
-          "canonical_name": "Knoxiae Radix（紅大戟）",
+          "term_key": "cos-proh-arsenic-and-compounds",
+          "canonical_name": "Arsenic and compounds",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-stellera-chamaejasme-l",
-          "canonical_name": "Stellera chamaejasme L. (狼毒)",
+          "term_key": "cos-proh-cadmium-and-compounds",
+          "canonical_name": "Cadmium and compounds",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-anemone-hupehensis-lemoine",
-          "canonical_name": "Anemone hupehensis Lemoine (打破碗花)",
+          "term_key": "cos-proh-antimony-and-compounds",
+          "canonical_name": "Antimony and compounds",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-barium-salts",
-          "canonical_name": "Barium salts",
+          "term_key": "cos-proh-chromic-acid-and-salts",
+          "canonical_name": "Chromic acid and salts",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-tetrahydrocannabinols",
-          "canonical_name": "Tetrahydrocannabinols",
+          "term_key": "cos-proh-nickel-oxide",
+          "canonical_name": "Nickel oxide",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-nonylphenol-and-nonylphenol-polyethylene-glycol-ether",
-          "canonical_name": "Nonylphenol and Nonylphenol polyethylene glycol ether",
+          "term_key": "cos-proh-cobalt-dichloride",
+          "canonical_name": "Cobalt dichloride",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-substances-with-androgenic-effect",
-          "canonical_name": "Substances with androgenic effect",
+          "term_key": "cos-proh-thallium-and-compounds",
+          "canonical_name": "Thallium and compounds",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-2-2-2-trichloroethane-1-1-diol",
-          "canonical_name": "2,2,2 -Trichloroethane-1,1-diol",
+          "term_key": "cos-proh-selenium-and-compounds",
+          "canonical_name": "Selenium and compounds",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-pharbitidis-semen",
-          "canonical_name": "Pharbitidis Semen（牽牛子）",
+          "term_key": "cos-proh-cyanides",
+          "canonical_name": "Cyanides",
           "category": "prohibited"
         },
         {
-          "term_key": "tfda-n-n-bis-2-chloroethyl-methylamine-n-oxide-and-its-salts",
-          "canonical_name": "N,N-bis(2-Chloroethyl)methylamine N-oxide and its salts",
+          "term_key": "cos-proh-chloroform",
+          "canonical_name": "Chloroform",
           "category": "prohibited"
         }
       ],

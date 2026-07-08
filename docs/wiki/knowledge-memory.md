@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 1,299
-- Stored aliases: 5,334
-- Searchable aliases including identifiers: 7,799
-- Term-rule links: 1,084
+- Terms: 1,522
+- Stored aliases: 6,029
+- Searchable aliases including identifiers: 8,317
+- Term-rule links: 1,093
 - Regulatory update candidates: 47
-- Alias review items: 1,072
+- Alias review items: 990
 
 ## How To Use This Memory
 
@@ -427,10 +427,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: benzophenone; benzophenone-4; 벤조페논; 이산화규소
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-sunscreen-ingredients`
   - Note: 벤조페논류 자외선 성분 — 종류별 한도 확인.
-- **Menthol** (`menthol`)
-  - Aliases: INCI Menthol; Menthol; メントール; 薄荷醇; 멘톨
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`
-  - Note: Common cooling ingredient with multilingual label variants.
 
 ### Preservative
 
@@ -446,18 +442,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 38083-17-9; INCI Climbazole; Climbazole; クリンバゾール; 클림바졸; 甘宝素; 甘寶素
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Often appears in anti-dandruff or scalp-care contexts.
-- **Inorganic sulphites and hydrogensulphites(1)** (`tfda-inorganic-sulphites-and-hydrogensulphites-1`)
-  - Aliases: CAS 7757-83-7; CAS 7631-90-5; CAS 7681-57-4; CAS 10117-38-1; CAS 16731-55-8; CAS 10196-04-0; CAS 10192-30-0; CAS 7773-03-7; INCI Inorganic sulphites and hydrogensulphites(1); INCI Sodium sulfite(3)
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-26
-- **Alkyl (C12-22) trimethyl ammonium bromide and chloride** (`tfda-alkyl-c12-22-trimethyl-ammonium-bromide-and-chloride`)
-  - Aliases: CAS 17301-53-0; CAS 57-09-0; CAS 112-02-7; CAS 1119-94-4; CAS 112-00-5; CAS 1120-02-1; CAS 112-03-8; INCI Alkyl (C12-22) trimethyl ammonium bromide and chloride; INCI Behentrimonium chloride(1); INCI Cetrimonium bromide
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-1
-- **Propionic acid and its salts** (`tfda-propionic-acid-and-its-salts`)
-  - Aliases: CAS 79-09-4; CAS 137-40-6; CAS 17496-08-1; CAS 4075-81-4; CAS 557-27-7; CAS 327-62-8; INCI Propionic acid and its salts; INCI Propionic acid; INCI Sodium propionate; INCI Ammonium propionate
-  - Sources: `tw-tfda-cosmetic-preservatives`
-  - Note: Generated from TFDA rule tw-cos-201-40
 - **Undec-10-enoic acid and its salts** (`tfda-undec-10-enoic-acid-and-its-salts`)
   - Aliases: CAS 112-38-9; CAS 6159-41-7; CAS 1322-14-1; CAS 3398-33-2; CAS 56532-40-2; CAS 84471-25-0; INCI Undec-10-enoic acid and its salts; INCI Undecylenic acid; INCI Potassium undecylenate; INCI Calcium undecylenate
   - Sources: `tw-tfda-cosmetic-preservatives`
@@ -474,6 +458,18 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 2682-20-4; INCI Methylisothiazolinone; Methylisothiazolinone; 甲基异噻唑啉酮; 甲基異噻唑啉酮; 2-Methyl-4-isothiazolin-3-one; 메칠이소치아졸리논; 메틸이소치아졸리논; MI; MIT
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
   - Note: Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists.
+- **Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)** (`tfda-benzenecarboximidamide-4-4-1-6-hexanediylbis-oxy-bis-and-its-salts-including-ise`)
+  - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate); INCI Hexamidine; INCI Hexamidine diisethionate; INCI Hexamidine paraben; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
+  - Sources: `tw-tfda-cosmetic-preservatives`
+  - Note: Generated from TFDA rule tw-cos-201-24
+- **Chlorhexidine Family** (`chlorhexidine-family`)
+  - Aliases: CAS 55-56-1; CAS 18472-51-0; CAS 3697-42-5; CAS 56-95-1; INCI Chlorhexidine; INCI Chlorhexidine Digluconate; INCI Chlorhexidine Dihydrochloride; INCI Chlorhexidine Diacetate; Chlorhexidine; Chlorhexidine Digluconate
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
+  - Note: Antimicrobial preservative family; salt form matters for limits.
+- **Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride** (`tfda-poly-methylene-alpha-ome-ga-bis-aminoiminomethyl-amino-iminomethyl-amino-dihydro`)
+  - Aliases: CAS 32289-58-0; CAS 133029-32-0; CAS 28757-47-3; CAS 27083-27-8; INCI Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride; INCI Polyaminopropyl biguanide; Polyaminopropyl biguanide; 133029-32-0; 27083-27-8; 28757-47-3
+  - Sources: `tw-tfda-cosmetic-preservatives`
+  - Note: Generated from TFDA rule tw-cos-201-39
 
 ## Alias Ambiguity Queue
 

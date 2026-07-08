@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 1299,
-    "stored_aliases": 5334,
-    "searchable_aliases": 7799,
-    "identifier_aliases": 2465,
-    "term_rule_links": 1084,
+    "terms": 1522,
+    "stored_aliases": 6029,
+    "searchable_aliases": 8317,
+    "identifier_aliases": 2288,
+    "term_rule_links": 1093,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 1072,
+    "alias_review_items": 990,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5094,27 +5094,22 @@
       "score": 185
     },
     {
-      "id": "tfda-inorganic-sulphites-and-hydrogensulphites-1",
-      "canonical_name": "Inorganic sulphites and hydrogensulphites(1)",
-      "category": "preservative",
-      "category_label": "Preservative",
+      "id": "fadd-calcium-propionate",
+      "canonical_name": "Calcium Propionate",
+      "category": "food_additive",
+      "category_label": "Food additive",
       "aliases": [
-        "CAS 7757-83-7",
-        "CAS 7631-90-5",
-        "CAS 7681-57-4",
-        "CAS 10117-38-1",
-        "CAS 16731-55-8",
-        "CAS 10196-04-0",
-        "CAS 10192-30-0",
-        "CAS 7773-03-7",
-        "INCI Inorganic sulphites and hydrogensulphites(1)",
-        "INCI Sodium sulfite(3)"
+        "Calcium Propionate",
+        "丙酸鈣",
+        "프로피온산칼슘",
+        "E282"
       ],
       "source_keys": [
+        "tw-tfda-food-additive-standards",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Generated from TFDA rule tw-cos-201-26",
-      "score": 185
+      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
+      "score": 183
     },
     {
       "id": "protein-bar",
@@ -5134,29 +5129,6 @@
         "tw-tfda-health-food-enforcement-rules"
       ],
       "notes": "일반식품이면 기능 표방 불가, 기능 표방 시 健康食品 허가 필요.",
-      "score": 183
-    },
-    {
-      "id": "tfda-alkyl-c12-22-trimethyl-ammonium-bromide-and-chloride",
-      "canonical_name": "Alkyl (C12-22) trimethyl ammonium bromide and chloride",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 17301-53-0",
-        "CAS 57-09-0",
-        "CAS 112-02-7",
-        "CAS 1119-94-4",
-        "CAS 112-00-5",
-        "CAS 1120-02-1",
-        "CAS 112-03-8",
-        "INCI Alkyl (C12-22) trimethyl ammonium bromide and chloride",
-        "INCI Behentrimonium chloride(1)",
-        "INCI Cetrimonium bromide"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-1",
       "score": 183
     },
     {
@@ -5196,29 +5168,6 @@
       ],
       "notes": "健康食品은 허가제 — 허가·小綠人 로고 없이 기능 표방 불가.",
       "score": 181
-    },
-    {
-      "id": "tfda-propionic-acid-and-its-salts",
-      "canonical_name": "Propionic acid and its salts",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 79-09-4",
-        "CAS 137-40-6",
-        "CAS 17496-08-1",
-        "CAS 4075-81-4",
-        "CAS 557-27-7",
-        "CAS 327-62-8",
-        "INCI Propionic acid and its salts",
-        "INCI Propionic acid",
-        "INCI Sodium propionate",
-        "INCI Ammonium propionate"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "Generated from TFDA rule tw-cos-201-40",
-      "score": 179
     },
     {
       "id": "tfda-undec-10-enoic-acid-and-its-salts",
@@ -5468,6 +5417,77 @@
       "score": 169
     },
     {
+      "id": "tfda-benzenecarboximidamide-4-4-1-6-hexanediylbis-oxy-bis-and-its-salts-including-ise",
+      "canonical_name": "Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 3811-75-4",
+        "CAS 659-40-5",
+        "CAS 93841-83-9",
+        "INCI Benzenecarboximidamide, 4,4'-(1,6-hexanediylbis (oxy))bis- and its salts (including isethionate and p-hydroxybenzoate)",
+        "INCI Hexamidine",
+        "INCI Hexamidine diisethionate",
+        "INCI Hexamidine paraben",
+        "Hexamidine",
+        "Hexamidine diisethionate",
+        "Hexamidine paraben"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "Generated from TFDA rule tw-cos-201-24",
+      "score": 167
+    },
+    {
+      "id": "chlorhexidine-family",
+      "canonical_name": "Chlorhexidine Family",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 55-56-1",
+        "CAS 18472-51-0",
+        "CAS 3697-42-5",
+        "CAS 56-95-1",
+        "INCI Chlorhexidine",
+        "INCI Chlorhexidine Digluconate",
+        "INCI Chlorhexidine Dihydrochloride",
+        "INCI Chlorhexidine Diacetate",
+        "Chlorhexidine",
+        "Chlorhexidine Digluconate"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "Antimicrobial preservative family; salt form matters for limits.",
+      "score": 165
+    },
+    {
+      "id": "tfda-poly-methylene-alpha-ome-ga-bis-aminoiminomethyl-amino-iminomethyl-amino-dihydro",
+      "canonical_name": "Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 32289-58-0",
+        "CAS 133029-32-0",
+        "CAS 28757-47-3",
+        "CAS 27083-27-8",
+        "INCI Poly(methylene),.alpha.,.ome-ga.-bis[[[(aminoiminomethyl)amino]iminomethyl]amino]-, dihydrochloride",
+        "INCI Polyaminopropyl biguanide",
+        "Polyaminopropyl biguanide",
+        "133029-32-0",
+        "27083-27-8",
+        "28757-47-3"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "Generated from TFDA rule tw-cos-201-39",
+      "score": 165
+    },
+    {
       "id": "camphor",
       "canonical_name": "Camphor",
       "category": "cosmetic_ingredient",
@@ -5506,43 +5526,23 @@
       ],
       "notes": "벤조페논류 자외선 성분 — 종류별 한도 확인.",
       "score": 162
-    },
-    {
-      "id": "menthol",
-      "canonical_name": "Menthol",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "INCI Menthol",
-        "Menthol",
-        "メントール",
-        "薄荷醇",
-        "멘톨"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "tw-tfda-cosmetic-restricted-ingredients"
-      ],
-      "notes": "Common cooling ingredient with multilingual label variants.",
-      "score": 162
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 1299,
-      "aliases_scanned": 5334,
-      "alias_rows_scanned": 5329,
-      "collision_groups": 97,
-      "high_confidence_collisions": 65,
+      "terms_scanned": 1522,
+      "aliases_scanned": 6029,
+      "alias_rows_scanned": 6024,
+      "collision_groups": 88,
+      "high_confidence_collisions": 56,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 975,
+      "regulated_terms_without_local_alias": 902,
       "strict_blockers": 0,
-      "review_items": 1072
+      "review_items": 990
     },
     "items": [
       {
@@ -6210,84 +6210,6 @@
         ]
       },
       {
-        "id": "alias-cba4b87a5a62f0",
-        "alias": "phenoxyisopropanol",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-1-phenoxypropan-2-ol",
-            "canonical_name": "1-Phenoxypropan-2-ol 註",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-1-phenoxypropan-2-ol-1",
-            "canonical_name": "1-Phenoxypropan-2-ol(1)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          }
-        ]
-      },
-      {
-        "id": "alias-2d61ae235171b4",
-        "alias": "triclocarban",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-1-4-chlorophenyl-3-3-4-dichlorophenyl-urea",
-            "canonical_name": "1-(4-Chlorophenyl)-3-(3,4-dichlorophenyl)urea 註",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-1-4-chlorophenyl-3-3-4-di-chlorophenyl-urea-3",
-            "canonical_name": "1-(4-Chlorophenyl)-3-(3,4-di-chlorophenyl) urea(3)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          }
-        ]
-      },
-      {
-        "id": "alias-51db807fa090ca",
-        "alias": "zinc pyrithione",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "tfda-pyrithione-zinc",
-            "canonical_name": "Pyrithione zinc 註",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          },
-          {
-            "term_id": "tfda-pyrithione-zinc-1",
-            "canonical_name": "Pyrithione zinc(1)",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "und"
-          }
-        ]
-      },
-      {
         "id": "alias-7cccfa095b6c11",
         "alias": "保存期限",
         "issue": "alias-collision-high-confidence",
@@ -6386,6 +6308,84 @@
             "term_id": "food-label-required-items",
             "canonical_name": "Food Label Required Items",
             "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-15cb6ac186fada",
+        "alias": "有效日期",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "food-label-required-items",
+            "canonical_name": "Food Label Required Items",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "shelf-life-date",
+            "canonical_name": "Shelf-life / expiry date (有效日期)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-3ad37302ca9d7a",
+        "alias": "染髮",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "cosmetic-pif-product-registration-categories",
+            "canonical_name": "Cosmetic PIF and Product Registration Categories",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "claim-hairdye",
+            "canonical_name": "Hair dye claim (染髮)",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-93a5655db6e401",
+        "alias": "甲醛",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 0.95,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "formaldehyde",
+            "canonical_name": "Formaldehyde",
+            "confidence": 0.95,
+            "jurisdiction": "TW",
+            "language": "zh"
+          },
+          {
+            "term_id": "commodity-label",
+            "canonical_name": "General commodity Chinese labeling (商品標示法)",
+            "confidence": 0.9,
             "jurisdiction": "TW",
             "language": "zh-Hant"
           }
