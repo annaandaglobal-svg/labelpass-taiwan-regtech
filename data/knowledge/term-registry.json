@@ -88299,6 +88299,98 @@
         "tw-tfda-systematic-inspection-imported-food"
       ],
       "notes": "조사식품 허용품목+라두라 마크+輻射照射處理 표시."
+    },
+    {
+      "id": "polyglutamic-acid",
+      "canonical_name": "Polyglutamic acid (γ-PGA)",
+      "category": "polyglutamic_acid",
+      "identifiers": {
+        "cas": [
+          "25513-46-6",
+          "28829-38-1"
+        ],
+        "inci": [
+          "Polyglutamic Acid",
+          "Sodium Polyglutamate"
+        ],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리글루타믹애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "polyglutamic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "γ-PGA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚麩胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "納豆菌膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "sodium polyglutamate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚麩胺酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "폴리감마글루탐산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "폴리글루탐산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "나토검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "화장품 허용 보습제(제한목록 미등재). 식품은 첨가물(聚麩胺酸鈉 용도별 한도) vs 분리원료(非傳統性 확인). 효능표방=健康食品."
     }
   ]
 }

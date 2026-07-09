@@ -53,7 +53,8 @@
     "build:tfda-terms": "node scripts/build-tfda-terms.mjs",
     "build:tfda-food-terms": "node scripts/build-tfda-food-terms.mjs",
     "test:ai-fallback": "node --experimental-strip-types --no-warnings scripts/verify-ai-fallback-safety.mjs",
-    "test:consult-coverage": "node scripts/verify-consult-coverage.mjs"
+    "test:consult-coverage": "node scripts/verify-consult-coverage.mjs",
+    "learn:report": "node scripts/learn-report.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

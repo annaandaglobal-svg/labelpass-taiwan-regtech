@@ -16,6 +16,7 @@
 import { searchKnowledge } from "./knowledge-search";
 import { verdictForKnowledgeTerm } from "./knowledge-verdicts";
 import { scrubInferredText } from "./ai-ingredient-fallback";
+import { recordUnknownTopic } from "./learning-queue";
 
 const openaiApiKey = process.env.OPENAI_API_KEY;
 // Reuse the AI-review enablement so an operator who turned on AI review gets the chat too;
@@ -156,9 +157,10 @@ export async function answerConsult(question: string, history: Array<{ role: "us
   const citations = await retrieveConsultContext(question);
 
   if (!citations.length) {
-    // Leave a signal about what the curated KB is missing (visible in server logs), so gaps can be
-    // prioritised for real research + ingestion later.
+    // Leave a signal about what the curated KB is missing: a server log (always) + the learning queue
+    // (best-effort, writable fs) so gaps can be prioritised for a verified research + ingestion pass.
     console.log("[consult-unknown]", question.slice(0, 200));
+    void recordUnknownTopic(question, new Date().toISOString());
     // Graceful degrade: instead of a dead-end, give an AI-INFERRED direction — clearly unverified,
     // never with fabricated numbers — when the LLM is available. Otherwise stay honestly blank.
     const inferred = await inferUnknown(question);

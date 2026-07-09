@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,299
-- Stored aliases: 7,310
-- Searchable aliases including identifiers: 8,462
+- Terms: 2,300
+- Stored aliases: 7,320
+- Searchable aliases including identifiers: 8,476
 - Term-rule links: 1,101
 - Regulatory update candidates: 47
-- Alias review items: 949
+- Alias review items: 950
 
 ## How To Use This Memory
 
