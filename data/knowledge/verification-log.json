@@ -1,0 +1,44 @@
+{
+  "note": "Provenance log: which primary sources verified which curated facts, and when. Populated during sonnet primary-source verification passes so the reasoning survives past the (transient) agent runs. `scripts/apply-verification.mjs` stamps confidence:'verified' + verifiedAt + verifiedSources onto the listed terms. `pnpm verify:status` reports what is still inferred (haiku-only) and thus a target for the next verification pass.",
+  "entries": [
+    {
+      "batch": "cosmetic-tables-2026-07-09",
+      "method": "sonnet — read 化粧品成分使用限制表 (219 items), 禁止使用成分表 (659), 防曬劑表, 防腐劑表 full text",
+      "verifiedAt": "2026-07-09",
+      "sources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "terms": ["uvf-octinoxate", "uvf-avobenzone", "uvf-homosalate", "uvf-bisoctrizole", "uvf-dhhb", "uvf-bemotrizinol", "cga-ethyl-ascorbyl-ether", "cos-camphor", "acid-mandelic", "acid-lactobionic", "cga-sodium-pca", "cga-ferulic", "cga-idebenone", "cga-argireline", "cga-amp", "cga-tocotrienol", "cos-azulene", "cos-eucalyptus-oil", "cos-smct", "cos-sclerotium-gum", "cos-cha", "cos-sodium-anisate", "cos-dha", "bergamot", "cos-benzyl-salicylate"],
+      "facts": "UV filters 10/5/10/10/10/10%, oxybenzone 6%; EAE restricted 2%; camphor 3%+under-2 warning (permanent); mandelic AHA = pH≥3.5 + warning (NO 18% cap); sodium PCA/ferulic/idebenone/argireline/AMP/tocotrienol/azulene/eucalyptus/lactobionic/CHA/sodium anisate NOT restricted; DHA permitted 10% self-tan/6.25% hair-dye from 2027-10; bergapten prohibited-list, <1mg/kg in sunscreen, natural-trace exempt; HICC/atranol/chloroatranol banned; hydroquinone/tretinoin = drug"
+    },
+    {
+      "batch": "food-additive-appendix-2026-07-09",
+      "method": "sonnet — read 食品添加物使用範圍及限量暨規格標準 附表一 (甜味劑/粘稠劑/營養劑) + gazette PDFs",
+      "verifiedAt": "2026-07-09",
+      "sources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "terms": ["min-chromium", "min-manganese", "min-iodine", "add-acetic-acid", "add-tara-gum", "add-alitame", "add-glycyrrhizin", "steviol-glycosides-food-additive", "col-tartrazine", "col-sunset-yellow", "col-allura-red", "col-brilliant-blue"],
+      "facts": "PGA per-food limits confirmed (noodles 2%/tofu 0.5%/egg 0.4%/milk 0.13%/pearls 0.1%/jelly 0.05%); Cr 200μg/day; Mn 9/5/1mg; iodine 20–33 mg/kg (as I) in iodized salt (NOT 45ppm); acetic acid QS; tara gum = raw material (not additive); alitame NOT permitted (absent from 26-item sweetener list); glycyrrhizin QS except sugar-substitute tablets; saccharin & steviol per-food limits; 8 synthetic colors; brilliant blue banned in fresh meat/fish/noodles/tea/soy sauce/seaweed; Mg/Mo 2025 amendment effective 2027-07"
+    },
+    {
+      "batch": "food-raw-material-2026-07-09",
+      "method": "sonnet — downloaded + grepped TFDA 可供食品原料 open-data CSV (29,590 / 9,500 rows) + MOHW dual-use list + edible-insect PDF",
+      "verifiedAt": "2026-07-09",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "terms": ["bot-turmeric", "bot-cinnamon", "bot-rhodiola", "bot-gymnema", "fiber-psyllium", "pea-protein", "raw-fucoidan", "raw-seaweed-calcium", "raw-shark-cartilage", "raw-fenugreek", "raw-artichoke", "raw-bitter-melon", "supp-nmn", "supp-nac", "supp-berberine", "raw-acetyl-carnitine", "oil-borage", "oil-flaxseed", "bot-black-cohosh", "raw-hemp-seed", "insect-silkworm-pupa", "insect-mealworm", "insect-cricket", "insect-grasshopper", "raw-lactoferrin", "raw-gamma-oryzanol"],
+      "facts": "turmeric rhizome food/leaf spice (synthetic curcumin/Javanese excluded); cinnamon bark permitted (not sole ingredient + pregnancy warning); rhodiola/gymnema(武靴藤) permitted (tea-bag/extract only); psyllium 10.2g/day + warning; pea protein permitted; fucoidan permitted (source-algae extracts); seaweed calcium permitted (珊瑚藻 1800mg Ca/day); shark cartilage permitted (non-protected source); fenugreek/artichoke permitted; bitter melon fruit ok / vine novel; NMN synthetic banned (natural only); NAC = drug; isolated berberine = drug (herb 黃連 = food); L-carnitine ≤2g/day; borage/flaxseed oil permitted; black cohosh medicine-only; hemp seed not food (cannabis); edible insects = exactly 4 whole (蠶蛹/蜂蛹/紅蚯蚓/擬黑多刺蟻) + 7 derived; cricket/mealworm not-yet-permitted; grasshopper absent"
+    }
+  ]
+}

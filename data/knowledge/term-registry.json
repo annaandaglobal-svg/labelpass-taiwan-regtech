@@ -161,7 +161,8 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "대만 화장품 제한(限用) 성분. 사용 목적·제품군별 함량 한도(리브온 ≤2% 등)와 '3세 이하 사용 금지' 경고문구 확인. 보존 목적 사용 시 별도 한도. BHA 약어는 문맥 확인 필요."
+      "notes": "대만 화장품 제한(限用) 성분. 사용 목적·제품군별 함량 한도(리브온 ≤2% 등)와 '3세 이하 사용 금지' 경고문구 확인. 보존 목적 사용 시 별도 한도. BHA 약어는 문맥 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "methylisothiazolinone",
@@ -4455,7 +4456,16 @@
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision."
+      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "sorbitol-food-additive",
@@ -16254,7 +16264,8 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "비타민A 유도체. 함량·효능 표현·안정성 확인 필요."
+      "notes": "비타민A 유도체. 함량·효능 표현·안정성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "adenosine",
@@ -16776,7 +16787,8 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "레티놀 대체로 쓰이는 식물유래 성분. 대만 화장품 사용 시 함량·안전성 확인 필요."
+      "notes": "레티놀 대체로 쓰이는 식물유래 성분. 대만 화장품 사용 시 함량·안전성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "ing-squalane",
@@ -85771,7 +85783,8 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "대만 미등재 농약×작물=불검출. 한국 PLS 0.01 기본값 없음."
+      "notes": "대만 미등재 농약×작물=불검출. 한국 PLS 0.01 기본값 없음.",
+      "verification": "inferred"
     },
     {
       "id": "trap-inspection-escalation",
@@ -88138,7 +88151,8 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "목록 없으면 식품 아님+한약재 식약경계+非傳統성 사전승인+균주/곤충."
+      "notes": "목록 없으면 식품 아님+한약재 식약경계+非傳統성 사전승인+균주/곤충.",
+      "verification": "inferred"
     },
     {
       "id": "trap-supp-drug",
@@ -88446,7 +88460,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "화장품 허용 보습제(제한목록 미등재). 식품은 첨가물(聚麩胺酸鈉 용도별 한도) vs 분리원료(非傳統性 확인). 효능표방=健康食品."
+      "notes": "화장품 허용 보습제(제한목록 미등재). 식품은 첨가물(聚麩胺酸鈉 용도별 한도) vs 분리원료(非傳統性 확인). 효능표방=健康食品.",
+      "verification": "inferred"
     },
     {
       "id": "uvf-octinoxate",
@@ -88504,7 +88519,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "대만 UV필터 허용, 최대 10%."
+      "notes": "대만 UV필터 허용, 최대 10%.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "uvf-avobenzone",
@@ -88555,7 +88578,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "대만 UV필터 허용, 최대 5%(광안정제 병용 권장)."
+      "notes": "대만 UV필터 허용, 최대 5%(광안정제 병용 권장).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "uvf-homosalate",
@@ -88599,7 +88630,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "대만 UV필터 허용, 최대 10%(EU의 7.34% 감축 미채택)."
+      "notes": "대만 UV필터 허용, 최대 10%(EU의 7.34% 감축 미채택).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-sodium-pca",
@@ -88643,7 +88682,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "보습제. 금지·제한 목록 미등재(허용 추정)."
+      "notes": "보습제. 금지·제한 목록 미등재(허용 추정).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-ferulic",
@@ -88687,7 +88734,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "항산화. 금지·제한 목록 미등재(허용 추정)."
+      "notes": "항산화. 금지·제한 목록 미등재(허용 추정).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-idebenone",
@@ -88724,7 +88779,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "항산화. 목록 미등재(허용 추정)이나 고용량·효능표방 시 약품 경계."
+      "notes": "항산화. 목록 미등재(허용 추정)이나 고용량·효능표방 시 약품 경계.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-argireline",
@@ -88782,7 +88845,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "펩타이드. 금지·제한 목록 미등재(허용 추정)."
+      "notes": "펩타이드. 금지·제한 목록 미등재(허용 추정).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-ethyl-ascorbyl-ether",
@@ -88826,7 +88897,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "화장품 제한표 등재: 최대 2%(미백 비타민C 유도체)."
+      "notes": "화장품 제한표 등재: 최대 2%(미백 비타민C 유도체).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "fiber-psyllium",
@@ -88884,7 +88963,14 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "대만 승인 식품원료(2024). 10.2g/일 한도+경고문."
+      "notes": "대만 승인 식품원료(2024). 10.2g/일 한도+경고문.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "fiber-glucomannan",
@@ -88942,7 +89028,8 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "곤약은 전통식품이나 분리·가교 형태는 非傳統성 확인. 곤약젤리 질식경고."
+      "notes": "곤약은 전통식품이나 분리·가교 형태는 非傳統성 확인. 곤약젤리 질식경고.",
+      "verification": "inferred"
     },
     {
       "id": "raw-acerola",
@@ -89000,7 +89087,8 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "비타민C 원료. 식품원료 등재 확인 필요(2차출처만)."
+      "notes": "비타민C 원료. 식품원료 등재 확인 필요(2차출처만).",
+      "verification": "inferred"
     },
     {
       "id": "enz-transglutaminase",
@@ -89088,7 +89176,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "파인애플 효소. 대만 급원·목록 확인 필요."
+      "notes": "파인애플 효소. 대만 급원·목록 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "enz-papain",
@@ -89125,7 +89214,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "파파야 효소. 대만 급원·목록 확인 필요."
+      "notes": "파파야 효소. 대만 급원·목록 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "enz-lactase",
@@ -89169,7 +89259,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "유당분해효소. 대만 급원·목록 확인 필요."
+      "notes": "유당분해효소. 대만 급원·목록 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "enz-pectinase",
@@ -89206,7 +89297,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "펙틴분해효소. 대만 급원·목록 확인 필요."
+      "notes": "펙틴분해효소. 대만 급원·목록 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "enz-glucoamylase",
@@ -89250,7 +89342,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "당화효소. 대만 급원·목록 확인 필요."
+      "notes": "당화효소. 대만 급원·목록 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "enz-katsuobushi",
@@ -89352,7 +89445,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 합성색소(食用黃色四號). 특정식품 사용금지."
+      "notes": "대만 허용 합성색소(食用黃色四號). 특정식품 사용금지.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "col-sunset-yellow",
@@ -89396,7 +89498,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 합성색소(食用黃色五號). 특정식품 사용금지."
+      "notes": "대만 허용 합성색소(食用黃色五號). 특정식품 사용금지.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "col-allura-red",
@@ -89447,7 +89558,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 합성색소(食用紅色四十號, 8종 중 하나). 특정식품(생육·생선·면·차·간장·해조 등) 사용금지."
+      "notes": "대만 허용 합성색소(食用紅色四十號, 8종 중 하나). 특정식품(생육·생선·면·차·간장·해조 등) 사용금지.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "col-brilliant-blue",
@@ -89498,7 +89618,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 합성색소(食用藍色一號). 생육·생선·면·차·간장·해조 등 사용금지."
+      "notes": "대만 허용 합성색소(食用藍色一號). 생육·생선·면·차·간장·해조 등 사용금지.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "col-chlorophyll",
@@ -89593,7 +89722,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "AHA. 허용 추정이나 농도(≤18%)·pH·자외선 경고 확인."
+      "notes": "AHA. 허용 추정이나 농도(≤18%)·pH·자외선 경고 확인.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "acid-lactobionic",
@@ -89637,7 +89774,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "PHA. 허용 추정, 자외선 경고 완화."
+      "notes": "PHA. 허용 추정, 자외선 경고 완화.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "bergamot",
@@ -89695,7 +89840,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "식품향료는 등록면제 허용. 화장품은 베르가프텐(푸로쿠마린)이 금지목록(천연 에센스 미량 예외); 선탠·자외선 제품엔 1mg/kg 미만."
+      "notes": "식품향료는 등록면제 허용. 화장품은 베르가프텐(푸로쿠마린)이 금지목록(천연 에센스 미량 예외); 선탠·자외선 제품엔 1mg/kg 미만.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "pea-protein",
@@ -89746,7 +89899,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용(완두 종자 식용, 제한 없음). 완두는 대만 의무 알레르겐 아님."
+      "notes": "허용(완두 종자 식용, 제한 없음). 완두는 대만 의무 알레르겐 아님.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "rice-bran-oil",
@@ -89841,7 +90001,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "식품첨가물(粘稠劑)이 아니라 '식품원료'로 허용(Caesalpinia spinosa 종자). 원료라 %상한 없이 GMP 적정량."
+      "notes": "식품첨가물(粘稠劑)이 아니라 '식품원료'로 허용(Caesalpinia spinosa 종자). 원료라 %상한 없이 GMP 적정량.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "add-acetic-acid",
@@ -89899,7 +90068,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 산도조절제(#020/#021). 전 식품군, 필요량 사용."
+      "notes": "허용 산도조절제(#020/#021). 전 식품군, 필요량 사용.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "bot-turmeric",
@@ -89957,7 +90135,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "근경은 식용 허용·잎은 향신료 허용. ⚠️ 합성 커큐민·테트라하이드로커큐민·자바강황(爪哇薑黃)은 미허용."
+      "notes": "근경은 식용 허용·잎은 향신료 허용. ⚠️ 합성 커큐민·테트라하이드로커큐민·자바강황(爪哇薑黃)은 미허용.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "bot-cinnamon",
@@ -90008,7 +90193,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "수피 허용이나 '단일 원료 사용 불가'+임산부 忌食 경고(차·정·캡슐·분말·액상). 잎 향신료 허용. 원료 자체 쿠마린 한도는 없음(음료 향료 2mg/kg는 별개)."
+      "notes": "수피 허용이나 '단일 원료 사용 불가'+임산부 忌食 경고(차·정·캡슐·분말·액상). 잎 향신료 허용. 원료 자체 쿠마린 한도는 없음(음료 향료 2mg/kg는 별개).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "bot-rhodiola",
@@ -90052,7 +90244,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용(草木본植物類1: 티백·膳食조리팩·추출 후 원료만, 직접 섭취 불가)."
+      "notes": "허용(草木본植物類1: 티백·膳食조리팩·추출 후 원료만, 직접 섭취 불가).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "bot-gymnema",
@@ -90096,7 +90295,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용(武靴藤; 티백·膳食조리팩·추출 원료만)."
+      "notes": "허용(武靴藤; 티백·膳食조리팩·추출 원료만).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-azulene",
@@ -90147,7 +90353,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "진정 성분. 제한·금지 목록 미등재 확인(허용)."
+      "notes": "진정 성분. 제한·금지 목록 미등재 확인(허용).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-eucalyptus-oil",
@@ -90198,7 +90412,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "화장품 허용 확인(제한·금지 목록 미등재). 유칼립투스 잎은 식품쪽 제한 별도."
+      "notes": "화장품 허용 확인(제한·금지 목록 미등재). 유칼립투스 잎은 식품쪽 제한 별도.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-camphor",
@@ -90249,7 +90471,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "제한 성분: 3% 상한 + 2세 미만 사용 시 의사·약사 상담 경고문(영구 조건, 씻어내는 제품 제외)."
+      "notes": "제한 성분: 3% 상한 + 2세 미만 사용 시 의사·약사 상담 경고문(영구 조건, 씻어내는 제품 제외).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "uvf-bisoctrizole",
@@ -90293,7 +90523,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "대만 UV필터 허용, 최대 10%."
+      "notes": "대만 UV필터 허용, 최대 10%.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "uvf-dhhb",
@@ -90344,7 +90582,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "대만 UV필터 허용, 최대 10%."
+      "notes": "대만 UV필터 허용, 최대 10%.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "uvf-bemotrizinol",
@@ -90395,7 +90641,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "대만 UV필터 허용, 최대 10%."
+      "notes": "대만 UV필터 허용, 최대 10%.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-amp",
@@ -90432,7 +90686,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "pH 조절제. 목록 미등재(허용 추정), 최신 목록 확인."
+      "notes": "pH 조절제. 목록 미등재(허용 추정), 최신 목록 확인.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cga-tocotrienol",
@@ -90469,7 +90731,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "비타민E계 항산화. 목록 미등재(허용 추정)."
+      "notes": "비타민E계 항산화. 목록 미등재(허용 추정).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "supp-nmn",
@@ -90513,7 +90783,14 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "합성 NMN 금지. 천연(효모·브로콜리 추출)만 허용(대략 45~100mg)."
+      "notes": "합성 NMN 금지. 천연(효모·브로콜리 추출)만 허용(대략 45~100mg).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "supp-nac",
@@ -90564,7 +90841,14 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "약품 성분(식품 원료·첨가물 목록 미등재) — 식품으로 수입 불가."
+      "notes": "약품 성분(식품 원료·첨가물 목록 미등재) — 식품으로 수입 불가.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-arginine",
@@ -90608,7 +90892,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "아미노산. 효능표방 없으면 허용 추정, 플랫폼 확인."
+      "notes": "아미노산. 효능표방 없으면 허용 추정, 플랫폼 확인.",
+      "verification": "inferred"
     },
     {
       "id": "raw-quercetin",
@@ -90652,7 +90937,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "플라보노이드. 식품 적격성 확인 필요(용도별)."
+      "notes": "플라보노이드. 식품 적격성 확인 필요(용도별).",
+      "verification": "inferred"
     },
     {
       "id": "raw-opc",
@@ -90703,7 +90989,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "OPC(포도씨·소나무껍질). 식품 적격성 확인 필요."
+      "notes": "OPC(포도씨·소나무껍질). 식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "min-chromium",
@@ -90754,7 +91041,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "영양첨가제 허용. 일일 최대 200μg."
+      "notes": "영양첨가제 허용. 일일 최대 200μg.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "min-manganese",
@@ -90791,7 +91087,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "영양첨가제 허용. 캡슐 9mg·일반 5mg·영유아 1mg/일."
+      "notes": "영양첨가제 허용. 캡슐 9mg·일반 5mg·영유아 1mg/일.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "min-iodine",
@@ -90842,7 +91147,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "영양첨가제 허용. 요오드소금(가요오드소금) 20~33 mg/kg(以碘計) + 갑상선환자 주의 표시."
+      "notes": "영양첨가제 허용. 요오드소금(가요오드소금) 20~33 mg/kg(以碘計) + 갑상선환자 주의 표시.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-fucoidan",
@@ -90893,7 +91207,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용(급원 조류 昆布·裙帶菜·羊栖菜 및 그 추출물이 등재)."
+      "notes": "허용(급원 조류 昆布·裙帶菜·羊栖菜 및 그 추출물이 등재).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-krill-oil",
@@ -90967,7 +91288,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용(건조 연골; 급원이 보육류(보호종)가 아니어야 함)."
+      "notes": "허용(건조 연골; 급원이 보육류(보호종)가 아니어야 함).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-seaweed-calcium",
@@ -91011,7 +91339,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용(홍조류). 珊瑚藻(Lithothamnium)는 칼슘 1800mg/일 상한(2024 공고)."
+      "notes": "허용(홍조류). 珊瑚藻(Lithothamnium)는 칼슘 1800mg/일 상한(2024 공고).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-smct",
@@ -91041,7 +91376,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "계면활성제. 제한·금지·보존제 목록 미등재 확인(허용)."
+      "notes": "계면활성제. 제한·금지·보존제 목록 미등재 확인(허용).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-sclerotium-gum",
@@ -91078,7 +91421,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "증점제. 제한·금지·보존제 목록 미등재 확인(허용)."
+      "notes": "증점제. 제한·금지·보존제 목록 미등재 확인(허용).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-cha",
@@ -91115,7 +91466,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "제한·금지·보존제 목록 어디에도 미등재 → 제한 아님(허용). 미등재 보존제는 EU/US/日 최엄격 기준을 따름."
+      "notes": "제한·금지·보존제 목록 어디에도 미등재 → 제한 아님(허용). 미등재 보존제는 EU/US/日 최엄격 기준을 따름.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-raffinose",
@@ -91247,7 +91606,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "프리바이오틱. 식품 적격성 확인 필요."
+      "notes": "프리바이오틱. 식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-resistant-starch",
@@ -91284,7 +91644,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "난소화성 전분. 식품 적격성 확인 필요."
+      "notes": "난소화성 전분. 식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-agave",
@@ -91321,7 +91682,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "감미료. 식품 적격성 확인 필요."
+      "notes": "감미료. 식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-rice-syrup",
@@ -91372,7 +91734,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "곡물 조청. 맥아 원료는 등재, 조청 형태 확인 권장."
+      "notes": "곡물 조청. 맥아 원료는 등재, 조청 형태 확인 권장.",
+      "verification": "inferred"
     },
     {
       "id": "raw-acetyl-carnitine",
@@ -91416,7 +91779,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "L-카르니틴은 영양첨가제(정·캡슐 총 ≤2g/일). 아세틸형은 유도체로 별도 확인 권장."
+      "notes": "L-카르니틴은 영양첨가제(정·캡슐 총 ≤2g/일). 아세틸형은 유도체로 별도 확인 권장.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-pqq",
@@ -91453,7 +91823,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "신소재(非傳統性) — 미승인, 사전 안전성평가 필요."
+      "notes": "신소재(非傳統性) — 미승인, 사전 안전성평가 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-spermidine",
@@ -91490,7 +91861,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "신소재(非傳統性) — 미승인, 사전 안전성평가 필요."
+      "notes": "신소재(非傳統性) — 미승인, 사전 안전성평가 필요.",
+      "verification": "inferred"
     },
     {
       "id": "supp-berberine",
@@ -91534,7 +91906,14 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "분리·정제 베르베린은 약품(식품 미등재). 원료 식물 황련(黃連)은 식품 허용(티백·추출)."
+      "notes": "분리·정제 베르베린은 약품(식품 미등재). 원료 식물 황련(黃連)은 식품 허용(티백·추출).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-citrulline",
@@ -91622,7 +92001,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식품원료(종자·잎·싹, 직접 식용)."
+      "notes": "허용 식품원료(종자·잎·싹, 직접 식용).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-bitter-melon",
@@ -91673,7 +92059,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "열매·씨·잎은 허용 식품. ⚠️ 덩굴·줄기(藤/莖)는 신소재(非傳統性) 미허용."
+      "notes": "열매·씨·잎은 허용 식품. ⚠️ 덩굴·줄기(藤/莖)는 신소재(非傳統性) 미허용.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-artichoke",
@@ -91710,7 +92103,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식품원료(꽃봉오리·꽃받침·잎, 직접 식용)."
+      "notes": "허용 식품원료(꽃봉오리·꽃받침·잎, 직접 식용).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-acrylates-cp",
@@ -91740,7 +92140,8 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "증점제. 제한·금지 목록 미등재(허용)."
+      "notes": "증점제. 제한·금지 목록 미등재(허용).",
+      "verification": "inferred"
     },
     {
       "id": "cos-phytosterol",
@@ -91777,7 +92178,8 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "에몰리언트. 제한·금지 목록 미등재(허용)."
+      "notes": "에몰리언트. 제한·금지 목록 미등재(허용).",
+      "verification": "inferred"
     },
     {
       "id": "cos-benzyl-salicylate",
@@ -91807,7 +92209,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "향료 성분. 미등재(허용)이나 향료 알레르겐 24종 개별표시 대상."
+      "notes": "향료 성분. 미등재(허용)이나 향료 알레르겐 24종 개별표시 대상.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-scg",
@@ -91837,7 +92247,8 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "계면활성제. 제한·금지 목록 미등재(허용)."
+      "notes": "계면활성제. 제한·금지 목록 미등재(허용).",
+      "verification": "inferred"
     },
     {
       "id": "cos-sodium-anisate",
@@ -91874,7 +92285,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "보존 보조. 제한·금지·보존제 목록 미등재(허용, catch-all)."
+      "notes": "보존 보조. 제한·금지·보존제 목록 미등재(허용, catch-all).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "cos-dha",
@@ -91918,7 +92337,15 @@
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "현재 미규제. 2027-10부터 셀프태닝 10%·비산화 염모 6.25% 명문(제한표 #214)."
+      "notes": "현재 미규제. 2027-10부터 셀프태닝 10%·비산화 염모 6.25% 명문(제한표 #214).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637169453770155727",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "verification": "verified"
     },
     {
       "id": "add-glycyrrhizin",
@@ -91969,7 +92396,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 감미료(6종 등재, 각 식품 적정량). 단 대체당 정제·분말엔 사용 금지."
+      "notes": "허용 감미료(6종 등재, 각 식품 적정량). 단 대체당 정제·분말엔 사용 금지.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-lactoferrin",
@@ -92006,7 +92442,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식품원료(단백 ≥95%, 일일섭취 규격)."
+      "notes": "허용 식품원료(단백 ≥95%, 일일섭취 규격).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-gamma-oryzanol",
@@ -92050,7 +92493,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식품원료(미강 유래). 일일 300mg 한도."
+      "notes": "허용 식품원료(미강 유래). 일일 300mg 한도.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "add-alitame",
@@ -92087,7 +92537,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "⚠️ 대만 감미료 포지티브 리스트(26종) 미등재 — 식품첨가물로 사용 불가."
+      "notes": "⚠️ 대만 감미료 포지티브 리스트(26종) 미등재 — 식품첨가물로 사용 불가.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
+        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
+        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
+        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-d-ribose",
@@ -92131,7 +92590,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "식품 적격성 확인 필요."
+      "notes": "식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-zinc-picolinate",
@@ -92168,7 +92628,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "아연 급원 형태 확인 필요(영양첨가제 규격 대조)."
+      "notes": "아연 급원 형태 확인 필요(영양첨가제 규격 대조).",
+      "verification": "inferred"
     },
     {
       "id": "raw-mg-glycinate",
@@ -92249,7 +92710,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "철 급원 형태 확인 필요."
+      "notes": "철 급원 형태 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-colostrum",
@@ -92293,7 +92755,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "유함량 표시규정. 식품 적격성 확인 필요."
+      "notes": "유함량 표시규정. 식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "oil-borage",
@@ -92330,7 +92793,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식용유(Borago officinalis 종자)."
+      "notes": "허용 식용유(Borago officinalis 종자).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "oil-flaxseed",
@@ -92381,7 +92851,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식용유(Linum usitatissimum 종자)."
+      "notes": "허용 식용유(Linum usitatissimum 종자).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "bot-black-cohosh",
@@ -92425,7 +92902,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "한약재(中藥材) — 식품 허용 근거 미확인, 약용으로 취급."
+      "notes": "한약재(中藥材) — 식품 허용 근거 미확인, 약용으로 취급.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-hemp-seed",
@@ -92483,7 +92967,14 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "대마(Class2 마약)로 헴프씨드도 식품 불가(2020 헴프씨드오일 불허)."
+      "notes": "대마(Class2 마약)로 헴프씨드도 식품 불가(2020 헴프씨드오일 불허).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "raw-red-clover",
@@ -92520,7 +93011,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "이소플라본 원료. 식품 적격성 확인 필요."
+      "notes": "이소플라본 원료. 식품 적격성 확인 필요.",
+      "verification": "inferred"
     },
     {
       "id": "raw-chia-seed",
@@ -92564,7 +93056,8 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "시판 중이나 식품원료 등재 확인 권장."
+      "notes": "시판 중이나 식품원료 등재 확인 권장.",
+      "verification": "inferred"
     },
     {
       "id": "insect-silkworm-pupa",
@@ -92601,7 +93094,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식용곤충 4종 중 하나(蠶蛹)."
+      "notes": "허용 식용곤충 4종 중 하나(蠶蛹).",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "insect-mealworm",
@@ -92652,7 +93152,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "⚠️ 미허용(未確認安全性 목록) — 대만 식용곤충 4종 아님, 非傳統性 신청 필요."
+      "notes": "⚠️ 미허용(未確認安全性 목록) — 대만 식용곤충 4종 아님, 非傳統性 신청 필요.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "insect-cricket",
@@ -92696,7 +93203,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "⚠️ 미허용(未確認安全性 목록) — 대만 식용곤충 4종 아님, 非傳統性 신청 필요."
+      "notes": "⚠️ 미허용(未確認安全性 목록) — 대만 식용곤충 4종 아님, 非傳統性 신청 필요.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     },
     {
       "id": "insect-grasshopper",
@@ -92733,7 +93247,14 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "⚠️ 미허용 — 대만 식용곤충 4종 아니며 원료 목록 부재."
+      "notes": "⚠️ 미허용 — 대만 식용곤충 4종 아니며 원료 목록 부재.",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://dep.mohw.gov.tw/DOCMAP/lp-754-108.html",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
+      ],
+      "verification": "verified"
     }
   ]
 }

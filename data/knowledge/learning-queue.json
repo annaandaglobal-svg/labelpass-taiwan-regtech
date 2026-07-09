@@ -1,25 +1,18 @@
 {
-  "updatedAt": "2026-07-09T08:47:30.076Z",
+  "updatedAt": "2026-07-09T09:27:04.512Z",
   "topics": [
     {
-      "query": "Panthenol 1%",
-      "count": 2,
-      "firstSeen": "2026-07-09T08:47:10.341Z",
-      "lastSeen": "2026-07-09T08:47:15.544Z",
+      "query": "whey protein isolate",
+      "count": 1,
+      "firstSeen": "2026-07-09T09:26:57.778Z",
+      "lastSeen": "2026-07-09T09:26:57.778Z",
       "status": "pending"
     },
     {
-      "query": "Glycerin 4%",
+      "query": "minerals",
       "count": 1,
-      "firstSeen": "2026-07-09T08:47:21.614Z",
-      "lastSeen": "2026-07-09T08:47:21.614Z",
-      "status": "pending"
-    },
-    {
-      "query": "Niacinamide 2%",
-      "count": 1,
-      "firstSeen": "2026-07-09T08:47:30.076Z",
-      "lastSeen": "2026-07-09T08:47:30.076Z",
+      "firstSeen": "2026-07-09T09:27:04.512Z",
+      "lastSeen": "2026-07-09T09:27:04.512Z",
       "status": "pending"
     }
   ]
