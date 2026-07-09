@@ -1,32 +1,62 @@
 {
-  "updatedAt": "2026-07-09T01:30:21.102Z",
+  "updatedAt": "2026-07-09T04:22:39.839Z",
   "topics": [
     {
-      "query": "Panthenol 1%",
+      "query": "whey protein isolate",
       "count": 1,
-      "firstSeen": "2026-07-09T01:30:17.087Z",
-      "lastSeen": "2026-07-09T01:30:17.087Z",
+      "firstSeen": "2026-07-09T04:20:37.335Z",
+      "lastSeen": "2026-07-09T04:20:37.335Z",
+      "status": "pending"
+    },
+    {
+      "query": "minerals",
+      "count": 2,
+      "firstSeen": "2026-07-09T04:20:37.335Z",
+      "lastSeen": "2026-07-09T04:20:44.723Z",
+      "status": "pending"
+    },
+    {
+      "query": "Frozen oyster meat",
+      "count": 2,
+      "firstSeen": "2026-07-09T04:21:55.907Z",
+      "lastSeen": "2026-07-09T04:22:02.047Z",
+      "status": "pending"
+    },
+    {
+      "query": "camera sensor",
+      "count": 1,
+      "firstSeen": "2026-07-09T04:22:09.439Z",
+      "lastSeen": "2026-07-09T04:22:09.439Z",
       "status": "pending"
     },
     {
       "query": "Glycerin 5%",
+      "count": 3,
+      "firstSeen": "2026-07-09T04:22:18.322Z",
+      "lastSeen": "2026-07-09T04:22:39.839Z",
+      "status": "pending"
+    },
+    {
+      "query": "Panthenol 1%",
       "count": 1,
-      "firstSeen": "2026-07-09T01:30:18.319Z",
-      "lastSeen": "2026-07-09T01:30:18.319Z",
+      "firstSeen": "2026-07-09T04:22:18.322Z",
+      "lastSeen": "2026-07-09T04:22:18.322Z",
       "status": "pending"
     },
     {
       "query": "Glycerin 4%",
       "count": 1,
-      "firstSeen": "2026-07-09T01:30:19.836Z",
-      "lastSeen": "2026-07-09T01:30:19.836Z",
+      "firstSeen": "2026-07-09T04:22:33.218Z",
+      "lastSeen": "2026-07-09T04:22:33.218Z",
       "status": "pending"
-    },
-    {
+    }
+  ]
+}
+
       "query": "Niacinamide 2%",
       "count": 1,
-      "firstSeen": "2026-07-09T01:30:21.102Z",
-      "lastSeen": "2026-07-09T01:30:21.102Z",
+      "firstSeen": "2026-07-09T04:22:39.839Z",
+      "lastSeen": "2026-07-09T04:22:39.839Z",
       "status": "pending"
     }
   ]

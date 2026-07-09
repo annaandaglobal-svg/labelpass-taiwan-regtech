@@ -267,6 +267,8 @@ const verdictSurfacedCategories = new Set([
   "food_safety_contaminant",
   "infant_food_tariff",
   "polyglutamic_acid",
+  "cosmetic_general_active",
+  "functional_fiber",
   "inorganic_arsenic",
   "cosmetic_device_boundary",
   "electrical_bsmi_ncc",
