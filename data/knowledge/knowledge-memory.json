@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2415,
-    "stored_aliases": 7785,
-    "searchable_aliases": 8941,
+    "terms": 2430,
+    "stored_aliases": 7849,
+    "searchable_aliases": 9005,
     "identifier_aliases": 1156,
-    "term_rule_links": 1110,
+    "term_rule_links": 1111,
     "regulatory_update_candidates": 47,
-    "alias_review_items": 998,
+    "alias_review_items": 1007,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5507,17 +5507,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2415,
-      "aliases_scanned": 7785,
-      "alias_rows_scanned": 7785,
-      "collision_groups": 182,
-      "high_confidence_collisions": 139,
+      "terms_scanned": 2430,
+      "aliases_scanned": 7849,
+      "alias_rows_scanned": 7849,
+      "collision_groups": 191,
+      "high_confidence_collisions": 147,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 816,
       "strict_blockers": 0,
-      "review_items": 998
+      "review_items": 1007
     },
     "items": [
       {
@@ -6107,6 +6107,58 @@
         ]
       },
       {
+        "id": "alias-0f432473546cc7",
+        "alias": "麩質",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "gluten-cereals-allergen",
+            "canonical_name": "Cereals Containing Gluten",
+            "confidence": 1,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "raw-wheat-protein",
+            "canonical_name": "Wheat protein / gluten",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
+        "id": "alias-398c69eb05b089",
+        "alias": "글루텐",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "gluten-cereals-allergen",
+            "canonical_name": "Cereals Containing Gluten",
+            "confidence": 1,
+            "jurisdiction": "KR",
+            "language": "ko"
+          },
+          {
+            "term_id": "raw-wheat-protein",
+            "canonical_name": "Wheat protein / gluten",
+            "confidence": 0.9,
+            "jurisdiction": "KR",
+            "language": "ko"
+          }
+        ]
+      },
+      {
         "id": "alias-b58fe64d74dda6",
         "alias": "대만 수입자",
         "issue": "alias-collision-high-confidence",
@@ -6315,58 +6367,6 @@
           {
             "term_id": "cosmetic-claims-criteria",
             "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "en"
-          }
-        ]
-      },
-      {
-        "id": "alias-11f1184f005a8b",
-        "alias": "cosmetic claim substantiation",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "en"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "en"
-          }
-        ]
-      },
-      {
-        "id": "alias-910484bbd4ea0a",
-        "alias": "health care effects",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "health-food",
-            "canonical_name": "Health Food",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "en"
-          },
-          {
-            "term_id": "health-food-approved-claims",
-            "canonical_name": "Approved Health Care Effects",
             "confidence": 0.95,
             "jurisdiction": "TW",
             "language": "en"

@@ -137,6 +137,34 @@
         "add-curdlan"
       ],
       "facts": "L-arginine permitted (GMP, no cap); quercetin only as onion-extract marker ≤1000mg/day; OPC only as grape-extract marker ≤150mg/day; red clover permitted; colostrum bovine-only; Mg glycinate 600→350mg (2027-07); zinc picolinate NOT permitted (17 zinc forms, picolinate=Cr only; Zn ≤30mg); heme iron NOT permitted (non-traditional; Fe ≤45mg); citrulline NOT permitted (未確認安全性); acerola/XOS/D-ribose/chia (peanut-allergy warning) permitted; goji/schisandra/hovenia/ARA permitted; curdlan permitted thickener. NOTE: Taiwan has NO enzyme positive-list category — enzymes are per-product 查驗登記."
+    },
+    {
+      "batch": "food-drug-boundary-2026-07-09c",
+      "method": "sonnet — grepped 4 TFDA CSVs: food raw-material (export/4), food-additive (export/61), active drugs (export/37), all drugs incl. revoked (export/36) + CDE",
+      "verifiedAt": "2026-07-09",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ],
+      "terms": [
+        "add-zinc-gluconate",
+        "raw-psicose",
+        "raw-nattokinase",
+        "supp-serrapeptase",
+        "supp-alpha-lipoic",
+        "supp-citicoline",
+        "raw-huperzine",
+        "raw-bacopa",
+        "raw-palatinose",
+        "raw-yacon",
+        "raw-camu-camu",
+        "raw-acai",
+        "raw-maqui"
+      ],
+      "facts": "zinc gluconate permitted (Zn ≤30/22.5/7.5mg); psicose/D-allulose NOT permitted (未確認安全性); nattokinase NOT permitted (未確認安全性, no drug reg); serrapeptase drug licenses ALL revoked + not food; alpha-lipoic acid NOT food (未確認安全性) + active drug; citicoline drug licenses all revoked + not food; huperzine source plant 蛇足石杉 未確認安全性; bacopa 過長沙 未確認安全性; alpha-GPC absent from all 4 DBs; palatinose/yacon(syrup)/camu-camu/acai(E.oleracea)/maqui(智利酒果) permitted"
     }
   ]
 }

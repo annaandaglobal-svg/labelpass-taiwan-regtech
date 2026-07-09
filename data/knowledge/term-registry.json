@@ -91679,7 +91679,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "난소화성 전분. 식품 적격성 확인 필요.",
+      "notes": "원료·첨가물 목록 미기재 — 확인 필요(목록 부재=금지 아님).",
       "verification": "inferred"
     },
     {
@@ -93543,7 +93543,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "감미료. 식품 적격성 확인 필요.",
+      "notes": "海藻酮糖은 원료 목록 미기재(海藻糖/트레할로스와 다른 당) — 확인 필요(목록 부재=금지 아님).",
       "verification": "inferred"
     },
     {
@@ -93588,8 +93588,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "감미료. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(異麥芽酮糖; Palatinose는 상품명). 이소말트(당알코올)와 구분.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
     },
     {
       "id": "raw-coconut-sugar",
@@ -93626,7 +93634,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "감미료. 식품 적격성 확인 필요.",
+      "notes": "원료 목록 미기재(코코넛오일만 등재) — 확인 필요(목록 부재=금지 아님).",
       "verification": "inferred"
     },
     {
@@ -93671,8 +93679,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "FOS 시럽. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(雪蓮果 뿌리). 직접식용·건조·시럽만 허용, 추출 등 가공은 안전성 재확인 필요.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
     },
     {
       "id": "raw-cassia-gum",
@@ -93709,7 +93725,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "증점제. 식품 적격성 확인 필요.",
+      "notes": "決明子(씨앗)는 허용이나 검(gum) 추출물은 미기재; 잎(決明)은 未確認安全性 — 확인 필요.",
       "verification": "inferred"
     },
     {
@@ -93747,7 +93763,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "식이섬유. 식품 적격성 확인 필요.",
+      "notes": "복합 아라비녹실란은 미기재(자일란·아라비난·아라비노갈락탄은 각각 등재) — 확인 필요.",
       "verification": "inferred"
     },
     {
@@ -93993,8 +94009,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "비타민C 베리. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(卡姆果 Myrciaria dubia 과실).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
     },
     {
       "id": "raw-acai",
@@ -94038,8 +94062,16 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(巴西莓 Euterpe oleracea 과실). 다른 종 E. precatoria는 미확인.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
     },
     {
       "id": "raw-maqui",
@@ -94071,13 +94103,28 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "智利酒果",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "신소재 가능성. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(智利酒果 Aristotelia chilensis 과실).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
     },
     {
       "id": "raw-proteoglycan",
@@ -94154,6 +94201,765 @@
       ],
       "notes": "식품 적격성 확인 필요.",
       "verification": "inferred"
+    },
+    {
+      "id": "cos-fluorphlogopite",
+      "canonical_name": "Synthetic fluorphlogopite",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "합성플루오르플로고파이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "synthetic fluorphlogopite",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "合成氟金雲母",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "필러·펄. 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-ergothioneine",
+      "canonical_name": "Ergothioneine",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "에르고티오네인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ergothioneine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "麥硫因",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "항산화. 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-sphingomyelin",
+      "canonical_name": "Sphingomyelin",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "스핑고미엘린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "sphingomyelin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "피부 지질. 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-ptfe",
+      "canonical_name": "PTFE (Polytetrafluoroethylene)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "PTFE",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "폴리테트라플루오로에틸렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚四氟乙烯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "테프론",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "목록 미등재(허용 추정). 대만 PFAS 9종 금지(2025)엔 PTFE 미명시 — 확인 권장.",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-polyethylene",
+      "canonical_name": "Polyethylene",
+      "category": "cosmetic_restricted_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리에틸렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "polyethylene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚乙烯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "PE",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "일반 사용은 허용이나 '미세플라스틱(마이크로비드)' 형태는 6개 제품군(샴푸·바디워시·세안·비누·치약·스크럽)에 금지(2020-01~)."
+    },
+    {
+      "id": "add-zinc-gluconate",
+      "canonical_name": "Zinc gluconate",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아연글루콘산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "zinc gluconate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "葡萄糖酸鋅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "글루콘산아연",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 아연 영양첨가제. 정·캡슐 ≤30mg·일반 ≤22.5mg·영유아 ≤7.5mg(아연 기준)/일.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "raw-psicose",
+      "canonical_name": "Psicose (D-Allulose)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프시코스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "psicose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "allulose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "阿洛酮糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "D-알룰로스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "알룰로스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 未確認安全性 목록 — 대만 식품 불가(美·日·韓과 달리 미승인).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "raw-wheat-protein",
+      "canonical_name": "Wheat protein / gluten",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "밀단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "wheat protein",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "小麥蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "글루텐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "麩質",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "밀글루텐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "관용 식품원료(신소재 플랫폼 밖). 글루텐 알레르겐 표시 필수.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-nattokinase",
+      "canonical_name": "Nattokinase",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "나토키나제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "nattokinase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "納豆激酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "낫토키나아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 未確認安全性 목록 — 대만 식품 불가(약품 등록도 없음).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "supp-serrapeptase",
+      "canonical_name": "Serrapeptase",
+      "category": "supplement_ingredient_drug",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "세라티오펩티다제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "serrapeptase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "沙雷肽酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "鋸齒酵素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "세라펩타제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "약품이었으나 허가 전량 취소(2006 재평가). 식품 원료도 아님 — 사용 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "supp-alpha-lipoic",
+      "canonical_name": "Alpha-lipoic acid",
+      "category": "supplement_ingredient_drug",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "알파리포산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "alpha-lipoic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "硫辛酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "ALA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "리포산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 未確認安全性(식품 불가) + 활성 약품 성분 — 식품 수입 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "supp-citicoline",
+      "canonical_name": "Citicoline",
+      "category": "supplement_ingredient_drug",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "시티콜린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "citicoline",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "胞磷膽鹼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "CDP-choline",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "식품 원료 아님. 과거 약품허가 전량 취소 — 현재 식품·활성약품 모두 없음.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "raw-alpha-gpc",
+      "canonical_name": "Alpha-GPC",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "알파GPC",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "alpha-GPC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "甘油磷酸膽鹼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "choline alfoscerate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 4개 DB(식품·첨가물·약품)에 기록 전무 — 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-huperzine",
+      "canonical_name": "Huperzine A",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "후퍼진A",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "huperzine A",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "石杉鹼甲",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "蛇足石杉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 급원 식물(蛇足石杉)이 未確認安全性 목록 — 대만 식품 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
+    },
+    {
+      "id": "raw-bacopa",
+      "canonical_name": "Bacopa monnieri",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "바코파",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "bacopa",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "假馬齒莧",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "過長沙",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "브라미",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 未確認安全性 목록(過長沙/假馬齒莧) — 대만 식품 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/37/csv",
+        "https://data.fda.gov.tw/data/opendata/export/36/csv",
+        "https://regulation.cde.org.tw/10254/4045/39844/"
+      ]
     }
   ]
 }
