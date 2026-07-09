@@ -15,6 +15,7 @@
 
 import { searchKnowledge } from "./knowledge-search";
 import { verdictForKnowledgeTerm } from "./knowledge-verdicts";
+import { scrubInferredText } from "./ai-ingredient-fallback";
 
 const openaiApiKey = process.env.OPENAI_API_KEY;
 // Reuse the AI-review enablement so an operator who turned on AI review gets the chat too;
@@ -41,7 +42,7 @@ export type ConsultAnswer = {
   grounded: boolean; // true when the answer rests on retrieved KB context
   citations: ConsultCitation[];
   model: string | null;
-  source: "kb-grounded" | "retrieval-only" | "no-context";
+  source: "kb-grounded" | "retrieval-only" | "no-context" | "ai-inferred";
 };
 
 export function consultChatReadiness() {
@@ -155,6 +156,23 @@ export async function answerConsult(question: string, history: Array<{ role: "us
   const citations = await retrieveConsultContext(question);
 
   if (!citations.length) {
+    // Leave a signal about what the curated KB is missing (visible in server logs), so gaps can be
+    // prioritised for real research + ingestion later.
+    console.log("[consult-unknown]", question.slice(0, 200));
+    // Graceful degrade: instead of a dead-end, give an AI-INFERRED direction — clearly unverified,
+    // never with fabricated numbers — when the LLM is available. Otherwise stay honestly blank.
+    const inferred = await inferUnknown(question);
+    if (inferred) {
+      return {
+        answer:
+          "⚠️ 이 성분·주제는 현재 큐레이션 규제 지식베이스에 없어 아래는 AI 추론(미검증)입니다. 반드시 공식 출처(TFDA·법령) 또는 전문가로 확인하세요.\n\n" +
+          inferred,
+        grounded: false,
+        citations: [],
+        model: chatModel,
+        source: "ai-inferred"
+      };
+    }
     return {
       answer:
         "현재 지식베이스에서 이 질문에 대한 확실한 근거를 찾지 못했습니다. 성분·품목명을 더 구체적으로 알려주시거나, 공식 출처(TFDA·법령) 확인 또는 전문가 상담을 권합니다.",
@@ -212,6 +230,40 @@ export async function answerConsult(question: string, history: Array<{ role: "us
     return { answer: text, grounded: true, citations, model: chatModel, source: "kb-grounded" };
   } catch {
     return retrievalOnly(citations, question);
+  }
+}
+
+const INFER_SYSTEM_PROMPT =
+  "당신은 대만(TFDA) 수입 규제 어시스턴트입니다. 큐레이션 지식베이스에 없는 성분·주제에 대해 " +
+  "'가능성 있는 규제 분류·방향'만 한국어로 추론합니다. 절대 규칙: (1) 구체적 수치(ppm·%·mg·한도)와 " +
+  "특정 조문 번호는 절대 쓰지 말고 '공식 목록으로 확인'이라고 하세요 — 수치를 지어내면 안 됩니다. " +
+  "(2) 확신하지 말고 '~일 가능성', '확인 필요'로 보수적으로 쓰세요. (3) 2~4문장으로 짧게, 무엇을 어디서 " +
+  "확인해야 하는지(성분명/CAS/품목 범주, TFDA 원료조회·공식 목록)를 함께 안내하세요.";
+
+/** Best-effort AI inference for a topic the curated KB does not cover. Returns null when the LLM is
+ *  unavailable or errors — the caller then stays honestly blank. Numbers are scrubbed as a backstop. */
+async function inferUnknown(question: string): Promise<string | null> {
+  if (!consultChatReadiness().ready) return null;
+  try {
+    const response = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: { "content-type": "application/json", authorization: `Bearer ${openaiApiKey}` },
+      body: JSON.stringify({
+        model: chatModel,
+        max_output_tokens: 500,
+        input: [
+          { role: "system", content: INFER_SYSTEM_PROMPT },
+          { role: "user", content: [{ type: "input_text", text: `질문: ${question}\n\n큐레이션 DB에 근거가 없습니다. 가능성 있는 대만 규제 분류·방향만 보수적으로 추론하고, 수치 없이 확인 방법을 안내하세요.` }] }
+        ]
+      })
+    });
+    if (!response.ok) return null;
+    const payload = (await response.json()) as Record<string, unknown>;
+    const text = extractText(payload).trim();
+    if (!text) return null;
+    return scrubInferredText(text); // backstop: strip any numeric limit the model slipped in
+  } catch {
+    return null;
   }
 }
 
