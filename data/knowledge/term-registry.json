@@ -94960,6 +94960,728 @@
         "https://data.fda.gov.tw/data/opendata/export/36/csv",
         "https://regulation.cde.org.tw/10254/4045/39844/"
       ]
+    },
+    {
+      "id": "cos-hpr",
+      "canonical_name": "Hydroxypinacolone retinoate (HPR)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "하이드록시피나콜론레티노에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "hydroxypinacolone retinoate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "HPR",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "granactive retinoid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "레티노이드 에스터. 2027 레티놀 제한 대상 아님(미등재 허용).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "cos-retinyl-retinoate",
+      "canonical_name": "Retinyl retinoate",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "레티닐레티노에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "retinyl retinoate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "레티노이드. 2027 제한(레티놀/아세테이트/팔미테이트) 대상 아님(미등재 허용).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "cos-ergosterol",
+      "canonical_name": "Ergosterol",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "에르고스테롤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ergosterol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "麥角固醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "프로비타민D2. 제한·금지 목록 미등재(허용, 1차 확인).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "cos-glabridin",
+      "canonical_name": "Glabridin",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "글라브리딘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "glabridin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "光甘草定",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "감초 미백 성분. 제한·금지·13미백 목록 어디에도 미등재 → 허용. 일반 미백 표현 가능, '멜라닌 억제' 문구는 실증 필요.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "cos-acetyl-glutathione",
+      "canonical_name": "Acetyl glutathione",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아세틸글루타티온",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "acetyl glutathione",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "S-acetyl glutathione",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "제한·금지 목록 미등재(허용 추정).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "cos-glutathione",
+      "canonical_name": "Glutathione (reduced)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "환원글루타티온",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "glutathione",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "穀胱甘肽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "글루타치온",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "화장품(국소) 허용 확인(제한·금지 목록 미등재). 경구·정맥 미백주사는 별개 규제.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "add-quillaja",
+      "canonical_name": "Quillaja extract",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "퀼라야추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "quillaja extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "皂樹皮萃取物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "퀼라야",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 첨가물(제17류 其他) — 단 '조미음료(調味飲料)'에만 0.2g/kg(0.2g/L). 일반 유화제 용도는 아님.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "add-nhdc",
+      "canonical_name": "Neohesperidin DC (NHDC)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "네오헤스페리딘DC",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "neohesperidin dihydrochalcone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "NHDC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "新橙皮苷二氫查耳酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 감미료 목록 미등재 — 포지티브 리스트라 사용 불가(EU E959·美 GRAS와 다름).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "raw-pinitol",
+      "canonical_name": "Pinitol (D-pinitol)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "피니톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "pinitol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "松醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "D-피니톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "원료·첨가물 목록 미기재(이노시톨과 구분) — 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-egcg",
+      "canonical_name": "EGCG (green tea catechin)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "EGCG",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "epigallocatechin gallate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "表沒食子兒茶素沒食子酸酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "에피갈로카테킨갈레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "녹차카테킨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(녹차잎 추출 ≥90%). 일일 300mg 한도.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "raw-hesperidin",
+      "canonical_name": "Hesperidin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "헤스페리딘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "hesperidin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "橙皮苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 일반 헤스페리딘은 未確認安全性(식품 불가). α-글루코실헤스페리딘(별개)만 허용(450mg/일).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "raw-rutin",
+      "canonical_name": "Rutin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "루틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "rutin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蘆丁",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "芸香苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 未確認安全性 목록 — 대만 식품 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "raw-naringin",
+      "canonical_name": "Naringin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "나린진",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "naringin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "柚苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "柚皮苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 未確認安全性 목록 — 대만 식품 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ]
+    },
+    {
+      "id": "raw-theaflavin",
+      "canonical_name": "Theaflavin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "테아플라빈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "theaflavin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "茶黃素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "원료·첨가물 목록 미기재 — 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-fisetin",
+      "canonical_name": "Fisetin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "피세틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "fisetin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "非瑟酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "미기재(신소재 가능) — 확인 필요.",
+      "verification": "inferred"
     }
   ]
 }

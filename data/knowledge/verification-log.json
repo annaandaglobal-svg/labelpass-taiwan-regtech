@@ -165,6 +165,33 @@
         "raw-maqui"
       ],
       "facts": "zinc gluconate permitted (Zn ≤30/22.5/7.5mg); psicose/D-allulose NOT permitted (未確認安全性); nattokinase NOT permitted (未確認安全性, no drug reg); serrapeptase drug licenses ALL revoked + not food; alpha-lipoic acid NOT food (未確認安全性) + active drug; citicoline drug licenses all revoked + not food; huperzine source plant 蛇足石杉 未確認安全性; bacopa 過長沙 未確認安全性; alpha-GPC absent from all 4 DBs; palatinose/yacon(syrup)/camu-camu/acai(E.oleracea)/maqui(智利酒果) permitted"
+    },
+    {
+      "batch": "cosmetic-retinoid-whitening-flavonoid-2026-07-09d",
+      "method": "sonnet — read cosmetic 化粧品成分使用限制表 (current + 2027 revision) via GetFile PDFs + open-data CSVs InfoId=199/203; food flavonoids via raw-material CSV export/4",
+      "verifiedAt": "2026-07-09",
+      "sources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ],
+      "terms": [
+        "cos-hpr",
+        "cos-retinyl-retinoate",
+        "cos-ergosterol",
+        "cos-glabridin",
+        "cos-glutathione",
+        "cos-acetyl-glutathione",
+        "add-quillaja",
+        "add-nhdc",
+        "raw-egcg",
+        "raw-hesperidin",
+        "raw-rutin",
+        "raw-naringin"
+      ],
+      "facts": "2027 retinoid cap: only Retinol/Retinyl Acetate/Retinyl Palmitate (0.05% body / 0.3% other, as RE) — HPR/retinyl retinoate/retinaldehyde UNLISTED; currently retinoids unregulated. WHITENING: old positive-list regime ABOLISHED (2019) + specific-use license deregulated (2024) — the 13 whitening actives are now a CLAIM-substantiation annex (Attachment 3) gating the '抑制黑色素' mechanism phrase, NOT ingredient use; off-list whitening ≠ drug; niacinamide NOT on the 13-list. glabridin/glutathione/ergosterol permitted (unlisted). EGCG permitted 300mg/day; hesperidin/rutin/naringin all on 未確認安全性 (NOT food) — only α-glycosyl hesperidin (450mg) permitted; NHDC not in sweetener positive list = prohibited; quillaja beverages-only 0.2g/kg"
     }
   ]
 }
