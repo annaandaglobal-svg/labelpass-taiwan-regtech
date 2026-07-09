@@ -269,6 +269,8 @@ const verdictSurfacedCategories = new Set([
   "polyglutamic_acid",
   "cosmetic_general_active",
   "functional_fiber",
+  "food_enzyme",
+  "exfoliating_acid_aha",
   "inorganic_arsenic",
   "cosmetic_device_boundary",
   "electrical_bsmi_ncc",
