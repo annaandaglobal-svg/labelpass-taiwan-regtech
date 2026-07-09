@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { generateAiReviewInsight } from "@/lib/ai-review";
 import { aiIngredientFallbackReadiness, classifyUnknownIngredients } from "@/lib/ai-ingredient-fallback";
+import { recordUnknownTopic } from "@/lib/learning-queue";
 import { evaluateReview } from "@/lib/compliance";
 import { searchKnowledge } from "@/lib/knowledge-search";
 import { presentReviewResult } from "@/lib/review-presentation";
@@ -68,22 +69,26 @@ export async function POST(request: Request) {
   const result = presentReviewResult(parsed.data, evaluateReview(parsed.data));
   const aiAnalysis = await generateAiReviewInsight(parsed.data, result);
 
-  // Optional AI fallback for ingredients the curated KB didn't recognise. Fully gated: with the
-  // flag/key off this branch is skipped and the response is byte-identical to before.
+  // Ingredients the curated KB did not recognise — surfaced ALWAYS (not just when the AI fallback is
+  // on), so the review flow gets the same honest "미확인 → 조사 의뢰" loop as the consult chat, and the
+  // misses feed the learning queue for a verified KB update.
+  const unmatched = unmatchedIngredients(
+    parsed.data.ingredientsText,
+    result.ingredientVerdicts.map((v) => v.matchedText)
+  );
+  const nowIso = new Date().toISOString();
+  for (const name of unmatched) void recordUnknownTopic(name, nowIso);
+
+  // Optional AI fallback: when enabled, also infer a likely class for each unmatched ingredient.
   let aiIngredientVerdicts: Awaited<ReturnType<typeof classifyUnknownIngredients>> = [];
-  if (aiIngredientFallbackReadiness().ready) {
-    const unmatched = unmatchedIngredients(
-      parsed.data.ingredientsText,
-      result.ingredientVerdicts.map((v) => v.matchedText)
-    );
-    if (unmatched.length) {
-      aiIngredientVerdicts = await classifyUnknownIngredients(unmatched, parsed.data.productType);
-    }
+  if (unmatched.length && aiIngredientFallbackReadiness().ready) {
+    aiIngredientVerdicts = await classifyUnknownIngredients(unmatched, parsed.data.productType);
   }
 
   return NextResponse.json({
     ...result,
     ...(aiAnalysis ? { aiAnalysis } : {}),
+    ...(unmatched.length ? { unmatchedIngredients: unmatched } : {}),
     ...(aiIngredientVerdicts.length ? { aiIngredientVerdicts } : {})
   });
 }

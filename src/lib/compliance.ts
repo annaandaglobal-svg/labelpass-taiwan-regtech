@@ -70,6 +70,7 @@ export type ReviewResult = {
   };
   aiAnalysis?: AiReviewInsight;
   aiIngredientVerdicts?: AiIngredientVerdict[];
+  unmatchedIngredients?: string[];
 };
 
 const SOURCE_ACT = "Cosmetic Hygiene and Safety Act, Articles 6, 7, 10";

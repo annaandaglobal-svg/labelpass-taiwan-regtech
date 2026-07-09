@@ -937,6 +937,8 @@ export default function Home() {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [input, setInput] = useState<ReviewInput>(emptyInput);
   const [result, setResult] = useState<ReviewResult | null>(null);
+  // On-demand AI research state for unmatched (KB-unknown) ingredients, keyed by ingredient name.
+  const [ingredientResearch, setIngredientResearch] = useState<Record<string, { loading: boolean; result?: string }>>({});
   const [evidenceBundle, setEvidenceBundle] = useState<KnowledgeEvidenceBundle | null>(null);
   const [savedReviews, setSavedReviews] = useState<Array<{ id: string; input: ReviewInput; result: ReviewResult }>>([]);
   const [handoffDrafts, setHandoffDrafts] = useState<HandoffDraft[]>([]);
@@ -1036,6 +1038,21 @@ export default function Home() {
     setKnowledgeQuery(route.query);
     if (result) {
       setToast("품목을 바꿔 이전 판정은 숨겼습니다. 입력값은 유지되어 있으니 다시 검토를 누르면 됩니다.");
+    }
+  }
+
+  async function requestIngredientResearch(name: string) {
+    setIngredientResearch((prev) => ({ ...prev, [name]: { loading: true } }));
+    try {
+      const response = await fetch("/api/consult/research", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ topic: name })
+      });
+      const data = await response.json();
+      setIngredientResearch((prev) => ({ ...prev, [name]: { loading: false, result: data?.result } }));
+    } catch {
+      setIngredientResearch((prev) => ({ ...prev, [name]: { loading: false, result: "조사 요청 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요." } }));
     }
   }
 
@@ -1551,6 +1568,42 @@ export default function Home() {
                       );
                     })}
                   </details>
+                )}
+
+                {result.unmatchedIngredients && result.unmatchedIngredients.length > 0 && (
+                  <div className="lp-unmatched" aria-label="미확인 성분">
+                    <div className="lp-unmatched-head">
+                      <b>미확인 성분 {result.unmatchedIngredients.length}건 — 지식베이스에 없음</b>
+                      <span>‘문제 없음’이 아니라 ‘아직 판정 근거가 없음’입니다. 규제 대상일 수 있으니 조사·확인하세요.</span>
+                    </div>
+                    {result.unmatchedIngredients.map((name) => {
+                      const research = ingredientResearch[name];
+                      return (
+                        <div key={name} className="lp-unmatched-row">
+                          <div className="lp-unmatched-row-head">
+                            <b>{name}</b>
+                            {!research && (
+                              <button type="button" className="lp-unmatched-btn" onClick={() => void requestIngredientResearch(name)}>
+                                <Search size={13} /> 정밀 조사 의뢰 (AI 즉시)
+                              </button>
+                            )}
+                            {research?.loading && (
+                              <span className="lp-unmatched-loading">
+                                <Loader2 size={13} className="spin" /> AI 조사 중…
+                              </span>
+                            )}
+                          </div>
+                          {research?.result && (
+                            <div className="lp-unmatched-research">
+                              <b>🔬 AI 정밀 조사 (미검증)</b>
+                              <p>{research.result}</p>
+                              <em>⚠️ AI 1차 조사입니다. 통관·수출 결정 전 공식 출처·전문가로 반드시 확인하세요. 조사 요청은 검증 후 지식베이스에 반영됩니다.</em>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 )}
 
                 <div className="lp-taxcard" aria-label="관세·세금 예상">
