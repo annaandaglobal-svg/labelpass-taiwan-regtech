@@ -1,55 +1,32 @@
 {
-  "updatedAt": "2026-07-09T05:37:23.616Z",
+  "updatedAt": "2026-07-09T05:52:42.015Z",
   "topics": [
     {
-      "query": "whey protein isolate",
+      "query": "Glycerin 5%",
       "count": 1,
-      "firstSeen": "2026-07-09T05:36:17.798Z",
-      "lastSeen": "2026-07-09T05:36:17.798Z",
-      "status": "pending"
-    },
-    {
-      "query": "Frozen oyster meat",
-      "count": 2,
-      "firstSeen": "2026-07-09T05:36:46.153Z",
-      "lastSeen": "2026-07-09T05:36:54.332Z",
-      "status": "pending"
-    },
-    {
-      "query": "encrypted firmware",
-      "count": 1,
-      "firstSeen": "2026-07-09T05:37:00.639Z",
-      "lastSeen": "2026-07-09T05:37:00.639Z",
+      "firstSeen": "2026-07-09T05:52:26.247Z",
+      "lastSeen": "2026-07-09T05:52:26.247Z",
       "status": "pending"
     },
     {
       "query": "Panthenol 1%",
       "count": 1,
-      "firstSeen": "2026-07-09T05:37:07.722Z",
-      "lastSeen": "2026-07-09T05:37:07.722Z",
-      "status": "pending"
-    },
-    {
-      "query": "Glycerin 5%",
-      "count": 2,
-      "firstSeen": "2026-07-09T05:37:12.698Z",
-      "lastSeen": "2026-07-09T05:37:23.616Z",
+      "firstSeen": "2026-07-09T05:52:31.221Z",
+      "lastSeen": "2026-07-09T05:52:31.221Z",
       "status": "pending"
     },
     {
       "query": "Glycerin 4%",
       "count": 1,
-      "firstSeen": "2026-07-09T05:37:18.073Z",
-      "lastSeen": "2026-07-09T05:37:18.073Z",
+      "firstSeen": "2026-07-09T05:52:36.261Z",
+      "lastSeen": "2026-07-09T05:52:36.261Z",
       "status": "pending"
-    }
-  ]
-}
-
+    },
+    {
       "query": "Niacinamide 2%",
       "count": 1,
-      "firstSeen": "2026-07-09T05:37:23.616Z",
-      "lastSeen": "2026-07-09T05:37:23.616Z",
+      "firstSeen": "2026-07-09T05:52:42.015Z",
+      "lastSeen": "2026-07-09T05:52:42.015Z",
       "status": "pending"
     }
   ]

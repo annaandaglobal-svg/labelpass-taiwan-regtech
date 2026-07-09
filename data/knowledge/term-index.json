@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2261,
+  "curated_term_count": 2270,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -112296,6 +112296,591 @@
       "notes": "식용유(1979 PCB 사건 이력). 정제유로서 3-MCPD·글리시딜에스터 검사 대상."
     },
     {
+      "id": "add-tara-gum",
+      "canonical_name": "Tara gum",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "타라검",
+          "normalized": "타라검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tara gum",
+          "normalized": "tara gum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "塔拉膠",
+          "normalized": "塔拉膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "刺雲實膠",
+          "normalized": "刺雲實膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 증점·안정제(粘稠劑). 사용범위·한도 확인."
+    },
+    {
+      "id": "add-acetic-acid",
+      "canonical_name": "Acetic acid / Glacial acetic acid",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "빙초산",
+          "normalized": "빙초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "초산",
+          "normalized": "초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "acetic acid",
+          "normalized": "acetic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "醋酸",
+          "normalized": "醋酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "冰醋酸",
+          "normalized": "冰醋酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아세트산",
+          "normalized": "아세트산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 산도조절제(#020/#021). 전 식품군, 필요량 사용."
+    },
+    {
+      "id": "bot-turmeric",
+      "canonical_name": "Turmeric / Curcuma",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "강황",
+          "normalized": "강황",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "울금",
+          "normalized": "울금",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "turmeric",
+          "normalized": "turmeric",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "薑黃",
+          "normalized": "薑黃",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "curcuma",
+          "normalized": "curcuma",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "터메릭",
+          "normalized": "터메릭",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "향신료로 식품 사용 일반적(커큐민 색소는 별도). 식약 공용목록 확인 권장."
+    },
+    {
+      "id": "bot-cinnamon",
+      "canonical_name": "Cinnamon",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "계피",
+          "normalized": "계피",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cinnamon",
+          "normalized": "cinnamon",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "肉桂",
+          "normalized": "肉桂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시나몬",
+          "normalized": "시나몬",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "육계",
+          "normalized": "육계",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 향신료(잎·엽경). ⚠️ 카시아계피 쿠마린 주의(대만 명문 한도 확인 필요)."
+    },
+    {
+      "id": "bot-rhodiola",
+      "canonical_name": "Rhodiola",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "로디올라",
+          "normalized": "로디올라",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "rhodiola",
+          "normalized": "rhodiola",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "紅景天",
+          "normalized": "紅景天",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "홍경천",
+          "normalized": "홍경천",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 적격성 UNVERIFIED — 식약 공용목록(中藥材)/원료 플랫폼 확인 필요."
+    },
+    {
+      "id": "bot-gymnema",
+      "canonical_name": "Gymnema sylvestre",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "짐네마",
+          "normalized": "짐네마",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "gymnema",
+          "normalized": "gymnema",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "匙羹藤",
+          "normalized": "匙羹藤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "武靴藤",
+          "normalized": "武靴藤",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 미승인 가능성(非傳統性 신소재 확인 필요)."
+    },
+    {
+      "id": "cos-azulene",
+      "canonical_name": "Azulene / Guaiazulene",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아줄렌",
+          "normalized": "아줄렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "azulene",
+          "normalized": "azulene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "guaiazulene",
+          "normalized": "guaiazulene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "癒創薁",
+          "normalized": "癒創薁",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "구아이아줄렌",
+          "normalized": "구아이아줄렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "진정 성분. 금지·제한 목록 미등재(허용 추정), 최신 목록 확인."
+    },
+    {
+      "id": "cos-eucalyptus-oil",
+      "canonical_name": "Eucalyptus oil",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "유칼립투스오일",
+          "normalized": "유칼립투스오일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "eucalyptus oil",
+          "normalized": "eucalyptus oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "尤加利精油",
+          "normalized": "尤加利精油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유칼립투스",
+          "normalized": "유칼립투스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "桉油",
+          "normalized": "桉油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "화장품 허용 추정(최신 목록 확인). 유칼립투스 잎은 식품쪽 제한 별도."
+    },
+    {
+      "id": "cos-camphor",
+      "canonical_name": "Camphor",
+      "category": "cosmetic_restricted_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "캠퍼",
+          "normalized": "캠퍼",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "camphor",
+          "normalized": "camphor",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "樟腦",
+          "normalized": "樟腦",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "캄포",
+          "normalized": "캄포",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "장뇌",
+          "normalized": "장뇌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "제한 성분: 2세 미만(영유아 포함) 사용 비권장 경고 필요(2027-10 시행)."
+    },
+    {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
       "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
       "category": "prohibited",
@@ -120602,6 +121187,14 @@
       "rule_id": "tw-cos-199-15",
       "rule_code": "tw-cos-199-15",
       "match_basis": "inci",
+      "jurisdiction": "TW",
+      "confidence": 0.9
+    },
+    {
+      "term_id": "cos-camphor",
+      "rule_id": "tw-cos-199-15",
+      "rule_code": "tw-cos-199-15",
+      "match_basis": "alias",
       "jurisdiction": "TW",
       "confidence": 0.9
     },
@@ -145790,7 +146383,8 @@
     {
       "rule_id": "tw-cos-199-15",
       "term_ids": [
-        "camphor"
+        "camphor",
+        "cos-camphor"
       ],
       "aliases": [
         {
@@ -145832,6 +146426,26 @@
           "confidence": 0.95,
           "note": null,
           "source": "inci"
+        },
+        {
+          "value": "캠퍼",
+          "normalized": "캠퍼",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "캄포",
+          "normalized": "캄포",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
