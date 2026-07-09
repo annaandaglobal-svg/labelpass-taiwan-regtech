@@ -86,6 +86,9 @@ jobs:
       - name: Smoke test review API
         run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm smoke:api
 
+      - name: Consult chat coverage (common ingredients stay KB-grounded)
+        run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm test:consult-coverage
+
       - name: Find knowledge problems (misroutes / gaps / structural)
         run: LABELPASS_BASE_URL=http://127.0.0.1:3000 pnpm find:problems
 
