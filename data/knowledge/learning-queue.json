@@ -1,21 +1,26 @@
 {
-  "updatedAt": "2026-07-09T07:54:11.921Z",
+  "updatedAt": "2026-07-09T08:47:30.076Z",
   "topics": [
     {
-      "query": "Glycerin 4%",
-      "count": 1,
-      "firstSeen": "2026-07-09T07:54:02.774Z",
-      "lastSeen": "2026-07-09T07:54:02.774Z",
+      "query": "Panthenol 1%",
+      "count": 2,
+      "firstSeen": "2026-07-09T08:47:10.341Z",
+      "lastSeen": "2026-07-09T08:47:15.544Z",
       "status": "pending"
     },
     {
-      "query": "Glycerin 5%",
+      "query": "Glycerin 4%",
       "count": 1,
-      "firstSeen": "2026-07-09T07:54:11.921Z",
-      "lastSeen": "2026-07-09T07:54:11.921Z",
+      "firstSeen": "2026-07-09T08:47:21.614Z",
+      "lastSeen": "2026-07-09T08:47:21.614Z",
+      "status": "pending"
+    },
+    {
+      "query": "Niacinamide 2%",
+      "count": 1,
+      "firstSeen": "2026-07-09T08:47:30.076Z",
+      "lastSeen": "2026-07-09T08:47:30.076Z",
       "status": "pending"
     }
   ]
-}
-
 }

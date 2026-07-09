@@ -907,11 +907,11 @@ function baseVerdictForKnowledgeTerm(term: KnowledgeTermForVerdict): KnowledgeVe
     return {
       label: "향료 알레르겐 개별 표시 (시행 예정)",
       detail:
-        "대만은 향료 속 특정 알레르겐 성분(Limonene·Linalool·Citral·Coumarin·Geraniol·Eugenol·Benzyl Alcohol 등 24종)을 리브온 0.001%·린스오프 0.01% 초과 시 '香料/Fragrance/Parfum'로 뭉뚱그리지 않고 개별 명칭으로 표시하도록 하는 규정을 예고했습니다(2025-01 예고, EU 알레르겐 규칙과 유사). ⚠️ 최종 公告·시행일은 아직 확정 전(예고 단계)이니 확인이 필요하지만, 미리 향료 알레르겐 함량 자료를 확보해 대비하세요.",
+        "대만은 향료 속 특정 알레르겐 성분(Limonene·Linalool·Citral·Coumarin·Geraniol·Eugenol·Benzyl Alcohol·Benzyl Salicylate 등 24종)을 리브온 0.001%·린스오프 0.01% 초과 시 '香料/Fragrance/Parfum'로 뭉뚱그리지 않고 개별 명칭으로 표시하도록 하는 규정을 예고했습니다(2025-01 예고, EU 알레르겐 규칙과 유사, 공고 1년 후 시행 — 2026년경 발효 가능성). ⚠️ 별개로 HICC·아트라놀(Atranol)·클로로아트라놀(Chloroatranol) 3종은 금지 목록에 추가돼 아예 사용 금지입니다(EU 2021 금지와 동일). 향료 알레르겐 함량 자료를 확보하고 이 3종은 제거하세요.",
       tone: "gold",
       state: "needs_check",
-      uncertainty: "향료 알레르겐 24종의 함량을 파악하고 개별표시 대비를 하세요. 최종 시행일은 예고 단계이므로 확인이 필요합니다.",
-      chips: ["향료 알레르겐 24종", "리브온 0.001%/린스오프 0.01%", "예고 단계·시행일 확인"],
+      uncertainty: "향료 알레르겐 24종의 함량을 파악하고 개별표시를 대비하세요(2026년경 시행 가능성). HICC·아트라놀·클로로아트라놀은 금지이니 제거하세요.",
+      chips: ["향료 알레르겐 24종", "리브온 0.001%/린스오프 0.01%", "HICC·아트라놀 금지", "2026년경 시행"],
       actions: ["향료의 알레르겐 성분·함량 자료를 공급자에게 확보하고, 최종 公告 시행일을 확인해 개별표시를 준비하세요."]
     };
   }
