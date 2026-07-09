@@ -13,7 +13,7 @@ fetched_url: https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T14:39:06.986Z
-cache_status: fresh
+cache_status: stale
 content_hash: 9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7
 from_cache: true
 manual_fallback: false

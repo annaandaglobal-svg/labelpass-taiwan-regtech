@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2459,
-    "stored_aliases": 7965,
-    "searchable_aliases": 9121,
+    "terms": 2476,
+    "stored_aliases": 8049,
+    "searchable_aliases": 9205,
     "identifier_aliases": 1156,
     "term_rule_links": 1111,
-    "regulatory_update_candidates": 47,
-    "alias_review_items": 1019,
+    "regulatory_update_candidates": 51,
+    "alias_review_items": 1028,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -1049,7 +1049,7 @@
         "safety-assessment",
         "2026"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
       "days_until_refresh": 4,
       "evidence_mode": "cache",
@@ -1151,7 +1151,7 @@
         "advance-ruling",
         "imported-goods"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T15:09:22.209Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -1217,7 +1217,7 @@
         "hs-code",
         "tariff-query"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T15:09:18.698Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -2980,7 +2980,7 @@
         "licensing",
         "controlled-commodities"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T15:09:16.612Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -3013,7 +3013,7 @@
         "origin",
         "trade"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
       "days_until_refresh": 4,
       "evidence_mode": "cache",
@@ -5507,17 +5507,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2459,
-      "aliases_scanned": 7965,
-      "alias_rows_scanned": 7965,
-      "collision_groups": 203,
-      "high_confidence_collisions": 158,
+      "terms_scanned": 2476,
+      "aliases_scanned": 8049,
+      "alias_rows_scanned": 8049,
+      "collision_groups": 212,
+      "high_confidence_collisions": 163,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 816,
       "strict_blockers": 0,
-      "review_items": 1019
+      "review_items": 1028
     },
     "items": [
       {
@@ -6377,25 +6377,25 @@
   },
   "refresh_queue": {
     "summary": {
-      "total": 47,
-      "detected": 0,
-      "pending_refresh": 6,
+      "total": 51,
+      "detected": 10,
+      "pending_refresh": 0,
       "watching": 41,
       "approved": 0,
       "high": 0,
-      "medium": 46,
-      "low": 1,
+      "medium": 49,
+      "low": 2,
       "expiring_soon_max_days": 7,
       "expiring_soon_fraction": 0.25
     },
     "items": [
       {
-        "candidate_key": "cn-mofcom-export-control-portal:source_expiring_soon:2026-07-09",
+        "candidate_key": "cn-mofcom-export-control-portal:source_stale:58695952dccb361a",
         "source_key": "cn-mofcom-export-control-portal",
         "title": "China Export Control Information Portal",
-        "status": "pending_refresh",
+        "status": "detected",
         "severity": "medium",
-        "change_type": "source_expiring_soon",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T13:32:35.199Z",
         "days_until_refresh": 4,
         "affected_domains": [
@@ -6406,15 +6406,15 @@
           "china"
         ],
         "affected_terms": [],
-        "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
-        "candidate_key": "cn-nmpa-cosmetics-hub:source_expiring_soon:2026-07-09",
+        "candidate_key": "cn-nmpa-cosmetics-hub:source_stale:86e2575036b289c2",
         "source_key": "cn-nmpa-cosmetics-hub",
         "title": "NMPA Cosmetics Hub",
-        "status": "pending_refresh",
+        "status": "detected",
         "severity": "medium",
-        "change_type": "source_expiring_soon",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T13:03:12.859Z",
         "days_until_refresh": 4,
         "affected_domains": [
@@ -6425,15 +6425,15 @@
           "notices"
         ],
         "affected_terms": [],
-        "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
-        "candidate_key": "tw-customs-origin-importers:source_expiring_soon:2026-07-09",
+        "candidate_key": "tw-customs-origin-importers:source_stale:0da863dde7ec3591",
         "source_key": "tw-customs-origin-importers",
         "title": "Keelung Customs origin labeling notice",
-        "status": "pending_refresh",
+        "status": "detected",
         "severity": "low",
-        "change_type": "source_expiring_soon",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T13:02:17.038Z",
         "days_until_refresh": 4,
         "affected_domains": [
@@ -6447,15 +6447,15 @@
           "Certificate of Origin",
           "Taiwan Importer and Responsible Firm"
         ],
-        "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
-        "candidate_key": "tw-shtc-dual-use-list:source_expiring_soon:2026-07-09",
+        "candidate_key": "tw-shtc-dual-use-list:source_stale:cb2c04977fa8fde8",
         "source_key": "tw-shtc-dual-use-list",
         "title": "Export Control List for Dual Use Items and Technology and Common Military List",
-        "status": "pending_refresh",
+        "status": "detected",
         "severity": "medium",
-        "change_type": "source_expiring_soon",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T13:02:21.869Z",
         "days_until_refresh": 4,
         "affected_domains": [
@@ -6468,7 +6468,7 @@
         "affected_terms": [
           "Strategic High-Tech Commodities"
         ],
-        "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-shtc-dual-use-list:baseline_watch",
@@ -6492,12 +6492,12 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
-        "candidate_key": "tw-tfda-pif-implementation:source_expiring_soon:2026-07-09",
+        "candidate_key": "tw-tfda-pif-implementation:source_stale:e7c51b59159139a2",
         "source_key": "tw-tfda-pif-implementation",
         "title": "Cosmetic Product Information Files to Be Implemented in Phases",
-        "status": "pending_refresh",
+        "status": "detected",
         "severity": "medium",
-        "change_type": "source_expiring_soon",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T13:02:08.995Z",
         "days_until_refresh": 4,
         "affected_domains": [
@@ -6510,7 +6510,7 @@
           "Cosmetic Product Information File",
           "Cosmetic PIF and Product Registration Categories"
         ],
-        "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-tfda-pif-implementation:baseline_watch",
@@ -6534,12 +6534,12 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
-        "candidate_key": "tw-trade-import-export-regulations:source_expiring_soon:2026-07-09",
+        "candidate_key": "tw-trade-import-export-regulations:source_stale:7ceb0f2655873288",
         "source_key": "tw-trade-import-export-regulations",
         "title": "Taiwan import and export related laws and regulations",
-        "status": "pending_refresh",
+        "status": "detected",
         "severity": "medium",
-        "change_type": "source_expiring_soon",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T13:02:14.387Z",
         "days_until_refresh": 4,
         "affected_domains": [
@@ -6558,7 +6558,7 @@
           "Import and Export Permit",
           "Foreign Trade Act"
         ],
-        "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-trade-import-export-regulations:baseline_watch",
@@ -6588,6 +6588,28 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
+        "candidate_key": "tw-customs-advance-tariff-classification-ruling:source_stale:9c6a7d7249bb757f",
+        "source_key": "tw-customs-advance-tariff-classification-ruling",
+        "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
+        "status": "detected",
+        "severity": "low",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T14:39:06.986Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "customs",
+          "customs",
+          "ccc-code",
+          "tariff-classification",
+          "advance-ruling"
+        ],
+        "affected_terms": [
+          "HS Code Classification",
+          "Advance Tariff Classification Ruling"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
+      },
+      {
         "candidate_key": "tw-customs-import-cargo-clearance:baseline_watch",
         "source_key": "tw-customs-import-cargo-clearance",
         "title": "Import Cargo Clearance",
@@ -6610,6 +6632,28 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
+        "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:source_stale:ea78ead4ce228622",
+        "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
+        "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T15:09:22.209Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "customs",
+          "customs",
+          "ccc-code",
+          "tariff-classification",
+          "advance-ruling",
+          "imported-goods"
+        ],
+        "affected_terms": [
+          "Advance Tariff Classification Ruling"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
+      },
+      {
         "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:baseline_watch",
         "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
         "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
@@ -6630,6 +6674,28 @@
           "Advance Tariff Classification Ruling"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-customs-tariff-system:source_stale:797088c0429f1eb1",
+        "source_key": "tw-customs-tariff-system",
+        "title": "Tariff System - Customs Administration",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T15:09:18.698Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "customs",
+          "customs",
+          "tariff",
+          "ccc-code",
+          "hs-code",
+          "tariff-query"
+        ],
+        "affected_terms": [
+          "HS Code Classification"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-customs-tariff-system:baseline_watch",
@@ -7098,73 +7164,6 @@
         ],
         "affected_terms": [
           "Taiwan Import Regulation Codes F01, F02 and 508"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024:baseline_watch",
-        "source_key": "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
-        "title": "Specific Purpose Cosmetics Permit Transition Notice",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-10T12:20:55.993Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "cosmetics",
-          "cosmetics",
-          "specific-purpose-cosmetics",
-          "permit",
-          "transition",
-          "repeal",
-          "premarket-license"
-        ],
-        "affected_terms": [
-          "Specific Purpose Cosmetics Permit Transition"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-trade-commodity-classification-guide:baseline_watch",
-        "source_key": "tw-trade-commodity-classification-guide",
-        "title": "Commodity Classification and Import/Export Regulation Guide",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T19:47:37.922Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "trade_controls",
-          "ccc-code",
-          "import-regulation",
-          "export-regulation",
-          "negative-list",
-          "shtc",
-          "mainland-china"
-        ],
-        "affected_terms": [],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-trade-import-export-administration:baseline_watch",
-        "source_key": "tw-trade-import-export-administration",
-        "title": "Import and Export Administration",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T15:09:16.612Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "trade",
-          "import",
-          "export",
-          "permit",
-          "licensing",
-          "controlled-commodities"
-        ],
-        "affected_terms": [
-          "Import and Export Permit",
-          "Exporter and Importer Registration"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       }

@@ -95439,20 +95439,39 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "녹차추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "green tea extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "綠茶萃取物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "허용 식품원료(녹차잎 추출 ≥90%). 일일 300mg 한도.",
+      "notes": "허용 식품원료(EGCG, 綠茶茶葉 추출·분리·농축, 순도 ≥90% 건기준). 매일 300mg 한도(EGCG 기준, 2024 衛授食字第1131301534號 공고). ⚠️ 일반 '綠茶萃取物/兒茶素'는 별도 항목이 없어 EGCG 함량 유의 성분이면 이 300mg 한도로 평가.",
       "verification": "verified",
-      "verifiedAt": "2026-07-09",
+      "verifiedAt": "2026-07-10",
       "verifiedSources": [
-        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638979583360417259",
-        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199&logType=2",
-        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=203&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
         "https://data.fda.gov.tw/data/opendata/export/4/csv",
-        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
       ]
     },
     {
@@ -96410,6 +96429,928 @@
       "verifiedSources": [
         "https://data.fda.gov.tw/data/opendata/export/61/csv",
         "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "cos-palmitoyl-pentapeptide",
+      "canonical_name": "Palmitoyl pentapeptide-4 (Matrixyl)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "팔미토일펜타펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "palmitoyl pentapeptide-4",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "matrixyl",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "棕櫚醯五勝肽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "팔미토일펜타펩타이드-4",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "안티에이징 펩타이드. 제한·금지 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-copper-tripeptide",
+      "canonical_name": "Copper tripeptide-1 (GHK-Cu)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "구리펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "copper tripeptide-1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "GHK-Cu",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "銅胜肽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "코퍼펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "구리 펩타이드. 제한·금지 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-salicyloyl-phytosphingosine",
+      "canonical_name": "Salicyloyl phytosphingosine",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "살리실로일피토스핑고신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "salicyloyl phytosphingosine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 성분 자체는 미등재이나 살리실산(水楊酸) 유도체 — 살리실산 제한 준용 가능: 씻어내지 않는 제품 2%·헤어린스오프 3% 상한, 3세 미만 제품 사용 제한(샴푸 예외, 2027-10 시행). 배합 시 살리실산 총량 관리 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-retinaldehyde",
+      "canonical_name": "Retinaldehyde (retinal)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "레티날데하이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "retinaldehyde",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "retinal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "視黃醛",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "레티날",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "레티노이드. 2027 레티노이드 농도 제한(Retinol·Retinyl Acetate·Retinyl Palmitate만 대상) 명시적 제외 — 현재 미제한(허용)."
+    },
+    {
+      "id": "cos-angelica-dahurica",
+      "canonical_name": "Angelica dahurica (white angelica) root extract",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "백지추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "angelica dahurica root extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "白芷萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "구릿대추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "제한·금지 목록 미등재(허용 추정). ⚠️ 푸로쿠마린 함유(광독성 가능) — 규정 제한은 없으나 자외선 노출 제품 배합 시 주의.",
+      "verification": "inferred"
+    },
+    {
+      "id": "add-carmine",
+      "canonical_name": "Carmine / cochineal extract",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "carmine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "코치닐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "cochineal extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "carminic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "胭脂蟲萃取物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "胭脂紅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "코치닐추출색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 著色劑(색소) 목록 미등재 → 포지티브 리스트상 식용색소로 사용 불가(EU E120·美 GRAS·韓 허용과 다름). ⚠️ '食用紅色六號(Ponceau 4R)'·'Cochineal Red A'는 별개의 합성색소이니 혼동 금지. 곤충색소 중 蟲漆酸(Laccaic Acid)만 등재됨.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-spirulina",
+      "canonical_name": "Spirulina (blue-green algae)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "스피룰리나",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "spirulina",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "螺旋藻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "藍藻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "아르트로스피라",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "藻體(전체 조체)는 허용 식품원료(藻類, Arthrospira platensis 등). ⚠️ 단 藻藍素(phycocyanin·스피룰리나 색소 추출물)은 著色劑 목록 미등재 — 색소 첨가물로는 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-monk-fruit",
+      "canonical_name": "Monk fruit / Luo han guo (Siraitia grosvenorii)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "나한과",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "monk fruit",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "luo han guo",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "羅漢果",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "라한과",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "果實(과실)은 허용 식품원료(茶包·膳食調理包·萃取 원료). 감미 추출물 '羅漢果醣苷萃取物(Mogroside Extract)'은 甜味劑(감미료) 첨가물로 등재 — 各類食品 적정량(製造·加工 필요 시).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-yeast-beta-glucan",
+      "canonical_name": "Yeast beta-glucan",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "효모베타글루칸",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "yeast beta-glucan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "β-聚葡萄糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "酵母葡聚醣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "효모베타글루칸",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(β-聚葡萄糖, 微生物 유래 — Aureobasidium pullulans·Saccharomyces cerevisiae 명시). 곡물 유래 β-글루칸(大麥·燕麥·黑麥·小麥)은 별도 등재.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-phosphatidylcholine",
+      "canonical_name": "Phosphatidylcholine (purified)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "포스파티딜콜린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "phosphatidylcholine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "磷脂醯膽鹼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "PC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "포스파티딜콜린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 순수 포스파티딜콜린(純化物)은 未確認安全性尚不得使用之原料 목록 — 대만 식품 사용 불가. 단 卵磷脂(레시틴, 식물·동물 유래)은 허용 원료 → 정제도로 상태가 갈림.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-mct-oil",
+      "canonical_name": "MCT oil (medium-chain triglyceride)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "MCT오일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "MCT oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "medium-chain triglyceride",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "中鏈三酸甘油酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "중쇄중성지방",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(中鏈三酸甘油酯, 食用油脂 유래). 첨가물 목록엔 미등재이나 원료로 허용.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-fucoxanthin",
+      "canonical_name": "Fucoxanthin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "푸코잔틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "fucoxanthin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "褐藻黃素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "岩藻黃素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "푸코크산틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "원료·첨가물·未確認 목록 모두 미기재(회색지대 — 금지는 아님, 신소재 심사 필요). 급원 褐藻(Kelp 전체 조체)는 허용이나 분리 색소는 별개.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-piperine",
+      "canonical_name": "Piperine (black pepper extract)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "피페린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "piperine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "胡椒鹼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "BioPerine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "흑후추추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "바이오페린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(胡椒鹼, 2024 衛授食字第1131301534號 공고): 후추 酒精 추출·순도 ≥95%·매일 12mg 한도(피페린 기준). 향신료 후추 자체와 구분되는 농축 성분.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ]
+    },
+    {
+      "id": "raw-cla",
+      "canonical_name": "Conjugated linoleic acid (CLA)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "공액리놀레산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "conjugated linoleic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "CLA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "共軛亞麻油酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "공액리놀렌산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "원료·첨가물·未確認 목록 모두 미기재(회색지대 — 금지는 아님, 적격성 확인 필요).",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-apigenin",
+      "canonical_name": "Apigenin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아피제닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "apigenin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "芹菜素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "분리 성분은 원료·첨가물 목록 미기재(회색지대 — 신소재 심사 필요). 급원 芹菜(Celery, 香辛調味)는 허용이나 apigenin 단일물은 별개.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-sulforaphane",
+      "canonical_name": "Sulforaphane",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "설포라판",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "sulforaphane",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蘿蔔硫素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "萊菔硫烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "설포라페인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "설포라판 단일물·브로콜리 '새싹(sprout)' 추출물은 목록 미기재(회색지대). ⚠️ 단 青花菜種子萃取物(브로콜리 '씨앗' 추출물, glucoraphanin)은 허용 — 성인 전용·매일 115mg 한도·'孕婦·授乳·甲狀腺 질환자 회피' 경고 표시(2023 公告). 씨앗≠새싹≠설포라판 순물질 구분 필수."
+    },
+    {
+      "id": "raw-elderberry",
+      "canonical_name": "Elderberry (Sambucus nigra)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "엘더베리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "elderberry",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "接骨木",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "西洋接骨木",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "삼부커스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "✅ Sambucus nigra·S. canadensis·S. sieboldiana의 果實·花(과실·꽃)만 허용 식용. ⚠️ 종·부위 특정 — S. williamsii(잎)·冇骨消/蒴藋(S. formosana)는 未確認安全性(불가). 생과실 시안배당체 안전성 때문에 종/부위 제한.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
       ]
     }
   ]

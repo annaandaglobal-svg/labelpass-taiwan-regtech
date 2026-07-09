@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,459
-- Stored aliases: 7,965
-- Searchable aliases including identifiers: 9,121
+- Terms: 2,476
+- Stored aliases: 8,049
+- Searchable aliases including identifiers: 9,205
 - Term-rule links: 1,111
-- Regulatory update candidates: 47
-- Alias review items: 1,019
+- Regulatory update candidates: 51
+- Alias review items: 1,028
 
 ## How To Use This Memory
 
@@ -62,12 +62,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | tw-tfda-cosmetics-law-regulations-index | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetics Guidance, Law and Regulations Index |
 | tw-tfda-cosmetics-management-framework | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetics Management Framework |
 | tw-tfda-pif-hub-zh | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA PIF laws and guidance hub |
-| tw-tfda-pif-implementation | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Product Information Files to Be Implemented in Phases |
+| tw-tfda-pif-implementation | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetic Product Information Files to Be Implemented in Phases |
 | tw-tfda-specific-purpose-cosmetics-permit-repeal-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Specific Purpose Cosmetics Permit Transition Notice |
 | tw-customs-import-cargo-clearance | Customs | customs-origin-classification | high | fresh | cache | Import Cargo Clearance |
-| tw-customs-imported-goods-advance-tariff-classification-ruling | Customs | customs-origin-classification | high | fresh | cache | Introduction to Advance Tariff Classification Ruling on Imported Goods |
+| tw-customs-imported-goods-advance-tariff-classification-ruling | Customs | customs-origin-classification | high | stale | cache | Introduction to Advance Tariff Classification Ruling on Imported Goods |
 | tw-customs-tariff-database-download | Customs | customs-origin-classification | high | fresh | browser_capture | GC453 Tariff Database Download |
-| tw-customs-tariff-system | Customs | customs-origin-classification | high | fresh | cache | Tariff System - Customs Administration |
+| tw-customs-tariff-system | Customs | customs-origin-classification | high | stale | cache | Tariff System - Customs Administration |
 | tw-customs-valuation | Customs | customs-origin-classification | high | fresh | cache | Customs Valuation |
 | tw-moj-customs-act | Customs | customs-origin-classification | high | fresh | cache | Customs Act |
 | tw-tfda-food-additive-permit-query | Food additives | tw-food-additives | high | fresh | browser_capture | Food Additive Permit Data Query |
@@ -493,18 +493,18 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 
 | Source | Status | Severity | Due in | Title |
 | --- | --- | --- | --- | --- |
-| cn-mofcom-export-control-portal | pending_refresh | medium | 4d | China Export Control Information Portal |
-| cn-nmpa-cosmetics-hub | pending_refresh | medium | 4d | NMPA Cosmetics Hub |
-| tw-customs-origin-importers | pending_refresh | low | 4d | Keelung Customs origin labeling notice |
-| tw-shtc-dual-use-list | pending_refresh | medium | 4d | Export Control List for Dual Use Items and Technology and Common Military List |
+| cn-mofcom-export-control-portal | detected | medium | 4d | China Export Control Information Portal |
+| cn-nmpa-cosmetics-hub | detected | medium | 4d | NMPA Cosmetics Hub |
+| tw-customs-origin-importers | detected | low | 4d | Keelung Customs origin labeling notice |
+| tw-shtc-dual-use-list | detected | medium | 4d | Export Control List for Dual Use Items and Technology and Common Military List |
 | tw-shtc-dual-use-list | watching | medium | 4d | Export Control List for Dual Use Items and Technology and Common Military List |
-| tw-tfda-pif-implementation | pending_refresh | medium | 4d | Cosmetic Product Information Files to Be Implemented in Phases |
+| tw-tfda-pif-implementation | detected | medium | 4d | Cosmetic Product Information Files to Be Implemented in Phases |
 | tw-tfda-pif-implementation | watching | medium | 4d | Cosmetic Product Information Files to Be Implemented in Phases |
-| tw-trade-import-export-regulations | pending_refresh | medium | 4d | Taiwan import and export related laws and regulations |
+| tw-trade-import-export-regulations | detected | medium | 4d | Taiwan import and export related laws and regulations |
 | tw-trade-import-export-regulations | watching | medium | 4d | Taiwan import and export related laws and regulations |
+| tw-customs-advance-tariff-classification-ruling | detected | low | 5d | Advance Tariff Classification Ruling Helps Find Correct CCC Code |
 | tw-customs-import-cargo-clearance | watching | medium | 5d | Import Cargo Clearance |
-| tw-customs-imported-goods-advance-tariff-classification-ruling | watching | medium | 5d | Introduction to Advance Tariff Classification Ruling on Imported Goods |
-| tw-customs-tariff-system | watching | medium | 5d | Tariff System - Customs Administration |
+| tw-customs-imported-goods-advance-tariff-classification-ruling | detected | medium | 5d | Introduction to Advance Tariff Classification Ruling on Imported Goods |
 
 
 ## Retrieval Playbook

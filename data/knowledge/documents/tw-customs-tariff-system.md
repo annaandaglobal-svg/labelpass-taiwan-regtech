@@ -13,7 +13,7 @@ fetched_url: https://web.customs.gov.tw/en/multiplehtml/3349
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T15:09:18.698Z
-cache_status: fresh
+cache_status: stale
 content_hash: 797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd
 from_cache: true
 manual_fallback: false

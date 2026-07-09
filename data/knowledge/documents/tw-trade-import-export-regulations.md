@@ -13,7 +13,7 @@ fetched_url: https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=7
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T13:02:14.387Z
-cache_status: fresh
+cache_status: stale
 content_hash: 7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba
 from_cache: true
 manual_fallback: false

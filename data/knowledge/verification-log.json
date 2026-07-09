@@ -214,6 +214,29 @@
         "raw-orotic-acid"
       ],
       "facts": "PGPR = additive item 16021 (交酯化蓖麻酸聚合甘油酯), emulsifier cat.16, GMP all foods EXCEPT fresh/UHT milk. Propylene glycol alginate = item 12002 (海藻酸丙二醇), thickener cat.12, ≤10 g/kg. L-isoleucine = nutrient additive, all foods as-needed for nutrient supplementation, no numeric cap. HMB: ONLY calcium salt 3-羥基-3-甲基丁酸鈣 listed (營養添加劑), restricted to 特殊營養食品 (special/medical nutritional foods) only + label '不適宜孕婦及未滿18歲者' — free HMB/other salts NOT listed. Cytidine: free form NOT listed; only CMP salt 5'-胞核苷單磷酸鹽 (infant<3 formula ≤2.50 mg/100kcal, combined 5-nucleotide cap 5 mg/100kcal). Uridine: free NOT listed; only UMP salt 5'-尿核苷單磷酸鹽 (≤1.75 mg/100kcal, same combined cap). Orotic acid (乳清酸) ZERO hits in either CSV = not permitted. Gum ghatti (哥地膠), tamarind gum (羅望子膠), pullulan (普魯蘭膠, Aureobasidium pullulans) all present on raw-material positive list (NOT additives). Rechecks confirmed absent from both CSVs: theaflavin(茶黃素), fisetin(非瑟酮), pinitol(松醇), trehalulose(海藻酮糖), resistant starch(抗性澱粉 standalone), wheat gluten(小麥蛋白)."
+    },
+    {
+      "batch": "colorant-functional-botanical-2026-07-10f",
+      "method": "sonnet — downloaded + grepped live TFDA open-data CSVs: food-additive 附表一 (export/61) and food raw-material positive list incl. 未確認安全性 rows (export/4); cosmetic status via haiku web check of TFDA prohibited/restricted lists (negative-list regime)",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
+      ],
+      "terms": [
+        "add-carmine",
+        "raw-spirulina",
+        "raw-monk-fruit",
+        "raw-yeast-beta-glucan",
+        "raw-phosphatidylcholine",
+        "raw-mct-oil",
+        "raw-fucoxanthin",
+        "raw-piperine",
+        "raw-elderberry",
+        "raw-egcg"
+      ],
+      "facts": "Carmine/cochineal (胭脂蟲/胭脂紅/carminic) ABSENT from 著色劑 list = not a permitted Taiwan food colorant (contrast EU E120/US GRAS); NOT to be confused with 食用紅色六號/Cochineal Red A (=Ponceau 4R synthetic) or 蟲漆酸/Laccaic Acid (a listed insect colorant). Spirulina alga (藻體) = permitted raw material but phycocyanin/藻藍素 colorant NOT on 著色劑 list. Monk fruit 羅漢果 fruit = permitted raw material; Mogroside Extract 羅漢果醣苷萃取物 = listed 甜味劑 additive (QS). Yeast β-glucan (β-聚葡萄糖, microbial: A.pullulans/S.cerevisiae) = permitted raw material, distinct from cereal β-glucan. Purified phosphatidylcholine (磷脂醯膽鹼, 純化物) is on 未確認安全性 list = NOT permitted; but lecithin 卵磷脂 (plant+animal) IS a permitted raw material. MCT oil 中鏈三酸甘油酯 = permitted raw material (from edible oils). Green tea EGCG (表沒食子兒茶素沒食子酸酯) = permitted raw material, ≥90% purity, daily limit 300 mg EGCG (2024 衛授食字1131301534). Piperine 胡椒鹼 = permitted raw material, alcohol-extracted ≥95% purity, daily limit 12 mg (same 2024 announcement). Elderberry: Sambucus nigra/canadensis/sieboldiana FRUIT+FLOWER permitted; S. williamsii leaf & S. formosana on 未確認安全性 (species/part specific). UNVERIFIED (absent from all lists, gray-zone not banned): fucoxanthin(褐藻黃素), CLA(共軛亞麻油酸), apigenin(芹菜素), sulforaphane(蘿蔔硫素) — note broccoli SEED extract 青花菜種子萃取物 IS permitted (adults only, 115 mg/day, thyroid warning) but that is seed extract, not sulforaphane or sprout extract."
     }
   ]
 }

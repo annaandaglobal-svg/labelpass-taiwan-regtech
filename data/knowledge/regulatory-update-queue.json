@@ -5,20 +5,20 @@
   "expiring_soon_days": 7,
   "expiring_soon_fraction": 0.25,
   "summary": {
-    "total": 47,
-    "detected": 0,
-    "pending_refresh": 6,
+    "total": 51,
+    "detected": 10,
+    "pending_refresh": 0,
     "watching": 41,
     "approved": 0,
     "high": 0,
-    "medium": 46,
-    "low": 1,
+    "medium": 49,
+    "low": 2,
     "expiring_soon_max_days": 7,
     "expiring_soon_fraction": 0.25
   },
   "items": [
     {
-      "candidate_key": "cn-mofcom-export-control-portal:source_expiring_soon:2026-07-09",
+      "candidate_key": "cn-mofcom-export-control-portal:source_stale:58695952dccb361a",
       "source_key": "cn-mofcom-export-control-portal",
       "title": "China Export Control Information Portal",
       "source_url": "https://exportcontrol.mofcom.gov.cn/",
@@ -27,9 +27,9 @@
       "domain": "export_control",
       "source_type": "regulation_index",
       "source_priority": "high",
-      "change_type": "source_expiring_soon",
+      "change_type": "source_stale",
       "severity": "medium",
-      "status": "pending_refresh",
+      "status": "detected",
       "detected_at": "2026-07-05T14:00:14.262Z",
       "fetched_at": "2026-06-25T13:32:35.199Z",
       "cache_expires_at": "2026-07-09T13:32:35.199Z",
@@ -58,7 +58,7 @@
         "parse_error": null,
         "excerpt": "中国出口管制信息网 网站导航 网站首页 国内动态 国际动态 合规服务 政策法规 常见问题 各方观点 两用物项查询 快速了解出口管制 在线办事 相关链接 在线办事 两用物项和技术进出口审批 最终用户和最终用途说明 相关链接 外交部 工业和信息化部 海关总署 国家国防科技工业局 中国出口管制信息网 CHINA EXPORT CONTROL INFORMATION 首 页 国内动态 国际动态 合规服务 政策法规 常见问题 各方观点 快速了解出口管制 两用物项出口管制清单数据库 在线办事 两用物项和技术进出口审批 最终用户和最终用途说明 相关链接 外交部 工业和信息化部 海关总署 国家国防科技工业局 国内动态 商务部新闻发言人就进一步完善战略矿产两用物项出口管制违法违规行为举报处理工作答记者问 中韩出口管制对话机制第三次会议及政企交流活动在陕西西安举行 中英出口管制工作组第二次会议在英国伦敦举行 商务部：坚决反对欧盟第20轮对俄制裁列单中国企业 商务部新闻发言人就美众议院外交事务委员会通过MATCH等法案答记者问 商务部新闻发言人就将7家欧盟实体列入出口管制管控名单答记者问 商务部回应稀土出口管制：中美将通过经贸磋商机制保持沟通 2025年全国出口管制工作会议在京召开 商务部国际贸易谈判代表兼副部长王受文在京出席2024年出口管制合规大会 2024年全国出口管制工作会议在京召开 中国首次发布出口管制的白皮书 国际动态 芬兰即将修订《两用物项出口管制法》 2026-05-29 德国中国商会就欧委会依据《外国补贴条例》排除中企发表声明 2026-05-03 日本通过内阁决议正式允许出口杀伤"
       },
-      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -71,12 +71,12 @@
           "mofcom",
           "china"
         ],
-        "expiring_soon_window_days": 4,
+        "expiring_soon_window_days": null,
         "compact_title": "china-export-control-information-portal"
       }
     },
     {
-      "candidate_key": "cn-nmpa-cosmetics-hub:source_expiring_soon:2026-07-09",
+      "candidate_key": "cn-nmpa-cosmetics-hub:source_stale:86e2575036b289c2",
       "source_key": "cn-nmpa-cosmetics-hub",
       "title": "NMPA Cosmetics Hub",
       "source_url": "https://english.nmpa.gov.cn/cosmetics.html",
@@ -85,9 +85,9 @@
       "domain": "cosmetics",
       "source_type": "regulation_index",
       "source_priority": "high",
-      "change_type": "source_expiring_soon",
+      "change_type": "source_stale",
       "severity": "medium",
-      "status": "pending_refresh",
+      "status": "detected",
       "detected_at": "2026-07-05T14:00:14.262Z",
       "fetched_at": "2026-06-25T13:03:12.859Z",
       "cache_expires_at": "2026-07-09T13:03:12.859Z",
@@ -116,7 +116,7 @@
         "parse_error": null,
         "excerpt": "Cosmetics 中文 | Contact Us | search search nav Home + About NMPA + Leadership Our Responsibilities NMPA Organizations Affiliated Institutions Contact Us News + Drugs + Medical Devices + Cosmetics + Resources + Database Worldwide Pharmacopoeia Newsletter Policies Interpretation Popular Science Home > Cosmetics Requirements for the Pilot Program of Electronic Labels for Cosmetics 2025-12-24 To regulate the pilot program for electronic labels for cosmetics (including toothpaste, hereinafter referred to as \"cosmetics\"), these Requirements are formulated in accordance with the provisions of the Regulations on Supervision and Administration of Cosmetics (hereinafter referred to as the \"Regulations\""
       },
-      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -129,12 +129,144 @@
           "nmpa",
           "notices"
         ],
-        "expiring_soon_window_days": 4,
+        "expiring_soon_window_days": null,
         "compact_title": "nmpa-cosmetics-hub"
       }
     },
     {
-      "candidate_key": "tw-shtc-dual-use-list:source_expiring_soon:2026-07-09",
+      "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:source_stale:ea78ead4ce228622",
+      "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
+      "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
+      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "notice",
+      "source_priority": "high",
+      "change_type": "source_stale",
+      "severity": "medium",
+      "status": "detected",
+      "detected_at": "2026-07-05T14:00:14.262Z",
+      "fetched_at": "2026-06-25T15:09:22.209Z",
+      "cache_expires_at": "2026-07-09T15:09:22.209Z",
+      "previous_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
+      "current_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
+      "affected_domains": [
+        "customs",
+        "customs",
+        "ccc-code",
+        "tariff-classification",
+        "advance-ruling",
+        "imported-goods"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "customs_classification"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md",
+        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+        "extra_fetched_urls": [],
+        "text_chars": 7455,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Advance Tariff Classification Rulings-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments Clearance Free Trade Zone M"
+      },
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "customs",
+          "ccc-code",
+          "tariff-classification",
+          "advance-ruling",
+          "imported-goods"
+        ],
+        "expiring_soon_window_days": null,
+        "compact_title": "introduction-to-advance-tariff-classification-ruling-on-imported-goods"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-tariff-system:source_stale:797088c0429f1eb1",
+      "source_key": "tw-customs-tariff-system",
+      "title": "Tariff System - Customs Administration",
+      "source_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "tariff_index",
+      "source_priority": "high",
+      "change_type": "source_stale",
+      "severity": "medium",
+      "status": "detected",
+      "detected_at": "2026-07-05T14:00:14.262Z",
+      "fetched_at": "2026-06-25T15:09:18.698Z",
+      "cache_expires_at": "2026-07-09T15:09:18.698Z",
+      "previous_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
+      "current_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
+      "affected_domains": [
+        "customs",
+        "customs",
+        "tariff",
+        "ccc-code",
+        "hs-code",
+        "tariff-query"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "customs_classification"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-tariff-system.md",
+        "fetched_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
+        "extra_fetched_urls": [],
+        "text_chars": 3931,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Tariff System-Customs administration X message close ::: Skip to main content Home Site Map FAQs Epaper Contact Us 中文版 font size A A A ::: Popular search： x About Us Organization Structure About the Director General Tariff System Customs Museum Contact Us Cargo Clearance Non-intrusive Inspection, Self-prepared Seals and Electronic Seals ECA/FTA Rules of Origin Anti-dumping and Countervailing Duties Special Safeguards The Customs Value Determination of One-Time Transfer Pricing Manual of Advance Cargo Clearance System Travelers Arrival Departure VAT Refund for Foreigners FAQs for Arrival and Departure Convenient Services for Outbound and Inbound Passenger Anti-Money Laundering Laws & Regulati"
+      },
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "customs",
+          "tariff",
+          "ccc-code",
+          "hs-code",
+          "tariff-query"
+        ],
+        "expiring_soon_window_days": null,
+        "compact_title": "tariff-system-customs-administration"
+      }
+    },
+    {
+      "candidate_key": "tw-shtc-dual-use-list:source_stale:cb2c04977fa8fde8",
       "source_key": "tw-shtc-dual-use-list",
       "title": "Export Control List for Dual Use Items and Technology and Common Military List",
       "source_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?Pageid=0&dl_DateRange=all&nodeID=298&pid=687872&txt_ED=&txt_Keyword=&txt_SD=",
@@ -143,9 +275,9 @@
       "domain": "export_control",
       "source_type": "control_list_notice",
       "source_priority": "high",
-      "change_type": "source_expiring_soon",
+      "change_type": "source_stale",
       "severity": "medium",
-      "status": "pending_refresh",
+      "status": "detected",
       "detected_at": "2026-07-05T14:00:14.262Z",
       "fetched_at": "2026-06-25T13:02:21.869Z",
       "cache_expires_at": "2026-07-09T13:02:21.869Z",
@@ -180,7 +312,7 @@
         "parse_error": null,
         "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Export Control Laws(SHTC) Close To recommend this article to a friend Subject： Export Control List for Dual U... Content： Friend E-Mail Sender For Share Friend Reason Verification code Voice Cancel Send Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Administration Trade Law Registration of Exporters and Importers Im"
       },
-      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -193,12 +325,12 @@
           "export-control",
           "ai-hardware"
         ],
-        "expiring_soon_window_days": 4,
+        "expiring_soon_window_days": null,
         "compact_title": "export-control-list-for-dual-use-items-and-technology-and-common-military-list"
       }
     },
     {
-      "candidate_key": "tw-tfda-pif-implementation:source_expiring_soon:2026-07-09",
+      "candidate_key": "tw-tfda-pif-implementation:source_stale:e7c51b59159139a2",
       "source_key": "tw-tfda-pif-implementation",
       "title": "Cosmetic Product Information Files to Be Implemented in Phases",
       "source_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",
@@ -207,9 +339,9 @@
       "domain": "cosmetics",
       "source_type": "notice",
       "source_priority": "high",
-      "change_type": "source_expiring_soon",
+      "change_type": "source_stale",
       "severity": "medium",
-      "status": "pending_refresh",
+      "status": "detected",
       "detected_at": "2026-07-05T14:00:14.262Z",
       "fetched_at": "2026-06-25T13:02:08.995Z",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
@@ -248,7 +380,7 @@
         "parse_error": null,
         "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: you are in： Home News &amp; Events News & Events Cosmetic Product Information Files (PIF) to Be Implemented in Phases Annually 【Update Date： 2025-08-14 】 unit：醫療器材及化粧品組 To enhance the safety of cosmetic use, the Ministry of Health and Welfare has been implementing the Product Information File (PIF) system in phases since 2019. Starting July 1, 2024, PIFs have been required for sunscreens, hair dyes, perm agents, antiperspirants, and home-use too"
       },
-      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -260,12 +392,83 @@
           "safety-assessment",
           "2026"
         ],
-        "expiring_soon_window_days": 4,
+        "expiring_soon_window_days": null,
         "compact_title": "cosmetic-product-information-files-to-be-implemented-in-phases"
       }
     },
     {
-      "candidate_key": "tw-trade-import-export-regulations:source_expiring_soon:2026-07-09",
+      "candidate_key": "tw-trade-import-export-administration:source_stale:d5b9b9dd90c8e0f5",
+      "source_key": "tw-trade-import-export-administration",
+      "title": "Import and Export Administration",
+      "source_url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+      "authority": "International Trade Administration, MOEA",
+      "jurisdiction": "TW",
+      "domain": "trade",
+      "source_type": "guidance_index",
+      "source_priority": "high",
+      "change_type": "source_stale",
+      "severity": "medium",
+      "status": "detected",
+      "detected_at": "2026-07-05T14:00:14.262Z",
+      "fetched_at": "2026-06-25T15:09:16.612Z",
+      "cache_expires_at": "2026-07-09T15:09:16.612Z",
+      "previous_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
+      "current_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
+      "affected_domains": [
+        "trade",
+        "import",
+        "export",
+        "permit",
+        "licensing",
+        "controlled-commodities"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "import-export-permit",
+          "canonical_name": "Import and Export Permit",
+          "category": "import_export_control"
+        },
+        {
+          "term_key": "exporter-importer-registration",
+          "canonical_name": "Exporter and Importer Registration",
+          "category": "import_export_control"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md",
+        "fetched_url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+        "extra_fetched_urls": [],
+        "text_chars": 3822,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Import & Export Administration Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Administration Trade Law Registration of Exporters and Importers Import & Export Administration CITES Certificates of Origin Export Control(SHTC) Information & Trade Statistics Forecast Trade Statistics About Us Organization Location & Map"
+      },
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "import",
+          "export",
+          "permit",
+          "licensing",
+          "controlled-commodities"
+        ],
+        "expiring_soon_window_days": null,
+        "compact_title": "import-and-export-administration"
+      }
+    },
+    {
+      "candidate_key": "tw-trade-import-export-regulations:source_stale:7ceb0f2655873288",
       "source_key": "tw-trade-import-export-regulations",
       "title": "Taiwan import and export related laws and regulations",
       "source_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",
@@ -274,9 +477,9 @@
       "domain": "trade",
       "source_type": "regulation_index",
       "source_priority": "high",
-      "change_type": "source_expiring_soon",
+      "change_type": "source_stale",
       "severity": "medium",
-      "status": "pending_refresh",
+      "status": "detected",
       "detected_at": "2026-07-05T14:00:14.262Z",
       "fetched_at": "2026-06-25T13:02:14.387Z",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
@@ -337,7 +540,7 @@
         "parse_error": null,
         "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Trade Law Close To recommend this article to a friend Subject： Regulation Content： ItemTitleRevise Date1Regulations Governing Registration of Exporters and Importers2025/4/82Regulatio... Friend E-Mail Sender For Share Friend Reason Verification code Voice Cancel Send Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Ad"
       },
-      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -351,7 +554,7 @@
           "origin",
           "trade"
         ],
-        "expiring_soon_window_days": 4,
+        "expiring_soon_window_days": null,
         "compact_title": "taiwan-import-and-export-related-laws-and-regulations"
       }
     },
@@ -4025,7 +4228,76 @@
       }
     },
     {
-      "candidate_key": "tw-customs-origin-importers:source_expiring_soon:2026-07-09",
+      "candidate_key": "tw-customs-advance-tariff-classification-ruling:source_stale:9c6a7d7249bb757f",
+      "source_key": "tw-customs-advance-tariff-classification-ruling",
+      "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
+      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4",
+      "authority": "Taiwan Customs Administration",
+      "jurisdiction": "TW",
+      "domain": "customs",
+      "source_type": "notice",
+      "source_priority": "medium",
+      "change_type": "source_stale",
+      "severity": "low",
+      "status": "detected",
+      "detected_at": "2026-07-05T14:00:14.262Z",
+      "fetched_at": "2026-06-25T14:39:06.986Z",
+      "cache_expires_at": "2026-07-09T14:39:06.986Z",
+      "previous_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
+      "current_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
+      "affected_domains": [
+        "customs",
+        "customs",
+        "ccc-code",
+        "tariff-classification",
+        "advance-ruling"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "hs-code-classification",
+          "canonical_name": "HS Code Classification",
+          "category": "customs_classification"
+        },
+        {
+          "term_key": "advance-tariff-classification-ruling",
+          "canonical_name": "Advance Tariff Classification Ruling",
+          "category": "customs_classification"
+        }
+      ],
+      "affected_products": [
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-customs-advance-tariff-classification-ruling.md",
+        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4",
+        "extra_fetched_urls": [],
+        "text_chars": 5248,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "Advance Tariff Classification Ruling Helps Find Correct CCC Code-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments "
+      },
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "customs",
+          "ccc-code",
+          "tariff-classification",
+          "advance-ruling"
+        ],
+        "expiring_soon_window_days": null,
+        "compact_title": "advance-tariff-classification-ruling-helps-find-correct-ccc-code"
+      }
+    },
+    {
+      "candidate_key": "tw-customs-origin-importers:source_stale:0da863dde7ec3591",
       "source_key": "tw-customs-origin-importers",
       "title": "Keelung Customs origin labeling notice",
       "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=9d9cf376a43c481faef23b3f584f782c",
@@ -4034,9 +4306,9 @@
       "domain": "customs",
       "source_type": "notice",
       "source_priority": "medium",
-      "change_type": "source_expiring_soon",
+      "change_type": "source_stale",
       "severity": "low",
-      "status": "pending_refresh",
+      "status": "detected",
       "detected_at": "2026-07-05T14:00:14.262Z",
       "fetched_at": "2026-06-25T13:02:17.038Z",
       "cache_expires_at": "2026-07-09T13:02:17.038Z",
@@ -4080,7 +4352,7 @@
         "parse_error": null,
         "excerpt": "Keelung Customs Calls on Traders to Meet Country of Origin Labeling Requirements-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Expre"
       },
-      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -4092,7 +4364,7 @@
           "origin",
           "misleading-label"
         ],
-        "expiring_soon_window_days": 4,
+        "expiring_soon_window_days": null,
         "compact_title": "keelung-customs-origin-labeling-notice"
       }
     }
@@ -4130,7 +4402,7 @@
       "content_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
       "fetched_at": "2026-06-25T13:02:08.995Z",
       "cache_expires_at": "2026-07-09T13:02:08.995Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md"
     },
@@ -4850,7 +5122,7 @@
       "content_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
       "fetched_at": "2026-06-25T13:02:14.387Z",
       "cache_expires_at": "2026-07-09T13:02:14.387Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md"
     },
@@ -4895,7 +5167,7 @@
       "content_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
       "fetched_at": "2026-06-25T15:09:16.612Z",
       "cache_expires_at": "2026-07-09T15:09:16.612Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md"
     },
@@ -4931,7 +5203,7 @@
       "content_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
       "fetched_at": "2026-06-25T15:09:18.698Z",
       "cache_expires_at": "2026-07-09T15:09:18.698Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-tariff-system.md"
     },
@@ -4940,7 +5212,7 @@
       "content_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
       "fetched_at": "2026-06-25T14:39:06.986Z",
       "cache_expires_at": "2026-07-09T14:39:06.986Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-advance-tariff-classification-ruling.md"
     },
@@ -4949,7 +5221,7 @@
       "content_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
       "fetched_at": "2026-06-25T15:09:22.209Z",
       "cache_expires_at": "2026-07-09T15:09:22.209Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md"
     },
@@ -4967,7 +5239,7 @@
       "content_hash": "0da863dde7ec359160adca40ebc2470a66fff2854adc699e8f83b880ebd6ca15",
       "fetched_at": "2026-06-25T13:02:17.038Z",
       "cache_expires_at": "2026-07-09T13:02:17.038Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-origin-importers.md"
     },
@@ -5030,7 +5302,7 @@
       "content_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
       "fetched_at": "2026-06-25T13:02:21.869Z",
       "cache_expires_at": "2026-07-09T13:02:21.869Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-shtc-dual-use-list.md"
     },
@@ -5354,7 +5626,7 @@
       "content_hash": "86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647",
       "fetched_at": "2026-06-25T13:03:12.859Z",
       "cache_expires_at": "2026-07-09T13:03:12.859Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/cn-nmpa-cosmetics-hub.md"
     },
@@ -5390,7 +5662,7 @@
       "content_hash": "58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d",
       "fetched_at": "2026-06-25T13:32:35.199Z",
       "cache_expires_at": "2026-07-09T13:32:35.199Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/cn-mofcom-export-control-portal.md"
     },

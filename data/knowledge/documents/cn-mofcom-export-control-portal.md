@@ -13,7 +13,7 @@ fetched_url: https://exportcontrol.mofcom.gov.cn/
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T13:32:35.199Z
-cache_status: fresh
+cache_status: stale
 content_hash: 58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d
 from_cache: true
 manual_fallback: false

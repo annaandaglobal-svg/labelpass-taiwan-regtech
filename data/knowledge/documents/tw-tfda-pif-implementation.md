@@ -13,7 +13,7 @@ fetched_url: https://www.fda.gov.tw/eng/newsContent.aspx?id=31164
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T13:02:08.995Z
-cache_status: fresh
+cache_status: stale
 content_hash: e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5
 from_cache: true
 manual_fallback: false

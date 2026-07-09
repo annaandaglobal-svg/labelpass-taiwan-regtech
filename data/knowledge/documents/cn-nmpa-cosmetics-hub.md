@@ -13,7 +13,7 @@ fetched_url: https://english.nmpa.gov.cn/cosmetics.html
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T13:03:12.859Z
-cache_status: fresh
+cache_status: stale
 content_hash: 86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647
 from_cache: true
 manual_fallback: false
