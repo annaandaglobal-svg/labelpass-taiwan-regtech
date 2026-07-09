@@ -78,7 +78,8 @@ const labelDomain = (label) => {
   if (/화장품|특정용도|미백|防曬|자외선|염모|染髮|PIF|化粧品|방부제|UV필터|색소·자외선/.test(L)) return "cosmetic";
   if (/검역|輸入檢疫|動植物/.test(L)) return "quarantine";
   if (/재활용|資源回收|環境部|미세플라스틱|환경|商品標示|에너지효율/.test(L)) return "commodity_env";
-  if (/첨가물|果汁|초콜릿|경화유|버터|유지|오염물|아크릴|카페인|채식|GMO|알레르겐|영양|어린이|영유아|식품|蜂蜜|3-MCPD|검사|홍국|過氧|당|식용색소|포지티브|色素/.test(L)) return "food_or_generic";
+  // Korean-primary indicators (labels were cleaned of Chinese for KR users) + a few remaining CJK.
+  if (/첨가물|과즙|果汁|주스|초콜릿|경화유|버터|유지|오염물|아크릴|카페인|채식|GMO|알레르겐|영양|어린이|영유아|식품|꿀|蜂蜜|품명|3-MCPD|검사|홍국|과산화|過氧|당|식용색소|포지티브|色素/.test(L)) return "food_or_generic";
   return "other";
 };
 // battery: query -> allowed domains (a misroute = verdict domain outside the allowed set)
