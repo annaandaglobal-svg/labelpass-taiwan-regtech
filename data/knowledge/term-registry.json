@@ -89087,8 +89087,15 @@
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "비타민C 원료. 식품원료 등재 확인 필요(2차출처만).",
-      "verification": "inferred"
+      "notes": "허용 식품원료(西印度櫻桃 과실).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "enz-transglutaminase",
@@ -90892,8 +90899,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "아미노산. 효능표방 없으면 허용 추정, 플랫폼 확인.",
-      "verification": "inferred"
+      "notes": "허용(營養添加劑, 전 식품 GMP 적정량, 수치 상한 없음). 결핍 보충 용도.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-quercetin",
@@ -90937,8 +90951,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "플라보노이드. 식품 적격성 확인 필요(용도별).",
-      "verification": "inferred"
+      "notes": "양파추출물(洋蔥萃取物)의 지표성분으로만 허용 — 케르세틴 1000mg/일. 다른 급원은 별도 확인.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-opc",
@@ -90989,8 +91010,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "OPC(포도씨·소나무껍질). 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "포도씨/과피추출물의 지표성분으로만 허용 — OPC 150mg/일. 다른 급원은 별도 확인.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "min-chromium",
@@ -91606,8 +91634,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "프리바이오틱. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(木寡醣).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-resistant-starch",
@@ -91682,7 +91717,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "감미료. 식품 적격성 확인 필요.",
+      "notes": "'龍舌蘭糖漿(아가베시럽)' 형태만 식품원료 등재. 생아가베 등 다른 형태는 별도 확인.",
       "verification": "inferred"
     },
     {
@@ -91734,7 +91769,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "곡물 조청. 맥아 원료는 등재, 조청 형태 확인 권장.",
+      "notes": "'조청(쌀엿)'은 원료 목록에 없고 稻芽(발아 벼)만 등재 — 형태·적격성 확인 필요.",
       "verification": "inferred"
     },
     {
@@ -91957,7 +91992,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "아미노산. 식품 적격성·효능표방 여부 확인."
+      "notes": "⚠️ 未確認安全性 목록(정제형) — 식품 사용 불가. 사용하려면 非傳統性 식품원료 신청 필요.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-fenugreek",
@@ -92590,8 +92633,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(D-核糖).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-zinc-picolinate",
@@ -92628,8 +92678,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "아연 급원 형태 확인 필요(영양첨가제 규격 대조).",
-      "verification": "inferred"
+      "notes": "⚠️ 대만 허용 아연 17종에 피콜리네이트 없음(피콜린산 형태는 크로뮴만) — 미허용. 허용 형태 아연 총 ≤30mg/일.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-mg-glycinate",
@@ -92666,7 +92723,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "마그네슘 킬레이트 형태 확인. Mg 한도 600→350mg는 2027-07 시행."
+      "notes": "허용(甘胺酸鎂). Mg 현재 600mg/일, 2027-07-01부터 350mg/일.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-heme-iron",
@@ -92710,8 +92775,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "철 급원 형태 확인 필요.",
-      "verification": "inferred"
+      "notes": "⚠️ 첨가물·원료 목록 모두 미등재 — 非傳統性 신청 필요. 허용 철 형태는 ≤45mg/일(정·캡슐).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-colostrum",
@@ -92755,8 +92827,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "유함량 표시규정. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용(牛初乳/우초유 및 우초유 면역글로불린만 등재). 타 동물 초유는 별도 확인.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "oil-borage",
@@ -93011,8 +93090,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "이소플라본 원료. 식품 적격성 확인 필요.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(Trifolium pratense 전초).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "raw-chia-seed",
@@ -93056,8 +93142,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "시판 중이나 식품원료 등재 확인 권장.",
-      "verification": "inferred"
+      "notes": "허용 식품원료(鼠尾草種子). 땅콩·견과 알레르기 주의 경고 표시(108년 공고).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
     },
     {
       "id": "insect-silkworm-pupa",
@@ -93255,6 +93348,812 @@
         "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638046217695510171&type=4"
       ],
       "verification": "verified"
+    },
+    {
+      "id": "cos-behentrimonium-cl",
+      "canonical_name": "Behentrimonium chloride",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "베헨트라이모늄클로라이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "behentrimonium chloride",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "山萮基三甲基氯化銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "헤어 컨디셔닝 4급암모늄. 목록 미등재(허용 추정), 최신 목록 확인.",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-ethylhexyl-isononanoate",
+      "canonical_name": "Ethylhexyl isononanoate",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "에틸헥실아이소노나노에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ethylhexyl isononanoate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "에몰리언트. 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "cos-squalene",
+      "canonical_name": "Squalene",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "스콸렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "squalene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "角鯊烯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "에몰리언트(스콸란과 구분). 목록 미등재(허용 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "add-curdlan",
+      "canonical_name": "Curdlan",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "커드란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "curdlan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "凝結多醣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "卡德蘭膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 증점·젤화제(粘稠劑).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
+    },
+    {
+      "id": "raw-trehalulose",
+      "canonical_name": "Trehalulose",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "트레할룰로스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "trehalulose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "海藻酮糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "감미료. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-palatinose",
+      "canonical_name": "Palatinose (Isomaltulose)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "팔라티노스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "palatinose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "isomaltulose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "異麥芽酮糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "감미료. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-coconut-sugar",
+      "canonical_name": "Coconut sugar",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "코코넛설탕",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "coconut sugar",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "椰糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "감미료. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-yacon",
+      "canonical_name": "Yacon syrup",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "야콘시럽",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "yacon syrup",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "雪蓮果糖漿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "야콘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "FOS 시럽. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-cassia-gum",
+      "canonical_name": "Cassia gum",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카시아검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "cassia gum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "決明膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "증점제. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-arabinoxylan",
+      "canonical_name": "Arabinoxylan",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아라비녹실란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "arabinoxylan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "阿拉伯木聚醣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식이섬유. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "bot-goji",
+      "canonical_name": "Goji berry",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "구기자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "goji berry",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "枸杞",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "고지베리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품(식약 공용, 오랜 식용 역사).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
+    },
+    {
+      "id": "bot-schisandra",
+      "canonical_name": "Schisandra",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "오미자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "schisandra",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "五味子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용(식품·의약 공용 원료).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
+    },
+    {
+      "id": "bot-hovenia",
+      "canonical_name": "Hovenia (oriental raisin tree)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "헛개나무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "hovenia",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "枳椇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "헛개",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "拐棗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품(열매·씨).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
+    },
+    {
+      "id": "raw-arachidonic-acid",
+      "canonical_name": "Arachidonic acid (ARA)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아라키돈산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "arachidonic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "ARA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "花生四烯酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용(영유아 조제유에 DHA와 병용, Codex).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-09",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.rootlaw.com.tw/LawArticle.aspx?LawID=A040170050015200-1130711",
+        "https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031083/ch08/type1/gov70/num35/Eg.pdf"
+      ]
+    },
+    {
+      "id": "raw-camu-camu",
+      "canonical_name": "Camu camu",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카무카무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "camu camu",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "卡姆果",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "비타민C 베리. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-acai",
+      "canonical_name": "Acai berry",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아사이베리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "acai berry",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "巴西莓",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "아사이",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-maqui",
+      "canonical_name": "Maqui berry",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "마키베리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "maqui berry",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "馬奇莓",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "신소재 가능성. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-proteoglycan",
+      "canonical_name": "Proteoglycan",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프로테오글리칸",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "proteoglycan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蛋白聚醣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "연어 비연골 유래. 식품 적격성 확인 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-mucin",
+      "canonical_name": "Mucin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "뮤신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "mucin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "黏蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 적격성 확인 필요.",
+      "verification": "inferred"
     }
   ]
 }

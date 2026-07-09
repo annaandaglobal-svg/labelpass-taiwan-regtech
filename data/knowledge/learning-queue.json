@@ -1,19 +1,21 @@
 {
-  "updatedAt": "2026-07-09T09:27:04.512Z",
+  "updatedAt": "2026-07-09T10:03:37.671Z",
   "topics": [
     {
-      "query": "whey protein isolate",
+      "query": "Glycerin 4%",
       "count": 1,
-      "firstSeen": "2026-07-09T09:26:57.778Z",
-      "lastSeen": "2026-07-09T09:26:57.778Z",
+      "firstSeen": "2026-07-09T10:03:30.453Z",
+      "lastSeen": "2026-07-09T10:03:30.453Z",
       "status": "pending"
     },
     {
-      "query": "minerals",
+      "query": "Glycerin 5%",
       "count": 1,
-      "firstSeen": "2026-07-09T09:27:04.512Z",
-      "lastSeen": "2026-07-09T09:27:04.512Z",
+      "firstSeen": "2026-07-09T10:03:37.671Z",
+      "lastSeen": "2026-07-09T10:03:37.671Z",
       "status": "pending"
     }
   ]
+}
+
 }
