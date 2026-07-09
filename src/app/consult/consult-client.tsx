@@ -2,15 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Loader2, MessageCircle, Send, ShieldCheck } from "lucide-react";
+import { ArrowRight, Loader2, MessageCircle, Search, Send, ShieldCheck } from "lucide-react";
 
 type Citation = { id: string; term: string; category: string; label: string };
+type Research = { loading: boolean; result?: string; source?: string };
 type Msg = {
   role: "user" | "assistant";
   text: string;
   citations?: Citation[];
   grounded?: boolean;
   pending?: boolean;
+  question?: string; // the user question behind an ungrounded answer — used for 조사 의뢰
+  research?: Research;
 };
 
 const EXAMPLES = [
@@ -46,9 +49,10 @@ export default function ConsultClient() {
       });
       const data = await response.json();
       const answer: string = data?.answer || "답변을 생성하지 못했습니다. 잠시 후 다시 시도해 주세요.";
+      const grounded = Boolean(data?.grounded);
       setMessages((prev) => {
         const next = prev.slice(0, -1);
-        return [...next, { role: "assistant", text: answer, citations: data?.citations ?? [], grounded: Boolean(data?.grounded) }];
+        return [...next, { role: "assistant", text: answer, citations: data?.citations ?? [], grounded, question: grounded ? undefined : q }];
       });
     } catch {
       setMessages((prev) => {
@@ -57,6 +61,21 @@ export default function ConsultClient() {
       });
     } finally {
       setBusy(false);
+    }
+  }
+
+  async function requestResearch(idx: number, topic: string) {
+    setMessages((prev) => prev.map((m, i) => (i === idx ? { ...m, research: { loading: true } } : m)));
+    try {
+      const response = await fetch("/api/consult/research", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ topic })
+      });
+      const data = await response.json();
+      setMessages((prev) => prev.map((m, i) => (i === idx ? { ...m, research: { loading: false, result: data?.result, source: data?.source } } : m)));
+    } catch {
+      setMessages((prev) => prev.map((m, i) => (i === idx ? { ...m, research: { loading: false, result: "조사 요청 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요." } } : m)));
     }
   }
 
@@ -113,6 +132,28 @@ export default function ConsultClient() {
                     )}
                     {m.role === "assistant" && !m.grounded && (
                       <span className="lp-consult-ungrounded">⚠️ 지식베이스 근거가 부족한 답변입니다 — 공식 확인·전문가 상담을 권합니다.</span>
+                    )}
+                    {m.role === "assistant" && !m.grounded && m.question && !m.research && (
+                      <button type="button" className="lp-consult-research-btn" onClick={() => void requestResearch(i, m.question as string)}>
+                        <Search size={14} /> 이 성분 정밀 조사 의뢰 (AI 즉시 조사)
+                      </button>
+                    )}
+                    {m.research?.loading && (
+                      <span className="lp-consult-typing">
+                        <Loader2 size={15} className="spin" /> AI가 정밀 조사 중입니다…
+                      </span>
+                    )}
+                    {m.research?.result && (
+                      <div className="lp-consult-research">
+                        <div className="lp-consult-research-head">
+                          <b>🔬 AI 정밀 조사 (미검증)</b>
+                          <span>검증 후 지식베이스에 반영됩니다</span>
+                        </div>
+                        <p>{m.research.result}</p>
+                        <span className="lp-consult-research-note">
+                          ⚠️ AI 1차 조사 결과입니다. 통관·수출 결정 전 공식 출처(TFDA·법령) 또는 전문가로 반드시 확인하세요.
+                        </span>
+                      </div>
                     )}
                   </>
                 )}

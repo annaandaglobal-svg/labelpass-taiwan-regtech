@@ -19,7 +19,8 @@ export type LearningTopic = {
   count: number;
   firstSeen: string;
   lastSeen: string;
-  status: "pending" | "researched" | "ingested" | "not-applicable";
+  status: "pending" | "requested" | "researched" | "ingested" | "not-applicable";
+  userRequested?: boolean;
 };
 
 type LearningQueue = { updatedAt: string | null; note?: string; topics: LearningTopic[] };
@@ -52,5 +53,35 @@ export async function recordUnknownTopic(query: string, nowIso: string): Promise
     await fs.writeFile(QUEUE_PATH, JSON.stringify(queue, null, 2) + "\n", "utf8");
   } catch {
     // read-only prod fs or any I/O error — the consult route's log line is the fallback signal.
+  }
+}
+
+/**
+ * Mark a topic as an explicit USER research request — bumps it to status "requested" and flags
+ * userRequested so the next verified pass prioritises it. Best-effort like recordUnknownTopic.
+ */
+export async function requestResearch(query: string, nowIso: string): Promise<void> {
+  const key = normalize(query);
+  if (key.length < 2) return;
+  try {
+    let queue: LearningQueue;
+    try {
+      queue = JSON.parse(await fs.readFile(QUEUE_PATH, "utf8")) as LearningQueue;
+    } catch {
+      queue = { updatedAt: null, topics: [] };
+    }
+    if (!Array.isArray(queue.topics)) queue.topics = [];
+    const existing = queue.topics.find((t) => normalize(t.query) === key);
+    if (existing) {
+      existing.userRequested = true;
+      existing.lastSeen = nowIso;
+      if (existing.status === "pending") existing.status = "requested";
+    } else {
+      queue.topics.push({ query: query.trim().slice(0, 200), count: 1, firstSeen: nowIso, lastSeen: nowIso, status: "requested", userRequested: true });
+    }
+    queue.updatedAt = nowIso;
+    await fs.writeFile(QUEUE_PATH, JSON.stringify(queue, null, 2) + "\n", "utf8");
+  } catch {
+    // read-only prod — server log is the signal instead.
   }
 }

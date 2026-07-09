@@ -269,6 +269,60 @@ async function inferUnknown(question: string): Promise<string | null> {
   }
 }
 
+const RESEARCH_SYSTEM_PROMPT =
+  "당신은 대만 수입 규제 리서치 애널리스트입니다. 사용자가 '조사 의뢰'한, 큐레이션 지식베이스에 없는 " +
+  "성분·주제를 대만 규제 관점에서 한국어로 1차 조사합니다. 이것은 AI 1차 조사이며 미검증입니다 — 그 전제를 " +
+  "명확히 하세요. 형식(마크다운):\n" +
+  "1) **성분 정체**: 알려진 이름(영문/중문/INCI/CAS)과 용도\n" +
+  "2) **가능성 있는 규제 분류**: 화장품/식품(첨가물·원료)/의약·건강식품 중 어디에 해당할 가능성과 근거\n" +
+  "3) **확인해야 할 공식 목록**: 예) 化粧品成分使用限制表·禁止表, 食品添加物使用範圍及限量標準 附表一, 食品原料整合查詢平臺, 健康食品\n" +
+  "4) **실무 체크·필요 서류**\n" +
+  "절대 규칙: 구체적 수치·조문 번호는 확실한 근거가 있을 때만, 없으면 '공식 목록 확인 필요'라고 하고 지어내지 마세요. " +
+  "보수적으로, '~일 가능성'으로 쓰세요.";
+
+/**
+ * Deeper on-demand research for a user-requested unknown topic. Best-effort: tries the web-search
+ * tool, falls back to a tool-less analysis, returns null if the LLM is unavailable/errors. Numbers
+ * are scrubbed as a backstop. The result is explicitly an unverified AI first pass.
+ */
+export async function researchTopic(topic: string): Promise<string | null> {
+  if (!consultChatReadiness().ready) return null;
+  const call = async (useWebSearch: boolean) => {
+    const body: Record<string, unknown> = {
+      model: chatModel,
+      max_output_tokens: 1300,
+      input: [
+        { role: "system", content: RESEARCH_SYSTEM_PROMPT },
+        { role: "user", content: [{ type: "input_text", text: `조사 의뢰 대상: ${topic}\n\n대만 수입 규제 관점에서 1차 조사해 주세요(미검증 전제).` }] }
+      ]
+    };
+    if (useWebSearch) body.tools = [{ type: "web_search_preview" }];
+    return fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: { "content-type": "application/json", authorization: `Bearer ${openaiApiKey}` },
+      body: JSON.stringify(body)
+    });
+  };
+  try {
+    let response = await call(true); // try live web search first
+    if (!response.ok) response = await call(false); // fall back to tool-less analysis
+    if (!response.ok) return null;
+    const payload = (await response.json()) as Record<string, unknown>;
+    const text = extractText(payload).trim();
+    if (!text) return null;
+    return scrubInferredText(text);
+  } catch {
+    try {
+      const response = await call(false);
+      if (!response.ok) return null;
+      const text = extractText((await response.json()) as Record<string, unknown>).trim();
+      return text ? scrubInferredText(text) : null;
+    } catch {
+      return null;
+    }
+  }
+}
+
 function retrievalOnly(citations: ConsultCitation[], _question: string): ConsultAnswer {
   const top = citations[0];
   return {

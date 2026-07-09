@@ -17474,3 +17474,14 @@ h2 {
   .lp-consult-msg.assistant .lp-consult-bubble { background: rgba(255,255,255,0.06); }
   .lp-consult-examples button { background: rgba(255,255,255,0.04); }
 }
+
+/* Consult chat — user-triggered "정밀 조사 의뢰" button + AI research result card */
+.lp-consult-research-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 9px; border: 1px solid var(--green, #147b5c); background: transparent; color: var(--green, #147b5c); border-radius: 999px; padding: 6px 13px; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+.lp-consult-research-btn:hover { background: var(--green-soft, #e4f4ed); }
+.lp-consult-research { margin-top: 10px; border: 1px dashed var(--gold, #c98a1a); border-radius: 10px; background: var(--gold-soft, #fff8ec); padding: 10px 12px; }
+.lp-consult-research-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.lp-consult-research-head b { font-size: 12.5px; color: var(--gold, #8a5a00); }
+.lp-consult-research-head span { font-size: 10.5px; color: var(--ink-soft, #7a8580); }
+.lp-consult-research p { margin: 0; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; color: var(--ink, #14201d); }
+.lp-consult-research-note { display: block; margin-top: 8px; font-size: 11px; color: var(--gold, #8a5a00); }
+@media (prefers-color-scheme: dark) { .lp-consult-research { background: rgba(201,138,26,0.08); } }
