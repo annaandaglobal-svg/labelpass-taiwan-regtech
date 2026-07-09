@@ -192,6 +192,28 @@
         "raw-naringin"
       ],
       "facts": "2027 retinoid cap: only Retinol/Retinyl Acetate/Retinyl Palmitate (0.05% body / 0.3% other, as RE) — HPR/retinyl retinoate/retinaldehyde UNLISTED; currently retinoids unregulated. WHITENING: old positive-list regime ABOLISHED (2019) + specific-use license deregulated (2024) — the 13 whitening actives are now a CLAIM-substantiation annex (Attachment 3) gating the '抑制黑色素' mechanism phrase, NOT ingredient use; off-list whitening ≠ drug; niacinamide NOT on the 13-list. glabridin/glutathione/ergosterol permitted (unlisted). EGCG permitted 300mg/day; hesperidin/rutin/naringin all on 未確認安全性 (NOT food) — only α-glycosyl hesperidin (450mg) permitted; NHDC not in sweetener positive list = prohibited; quillaja beverages-only 0.2g/kg"
+    },
+    {
+      "batch": "food-additive-supplement-2026-07-09e",
+      "method": "sonnet — downloaded + grepped live TFDA open-data CSVs: food-additive 附表一 (export/61, 875KB UTF-8) and food raw-material positive list (export/4, 11MB); confirmed item numbers, categories, and quantitative limits directly from source rows",
+      "verifiedAt": "2026-07-09",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ],
+      "terms": [
+        "add-pgpr",
+        "add-pg-alginate",
+        "add-isoleucine",
+        "add-hmb-calcium",
+        "add-cytidine-cmp",
+        "add-uridine-ump",
+        "raw-gum-ghatti",
+        "raw-tamarind-gum",
+        "raw-pullulan",
+        "raw-orotic-acid"
+      ],
+      "facts": "PGPR = additive item 16021 (交酯化蓖麻酸聚合甘油酯), emulsifier cat.16, GMP all foods EXCEPT fresh/UHT milk. Propylene glycol alginate = item 12002 (海藻酸丙二醇), thickener cat.12, ≤10 g/kg. L-isoleucine = nutrient additive, all foods as-needed for nutrient supplementation, no numeric cap. HMB: ONLY calcium salt 3-羥基-3-甲基丁酸鈣 listed (營養添加劑), restricted to 特殊營養食品 (special/medical nutritional foods) only + label '不適宜孕婦及未滿18歲者' — free HMB/other salts NOT listed. Cytidine: free form NOT listed; only CMP salt 5'-胞核苷單磷酸鹽 (infant<3 formula ≤2.50 mg/100kcal, combined 5-nucleotide cap 5 mg/100kcal). Uridine: free NOT listed; only UMP salt 5'-尿核苷單磷酸鹽 (≤1.75 mg/100kcal, same combined cap). Orotic acid (乳清酸) ZERO hits in either CSV = not permitted. Gum ghatti (哥地膠), tamarind gum (羅望子膠), pullulan (普魯蘭膠, Aureobasidium pullulans) all present on raw-material positive list (NOT additives). Rechecks confirmed absent from both CSVs: theaflavin(茶黃素), fisetin(非瑟酮), pinitol(松醇), trehalulose(海藻酮糖), resistant starch(抗性澱粉 standalone), wheat gluten(小麥蛋白)."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2378,
+  "curated_term_count": 2392,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -114196,7 +114196,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "원료·첨가물 목록 미기재 — 확인 필요(목록 부재=금지 아님)."
+      "notes": "원료 CSV에 '抗性澱粉' 단독 미기재(難消化性麥芽糊精·支鏈澱粉 등 유사 항목은 별도 등재) — 확인 필요."
     },
     {
       "id": "raw-agave",
@@ -116257,7 +116257,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "海藻酮糖은 원료 목록 미기재(海藻糖/트레할로스와 다른 당) — 확인 필요(목록 부재=금지 아님)."
+      "notes": "원료·첨가물 CSV 미기재(海藻酮糖, 트레할로스와 다른 당) — 신소재 심사 필요(목록 부재=금지 아님)."
     },
     {
       "id": "raw-palatinose",
@@ -117430,7 +117430,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "관용 식품원료(신소재 플랫폼 밖). 글루텐 알레르겐 표시 필수."
+      "notes": "밀 자체는 관용 식품(원료 positive-list는 신소재 대상이라 '小麥蛋白/글루텐' 단독 항목은 미기재). 글루텐 알레르겐 표시 필수."
     },
     {
       "id": "raw-nattokinase",
@@ -118306,7 +118306,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "원료·첨가물 목록 미기재(이노시톨과 구분) — 확인 필요."
+      "notes": "원료·첨가물 CSV 미기재(松醇, 이노시톨과 구분) — 신소재 심사 필요(목록 부재=금지 아님)."
     },
     {
       "id": "raw-egcg",
@@ -118576,7 +118576,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "원료·첨가물 목록 미기재 — 확인 필요."
+      "notes": "원료·첨가물 CSV 미기재(茶黃素) — 신소재 심사 필요(목록 부재=금지 아님)."
     },
     {
       "id": "raw-fisetin",
@@ -118622,7 +118622,861 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "미기재(신소재 가능) — 확인 필요."
+      "notes": "원료·첨가물 CSV 미기재(非瑟酮) — 신소재 심사 필요(목록 부재=금지 아님)."
+    },
+    {
+      "id": "cos-octyldodecanol",
+      "canonical_name": "Octyldodecanol",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "옥틸도데칸올",
+          "normalized": "옥틸도데칸올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "octyldodecanol",
+          "normalized": "octyldodecanol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "辛基十二醇",
+          "normalized": "辛基十二醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "에몰리언트/용제. 제한·금지 목록 미등재(허용 추정)."
+    },
+    {
+      "id": "cos-isostearyl-isostearate",
+      "canonical_name": "Isostearyl isostearate",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "이소스테아릴이소스테아레이트",
+          "normalized": "이소스테아릴이소스테아레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "isostearyl isostearate",
+          "normalized": "isostearyl isostearate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "에몰리언트. 제한·금지 목록 미등재(허용 추정)."
+    },
+    {
+      "id": "cos-proxylane",
+      "canonical_name": "Hydroxypropyl tetrahydropyrantriol (Pro-Xylane)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "하이드록시프로필테트라하이드로피란트라이올",
+          "normalized": "하이드록시프로필테트라하이드로피란트라이올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hydroxypropyl tetrahydropyrantriol",
+          "normalized": "hydroxypropyl tetrahydropyrantriol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Pro-Xylane",
+          "normalized": "pro-xylane",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "프로자일렌",
+          "normalized": "프로자일렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "羥丙基四氫吡喃三醇",
+          "normalized": "羥丙基四氫吡喃三醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "안티에이징 활성. 제한·금지 목록 미등재(허용 추정)."
+    },
+    {
+      "id": "cos-tribehenin",
+      "canonical_name": "Tribehenin",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "트라이베헤닌",
+          "normalized": "트라이베헤닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tribehenin",
+          "normalized": "tribehenin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "三山萮酸甘油酯",
+          "normalized": "三山萮酸甘油酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "에몰리언트/점증. 제한·금지 목록 미등재(허용 추정)."
+    },
+    {
+      "id": "add-pgpr",
+      "canonical_name": "Polyglycerol polyricinoleate (PGPR)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "PGPR",
+          "normalized": "pgpr",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "폴리글리세롤폴리리시놀리에이트",
+          "normalized": "폴리글리세롤폴리리시놀리에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "polyglycerol polyricinoleate",
+          "normalized": "polyglycerol polyricinoleate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "交酯化蓖麻酸聚合甘油酯",
+          "normalized": "交酯化蓖麻酸聚合甘油酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 유화제(第16類 品項16021). 全食品 GMP 적정량 — 단 생우유·UHT우유(鮮乳·保久乳)엔 사용 불가. 초콜릿 점도 조절에 주로 사용."
+    },
+    {
+      "id": "add-pg-alginate",
+      "canonical_name": "Propylene glycol alginate (PGA)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프로필렌글리콜알지네이트",
+          "normalized": "프로필렌글리콜알지네이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "propylene glycol alginate",
+          "normalized": "propylene glycol alginate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "海藻酸丙二醇",
+          "normalized": "海藻酸丙二醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "PGA",
+          "normalized": "pga",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "알긴산프로필렌글리콜",
+          "normalized": "알긴산프로필렌글리콜",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 점증제(第12類 品項12002). 사용량 ≤10 g/kg."
+    },
+    {
+      "id": "add-isoleucine",
+      "canonical_name": "L-Isoleucine",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "이소류신",
+          "normalized": "이소류신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-isoleucine",
+          "normalized": "l-isoleucine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-異白胺酸",
+          "normalized": "l-異白胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아이소류신",
+          "normalized": "아이소류신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 영양첨가제(營養添加劑). 각종 식품에 필요량 적정 사용 — 단 '부족 영양소 보충' 목적에 한함. 수치 한도 없음."
+    },
+    {
+      "id": "add-hmb-calcium",
+      "canonical_name": "Calcium β-hydroxy-β-methylbutyrate (HMB calcium)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "HMB",
+          "normalized": "hmb",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HMB칼슘",
+          "normalized": "hmb칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "beta-hydroxy-beta-methylbutyrate",
+          "normalized": "beta-hydroxy-beta-methylbutyrate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "3-羥基-3-甲基丁酸鈣",
+          "normalized": "3-羥基-3-甲基丁酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "β-하이드록시-β-메틸부티르산칼슘",
+          "normalized": "β-하이드록시-β-메틸부티르산칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "칼슘HMB",
+          "normalized": "칼슘hmb",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 칼슘염(3-羥基-3-甲基丁酸鈣)만 營養添加劑로 등재 — '特殊營養食品'(특수영양식품)에만 사용 가능(일반식품 불가). 추가 제한: '不適宜孕婦及未滿18歲者食用'(임산부·18세 미만 부적합 표시). 유리형 HMB·기타 염은 미등재(불가)."
+    },
+    {
+      "id": "add-cytidine-cmp",
+      "canonical_name": "Cytidine-5'-monophosphate (CMP)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "시티딘",
+          "normalized": "시티딘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cytidine",
+          "normalized": "cytidine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "胞苷",
+          "normalized": "胞苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CMP",
+          "normalized": "cmp",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "5'-胞核苷單磷酸鹽",
+          "normalized": "5 -胞核苷單磷酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시티딘일인산",
+          "normalized": "시티딘일인산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 유리형 시티딘(胞苷)은 미등재. CMP염(5'-胞核苷單磷酸鹽)만 營養添加劑로 허용 — 3세 미만 조제유엔 ≤2.50 mg/100kcal, 5종 뉴클레오타이드염 합산 ≤5 mg/100kcal."
+    },
+    {
+      "id": "add-uridine-ump",
+      "canonical_name": "Uridine-5'-monophosphate (UMP)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "우리딘",
+          "normalized": "우리딘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "uridine",
+          "normalized": "uridine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "尿苷",
+          "normalized": "尿苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "UMP",
+          "normalized": "ump",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "5'-尿核苷單磷酸鹽",
+          "normalized": "5 -尿核苷單磷酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유리딘",
+          "normalized": "유리딘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 유리형 우리딘(尿苷)은 미등재. UMP염(5'-尿核苷單磷酸鹽)만 營養添加劑로 허용 — 3세 미만 조제유엔 ≤1.75 mg/100kcal, 5종 뉴클레오타이드염 합산 ≤5 mg/100kcal."
+    },
+    {
+      "id": "raw-gum-ghatti",
+      "canonical_name": "Gum ghatti",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "가티검",
+          "normalized": "가티검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "gum ghatti",
+          "normalized": "gum ghatti",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "哥地膠",
+          "normalized": "哥地膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가티고무",
+          "normalized": "가티고무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(哥地膠). 원료 positive-list 등재 확인."
+    },
+    {
+      "id": "raw-tamarind-gum",
+      "canonical_name": "Tamarind gum (tamarind seed polysaccharide)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "타마린드검",
+          "normalized": "타마린드검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tamarind gum",
+          "normalized": "tamarind gum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "羅望子膠",
+          "normalized": "羅望子膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tamarind seed polysaccharide",
+          "normalized": "tamarind seed polysaccharide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "타마린드씨다당류",
+          "normalized": "타마린드씨다당류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(羅望子膠, 씨앗 유래). 원료 positive-list 등재 확인."
+    },
+    {
+      "id": "raw-pullulan",
+      "canonical_name": "Pullulan",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "풀루란",
+          "normalized": "풀루란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "pullulan",
+          "normalized": "pullulan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "普魯蘭膠",
+          "normalized": "普魯蘭膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "普魯蘭多醣",
+          "normalized": "普魯蘭多醣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "풀루란다당",
+          "normalized": "풀루란다당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(普魯蘭膠, Aureobasidium pullulans 미생물 발효 유래). 원료 positive-list 등재 확인. (⚠️ 洋菜聚醣=한천과 혼동 금지)."
+    },
+    {
+      "id": "raw-orotic-acid",
+      "canonical_name": "Orotic acid",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "오로트산",
+          "normalized": "오로트산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "orotic acid",
+          "normalized": "orotic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乳清酸",
+          "normalized": "乳清酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "오로틴산",
+          "normalized": "오로틴산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비타민B13",
+          "normalized": "비타민b13",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 원료·첨가물 목록 모두 미기재 — 포지티브 리스트상 대만 식품 사용 불가(명시적 금지어는 아니나 미등재=불허). CSV 확인."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
