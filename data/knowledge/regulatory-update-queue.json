@@ -5,13 +5,13 @@
   "expiring_soon_days": 7,
   "expiring_soon_fraction": 0.25,
   "summary": {
-    "total": 65,
-    "detected": 24,
+    "total": 66,
+    "detected": 25,
     "pending_refresh": 0,
     "watching": 41,
     "approved": 0,
     "high": 0,
-    "medium": 61,
+    "medium": 62,
     "low": 4,
     "expiring_soon_max_days": 7,
     "expiring_soon_fraction": 0.25
@@ -396,6 +396,79 @@
         ],
         "expiring_soon_window_days": null,
         "compact_title": "export-control-list-for-dual-use-items-and-technology-and-common-military-list"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-cosmetic-adverse-event-reporting-system:source_stale:7a207207cf95508b",
+      "source_key": "tw-tfda-cosmetic-adverse-event-reporting-system",
+      "title": "TFDA National Cosmetics Adverse Event Reporting System",
+      "source_url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=4244",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "guidance",
+      "source_priority": "high",
+      "change_type": "source_stale",
+      "severity": "medium",
+      "status": "detected",
+      "detected_at": "2026-07-05T14:00:14.262Z",
+      "fetched_at": "2026-06-26T01:28:19.382Z",
+      "cache_expires_at": "2026-07-10T01:28:19.382Z",
+      "previous_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
+      "current_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "adverse-event-reporting",
+        "defective-product-reporting",
+        "qms",
+        "post-market-surveillance",
+        "reporting-form"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-post-market-surveillance",
+          "canonical_name": "Cosmetic Post-market Surveillance",
+          "category": "cosmetic_postmarket"
+        },
+        {
+          "term_key": "cosmetic-serious-adverse-effect-reporting",
+          "canonical_name": "Cosmetic Serious Adverse Effect Reporting",
+          "category": "cosmetic_postmarket"
+        }
+      ],
+      "affected_products": [
+        "cosmetics"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-reporting-system.md",
+        "fetched_url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=4244",
+        "extra_fetched_urls": [],
+        "text_chars": 5442,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "全國化粧品不良事件通報系統 - 通報入口(我要通報) - 通報及安全監視專區 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管"
+      },
+      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "adverse-event-reporting",
+          "defective-product-reporting",
+          "qms",
+          "post-market-surveillance",
+          "reporting-form"
+        ],
+        "expiring_soon_window_days": null,
+        "compact_title": "tfda-national-cosmetics-adverse-event-reporting-system"
       }
     },
     {
@@ -5969,7 +6042,7 @@
       "content_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
       "fetched_at": "2026-06-26T01:28:19.382Z",
       "cache_expires_at": "2026-07-10T01:28:19.382Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-reporting-system.md"
     },

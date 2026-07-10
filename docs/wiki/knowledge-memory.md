@@ -12,7 +12,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Stored aliases: 8,214
 - Searchable aliases including identifiers: 9,372
 - Term-rule links: 1,111
-- Regulatory update candidates: 65
+- Regulatory update candidates: 66
 - Alias review items: 1,043
 
 ## How To Use This Memory
@@ -45,7 +45,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | tw-moj-cosmetic-source-flow-data | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations Governing the Source and the Flow Data of Cosmetic Products |
 | tw-moj-cosmetics-recall-regulations | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Regulations for Cosmetics Recall |
 | tw-tfda-cosmetic-adverse-event-qms-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Post-Market Quality Management System |
-| tw-tfda-cosmetic-adverse-event-reporting-system | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA National Cosmetics Adverse Event Reporting System |
+| tw-tfda-cosmetic-adverse-event-reporting-system | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | TFDA National Cosmetics Adverse Event Reporting System |
 | tw-tfda-cosmetic-announcements | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetic Latest Announcements |
 | tw-tfda-cosmetic-colorants | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetics Colorants Use Restrictions Open Data |
 | tw-tfda-cosmetic-fadenbook-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Food and Drug Business Registration Platform |

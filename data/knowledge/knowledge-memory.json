@@ -17,7 +17,7 @@
     "searchable_aliases": 9372,
     "identifier_aliases": 1158,
     "term_rule_links": 1111,
-    "regulatory_update_candidates": 65,
+    "regulatory_update_candidates": 66,
     "alias_review_items": 1043,
     "coverage_groups": 4,
     "selected_source_cards": 94,
@@ -467,7 +467,7 @@
         "post-market-surveillance",
         "reporting-form"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-10T01:28:19.382Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -6384,13 +6384,13 @@
   },
   "refresh_queue": {
     "summary": {
-      "total": 65,
-      "detected": 24,
+      "total": 66,
+      "detected": 25,
       "pending_refresh": 0,
       "watching": 41,
       "approved": 0,
       "high": 0,
-      "medium": 61,
+      "medium": 62,
       "low": 4,
       "expiring_soon_max_days": 7,
       "expiring_soon_fraction": 0.25
@@ -6795,6 +6795,30 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
+        "candidate_key": "tw-tfda-cosmetic-adverse-event-reporting-system:source_stale:7a207207cf95508b",
+        "source_key": "tw-tfda-cosmetic-adverse-event-reporting-system",
+        "title": "TFDA National Cosmetics Adverse Event Reporting System",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-10T01:28:19.382Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "adverse-event-reporting",
+          "defective-product-reporting",
+          "qms",
+          "post-market-surveillance",
+          "reporting-form"
+        ],
+        "affected_terms": [
+          "Cosmetic Post-market Surveillance",
+          "Cosmetic Serious Adverse Effect Reporting"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
+      },
+      {
         "candidate_key": "tw-tfda-cosmetic-adverse-event-reporting-system:baseline_watch",
         "source_key": "tw-tfda-cosmetic-adverse-event-reporting-system",
         "title": "TFDA National Cosmetics Adverse Event Reporting System",
@@ -7159,38 +7183,6 @@
           "Boric Acid"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-cosmetic-sunscreen-ingredients:source_stale:3371892121050786",
-        "source_key": "tw-tfda-cosmetic-sunscreen-ingredients",
-        "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
-        "status": "detected",
-        "severity": "medium",
-        "change_type": "source_stale",
-        "cache_expires_at": "2026-07-09T22:28:23.502Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "cosmetics",
-          "cosmetics",
-          "sunscreen",
-          "uv-filter",
-          "ingredient-restrictions",
-          "spf",
-          "pif",
-          "opendata",
-          "infoid-202"
-        ],
-        "affected_terms": [
-          "Titanium Dioxide",
-          "Zinc Oxide",
-          "Benzophenone-3",
-          "Cosmetic Sunscreen Ingredients",
-          "Benzophenones (UV)",
-          "Octocrylene",
-          "Ethylhexyl dimethyl PABA",
-          "Homosalate"
-        ],
-        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       }
     ]
   },
