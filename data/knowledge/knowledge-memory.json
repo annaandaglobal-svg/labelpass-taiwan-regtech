@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2510,
-    "stored_aliases": 8402,
-    "searchable_aliases": 9562,
-    "identifier_aliases": 1160,
+    "terms": 2514,
+    "stored_aliases": 8465,
+    "searchable_aliases": 9628,
+    "identifier_aliases": 1163,
     "term_rule_links": 1113,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1057,
+    "alias_review_items": 1059,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5137,6 +5137,27 @@
       "score": 188
     },
     {
+      "id": "tfda-preserv-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2",
+      "canonical_name": "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 50650-76-5",
+        "CAS 68890-66-4",
+        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt",
+        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
+        "Piroctone olamine",
+        "옥토피록스",
+        "피록톤올아민"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 (a) 1 % (b) 0.5 %",
+      "score": 188
+    },
+    {
       "id": "tfda-preserv-o-phenylphenol",
       "canonical_name": "o-Phenylphenol",
       "category": "preservative",
@@ -5238,25 +5259,6 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 1 %",
-      "score": 184
-    },
-    {
-      "id": "tfda-preserv-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2",
-      "canonical_name": "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 50650-76-5",
-        "CAS 68890-66-4",
-        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt",
-        "1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon",
-        "Piroctone olamine"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-restricted-ingredients",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 (a) 1 % (b) 0.5 %",
       "score": 184
     },
     {
@@ -5514,17 +5516,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2510,
-      "aliases_scanned": 8402,
-      "alias_rows_scanned": 8402,
-      "collision_groups": 242,
-      "high_confidence_collisions": 190,
+      "terms_scanned": 2514,
+      "aliases_scanned": 8465,
+      "alias_rows_scanned": 8465,
+      "collision_groups": 245,
+      "high_confidence_collisions": 193,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 815,
+      "regulated_terms_without_local_alias": 814,
       "strict_blockers": 0,
-      "review_items": 1057
+      "review_items": 1059
     },
     "items": [
       {

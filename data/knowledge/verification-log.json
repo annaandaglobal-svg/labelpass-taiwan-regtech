@@ -340,6 +340,23 @@
         "raw-fructooligosaccharide"
       ],
       "facts": "Ultramarines CI 77007 and Manganese violet CI 77742 both on TFDA cosmetic colorant permitted list at 使用範圍 class 1 (all cosmetics incl. eye area; colorant class legend: 1=all, 2=except eye, 3=no mucous membrane, 4=brief skin contact only). Guarana (瓜拿那；瓜拿納, Paullinia cupana) permitted raw material, seed (種子), daily cap 2.4 g (caffeine-bearing). HFCS/果葡糖漿/高果糖玉米糖漿 (isoglucose): ABSENT from both additive and raw-material lists — ordinary corn-derived manufactured sweetener outside both positive-list regimes (corn itself is a permitted raw material). Fructo-oligosaccharide 果寡糖 (FOS) permitted raw material; XOS 木寡醣, GOS 半乳寡糖, IMO 異麥芽寡糖 also separately listed. Note: 'BHA' is an ambiguous abbreviation — cosmetic BHA = salicylic acid (beta hydroxy acid), food BHA = butylated hydroxyanisole 丁基羥基茴香醚 (antioxidant); both now surface."
+    },
+    {
+      "batch": "basics5-flavors-coq10-fragrance-2026-07-10m",
+      "method": "sonnet — grepped live TFDA food-additive 附表一 (export/61, incl. 十 香料 flavorings) + raw-material (export/4) CSVs; read the cosmetic fragrance-allergen draft gazette (行政院公報 doc 03101420250121, 2025-01-21)",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "gazette 行政院公報 03101420250121 (2025-01-21)"
+      ],
+      "terms": [
+        "raw-coenzyme-q10",
+        "raw-acetoin",
+        "raw-diacetyl",
+        "fragrance-allergen"
+      ],
+      "facts": "Coenzyme Q10 (輔酵素Q10) permitted raw material, daily limit 30 mg + mandatory warning label (unsuitable for <15yo, pregnant/breastfeeding, warfarin patients), per 2019 衛授食字1081302650; ubiquinol (reduced form) NOT separately listed. Benzyl benzoate (苯甲酸苄酯), acetoin (乙偶姻), diacetyl (丁二酮) are ALL ABSENT from the TFDA 香料/additive positive list = NOT permitted food flavorings (contrast benzyl acetate/alcohol/propionate which ARE listed under 十 香料). Taiwan cosmetic fragrance-allergen disclosure regime 「化粧品應標示之特定香精或香料成分」 = 24 substances (EU-based, minus banned HICC/BMHCA), disclose actual name when >0.01% rinse-off / >0.001% leave-on; benzyl benzoate is item #17. STATUS: still DRAFT (announced 2025-01-21, not formally promulgated; effective 1 year after promulgation)."
     }
   ]
 }

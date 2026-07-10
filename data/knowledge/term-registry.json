@@ -15558,6 +15558,20 @@
           "jurisdiction": "KR",
           "confidence": 0.75,
           "note": "Marketing transliteration; confirm botanical identity."
+        },
+        {
+          "value": "人蔘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "高麗蔘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -16450,6 +16464,13 @@
         },
         {
           "value": "棕櫚酸視黃酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "維生素A棕櫚酸酯",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
@@ -22471,6 +22492,13 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "熊果素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -24552,6 +24580,41 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "半乳酵母",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "polydeoxyribonucleotide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "연어DNA",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "蜂膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "폴리데옥시리보뉴클레오타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -25044,12 +25107,82 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "benzyl benzoate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "벤질벤조에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "苯甲酸苄酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "檸檬烯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "沉香醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "香葉醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "丁香酚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "香豆素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "제라니올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "화장품 향료 알레르겐 24종 개별표시 예고(2025-01, 리브온 0.001%/린스오프 0.01%). 시행일 미확정."
+      "notes": "대만 화장품 향료 알레르겐 성분 공시 규정 「化粧品應標示之特定香精或香料成分」— 24종(EU 26종 기반, EU가 금지한 HICC/Lyral·BMHCA/Lilial 제외). 리모넨·리날룰·제라니올·유제놀·쿠마린·시트로넬롤·벤질벤조에이트(#17, CAS 120-51-4) 등. 공시 기준: 씻어내는 제품 >0.01%(100ppm)·씻지 않는 제품 >0.001%(10ppm)이면 '香精/香料/Fragrance/Parfum' 뒤에 숨기지 말고 실제 성분명 표시. ⚠️ 현재 초안(預告, 2025-01-21 예고, 60일 의견수렴 후 2025-07-31 종합회신) — 정식 공고(正式公告) 미확정, 확정 시 1년 후 시행. 위반 시 화장품위생안전관리법 §23 벌금 NT$1만~100만.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "gazette 行政院公報 03101420250121 (2025-01-21)"
+      ]
     },
     {
       "id": "gaba-food",
@@ -30449,6 +30582,34 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7
+        },
+        {
+          "value": "결정셀룰로오스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "MCC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        },
+        {
+          "value": "미결정셀룰로오스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "결정셀룰로스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -36497,6 +36658,20 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "세라마이드NP",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "神經醯胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -39780,6 +39955,20 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "蜂王漿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "로얄젤리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -62429,6 +62618,20 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "피록톤올아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "옥토피록스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -68518,6 +68721,20 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "구연산칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "시트르산칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -69378,6 +69595,20 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "구연산철",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "시트르산철",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -76540,6 +76771,13 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "시트로넬롤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -81474,6 +81712,20 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "마그네슘시트레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "구연산마그네슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -82974,6 +83226,20 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "말톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "麥芽酚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -83000,6 +83266,20 @@
         },
         {
           "value": "乙基麥芽醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "에틸말톨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "乙基麥芽酚",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
@@ -90379,6 +90659,27 @@
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "트랜스글루타미나제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "TG효소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "轉麩醯胺酸酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
           "confidence": 0.9
         }
       ],
@@ -100587,6 +100888,245 @@
         "tw-tfda-food-additive-standards"
       ],
       "notes": "산화방지제(BHT, E321). BHA(丁基羥基茴香醚)의 짝 성분으로 유지·유지식품에 널리 사용. ⚠️ 대만 附表一 항목·한도는 재확인 권장(본 등재는 추정).",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-coenzyme-q10",
+      "canonical_name": "Coenzyme Q10 (ubiquinone)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [
+          "303-98-0"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "코엔자임Q10",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "coenzyme Q10",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "輔酵素Q10",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "泛醌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "ubiquinone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "ubidecarenone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "코큐텐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "Q10",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(輔酵素Q10, 2019 衛授食字第1081302650號 공고). ⚠️ 매일 식용 한도 30 mg. ⚠️ 의무 경고표시: '15세 이하 소아·임신/수유부·항응고제(warfarin) 복용 환자는 섭취 부적합'. 還原型(ubiquinol)은 별도 미등재 — 산화형 Q10만 등재.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "gazette 行政院公報 03101420250121 (2025-01-21)"
+      ]
+    },
+    {
+      "id": "raw-acetoin",
+      "canonical_name": "Acetoin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [
+          "513-86-0"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아세토인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "acetoin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "乙偶姻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "acetyl methyl carbinol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "3-hydroxy-2-butanone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 食品香料(十 香料) 포지티브 리스트 미등재 — 식품 향료·첨가물로 사용 불가(未표列 품목 불가 원칙). 원료 목록에도 없음. (benzyl acetate 등은 등재이나 acetoin은 별개.)",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "gazette 行政院公報 03101420250121 (2025-01-21)"
+      ]
+    },
+    {
+      "id": "raw-diacetyl",
+      "canonical_name": "Diacetyl (2,3-butanedione)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [
+          "431-03-8"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "다이아세틸",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "diacetyl",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "丁二酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "2,3-butanedione",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "디아세틸",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 食品香料 포지티브 리스트 미등재 — 식품 향료로 사용 불가. (버터향 등에 쓰이나 대만 미승인.) 흡입 안전성(폐질환) 우려 성분. 유사명 주의: 유산균 학명 'diacetylactis'·유화제 DATEM(二乙醯酒石酸酯)은 별개.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "gazette 行政院公報 03101420250121 (2025-01-21)"
+      ]
+    },
+    {
+      "id": "cos-sphingosine",
+      "canonical_name": "Sphingosine",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "스핑고신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "sphingosine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "神經鞘胺醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "피부 지질(세라마이드 골격). 대만 화장품 금지·제한 목록 미등재(허용 추정). 스핑고미엘린·파이토스핑고신과 구분.",
       "verification": "inferred"
     }
   ]

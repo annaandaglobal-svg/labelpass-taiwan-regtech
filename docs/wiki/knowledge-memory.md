@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,510
-- Stored aliases: 8,402
-- Searchable aliases including identifiers: 9,562
+- Terms: 2,514
+- Stored aliases: 8,465
+- Searchable aliases including identifiers: 9,628
 - Term-rule links: 1,113
 - Regulatory update candidates: 50
-- Alias review items: 1,057
+- Alias review items: 1,059
 
 ## How To Use This Memory
 
@@ -450,6 +450,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 38083-17-9; INCI Climbazole; Climbazole; 클림바졸; 1-(4-Chlorophenoxy)- 1-(imidazol-1-yl)-3,3- dimethylbutan-2-one 註; 甘宝素; 甘寶素
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Often appears in anti-dandruff or scalp-care contexts.
+- **1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon** (`tfda-preserv-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2`)
+  - Aliases: CAS 50650-76-5; CAS 68890-66-4; 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt; 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon; Piroctone olamine; 옥토피록스; 피록톤올아민
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 (a) 1 % (b) 0.5 %
 - **o-Phenylphenol** (`tfda-preserv-o-phenylphenol`)
   - Aliases: CAS 90-43-7; CAS 132-27-4; CAS 84145-04-0; CAS 13707-65-8; Biphenyl-2-ol, and its salts; MEA o-phenylphenate; Potassium o-phenylphenate; Sodium o-phenylphenate; o-Phenylphenol
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
@@ -462,10 +466,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: Benzyl Alcohol; 苯甲醇; 벤질알코올
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 1 %
-- **1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon** (`tfda-preserv-1-hydroxy-4-methyl-6-2-4-4-trimethylpentyl-2`)
-  - Aliases: CAS 50650-76-5; CAS 68890-66-4; 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2 pyridon and its monoethanolamine salt; 1-Hydroxy-4-methyl-6-(2,4,4-trimethylpentyl)-2-pyridon; Piroctone olamine
-  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
-  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 (a) 1 % (b) 0.5 %
 - **Formic acid** (`tfda-preserv-formic-acid`)
   - Aliases: CAS 64-18-6; CAS 141-53-7; Formic acid; Formic acid and its sodium salt; Sodium formate
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
