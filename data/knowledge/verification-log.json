@@ -237,6 +237,30 @@
         "raw-egcg"
       ],
       "facts": "Carmine/cochineal (胭脂蟲/胭脂紅/carminic) ABSENT from 著色劑 list = not a permitted Taiwan food colorant (contrast EU E120/US GRAS); NOT to be confused with 食用紅色六號/Cochineal Red A (=Ponceau 4R synthetic) or 蟲漆酸/Laccaic Acid (a listed insect colorant). Spirulina alga (藻體) = permitted raw material but phycocyanin/藻藍素 colorant NOT on 著色劑 list. Monk fruit 羅漢果 fruit = permitted raw material; Mogroside Extract 羅漢果醣苷萃取物 = listed 甜味劑 additive (QS). Yeast β-glucan (β-聚葡萄糖, microbial: A.pullulans/S.cerevisiae) = permitted raw material, distinct from cereal β-glucan. Purified phosphatidylcholine (磷脂醯膽鹼, 純化物) is on 未確認安全性 list = NOT permitted; but lecithin 卵磷脂 (plant+animal) IS a permitted raw material. MCT oil 中鏈三酸甘油酯 = permitted raw material (from edible oils). Green tea EGCG (表沒食子兒茶素沒食子酸酯) = permitted raw material, ≥90% purity, daily limit 300 mg EGCG (2024 衛授食字1131301534). Piperine 胡椒鹼 = permitted raw material, alcohol-extracted ≥95% purity, daily limit 12 mg (same 2024 announcement). Elderberry: Sambucus nigra/canadensis/sieboldiana FRUIT+FLOWER permitted; S. williamsii leaf & S. formosana on 未確認安全性 (species/part specific). UNVERIFIED (absent from all lists, gray-zone not banned): fucoxanthin(褐藻黃素), CLA(共軛亞麻油酸), apigenin(芹菜素), sulforaphane(蘿蔔硫素) — note broccoli SEED extract 青花菜種子萃取物 IS permitted (adults only, 115 mg/day, thyroid warning) but that is seed extract, not sulforaphane or sprout extract."
+    },
+    {
+      "batch": "vitamin-probiotic-novel-additive-2026-07-10g",
+      "method": "sonnet — downloaded + grepped live TFDA open-data CSVs: food-additive 附表一 營養添加劑 (export/61) and food raw-material positive list incl. 微生物菌種 + 未確認安全性 rows (export/4); reported per-form nutrient limits and permitted microbial species verbatim",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ],
+      "terms": [
+        "add-cholecalciferol",
+        "add-methylcobalamin",
+        "raw-methylfolate",
+        "add-selenomethionine",
+        "raw-selenium-yeast",
+        "raw-lactobacillus-rhamnosus",
+        "raw-saccharomyces-boulardii",
+        "raw-propionibacterium",
+        "raw-sesamin",
+        "add-cmc",
+        "raw-glucosyl-hesperidin",
+        "raw-enzyme-modified-rutin"
+      ],
+      "facts": "Vitamin D3 膽鈣化醇 = nutrient additive, capsule/tablet ≤800 IU(20μg)/day, general/infant ≤15μg/day, D2+D3 combined ratio ≤1. Methylcobalamin 甲鈷胺 = nutrient additive, capsule/tablet B12 ≤1000μg/day. Methylfolate = permitted raw material ONLY as (6S)-5-甲基四氫葉酸葡萄糖胺鹽 salt, limits follow 葉酸 (≤800/600/225μg). Selenomethionine 甲硫胺酸硒 = nutrient additive, capsule/tablet Se ≤200μg/day. Selenium yeast 硒酵母 (S. cerevisiae 菌體) = permitted raw material, Se ≤200μg/day. L. rhamnosus (乳酸菌, incl. Lacticaseibacillus synonym) + S. boulardii (under 啤酒酵母/Yeast) = permitted strains, unrestricted food use. Propionibacterium freudenreichii (丙酸桿菌) = listed but RESTRICTED to 'starter culture for Swiss cheese' only. Postbiotics (後生元): NO dedicated TFDA category (gray-zone). Sesamin 芝麻素 = permitted raw material, ≥60% purity, 15mg/day (2024 衛授食字1131301534). CMC 羧甲基纖維素鈉/鈣 = additive 粘稠劑, all foods ≤20g/kg (cross-linked tablets-only ≤50g/kg). α-Glucosyl hesperidin 醣化橙皮苷 = permitted raw material ≥30%, 450mg/day; plain hesperidin on 未確認安全性. Enzyme-modified/glucosyl rutin 芸香苷: NO permitted form (plain rutin on 未確認安全性) = not permitted. UNVERIFIED gray-zone (absent, not banned): nicotinamide riboside/NR (only 菸鹼酸/菸鹼醯胺 listed as B3), urolithin A, collagen tripeptide (parent 膠原蛋白/明膠 permitted), spinosin (source herb 酸棗仁 permitted but 不得單一原料使用)."
     }
   ]
 }

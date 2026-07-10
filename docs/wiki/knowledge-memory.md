@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,476
-- Stored aliases: 8,049
-- Searchable aliases including identifiers: 9,205
+- Terms: 2,493
+- Stored aliases: 8,133
+- Searchable aliases including identifiers: 9,289
 - Term-rule links: 1,111
-- Regulatory update candidates: 51
-- Alias review items: 1,028
+- Regulatory update candidates: 65
+- Alias review items: 1,036
 
 ## How To Use This Memory
 
@@ -47,17 +47,17 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | tw-tfda-cosmetic-adverse-event-qms-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Post-Market Quality Management System |
 | tw-tfda-cosmetic-adverse-event-reporting-system | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA National Cosmetics Adverse Event Reporting System |
 | tw-tfda-cosmetic-announcements | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetic Latest Announcements |
-| tw-tfda-cosmetic-colorants | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Colorants Use Restrictions Open Data |
+| tw-tfda-cosmetic-colorants | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetics Colorants Use Restrictions Open Data |
 | tw-tfda-cosmetic-fadenbook-platform | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | browser_capture | TFDA Food and Drug Business Registration Platform |
 | tw-tfda-cosmetic-label-leaflet-packaging-marking | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Outer Package, Container, Label and Package Insert Marking Rules |
 | tw-tfda-cosmetic-pif-category-implementation-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic PIF Category Implementation Notice |
-| tw-tfda-cosmetic-preservatives | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Preservatives Names and Use Restrictions Open Data |
+| tw-tfda-cosmetic-preservatives | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetics Preservatives Names and Use Restrictions Open Data |
 | tw-tfda-cosmetic-product-registration-categories-2024 | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Product Registration Category Notice |
 | tw-tfda-cosmetic-product-registration-system | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetic Product Registration Platform |
-| tw-tfda-cosmetic-product-registration-zone | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetic Product Registration Zone |
-| tw-tfda-cosmetic-prohibited-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Prohibited Ingredients Open Data |
-| tw-tfda-cosmetic-restricted-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Restricted Ingredients Open Data |
-| tw-tfda-cosmetic-sunscreen-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Sunscreen Ingredients Use Restrictions Open Data |
+| tw-tfda-cosmetic-product-registration-zone | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetic Product Registration Zone |
+| tw-tfda-cosmetic-prohibited-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetics Prohibited Ingredients Open Data |
+| tw-tfda-cosmetic-restricted-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetics Restricted Ingredients Open Data |
+| tw-tfda-cosmetic-sunscreen-ingredients | Cosmetics | tw-cosmetics-labeling-pif | high | stale | cache | Cosmetics Sunscreen Ingredients Use Restrictions Open Data |
 | tw-tfda-cosmetics-gmp-regulations | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | Cosmetics Good Manufacturing Practice Regulations |
 | tw-tfda-cosmetics-law-regulations-index | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetics Guidance, Law and Regulations Index |
 | tw-tfda-cosmetics-management-framework | Cosmetics | tw-cosmetics-labeling-pif | high | fresh | cache | TFDA Cosmetics Management Framework |
@@ -71,8 +71,8 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | tw-customs-valuation | Customs | customs-origin-classification | high | fresh | cache | Customs Valuation |
 | tw-moj-customs-act | Customs | customs-origin-classification | high | fresh | cache | Customs Act |
 | tw-tfda-food-additive-permit-query | Food additives | tw-food-additives | high | fresh | browser_capture | Food Additive Permit Data Query |
-| tw-tfda-food-additive-registration-announcements | Food additives | tw-food-additives | high | fresh | cache | Food Additive Registration Legal Announcements |
-| tw-tfda-food-additive-registration-materials | Food additives | tw-food-additives | high | fresh | cache | Food Additive Inspection Registration Materials |
+| tw-tfda-food-additive-registration-announcements | Food additives | tw-food-additives | high | stale | cache | Food Additive Registration Legal Announcements |
+| tw-tfda-food-additive-registration-materials | Food additives | tw-food-additives | high | stale | cache | Food Additive Inspection Registration Materials |
 
 
 ## Term Memory Cards

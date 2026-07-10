@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2476,
-    "stored_aliases": 8049,
-    "searchable_aliases": 9205,
+    "terms": 2493,
+    "stored_aliases": 8133,
+    "searchable_aliases": 9289,
     "identifier_aliases": 1156,
     "term_rule_links": 1111,
-    "regulatory_update_candidates": 51,
-    "alias_review_items": 1028,
+    "regulatory_update_candidates": 65,
+    "alias_review_items": 1036,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -535,7 +535,7 @@
         "opendata",
         "infoid-200"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T22:28:17.131Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -677,7 +677,7 @@
         "opendata",
         "infoid-201"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T22:28:17.829Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -778,7 +778,7 @@
         "fadenbook",
         "platform"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T17:40:28.519Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -812,7 +812,7 @@
         "opendata",
         "infoid-203"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T22:28:10.345Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -848,7 +848,7 @@
         "opendata",
         "infoid-199"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T22:28:16.201Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -884,7 +884,7 @@
         "opendata",
         "infoid-202"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T22:28:23.502Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -1355,7 +1355,7 @@
         "compound-additive",
         "permit-number"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T17:40:29.677Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -1388,7 +1388,7 @@
         "permit",
         "application-materials"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T17:40:29.382Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -2334,7 +2334,7 @@
         "import-risk",
         "testing"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T19:02:20.296Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -2438,7 +2438,7 @@
         "scientific-name",
         "query-platform"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-10T00:19:14.352Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -3080,7 +3080,7 @@
         "shtc",
         "mainland-china"
       ],
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "cache_expires_at": "2026-07-09T19:47:37.922Z",
       "days_until_refresh": 5,
       "evidence_mode": "cache",
@@ -5507,17 +5507,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2476,
-      "aliases_scanned": 8049,
-      "alias_rows_scanned": 8049,
-      "collision_groups": 212,
-      "high_confidence_collisions": 163,
+      "terms_scanned": 2493,
+      "aliases_scanned": 8133,
+      "alias_rows_scanned": 8133,
+      "collision_groups": 220,
+      "high_confidence_collisions": 171,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 816,
       "strict_blockers": 0,
-      "review_items": 1028
+      "review_items": 1036
     },
     "items": [
       {
@@ -6377,14 +6377,14 @@
   },
   "refresh_queue": {
     "summary": {
-      "total": 51,
-      "detected": 10,
+      "total": 65,
+      "detected": 24,
       "pending_refresh": 0,
       "watching": 41,
       "approved": 0,
       "high": 0,
-      "medium": 49,
-      "low": 2,
+      "medium": 61,
+      "low": 4,
       "expiring_soon_max_days": 7,
       "expiring_soon_fraction": 0.25
     },
@@ -6742,6 +6742,29 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
+        "candidate_key": "tw-moj-food-pesticide-residue-limits:source_stale:ddb1ed7beb582ce1",
+        "source_key": "tw-moj-food-pesticide-residue-limits",
+        "title": "Standards for Pesticide Residue Limits in Foods",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T19:02:20.296Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "food_safety",
+          "food",
+          "pesticide-residue",
+          "mrl",
+          "crop-classification",
+          "import-risk",
+          "testing"
+        ],
+        "affected_terms": [
+          "Food Pesticide Residue Limits"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
+      },
+      {
         "candidate_key": "tw-moj-food-pesticide-residue-limits:baseline_watch",
         "source_key": "tw-moj-food-pesticide-residue-limits",
         "title": "Standards for Pesticide Residue Limits in Foods",
@@ -6787,6 +6810,36 @@
           "Cosmetic Serious Adverse Effect Reporting"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-cosmetic-colorants:source_stale:45485a6d40cd6518",
+        "source_key": "tw-tfda-cosmetic-colorants",
+        "title": "Cosmetics Colorants Use Restrictions Open Data",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T22:28:17.131Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "colorants",
+          "color-index",
+          "ingredient-restrictions",
+          "opendata",
+          "infoid-200"
+        ],
+        "affected_terms": [
+          "Titanium Dioxide",
+          "Zinc Oxide",
+          "Cosmetic Colorants",
+          "Mica (CI 77019)",
+          "Iron Oxides (CI 77491/77492/77499)",
+          "Carmine (CI 75470)",
+          "CI 15850 (Red 6/7)",
+          "Riboflavin / Vitamin B2 (核黃素)"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-tfda-cosmetic-colorants:baseline_watch",
@@ -6845,6 +6898,38 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
+        "candidate_key": "tw-tfda-cosmetic-preservatives:source_stale:bd8153a05075179f",
+        "source_key": "tw-tfda-cosmetic-preservatives",
+        "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T22:28:17.829Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "preservatives",
+          "ingredient-restrictions",
+          "inci",
+          "cas",
+          "label-cautions",
+          "opendata",
+          "infoid-201"
+        ],
+        "affected_terms": [
+          "Salicylic Acid",
+          "Methylisothiazolinone",
+          "Methylchloroisothiazolinone",
+          "Triclosan",
+          "Phenoxyethanol",
+          "Methylparaben",
+          "Propylparaben",
+          "Benzalkonium Chloride Family"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
+      },
+      {
         "candidate_key": "tw-tfda-cosmetic-preservatives:baseline_watch",
         "source_key": "tw-tfda-cosmetic-preservatives",
         "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
@@ -6901,6 +6986,28 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
+        "candidate_key": "tw-tfda-cosmetic-product-registration-zone:source_stale:434a704a2a06927c",
+        "source_key": "tw-tfda-cosmetic-product-registration-zone",
+        "title": "Cosmetic Product Registration Zone",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T17:40:28.519Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "product-registration",
+          "product-notification",
+          "fadenbook",
+          "platform"
+        ],
+        "affected_terms": [
+          "Cosmetic Product Notification"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
+      },
+      {
         "candidate_key": "tw-tfda-cosmetic-product-registration-zone:baseline_watch",
         "source_key": "tw-tfda-cosmetic-product-registration-zone",
         "title": "Cosmetic Product Registration Zone",
@@ -6921,6 +7028,36 @@
           "Cosmetic Product Notification"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-cosmetic-prohibited-ingredients:source_stale:dae0215e21232fba",
+        "source_key": "tw-tfda-cosmetic-prohibited-ingredients",
+        "title": "Cosmetics Prohibited Ingredients Open Data",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T22:28:10.345Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "prohibited-ingredients",
+          "ingredient-restrictions",
+          "cas",
+          "opendata",
+          "infoid-203"
+        ],
+        "affected_terms": [
+          "Mercury",
+          "Formaldehyde",
+          "Hydrogen Peroxide",
+          "Tretinoin / Retinoic Acid",
+          "Boric Acid",
+          "Cosmetic Prohibited Ingredients",
+          "p-Phenylenediamine",
+          "Process contaminants (3-MCPD·acrylamide)"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-tfda-cosmetic-prohibited-ingredients:baseline_watch",
@@ -6951,6 +7088,38 @@
           "Process contaminants (3-MCPD·acrylamide)"
         ],
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+      },
+      {
+        "candidate_key": "tw-tfda-cosmetic-restricted-ingredients:source_stale:4a938ca8222ec5d2",
+        "source_key": "tw-tfda-cosmetic-restricted-ingredients",
+        "title": "Cosmetics Restricted Ingredients Open Data",
+        "status": "detected",
+        "severity": "medium",
+        "change_type": "source_stale",
+        "cache_expires_at": "2026-07-09T22:28:16.201Z",
+        "days_until_refresh": 5,
+        "affected_domains": [
+          "cosmetics",
+          "cosmetics",
+          "restricted-ingredients",
+          "ingredient-restrictions",
+          "inci",
+          "cas",
+          "label-cautions",
+          "opendata",
+          "infoid-199"
+        ],
+        "affected_terms": [
+          "Salicylic Acid",
+          "Hydrogen Peroxide",
+          "Kojic Acid",
+          "Potassium or Sodium Hydroxide",
+          "Ammonia / Ammonium Hydroxide",
+          "Resorcinol",
+          "Toluene-2,5-diamine",
+          "Boric Acid"
+        ],
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       },
       {
         "candidate_key": "tw-tfda-cosmetic-restricted-ingredients:baseline_watch",
@@ -6985,12 +7154,12 @@
         "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
       },
       {
-        "candidate_key": "tw-tfda-cosmetic-sunscreen-ingredients:baseline_watch",
+        "candidate_key": "tw-tfda-cosmetic-sunscreen-ingredients:source_stale:3371892121050786",
         "source_key": "tw-tfda-cosmetic-sunscreen-ingredients",
         "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
-        "status": "watching",
+        "status": "detected",
         "severity": "medium",
-        "change_type": "baseline_watch",
+        "change_type": "source_stale",
         "cache_expires_at": "2026-07-09T22:28:23.502Z",
         "days_until_refresh": 5,
         "affected_domains": [
@@ -7014,158 +7183,7 @@
           "Ethylhexyl dimethyl PABA",
           "Homosalate"
         ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-food-additive-registration-announcements:baseline_watch",
-        "source_key": "tw-tfda-food-additive-registration-announcements",
-        "title": "Food Additive Registration Legal Announcements",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T17:40:29.677Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "food_additives",
-          "food",
-          "food-additives",
-          "inspection-registration",
-          "single-additive",
-          "compound-additive",
-          "permit-number"
-        ],
-        "affected_terms": [
-          "Food Additive Inspection Registration",
-          "Compound Food Additive Import Documents",
-          "Potassium Glycerophosphate"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-food-additive-registration-materials:baseline_watch",
-        "source_key": "tw-tfda-food-additive-registration-materials",
-        "title": "Food Additive Inspection Registration Materials",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-09T17:40:29.382Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "food_additives",
-          "food",
-          "food-additives",
-          "inspection-registration",
-          "permit",
-          "application-materials"
-        ],
-        "affected_terms": [
-          "Food Additive Inspection Registration"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-food-ingredient-integration-query-platform:baseline_watch",
-        "source_key": "tw-tfda-food-ingredient-integration-query-platform",
-        "title": "Food Ingredient Integration Query Platform",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-10T00:19:14.352Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "food_safety",
-          "food-ingredients",
-          "ingredient-safety",
-          "usage-limit",
-          "caution",
-          "scientific-name",
-          "query-platform"
-        ],
-        "affected_terms": [
-          "Food Ingredient Integration Query Platform",
-          "Novel Food Ingredient Safety Assessment",
-          "Panax Ginseng",
-          "Probiotics and Lactic Acid Bacteria",
-          "Collagen Peptides",
-          "Potassium Glycerophosphate",
-          "Aspergillus Oryzae Fermented Powder",
-          "Aspergillus Niger Culture"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-formula-for-certain-disease-labeling-2025:baseline_watch",
-        "source_key": "tw-tfda-formula-for-certain-disease-labeling-2025",
-        "title": "Formula for Certain Disease labeling requirements",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-10T00:19:14.248Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "special_dietary_food",
-          "formula-for-certain-disease",
-          "special-dietary-food",
-          "labeling",
-          "warning",
-          "2025",
-          "premarket-review"
-        ],
-        "affected_terms": [
-          "Formula for Certain Disease"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026:baseline_watch",
-        "source_key": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
-        "title": "TFDA Import Regulation 508 Food Additive Commodity List Notice",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-10T12:20:58.580Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "food_import",
-          "food",
-          "import-regulation",
-          "508",
-          "food-additive",
-          "single-additive",
-          "flavor",
-          "permit-copy"
-        ],
-        "affected_terms": [
-          "Taiwan Import Regulation Codes F01, F02 and 508",
-          "Potassium Glycerophosphate"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
-      },
-      {
-        "candidate_key": "tw-tfda-import-regulation-f01-f02-commodity-table-2026:baseline_watch",
-        "source_key": "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
-        "title": "TFDA F01 and F02 Import Regulation Commodity Table Notice",
-        "status": "watching",
-        "severity": "medium",
-        "change_type": "baseline_watch",
-        "cache_expires_at": "2026-07-10T12:20:58.251Z",
-        "days_until_refresh": 5,
-        "affected_domains": [
-          "food_import",
-          "food",
-          "import-regulation",
-          "f01",
-          "f02",
-          "commodity-code",
-          "food-utensils",
-          "food-containers",
-          "food-packaging",
-          "detergent"
-        ],
-        "affected_terms": [
-          "Taiwan Import Regulation Codes F01, F02 and 508"
-        ],
-        "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다."
+        "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다."
       }
     ]
   },

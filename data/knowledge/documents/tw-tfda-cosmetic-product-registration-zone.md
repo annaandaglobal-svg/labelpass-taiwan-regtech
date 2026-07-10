@@ -13,7 +13,7 @@ fetched_url: https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T17:40:28.519Z
-cache_status: fresh
+cache_status: stale
 content_hash: 434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f
 from_cache: true
 manual_fallback: false

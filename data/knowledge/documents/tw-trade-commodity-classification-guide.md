@@ -13,7 +13,7 @@ fetched_url: https://fbfh.trade.gov.tw/fh/ap/listIEGuidef.do
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T19:47:37.922Z
-cache_status: fresh
+cache_status: stale
 content_hash: 069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339
 from_cache: true
 manual_fallback: false

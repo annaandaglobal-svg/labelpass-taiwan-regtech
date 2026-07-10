@@ -13,7 +13,7 @@ fetched_url: https://data.gov.tw/dataset/173685
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T22:28:16.201Z
-cache_status: fresh
+cache_status: stale
 content_hash: 4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e
 from_cache: true
 manual_fallback: false

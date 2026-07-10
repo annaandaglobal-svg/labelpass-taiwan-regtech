@@ -97352,6 +97352,941 @@
         "https://data.fda.gov.tw/data/opendata/export/4/csv",
         "https://www.fda.gov.tw/eng/law.aspx?cid=5062"
       ]
+    },
+    {
+      "id": "add-cholecalciferol",
+      "canonical_name": "Cholecalciferol (Vitamin D3)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "콜레칼시페롤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "cholecalciferol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "膽鈣化醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "維生素D3",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "비타민D3",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 영양첨가제(八 營養添加劑). 캡슐·정 형태 비타민D 총량 ≤800 I.U.(20μg)/일, 일반식품·영유아식품 ≤15μg/일(또는 300g당). ⚠️ D2+D3 병용 시 (사용량/한도) 비율 합계 ≤1. '부족 영양소 보충' 목적 한정, 캡슐·정 제품은 '多食無益' 표시.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "add-methylcobalamin",
+      "canonical_name": "Methylcobalamin (Vitamin B12)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "메틸코발라민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "methylcobalamin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "mecobalamin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲鈷胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲基鈷胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 영양첨가제(八 營養添加劑). 캡슐·정 형태 비타민B12 총량 ≤1000μg/일(캡슐·정 조항만 존재). 시아노코발라민(氰鈷胺明)은 별도 등재 — B12는 염 형태별로 관리. '부족 영양소 보충' 한정.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-methylfolate",
+      "canonical_name": "L-Methylfolate ((6S)-5-MTHF glucosamine salt)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "메틸폴레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "methylfolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "5-MTHF",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "(6S)-5-甲基四氫葉酸葡萄糖胺鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "5MTHF-GlcN",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "메틸엽산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료 — 단 '(6S)-5-甲基四氫葉酸葡萄糖胺鹽'(포도당아민염) 형태로 등재(107.3.21 공고). 사용범위·한도는 葉酸(엽산) 규정 준용(엽산총량 계산: 캡슐·정 ≤800μg, 일반 ≤600μg, 영유아 ≤225μg/일). 유리 엽산(葉酸)은 별도 첨가물 등재.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "add-selenomethionine",
+      "canonical_name": "Selenomethionine",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "셀레노메티오닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "selenomethionine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲硫胺酸硒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "硒代蛋氨酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "셀레노메싸이오닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 영양첨가제(八 營養添加劑). 캡슐·정 형태 셀레늄 총량 ≤200μg/일. '부족 영양소 보충' 한정.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-selenium-yeast",
+      "canonical_name": "Selenium yeast",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "셀레늄효모",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "selenium yeast",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "硒酵母",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "셀레늄이스트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(微生物 유래, Saccharomyces cerevisiae 菌體). ⚠️ 셀레늄 매일 최고 섭취량 ≤200μg(셀레늄 형태 공통 상한).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-lactobacillus-rhamnosus",
+      "canonical_name": "Lactobacillus (Lacticaseibacillus) rhamnosus",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "락토바실러스람노서스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "lactobacillus rhamnosus",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "lacticaseibacillus rhamnosus",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "鼠李糖乳桿菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "람노서스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 균종(乳酸菌/Lactic acid bacteria, 菌體 — 食品原料·加工 사용 가능). 2020 속 재분류(Lacticaseibacillus) 별칭 포함 등재 → 명칭 변경으로 인한 공백 없음.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-saccharomyces-boulardii",
+      "canonical_name": "Saccharomyces boulardii",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "사카로마이세스불라디",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "saccharomyces boulardii",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "布拉酵母菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "사카로미세스보울라디",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 균종(啤酒酵母/Yeast 분류하 학명 Saccharomyces boulardii, 菌體 — 무제한 '食品原料·加工' 사용). 중문 목록명은 啤酒酵母, 종 동정은 英文學名에 기재.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-postbiotics",
+      "canonical_name": "Postbiotics",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "포스트바이오틱스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "postbiotics",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "後生元",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "사균체",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 전용 규제 카테고리·목록 없음(회색지대). 菌種 목록은 生菌(菌體)만 열거 — 가열사멸/대사산물 형태는 (a)허용 급원균 + 신소재/식품안전 심사 또는 (b)기능성 표방 시 健康食品 평가를 별도 확인해야 함. 급원균 허용이 곧 포스트바이오틱스 허용은 아님.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-propionibacterium",
+      "canonical_name": "Propionibacterium freudenreichii",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프로피오니박테리움",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "propionibacterium freudenreichii",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "丙酸桿菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "費氏丙酸桿菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "프로피온산균",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 등재됐으나 용도 제한 — 備註 '可供為食品加工使用(Starter culture for Swiss cheese)' = 스위스치즈 스타터 배양 용도로만. 일반 프로바이오틱스·건기식 용도는 미커버 가능성 → 용도 확인 필수(1·2번 유산균의 무제한 문구와 다름).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-sesamin",
+      "canonical_name": "Sesamin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "세사민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "sesamin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "芝麻素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "참깨리그난",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(芝麻素, 2024 衛授食字第1131301534號 공고): 참깨 榨油·酒精 추출·순도 ≥60%·매일 15mg 한도(세사민 기준). 참깨(전통식품)와 구분되는 농축 리그난.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-collagen-tripeptide",
+      "canonical_name": "Collagen tripeptide / peptide",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "콜라겐트리펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "collagen tripeptide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "collagen peptide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "膠原蛋白三胜肽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "膠原蛋白胜肽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "콜라겐펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "膠原蛋白(Collagen)·明膠(Gelatin)은 허용 원료(수산동물·가금축류 전통식용부위 유래, 각 2건 등재). 가수분해 트리펩타이드/펩타이드 형태는 별도 항목 미기재이나 허용 콜라겐의 가수분해물로 실무상 원료 적격 — 급원·제법 근거 확보 권장."
+    },
+    {
+      "id": "raw-spinosin",
+      "canonical_name": "Spinosin (from Ziziphus spinosa seed)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "스피노신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "spinosin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "酸棗仁苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "산조인배당체",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "분리 성분 spinosin은 목록 미기재(회색지대). 급원 酸棗仁(Ziziphi Spinosae Semen, 멧대추 種子)은 허용 원료이나 ⚠️ '不得單一原料使用'(단일 원료로 사용 불가 — 타 원료와 배합 필수, TCM 약재 조건). 분리 배당체는 급원 허용과 별개."
+    },
+    {
+      "id": "raw-nicotinamide-riboside",
+      "canonical_name": "Nicotinamide riboside (NR)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "니코틴아마이드리보사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "nicotinamide riboside",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "NR",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "菸鹼醯胺核糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "니코틴아미드리보사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 목록 미기재(회색지대). 대만 B3(니아신) 영양첨가제는 菸鹼酸(Nicotinic Acid)·菸鹼醯胺(Niacinamide)만 등재(菸鹼素 ≤100mg N.E./일 캡슐·정) — NR은 별개 신형 원료로 미포함. 신소재 심사 필요.",
+      "verification": "inferred"
+    },
+    {
+      "id": "raw-urolithin-a",
+      "canonical_name": "Urolithin A",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "우로리틴A",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "urolithin A",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "尿石素A",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "유로리틴A",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 목록 미기재(회색지대 — 원료·첨가물·未確認 어디에도 없음, 금지는 아니나 신소재(非傳統性食品原料) 심사 필요).",
+      "verification": "inferred"
+    },
+    {
+      "id": "add-cmc",
+      "canonical_name": "Carboxymethyl cellulose (CMC / cellulose gum)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카복시메틸셀룰로오스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "carboxymethyl cellulose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "CMC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.7
+        },
+        {
+          "value": "羧甲基纖維素鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "cellulose gum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "셀룰로오스검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "羧甲基纖維素鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 첨가물(十二 粘稠劑(糊料)) — 나트륨·칼슘염 各類食品 ≤20 g/kg. 교차결합형(交聯羧甲基纖維素鈉)은 (七) 品質改良用으로 錠狀식품에만 ≤50 g/kg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-glucosyl-hesperidin",
+      "canonical_name": "α-Glucosyl hesperidin",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "헤스페리딘글루코사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "glucosyl hesperidin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "alpha-glycosyl hesperidin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "α-醣化橙皮苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "α-醣化柑果苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "당화헤스페리딘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(α-醣化橙皮苷, 2024 衛授食字第1131301534號 공고): 감귤 헤스페리딘 + CGTase 반응·순도 ≥30%·매일 450mg 한도. ⚠️ 일반 헤스페리딘(橙皮苷/柑果苷 純化物)은 未確認安全性(불가) — 당화 형태만 허용. 別 甲基柑果苷(維生素P)은 營養添加劑로 별도 등재(수치 한도 없음).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
+    },
+    {
+      "id": "raw-enzyme-modified-rutin",
+      "canonical_name": "Enzymatically modified rutin (α-glucosyl rutin)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "효소처리루틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "enzymatically modified rutin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "alpha-glucosyl rutin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "酵素處理芸香苷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "당화루틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 식품 경로 없음 — 헤스페리딘과 달리 당화/효소처리 루틴 형태가 목록에 전혀 없고, 일반 루틴(芸香苷/芸香素)은 未確認安全性(불가). 어떤 형태로도 식품 사용 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ]
     }
   ]
 }

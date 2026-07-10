@@ -13,7 +13,7 @@ fetched_url: https://data.gov.tw/dataset/173683
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T22:28:23.502Z
-cache_status: fresh
+cache_status: stale
 content_hash: 3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586
 from_cache: true
 manual_fallback: false

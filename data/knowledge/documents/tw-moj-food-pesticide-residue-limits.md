@@ -13,7 +13,7 @@ fetched_url: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040083
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-09T19:02:20.296Z
-cache_status: fresh
+cache_status: stale
 content_hash: ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129
 from_cache: true
 manual_fallback: false
