@@ -13,7 +13,7 @@ fetched_url: https://web.customs.gov.tw/en/singlehtml/1865?cntId=cus16_183499_18
 extra_fetched_urls:
 cache_days: 14
 cache_expires_at: 2026-07-10T07:32:38.637Z
-cache_status: stale
+cache_status: fresh
 content_hash: 65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e
 from_cache: true
 manual_fallback: false

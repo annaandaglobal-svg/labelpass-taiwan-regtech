@@ -14,7 +14,13 @@ const indexPath = path.join(root, "data", "knowledge", "index.json");
 const docsDir = path.join(root, "data", "knowledge", "documents");
 
 const index = JSON.parse(readFileSync(indexPath, "utf8"));
-const now = Date.now();
+// Reference the crawl index's own generated_at (the snapshot's "as of" time), NOT wall-clock —
+// this is the SAME reference detect-regulatory-updates.mjs uses (index.generated_at), so
+// cache_status, the regulatory-update queue, and validate all agree and the committed artifacts
+// stay deterministic (CI regenerates identically instead of drifting as real time passes).
+// Operational "is it stale right now" alerting stays real-time in audit:knowledge-ops.
+const referenceNow = Date.parse(String(index.generated_at ?? ""));
+const now = Number.isFinite(referenceNow) ? referenceNow : Date.now();
 const flipped = [];
 let docsSynced = 0;
 

@@ -99,6 +99,8 @@ const rules = rulesData.rules ?? [];
 const sources = registry.sources ?? [];
 const curatedTerms = termRegistry.terms ?? [];
 const results = index.results ?? [];
+const cacheReferenceParsed = Date.parse(String(index.generated_at ?? ""));
+const cacheReferenceNow = Number.isFinite(cacheReferenceParsed) ? new Date(cacheReferenceParsed) : new Date();
 const terms = termIndex.terms ?? [];
 const links = termIndex.term_rule_links ?? [];
 const aliasQueueItems = aliasReviewQueue.items ?? [];
@@ -165,7 +167,10 @@ for (const result of results) {
     fail(`crawl result has invalid cache_status for ${result.id}: ${result.cache_status}`);
   }
 
-  const expectedStatus = expectedCacheStatus(result.cache_expires_at);
+  // Check cache_status against the crawl snapshot's own "as of" time (index.generated_at),
+  // the same reference sync-cache-status and detect-regulatory-updates use — so committed
+  // artifacts stay deterministic. Real-time staleness alerting lives in audit:knowledge-ops.
+  const expectedStatus = expectedCacheStatus(result.cache_expires_at, cacheReferenceNow);
   if (expectedStatus && result.cache_status !== expectedStatus) {
     fail(`crawl result ${result.id} cache_status is ${result.cache_status}, but current cache_expires_at implies ${expectedStatus}`);
   }
