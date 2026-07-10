@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2514,
-    "stored_aliases": 8465,
-    "searchable_aliases": 9628,
+    "terms": 2552,
+    "stored_aliases": 8698,
+    "searchable_aliases": 9861,
     "identifier_aliases": 1163,
     "term_rule_links": 1113,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1059,
+    "alias_review_items": 1060,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5516,19 +5516,52 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2514,
-      "aliases_scanned": 8465,
-      "alias_rows_scanned": 8465,
-      "collision_groups": 245,
-      "high_confidence_collisions": 193,
+      "terms_scanned": 2552,
+      "aliases_scanned": 8698,
+      "alias_rows_scanned": 8698,
+      "collision_groups": 246,
+      "high_confidence_collisions": 194,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 814,
       "strict_blockers": 0,
-      "review_items": 1059
+      "review_items": 1060
     },
     "items": [
+      {
+        "id": "alias-937da33d158f6e",
+        "alias": "camellia sinensis",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 3,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "green-tea-camellia-sinensis",
+            "canonical_name": "Green Tea / Camellia Sinensis",
+            "confidence": 1,
+            "jurisdiction": "GLOBAL",
+            "language": "la"
+          },
+          {
+            "term_id": "raw-puerh-boicha",
+            "canonical_name": "Pu-erh tea (보이차)",
+            "confidence": 0.9,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          },
+          {
+            "term_id": "raw-oolong-uroongcha",
+            "canonical_name": "Oolong tea (우롱차)",
+            "confidence": 0.9,
+            "jurisdiction": "GLOBAL",
+            "language": "en"
+          }
+        ]
+      },
       {
         "id": "alias-8664236eb427da",
         "alias": "保健功效",
@@ -6353,32 +6386,6 @@
             "confidence": 0.95,
             "jurisdiction": "TW",
             "language": "zh-Hant"
-          }
-        ]
-      },
-      {
-        "id": "alias-ffe6cf880a20a4",
-        "alias": "cosmetic claim evidence",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 2,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "en"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "en"
           }
         ]
       }

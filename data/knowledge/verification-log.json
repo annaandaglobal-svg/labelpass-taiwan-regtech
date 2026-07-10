@@ -357,6 +357,40 @@
         "fragrance-allergen"
       ],
       "facts": "Coenzyme Q10 (輔酵素Q10) permitted raw material, daily limit 30 mg + mandatory warning label (unsuitable for <15yo, pregnant/breastfeeding, warfarin patients), per 2019 衛授食字1081302650; ubiquinol (reduced form) NOT separately listed. Benzyl benzoate (苯甲酸苄酯), acetoin (乙偶姻), diacetyl (丁二酮) are ALL ABSENT from the TFDA 香料/additive positive list = NOT permitted food flavorings (contrast benzyl acetate/alcohol/propionate which ARE listed under 十 香料). Taiwan cosmetic fragrance-allergen disclosure regime 「化粧品應標示之特定香精或香料成分」 = 24 substances (EU-based, minus banned HICC/BMHCA), disclose actual name when >0.01% rinse-off / >0.001% leave-on; benzyl benzoate is item #17. STATUS: still DRAFT (announced 2025-01-21, not formally promulgated; effective 1 year after promulgation)."
+    },
+    {
+      "batch": "korean-botanical-tcm-2026-07-10n",
+      "method": "3 sonnet agents — grepped live TFDA raw-material CSV (export/4; 可供食品使用之原料 + 未確認安全性 rows) for 38 Korean/TCM botanicals by species + part (部位) + restriction (備註)",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ],
+      "terms": [
+        "raw-angelica-gigas",
+        "raw-cnidium-cheongung",
+        "raw-paeonia-jakyak",
+        "raw-rehmannia-sukjihwang",
+        "raw-astragalus-hwanggi",
+        "raw-pueraria-galgeun",
+        "raw-jujube-daechu",
+        "raw-bokbunja",
+        "raw-cornus-sansuyu",
+        "raw-platycodon-doraji",
+        "raw-codonopsis-deodeok",
+        "raw-burdock-ueong",
+        "raw-onion-yangpa",
+        "raw-dandelion-mindeulle",
+        "raw-cirsium-eonggwi",
+        "raw-mugwort-ssuk",
+        "raw-cordyceps-dongchunghacho",
+        "raw-reishi-yeongji",
+        "raw-phellinus-sanghwang",
+        "raw-chaga",
+        "raw-noni",
+        "raw-hibiscus-roselle",
+        "raw-deer-antler-nokyong"
+      ],
+      "facts": "TFDA raw-material list is NON-exhaustive (header: absence != prohibited); only 未確認安全性 rows are explicit bars. Species/part traps for Korean health foods: KOREAN angelica 韓國當歸/A.gigas BARRED (Chinese 當歸/A.sinensis only seed/stem/leaf); Korean/Japanese cnidium 日本川芎/Cnidium officinale BARRED (Chinese 川芎 rhizome permitted, 不得單一原料); 산수유 山茱萸 BARRED; 더덕 羊乳/C.lanceolata BARRED (黨參/C.pilosula permitted, 不得單一原料); Korean 복분자 R.coreanus ABSENT + TCM 掌葉覆盆子/R.chingii BARRED; genuine 백수오 C.wilfordii ABSENT (only adulterant C.auriculatum/牛皮消 listed); 쑥 艾/A.argyi BARRED; 엉겅퀴 大薊·小薊 BARRED; 차가버섯 白樺茸 BARRED; 개똥쑥 A.annua ABSENT (青蒿 CSV row = Tarragon A.dracunculus, name-collision trap); 히비스커스 calyx OK but fruit BARRED; 노니 fruit OK but leaf restricted (dried teabag, 1g/day, warning); 동충하초 form-split (complex=不得單一, 蛹蟲草 C.militaris separate dose caps); 상황버섯 mycelium 3g/day; 민들레 蒲公英 100mg/day (10mg powder); 우엉 root unresolved (牛蒡子 barred); 양파 leaf BARRED (extract 1000mg quercetin). Restricted '不得單一原料使用' (not sole ingredient): 川芎·白芍·熟地·黃耆·黨參. Permitted: 갈근·둥굴레·대추·도라지·생강·마늘·매실·연잎·뽕잎·감잎·돼지감자·녹용·영지·인진쑥·카모마일·보이차/우롱차(Camellia)."
     }
   ]
 }
