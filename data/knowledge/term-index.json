@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2429,
+  "curated_term_count": 2437,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -3315,6 +3315,26 @@
           "confidence": 0.8,
           "note": "Dairy-derived protein search wording; verify milk-allergen context and ingredient composition.",
           "source": "curated"
+        },
+        {
+          "value": "유청단백",
+          "normalized": "유청단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유청단백질",
+          "normalized": "유청단백질",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -3389,6 +3409,16 @@
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蛋",
+          "normalized": "蛋",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -3762,6 +3792,16 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "分離大豆蛋白",
+          "normalized": "分離大豆蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -19962,6 +20002,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "sulfite",
+          "normalized": "sulfite",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -27638,6 +27688,26 @@
           "confidence": 0.7,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "大豆卵磷脂",
+          "normalized": "大豆卵磷脂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "soybean lecithin",
+          "normalized": "soybean lecithin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -27797,6 +27867,36 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "모노글리세라이드",
+          "normalized": "모노글리세라이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "monoglyceride",
+          "normalized": "monoglyceride",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "지방산글리세라이드",
+          "normalized": "지방산글리세라이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -28067,6 +28167,36 @@
         {
           "value": "葵花油",
           "normalized": "葵花油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "大豆油",
+          "normalized": "大豆油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "菜籽油",
+          "normalized": "菜籽油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "棕櫚油",
+          "normalized": "棕櫚油",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
@@ -32260,6 +32390,66 @@
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aloe vera",
+          "normalized": "aloe vera",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "알로에베라",
+          "normalized": "알로에베라",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aloe barbadensis",
+          "normalized": "aloe barbadensis",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tea tree oil",
+          "normalized": "tea tree oil",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "티트리오일",
+          "normalized": "티트리오일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "melaleuca",
+          "normalized": "melaleuca",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -40267,6 +40457,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "sucrose ester",
+          "normalized": "sucrose ester",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "슈가에스테르",
+          "normalized": "슈가에스테르",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sucrose fatty acid ester",
+          "normalized": "sucrose fatty acid ester",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -40321,6 +40541,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sorbitan ester",
+          "normalized": "sorbitan ester",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sorbitan fatty acid ester",
+          "normalized": "sorbitan fatty acid ester",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -43948,6 +44188,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "사이클로펜타실록산",
+          "normalized": "사이클로펜타실록산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "D5",
+          "normalized": "d5",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -45598,6 +45858,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "PEG-100 스테아레이트",
+          "normalized": "peg-100 스테아레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -45697,6 +45967,26 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tween 20",
+          "normalized": "tween 20",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "트윈20",
+          "normalized": "트윈20",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -46112,6 +46402,16 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "SLES",
+          "normalized": "sles",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
           "note": null,
           "source": "curated"
         }
@@ -55341,6 +55641,26 @@
         {
           "value": "코카마이드DEA",
           "normalized": "코카마이드dea",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "코카미드DEA",
+          "normalized": "코카미드dea",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "코카마이드디이에이",
+          "normalized": "코카마이드디이에이",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
@@ -79005,6 +79325,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tinosorb S",
+          "normalized": "tinosorb s",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비스에틸헥실옥시페놀메톡시페닐트리아진",
+          "normalized": "비스에틸헥실옥시페놀메톡시페닐트리아진",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -112468,6 +112808,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "柴魚",
+          "normalized": "柴魚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가다랑어",
+          "normalized": "가다랑어",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가다랑어포",
+          "normalized": "가다랑어포",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -113746,6 +114116,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "메틸렌비스벤조트리아졸릴테트라메틸부틸페놀",
+          "normalized": "메틸렌비스벤조트리아졸릴테트라메틸부틸페놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "티노소브M",
+          "normalized": "티노소브m",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -122785,6 +123175,484 @@
         "tw-tfda-food-additive-standards"
       ],
       "notes": "⚠️ 대만 식품첨가물 포지티브 리스트·원료 목록 어디에도 미등재(export/61·export/4 CSV 확인). 첨가물로는 사용 불가(포지티브 리스트 원칙: 미등재 품목 사용 불가). 단 탈색·여과용 加工助劑(가공보조제)로 사용돼 최종제품에서 제거되는 경우는 첨가물 규제와 별개 체계 — 용도·잔류 확인 필요(예: 브로콜리씨앗추출물 등 타 원료 정제 공정에서 '活性碳處理'로 등장). 국제 E153(vegetable carbon 착색료)과 달리 대만 착색료 목록에도 없음."
+    },
+    {
+      "id": "raw-potato-starch",
+      "canonical_name": "Potato starch",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "감자전분",
+          "normalized": "감자전분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "potato starch",
+          "normalized": "potato starch",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "馬鈴薯澱粉",
+          "normalized": "馬鈴薯澱粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "감자녹말",
+          "normalized": "감자녹말",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "천연 감자전분은 전통 상식 식품 — 馬鈴薯(감자)은 쌀·밀처럼 원료 positive-list에 별도 등재 불필요(목록 부재=금지 아님, 관용식품). ⚠️ 화학적 변성전분(氧化澱粉·醋酸澱粉·磷酸澱粉 등)은 (十二) 增稠劑로 별도 첨가물 등재이니 구분."
+    },
+    {
+      "id": "raw-tapioca-starch",
+      "canonical_name": "Tapioca starch (cassava)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "타피오카전분",
+          "normalized": "타피오카전분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tapioca starch",
+          "normalized": "tapioca starch",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "木薯澱粉",
+          "normalized": "木薯澱粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카사바전분",
+          "normalized": "카사바전분",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "tapioca",
+          "normalized": "tapioca",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료 — 급원 樹薯；木薯(Manihot esculenta)가 '可供直接食用' 등재(部位 塊根·葉). 천연 타피오카전분=식품(변성전분은 별도 첨가물). ⚠️ 카사바는 시안배당체 함유 작물이나 TFDA 기재엔 별도 경고 없음 — 적정 가공(열처리) 확인 권장."
+    },
+    {
+      "id": "raw-kelp-extract",
+      "canonical_name": "Kelp / kombu extract",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "다시마추출물",
+          "normalized": "다시마추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "kelp extract",
+          "normalized": "kelp extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "kombu",
+          "normalized": "kombu",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "昆布",
+          "normalized": "昆布",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "海帶",
+          "normalized": "海帶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "다시마",
+          "normalized": "다시마",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 조류 원료 — '海帶；昆布'(Laminaria japonica 등), 部位 藻體. 근연 5종(腔昆布·荒布昆布·掌狀昆布·長昆布·貓腳昆布)도 별도 허용. 추출물도 조체 유래로 적격."
+    },
+    {
+      "id": "raw-shiitake-extract",
+      "canonical_name": "Shiitake mushroom extract",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "표고버섯추출물",
+          "normalized": "표고버섯추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "shiitake extract",
+          "normalized": "shiitake extract",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "香菇",
+          "normalized": "香菇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "香蕈",
+          "normalized": "香蕈",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "표고버섯",
+          "normalized": "표고버섯",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Lentinula edodes",
+          "normalized": "lentinula edodes",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료 — '香菇；香蕈'(Lentinula edodes), 部位 子實體·菌絲體(자실체·균사체 모두 커버). ⚠️ 香菰/冬菇는 비공식 표기 — 공식은 香菇/香蕈."
+    },
+    {
+      "id": "raw-capsaicin",
+      "canonical_name": "Capsaicin (isolated)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "캡사이신",
+          "normalized": "캡사이신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "capsaicin",
+          "normalized": "capsaicin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "辣椒素",
+          "normalized": "辣椒素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "캅사이신",
+          "normalized": "캅사이신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 분리 캡사이신(辣椒素)은 원료·첨가물 목록 모두 미등재 — 식품 사용 경로 없음(개별 첨가물 신청 또는 미승인 물질). 고추(辣椒；番椒) '果實'은 향신료로 허용이나 고추 '葉(잎)'은 未確認安全性(금지) — 부위·형태 구분 필수. 분리물≠향신료 고추추출물."
+    },
+    {
+      "id": "raw-buckwheat",
+      "canonical_name": "Buckwheat",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "메밀",
+          "normalized": "메밀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "buckwheat",
+          "normalized": "buckwheat",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蕎麥",
+          "normalized": "蕎麥",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "모밀",
+          "normalized": "모밀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "식품 원료(곡물). ⚠️ 메밀(蕎麥)은 대만 의무 알레르겐 표시 11종에 **미포함** — 한국(의무 알레르겐)과 다름. 대만 수출 시 메밀 알레르겐 표시는 대만 규정상 불필요(자율). 반대로 대만은 '芒果(망고)'를 요구(한국 미요구) — 알레르겐 목록 국가차 주의."
+    },
+    {
+      "id": "cos-cyclomethicone",
+      "canonical_name": "Cyclomethicone",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "사이클로메티콘",
+          "normalized": "사이클로메티콘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cyclomethicone",
+          "normalized": "cyclomethicone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "環甲基矽氧烷",
+          "normalized": "環甲基矽氧烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "휘발성 사이클로실록산 혼합물(주로 D5 사이클로펜타실록산·D6). 대만 화장품 금지·제한 목록 미등재(허용 추정). EU는 wash-off D4/D5 0.1% 제한이 있으나 대만은 미명시 — 확인 권장."
+    },
+    {
+      "id": "cos-amodimethicone",
+      "canonical_name": "Amodimethicone",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아모다이메티콘",
+          "normalized": "아모다이메티콘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "amodimethicone",
+          "normalized": "amodimethicone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "胺端聚二甲基矽氧烷",
+          "normalized": "胺端聚二甲基矽氧烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "아미노 개질 실리콘(헤어 컨디셔닝). 대만 화장품 금지·제한 목록 미등재(허용 추정)."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -176929,6 +177797,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "메틸렌비스벤조트리아졸릴테트라메틸부틸페놀",
+          "normalized": "메틸렌비스벤조트리아졸릴테트라메틸부틸페놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "티노소브M",
+          "normalized": "티노소브m",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -176965,6 +177853,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "tinosorb S",
+          "normalized": "tinosorb s",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "비스에틸헥실옥시페놀메톡시페닐트리아진",
+          "normalized": "비스에틸헥실옥시페놀메톡시페닐트리아진",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "cas"

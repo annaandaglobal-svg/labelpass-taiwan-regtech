@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2496,
-    "stored_aliases": 8236,
-    "searchable_aliases": 9395,
+    "terms": 2504,
+    "stored_aliases": 8310,
+    "searchable_aliases": 9469,
     "identifier_aliases": 1159,
     "term_rule_links": 1111,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1043,
+    "alias_review_items": 1045,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -4005,7 +4005,7 @@
         "tw-tfda-food-allergen-labeling-consumer-notice"
       ],
       "notes": "Taiwan mandatory allergen cluster for sulphites at the sulfur-dioxide residual threshold.",
-      "score": 1115
+      "score": 1117
     },
     {
       "id": "food-allergen-labeling",
@@ -5514,17 +5514,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2496,
-      "aliases_scanned": 8236,
-      "alias_rows_scanned": 8236,
-      "collision_groups": 227,
-      "high_confidence_collisions": 178,
+      "terms_scanned": 2504,
+      "aliases_scanned": 8310,
+      "alias_rows_scanned": 8310,
+      "collision_groups": 230,
+      "high_confidence_collisions": 180,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 816,
+      "regulated_terms_without_local_alias": 815,
       "strict_blockers": 0,
-      "review_items": 1043
+      "review_items": 1045
     },
     "items": [
       {

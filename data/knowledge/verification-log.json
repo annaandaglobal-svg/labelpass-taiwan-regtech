@@ -303,6 +303,25 @@
         "tfda-fadd-sodium-dl-malate"
       ],
       "facts": "Activated carbon (活性炭/活性碳): ZERO entries in both additive and raw-material CSVs — not a positive-listed additive nor raw material (appears only as a process-step verb '活性碳處理' inside other raw-material specs). Under positive-list rule, not usable as a named food additive; may function as a processing aid (加工助劑) removed before final product, a separate regime. Sodium carbonate has TWO legit listings: (七) 品質改良/釀造/食品製造用劑 碳酸鈉·無水碳酸鈉 QS mfg-necessity; and (十四) 食品工業用化學藥品 碳酸鈉(無水) QS but MUST be neutralized/removed before final product (最後製品完成前必須中和或去除). Both exclude fresh/UHT milk. Sodium DL-malate (DL-蘋果酸鈉, E350) = (十一) 調味劑, QS, PROHIBITED in infant food (嬰兒食品不得使用, same as free DL-malic acid) + excl. fresh/UHT milk. Distinct from 碳酸氫鈉/sodium bicarbonate (六 膨脹劑) and 碳酸鈣/calcium carbonate (七 + 八, 10g/kg or 1800mg/day)."
+    },
+    {
+      "batch": "basics3-starch-extract-allergen-2026-07-10k",
+      "method": "sonnet — grepped live TFDA raw-material (export/4, incl. 未確認安全性) + additive (export/61) CSVs for starches/extracts/capsaicin; fetched current TFDA mandatory-allergen announcement (衛授食字第1071302165號, effective 2020-07-01) for the 11-allergen list",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://www.fda.gov.tw/TC/newsContent.aspx?cid=3&id=24294"
+      ],
+      "terms": [
+        "raw-potato-starch",
+        "raw-tapioca-starch",
+        "raw-kelp-extract",
+        "raw-shiitake-extract",
+        "raw-capsaicin",
+        "raw-buckwheat"
+      ],
+      "facts": "Potato (馬鈴薯) absent from positive+unconfirmed lists = traditional staple food (like rice/wheat), native potato starch is food not additive (modified starches are separate 增稠劑 entries). Cassava/tapioca (樹薯；木薯 Manihot esculenta) listed 可供直接食用 (塊根·葉); native tapioca starch = food; TFDA record carries NO cyanogenic caveat despite cassava's cyanide content. Kelp/kombu (海帶；昆布 Laminaria japonica) permitted algae raw material (藻體) + 5 related species. Shiitake (香菇；香蕈 Lentinula edodes) permitted (子實體·菌絲體); 香菰/冬菇 are unofficial spellings. Isolated CAPSAICIN (辣椒素) ABSENT from all lists = no food pathway; chili FRUIT (辣椒；番椒 果實) permitted as spice but chili LEAF (葉) is on 未確認安全性 (prohibited). Taiwan mandatory ALLERGEN list = 11 categories (crustaceans, mango, peanut, cow/goat milk, egg, tree nuts, sesame, gluten cereals, soybean, fish, sulfites≥10mg/kg), effective 2020-07-01, still current (no 2024/2025 revision). BUCKWHEAT (蕎麥) is NOT on Taiwan's list (contrast Korea) — and Taiwan uniquely requires MANGO (芒果) which Korea does not."
     }
   ]
 }
