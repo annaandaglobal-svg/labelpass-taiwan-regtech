@@ -287,6 +287,22 @@
         "fadd-phosphoric-acid"
       ],
       "facts": "Lactic acid 乳酸 (E270) = additive cat.(十一) 調味劑, QS all foods (mfg/processing necessity), excl. fresh/UHT milk — NEW dedicated term (previously only landed in cosmetic AHA grab-bag). Malic acid listed only as DL-蘋果酸(羥基丁二酸), 調味劑, QS, PROHIBITED in infant food (嬰兒食品不得使用) + excl. fresh/UHT milk. Tartaric (酒石酸), fumaric (反丁烯二酸), acetic (醋酸 + glacial 冰醋酸) all 調味劑, QS all foods. Phosphoric acid 磷酸 = ONLY free acid with scope+numeric limit: cola + tea beverages ONLY, ≤0.6 g/kg (its phosphate salts are separate entries capped ~3 g/kg as phosphate). All excl. fresh/UHT milk, mfg-necessity restriction."
+    },
+    {
+      "batch": "basics2-carbon-carbonate-malate-2026-07-10j",
+      "method": "sonnet — grepped live TFDA food-additive 附表一 (export/61) + raw-material list (export/4) for 活性炭/活性碳, 碳酸鈉, DL-蘋果酸鈉; distinguished base substances from related salts and confirmed category/scope/restriction",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv"
+      ],
+      "terms": [
+        "raw-activated-carbon",
+        "tfda-fadd-sodium-carbonate-sodium-carbonate-anhydrous",
+        "tfda-fadd-sodium-carbonate-anhydrous",
+        "tfda-fadd-sodium-dl-malate"
+      ],
+      "facts": "Activated carbon (活性炭/活性碳): ZERO entries in both additive and raw-material CSVs — not a positive-listed additive nor raw material (appears only as a process-step verb '活性碳處理' inside other raw-material specs). Under positive-list rule, not usable as a named food additive; may function as a processing aid (加工助劑) removed before final product, a separate regime. Sodium carbonate has TWO legit listings: (七) 品質改良/釀造/食品製造用劑 碳酸鈉·無水碳酸鈉 QS mfg-necessity; and (十四) 食品工業用化學藥品 碳酸鈉(無水) QS but MUST be neutralized/removed before final product (最後製品完成前必須中和或去除). Both exclude fresh/UHT milk. Sodium DL-malate (DL-蘋果酸鈉, E350) = (十一) 調味劑, QS, PROHIBITED in infant food (嬰兒食品不得使用, same as free DL-malic acid) + excl. fresh/UHT milk. Distinct from 碳酸氫鈉/sodium bicarbonate (六 膨脹劑) and 碳酸鈣/calcium carbonate (七 + 八, 10g/kg or 1800mg/day)."
     }
   ]
 }
