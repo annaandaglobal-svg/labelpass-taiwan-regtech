@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,504
-- Stored aliases: 8,310
-- Searchable aliases including identifiers: 9,469
-- Term-rule links: 1,111
+- Terms: 2,510
+- Stored aliases: 8,402
+- Searchable aliases including identifiers: 9,562
+- Term-rule links: 1,113
 - Regulatory update candidates: 50
-- Alias review items: 1,045
+- Alias review items: 1,057
 
 ## How To Use This Memory
 
@@ -434,6 +434,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 8001-54-5; CAS 63449-41-2; CAS 68391-01-5; CAS 68424-85-1; CAS 91080-29-4; CAS 85409-22-9; CAS 68989-01-5; CAS 61789-71-7; INCI Benzalkonium Chloride; INCI Benzalkonium Bromide
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: Family term for chloride, bromide, and saccharinate variants listed by TFDA.
+- **Methylparaben** (`methylparaben`)
+  - Aliases: CAS 99-76-3; CAS 120-47-8; CAS 99-96-7; CAS 36457-19-9; CAS 16782-08-4; CAS 5026-62-0; CAS 35285-68-8; CAS 114-63-6; CAS 26112-07-2; CAS 69959-44-0
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
+  - Note: Paraben family terms should not be collapsed without compound-level evidence.
 - **CMIT/MIT preservative (甲基異噻唑啉酮)** (`cmit-mit`)
   - Aliases: CAS 2682-20-4; 2-Methyl-2H-isothiazol-3-one; CMIT; MIT; methylisothiazolinone; 甲基異噻唑啉酮; 메칠이소치아졸리논; 메칠클로로이소치아졸리논
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
@@ -450,10 +454,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 90-43-7; CAS 132-27-4; CAS 84145-04-0; CAS 13707-65-8; Biphenyl-2-ol, and its salts; MEA o-phenylphenate; Potassium o-phenylphenate; Sodium o-phenylphenate; o-Phenylphenol
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以phenol計)
-- **Methylparaben** (`methylparaben`)
-  - Aliases: CAS 99-76-3; CAS 120-47-8; CAS 99-96-7; CAS 36457-19-9; CAS 16782-08-4; CAS 5026-62-0; CAS 35285-68-8; CAS 114-63-6; CAS 26112-07-2; CAS 69959-44-0
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
-  - Note: Paraben family terms should not be collapsed without compound-level evidence.
 - **Hexamidine** (`tfda-preserv-hexamidine`)
   - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`

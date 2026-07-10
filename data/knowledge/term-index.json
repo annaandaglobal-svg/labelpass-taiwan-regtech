@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2437,
+  "curated_term_count": 2443,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -1416,6 +1416,56 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "파라옥시안식향산",
+          "normalized": "파라옥시안식향산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "paraben",
+          "normalized": "paraben",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "對羥基苯甲酸",
+          "normalized": "對羥基苯甲酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "파라벤류",
+          "normalized": "파라벤류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "파라옥시벤조산",
+          "normalized": "파라옥시벤조산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -1972,6 +2022,16 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "레조르시놀",
+          "normalized": "레조르시놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -21630,6 +21690,36 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "알코올",
+          "normalized": "알코올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "denatured alcohol",
+          "normalized": "denatured alcohol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "변성알콜",
+          "normalized": "변성알콜",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -21977,6 +22067,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "p-페닐렌디아민",
+          "normalized": "p-페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "피페닐렌디아민",
+          "normalized": "피페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -23036,6 +23146,36 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "적색201호",
+          "normalized": "적색201호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "red 201",
+          "normalized": "red 201",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "적색201",
+          "normalized": "적색201",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -24994,6 +25134,36 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.88,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카페인무수물",
+          "normalized": "카페인무수물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "caffeine anhydrous",
+          "normalized": "caffeine anhydrous",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "무수카페인",
+          "normalized": "무수카페인",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -28314,6 +28484,16 @@
         {
           "value": "whey powder",
           "normalized": "whey powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "skim milk powder",
+          "normalized": "skim milk powder",
           "type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
@@ -32032,6 +32212,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "황산알루미늄칼륨",
+          "normalized": "황산알루미늄칼륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "백반",
+          "normalized": "백반",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -36562,6 +36762,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "암모늄퍼설페이트",
+          "normalized": "암모늄퍼설페이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "암모늄과황산염",
+          "normalized": "암모늄과황산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -38697,6 +38917,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "BHA",
+          "normalized": "bha",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "butylated hydroxyanisole",
+          "normalized": "butylated hydroxyanisole",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "丁基羥基茴香醚",
+          "normalized": "丁基羥基茴香醚",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -39031,6 +39281,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "EDTA칼슘이나트륨",
+          "normalized": "edta칼슘이나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "이디티에이칼슘이나트륨",
+          "normalized": "이디티에이칼슘이나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -39715,6 +39985,16 @@
           "confidence": 0.7,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "결란검",
+          "normalized": "결란검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -40165,6 +40445,36 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "洋菜",
+          "normalized": "洋菜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "寒天",
+          "normalized": "寒天",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "우무",
+          "normalized": "우무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -42672,6 +42982,26 @@
           "confidence": 0.7,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "蜂蠟",
+          "normalized": "蜂蠟",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비즈왁스",
+          "normalized": "비즈왁스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -42726,6 +43056,16 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "쉘락",
+          "normalized": "쉘락",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -43984,6 +44324,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "포도당",
+          "normalized": "포도당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "덱스트로스",
+          "normalized": "덱스트로스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "dextrose",
+          "normalized": "dextrose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -44027,6 +44397,16 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "과당",
+          "normalized": "과당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -47272,6 +47652,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "維生素E醋酸酯",
+          "normalized": "維生素e醋酸酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비타민E아세테이트",
+          "normalized": "비타민e아세테이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -50160,6 +50560,26 @@
           "confidence": 0.7,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "yellow 5",
+          "normalized": "yellow 5",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "황색제4호",
+          "normalized": "황색제4호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -50513,6 +50933,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "caramel color",
+          "normalized": "caramel color",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카라멜색소4류",
+          "normalized": "카라멜색소4류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -53040,6 +53480,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "水麥芽",
+          "normalized": "水麥芽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "글루코스시럽",
+          "normalized": "글루코스시럽",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -54899,6 +55359,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시트릭애씨드",
+          "normalized": "시트릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시트릭산",
+          "normalized": "시트릭산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -85744,6 +86224,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "베이킹파우더",
+          "normalized": "베이킹파우더",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "泡打粉",
+          "normalized": "泡打粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "베이킹파우다",
+          "normalized": "베이킹파우다",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -86432,6 +86942,26 @@
         {
           "value": "多磷酸鈉",
           "normalized": "多磷酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "폴리인산나트륨",
+          "normalized": "폴리인산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "聚磷酸鈉",
+          "normalized": "聚磷酸鈉",
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
@@ -97576,6 +98106,26 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "말티톨시럽",
+          "normalized": "말티톨시럽",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "maltitol syrup",
+          "normalized": "maltitol syrup",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -123655,6 +124205,476 @@
       "notes": "아미노 개질 실리콘(헤어 컨디셔닝). 대만 화장품 금지·제한 목록 미등재(허용 추정)."
     },
     {
+      "id": "col-ultramarines",
+      "canonical_name": "Ultramarines (CI 77007)",
+      "category": "colorant_uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "울트라마린",
+          "normalized": "울트라마린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ultramarines",
+          "normalized": "ultramarines",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ultramarine blue",
+          "normalized": "ultramarine blue",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "群青",
+          "normalized": "群青",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CI 77007",
+          "normalized": "ci 77007",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "pigment blue 29",
+          "normalized": "pigment blue 29",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "허용 화장품 색소(色素 목록 CI 77007). 使用範圍 등급 1 = 모든 화장품 사용 가능(눈가 포함), 추가 제한 없음."
+    },
+    {
+      "id": "col-manganese-violet",
+      "canonical_name": "Manganese violet (CI 77742)",
+      "category": "colorant_uv_filter",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "망가니즈바이올렛",
+          "normalized": "망가니즈바이올렛",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "manganese violet",
+          "normalized": "manganese violet",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "錳紫",
+          "normalized": "錳紫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CI 77742",
+          "normalized": "ci 77742",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "pigment violet 16",
+          "normalized": "pigment violet 16",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "망간바이올렛",
+          "normalized": "망간바이올렛",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act",
+        "tw-tfda-cosmetic-colorants"
+      ],
+      "notes": "허용 화장품 색소(色素 목록 CI 77742). 使用範圍 등급 1 = 모든 화장품 사용 가능(눈가 포함)."
+    },
+    {
+      "id": "raw-guarana",
+      "canonical_name": "Guarana (Paullinia cupana)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "구아라나",
+          "normalized": "구아라나",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "guarana",
+          "normalized": "guarana",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "瓜拿納",
+          "normalized": "瓜拿納",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "瓜拿那",
+          "normalized": "瓜拿那",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Paullinia cupana",
+          "normalized": "paullinia cupana",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(瓜拿那；瓜拿納, Paullinia cupana), 部位 種子(씨앗). ⚠️ 매일 최고 섭취량 2.4 g(카페인 함유 — 총 카페인 관리 필요)."
+    },
+    {
+      "id": "raw-hfcs",
+      "canonical_name": "High-fructose corn syrup (HFCS)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "고과당옥수수시럽",
+          "normalized": "고과당옥수수시럽",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "high fructose corn syrup",
+          "normalized": "high fructose corn syrup",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HFCS",
+          "normalized": "hfcs",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "果葡糖漿",
+          "normalized": "果葡糖漿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "高果糖玉米糖漿",
+          "normalized": "高果糖玉米糖漿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "액상과당",
+          "normalized": "액상과당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "isoglucose",
+          "normalized": "isoglucose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "옥수수 유래 일반 가공 감미료 — 첨가물 목록·원료 positive-list 어디에도 개별 미등재(목록 부재=금지 아님). 관용 가공식품(옥수수 자체는 허용 원료)으로 취급, 두 포지티브 리스트 규제 밖. 영양표시·당류 관리 대상."
+    },
+    {
+      "id": "raw-fructooligosaccharide",
+      "canonical_name": "Fructo-oligosaccharide (FOS)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "올리고당",
+          "normalized": "올리고당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "프락토올리고당",
+          "normalized": "프락토올리고당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "fructooligosaccharide",
+          "normalized": "fructooligosaccharide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "FOS",
+          "normalized": "fos",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "果寡糖",
+          "normalized": "果寡糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "oligosaccharide",
+          "normalized": "oligosaccharide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "프럭토올리고당",
+          "normalized": "프럭토올리고당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품원료(果寡糖). 개별 올리고당은 종류별 등재 — 果寡糖(FOS)·木寡醣(XOS)·半乳寡糖(GOS)·異麥芽寡糖(IMO) 모두 허용 원료(草木본식물류 유래). '올리고당' 총칭 검색은 이 항목으로."
+    },
+    {
+      "id": "fadd-bht",
+      "canonical_name": "Butylated Hydroxytoluene (BHT)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "128-37-0"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "BHT",
+          "normalized": "bht",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "butylated hydroxytoluene",
+          "normalized": "butylated hydroxytoluene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "二丁基羥基甲苯",
+          "normalized": "二丁基羥基甲苯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "디부틸히드록시톨루엔",
+          "normalized": "디부틸히드록시톨루엔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "부틸히드록시톨루엔",
+          "normalized": "부틸히드록시톨루엔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "E321",
+          "normalized": "e321",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "산화방지제(BHT, E321). BHA(丁基羥基茴香醚)의 짝 성분으로 유지·유지식품에 널리 사용. ⚠️ 대만 附表一 항목·한도는 재확인 권장(본 등재는 추정)."
+    },
+    {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
       "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
       "category": "prohibited",
@@ -134341,6 +135361,14 @@
       "confidence": 0.9
     },
     {
+      "term_id": "col-ultramarines",
+      "rule_id": "tw-cos-200-118",
+      "rule_code": "tw-cos-200-118",
+      "match_basis": "alias",
+      "jurisdiction": "TW",
+      "confidence": 0.9
+    },
+    {
       "term_id": "tfda-color-ci-77015",
       "rule_id": "tw-cos-200-119",
       "rule_code": "tw-cos-200-119",
@@ -134502,6 +135530,14 @@
     },
     {
       "term_id": "tfda-color-ci-77742",
+      "rule_id": "tw-cos-200-139",
+      "rule_code": "tw-cos-200-139",
+      "match_basis": "alias",
+      "jurisdiction": "TW",
+      "confidence": 0.9
+    },
+    {
+      "term_id": "col-manganese-violet",
       "rule_id": "tw-cos-200-139",
       "rule_code": "tw-cos-200-139",
       "match_basis": "alias",
@@ -154851,6 +155887,26 @@
           "source": "cas"
         },
         {
+          "value": "p-페닐렌디아민",
+          "normalized": "p-페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "피페닐렌디아민",
+          "normalized": "피페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "106-50-3",
           "normalized": "106-50-3",
           "type": "cas",
@@ -159029,6 +160085,16 @@
           "source": "cas"
         },
         {
+          "value": "레조르시놀",
+          "normalized": "레조르시놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "108-46-3",
           "normalized": "108-46-3",
           "type": "cas",
@@ -160312,6 +161378,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "p-페닐렌디아민",
+          "normalized": "p-페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "피페닐렌디아민",
+          "normalized": "피페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "cas"
@@ -164631,6 +165717,26 @@
           "source": "cas"
         },
         {
+          "value": "암모늄퍼설페이트",
+          "normalized": "암모늄퍼설페이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "암모늄과황산염",
+          "normalized": "암모늄과황산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "7727-54-0",
           "normalized": "7727-54-0",
           "type": "cas",
@@ -166726,6 +167832,36 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "적색201호",
+          "normalized": "적색201호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "red 201",
+          "normalized": "red 201",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "적색201",
+          "normalized": "적색201",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "alias"
@@ -169355,7 +170491,8 @@
     {
       "rule_id": "tw-cos-200-118",
       "term_ids": [
-        "tfda-color-ci-77007"
+        "tfda-color-ci-77007",
+        "col-ultramarines"
       ],
       "aliases": [
         {
@@ -169374,6 +170511,56 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "울트라마린",
+          "normalized": "울트라마린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "ultramarines",
+          "normalized": "ultramarines",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "ultramarine blue",
+          "normalized": "ultramarine blue",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "群青",
+          "normalized": "群青",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "pigment blue 29",
+          "normalized": "pigment blue 29",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9,
           "note": null,
           "source": "alias"
@@ -170253,7 +171440,8 @@
     {
       "rule_id": "tw-cos-200-139",
       "term_ids": [
-        "tfda-color-ci-77742"
+        "tfda-color-ci-77742",
+        "col-manganese-violet"
       ],
       "aliases": [
         {
@@ -170272,6 +171460,56 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "망가니즈바이올렛",
+          "normalized": "망가니즈바이올렛",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "manganese violet",
+          "normalized": "manganese violet",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "錳紫",
+          "normalized": "錳紫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "pigment violet 16",
+          "normalized": "pigment violet 16",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "망간바이올렛",
+          "normalized": "망간바이올렛",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "alias"
@@ -174718,6 +175956,56 @@
         {
           "value": "메칠파라벤",
           "normalized": "메칠파라벤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "파라옥시안식향산",
+          "normalized": "파라옥시안식향산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "paraben",
+          "normalized": "paraben",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "對羥基苯甲酸",
+          "normalized": "對羥基苯甲酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "파라벤류",
+          "normalized": "파라벤류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "파라옥시벤조산",
+          "normalized": "파라옥시벤조산",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",

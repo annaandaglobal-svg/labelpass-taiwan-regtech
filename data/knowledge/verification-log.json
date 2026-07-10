@@ -322,6 +322,24 @@
         "raw-buckwheat"
       ],
       "facts": "Potato (馬鈴薯) absent from positive+unconfirmed lists = traditional staple food (like rice/wheat), native potato starch is food not additive (modified starches are separate 增稠劑 entries). Cassava/tapioca (樹薯；木薯 Manihot esculenta) listed 可供直接食用 (塊根·葉); native tapioca starch = food; TFDA record carries NO cyanogenic caveat despite cassava's cyanide content. Kelp/kombu (海帶；昆布 Laminaria japonica) permitted algae raw material (藻體) + 5 related species. Shiitake (香菇；香蕈 Lentinula edodes) permitted (子實體·菌絲體); 香菰/冬菇 are unofficial spellings. Isolated CAPSAICIN (辣椒素) ABSENT from all lists = no food pathway; chili FRUIT (辣椒；番椒 果實) permitted as spice but chili LEAF (葉) is on 未確認安全性 (prohibited). Taiwan mandatory ALLERGEN list = 11 categories (crustaceans, mango, peanut, cow/goat milk, egg, tree nuts, sesame, gluten cereals, soybean, fish, sulfites≥10mg/kg), effective 2020-07-01, still current (no 2024/2025 revision). BUCKWHEAT (蕎麥) is NOT on Taiwan's list (contrast Korea) — and Taiwan uniquely requires MANGO (芒果) which Korea does not."
+    },
+    {
+      "batch": "basics4-pigments-sweeteners-2026-07-10l",
+      "method": "sonnet — grepped live TFDA food-additive (export/61) + raw-material (export/4) CSVs and the cosmetic COLORANT open-data list (InfoId=200) + official restriction-table PDF (2021-07-01); enriched existing basic terms with missing common names",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=200&logType=2",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv"
+      ],
+      "terms": [
+        "col-ultramarines",
+        "col-manganese-violet",
+        "raw-guarana",
+        "raw-hfcs",
+        "raw-fructooligosaccharide"
+      ],
+      "facts": "Ultramarines CI 77007 and Manganese violet CI 77742 both on TFDA cosmetic colorant permitted list at 使用範圍 class 1 (all cosmetics incl. eye area; colorant class legend: 1=all, 2=except eye, 3=no mucous membrane, 4=brief skin contact only). Guarana (瓜拿那；瓜拿納, Paullinia cupana) permitted raw material, seed (種子), daily cap 2.4 g (caffeine-bearing). HFCS/果葡糖漿/高果糖玉米糖漿 (isoglucose): ABSENT from both additive and raw-material lists — ordinary corn-derived manufactured sweetener outside both positive-list regimes (corn itself is a permitted raw material). Fructo-oligosaccharide 果寡糖 (FOS) permitted raw material; XOS 木寡醣, GOS 半乳寡糖, IMO 異麥芽寡糖 also separately listed. Note: 'BHA' is an ambiguous abbreviation — cosmetic BHA = salicylic acid (beta hydroxy acid), food BHA = butylated hydroxyanisole 丁基羥基茴香醚 (antioxidant); both now surface."
     }
   ]
 }
