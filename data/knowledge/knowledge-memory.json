@@ -12,10 +12,10 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2493,
-    "stored_aliases": 8133,
-    "searchable_aliases": 9289,
-    "identifier_aliases": 1156,
+    "terms": 2494,
+    "stored_aliases": 8184,
+    "searchable_aliases": 9341,
+    "identifier_aliases": 1157,
     "term_rule_links": 1111,
     "regulatory_update_candidates": 65,
     "alias_review_items": 1036,
@@ -5113,24 +5113,28 @@
       "score": 188
     },
     {
-      "id": "sorbitol-food-additive",
-      "canonical_name": "Sorbitol",
-      "category": "food_additive",
-      "category_label": "Food additive",
+      "id": "methylparaben",
+      "canonical_name": "Methylparaben",
+      "category": "preservative",
+      "category_label": "Preservative",
       "aliases": [
-        "CAS 50-70-4",
-        "D-Sorbitol",
-        "D-山梨醇",
-        "Sorbitol",
-        "山梨糖醇",
-        "소르비톨",
-        "솔비톨"
+        "CAS 99-76-3",
+        "CAS 120-47-8",
+        "CAS 99-96-7",
+        "CAS 36457-19-9",
+        "CAS 16782-08-4",
+        "CAS 5026-62-0",
+        "CAS 35285-68-8",
+        "CAS 114-63-6",
+        "CAS 26112-07-2",
+        "CAS 69959-44-0"
       ],
       "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.",
+      "notes": "Paraben family terms should not be collapsed without compound-level evidence.",
       "score": 187
     },
     {
@@ -5250,25 +5254,6 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)",
-      "score": 184
-    },
-    {
-      "id": "tfda-preserv-phenyl-mercuric-acetate",
-      "canonical_name": "Phenyl mercuric acetate",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 62-38-4",
-        "CAS 94-43-9",
-        "Phenyl mercuric acetate",
-        "Phenyl mercuric benzoate",
-        "Phenylmercuric salts (including borate)"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-restricted-ingredients",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.007 % (以Hg計) · 倘混合使用其他我國準用之汞化合物，其汞總殘留量為0.007 %。 · 경고 含Phenylmercuric compounds。",
       "score": 184
     },
     {
@@ -5398,6 +5383,32 @@
       "score": 177
     },
     {
+      "id": "niacinamide-cosmetic-ingredient",
+      "canonical_name": "Niacinamide",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "CAS 98-92-0",
+        "INCI Niacinamide",
+        "Niacinamide",
+        "Nicotinamide",
+        "菸鹼醯胺",
+        "나이아신아마이드",
+        "烟酰胺",
+        "煙醯胺",
+        "니아신아마이드",
+        "니코틴아마이드"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry",
+        "eu-cosing-cosmetic-ingredients",
+        "tw-moj-cosmetic-claims-criteria"
+      ],
+      "notes": "Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.",
+      "score": 176
+    },
+    {
       "id": "hyaluronic-acid-sodium-hyaluronate",
       "canonical_name": "Hyaluronic Acid and Sodium Hyaluronate",
       "category": "cosmetic_ingredient",
@@ -5450,32 +5461,6 @@
       "score": 172
     },
     {
-      "id": "niacinamide-cosmetic-ingredient",
-      "canonical_name": "Niacinamide",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "CAS 98-92-0",
-        "INCI Niacinamide",
-        "Niacinamide",
-        "Nicotinamide",
-        "菸鹼醯胺",
-        "나이아신아마이드",
-        "烟酰胺",
-        "煙醯胺",
-        "니아신아마이드",
-        "니코틴아마이드"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry",
-        "eu-cosing-cosmetic-ingredients",
-        "tw-moj-cosmetic-claims-criteria"
-      ],
-      "notes": "Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.",
-      "score": 172
-    },
-    {
       "id": "food-additive-inspection-registration",
       "canonical_name": "Food Additive Inspection Registration",
       "category": "food_import",
@@ -5501,15 +5486,39 @@
       ],
       "notes": "Taiwan food-additive inspection registration concept, especially single food additives under TFDA registration and permit-document management.",
       "score": 171
+    },
+    {
+      "id": "cos-common-actives",
+      "canonical_name": "Common cosmetic actives (allowed)",
+      "category": "cosmetic_ingredient",
+      "category_label": "Cosmetic ingredient",
+      "aliases": [
+        "PDRN",
+        "aloe",
+        "ceramide",
+        "galactomyces",
+        "houttuynia",
+        "peptide",
+        "propolis",
+        "resveratrol",
+        "snail",
+        "tea tree"
+      ],
+      "source_keys": [
+        "global-pcpc-inci",
+        "global-cas-registry"
+      ],
+      "notes": "일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.",
+      "score": 169
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2493,
-      "aliases_scanned": 8133,
-      "alias_rows_scanned": 8133,
+      "terms_scanned": 2494,
+      "aliases_scanned": 8184,
+      "alias_rows_scanned": 8184,
       "collision_groups": 220,
       "high_confidence_collisions": 171,
       "short_ambiguous_aliases_without_notes": 0,

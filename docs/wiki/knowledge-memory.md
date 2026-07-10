@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,493
-- Stored aliases: 8,133
-- Searchable aliases including identifiers: 9,289
+- Terms: 2,494
+- Stored aliases: 8,184
+- Searchable aliases including identifiers: 9,341
 - Term-rule links: 1,111
 - Regulatory update candidates: 65
 - Alias review items: 1,036
@@ -415,6 +415,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
   - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
   - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
+- **Niacinamide** (`niacinamide-cosmetic-ingredient`)
+  - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
 - **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
   - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
@@ -423,10 +427,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI Madecassoside; INCI Asiaticoside; INCI Asiatic Acid; INCI Madecassic Acid; Asiaticoside; Madecassoside; Asiatic Acid; Madecassic Acid; 마데카소사이드; 아시아티코사이드
   - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `global-cas-registry`, `tw-moj-cosmetic-claims-criteria`
   - Note: Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants.
-- **Niacinamide** (`niacinamide-cosmetic-ingredient`)
-  - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
-  - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
+- **Common cosmetic actives (allowed)** (`cos-common-actives`)
+  - Aliases: PDRN; aloe; ceramide; galactomyces; houttuynia; peptide; propolis; resveratrol; snail; tea tree
+  - Sources: `global-pcpc-inci`, `global-cas-registry`
+  - Note: 일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.
 
 ### Preservative
 
@@ -450,6 +454,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 90-43-7; CAS 132-27-4; CAS 84145-04-0; CAS 13707-65-8; Biphenyl-2-ol, and its salts; MEA o-phenylphenate; Potassium o-phenylphenate; Sodium o-phenylphenate; o-Phenylphenol
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以phenol計)
+- **Methylparaben** (`methylparaben`)
+  - Aliases: CAS 99-76-3; CAS 120-47-8; CAS 99-96-7; CAS 36457-19-9; CAS 16782-08-4; CAS 5026-62-0; CAS 35285-68-8; CAS 114-63-6; CAS 26112-07-2; CAS 69959-44-0
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
+  - Note: Paraben family terms should not be collapsed without compound-level evidence.
 - **Hexamidine** (`tfda-preserv-hexamidine`)
   - Aliases: CAS 3811-75-4; CAS 659-40-5; CAS 93841-83-9; Hexamidine; Hexamidine diisethionate; Hexamidine paraben
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
@@ -466,10 +474,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 64-18-6; CAS 141-53-7; Formic acid; Formic acid and its sodium salt; Sodium formate
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)
-- **Phenyl mercuric acetate** (`tfda-preserv-phenyl-mercuric-acetate`)
-  - Aliases: CAS 62-38-4; CAS 94-43-9; Phenyl mercuric acetate; Phenyl mercuric benzoate; Phenylmercuric salts (including borate)
-  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
-  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.007 % (以Hg計) · 倘混合使用其他我國準用之汞化合物，其汞總殘留量為0.007 %。 · 경고 含Phenylmercuric compounds。
 
 ## Alias Ambiguity Queue
 

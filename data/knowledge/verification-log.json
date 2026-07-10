@@ -261,6 +261,18 @@
         "raw-enzyme-modified-rutin"
       ],
       "facts": "Vitamin D3 膽鈣化醇 = nutrient additive, capsule/tablet ≤800 IU(20μg)/day, general/infant ≤15μg/day, D2+D3 combined ratio ≤1. Methylcobalamin 甲鈷胺 = nutrient additive, capsule/tablet B12 ≤1000μg/day. Methylfolate = permitted raw material ONLY as (6S)-5-甲基四氫葉酸葡萄糖胺鹽 salt, limits follow 葉酸 (≤800/600/225μg). Selenomethionine 甲硫胺酸硒 = nutrient additive, capsule/tablet Se ≤200μg/day. Selenium yeast 硒酵母 (S. cerevisiae 菌體) = permitted raw material, Se ≤200μg/day. L. rhamnosus (乳酸菌, incl. Lacticaseibacillus synonym) + S. boulardii (under 啤酒酵母/Yeast) = permitted strains, unrestricted food use. Propionibacterium freudenreichii (丙酸桿菌) = listed but RESTRICTED to 'starter culture for Swiss cheese' only. Postbiotics (後生元): NO dedicated TFDA category (gray-zone). Sesamin 芝麻素 = permitted raw material, ≥60% purity, 15mg/day (2024 衛授食字1131301534). CMC 羧甲基纖維素鈉/鈣 = additive 粘稠劑, all foods ≤20g/kg (cross-linked tablets-only ≤50g/kg). α-Glucosyl hesperidin 醣化橙皮苷 = permitted raw material ≥30%, 450mg/day; plain hesperidin on 未確認安全性. Enzyme-modified/glucosyl rutin 芸香苷: NO permitted form (plain rutin on 未確認安全性) = not permitted. UNVERIFIED gray-zone (absent, not banned): nicotinamide riboside/NR (only 菸鹼酸/菸鹼醯胺 listed as B3), urolithin A, collagen tripeptide (parent 膠原蛋白/明膠 permitted), spinosin (source herb 酸棗仁 permitted but 不得單一原料使用)."
+    },
+    {
+      "batch": "basics-alias-coverage-2026-07-10h",
+      "method": "sonnet — grepped live TFDA food-additive 附表一 (export/61) for base 丙二醇, distinguishing it from alginate/fatty-acid-ester derivatives; plus deterministic common-name alias enrichment of existing basic-ingredient terms",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv"
+      ],
+      "terms": [
+        "add-propylene-glycol"
+      ],
+      "facts": "Propylene glycol base 丙二醇 (English name per TFDA: 'Propylene Glycol', = 1,2-propanediol, CAS 57-55-6, E1520) = permitted food additive, category (十五) 載體/Carrier, QS in all foods EXCEPT fresh/UHT milk (鮮乳/保久乳). Distinct from 1,3-propanediol (CAS 504-63-2), which is a cosmetic ingredient absent from the food-additive CSV — the KB previously conflated the two under term cdict-propanediol; the erroneous 丙二醇/Propylene Glycol aliases were removed from cdict-propanediol and this dedicated term created."
     }
   ]
 }
