@@ -539,11 +539,11 @@
         "food-label-required-items",
         "nutrition-labeling",
         "potassium-glycerophosphate-food-additive",
-        "steviol-glycosides-food-additive",
         "food-additive-functional-classes",
         "benzoates-food-additives",
         "sorbates-food-additives",
-        "calcium-lime-food-additives"
+        "calcium-lime-food-additives",
+        "caseinates-food-additives"
       ],
       "match_sources": [
         "tw-tfda-food-ingredient-query-platform-direct",
@@ -672,20 +672,22 @@
           ]
         },
         {
-          "id": "steviol-glycosides-food-additive",
-          "canonical_name": "Steviol Glycosides",
+          "id": "food-additive-functional-classes",
+          "canonical_name": "Food Additive Functional Classes",
           "category": "food_additive",
           "aliases": [
-            "Steviol glycosides",
-            "甜菊糖",
-            "甜菊醣苷",
-            "스테비올배당체",
-            "Steviol glycoside",
-            "甜菊"
+            "food additive functional class",
+            "food additive function",
+            "preservative",
+            "preservatives",
+            "sweetener",
+            "sweeteners"
           ],
           "source_keys": [
             "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table"
+            "tw-tfda-food-additive-common-names-table",
+            "tw-tfda-food-additive-standards",
+            "tw-tfda-food-additive-permit-query"
           ]
         }
       ],

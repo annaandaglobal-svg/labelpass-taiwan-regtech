@@ -422,7 +422,7 @@
         "raw-squid-ink",
         "raw-chitin",
         "raw-protamine",
-        "add-l-carnitine",
+        "hfun-l-carnitine",
         "raw-beta-alanine",
         "add-zinc-nutrient",
         "add-magnesium-nutrient",
@@ -430,6 +430,51 @@
         "add-selenium-nutrient"
       ],
       "facts": "SPICES part-split/species traps: black pepper fruit OK but STEM barred; star anise fruit OK but LEAF barred + Japanese star anise 莽草/I.anisatum toxic (absent, never use); sage whole-plant OK (tea/extract) but SEED barred + many Salvia barred; dill flower barred; wasabi flower barred; clove 不得單一原料使用; nutmeg no myristicin limit; TFDA 牛至 = marjoram NOT true oregano (奧勒岡草); thyme only tea/extract category; Zanthoxylum avicennae barred. SEAWEED: laver/wakame/hijiki/gelidium/dulse/chlorella permitted (hijiki inorganic-arsenic handled by separate heavy-metal standard, not this list); Sargassum species-split (fusiforme/horneri OK, fulvellum barred); maesaengi/codium/fucoidan absent (gray). FERMENTED (2-layer: finished food ordinary + strain on permitted-microbe list): natto/miso/gochujang/koji(Aspergillus oryzae)/vinegar(Acetobacter)/tempeh(Rhizopus oligosporus) OK; nattokinase enzyme BARRED (vs natto food OK); kombucha no named entry; acid-HVP 3-MCPD governed by separate contaminant standard. MARINE: mussel/cuttlefish-ink(4 Sepia spp incl ink)/chitin(shrimp/crab shell) permitted; scallop absent-traditional; protamine ABSENT from raw-material AND 防腐劑 lists = not approved; chitosan conditional (warning labels + A.niger OTA<1ppb, NOT a numeric cap). SUPP: L-glutamine permitted (營養添加劑); L-carnitine cap/tab ≤2g/day; L-theanine only as 調味劑 ≤1g/kg; GABA raw-material fermented ≥20% ≤100mg/day + warning; beta-alanine ABSENT (not permitted); minerals Zn(≤30/22.5/7.5mg) Mg(≤600/105mg) Fe(≤45/22.5/15mg) Se(≤200μg) with many salt forms."
+    },
+    {
+      "batch": "wide2-fadd-cosmetic-vitamin-enzyme-2026-07-11p",
+      "method": "4 parallel sonnet agents — TFDA additive 附表一 (export/61, 營養添加劑/防腐劑/乳化劑), raw-material (export/4), additive-license dataset (export/3), and cosmetic open-data lists (InfoId=199 restricted / 201 preservative / 202 UV / 203 prohibited)",
+      "verifiedAt": "2026-07-11",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ],
+      "terms": [
+        "toluene-2-5-diamine",
+        "cos-rest-p-aminophenol",
+        "hydrogen-peroxide",
+        "cos-rest-ammonium-persulfate",
+        "tfda-uv-homosalate",
+        "tfda-uv-4-methylbenzylidene-camphor",
+        "tfda-uv-drometrizole-trisiloxane",
+        "methylisothiazolinone",
+        "chlorphenesin",
+        "diazolidinyl-urea",
+        "triclosan",
+        "benzophenone-3",
+        "fadd-sodium-stearoyl-lactylate",
+        "sorbitol-food-additive",
+        "tfda-fadd-maltitol",
+        "add-polylysine",
+        "fadd-nisin",
+        "fadd-propionic-acid",
+        "tfda-fadd-diatomaceous-earth",
+        "tfda-fadd-bentonite",
+        "steviol-glycosides-food-additive",
+        "fadd-thiamine-hydrochloride",
+        "tfda-fadd-pyridoxine",
+        "fadd-cyanocobalamin",
+        "fadd-folic-acid",
+        "fcol-beta-carotene",
+        "tfda-fadd-sodium-ascorbate-vitamin-c",
+        "pantothenate-food-additives",
+        "add-ergocalciferol-d2",
+        "add-phylloquinone-k1",
+        "tfda-fadd-enzyme-product"
+      ],
+      "facts": "COSMETIC (list#/limit): toluene-2,5-diamine restr#66 2%/3.6% oxidative-hairdye-only; p-aminophenol restr#69 0.9% hairdye-only; H2O2 restr#167 12%(hair)/6%(tooth+warning); ammonium persulfate restr#163 61.3% professional-only; homosalate UV#4 10%; 4-MBC/enzacamene UV#23 4%; drometrizole trisiloxane UV#12 15%; MIT preserv#29 0.0015% RINSE-OFF ONLY (leave-on banned); chlorphenesin preserv#34 0.3%; diazolidinyl urea preserv#53 0.5% formaldehyde<1000ppm; triclosan preserv#45 0.3%/0.2%mouthwash; oxybenzone/BP-3 UV#2 6% (0.5% protectant) + mandatory '含二苯酮-3' warning. FADD: SSL emulsifier QS; sorbitol solution & maltitol syrup QS but INFANT-FOOD-PROHIBITED; ε-polylysine ABSENT (not approved); nisin 防腐劑 CHEESE ONLY ≤0.25g/kg; propionic acid 防腐劑 BREAD/PASTRY ONLY ≤2.5g/kg; diatomaceous earth & bentonite(皂土) residue ≤5g/kg; PVP tablet-food-only ≤5%; steviol glycosides tiered (0.05-0.1%); enzyme-treated stevia / enzyme-decomposed lecithin ABSENT (base forms only). VITAMINS 營養添加劑 tiers (cap/tablet, general, infant): B1 50/1.95/0.9mg; B6 80/2.1/0.75mg; B12 1000/3.6/1.35μg; folic 800/600/225μg; niacin 100/25.5/12mg NE; D2 800IU/15μg; Vit C(Na ascorbate) 1000/150/60mg; pantothenate/biotin/K1/choline-bitartrate NO numeric cap; β-carotene ≤10000IU as Vit A. ENZYMES: Taiwan has NO per-enzyme positive list — single generic 附表一(十七) '酵素製劑/Enzyme Product' category (QS, mfg-necessity, no spec, excl fresh/UHT milk) + 加工助劑衛生標準 for processing-aid enzymes; legality is per-product 査驗登記 license. Amylase/protease/transglutaminase heavily licensed; invertase/phytase/naringinase have ZERO current registered products (not banned). Nattokinase (raw-material track) is explicitly on 未確認安全性 (barred)."
     }
   ]
 }

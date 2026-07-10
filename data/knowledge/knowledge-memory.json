@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2596,
-    "stored_aliases": 8935,
-    "searchable_aliases": 10098,
+    "terms": 2609,
+    "stored_aliases": 9055,
+    "searchable_aliases": 10218,
     "identifier_aliases": 1163,
     "term_rule_links": 1113,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1062,
+    "alias_review_items": 1066,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -3396,18 +3396,18 @@
         "甜菊醣苷",
         "스테비올배당체",
         "Steviol glycoside",
+        "enzyme-treated stevia",
         "甜菊",
+        "酵素處理甜菊",
         "글루코실스테비아",
-        "효소처리스테비아",
-        "효소처리스테비아배당체",
-        "효소처리스테비올배당체"
+        "효소처리스테비아"
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.",
-      "score": 2203
+      "notes": "허용 감미료((十一之一) 甜味劑, 品名 甜菊醣苷/Steviol Glycosides): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ '효소처리 스테비아' 별도 등재 없음 — 이 甜菊醣苷 규정 적용.",
+      "score": 2207
     },
     {
       "id": "shtc-export-permit",
@@ -4663,6 +4663,30 @@
       "score": 203
     },
     {
+      "id": "pantothenate-food-additives",
+      "canonical_name": "Pantothenates",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "Calcium pantothenate",
+        "Sodium pantothenate",
+        "本多酸鈉",
+        "本多酸鈣",
+        "pantothenic acid",
+        "泛酸",
+        "泛酸鈉",
+        "泛酸鈣",
+        "비타민B5",
+        "판토텐산"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "허용 營養添加劑(本多酸鈣/鈉) — 수치 한도 없음(各類食品 適量).",
+      "score": 201
+    },
+    {
       "id": "centella-asiatica-cosmetic-ingredient",
       "canonical_name": "Centella Asiatica",
       "category": "cosmetic_ingredient",
@@ -4807,7 +4831,7 @@
         "tw-tfda-food-additive-standards",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.",
+      "notes": "허용 보존료((一) 防腐劑) — ⚠️ 麵包·糕餅(빵·과자)에만 ≤2.5 g/kg(丙酸 기준). 丙酸鈣·丙酸鈉도 동일 범위.",
       "score": 195
     },
     {
@@ -4832,6 +4856,30 @@
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
       "notes": "Border inspection concept for imported cosmetics, including sampling, release, and nonconforming goods workflows.",
+      "score": 195
+    },
+    {
+      "id": "sorbitol-food-additive",
+      "canonical_name": "Sorbitol",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 50-70-4",
+        "D-Sorbitol",
+        "D-山梨醇",
+        "Sorbitol",
+        "山梨糖醇",
+        "소르비톨",
+        "솔비톨",
+        "D-山梨醇液",
+        "sorbitol solution",
+        "山梨醇"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "허용 첨가물(甜味劑·品質改良劑) — D-山梨醇液70% 各類食品 適量. ⚠️ 嬰兒食品 不得使用(영유아식품 금지).",
       "score": 195
     },
     {
@@ -4880,29 +4928,6 @@
         "tw-tfda-cosmetic-preservatives"
       ],
       "notes": "Paraben family terms should not be collapsed without compound-level evidence.",
-      "score": 193
-    },
-    {
-      "id": "pantothenate-food-additives",
-      "canonical_name": "Pantothenates",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "Calcium pantothenate",
-        "Sodium pantothenate",
-        "本多酸鈉",
-        "本多酸鈣",
-        "泛酸鈉",
-        "泛酸鈣",
-        "판토텐산칼슘",
-        "Pantothenate",
-        "판토텐산나트륨"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
-      ],
-      "notes": "Vitamin-related food additive common names; use additive standards for scope and limitations.",
       "score": 193
     },
     {
@@ -5067,28 +5092,6 @@
         "tw-customs-tariff-database-download"
       ],
       "notes": "Customs and logistics document concept for carton, quantity, weight, and package details.",
-      "score": 189
-    },
-    {
-      "id": "sorbitol-food-additive",
-      "canonical_name": "Sorbitol",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "CAS 50-70-4",
-        "D-Sorbitol",
-        "D-山梨醇",
-        "Sorbitol",
-        "山梨糖醇",
-        "소르비톨",
-        "솔비톨",
-        "山梨醇"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table"
-      ],
-      "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.",
       "score": 189
     },
     {
@@ -5520,17 +5523,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2596,
-      "aliases_scanned": 8935,
-      "alias_rows_scanned": 8935,
-      "collision_groups": 248,
-      "high_confidence_collisions": 196,
+      "terms_scanned": 2609,
+      "aliases_scanned": 9055,
+      "alias_rows_scanned": 9055,
+      "collision_groups": 255,
+      "high_confidence_collisions": 202,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 814,
+      "regulated_terms_without_local_alias": 811,
       "strict_blockers": 0,
-      "review_items": 1062
+      "review_items": 1066
     },
     "items": [
       {

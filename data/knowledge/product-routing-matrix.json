@@ -855,11 +855,11 @@
         "food-label-required-items",
         "nutrition-labeling",
         "potassium-glycerophosphate-food-additive",
-        "steviol-glycosides-food-additive",
         "food-additive-functional-classes",
         "benzoates-food-additives",
         "sorbates-food-additives",
-        "calcium-lime-food-additives"
+        "calcium-lime-food-additives",
+        "caseinates-food-additives"
       ],
       "sources": [
         {
@@ -1054,23 +1054,6 @@
           ]
         },
         {
-          "id": "steviol-glycosides-food-additive",
-          "canonical_name": "Steviol Glycosides",
-          "category": "food_additive",
-          "aliases": [
-            "Steviol glycosides",
-            "甜菊糖",
-            "甜菊醣苷",
-            "스테비올배당체",
-            "Steviol glycoside",
-            "甜菊"
-          ],
-          "source_keys": [
-            "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table"
-          ]
-        },
-        {
           "id": "food-additive-functional-classes",
           "canonical_name": "Food Additive Functional Classes",
           "category": "food_additive",
@@ -1141,6 +1124,24 @@
             "tw-tfda-food-additive-common-names",
             "tw-tfda-food-additive-common-names-table",
             "tw-tfda-cosmetic-restricted-ingredients"
+          ]
+        },
+        {
+          "id": "caseinates-food-additives",
+          "canonical_name": "Casein and Caseinates",
+          "category": "food_additive",
+          "aliases": [
+            "CAS 9000-71-9",
+            "Calcium caseinate",
+            "Casein",
+            "Sodium caseinate",
+            "乾酪素",
+            "乾酪素鈉"
+          ],
+          "source_keys": [
+            "tw-tfda-food-additive-common-names",
+            "tw-tfda-food-additive-common-names-table",
+            "tw-tfda-food-allergen-labeling"
           ]
         }
       ]

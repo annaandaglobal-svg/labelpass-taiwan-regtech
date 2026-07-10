@@ -239,7 +239,15 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Preservative alias set. Short aliases MI/MIT are useful but should be confirmed in dense ingredient lists."
+      "notes": "화장품 방부제(#29): 0.0015% 이하 — ⚠️ 씻어내는 제품(立即沖洗)에만 허용, 리브온 제품 사용 불가. (MIT+MCI 혼합은 #30, 동일 한도·씻는제품·3:1 고정비.) CAS 2682-20-4.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "methylchloroisothiazolinone",
@@ -366,13 +374,28 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "三氯沙",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Used in some preservative/antimicrobial contexts; claims can affect product classification."
+      "notes": "화장품 방부제(#45): (a) 0.3%(치약·핸드솝·바디워시·데오도런트(비분무)·팩트파우더·파운데이션·인조손톱 전 세정); (b) 0.2%(구강청결제). CAS 3380-34-5.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "mercury",
@@ -823,7 +846,15 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "UV filter with common INCI/common-name split."
+      "notes": "화장품 자외선차단제(#2): 6% 이하(보호목적 단독 사용 시 0.5% 이하). ⚠️ '本產品含二苯酮-3' 함유 경고표시 의무(≤0.5% 또는 순수 보호제 용도 예외). CAS 131-57-7.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "phenoxyethanol",
@@ -1252,7 +1283,15 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Oxidizing ingredient used in hair and oral products; concentration and product type matter."
+      "notes": "화장품 제한성분(#167): (a) 모발용(염색·펌) 12%(40vol, 방출 H2O2 포함) 이하; (b) 가정용 치아미백/치약 6% 이하(대규모 경고문 의무). CAS 7722-84-1.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "kojic-acid",
@@ -1660,7 +1699,15 @@
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Hair dye term; sulfate salt should remain linked but identifiable."
+      "notes": "화장품 제한성분(#66): 산화형 염모제 전용 — 유리염기 기준 2%(황산염 3.6%) 이하. CAS 95-70-5.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tretinoin-retinoic-acid",
@@ -2030,13 +2077,28 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "클로르페네신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "High-frequency preservative."
+      "notes": "화장품 방부제(#34): 0.3% 이하. CAS 104-29-0.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "chloroxylenol",
@@ -2244,13 +2306,35 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "다이아졸리디닐우레아",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "咪唑烷基脲",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Formaldehyde-releasing preservative family member."
+      "notes": "화장품 방부제(#53): 0.5% 이하 — 포름알데히드 방출제(방출 유리 포름알데히드 총량 ≤1000ppm). CAS 78491-02-8.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "imidazolidinyl-urea",
@@ -3829,13 +3913,49 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85
+        },
+        {
+          "value": "판토텐산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "pantothenic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "泛酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "비타민B5",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Vitamin-related food additive common names; use additive standards for scope and limitations."
+      "notes": "허용 營養添加劑(本多酸鈣/鈉) — 수치 한도 없음(各類食品 適量).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "methionine-food-additive",
@@ -4597,20 +4717,33 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "酵素處理甜菊",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "enzyme-treated stevia",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.",
-      "verifiedAt": "2026-07-09",
+      "notes": "허용 감미료((十一之一) 甜味劑, 品名 甜菊醣苷/Steviol Glycosides): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ '효소처리 스테비아' 별도 등재 없음 — 이 甜菊醣苷 규정 적용.",
+      "verifiedAt": "2026-07-11",
       "verifiedSources": [
-        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040084",
-        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000347066&lan=C",
-        "https://law.moj.gov.tw/LawClass/LawGetFile.ashx?FileId=0000297838&lan=C",
-        "https://www.rootlaw.com.tw/Attach/L-Doc/A040170051058500-1080927-1000-001.pdf",
-        "https://www.mohw.gov.tw/dl-16308-8a05025b-76e6-40fb-8145-5796d55fc644.html"
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
       ],
       "verification": "verified"
     },
@@ -4674,13 +4807,42 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "소르비톨액",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "D-山梨醇液",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "sorbitol solution",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇."
+      "notes": "허용 첨가물(甜味劑·品質改良劑) — D-山梨醇液70% 各類食品 適量. ⚠️ 嬰兒食品 不得使用(영유아식품 금지).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "cephalopods-advisory-allergen",
@@ -20998,6 +21160,27 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "효소분해레시틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "酵素分解卵磷脂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "enzyme-decomposed lecithin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -21141,6 +21324,13 @@
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "glycerin fatty acid ester",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9
         }
       ],
@@ -27793,12 +27983,27 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "파라아미노페놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인."
+      "notes": "화장품 제한성분(#69): 산화형 염모제 전용 — 0.9% 이하. CAS 123-30-8.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "cos-rest-2-6-diaminopyridine",
@@ -27950,7 +28155,15 @@
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인."
+      "notes": "화장품 제한성분(#163): 탈색·탈염 제품 61.3% 이하 — ⚠️ 이·미용 기술사가 소비자에게 시술하는 용도로만 한정(전문가 전용). CAS 7727-54-0.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "cos-rest-sodium-bromate",
@@ -28729,7 +28942,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 보존료((一) 防腐劑) — ⚠️ 麵包·糕餅(빵·과자)에만 ≤2.5 g/kg(丙酸 기준). 丙酸鈣·丙酸鈉도 동일 범위.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fadd-sodium-propionate",
@@ -29042,7 +29263,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 보존료((一) 防腐劑) — ⚠️ 乾酪(치즈) 및 그 가공품에만 ≤0.25 g/kg(용도 극협).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fadd-natamycin",
@@ -31285,12 +31514,55 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7
+        },
+        {
+          "value": "스테아로일젖산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "硬脂醯乳酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "乳酸硬脂酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "SSL",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "sodium stearoyl-2-lactylate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 첨가물 — (十六) 乳化劑 및 (七) 品質改良劑, 各類食品 適量.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fadd-calcium-stearoyl-lactylate",
@@ -33068,12 +33340,69 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "티아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "thiamine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "硫胺明",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "維生素B1",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "비타민B1",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "硝酸硫胺明",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "thiamine mononitrate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 營養添加劑(鹽酸/硝酸 硫胺明). 한도(B1): 캡슐·정 ≤50mg/일, 일반 ≤1.95mg, 영유아 ≤0.9mg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fadd-pyridoxine-hydrochloride",
@@ -33142,12 +33471,41 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "엽산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "5-甲基四氫葉酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "L-5-methyltetrahydrofolate calcium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 營養添加劑(葉酸 + L-5-甲基四氫葉酸鈣). 한도: 캡슐·정 ≤800μg/일, 일반 ≤600μg, 영유아 ≤225μg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fadd-cyanocobalamin",
@@ -33179,12 +33537,41 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "氰鈷胺明",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "維生素B12",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "비타민B12",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 營養添加劑. 한도(B12): 캡슐·정 ≤1000μg/일, 일반 ≤3.6μg, 영유아 ≤1.35μg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fadd-calcium-gluconate",
@@ -38651,12 +39038,26 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "폴리비닐피롤리돈",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "povidone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인)."
+      "notes": "화장품 원료(피막). 식품 용도로는 첨가물 (七)에 별도 등재 — ⚠️ 錠狀食品(정제식품)에만 ≤5%(음료 청징 등 광범위 사용 아님). 交聯형(Crospovidone)은 캡슐·정에 별도."
     },
     {
       "id": "cdict-triacetin",
@@ -39117,7 +39518,15 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인."
+      "notes": "허용 營養添加劑(비타민A 급원). 캡슐·정 형태: 비타민A 환산 ≤10000 I.U.(3000μg R.E.)/일. (착색료로도 별도 사용.)",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "fcol-caramel-colour",
@@ -40216,12 +40625,33 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "콜린중주석산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "重酒石酸膽鹼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "choline bitartrate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026"
       ],
-      "notes": "대만 식품 사용 가능 원료 — 기능 표방 시 健康食品 허가 필요."
+      "notes": "허용 營養添加劑(重酒石酸膽鹼 등) — 수치 한도 없음(各類食品 適量)."
     },
     {
       "id": "hfun-beta-glucan",
@@ -40429,7 +40859,13 @@
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026"
       ],
-      "notes": "허용 營養添加劑(L-肉鹼/L-Carnitine): 캡슐·정 형태 매일 ≤2 g(L-Carnitine 기준), 特殊營養食品 適量. L-酒石酸肉鹼(L-Carnitine Tartrate)은 별도 항목으로 特殊營養食品에만 適量."
+      "notes": "허용 營養添加劑(L-肉鹼/L-Carnitine): 캡슐·정 형태 매일 ≤2 g(L-Carnitine 기준), 特殊營養食品 適量. L-酒石酸肉鹼(L-Carnitine Tartrate)은 별도 항목으로 特殊營養食品에만 適量.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-10",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv"
+      ]
     },
     {
       "id": "hfun-l-theanine",
@@ -40778,12 +41214,19 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "維生素H",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026"
       ],
-      "notes": "대만 식품 사용 가능 원료 — 기능 표방 시 健康食品 허가 필요."
+      "notes": "허용 營養添加劑 — 수치 한도 없음(各類食品 適量, 부족 보충 목적)."
     },
     {
       "id": "hfun-lycopene",
@@ -63199,12 +63642,34 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "호모살레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "胡莫柳酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 10%"
+      "notes": "화장품 자외선차단제(#4): 10% 이하. CAS 118-56-9.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-uv-ethylhexyl-methoxycinnamate",
@@ -63427,12 +63892,34 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "드로메트리졸트리실록산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "mexoryl XL",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 15%"
+      "notes": "화장품 자외선차단제(#12): 15% 이하. CAS 155633-54-8.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-uv-methylene-bis-benzotriazolyl-tetramethylbuty",
@@ -63836,12 +64323,41 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "엔자카멘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "4-甲基亞芐基樟腦",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "4-MBC",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 4%"
+      "notes": "화장품 자외선차단제(#23): 4% 이하(대만 허용 — EU는 별도 재평가). CAS 38102-62-4.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-uv-peg-25-paba",
@@ -71278,12 +71794,27 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "벤토나이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((七) 品質改良用、釀造用及食品製造用劑). 本品可使用於各類食品；於食品中殘留量應在5g/kg以下。"
+      "notes": "허용 첨가물(品質改良劑, 中文品名 皂土 — 膨潤土 아님) — 各類食品 잔류 ≤5 g/kg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-fadd-aluminum-silicate",
@@ -71338,12 +71869,27 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "규조토",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((七) 品質改良用、釀造用及食品製造用劑). 1.本品可使用於各類食品；於食品中殘留量應在5 g/kg以下。 2.本品可使用於餐飲業用油炸油之助濾，用量為0.1%以下。"
+      "notes": "허용 첨가물(品質改良劑/其他) — 各類食品 잔류 ≤5 g/kg; 튀김유 助濾는 ≤0.1%(여과지 위, 직접첨가·재사용 불가). '제거 필수' 가공보조제 아님(잔류 한도로 관리).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-fadd-sodium-ferrocyanide",
@@ -78265,12 +78811,48 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "효소제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "식품효소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "효소제제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "food enzyme",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((十七) 其他). 本品可於各類食品中視實際需要適量使用。"
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 附表一 (十七) 단일 카테고리 酵素製劑(Enzyme Product)(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準으로 규율. 실제 합법 여부는 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-fadd-sodium-oleate",
@@ -78669,12 +79251,41 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "환원물엿",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "麥芽糖醇糖漿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "reduced maltose syrup",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((七) 品質改良用、釀造用及食品製造用劑). 本品可於各類食品中視實際需要適量使用。"
+      "notes": "허용 첨가물(甜味劑·品質改良劑). ⚠️ 嬰兒食品 不得使用(영유아식품 금지).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-fadd-maltitol-syrup",
@@ -79369,12 +79980,41 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "아스코르빈산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "抗壞血酸鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "sodium ascorbate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((八) 營養添加劑). 1.形態屬膠囊狀、錠狀且標示有每日食用限量之食品，在每日食用量中，其維生素C之總含量不得高於1000mg。 2.其他一般食品，在每日食用量或每300g食品(未標示每日食用量者)中，"
+      "notes": "허용 營養添加劑(비타민C). 한도(Vit C): 캡슐·정 ≤1000mg/일, 일반 ≤150mg, 영유아 ≤60mg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-fadd-l-ascorbyl-stearate-vitamin-c",
@@ -80689,12 +81329,55 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "피리독신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "維生素B6",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "비타민B6",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "鹽酸吡哆辛",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "pyridoxine hydrochloride",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((八) 營養添加劑). 形態屬膠囊狀、錠狀且標示有每日食用限量之食品，在每日食用量中，其維生素B6之總含量不得高於80 mg。"
+      "notes": "허용 營養添加劑(鹽酸吡哆辛). 한도(B6): 캡슐·정 ≤80mg/일, 일반 ≤2.1mg, 영유아 ≤0.75mg.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
     },
     {
       "id": "tfda-fadd-calcium-borogluconate-calcium-diborogluconat",
@@ -90868,7 +91551,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 등록 확인(Streptomyces mobaraensis 급원)."
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 다수(TG-K 등)."
     },
     {
       "id": "enz-bromelain",
@@ -91026,7 +91709,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "펙틴분해효소. 대만 급원·목록 확인 필요.",
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 있음.",
       "verification": "inferred"
     },
     {
@@ -106007,6 +106690,616 @@
         "https://data.fda.gov.tw/data/opendata/export/4/csv",
         "https://data.fda.gov.tw/data/opendata/export/61/csv"
       ]
+    },
+    {
+      "id": "add-polylysine",
+      "canonical_name": "ε-Polylysine (폴리라이신)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리라이신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ε-폴리라이신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "epsilon-polylysine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚離胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "poly-l-lysine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "폴리리신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만 附表一(첨가물)·원료 목록 모두 미기재 — 승인 보존료 아님(日·韓에선 천연보존료로 흔하나 대만 미등재). 사용 시 첨가물 신청 필요.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
+    },
+    {
+      "id": "add-ergocalciferol-d2",
+      "canonical_name": "Ergocalciferol (Vitamin D2)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "비타민D2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ergocalciferol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "麥角鈣化醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "鈣化醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "칼시페롤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 營養添加劑(鈣化醇). 한도(비타민D): 캡슐·정 ≤800 I.U.(20μg)/일, 일반·영유아식품 ≤15μg. D2+D3 병용 비율 합계 ≤1.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
+    },
+    {
+      "id": "add-phylloquinone-k1",
+      "canonical_name": "Phylloquinone (Vitamin K1)",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "비타민K1",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "phylloquinone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "葉綠醌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "필로퀴논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 營養添加劑 — 수치 한도 없음(各類食品 適量).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/3/csv",
+        "https://data.fda.gov.tw/opendata/exportDataList.do?method=ExportData&InfoId=199"
+      ]
+    },
+    {
+      "id": "enz-amylase",
+      "canonical_name": "Amylase (아밀라아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아밀라아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "amylase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "澱粉酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "α-amylase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 다수(α/β-amylase, glucoamylase 등)."
+    },
+    {
+      "id": "enz-protease",
+      "canonical_name": "Protease (프로테아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프로테아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "protease",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "蛋白酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "peptidase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "단백질분해효소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 다수."
+    },
+    {
+      "id": "enz-lipase",
+      "canonical_name": "Lipase (리파아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "리파아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "lipase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "脂肪酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "지방분해효소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 있음."
+    },
+    {
+      "id": "enz-cellulase",
+      "canonical_name": "Cellulase (셀룰라아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "셀룰라아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "cellulase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "纖維素酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "hemicellulase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "헤미셀룰라아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "半纖維素酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 있음."
+    },
+    {
+      "id": "enz-invertase",
+      "canonical_name": "Invertase (인버타아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "인버타아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "invertase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "轉化酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "sucrase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "전화효소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). ⚠️ 현재 등록 제품 0건(금지 아님 — 査驗登記 신청 필요)."
+    },
+    {
+      "id": "enz-catalase",
+      "canonical_name": "Catalase (카탈라아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "카탈라아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "catalase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "過氧化氫酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 허가 제품 있음."
+    },
+    {
+      "id": "enz-glucose-oxidase",
+      "canonical_name": "Glucose oxidase (글루코스옥시다아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "글루코스옥시다아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "glucose oxidase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "葡萄糖氧化酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 복합 제빵개량제 등에 포함."
+    },
+    {
+      "id": "enz-xylanase",
+      "canonical_name": "Xylanase (자일라나아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "자일라나아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "xylanase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "木聚醣酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). 블렌드 성분으로 사용."
+    },
+    {
+      "id": "enz-phytase",
+      "canonical_name": "Phytase (피타아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "피타아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "phytase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "植酸酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). ⚠️ 현재 등록 제품 0건(금지 아님 — 査驗登記 신청 필요)."
+    },
+    {
+      "id": "enz-naringinase",
+      "canonical_name": "Naringinase (나린기나아제)",
+      "category": "food_enzyme",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "나린기나아제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "naringinase",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "柚苷酶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). ⚠️ 현재 등록 제품 0건(금지 아님 — 査驗登記 신청 필요)."
     }
   ]
 }

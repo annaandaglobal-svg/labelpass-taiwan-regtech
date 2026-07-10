@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,596
-- Stored aliases: 8,935
-- Searchable aliases including identifiers: 10,098
+- Terms: 2,609
+- Stored aliases: 9,055
+- Searchable aliases including identifiers: 10,218
 - Term-rule links: 1,113
 - Regulatory update candidates: 50
-- Alias review items: 1,062
+- Alias review items: 1,066
 
 ## How To Use This Memory
 
@@ -84,9 +84,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`
   - Note: Taiwan decision note: for food-additive or nutritional-additive use, treat as not permitted unless the supplier provides a TFDA permit or official classification evidence. TFDA food additive standards use a positive-list approach: additi...
 - **Steviol Glycosides** (`steviol-glycosides-food-additive`)
-  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; 甜菊; 글루코실스테비아; 효소처리스테비아; 효소처리스테비아배당체; 효소처리스테비올배당체
+  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; enzyme-treated stevia; 甜菊; 酵素處理甜菊; 글루코실스테비아; 효소처리스테비아
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.
+  - Note: 허용 감미료((十一之一) 甜味劑, 品名 甜菊醣苷/Steviol Glycosides): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ '효소처리 스테비아' 별도 등재 없음 — 이 甜菊醣苷 규정 적용.
 - **Food Additive Functional Classes** (`food-additive-functional-classes`)
   - Aliases: food additive functional class; food additive function; preservative; preservatives; sweetener; sweeteners; 甜味劑; 防腐劑; 감미료; 보존료
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`
@@ -119,6 +119,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: DL-Methionine; DL-蛋胺酸; L-Methionine; L-蛋胺酸; Methionine; DL-甲硫胺酸; L-甲硫胺酸; 메티오닌; DL-甲硫氨酸; DL-蛋氨酸
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Food additive common-name aliases for methionine forms; verify product-specific permission before use.
+- **Pantothenates** (`pantothenate-food-additives`)
+  - Aliases: Calcium pantothenate; Sodium pantothenate; 本多酸鈉; 本多酸鈣; pantothenic acid; 泛酸; 泛酸鈉; 泛酸鈣; 비타민B5; 판토텐산
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
+  - Note: 허용 營養添加劑(本多酸鈣/鈉) — 수치 한도 없음(各類食品 適量).
 - **Sodium Bisulfite** (`fadd-sodium-bisulfite`)
   - Aliases: CAS 7757-83-7; CAS 7631-90-5; CAS 7681-57-4; CAS 10117-38-1; CAS 16731-55-8; CAS 10196-04-0; CAS 10192-30-0; CAS 7773-03-7; Ammonium bisulfite; Ammonium sulfite
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
@@ -129,10 +133,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Note: 영양강화제 겸 착색료(황색) — 조건부 허용, 영유아식 영양강화 상한 준수.
 - **Butylparaben** (`fadd-butylparaben`)
   - Aliases: CAS 94-26-8; CAS 94-13-3; CAS 35285-69-9; CAS 36457-20-2; CAS 38566-94-8; CAS 84930-16-5; Butyl 4-hydroxybenzoate and its salts Propyl 4-hydroxybenzoate and its salts(2); Butylp-Hydroxybenzoate; Butylparaben; Potassium butylparaben
-  - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
-  - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
-- **Propionic Acid** (`fadd-propionic-acid`)
-  - Aliases: CAS 79-09-4; CAS 137-40-6; CAS 17496-08-1; CAS 4075-81-4; CAS 557-27-7; CAS 327-62-8; Ammonium propionate; Calcium propionate; Magnesium propionate; Potassium propionate
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인.
 

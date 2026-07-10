@@ -28,7 +28,7 @@
 - **Food Label Required Items** (`food-label-required-items`): food labeling regulations handbook; 食品標示; 食品標示手冊; 食品標示法規手冊
 - **Nutrition Labeling** (`nutrition-labeling`): nutrition label; 營養標示; 영양성분표; nutrition facts
 - **Potassium Glycerophosphate** (`potassium-glycerophosphate-food-additive`): Potassium Glycerophosphate; 글리세로인산칼륨; 甘油磷酸鉀; Potassium glycerol phosphate
-- **Steviol Glycosides** (`steviol-glycosides-food-additive`): Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체
+- **Food Additive Functional Classes** (`food-additive-functional-classes`): food additive functional class; food additive function; preservative; preservatives
 
 ## Required Sources
 
