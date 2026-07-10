@@ -40410,12 +40410,26 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "카르니틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "肉鹼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026"
       ],
-      "notes": "대만 식품 사용 가능 원료 — 기능 표방 시 健康食品 허가 필요."
+      "notes": "허용 營養添加劑(L-肉鹼/L-Carnitine): 캡슐·정 형태 매일 ≤2 g(L-Carnitine 기준), 特殊營養食品 適量. L-酒石酸肉鹼(L-Carnitine Tartrate)은 별도 항목으로 特殊營養食品에만 適量."
     },
     {
       "id": "hfun-l-theanine",
@@ -105234,27 +105248,6 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
-        },
-        {
-          "value": "麴菌",
-          "type": "local_name",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9
-        },
-        {
-          "value": "aspergillus oryzae",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.9
-        },
-        {
-          "value": "米麴",
-          "type": "local_name",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -105463,20 +105456,6 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
-        },
-        {
-          "value": "HVP",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.9
-        },
-        {
-          "value": "가수분해단백",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -105779,77 +105758,6 @@
         "tw-tfda-systematic-inspection-imported-food"
       ],
       "notes": "⚠️ 원료 목록·食品添加物 防腐劑 목록 어디에도 미등재 — 대만 승인 보존료/원료 아님(사용 시 신소재/첨가물 승인 신청 필요). 어류 유래 알레르겐(갑각류와 별개).",
-      "verification": "verified",
-      "verifiedAt": "2026-07-10",
-      "verifiedSources": [
-        "https://data.fda.gov.tw/data/opendata/export/4/csv",
-        "https://data.fda.gov.tw/data/opendata/export/61/csv"
-      ]
-    },
-    {
-      "id": "add-l-carnitine",
-      "canonical_name": "L-Carnitine (카르니틴)",
-      "category": "food_additive",
-      "identifiers": {
-        "cas": [],
-        "inci": [],
-        "color_index": []
-      },
-      "aliases": [
-        {
-          "value": "카르니틴",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
-          "confidence": 0.9
-        },
-        {
-          "value": "L-carnitine",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.9
-        },
-        {
-          "value": "左旋肉鹼",
-          "type": "local_name",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9
-        },
-        {
-          "value": "肉鹼",
-          "type": "local_name",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9
-        },
-        {
-          "value": "L-카르니틴",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
-          "confidence": 0.9
-        },
-        {
-          "value": "L-carnitine tartrate",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.9
-        },
-        {
-          "value": "L-酒石酸肉鹼",
-          "type": "local_name",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
-          "confidence": 0.9
-        }
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-standards"
-      ],
-      "notes": "허용 營養添加劑. L-肉鹼(L-Carnitine): 캡슐·정 형태 매일 ≤2 g(L-Carnitine 기준)·特殊營養食品 適量. L-酒石酸肉鹼(L-Carnitine Tartrate)은 特殊營養食品에만 適量.",
       "verification": "verified",
       "verifiedAt": "2026-07-10",
       "verifiedSources": [
