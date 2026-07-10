@@ -8,14 +8,14 @@ domain: trade_controls
 source_type: database_guide
 priority: high
 format: html
-fetched_at: 2026-06-25T19:47:37.922Z
+fetched_at: 2026-07-10T05:40:08.743Z
 fetched_url: https://fbfh.trade.gov.tw/fh/ap/listIEGuidef.do
 extra_fetched_urls:
 cache_days: 14
-cache_expires_at: 2026-07-09T19:47:37.922Z
-cache_status: stale
-content_hash: 069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339
-from_cache: true
+cache_expires_at: 2026-07-24T05:40:08.743Z
+cache_status: fresh
+content_hash: 3175692b41f1774d4bda10dda9567ac2e1e2b941796f5828eeb4bfba47c19a1d
+from_cache: false
 manual_fallback: false
 browser_capture: false
 parse_error:

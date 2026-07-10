@@ -1,458 +1,67 @@
 {
-  "generated_at": "2026-07-05T14:00:14.262Z",
+  "generated_at": "2026-07-10T05:40:08.743Z",
   "source_registry_version": "2026-06-26",
-  "crawl_generated_at": "2026-07-05T14:00:14.262Z",
+  "crawl_generated_at": "2026-07-10T05:40:08.743Z",
   "expiring_soon_days": 7,
   "expiring_soon_fraction": 0.25,
   "summary": {
-    "total": 66,
-    "detected": 25,
-    "pending_refresh": 0,
+    "total": 50,
+    "detected": 0,
+    "pending_refresh": 9,
     "watching": 41,
     "approved": 0,
     "high": 0,
-    "medium": 62,
-    "low": 4,
+    "medium": 49,
+    "low": 1,
     "expiring_soon_max_days": 7,
     "expiring_soon_fraction": 0.25
   },
   "items": [
     {
-      "candidate_key": "cn-mofcom-export-control-portal:source_stale:58695952dccb361a",
-      "source_key": "cn-mofcom-export-control-portal",
-      "title": "China Export Control Information Portal",
-      "source_url": "https://exportcontrol.mofcom.gov.cn/",
-      "authority": "Ministry of Commerce of the People's Republic of China",
-      "jurisdiction": "CN",
-      "domain": "export_control",
-      "source_type": "regulation_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:32:35.199Z",
-      "cache_expires_at": "2026-07-09T13:32:35.199Z",
-      "previous_hash": "58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d",
-      "current_hash": "58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d",
-      "affected_domains": [
-        "export_control",
-        "export-control",
-        "dual-use",
-        "mofcom",
-        "china"
-      ],
-      "affected_terms": [],
-      "affected_products": [
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/cn-mofcom-export-control-portal.md",
-        "fetched_url": "https://exportcontrol.mofcom.gov.cn/",
-        "extra_fetched_urls": [],
-        "text_chars": 19983,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "中国出口管制信息网 网站导航 网站首页 国内动态 国际动态 合规服务 政策法规 常见问题 各方观点 两用物项查询 快速了解出口管制 在线办事 相关链接 在线办事 两用物项和技术进出口审批 最终用户和最终用途说明 相关链接 外交部 工业和信息化部 海关总署 国家国防科技工业局 中国出口管制信息网 CHINA EXPORT CONTROL INFORMATION 首 页 国内动态 国际动态 合规服务 政策法规 常见问题 各方观点 快速了解出口管制 两用物项出口管制清单数据库 在线办事 两用物项和技术进出口审批 最终用户和最终用途说明 相关链接 外交部 工业和信息化部 海关总署 国家国防科技工业局 国内动态 商务部新闻发言人就进一步完善战略矿产两用物项出口管制违法违规行为举报处理工作答记者问 中韩出口管制对话机制第三次会议及政企交流活动在陕西西安举行 中英出口管制工作组第二次会议在英国伦敦举行 商务部：坚决反对欧盟第20轮对俄制裁列单中国企业 商务部新闻发言人就美众议院外交事务委员会通过MATCH等法案答记者问 商务部新闻发言人就将7家欧盟实体列入出口管制管控名单答记者问 商务部回应稀土出口管制：中美将通过经贸磋商机制保持沟通 2025年全国出口管制工作会议在京召开 商务部国际贸易谈判代表兼副部长王受文在京出席2024年出口管制合规大会 2024年全国出口管制工作会议在京召开 中国首次发布出口管制的白皮书 国际动态 芬兰即将修订《两用物项出口管制法》 2026-05-29 德国中国商会就欧委会依据《外国补贴条例》排除中企发表声明 2026-05-03 日本通过内阁决议正式允许出口杀伤"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "export-control",
-          "dual-use",
-          "mofcom",
-          "china"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "china-export-control-information-portal"
-      }
-    },
-    {
-      "candidate_key": "cn-nmpa-cosmetics-hub:source_stale:86e2575036b289c2",
-      "source_key": "cn-nmpa-cosmetics-hub",
-      "title": "NMPA Cosmetics Hub",
-      "source_url": "https://english.nmpa.gov.cn/cosmetics.html",
-      "authority": "National Medical Products Administration",
-      "jurisdiction": "CN",
-      "domain": "cosmetics",
-      "source_type": "regulation_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:03:12.859Z",
-      "cache_expires_at": "2026-07-09T13:03:12.859Z",
-      "previous_hash": "86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647",
-      "current_hash": "86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647",
-      "affected_domains": [
-        "cosmetics",
-        "cosmetics",
-        "china",
-        "nmpa",
-        "notices"
-      ],
-      "affected_terms": [],
-      "affected_products": [
-        "cosmetics"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/cn-nmpa-cosmetics-hub.md",
-        "fetched_url": "https://english.nmpa.gov.cn/cosmetics.html",
-        "extra_fetched_urls": [],
-        "text_chars": 4215,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Cosmetics 中文 | Contact Us | search search nav Home + About NMPA + Leadership Our Responsibilities NMPA Organizations Affiliated Institutions Contact Us News + Drugs + Medical Devices + Cosmetics + Resources + Database Worldwide Pharmacopoeia Newsletter Policies Interpretation Popular Science Home > Cosmetics Requirements for the Pilot Program of Electronic Labels for Cosmetics 2025-12-24 To regulate the pilot program for electronic labels for cosmetics (including toothpaste, hereinafter referred to as \"cosmetics\"), these Requirements are formulated in accordance with the provisions of the Regulations on Supervision and Administration of Cosmetics (hereinafter referred to as the \"Regulations\""
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "cosmetics",
-          "china",
-          "nmpa",
-          "notices"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "nmpa-cosmetics-hub"
-      }
-    },
-    {
-      "candidate_key": "tw-customs-imported-goods-advance-tariff-classification-ruling:source_stale:ea78ead4ce228622",
-      "source_key": "tw-customs-imported-goods-advance-tariff-classification-ruling",
-      "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
-      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
+      "candidate_key": "tw-customs-import-cargo-clearance:source_expiring_soon:2026-07-10",
+      "source_key": "tw-customs-import-cargo-clearance",
+      "title": "Import Cargo Clearance",
+      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1451",
       "authority": "Taiwan Customs Administration",
       "jurisdiction": "TW",
       "domain": "customs",
-      "source_type": "notice",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T15:09:22.209Z",
-      "cache_expires_at": "2026-07-09T15:09:22.209Z",
-      "previous_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
-      "current_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
-      "affected_domains": [
-        "customs",
-        "customs",
-        "ccc-code",
-        "tariff-classification",
-        "advance-ruling",
-        "imported-goods"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "advance-tariff-classification-ruling",
-          "canonical_name": "Advance Tariff Classification Ruling",
-          "category": "customs_classification"
-        }
-      ],
-      "affected_products": [
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md",
-        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
-        "extra_fetched_urls": [],
-        "text_chars": 7455,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Advance Tariff Classification Rulings-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments Clearance Free Trade Zone M"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "customs",
-          "ccc-code",
-          "tariff-classification",
-          "advance-ruling",
-          "imported-goods"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "introduction-to-advance-tariff-classification-ruling-on-imported-goods"
-      }
-    },
-    {
-      "candidate_key": "tw-customs-tariff-system:source_stale:797088c0429f1eb1",
-      "source_key": "tw-customs-tariff-system",
-      "title": "Tariff System - Customs Administration",
-      "source_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
-      "authority": "Taiwan Customs Administration",
-      "jurisdiction": "TW",
-      "domain": "customs",
-      "source_type": "tariff_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T15:09:18.698Z",
-      "cache_expires_at": "2026-07-09T15:09:18.698Z",
-      "previous_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
-      "current_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
-      "affected_domains": [
-        "customs",
-        "customs",
-        "tariff",
-        "ccc-code",
-        "hs-code",
-        "tariff-query"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "hs-code-classification",
-          "canonical_name": "HS Code Classification",
-          "category": "customs_classification"
-        }
-      ],
-      "affected_products": [
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-customs-tariff-system.md",
-        "fetched_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
-        "extra_fetched_urls": [],
-        "text_chars": 3931,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Tariff System-Customs administration X message close ::: Skip to main content Home Site Map FAQs Epaper Contact Us 中文版 font size A A A ::: Popular search： x About Us Organization Structure About the Director General Tariff System Customs Museum Contact Us Cargo Clearance Non-intrusive Inspection, Self-prepared Seals and Electronic Seals ECA/FTA Rules of Origin Anti-dumping and Countervailing Duties Special Safeguards The Customs Value Determination of One-Time Transfer Pricing Manual of Advance Cargo Clearance System Travelers Arrival Departure VAT Refund for Foreigners FAQs for Arrival and Departure Convenient Services for Outbound and Inbound Passenger Anti-Money Laundering Laws & Regulati"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "customs",
-          "tariff",
-          "ccc-code",
-          "hs-code",
-          "tariff-query"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "tariff-system-customs-administration"
-      }
-    },
-    {
-      "candidate_key": "tw-moj-food-pesticide-residue-limits:source_stale:ddb1ed7beb582ce1",
-      "source_key": "tw-moj-food-pesticide-residue-limits",
-      "title": "Standards for Pesticide Residue Limits in Foods",
-      "source_url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040083",
-      "authority": "Ministry of Health and Welfare / MOJ Laws and Regulations Database",
-      "jurisdiction": "TW",
-      "domain": "food_safety",
-      "source_type": "standard",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T19:02:20.296Z",
-      "cache_expires_at": "2026-07-09T19:02:20.296Z",
-      "previous_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
-      "current_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
-      "affected_domains": [
-        "food_safety",
-        "food",
-        "pesticide-residue",
-        "mrl",
-        "crop-classification",
-        "import-risk",
-        "testing"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-pesticide-residue-limits",
-          "canonical_name": "Food Pesticide Residue Limits",
-          "category": "food_safety"
-        }
-      ],
-      "affected_products": [
-        "food",
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-moj-food-pesticide-residue-limits.md",
-        "fetched_url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=L0040083",
-        "extra_fetched_urls": [],
-        "text_chars": 4021,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Standards for Pesticide Residue Limits in Foods - Article Content - Laws & Regulations Database of The Republic of China (Taiwan) Goto Main Content ::: Sitemap 中文 Search Search News Law Convention News Law Convention Searching Justices of the Constitutional Court Related Websites Sitemap 中文 ::: Location： Home Law Article Content P Print Select Folders： Save Save Add New Folder Manage Folders Article Content Title： Standards for Pesticide Residue Limits in Foods CH Amended Date： 2026-04-21 Category： Ministry of Health and Welfare（衛生福利部） Attachment： Appendix Table 1 Standards for Pesticide Residue Limits in Foods.PDF Appendix Table 1 Standards for Pesticide Residue Limits in Foods.ODT Appendix"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food",
-          "pesticide-residue",
-          "mrl",
-          "crop-classification",
-          "import-risk",
-          "testing"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "standards-for-pesticide-residue-limits-in-foods"
-      }
-    },
-    {
-      "candidate_key": "tw-shtc-dual-use-list:source_stale:cb2c04977fa8fde8",
-      "source_key": "tw-shtc-dual-use-list",
-      "title": "Export Control List for Dual Use Items and Technology and Common Military List",
-      "source_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?Pageid=0&dl_DateRange=all&nodeID=298&pid=687872&txt_ED=&txt_Keyword=&txt_SD=",
-      "authority": "International Trade Administration, MOEA",
-      "jurisdiction": "TW",
-      "domain": "export_control",
-      "source_type": "control_list_notice",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:21.869Z",
-      "cache_expires_at": "2026-07-09T13:02:21.869Z",
-      "previous_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
-      "current_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
-      "affected_domains": [
-        "export_control",
-        "dual-use",
-        "common-military-list",
-        "export-control",
-        "ai-hardware"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "strategic-high-tech-commodities",
-          "canonical_name": "Strategic High-Tech Commodities",
-          "category": "import_export_control"
-        }
-      ],
-      "affected_products": [
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-shtc-dual-use-list.md",
-        "fetched_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?Pageid=0&dl_DateRange=all&nodeID=298&pid=687872&txt_ED=&txt_Keyword=&txt_SD=",
-        "extra_fetched_urls": [],
-        "text_chars": 3536,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Export Control Laws(SHTC) Close To recommend this article to a friend Subject： Export Control List for Dual U... Content： Friend E-Mail Sender For Share Friend Reason Verification code Voice Cancel Send Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Administration Trade Law Registration of Exporters and Importers Im"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "dual-use",
-          "common-military-list",
-          "export-control",
-          "ai-hardware"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "export-control-list-for-dual-use-items-and-technology-and-common-military-list"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-cosmetic-adverse-event-reporting-system:source_stale:7a207207cf95508b",
-      "source_key": "tw-tfda-cosmetic-adverse-event-reporting-system",
-      "title": "TFDA National Cosmetics Adverse Event Reporting System",
-      "source_url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=4244",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "cosmetics",
       "source_type": "guidance",
       "source_priority": "high",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T01:28:19.382Z",
-      "cache_expires_at": "2026-07-10T01:28:19.382Z",
-      "previous_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
-      "current_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T07:32:36.116Z",
+      "cache_expires_at": "2026-07-10T07:32:36.116Z",
+      "previous_hash": "080b766af687d648cf5e18adcde4f75effaebd5f3a341efdfd32397968d065dd",
+      "current_hash": "080b766af687d648cf5e18adcde4f75effaebd5f3a341efdfd32397968d065dd",
       "affected_domains": [
-        "cosmetics",
-        "cosmetics",
-        "adverse-event-reporting",
-        "defective-product-reporting",
-        "qms",
-        "post-market-surveillance",
-        "reporting-form"
+        "customs",
+        "customs",
+        "import-clearance",
+        "import-declaration",
+        "single-window",
+        "15-day-declaration",
+        "invoice",
+        "packing-list"
       ],
-      "affected_terms": [
-        {
-          "term_key": "cosmetic-post-market-surveillance",
-          "canonical_name": "Cosmetic Post-market Surveillance",
-          "category": "cosmetic_postmarket"
-        },
-        {
-          "term_key": "cosmetic-serious-adverse-effect-reporting",
-          "canonical_name": "Cosmetic Serious Adverse Effect Reporting",
-          "category": "cosmetic_postmarket"
-        }
-      ],
+      "affected_terms": [],
       "affected_products": [
-        "cosmetics"
+        "import_export"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-reporting-system.md",
-        "fetched_url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=4244",
+        "document_path": "data/knowledge/documents/tw-customs-import-cargo-clearance.md",
+        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1451",
         "extra_fetched_urls": [],
-        "text_chars": 5442,
+        "text_chars": 20863,
         "format": "html",
         "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "全國化粧品不良事件通報系統 - 通報入口(我要通報) - 通報及安全監視專區 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管"
+        "excerpt": "Import Cargo Clearance-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments Clearance Free Trade Zone MCC Export Cargo"
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -460,162 +69,63 @@
         "generated_by": "scripts/detect-regulatory-updates.mjs",
         "source_registry_version": "2026-06-26",
         "source_tags": [
-          "cosmetics",
-          "adverse-event-reporting",
-          "defective-product-reporting",
-          "qms",
-          "post-market-surveillance",
-          "reporting-form"
+          "customs",
+          "import-clearance",
+          "import-declaration",
+          "single-window",
+          "15-day-declaration",
+          "invoice",
+          "packing-list"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "tfda-national-cosmetics-adverse-event-reporting-system"
+        "expiring_soon_window_days": 4,
+        "compact_title": "import-cargo-clearance"
       }
     },
     {
-      "candidate_key": "tw-tfda-cosmetic-colorants:source_stale:45485a6d40cd6518",
-      "source_key": "tw-tfda-cosmetic-colorants",
-      "title": "Cosmetics Colorants Use Restrictions Open Data",
-      "source_url": "https://data.gov.tw/dataset/173686",
-      "authority": "Taiwan Food and Drug Administration",
+      "candidate_key": "tw-customs-valuation:source_expiring_soon:2026-07-10",
+      "source_key": "tw-customs-valuation",
+      "title": "Customs Valuation",
+      "source_url": "https://web.customs.gov.tw/en/singlehtml/1865?cntId=cus16_183499_1865",
+      "authority": "Taiwan Customs Administration",
       "jurisdiction": "TW",
-      "domain": "cosmetics",
-      "source_type": "dataset",
+      "domain": "customs",
+      "source_type": "guidance",
       "source_priority": "high",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:17.131Z",
-      "cache_expires_at": "2026-07-09T22:28:17.131Z",
-      "previous_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
-      "current_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T07:32:38.637Z",
+      "cache_expires_at": "2026-07-10T07:32:38.637Z",
+      "previous_hash": "65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e",
+      "current_hash": "65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e",
       "affected_domains": [
-        "cosmetics",
-        "cosmetics",
-        "colorants",
-        "color-index",
-        "ingredient-restrictions",
-        "opendata",
-        "infoid-200"
+        "customs",
+        "customs",
+        "customs-valuation",
+        "transaction-value",
+        "duty-paid-value",
+        "invoice",
+        "royalties",
+        "assists"
       ],
-      "affected_terms": [
-        {
-          "term_key": "titanium-dioxide",
-          "canonical_name": "Titanium Dioxide",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "zinc-oxide",
-          "canonical_name": "Zinc Oxide",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "cosmetic-colorants",
-          "canonical_name": "Cosmetic Colorants",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "col-mica",
-          "canonical_name": "Mica (CI 77019)",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "col-iron-oxides",
-          "canonical_name": "Iron Oxides (CI 77491/77492/77499)",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "col-carmine",
-          "canonical_name": "Carmine (CI 75470)",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "col-ci15850",
-          "canonical_name": "CI 15850 (Red 6/7)",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "riboflavin-b2",
-          "canonical_name": "Riboflavin / Vitamin B2 (核黃素)",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "fadd-magnesium-stearate",
-          "canonical_name": "Magnesium Stearate",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "fcol-anthocyanins",
-          "canonical_name": "Anthocyanins",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "tfda-restrict-acid-blue-62",
-          "canonical_name": "Acid Blue 62",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "tfda-restrict-basic-violet-2",
-          "canonical_name": "Basic Violet 2",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "tfda-color-ci-10006",
-          "canonical_name": "CI 10006",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-10020",
-          "canonical_name": "CI 10020",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-10316",
-          "canonical_name": "CI 10316",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-11680",
-          "canonical_name": "CI 11680",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-11710",
-          "canonical_name": "CI 11710",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-11725",
-          "canonical_name": "CI 11725",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-11920",
-          "canonical_name": "CI 11920",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "tfda-color-ci-12010",
-          "canonical_name": "CI 12010",
-          "category": "colorant_uv_filter"
-        }
-      ],
+      "affected_terms": [],
       "affected_products": [
-        "cosmetics"
+        "import_export"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md",
-        "fetched_url": "https://data.gov.tw/dataset/173686",
+        "document_path": "data/knowledge/documents/tw-customs-valuation.md",
+        "fetched_url": "https://web.customs.gov.tw/en/singlehtml/1865?cntId=cus16_183499_1865",
         "extra_fetched_urls": [],
-        "text_chars": 21737,
-        "format": "json",
+        "text_chars": 4710,
+        "format": "html",
         "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "化粧品色素成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品色素成分使用限制資料集 / ::: 化粧品色素成分使用限制資料集 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1342 下載次數： 56 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 Color_Index_Number／成分名、 別名、 使用範圍、 限制規定、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利"
+        "excerpt": "Customs Valuation-Customs administration X message close ::: Skip to main content Home Site Map FAQs Epaper Contact Us 中文版 font size A A A ::: Popular search： x About Us Organization Structure About the Director General Tariff System Customs Museum Contact Us Cargo Clearance Non-intrusive Inspection, Self-prepared Seals and Electronic Seals ECA/FTA Rules of Origin Anti-dumping and Countervailing Duties Special Safeguards The Customs Value Determination of One-Time Transfer Pricing Manual of Advance Cargo Clearance System Travelers Arrival Departure VAT Refund for Foreigners FAQs for Arrival and Departure Convenient Services for Outbound and Inbound Passenger Anti-Money Laundering Laws & Regu"
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -623,208 +133,43 @@
         "generated_by": "scripts/detect-regulatory-updates.mjs",
         "source_registry_version": "2026-06-26",
         "source_tags": [
-          "cosmetics",
-          "colorants",
-          "color-index",
-          "ingredient-restrictions",
-          "opendata",
-          "infoid-200"
+          "customs",
+          "customs-valuation",
+          "transaction-value",
+          "duty-paid-value",
+          "invoice",
+          "royalties",
+          "assists"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetics-colorants-use-restrictions-open-data"
+        "expiring_soon_window_days": 4,
+        "compact_title": "customs-valuation"
       }
     },
     {
-      "candidate_key": "tw-tfda-cosmetic-preservatives:source_stale:bd8153a05075179f",
-      "source_key": "tw-tfda-cosmetic-preservatives",
-      "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
-      "source_url": "https://data.gov.tw/dataset/173682",
+      "candidate_key": "tw-tfda-cosmetic-fadenbook-platform:source_expiring_soon:2026-07-11",
+      "source_key": "tw-tfda-cosmetic-fadenbook-platform",
+      "title": "TFDA Food and Drug Business Registration Platform",
+      "source_url": "http://fadenbook.fda.gov.tw/",
       "authority": "Taiwan Food and Drug Administration",
       "jurisdiction": "TW",
       "domain": "cosmetics",
-      "source_type": "dataset",
+      "source_type": "database_index",
       "source_priority": "high",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:17.829Z",
-      "cache_expires_at": "2026-07-09T22:28:17.829Z",
-      "previous_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
-      "current_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
-      "affected_domains": [
-        "cosmetics",
-        "cosmetics",
-        "preservatives",
-        "ingredient-restrictions",
-        "inci",
-        "cas",
-        "label-cautions",
-        "opendata",
-        "infoid-201"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "salicylic-acid",
-          "canonical_name": "Salicylic Acid",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "methylisothiazolinone",
-          "canonical_name": "Methylisothiazolinone",
-          "category": "preservative"
-        },
-        {
-          "term_key": "methylchloroisothiazolinone",
-          "canonical_name": "Methylchloroisothiazolinone",
-          "category": "preservative"
-        },
-        {
-          "term_key": "triclosan",
-          "canonical_name": "Triclosan",
-          "category": "preservative"
-        },
-        {
-          "term_key": "phenoxyethanol",
-          "canonical_name": "Phenoxyethanol",
-          "category": "preservative"
-        },
-        {
-          "term_key": "methylparaben",
-          "canonical_name": "Methylparaben",
-          "category": "preservative"
-        },
-        {
-          "term_key": "propylparaben",
-          "canonical_name": "Propylparaben",
-          "category": "preservative"
-        },
-        {
-          "term_key": "benzalkonium-chloride-family",
-          "canonical_name": "Benzalkonium Chloride Family",
-          "category": "preservative"
-        },
-        {
-          "term_key": "chlorhexidine-family",
-          "canonical_name": "Chlorhexidine Family",
-          "category": "preservative"
-        },
-        {
-          "term_key": "chlorphenesin",
-          "canonical_name": "Chlorphenesin",
-          "category": "preservative"
-        },
-        {
-          "term_key": "chloroxylenol",
-          "canonical_name": "Chloroxylenol",
-          "category": "preservative"
-        },
-        {
-          "term_key": "climbazole",
-          "canonical_name": "Climbazole",
-          "category": "preservative"
-        },
-        {
-          "term_key": "dmdm-hydantoin",
-          "canonical_name": "DMDM Hydantoin",
-          "category": "preservative"
-        },
-        {
-          "term_key": "diazolidinyl-urea",
-          "canonical_name": "Diazolidinyl Urea",
-          "category": "preservative"
-        },
-        {
-          "term_key": "imidazolidinyl-urea",
-          "canonical_name": "Imidazolidinyl Urea",
-          "category": "preservative"
-        },
-        {
-          "term_key": "iodopropynyl-butylcarbamate",
-          "canonical_name": "Iodopropynyl Butylcarbamate",
-          "category": "preservative"
-        },
-        {
-          "term_key": "benzoates-food-additives",
-          "canonical_name": "Benzoic Acid and Benzoates",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "sorbates-food-additives",
-          "canonical_name": "Sorbic Acid and Sorbates",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "dehydroacetic-acid-food-additive",
-          "canonical_name": "Dehydroacetic Acid",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "cosmetic-preservatives",
-          "canonical_name": "Cosmetic Preservatives",
-          "category": "cosmetic_ingredient_restriction"
-        }
-      ],
-      "affected_products": [
-        "cosmetics"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md",
-        "fetched_url": "https://data.gov.tw/dataset/173682",
-        "extra_fetched_urls": [],
-        "text_chars": 17307,
-        "format": "json",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "化粧品防腐劑成分名稱及使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防腐劑成分名稱及使用限制資料集 / ::: 化粧品防腐劑成分名稱及使用限制資料集 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1861 下載次數： 79 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "cosmetics",
-          "preservatives",
-          "ingredient-restrictions",
-          "inci",
-          "cas",
-          "label-cautions",
-          "opendata",
-          "infoid-201"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetics-preservatives-names-and-use-restrictions-open-data"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-cosmetic-product-registration-zone:source_stale:434a704a2a06927c",
-      "source_key": "tw-tfda-cosmetic-product-registration-zone",
-      "title": "Cosmetic Product Registration Zone",
-      "source_url": "https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "cosmetics",
-      "source_type": "guidance_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:28.519Z",
-      "cache_expires_at": "2026-07-09T17:40:28.519Z",
-      "previous_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
-      "current_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-27T18:58:15.589Z",
+      "cache_expires_at": "2026-07-11T18:58:15.589Z",
+      "previous_hash": "561e463fb515cb84b035213e3a9088f26668cbd84f7600c1fdc2b4cbc93198ef",
+      "current_hash": "561e463fb515cb84b035213e3a9088f26668cbd84f7600c1fdc2b4cbc93198ef",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
         "product-registration",
-        "product-notification",
-        "fadenbook",
+        "filing",
+        "pif",
+        "portal",
         "platform"
       ],
       "affected_terms": [
@@ -838,18 +183,18 @@
         "cosmetics"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-zone.md",
-        "fetched_url": "https://www.fda.gov.tw/tc/sitecontent.aspx?sid=3435",
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-fadenbook-platform.md",
+        "fetched_url": "http://fadenbook.fda.gov.tw/",
         "extra_fetched_urls": [],
-        "text_chars": 2840,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
+        "text_chars": 1836,
+        "format": "manual",
+        "from_cache": false,
+        "browser_capture": true,
+        "manual_fallback": true,
         "parse_error": null,
-        "excerpt": "化粧品產品登錄專區 - 化粧品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資訊公開 法規資訊 施政計畫及施"
+        "excerpt": "Official TFDA Food and Drug Business Registration Platform, commonly referenced as the fadenbook portal and 非登不可. Treat this as an operational companion source for Taiwan food, drug, and cosmetics business registration, operator account workflows, product notification, product registration, filing support, and responsible-firm routing. The portal is interactive and may not expose complete searchable text to automated HTTP clients, so LabelPass stores this manual operational extract as the stable knowledge anchor while the live official URL remains the verification authority. For cosmetics review, use it with TFDA cosmetic product registration platform evidence, product notification rules, PI"
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -859,861 +204,43 @@
         "source_tags": [
           "cosmetics",
           "product-registration",
-          "product-notification",
-          "fadenbook",
+          "filing",
+          "pif",
+          "portal",
           "platform"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetic-product-registration-zone"
+        "expiring_soon_window_days": 4,
+        "compact_title": "tfda-food-and-drug-business-registration-platform"
       }
     },
     {
-      "candidate_key": "tw-tfda-cosmetic-prohibited-ingredients:source_stale:dae0215e21232fba",
-      "source_key": "tw-tfda-cosmetic-prohibited-ingredients",
-      "title": "Cosmetics Prohibited Ingredients Open Data",
-      "source_url": "https://data.gov.tw/dataset/173684",
+      "candidate_key": "tw-tfda-cosmetic-pif-category-implementation-2024:source_expiring_soon:2026-07-10",
+      "source_key": "tw-tfda-cosmetic-pif-category-implementation-2024",
+      "title": "Cosmetic PIF Category Implementation Notice",
+      "source_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=30614",
       "authority": "Taiwan Food and Drug Administration",
       "jurisdiction": "TW",
       "domain": "cosmetics",
-      "source_type": "dataset",
+      "source_type": "notice",
       "source_priority": "high",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:10.345Z",
-      "cache_expires_at": "2026-07-09T22:28:10.345Z",
-      "previous_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
-      "current_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T12:20:55.377Z",
+      "cache_expires_at": "2026-07-10T12:20:55.377Z",
+      "previous_hash": "bd86f1e64c4893ca668a13375348092e1e1513b2d62956fd0a4e849d3d6a37d2",
+      "current_hash": "bd86f1e64c4893ca668a13375348092e1e1513b2d62956fd0a4e849d3d6a37d2",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
-        "prohibited-ingredients",
-        "ingredient-restrictions",
-        "cas",
-        "opendata",
-        "infoid-203"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "mercury",
-          "canonical_name": "Mercury",
-          "category": "restricted_substance"
-        },
-        {
-          "term_key": "formaldehyde",
-          "canonical_name": "Formaldehyde",
-          "category": "restricted_substance"
-        },
-        {
-          "term_key": "hydrogen-peroxide",
-          "canonical_name": "Hydrogen Peroxide",
-          "category": "oxidizing_agent"
-        },
-        {
-          "term_key": "tretinoin-retinoic-acid",
-          "canonical_name": "Tretinoin / Retinoic Acid",
-          "category": "prohibited_substance"
-        },
-        {
-          "term_key": "boric-acid",
-          "canonical_name": "Boric Acid",
-          "category": "restricted_substance"
-        },
-        {
-          "term_key": "cosmetic-prohibited-ingredients",
-          "canonical_name": "Cosmetic Prohibited Ingredients",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "p-phenylenediamine",
-          "canonical_name": "p-Phenylenediamine",
-          "category": "hair_dye_ingredient"
-        },
-        {
-          "term_key": "food-process-contaminant",
-          "canonical_name": "Process contaminants (3-MCPD·acrylamide)",
-          "category": "food_process_contaminant"
-        },
-        {
-          "term_key": "cos-proh-lead-and-compounds",
-          "canonical_name": "Lead and compounds",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-lead-acetate",
-          "canonical_name": "Lead acetate",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-arsenic-and-compounds",
-          "canonical_name": "Arsenic and compounds",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-cadmium-and-compounds",
-          "canonical_name": "Cadmium and compounds",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-antimony-and-compounds",
-          "canonical_name": "Antimony and compounds",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-chromic-acid-and-salts",
-          "canonical_name": "Chromic acid and salts",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-nickel-oxide",
-          "canonical_name": "Nickel oxide",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-cobalt-dichloride",
-          "canonical_name": "Cobalt dichloride",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-thallium-and-compounds",
-          "canonical_name": "Thallium and compounds",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-selenium-and-compounds",
-          "canonical_name": "Selenium and compounds",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-cyanides",
-          "canonical_name": "Cyanides",
-          "category": "prohibited"
-        },
-        {
-          "term_key": "cos-proh-chloroform",
-          "canonical_name": "Chloroform",
-          "category": "prohibited"
-        }
-      ],
-      "affected_products": [
-        "cosmetics"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md",
-        "fetched_url": "https://data.gov.tw/dataset/173684",
-        "extra_fetched_urls": [],
-        "text_chars": 70334,
-        "format": "json",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "化粧品禁止使用成分資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品禁止使用成分資料集 / ::: 化粧品禁止使用成分資料集 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 2645 下載次數： 255 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名稱、 CAS_Number、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 提供機關 衛生福利部食品藥物管理署 提供機關聯絡人姓名 簡 先生/小姐 (2787-82"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "cosmetics",
-          "prohibited-ingredients",
-          "ingredient-restrictions",
-          "cas",
-          "opendata",
-          "infoid-203"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetics-prohibited-ingredients-open-data"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-cosmetic-restricted-ingredients:source_stale:4a938ca8222ec5d2",
-      "source_key": "tw-tfda-cosmetic-restricted-ingredients",
-      "title": "Cosmetics Restricted Ingredients Open Data",
-      "source_url": "https://data.gov.tw/dataset/173685",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "cosmetics",
-      "source_type": "dataset",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:16.201Z",
-      "cache_expires_at": "2026-07-09T22:28:16.201Z",
-      "previous_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
-      "current_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
-      "affected_domains": [
-        "cosmetics",
-        "cosmetics",
-        "restricted-ingredients",
-        "ingredient-restrictions",
-        "inci",
-        "cas",
-        "label-cautions",
-        "opendata",
-        "infoid-199"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "salicylic-acid",
-          "canonical_name": "Salicylic Acid",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "hydrogen-peroxide",
-          "canonical_name": "Hydrogen Peroxide",
-          "category": "oxidizing_agent"
-        },
-        {
-          "term_key": "kojic-acid",
-          "canonical_name": "Kojic Acid",
-          "category": "skin_lightening_agent"
-        },
-        {
-          "term_key": "alkali-hydroxides",
-          "canonical_name": "Potassium or Sodium Hydroxide",
-          "category": "ph_adjuster"
-        },
-        {
-          "term_key": "ammonia-ammonium-hydroxide",
-          "canonical_name": "Ammonia / Ammonium Hydroxide",
-          "category": "alkalizing_agent"
-        },
-        {
-          "term_key": "resorcinol",
-          "canonical_name": "Resorcinol",
-          "category": "hair_dye_ingredient"
-        },
-        {
-          "term_key": "toluene-2-5-diamine",
-          "canonical_name": "Toluene-2,5-diamine",
-          "category": "hair_dye_ingredient"
-        },
-        {
-          "term_key": "boric-acid",
-          "canonical_name": "Boric Acid",
-          "category": "restricted_substance"
-        },
-        {
-          "term_key": "benzalkonium-chloride-family",
-          "canonical_name": "Benzalkonium Chloride Family",
-          "category": "preservative"
-        },
-        {
-          "term_key": "climbazole",
-          "canonical_name": "Climbazole",
-          "category": "preservative"
-        },
-        {
-          "term_key": "camphor",
-          "canonical_name": "Camphor",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "menthol",
-          "canonical_name": "Menthol",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "calcium-lime-food-additives",
-          "canonical_name": "Calcium Hydroxide and Calcium Oxide",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "cosmetic-restricted-ingredients",
-          "canonical_name": "Cosmetic Restricted Ingredients",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "cosmetic-preservatives",
-          "canonical_name": "Cosmetic Preservatives",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "cosmetic-sunscreen-ingredients",
-          "canonical_name": "Cosmetic Sunscreen Ingredients",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "p-phenylenediamine",
-          "canonical_name": "p-Phenylenediamine",
-          "category": "hair_dye_ingredient"
-        },
-        {
-          "term_key": "claim-whitening",
-          "canonical_name": "Whitening claim (美白)",
-          "category": "cosmetic_special_use_claim"
-        },
-        {
-          "term_key": "claim-antiwrinkle",
-          "canonical_name": "Anti-wrinkle claim (抗皺)",
-          "category": "cosmetic_marketing_claim"
-        },
-        {
-          "term_key": "claim-acne",
-          "canonical_name": "Acne care claim (面皰)",
-          "category": "cosmetic_special_use_claim"
-        }
-      ],
-      "affected_products": [
-        "cosmetics"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md",
-        "fetched_url": "https://data.gov.tw/dataset/173685",
-        "extra_fetched_urls": [],
-        "text_chars": 47885,
-        "format": "json",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "化粧品成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品成分使用限制資料集 / ::: 化粧品成分使用限制資料集 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1965 下載次數： 148 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_NO.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利部食品"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "cosmetics",
-          "restricted-ingredients",
-          "ingredient-restrictions",
-          "inci",
-          "cas",
-          "label-cautions",
-          "opendata",
-          "infoid-199"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetics-restricted-ingredients-open-data"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-cosmetic-sunscreen-ingredients:source_stale:3371892121050786",
-      "source_key": "tw-tfda-cosmetic-sunscreen-ingredients",
-      "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
-      "source_url": "https://data.gov.tw/dataset/173683",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "cosmetics",
-      "source_type": "dataset",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:23.502Z",
-      "cache_expires_at": "2026-07-09T22:28:23.502Z",
-      "previous_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
-      "current_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
-      "affected_domains": [
-        "cosmetics",
-        "cosmetics",
+        "pif",
+        "product-information-file",
+        "phased-implementation",
+        "product-categories",
         "sunscreen",
-        "uv-filter",
-        "ingredient-restrictions",
-        "spf",
-        "pif",
-        "opendata",
-        "infoid-202"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "titanium-dioxide",
-          "canonical_name": "Titanium Dioxide",
-          "category": "colorant_uv_filter"
-        },
-        {
-          "term_key": "zinc-oxide",
-          "canonical_name": "Zinc Oxide",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "benzophenone-3",
-          "canonical_name": "Benzophenone-3",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "cosmetic-sunscreen-ingredients",
-          "canonical_name": "Cosmetic Sunscreen Ingredients",
-          "category": "cosmetic_ingredient_restriction"
-        },
-        {
-          "term_key": "cos-benzophenone",
-          "canonical_name": "Benzophenones (UV)",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "uv-octocrylene",
-          "canonical_name": "Octocrylene",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-ethylhexyl-dimethyl-paba",
-          "canonical_name": "Ethylhexyl dimethyl PABA",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-homosalate",
-          "canonical_name": "Homosalate",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-ethylhexyl-methoxycinnamate",
-          "canonical_name": "Ethylhexyl methoxycinnamate",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-ethylhexyl-salicylate",
-          "canonical_name": "Ethylhexyl salicylate",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-phenylbenzimidazole-sulfonic-acid",
-          "canonical_name": "Phenylbenzimidazole sulfonic acid",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-butyl-methoxydibenzoylmethane",
-          "canonical_name": "Butyl methoxydibenzoylmethane",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-terephthalylidene-dicamphor-sulfonic-acid",
-          "canonical_name": "Terephthalylidene dicamphor sulfonic acid",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-drometrizole-trisiloxane",
-          "canonical_name": "Drometrizole trisiloxane",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-methylene-bis-benzotriazolyl-tetramethylbuty",
-          "canonical_name": "Methylene bis-benzotriazolyl tetramethylbutylphenol",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-bis-ethylhexyloxyphenol-methoxyphenyl-triazi",
-          "canonical_name": "Bis-ethylhexyloxyphenol methoxyphenyl triazine",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-polysilicone-15",
-          "canonical_name": "Polysilicone-15",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-ethylhexyl-triazone",
-          "canonical_name": "Ethylhexyl triazone",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-diethylamino-hydroxybenzoyl-hexyl-benzoate",
-          "canonical_name": "Diethylamino hydroxybenzoyl hexyl benzoate",
-          "category": "uv_filter"
-        },
-        {
-          "term_key": "tfda-uv-benzylidene-camphor-sulfonic-acid",
-          "canonical_name": "Benzylidene camphor sulfonic acid",
-          "category": "uv_filter"
-        }
-      ],
-      "affected_products": [
-        "cosmetics"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md",
-        "fetched_url": "https://data.gov.tw/dataset/173683",
-        "extra_fetched_urls": [],
-        "text_chars": 7232,
-        "format": "json",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "化粧品防曬劑成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防曬劑成分使用限制資料集 / ::: 化粧品防曬劑成分使用限制資料集 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 590 下載次數： 37 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "cosmetics",
-          "sunscreen",
-          "uv-filter",
-          "ingredient-restrictions",
-          "spf",
-          "pif",
-          "opendata",
-          "infoid-202"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetics-sunscreen-ingredients-use-restrictions-open-data"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-food-additive-registration-announcements:source_stale:4f5cf3305f6fa64d",
-      "source_key": "tw-tfda-food-additive-registration-announcements",
-      "title": "Food Additive Registration Legal Announcements",
-      "source_url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3894",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "food_additives",
-      "source_type": "notice_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:29.677Z",
-      "cache_expires_at": "2026-07-09T17:40:29.677Z",
-      "previous_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
-      "current_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
-      "affected_domains": [
-        "food_additives",
-        "food",
-        "food-additives",
-        "inspection-registration",
-        "single-additive",
-        "compound-additive",
-        "permit-number"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-additive-inspection-registration",
-          "canonical_name": "Food Additive Inspection Registration",
-          "category": "food_import"
-        },
-        {
-          "term_key": "compound-food-additive-import-documents",
-          "canonical_name": "Compound Food Additive Import Documents",
-          "category": "food_import"
-        },
-        {
-          "term_key": "potassium-glycerophosphate-food-additive",
-          "canonical_name": "Potassium Glycerophosphate",
-          "category": "food_additive"
-        }
-      ],
-      "affected_products": [
-        "food",
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-announcements.md",
-        "fetched_url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3894",
-        "extra_fetched_urls": [],
-        "text_chars": 2780,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "法規公告 - 食品添加物 - 食品查驗登記管理 - 食品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資訊公"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food",
-          "food-additives",
-          "inspection-registration",
-          "single-additive",
-          "compound-additive",
-          "permit-number"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "food-additive-registration-legal-announcements"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-food-additive-registration-materials:source_stale:6bec1679087b0a37",
-      "source_key": "tw-tfda-food-additive-registration-materials",
-      "title": "Food Additive Inspection Registration Materials",
-      "source_url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "food_additives",
-      "source_type": "guidance_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:29.382Z",
-      "cache_expires_at": "2026-07-09T17:40:29.382Z",
-      "previous_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
-      "current_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
-      "affected_domains": [
-        "food_additives",
-        "food",
-        "food-additives",
-        "inspection-registration",
-        "permit",
-        "application-materials"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-additive-inspection-registration",
-          "canonical_name": "Food Additive Inspection Registration",
-          "category": "food_import"
-        }
-      ],
-      "affected_products": [
-        "food",
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-materials.md",
-        "fetched_url": "https://www.fda.gov.tw/tc/sitelist.aspx?sid=3895",
-        "extra_fetched_urls": [],
-        "text_chars": 2682,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "辦理查驗登記相關資料 - 食品添加物 - 食品查驗登記管理 - 食品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food",
-          "food-additives",
-          "inspection-registration",
-          "permit",
-          "application-materials"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "food-additive-inspection-registration-materials"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-food-ingredient-integration-query-platform:source_stale:80425668a6a50243",
-      "source_key": "tw-tfda-food-ingredient-integration-query-platform",
-      "title": "Food Ingredient Integration Query Platform",
-      "source_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=30794",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "food_safety",
-      "source_type": "database_notice",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T00:19:14.352Z",
-      "cache_expires_at": "2026-07-10T00:19:14.352Z",
-      "previous_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
-      "current_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
-      "affected_domains": [
-        "food_safety",
-        "food-ingredients",
-        "ingredient-safety",
-        "usage-limit",
-        "caution",
-        "scientific-name",
-        "query-platform"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-ingredient-integration-query-platform",
-          "canonical_name": "Food Ingredient Integration Query Platform",
-          "category": "food_safety"
-        },
-        {
-          "term_key": "novel-food-ingredient-safety-assessment",
-          "canonical_name": "Novel Food Ingredient Safety Assessment",
-          "category": "food_safety"
-        },
-        {
-          "term_key": "panax-ginseng-botanical",
-          "canonical_name": "Panax Ginseng",
-          "category": "botanical_ingredient"
-        },
-        {
-          "term_key": "probiotics-lactic-acid-bacteria",
-          "canonical_name": "Probiotics and Lactic Acid Bacteria",
-          "category": "food_ingredient"
-        },
-        {
-          "term_key": "collagen-peptides",
-          "canonical_name": "Collagen Peptides",
-          "category": "food_cosmetic_ingredient"
-        },
-        {
-          "term_key": "potassium-glycerophosphate-food-additive",
-          "canonical_name": "Potassium Glycerophosphate",
-          "category": "food_additive"
-        },
-        {
-          "term_key": "aspergillus-oryzae-fermented-powder",
-          "canonical_name": "Aspergillus Oryzae Fermented Powder",
-          "category": "fermented_food_ingredient"
-        },
-        {
-          "term_key": "aspergillus-niger-culture",
-          "canonical_name": "Aspergillus Niger Culture",
-          "category": "fermented_food_ingredient"
-        },
-        {
-          "term_key": "green-tea-camellia-sinensis",
-          "canonical_name": "Green Tea / Camellia Sinensis",
-          "category": "botanical_ingredient"
-        },
-        {
-          "term_key": "food-palm-oil",
-          "canonical_name": "Palm Oil",
-          "category": "food_ingredient"
-        }
-      ],
-      "affected_products": [
-        "food"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-integration-query-platform.md",
-        "fetched_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=30794",
-        "extra_fetched_urls": [],
-        "text_chars": 3687,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: you are in： Home News &amp; Events News & Events Welcome to the \"Food Ingredient Integration Query Platform\" 【Update Date： 2024-10-31 】 unit：食品組 To make it easier for the public to assess the safety of ingredients used in food products, and to help food businesses take responsibility for self-regulation of food ingredients, the Taiwan Food and Drug Administration (TFDA) has established the \"Food Ingredient Integration Query Platform.\" The \"Food "
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food-ingredients",
-          "ingredient-safety",
-          "usage-limit",
-          "caution",
-          "scientific-name",
-          "query-platform"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "food-ingredient-integration-query-platform"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-formula-for-certain-disease-labeling-2025:source_stale:2a8ec848eadffeee",
-      "source_key": "tw-tfda-formula-for-certain-disease-labeling-2025",
-      "title": "Formula for Certain Disease labeling requirements",
-      "source_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "special_dietary_food",
-      "source_type": "notice",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T00:19:14.248Z",
-      "cache_expires_at": "2026-07-10T00:19:14.248Z",
-      "previous_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
-      "current_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
-      "affected_domains": [
-        "special_dietary_food",
-        "formula-for-certain-disease",
-        "special-dietary-food",
-        "labeling",
-        "warning",
-        "2025",
-        "premarket-review"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "formula-for-certain-disease",
-          "canonical_name": "Formula for Certain Disease",
-          "category": "special_dietary_food"
-        }
-      ],
-      "affected_products": [
-        "food"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-formula-for-certain-disease-labeling-2025.md",
-        "fetched_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31233",
-        "extra_fetched_urls": [],
-        "text_chars": 3293,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: you are in： Home News &amp; Events News & Events Amend “Labeling Regulations of Formula for Certain Disease” to Ensure Proper Use 【Update Date： 2025-10-08 】 unit：食品組 Formula for Certain Disease is intended for the dietary management of patients who have an impaired capacity to ingest, digest, absorb, or metabolize ordinary foods or certain nutrients, or who, for any medically proven reason, have special dietary requirements that cannot be easily"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "formula-for-certain-disease",
-          "special-dietary-food",
-          "labeling",
-          "warning",
-          "2025",
-          "premarket-review"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "formula-for-certain-disease-labeling-requirements"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-pif-implementation:source_stale:e7c51b59159139a2",
-      "source_key": "tw-tfda-pif-implementation",
-      "title": "Cosmetic Product Information Files to Be Implemented in Phases",
-      "source_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "cosmetics",
-      "source_type": "notice",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:08.995Z",
-      "cache_expires_at": "2026-07-09T13:02:08.995Z",
-      "previous_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
-      "current_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
-      "affected_domains": [
-        "cosmetics",
-        "pif",
-        "safety-assessment",
-        "2026"
+        "hair-dye",
+        "baby-care"
       ],
       "affected_terms": [
         {
@@ -1731,18 +258,18 @@
         "cosmetics"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md",
-        "fetched_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31164",
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-pif-category-implementation-2024.md",
+        "fetched_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=30614",
         "extra_fetched_urls": [],
-        "text_chars": 3215,
+        "text_chars": 2937,
         "format": "html",
         "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: you are in： Home News &amp; Events News & Events Cosmetic Product Information Files (PIF) to Be Implemented in Phases Annually 【Update Date： 2025-08-14 】 unit：醫療器材及化粧品組 To enhance the safety of cosmetic use, the Ministry of Health and Welfare has been implementing the Product Information File (PIF) system in phases since 2019. Starting July 1, 2024, PIFs have been required for sunscreens, hair dyes, perm agents, antiperspirants, and home-use too"
+        "excerpt": "訂定「應建立產品資訊檔案之化粧品種類及實施日期」，並自中華民國一百十三年七月一日生效 - 本署公告 - 公告資訊 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 "
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -1750,58 +277,150 @@
         "generated_by": "scripts/detect-regulatory-updates.mjs",
         "source_registry_version": "2026-06-26",
         "source_tags": [
+          "cosmetics",
           "pif",
-          "safety-assessment",
-          "2026"
+          "product-information-file",
+          "phased-implementation",
+          "product-categories",
+          "sunscreen",
+          "hair-dye",
+          "baby-care"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "cosmetic-product-information-files-to-be-implemented-in-phases"
+        "expiring_soon_window_days": 4,
+        "compact_title": "cosmetic-pif-category-implementation-notice"
       }
     },
     {
-      "candidate_key": "tw-trade-commodity-classification-guide:source_stale:069c428f64dd962d",
-      "source_key": "tw-trade-commodity-classification-guide",
-      "title": "Commodity Classification and Import/Export Regulation Guide",
-      "source_url": "https://fbfh.trade.gov.tw/fh/ap/listIEGuidef.do",
-      "authority": "International Trade Administration, MOEA",
+      "candidate_key": "tw-tfda-cosmetic-product-registration-categories-2024:source_expiring_soon:2026-07-10",
+      "source_key": "tw-tfda-cosmetic-product-registration-categories-2024",
+      "title": "Cosmetic Product Registration Category Notice",
+      "source_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=30612",
+      "authority": "Taiwan Food and Drug Administration",
       "jurisdiction": "TW",
-      "domain": "trade_controls",
-      "source_type": "database_guide",
+      "domain": "cosmetics",
+      "source_type": "notice",
       "source_priority": "high",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T19:47:37.922Z",
-      "cache_expires_at": "2026-07-09T19:47:37.922Z",
-      "previous_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
-      "current_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T12:20:55.690Z",
+      "cache_expires_at": "2026-07-10T12:20:55.690Z",
+      "previous_hash": "a1481cfb173986e5b5ac29eb88b6c888c939e5effc898e260c943ef0cbbf2070",
+      "current_hash": "a1481cfb173986e5b5ac29eb88b6c888c939e5effc898e260c943ef0cbbf2070",
       "affected_domains": [
-        "trade_controls",
-        "ccc-code",
+        "cosmetics",
+        "cosmetics",
+        "product-registration",
+        "product-notification",
+        "manufacturer",
+        "importer",
+        "handmade-soap"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "cosmetic-product-information-file",
+          "canonical_name": "Cosmetic Product Information File",
+          "category": "cosmetic_compliance"
+        },
+        {
+          "term_key": "cosmetic-pif-product-registration-categories",
+          "canonical_name": "Cosmetic PIF and Product Registration Categories",
+          "category": "cosmetic_compliance"
+        }
+      ],
+      "affected_products": [
+        "cosmetics",
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-categories-2024.md",
+        "fetched_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=30612",
+        "extra_fetched_urls": [],
+        "text_chars": 2712,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "訂定「應完成產品登錄之化粧品種類」，並自中華民國一百十三年七月一日生效 - 本署公告 - 公告資訊 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食"
+      },
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "cosmetics",
+          "product-registration",
+          "product-notification",
+          "manufacturer",
+          "importer",
+          "handmade-soap"
+        ],
+        "expiring_soon_window_days": 4,
+        "compact_title": "cosmetic-product-registration-category-notice"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026:source_expiring_soon:2026-07-10",
+      "source_key": "tw-tfda-import-regulation-508-food-additive-commodity-list-2026",
+      "title": "TFDA Import Regulation 508 Food Additive Commodity List Notice",
+      "source_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31540",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "food_import",
+      "source_type": "notice",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T12:20:58.580Z",
+      "cache_expires_at": "2026-07-10T12:20:58.580Z",
+      "previous_hash": "ececb03ab016f557fb01d5e9d07fe8933d6aa6d332490ae22b7216db0dcbc197",
+      "current_hash": "ececb03ab016f557fb01d5e9d07fe8933d6aa6d332490ae22b7216db0dcbc197",
+      "affected_domains": [
+        "food_import",
+        "food",
         "import-regulation",
-        "export-regulation",
-        "negative-list",
-        "shtc",
-        "mainland-china"
+        "508",
+        "food-additive",
+        "single-additive",
+        "flavor",
+        "permit-copy"
       ],
-      "affected_terms": [],
+      "affected_terms": [
+        {
+          "term_key": "import-regulation-f01-f02-508",
+          "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
+          "category": "food_import"
+        },
+        {
+          "term_key": "potassium-glycerophosphate-food-additive",
+          "canonical_name": "Potassium Glycerophosphate",
+          "category": "food_additive"
+        }
+      ],
       "affected_products": [
+        "food",
         "import_export"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-trade-commodity-classification-guide.md",
-        "fetched_url": "https://fbfh.trade.gov.tw/fh/ap/listIEGuidef.do",
+        "document_path": "data/knowledge/documents/tw-tfda-import-regulation-508-food-additive-commodity-list-2026.md",
+        "fetched_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31540",
         "extra_fetched_urls": [],
-        "text_chars": 16496,
+        "text_chars": 3154,
         "format": "html",
         "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "貨品分類管理系統 跳至主內容 menu 首 頁 申 請 最新公告異動通知申請 查 詢 公告異動資料查詢 貨品輸出入規定查詢 進口大陸物品查詢 2~11碼貨名查詢 貨品增修歷程查詢 清 單 ECFA早收清單兩岸稅則8位碼對照表 權責單位 規定與各主管機關對應 系統公告 下 載 貨品資料表下載 大陸物品下載 貨品與規定轉出 網站導覽 E English guideTitle 編號 中文 英文 實施日期 1 輸出貨品，應依貿易法、貿易法施行細則、貨品輸出管理辦法、限制輸出貨品表及海關協助查核輸出貨品表之規定辦理。輸出大陸地區貨品，應另依臺灣地區與大陸地區貿易許可辦法之規定辦理。輸出戰略性高科技貨品，應另依戰略性高科技貨品輸出入管理辦法之規定辦理。 The exportation of commodities shall be made in accordance with the Foreign Trade Act, the Enforcement Rules of the Foreign Trade Act, the Regulations Governing Export of Commodities, the “List of Commodities Subject to Export Restriction” and the “List of Commodities Assisted by Customs for Export Examination”. For commodities exported to Mainland China, the exportation s"
+        "excerpt": "公告修正「輸入規定『508』貨品分類號列表」，並溯及自中華民國一百十五年四月一日生效。 - 本署公告 - 公告資訊 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料"
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -1809,71 +428,144 @@
         "generated_by": "scripts/detect-regulatory-updates.mjs",
         "source_registry_version": "2026-06-26",
         "source_tags": [
-          "ccc-code",
+          "food",
           "import-regulation",
-          "export-regulation",
-          "negative-list",
-          "shtc",
-          "mainland-china"
+          "508",
+          "food-additive",
+          "single-additive",
+          "flavor",
+          "permit-copy"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "commodity-classification-and-import-export-regulation-guide"
+        "expiring_soon_window_days": 4,
+        "compact_title": "tfda-import-regulation-508-food-additive-commodity-list-notice"
       }
     },
     {
-      "candidate_key": "tw-trade-import-export-administration:source_stale:d5b9b9dd90c8e0f5",
-      "source_key": "tw-trade-import-export-administration",
-      "title": "Import and Export Administration",
-      "source_url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
-      "authority": "International Trade Administration, MOEA",
+      "candidate_key": "tw-tfda-import-regulation-f01-f02-commodity-table-2026:source_expiring_soon:2026-07-10",
+      "source_key": "tw-tfda-import-regulation-f01-f02-commodity-table-2026",
+      "title": "TFDA F01 and F02 Import Regulation Commodity Table Notice",
+      "source_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31462",
+      "authority": "Taiwan Food and Drug Administration",
       "jurisdiction": "TW",
-      "domain": "trade",
-      "source_type": "guidance_index",
+      "domain": "food_import",
+      "source_type": "notice",
       "source_priority": "high",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T15:09:16.612Z",
-      "cache_expires_at": "2026-07-09T15:09:16.612Z",
-      "previous_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
-      "current_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T12:20:58.251Z",
+      "cache_expires_at": "2026-07-10T12:20:58.251Z",
+      "previous_hash": "bcb6066b62aba808865946c86fbbce9f236613a44855afcbae0be0fac30392c3",
+      "current_hash": "bcb6066b62aba808865946c86fbbce9f236613a44855afcbae0be0fac30392c3",
       "affected_domains": [
-        "trade",
-        "import",
-        "export",
+        "food_import",
+        "food",
+        "import-regulation",
+        "f01",
+        "f02",
+        "commodity-code",
+        "food-utensils",
+        "food-containers",
+        "food-packaging",
+        "detergent"
+      ],
+      "affected_terms": [
+        {
+          "term_key": "import-regulation-f01-f02-508",
+          "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
+          "category": "food_import"
+        }
+      ],
+      "affected_products": [
+        "food",
+        "import_export"
+      ],
+      "evidence": {
+        "document_path": "data/knowledge/documents/tw-tfda-import-regulation-f01-f02-commodity-table-2026.md",
+        "fetched_url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31462",
+        "extra_fetched_urls": [],
+        "text_chars": 2910,
+        "format": "html",
+        "from_cache": true,
+        "browser_capture": false,
+        "manual_fallback": false,
+        "parse_error": null,
+        "excerpt": "公告修正「中華民國輸入規定F01、F02貨品分類表」，並自中華民國一百十五年四月一日生效。 - 本署公告 - 公告資訊 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史"
+      },
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
+      "reviewer_notes": null,
+      "decision": null,
+      "decided_at": null,
+      "metadata": {
+        "generated_by": "scripts/detect-regulatory-updates.mjs",
+        "source_registry_version": "2026-06-26",
+        "source_tags": [
+          "food",
+          "import-regulation",
+          "f01",
+          "f02",
+          "commodity-code",
+          "food-utensils",
+          "food-containers",
+          "food-packaging",
+          "detergent"
+        ],
+        "expiring_soon_window_days": 4,
+        "compact_title": "tfda-f01-and-f02-import-regulation-commodity-table-notice"
+      }
+    },
+    {
+      "candidate_key": "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024:source_expiring_soon:2026-07-10",
+      "source_key": "tw-tfda-specific-purpose-cosmetics-permit-repeal-2024",
+      "title": "Specific Purpose Cosmetics Permit Transition Notice",
+      "source_url": "https://www.fda.gov.tw/TC/newsContent.aspx?cid=3&id=30620",
+      "authority": "Taiwan Food and Drug Administration",
+      "jurisdiction": "TW",
+      "domain": "cosmetics",
+      "source_type": "notice",
+      "source_priority": "high",
+      "change_type": "source_expiring_soon",
+      "severity": "medium",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T12:20:55.993Z",
+      "cache_expires_at": "2026-07-10T12:20:55.993Z",
+      "previous_hash": "5027f1e1bab729cfc792c0809c220e6d88c9b8fc00be71aeab6c39d529ee6faa",
+      "current_hash": "5027f1e1bab729cfc792c0809c220e6d88c9b8fc00be71aeab6c39d529ee6faa",
+      "affected_domains": [
+        "cosmetics",
+        "cosmetics",
+        "specific-purpose-cosmetics",
         "permit",
-        "licensing",
-        "controlled-commodities"
+        "transition",
+        "repeal",
+        "premarket-license"
       ],
       "affected_terms": [
         {
-          "term_key": "import-export-permit",
-          "canonical_name": "Import and Export Permit",
-          "category": "import_export_control"
-        },
-        {
-          "term_key": "exporter-importer-registration",
-          "canonical_name": "Exporter and Importer Registration",
-          "category": "import_export_control"
+          "term_key": "specific-purpose-cosmetics-transition",
+          "canonical_name": "Specific Purpose Cosmetics Permit Transition",
+          "category": "cosmetic_compliance"
         }
       ],
       "affected_products": [
+        "cosmetics",
         "import_export"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md",
-        "fetched_url": "https://www.trade.gov.tw/english/Pages/List.aspx?nodeID=4650",
+        "document_path": "data/knowledge/documents/tw-tfda-specific-purpose-cosmetics-permit-repeal-2024.md",
+        "fetched_url": "https://www.fda.gov.tw/TC/newsContent.aspx?cid=3&id=30620",
         "extra_fetched_urls": [],
-        "text_chars": 3822,
+        "text_chars": 2577,
         "format": "html",
         "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Import & Export Administration Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Administration Trade Law Registration of Exporters and Importers Import & Export Administration CITES Certificates of Origin Export Control(SHTC) Information & Trade Statistics Forecast Trade Statistics About Us Organization Location & Map"
+        "excerpt": "廢止「特定用途化粧品許可證核發辦法」 - 本署公告 - 公告資訊 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資訊公開 法"
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -1881,105 +573,15 @@
         "generated_by": "scripts/detect-regulatory-updates.mjs",
         "source_registry_version": "2026-06-26",
         "source_tags": [
-          "import",
-          "export",
+          "cosmetics",
+          "specific-purpose-cosmetics",
           "permit",
-          "licensing",
-          "controlled-commodities"
+          "transition",
+          "repeal",
+          "premarket-license"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "import-and-export-administration"
-      }
-    },
-    {
-      "candidate_key": "tw-trade-import-export-regulations:source_stale:7ceb0f2655873288",
-      "source_key": "tw-trade-import-export-regulations",
-      "title": "Taiwan import and export related laws and regulations",
-      "source_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",
-      "authority": "International Trade Administration, MOEA",
-      "jurisdiction": "TW",
-      "domain": "trade",
-      "source_type": "regulation_index",
-      "source_priority": "high",
-      "change_type": "source_stale",
-      "severity": "medium",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:14.387Z",
-      "cache_expires_at": "2026-07-09T13:02:14.387Z",
-      "previous_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
-      "current_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
-      "affected_domains": [
-        "trade",
-        "import",
-        "export",
-        "shtc",
-        "origin",
-        "trade"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "incoterms",
-          "canonical_name": "Incoterms",
-          "category": "trade_document"
-        },
-        {
-          "term_key": "commercial-invoice",
-          "canonical_name": "Commercial Invoice",
-          "category": "customs_document"
-        },
-        {
-          "term_key": "packing-list",
-          "canonical_name": "Packing List",
-          "category": "customs_document"
-        },
-        {
-          "term_key": "shipment-purpose",
-          "canonical_name": "Shipment Purpose",
-          "category": "trade_document"
-        },
-        {
-          "term_key": "import-export-permit",
-          "canonical_name": "Import and Export Permit",
-          "category": "import_export_control"
-        },
-        {
-          "term_key": "foreign-trade-act",
-          "canonical_name": "Foreign Trade Act",
-          "category": "import_export_control"
-        }
-      ],
-      "affected_products": [
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md",
-        "fetched_url": "https://www.trade.gov.tw/english/Pages/Detail.aspx?nodeID=100&pid=741476",
-        "extra_fetched_urls": [],
-        "text_chars": 4771,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "International Trade Administration, Ministry of Economic Affairs ::: Trade Law Close To recommend this article to a friend Subject： Regulation Content： ItemTitleRevise Date1Regulations Governing Registration of Exporters and Importers2025/4/82Regulatio... Friend E-Mail Sender For Share Friend Reason Verification code Voice Cancel Send Skip to main content block \"International Trade Administration ::: Home Site Map Contact Information Chinese中文 font-size: S M L Sourcing from Taiwan Digital Trade Feature Service Overseas Services Trade Financing Trade Relations Multilateral Trade Bilateral Trade FTAs Trade Remedy Cases New Southbound MICE Industry MICE Advantages MICE Facilities Trade Law & Ad"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "import",
-          "export",
-          "shtc",
-          "origin",
-          "trade"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "taiwan-import-and-export-related-laws-and-regulations"
+        "expiring_soon_window_days": 4,
+        "compact_title": "specific-purpose-cosmetics-permit-transition-notice"
       }
     },
     {
@@ -1995,7 +597,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T07:32:36.116Z",
       "cache_expires_at": "2026-07-10T07:32:36.116Z",
       "previous_hash": "080b766af687d648cf5e18adcde4f75effaebd5f3a341efdfd32397968d065dd",
@@ -2059,11 +661,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T15:09:22.209Z",
-      "cache_expires_at": "2026-07-09T15:09:22.209Z",
-      "previous_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
-      "current_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "27a449c383106cdb32ebbdd0e73c1bd4cecd652e3837453a7af2701c1b777293",
+      "current_hash": "27a449c383106cdb32ebbdd0e73c1bd4cecd652e3837453a7af2701c1b777293",
       "affected_domains": [
         "customs",
         "customs",
@@ -2086,9 +688,9 @@
         "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md",
         "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/e6735b1fe2114e34af5d13e170c74138",
         "extra_fetched_urls": [],
-        "text_chars": 7455,
+        "text_chars": 7290,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -2125,7 +727,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T13:57:34.529Z",
       "cache_expires_at": "2026-07-12T13:57:34.529Z",
       "previous_hash": "0eea087b9d2d707180562eacfd052152e4b7bfb6a5e9d2acb9f7ba7b88bbd719",
@@ -2216,11 +818,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T15:09:18.698Z",
-      "cache_expires_at": "2026-07-09T15:09:18.698Z",
-      "previous_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
-      "current_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "b88f18075048d1ee473a824de9919076cb3ab5cd7f580ca2965951796bbe07d5",
+      "current_hash": "b88f18075048d1ee473a824de9919076cb3ab5cd7f580ca2965951796bbe07d5",
       "affected_domains": [
         "customs",
         "customs",
@@ -2243,9 +845,9 @@
         "document_path": "data/knowledge/documents/tw-customs-tariff-system.md",
         "fetched_url": "https://web.customs.gov.tw/en/multiplehtml/3349",
         "extra_fetched_urls": [],
-        "text_chars": 3931,
+        "text_chars": 3766,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -2282,7 +884,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T07:32:38.637Z",
       "cache_expires_at": "2026-07-10T07:32:38.637Z",
       "previous_hash": "65a270d0896a44a9e8217f9283ebf6925c54a845d2f94334b182d050675e635e",
@@ -2346,11 +948,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T19:02:20.296Z",
-      "cache_expires_at": "2026-07-09T19:02:20.296Z",
-      "previous_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
-      "current_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "722e3825708fad974e5f07a0f48674c39c405cd5b669ea9df0eb68d3f99b8580",
+      "current_hash": "722e3825708fad974e5f07a0f48674c39c405cd5b669ea9df0eb68d3f99b8580",
       "affected_domains": [
         "food_safety",
         "food",
@@ -2377,7 +979,7 @@
         "extra_fetched_urls": [],
         "text_chars": 4021,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -2415,11 +1017,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:21.869Z",
-      "cache_expires_at": "2026-07-09T13:02:21.869Z",
-      "previous_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
-      "current_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "745b6135b7b4a60bb20ca7b1f93a76e8ad596028ce6f9b4ee5f9a69dff20cca5",
+      "current_hash": "745b6135b7b4a60bb20ca7b1f93a76e8ad596028ce6f9b4ee5f9a69dff20cca5",
       "affected_domains": [
         "export_control",
         "dual-use",
@@ -2443,7 +1045,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3536,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -2479,7 +1081,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T13:59:36.687Z",
       "cache_expires_at": "2026-07-12T13:59:36.687Z",
       "previous_hash": "4ff8c2bc4655b46d0fae93c8bdfd7ecbc2a0367033347269f5a6ca01731495ed",
@@ -2552,11 +1154,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T01:28:19.382Z",
-      "cache_expires_at": "2026-07-10T01:28:19.382Z",
-      "previous_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
-      "current_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "1fb8a1cff3f4d358acf32da4c8111beb036773c80bc097743a4969158166e585",
+      "current_hash": "1fb8a1cff3f4d358acf32da4c8111beb036773c80bc097743a4969158166e585",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -2587,7 +1189,7 @@
         "extra_fetched_urls": [],
         "text_chars": 5442,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -2625,7 +1227,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:54.624Z",
       "cache_expires_at": "2026-07-12T08:21:54.624Z",
       "previous_hash": "4bd1a436f3184d1151d8d25a4ea6327eaad80b0fa147158f49624cf4900eeb73",
@@ -2723,11 +1325,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:17.131Z",
-      "cache_expires_at": "2026-07-09T22:28:17.131Z",
-      "previous_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
-      "current_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "fba815591b411e504bd7425a482173ebd13ee0e8ec9c3704d280ce58ceb3ea75",
+      "current_hash": "fba815591b411e504bd7425a482173ebd13ee0e8ec9c3704d280ce58ceb3ea75",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -2845,14 +1447,16 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md",
         "fetched_url": "https://data.gov.tw/dataset/173686",
-        "extra_fetched_urls": [],
-        "text_chars": 21737,
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/200/json"
+        ],
+        "text_chars": 21735,
         "format": "json",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "化粧品色素成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品色素成分使用限制資料集 / ::: 化粧品色素成分使用限制資料集 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1342 下載次數： 56 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 Color_Index_Number／成分名、 別名、 使用範圍、 限制規定、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利"
+        "excerpt": "化粧品色素成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品色素成分使用限制資料集 / ::: 化粧品色素成分使用限制資料集 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1593 下載次數： 56 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 Color_Index_Number／成分名、 別名、 使用範圍、 限制規定、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品色素成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利"
       },
       "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
       "reviewer_notes": null,
@@ -2886,7 +1490,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-27T18:58:15.589Z",
       "cache_expires_at": "2026-07-11T18:58:15.589Z",
       "previous_hash": "561e463fb515cb84b035213e3a9088f26668cbd84f7600c1fdc2b4cbc93198ef",
@@ -2954,7 +1558,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T12:20:55.377Z",
       "cache_expires_at": "2026-07-10T12:20:55.377Z",
       "previous_hash": "bd86f1e64c4893ca668a13375348092e1e1513b2d62956fd0a4e849d3d6a37d2",
@@ -3031,11 +1635,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:17.829Z",
-      "cache_expires_at": "2026-07-09T22:28:17.829Z",
-      "previous_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
-      "current_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "dda23eb5e7840b39e76c8b7f19eb84e3a6f0aa9dea969ca8e788816848eaf2d3",
+      "current_hash": "dda23eb5e7840b39e76c8b7f19eb84e3a6f0aa9dea969ca8e788816848eaf2d3",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -3155,14 +1759,16 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md",
         "fetched_url": "https://data.gov.tw/dataset/173682",
-        "extra_fetched_urls": [],
-        "text_chars": 17307,
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/201/json"
+        ],
+        "text_chars": 17305,
         "format": "json",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "化粧品防腐劑成分名稱及使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防腐劑成分名稱及使用限制資料集 / ::: 化粧品防腐劑成分名稱及使用限制資料集 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1861 下載次數： 79 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化"
+        "excerpt": "化粧品防腐劑成分名稱及使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防腐劑成分名稱及使用限制資料集 / ::: 化粧品防腐劑成分名稱及使用限制資料集 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 2124 下載次數： 80 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防腐劑成分名稱及使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化"
       },
       "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
       "reviewer_notes": null,
@@ -3198,7 +1804,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T12:20:55.690Z",
       "cache_expires_at": "2026-07-10T12:20:55.690Z",
       "previous_hash": "a1481cfb173986e5b5ac29eb88b6c888c939e5effc898e260c943ef0cbbf2070",
@@ -3272,7 +1878,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:55.355Z",
       "cache_expires_at": "2026-07-12T08:21:55.355Z",
       "previous_hash": "57bf2d9409ad67bfc7d0d3b150c493248cdae983168b24b45a439640225e815c",
@@ -3350,11 +1956,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:28.519Z",
-      "cache_expires_at": "2026-07-09T17:40:28.519Z",
-      "previous_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
-      "current_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "e0459971f991c347288898660f9b717737dc14d6d711c2b4ac80627a0bc0e641",
+      "current_hash": "e0459971f991c347288898660f9b717737dc14d6d711c2b4ac80627a0bc0e641",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -3379,7 +1985,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2840,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -3416,11 +2022,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:10.345Z",
-      "cache_expires_at": "2026-07-09T22:28:10.345Z",
-      "previous_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
-      "current_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "8ad0c994c88062e441e809cd8c6f1e711b1c28972157ecec0cbb3b4f3f470977",
+      "current_hash": "8ad0c994c88062e441e809cd8c6f1e711b1c28972157ecec0cbb3b4f3f470977",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -3538,14 +2144,16 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md",
         "fetched_url": "https://data.gov.tw/dataset/173684",
-        "extra_fetched_urls": [],
-        "text_chars": 70334,
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/203/json"
+        ],
+        "text_chars": 70332,
         "format": "json",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "化粧品禁止使用成分資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品禁止使用成分資料集 / ::: 化粧品禁止使用成分資料集 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 2645 下載次數： 255 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名稱、 CAS_Number、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 提供機關 衛生福利部食品藥物管理署 提供機關聯絡人姓名 簡 先生/小姐 (2787-82"
+        "excerpt": "化粧品禁止使用成分資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品禁止使用成分資料集 / ::: 化粧品禁止使用成分資料集 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 2959 下載次數： 274 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名稱、 CAS_Number、 備註 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品禁止使用成分資料，提供業者及消費者使用。 提供機關 衛生福利部食品藥物管理署 提供機關聯絡人姓名 簡 先生/小姐 (2787-82"
       },
       "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
       "reviewer_notes": null,
@@ -3579,11 +2187,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:16.201Z",
-      "cache_expires_at": "2026-07-09T22:28:16.201Z",
-      "previous_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
-      "current_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "ba0049784760d50ee954a45c5b9b3035965b949b035682efe0442437643cda02",
+      "current_hash": "ba0049784760d50ee954a45c5b9b3035965b949b035682efe0442437643cda02",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -3703,14 +2311,16 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md",
         "fetched_url": "https://data.gov.tw/dataset/173685",
-        "extra_fetched_urls": [],
-        "text_chars": 47885,
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/199/json"
+        ],
+        "text_chars": 47883,
         "format": "json",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "化粧品成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品成分使用限制資料集 / ::: 化粧品成分使用限制資料集 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 1965 下載次數： 148 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_NO.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利部食品"
+        "excerpt": "化粧品成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品成分使用限制資料集 / ::: 化粧品成分使用限制資料集 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 2287 下載次數： 163 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_NO.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品成分使用限制資料，提供業者及消費者使用。 提供機關 衛生福利部食品"
       },
       "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
       "reviewer_notes": null,
@@ -3746,11 +2356,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T22:28:23.502Z",
-      "cache_expires_at": "2026-07-09T22:28:23.502Z",
-      "previous_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
-      "current_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "224860ca514e0ff248afb184a53fe87c42357d3006f6092e2af4d19d1e574a68",
+      "current_hash": "224860ca514e0ff248afb184a53fe87c42357d3006f6092e2af4d19d1e574a68",
       "affected_domains": [
         "cosmetics",
         "cosmetics",
@@ -3870,14 +2480,16 @@
       "evidence": {
         "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md",
         "fetched_url": "https://data.gov.tw/dataset/173683",
-        "extra_fetched_urls": [],
-        "text_chars": 7232,
+        "extra_fetched_urls": [
+          "https://data.fda.gov.tw/data/opendata/export/202/json"
+        ],
+        "text_chars": 7230,
         "format": "json",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "化粧品防曬劑成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防曬劑成分使用限制資料集 / ::: 化粧品防曬劑成分使用限制資料集 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 590 下載次數： 37 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及"
+        "excerpt": "化粧品防曬劑成分使用限制資料集 ｜ 政府資料開放平臺 小幫手查詢服務(Beta版) 介接TAIDE服務 English （ Open AI ） No data 全部資料集瀏覽 預計下架資料集 歷史資料專區 資料集清單下載區 應用展示專區 教育資源專區 活化應用專區 獎勵活動專區 我想要更多 我有話要說 最新消息 專欄文章 關於平臺 網站導覽 常見問答 應用工具專區 指引文件 跳至主要內容 政府資料開放平臺 子選單已開啟 網站導覽 分享到 X (前 Twitter) 分享到 Facebook Language 小幫手 線上客服 會員登入 展開主選單 ::: 資料集 高應用價值主題專區 資料故事館 互動專區 消息專區 諮詢小組 授權條款 關於平臺 首頁 / 資料集 / 化粧品防曬劑成分使用限制資料集 / ::: 化粧品防曬劑成分使用限制資料集 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 評分此資料集： 平均 0.00 (0 人次投票) 金標章 瀏覽次數： 795 下載次數： 39 意見數： 0 DCAT 詞彙 列印 主要欄位說明 *粗體欄位為資料標準欄位 編號、 成分名、 INCI名、 CAS_No.、 產品類型／使用範圍、 限量標準、 限制規定、 應刊載之注意事項 資料資源下載網址 CSV 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 JSON 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及消費者使用。 XML 檢視資料 本資料集開放本署公告之化粧品防曬劑成分使用限制資料，提供業者及"
       },
       "next_action": "운영자가 주기적으로 감시해야 하는 대만 핵심 소스입니다.",
       "reviewer_notes": null,
@@ -3913,7 +2525,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:54.911Z",
       "cache_expires_at": "2026-07-12T08:21:54.911Z",
       "previous_hash": "f65193ac98a8d5cdde44b91afbc3fa06c0d49855dd40a6b8d354820f26530066",
@@ -3998,7 +2610,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T13:58:01.936Z",
       "cache_expires_at": "2026-07-12T13:58:01.936Z",
       "previous_hash": "1a221e19211bc1c2bd1264966f6622e7904ac4c5d1d6877ab6d679fdf7ac9cbb",
@@ -4079,11 +2691,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:29.677Z",
-      "cache_expires_at": "2026-07-09T17:40:29.677Z",
-      "previous_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
-      "current_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "852fafe409050b91c3688c9cd82931c07004a39e396b69d8586d2e9846420b54",
+      "current_hash": "852fafe409050b91c3688c9cd82931c07004a39e396b69d8586d2e9846420b54",
       "affected_domains": [
         "food_additives",
         "food",
@@ -4120,7 +2732,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2780,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -4158,11 +2770,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:29.382Z",
-      "cache_expires_at": "2026-07-09T17:40:29.382Z",
-      "previous_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
-      "current_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "d7c0fe0d5c1928b0451268354fa45868e6d16b2116cb44c1b92293b1b6eeb335",
+      "current_hash": "d7c0fe0d5c1928b0451268354fa45868e6d16b2116cb44c1b92293b1b6eeb335",
       "affected_domains": [
         "food_additives",
         "food",
@@ -4188,7 +2800,7 @@
         "extra_fetched_urls": [],
         "text_chars": 2682,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -4225,11 +2837,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T00:19:14.352Z",
-      "cache_expires_at": "2026-07-10T00:19:14.352Z",
-      "previous_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
-      "current_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "6cd0c16d397058f0c89050dd80cef3b6cd071899aa1537e91714c490531b5995",
+      "current_hash": "6cd0c16d397058f0c89050dd80cef3b6cd071899aa1537e91714c490531b5995",
       "affected_domains": [
         "food_safety",
         "food-ingredients",
@@ -4300,7 +2912,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3687,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -4338,7 +2950,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:56.520Z",
       "cache_expires_at": "2026-07-12T08:21:56.520Z",
       "previous_hash": "8a9b8dfe67a2b8338e929bc3c5d05230b65fcee39afeb26e127849abba2290f1",
@@ -4445,7 +3057,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:55.601Z",
       "cache_expires_at": "2026-07-12T08:21:55.601Z",
       "previous_hash": "a528a8f5b3f57667bed0fa3a750da1070f4122758a5df3e34baec75767e84212",
@@ -4590,11 +3202,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T00:19:14.248Z",
-      "cache_expires_at": "2026-07-10T00:19:14.248Z",
-      "previous_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
-      "current_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "57098d10740d3c49545699a27fba125ac7ceddc140eada6ec3d42407affeb702",
+      "current_hash": "57098d10740d3c49545699a27fba125ac7ceddc140eada6ec3d42407affeb702",
       "affected_domains": [
         "special_dietary_food",
         "formula-for-certain-disease",
@@ -4620,7 +3232,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3293,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -4658,7 +3270,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T13:58:27.221Z",
       "cache_expires_at": "2026-07-12T13:58:27.221Z",
       "previous_hash": "b79e62508e60c49a54b89642ab4eff2a230832fc9775891e6f599dae1a2deb4b",
@@ -4752,7 +3364,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T14:00:13.716Z",
       "cache_expires_at": "2026-07-12T14:00:13.716Z",
       "previous_hash": "6937af3da999bb6833ed52af98451dd653a6ea32358c0c51ad170c364a770897",
@@ -4833,7 +3445,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T12:20:58.580Z",
       "cache_expires_at": "2026-07-10T12:20:58.580Z",
       "previous_hash": "ececb03ab016f557fb01d5e9d07fe8933d6aa6d332490ae22b7216db0dcbc197",
@@ -4909,7 +3521,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T12:20:58.251Z",
       "cache_expires_at": "2026-07-10T12:20:58.251Z",
       "previous_hash": "bcb6066b62aba808865946c86fbbce9f236613a44855afcbae0be0fac30392c3",
@@ -4984,7 +3596,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:55.965Z",
       "cache_expires_at": "2026-07-12T08:21:55.965Z",
       "previous_hash": "345528ca1be159f92d435ac4f81ef7ae5ff6de98ecb184c12a0c44fc9250793c",
@@ -5058,7 +3670,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T08:21:54.329Z",
       "cache_expires_at": "2026-07-12T08:21:54.329Z",
       "previous_hash": "af80444f05aa53d715fd109a8dcd2c24223c28a0975f13d28dc78bf5c0e7f6e8",
@@ -5132,11 +3744,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:08.995Z",
-      "cache_expires_at": "2026-07-09T13:02:08.995Z",
-      "previous_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
-      "current_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "f5af3ae292ec052823df453f8584fab8a1a58f36854777b2e4dffa0cdf9bfcbd",
+      "current_hash": "f5af3ae292ec052823df453f8584fab8a1a58f36854777b2e4dffa0cdf9bfcbd",
       "affected_domains": [
         "cosmetics",
         "pif",
@@ -5164,7 +3776,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3215,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -5199,7 +3811,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T13:58:48.367Z",
       "cache_expires_at": "2026-07-12T13:58:48.367Z",
       "previous_hash": "6542fdef6b75725d30e7d57ab88a28527397cb90a68be1366bd5d66e496a3ebd",
@@ -5275,7 +3887,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-06-26T12:20:55.993Z",
       "cache_expires_at": "2026-07-10T12:20:55.993Z",
       "previous_hash": "5027f1e1bab729cfc792c0809c220e6d88c9b8fc00be71aeab6c39d529ee6faa",
@@ -5344,7 +3956,7 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
       "fetched_at": "2026-07-05T13:57:14.183Z",
       "cache_expires_at": "2026-07-12T13:57:14.183Z",
       "previous_hash": "3a475d0f91d1fb612822a132d9ac4a1ba5fd6f95bb6b7aec4980b7bb7708bd7b",
@@ -5440,11 +4052,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T19:47:37.922Z",
-      "cache_expires_at": "2026-07-09T19:47:37.922Z",
-      "previous_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
-      "current_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "3175692b41f1774d4bda10dda9567ac2e1e2b941796f5828eeb4bfba47c19a1d",
+      "current_hash": "3175692b41f1774d4bda10dda9567ac2e1e2b941796f5828eeb4bfba47c19a1d",
       "affected_domains": [
         "trade_controls",
         "ccc-code",
@@ -5464,7 +4076,7 @@
         "extra_fetched_urls": [],
         "text_chars": 16496,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -5502,9 +4114,9 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T15:09:16.612Z",
-      "cache_expires_at": "2026-07-09T15:09:16.612Z",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
       "previous_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
       "current_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
       "affected_domains": [
@@ -5536,7 +4148,7 @@
         "extra_fetched_urls": [],
         "text_chars": 3822,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -5573,11 +4185,11 @@
       "change_type": "baseline_watch",
       "severity": "medium",
       "status": "watching",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:14.387Z",
-      "cache_expires_at": "2026-07-09T13:02:14.387Z",
-      "previous_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
-      "current_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "previous_hash": "f575d193617006cfdab67b2778389534f67a5ec68ce388e01a15448c303ef7b0",
+      "current_hash": "f575d193617006cfdab67b2778389534f67a5ec68ce388e01a15448c303ef7b0",
       "affected_domains": [
         "trade",
         "import",
@@ -5627,7 +4239,7 @@
         "extra_fetched_urls": [],
         "text_chars": 4771,
         "format": "html",
-        "from_cache": true,
+        "from_cache": false,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
@@ -5652,58 +4264,151 @@
       }
     },
     {
-      "candidate_key": "tw-customs-advance-tariff-classification-ruling:source_stale:9c6a7d7249bb757f",
-      "source_key": "tw-customs-advance-tariff-classification-ruling",
-      "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
-      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4",
-      "authority": "Taiwan Customs Administration",
+      "candidate_key": "tw-trade-import-regulation-code-instruction:source_expiring_soon:2026-07-10",
+      "source_key": "tw-trade-import-regulation-code-instruction",
+      "title": "Taiwan Import Regulation Code Search Instructions",
+      "source_url": "https://fbfh.trade.gov.tw/fh/ap/listIERegf_e.do?language=E&q_type=1",
+      "authority": "International Trade Administration, Ministry of Economic Affairs",
       "jurisdiction": "TW",
-      "domain": "customs",
-      "source_type": "notice",
+      "domain": "trade",
+      "source_type": "database",
       "source_priority": "medium",
-      "change_type": "source_stale",
+      "change_type": "source_expiring_soon",
       "severity": "low",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T14:39:06.986Z",
-      "cache_expires_at": "2026-07-09T14:39:06.986Z",
-      "previous_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
-      "current_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
+      "status": "pending_refresh",
+      "detected_at": "2026-07-10T05:40:08.743Z",
+      "fetched_at": "2026-06-26T12:20:59.871Z",
+      "cache_expires_at": "2026-07-10T12:20:59.871Z",
+      "previous_hash": "27357c0d5d187014cb39f024429fcb43e5513f05d61d6014929f60c9b6d8d03b",
+      "current_hash": "27357c0d5d187014cb39f024429fcb43e5513f05d61d6014929f60c9b6d8d03b",
       "affected_domains": [
-        "customs",
-        "customs",
-        "ccc-code",
-        "tariff-classification",
-        "advance-ruling"
+        "trade",
+        "import-regulation-code",
+        "f01",
+        "f02",
+        "508",
+        "commodity-code",
+        "moea",
+        "tfda-routing"
       ],
       "affected_terms": [
         {
-          "term_key": "hs-code-classification",
-          "canonical_name": "HS Code Classification",
-          "category": "customs_classification"
+          "term_key": "import-regulation-f01-f02-508",
+          "canonical_name": "Taiwan Import Regulation Codes F01, F02 and 508",
+          "category": "food_import"
         },
         {
-          "term_key": "advance-tariff-classification-ruling",
-          "canonical_name": "Advance Tariff Classification Ruling",
-          "category": "customs_classification"
+          "term_key": "dev-bsmi-ncc",
+          "canonical_name": "Beauty device / electronics import regulation (BSMI·NCC·醫療器材)",
+          "category": "device_import_regulation"
+        },
+        {
+          "term_key": "env-recycling",
+          "canonical_name": "資源回收標誌 recycling mark & fee (環境部)",
+          "category": "environment_recycling"
+        },
+        {
+          "term_key": "commodity-label",
+          "canonical_name": "General commodity Chinese labeling (商品標示法)",
+          "category": "commodity_labeling"
+        },
+        {
+          "term_key": "alcohol-licence",
+          "canonical_name": "Alcohol/tobacco import licence (菸酒管理法)",
+          "category": "alcohol_tobacco_licence"
+        },
+        {
+          "term_key": "energy-label",
+          "canonical_name": "Energy efficiency label / MEPS (能源署)",
+          "category": "energy_efficiency_label"
+        },
+        {
+          "term_key": "env-agent",
+          "canonical_name": "Environmental agent / sanitizer borderline (環境用藥)",
+          "category": "environmental_agent_pesticide"
+        },
+        {
+          "term_key": "cites",
+          "canonical_name": "CITES endangered-species permit",
+          "category": "cites_endangered"
+        },
+        {
+          "term_key": "toy-inspection",
+          "canonical_name": "Toy commodity inspection & phthalates (BSMI)",
+          "category": "toy_inspection"
+        },
+        {
+          "term_key": "medical-device-import",
+          "canonical_name": "Medical device (contact lens/tampon/condom/mask)",
+          "category": "medical_device_import"
+        },
+        {
+          "term_key": "tobacco-vape",
+          "canonical_name": "Tobacco / e-cigarette (電子煙 banned)",
+          "category": "tobacco_vape"
+        },
+        {
+          "term_key": "disinfectant-class",
+          "canonical_name": "Disinfectant / sanitizer classification",
+          "category": "disinfectant_classification"
+        },
+        {
+          "term_key": "pfas-chemical",
+          "canonical_name": "PFAS concern chemical substances (環境部)",
+          "category": "environmental_agent_pesticide"
+        },
+        {
+          "term_key": "bsmi-2026-scope",
+          "canonical_name": "BSMI 2026 inspection scope additions",
+          "category": "device_import_regulation"
+        },
+        {
+          "term_key": "infant-food-tariff",
+          "canonical_name": "Infant food tariff classification (1901.10)",
+          "category": "infant_food_tariff"
+        },
+        {
+          "term_key": "trap-trq",
+          "canonical_name": "Tariff-rate quota (關稅配額)",
+          "category": "tariff_rate_quota"
+        },
+        {
+          "term_key": "trap-valuation",
+          "canonical_name": "Customs valuation (royalty/assist added)",
+          "category": "customs_valuation"
+        },
+        {
+          "term_key": "trap-origin-fraud",
+          "canonical_name": "Origin marking / laundering",
+          "category": "origin_marking_fraud"
+        },
+        {
+          "term_key": "trap-tariff-class",
+          "canonical_name": "Tariff classification / MFN column",
+          "category": "tariff_classification_duty"
+        },
+        {
+          "term_key": "trap-ior",
+          "canonical_name": "Importer of record (Taiwan)",
+          "category": "importer_of_record"
         }
       ],
       "affected_products": [
         "import_export"
       ],
       "evidence": {
-        "document_path": "data/knowledge/documents/tw-customs-advance-tariff-classification-ruling.md",
-        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=7d973f52a6c042698b7cd7c9dcdf34a4",
+        "document_path": "data/knowledge/documents/tw-trade-import-regulation-code-instruction.md",
+        "fetched_url": "https://fbfh.trade.gov.tw/fh/ap/listIERegf_e.do?language=E&q_type=1",
         "extra_fetched_urls": [],
-        "text_chars": 5248,
+        "text_chars": 64820,
         "format": "html",
         "from_cache": true,
         "browser_capture": false,
         "manual_fallback": false,
         "parse_error": null,
-        "excerpt": "Advance Tariff Classification Ruling Helps Find Correct CCC Code-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Express Consignments "
+        "excerpt": "Classification of Commodities and Regulations Skip to the main section menu Home Query Import and Export Regulations Importation of Mainland China products Info Authority Concerned Download Download Information Download Importation of Mainland China products Sitemap 中 中文版 regTitle Regulation codes instruction (Blank) Import permitted (free from licensing) 111 Import controlled (licensed by the Bureau of Foreign Trade.) 113 Importation from the United States, Canada, Netherlands, Sweden, Japan or Mexico shall apply for import license from the International Trade Administration, Ministry of Economic Affairs. When applying for inspection, applicants shall submit certificates for meat products i"
       },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
+      "next_action": "14일 갱신 주기 만료 전 자동 크롤링 대상에 올립니다.",
       "reviewer_notes": null,
       "decision": null,
       "decided_at": null,
@@ -5711,238 +4416,16 @@
         "generated_by": "scripts/detect-regulatory-updates.mjs",
         "source_registry_version": "2026-06-26",
         "source_tags": [
-          "customs",
-          "ccc-code",
-          "tariff-classification",
-          "advance-ruling"
+          "import-regulation-code",
+          "f01",
+          "f02",
+          "508",
+          "commodity-code",
+          "moea",
+          "tfda-routing"
         ],
-        "expiring_soon_window_days": null,
-        "compact_title": "advance-tariff-classification-ruling-helps-find-correct-ccc-code"
-      }
-    },
-    {
-      "candidate_key": "tw-customs-origin-importers:source_stale:0da863dde7ec3591",
-      "source_key": "tw-customs-origin-importers",
-      "title": "Keelung Customs origin labeling notice",
-      "source_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=9d9cf376a43c481faef23b3f584f782c",
-      "authority": "Taiwan Customs Administration",
-      "jurisdiction": "TW",
-      "domain": "customs",
-      "source_type": "notice",
-      "source_priority": "medium",
-      "change_type": "source_stale",
-      "severity": "low",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T13:02:17.038Z",
-      "cache_expires_at": "2026-07-09T13:02:17.038Z",
-      "previous_hash": "0da863dde7ec359160adca40ebc2470a66fff2854adc699e8f83b880ebd6ca15",
-      "current_hash": "0da863dde7ec359160adca40ebc2470a66fff2854adc699e8f83b880ebd6ca15",
-      "affected_domains": [
-        "customs",
-        "customs",
-        "origin",
-        "misleading-label"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "country-of-origin-marking",
-          "canonical_name": "Country of Origin Marking",
-          "category": "origin_marking"
-        },
-        {
-          "term_key": "certificate-of-origin",
-          "canonical_name": "Certificate of Origin",
-          "category": "origin_marking"
-        },
-        {
-          "term_key": "taiwan-importer-responsible-firm",
-          "canonical_name": "Taiwan Importer and Responsible Firm",
-          "category": "trade_operator"
-        }
-      ],
-      "affected_products": [
-        "import_export"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-customs-origin-importers.md",
-        "fetched_url": "https://web.customs.gov.tw/ekeelung/singlehtml/1444?cntId=9d9cf376a43c481faef23b3f584f782c",
-        "extra_fetched_urls": [],
-        "text_chars": 4906,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Keelung Customs Calls on Traders to Meet Country of Origin Labeling Requirements-Keelung Customs X message close ::: Skip to main content Site Map Contact us 中文版 font size A A A :: Popular search： x About KLC Duties and Jurisdiction Administrative Functions Features of Keelung Customs Vision of Keelung Customs Director of Keelung Customs Location Harbor Building Traveler Enquiry Hotlines Arrival Depature Anti-Money Laundering Customs Declaration Forms VAT Refund Mini-Three-Links Import/Export Import Cargo Clearance Advance Tariff Classification Rulings Duty Assessment of Imported Used Vehicles Country of Origin Marking for Exports Customs Treatment of Inconsistent Declarations Maritime Expre"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "customs",
-          "origin",
-          "misleading-label"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "keelung-customs-origin-labeling-notice"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-cosmetics-business-area:source_stale:90411a2685b04769",
-      "source_key": "tw-tfda-cosmetics-business-area",
-      "title": "TFDA Cosmetics Business Area",
-      "source_url": "https://www.fda.gov.tw/TC/site.aspx?sid=40",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "cosmetics",
-      "source_type": "guidance_index",
-      "source_priority": "medium",
-      "change_type": "source_stale",
-      "severity": "low",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-25T17:40:29.034Z",
-      "cache_expires_at": "2026-07-09T17:40:29.034Z",
-      "previous_hash": "90411a2685b04769e93bd82bded509a9add26e055c243db625fc15525e32b09f",
-      "current_hash": "90411a2685b04769e93bd82bded509a9add26e055c243db625fc15525e32b09f",
-      "affected_domains": [
-        "cosmetics",
-        "cosmetics",
-        "pif",
-        "product-registration",
-        "gmp",
-        "forms",
-        "faq"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "cosmetic-product-information-file",
-          "canonical_name": "Cosmetic Product Information File",
-          "category": "cosmetic_compliance"
-        },
-        {
-          "term_key": "cosmetic-product-notification",
-          "canonical_name": "Cosmetic Product Notification",
-          "category": "cosmetic_compliance"
-        },
-        {
-          "term_key": "cosmetic-gmp",
-          "canonical_name": "Cosmetic Good Manufacturing Practice",
-          "category": "cosmetic_gmp"
-        },
-        {
-          "term_key": "cosmetic-labeling-claims",
-          "canonical_name": "Cosmetic Labeling and Claims",
-          "category": "cosmetic_compliance"
-        }
-      ],
-      "affected_products": [
-        "cosmetics"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-cosmetics-business-area.md",
-        "fetched_url": "https://www.fda.gov.tw/TC/site.aspx?sid=40",
-        "extra_fetched_urls": [],
-        "text_chars": 2999,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "化粧品 - 業務專區 - 衛生福利部食品藥物管理署 --> 跳到主要內容區塊 English ::: 回首頁 網站導覽 English 雙語辭彙 常見問答 為民服務信箱 衛生局專區 RSS 大 中 小 關鍵字搜尋 站台 站外 搜尋 進階搜尋 熱門關鍵字： 食品添加物 營養標示 非登不可 基因改造 選單按鈕 全站搜尋 公告資訊 本署公告 本署新聞 維護公告 活動訊息 預告法規沿革區 食藥膨風廣告專區 食藥闢謠專區 國內衛生局新聞 國外消費紅綠燈 本署徵才 重大政策 科技計畫 招標資訊 新聞API服務 國際與兩岸會議及研討會 機關介紹 署長介紹 業務介紹 使命、願景與目標 機關聯絡資訊 本署諮議或審議任務編組委員名單 業務聯絡資訊 署徽設計說明 業務專區 食品 藥品 醫療器材 化粧品 區管理中心 管制藥品 實驗室認證 製藥工廠管理(GMP/GDP) 研究檢驗 企劃及科技管理 邊境查驗專區 通報及安全監視專區 法規資訊 組織及處務類 藥品、醫療器材及化粧品類 食品類法令規章 藥廠GMP相關法規 實驗室認證管理 GTP相關法規 規費與其他類 修法專區 檢驗類 管制藥品類 科技計畫執行作業相關法令及規定 便民服務 食品藥物開放資料平臺(OPEN DATA) 為民服務信箱 下載專區 廣告申請 常見問答 問卷及民調 訂閱電子報 政風園地 文宣品下載專區 旁聽專區 請託關說登錄專區 違規食品、藥物、化粧品廣告查詢 簽審系統排除錯單人員資料.pdf 出版品 新出版品消息 電子報專區 圖書 期刊 歷史資料 出版品訂購 食品藥物管理署年報 政府資訊公開 法規資訊 施政計畫及施政績效 業務統計及研究報"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "cosmetics",
-          "pif",
-          "product-registration",
-          "gmp",
-          "forms",
-          "faq"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "tfda-cosmetics-business-area"
-      }
-    },
-    {
-      "candidate_key": "tw-tfda-food-container-smart-use-2026:source_stale:fb3ec874159e5842",
-      "source_key": "tw-tfda-food-container-smart-use-2026",
-      "title": "Check, Read and Properly Use: Three Tips for Smart Using Food Containers",
-      "source_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31513",
-      "authority": "Taiwan Food and Drug Administration",
-      "jurisdiction": "TW",
-      "domain": "food_contact_materials",
-      "source_type": "consumer_notice",
-      "source_priority": "medium",
-      "change_type": "source_stale",
-      "severity": "low",
-      "status": "detected",
-      "detected_at": "2026-07-05T14:00:14.262Z",
-      "fetched_at": "2026-06-26T00:43:45.392Z",
-      "cache_expires_at": "2026-07-10T00:43:45.392Z",
-      "previous_hash": "fb3ec874159e5842e7cbb55fa84df86fa7acff14ab5a5bb277e69d60617533e6",
-      "current_hash": "fb3ec874159e5842e7cbb55fa84df86fa7acff14ab5a5bb277e69d60617533e6",
-      "affected_domains": [
-        "food_contact_materials",
-        "food-contact-materials",
-        "food-containers",
-        "material",
-        "heat-resistance",
-        "microwave-safe",
-        "single-use",
-        "consumer-safety"
-      ],
-      "affected_terms": [
-        {
-          "term_key": "food-contact-plastic-label",
-          "canonical_name": "Plastic Food Contact Labeling",
-          "category": "food_contact_materials"
-        }
-      ],
-      "affected_products": [
-        "food"
-      ],
-      "evidence": {
-        "document_path": "data/knowledge/documents/tw-tfda-food-container-smart-use-2026.md",
-        "fetched_url": "https://www.fda.gov.tw/eng/newsContent.aspx?id=31513",
-        "extra_fetched_urls": [],
-        "text_chars": 2758,
-        "format": "html",
-        "from_cache": true,
-        "browser_capture": false,
-        "manual_fallback": false,
-        "parse_error": null,
-        "excerpt": "Food and Drug Administration, Department of Health Go To Content ::: Home Sitemap Contact us Bilingual Glossary 中文版 Go Hot： food additives, Nutrition label, Medicinal Products Food Drugs Controlled Drugs Medical Devices Cosmetics About Taiwan FDA ::: you are in： Home News &amp; Events News & Events Check, Read and Properly Use: Three Tips for Smart Using Food Containers 【Update Date： 2026-05-05 】 unit：區管理中心 With the popularization of takeout and dining out, the safety of food containers has become more important than ever. The Taiwan Food and Drug Administration (TFDA) reminds the public to follow three simple steps— \"Check, Read, and Use Properly\" —to ensure food safety. 1. Check the Materi"
-      },
-      "next_action": "강제 크롤링으로 원문 캐시를 갱신하고 해시 변화를 확인합니다.",
-      "reviewer_notes": null,
-      "decision": null,
-      "decided_at": null,
-      "metadata": {
-        "generated_by": "scripts/detect-regulatory-updates.mjs",
-        "source_registry_version": "2026-06-26",
-        "source_tags": [
-          "food-contact-materials",
-          "food-containers",
-          "material",
-          "heat-resistance",
-          "microwave-safe",
-          "single-use",
-          "consumer-safety"
-        ],
-        "expiring_soon_window_days": null,
-        "compact_title": "check-read-and-properly-use-three-tips-for-smart-using-food-containers"
+        "expiring_soon_window_days": 4,
+        "compact_title": "taiwan-import-regulation-code-search-instructions"
       }
     }
   ],
@@ -5976,10 +4459,10 @@
     },
     "tw-tfda-pif-implementation": {
       "title": "Cosmetic Product Information Files to Be Implemented in Phases",
-      "content_hash": "e7c51b59159139a2ceb449186a11892a77840cbfe6c1a19912ff7e621e4ef5c5",
-      "fetched_at": "2026-06-25T13:02:08.995Z",
-      "cache_expires_at": "2026-07-09T13:02:08.995Z",
-      "cache_status": "stale",
+      "content_hash": "f5af3ae292ec052823df453f8584fab8a1a58f36854777b2e4dffa0cdf9bfcbd",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-pif-implementation.md"
     },
@@ -6039,10 +4522,10 @@
     },
     "tw-tfda-cosmetic-adverse-event-reporting-system": {
       "title": "TFDA National Cosmetics Adverse Event Reporting System",
-      "content_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
-      "fetched_at": "2026-06-26T01:28:19.382Z",
-      "cache_expires_at": "2026-07-10T01:28:19.382Z",
-      "cache_status": "stale",
+      "content_hash": "1fb8a1cff3f4d358acf32da4c8111beb036773c80bc097743a4969158166e585",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-adverse-event-reporting-system.md"
     },
@@ -6084,55 +4567,55 @@
     },
     "tw-tfda-cosmetic-prohibited-ingredients": {
       "title": "Cosmetics Prohibited Ingredients Open Data",
-      "content_hash": "dae0215e21232fbac2330fcd95e8280f5b6de8ab809b1f71f90303aea97adc2a",
-      "fetched_at": "2026-06-25T22:28:10.345Z",
-      "cache_expires_at": "2026-07-09T22:28:10.345Z",
-      "cache_status": "stale",
+      "content_hash": "8ad0c994c88062e441e809cd8c6f1e711b1c28972157ecec0cbb3b4f3f470977",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-prohibited-ingredients.md"
     },
     "tw-tfda-cosmetic-restricted-ingredients": {
       "title": "Cosmetics Restricted Ingredients Open Data",
-      "content_hash": "4a938ca8222ec5d2fcce2940eab830973762fc936e05f79cd0c20607fac4337e",
-      "fetched_at": "2026-06-25T22:28:16.201Z",
-      "cache_expires_at": "2026-07-09T22:28:16.201Z",
-      "cache_status": "stale",
+      "content_hash": "ba0049784760d50ee954a45c5b9b3035965b949b035682efe0442437643cda02",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-restricted-ingredients.md"
     },
     "tw-tfda-cosmetic-colorants": {
       "title": "Cosmetics Colorants Use Restrictions Open Data",
-      "content_hash": "45485a6d40cd65180971b980d35454fcce5b8b7757b38a6391290af905446a8c",
-      "fetched_at": "2026-06-25T22:28:17.131Z",
-      "cache_expires_at": "2026-07-09T22:28:17.131Z",
-      "cache_status": "stale",
+      "content_hash": "fba815591b411e504bd7425a482173ebd13ee0e8ec9c3704d280ce58ceb3ea75",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-colorants.md"
     },
     "tw-tfda-cosmetic-preservatives": {
       "title": "Cosmetics Preservatives Names and Use Restrictions Open Data",
-      "content_hash": "bd8153a05075179fc5c1511a1092e1987a43a12f2d22cd0e84d7d68997439d42",
-      "fetched_at": "2026-06-25T22:28:17.829Z",
-      "cache_expires_at": "2026-07-09T22:28:17.829Z",
-      "cache_status": "stale",
+      "content_hash": "dda23eb5e7840b39e76c8b7f19eb84e3a6f0aa9dea969ca8e788816848eaf2d3",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-preservatives.md"
     },
     "tw-tfda-cosmetic-sunscreen-ingredients": {
       "title": "Cosmetics Sunscreen Ingredients Use Restrictions Open Data",
-      "content_hash": "3371892121050786b6ab8b6fe07173ec7dc9f45f1c9b66b8e7369712f3ce5586",
-      "fetched_at": "2026-06-25T22:28:23.502Z",
-      "cache_expires_at": "2026-07-09T22:28:23.502Z",
-      "cache_status": "stale",
+      "content_hash": "224860ca514e0ff248afb184a53fe87c42357d3006f6092e2af4d19d1e574a68",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-sunscreen-ingredients.md"
     },
     "tw-tfda-cosmetic-product-registration-zone": {
       "title": "Cosmetic Product Registration Zone",
-      "content_hash": "434a704a2a06927c3876aaba8ef68077b27217e22dc63838a2e4d00bd818798f",
-      "fetched_at": "2026-06-25T17:40:28.519Z",
-      "cache_expires_at": "2026-07-09T17:40:28.519Z",
-      "cache_status": "stale",
+      "content_hash": "e0459971f991c347288898660f9b717737dc14d6d711c2b4ac80627a0bc0e641",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetic-product-registration-zone.md"
     },
@@ -6156,10 +4639,10 @@
     },
     "tw-tfda-cosmetics-business-area": {
       "title": "TFDA Cosmetics Business Area",
-      "content_hash": "90411a2685b04769e93bd82bded509a9add26e055c243db625fc15525e32b09f",
-      "fetched_at": "2026-06-25T17:40:29.034Z",
-      "cache_expires_at": "2026-07-09T17:40:29.034Z",
-      "cache_status": "stale",
+      "content_hash": "7a7291224b788662db3243be43f5910f58f865c68beab04d1a12fafc0271aded",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-cosmetics-business-area.md"
     },
@@ -6237,19 +4720,19 @@
     },
     "tw-tfda-food-additive-registration-materials": {
       "title": "Food Additive Inspection Registration Materials",
-      "content_hash": "6bec1679087b0a373e3c04d5426a1e524fe185dc5fa8ff723e59165cf71b993c",
-      "fetched_at": "2026-06-25T17:40:29.382Z",
-      "cache_expires_at": "2026-07-09T17:40:29.382Z",
-      "cache_status": "stale",
+      "content_hash": "d7c0fe0d5c1928b0451268354fa45868e6d16b2116cb44c1b92293b1b6eeb335",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-materials.md"
     },
     "tw-tfda-food-additive-registration-announcements": {
       "title": "Food Additive Registration Legal Announcements",
-      "content_hash": "4f5cf3305f6fa64def90b0f93947d2a71a9c99b72aebe76419966f0086b25997",
-      "fetched_at": "2026-06-25T17:40:29.677Z",
-      "cache_expires_at": "2026-07-09T17:40:29.677Z",
-      "cache_status": "stale",
+      "content_hash": "852fafe409050b91c3688c9cd82931c07004a39e396b69d8586d2e9846420b54",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-additive-registration-announcements.md"
     },
@@ -6507,10 +4990,10 @@
     },
     "tw-moj-food-pesticide-residue-limits": {
       "title": "Standards for Pesticide Residue Limits in Foods",
-      "content_hash": "ddb1ed7beb582ce1c79754dda586aeee42b19b7ea7a2e93ca094c009531b9129",
-      "fetched_at": "2026-06-25T19:02:20.296Z",
-      "cache_expires_at": "2026-07-09T19:02:20.296Z",
-      "cache_status": "stale",
+      "content_hash": "722e3825708fad974e5f07a0f48674c39c405cd5b669ea9df0eb68d3f99b8580",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-moj-food-pesticide-residue-limits.md"
     },
@@ -6606,10 +5089,10 @@
     },
     "tw-tfda-food-container-smart-use-2026": {
       "title": "Check, Read and Properly Use: Three Tips for Smart Using Food Containers",
-      "content_hash": "fb3ec874159e5842e7cbb55fa84df86fa7acff14ab5a5bb277e69d60617533e6",
-      "fetched_at": "2026-06-26T00:43:45.392Z",
-      "cache_expires_at": "2026-07-10T00:43:45.392Z",
-      "cache_status": "stale",
+      "content_hash": "bf27dc3ac0006d3e98cdb86725a6dcfbef26d345b89f41ef4447d738e9f15e3e",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-container-smart-use-2026.md"
     },
@@ -6642,10 +5125,10 @@
     },
     "tw-tfda-formula-for-certain-disease-labeling-2025": {
       "title": "Formula for Certain Disease labeling requirements",
-      "content_hash": "2a8ec848eadffeee4f2880e132a9ee9de4a2bde2ba16559699c8ee0427355ca6",
-      "fetched_at": "2026-06-26T00:19:14.248Z",
-      "cache_expires_at": "2026-07-10T00:19:14.248Z",
-      "cache_status": "stale",
+      "content_hash": "57098d10740d3c49545699a27fba125ac7ceddc140eada6ec3d42407affeb702",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-formula-for-certain-disease-labeling-2025.md"
     },
@@ -6660,10 +5143,10 @@
     },
     "tw-tfda-food-ingredient-integration-query-platform": {
       "title": "Food Ingredient Integration Query Platform",
-      "content_hash": "80425668a6a50243fe7341b222399ab7b40adf9d528ea61d45fca0ba471f292e",
-      "fetched_at": "2026-06-26T00:19:14.352Z",
-      "cache_expires_at": "2026-07-10T00:19:14.352Z",
-      "cache_status": "stale",
+      "content_hash": "6cd0c16d397058f0c89050dd80cef3b6cd071899aa1537e91714c490531b5995",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-tfda-food-ingredient-integration-query-platform.md"
     },
@@ -6696,10 +5179,10 @@
     },
     "tw-trade-import-export-regulations": {
       "title": "Taiwan import and export related laws and regulations",
-      "content_hash": "7ceb0f26558732887d77925b9fbbe12502c95807f616d7ce36b62aa618958bba",
-      "fetched_at": "2026-06-25T13:02:14.387Z",
-      "cache_expires_at": "2026-07-09T13:02:14.387Z",
-      "cache_status": "stale",
+      "content_hash": "f575d193617006cfdab67b2778389534f67a5ec68ce388e01a15448c303ef7b0",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-import-export-regulations.md"
     },
@@ -6742,9 +5225,9 @@
     "tw-trade-import-export-administration": {
       "title": "Import and Export Administration",
       "content_hash": "d5b9b9dd90c8e0f5dbb959f56f65bfa7c7bef7fedadeadac15bfe963ceb6e2c3",
-      "fetched_at": "2026-06-25T15:09:16.612Z",
-      "cache_expires_at": "2026-07-09T15:09:16.612Z",
-      "cache_status": "stale",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-import-export-administration.md"
     },
@@ -6759,10 +5242,10 @@
     },
     "tw-trade-commodity-classification-guide": {
       "title": "Commodity Classification and Import/Export Regulation Guide",
-      "content_hash": "069c428f64dd962da209e73c8c3a459e4bc20982dfb6afcc6d0c6176abc69339",
-      "fetched_at": "2026-06-25T19:47:37.922Z",
-      "cache_expires_at": "2026-07-09T19:47:37.922Z",
-      "cache_status": "stale",
+      "content_hash": "3175692b41f1774d4bda10dda9567ac2e1e2b941796f5828eeb4bfba47c19a1d",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-trade-commodity-classification-guide.md"
     },
@@ -6777,28 +5260,28 @@
     },
     "tw-customs-tariff-system": {
       "title": "Tariff System - Customs Administration",
-      "content_hash": "797088c0429f1eb1e4375f9593c9f0ccb32fa9c4678855959137d5faeae5afdd",
-      "fetched_at": "2026-06-25T15:09:18.698Z",
-      "cache_expires_at": "2026-07-09T15:09:18.698Z",
-      "cache_status": "stale",
+      "content_hash": "b88f18075048d1ee473a824de9919076cb3ab5cd7f580ca2965951796bbe07d5",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-tariff-system.md"
     },
     "tw-customs-advance-tariff-classification-ruling": {
       "title": "Advance Tariff Classification Ruling Helps Find Correct CCC Code",
-      "content_hash": "9c6a7d7249bb757f0d4923e9b89b12ba195901af592e53b1da444e97090554b7",
-      "fetched_at": "2026-06-25T14:39:06.986Z",
-      "cache_expires_at": "2026-07-09T14:39:06.986Z",
-      "cache_status": "stale",
+      "content_hash": "7d34b9a68bb6baa04fefe6a3869bc0726f9dc9230ea2261ebfdfbb14a33173d8",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-advance-tariff-classification-ruling.md"
     },
     "tw-customs-imported-goods-advance-tariff-classification-ruling": {
       "title": "Introduction to Advance Tariff Classification Ruling on Imported Goods",
-      "content_hash": "ea78ead4ce228622014c6a2cce012099548ac762687dcfa848a59401c9e249fe",
-      "fetched_at": "2026-06-25T15:09:22.209Z",
-      "cache_expires_at": "2026-07-09T15:09:22.209Z",
-      "cache_status": "stale",
+      "content_hash": "27a449c383106cdb32ebbdd0e73c1bd4cecd652e3837453a7af2701c1b777293",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-imported-goods-advance-tariff-classification-ruling.md"
     },
@@ -6813,10 +5296,10 @@
     },
     "tw-customs-origin-importers": {
       "title": "Keelung Customs origin labeling notice",
-      "content_hash": "0da863dde7ec359160adca40ebc2470a66fff2854adc699e8f83b880ebd6ca15",
-      "fetched_at": "2026-06-25T13:02:17.038Z",
-      "cache_expires_at": "2026-07-09T13:02:17.038Z",
-      "cache_status": "stale",
+      "content_hash": "1af9bc36a3f1f90b17b319b136900aec177471d07935d346a1b2bad7637a8a40",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-customs-origin-importers.md"
     },
@@ -6876,10 +5359,10 @@
     },
     "tw-shtc-dual-use-list": {
       "title": "Export Control List for Dual Use Items and Technology and Common Military List",
-      "content_hash": "cb2c04977fa8fde83cc061293d6647ced12b006c7f2c711136b5ab5930ec7403",
-      "fetched_at": "2026-06-25T13:02:21.869Z",
-      "cache_expires_at": "2026-07-09T13:02:21.869Z",
-      "cache_status": "stale",
+      "content_hash": "745b6135b7b4a60bb20ca7b1f93a76e8ad596028ce6f9b4ee5f9a69dff20cca5",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/tw-shtc-dual-use-list.md"
     },
@@ -7200,10 +5683,10 @@
     },
     "cn-nmpa-cosmetics-hub": {
       "title": "NMPA Cosmetics Hub",
-      "content_hash": "86e2575036b289c2136d609fa12c1de92cbe22a6328183413739d23cf2ea3647",
-      "fetched_at": "2026-06-25T13:03:12.859Z",
-      "cache_expires_at": "2026-07-09T13:03:12.859Z",
-      "cache_status": "stale",
+      "content_hash": "54cdc0ec9c380e2646e17396eb6d71f4f81504b62e7278aded8142ea4b21fbd5",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/cn-nmpa-cosmetics-hub.md"
     },
@@ -7236,10 +5719,10 @@
     },
     "cn-mofcom-export-control-portal": {
       "title": "China Export Control Information Portal",
-      "content_hash": "58695952dccb361a93da0e604306828c4086f841c015926afa7b7e2a2cd9a56d",
-      "fetched_at": "2026-06-25T13:32:35.199Z",
-      "cache_expires_at": "2026-07-09T13:32:35.199Z",
-      "cache_status": "stale",
+      "content_hash": "7866a46bbb4d890667f7c5332d2c309cb3b93d0472d0f19e53ecb0e846461c9b",
+      "fetched_at": "2026-07-10T05:40:08.743Z",
+      "cache_expires_at": "2026-07-24T05:40:08.743Z",
+      "cache_status": "fresh",
       "parse_error": null,
       "document_path": "data/knowledge/documents/cn-mofcom-export-control-portal.md"
     },
