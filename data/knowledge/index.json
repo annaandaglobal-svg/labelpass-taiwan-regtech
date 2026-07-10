@@ -395,7 +395,7 @@
       "browser_capture": false,
       "cache_days": 14,
       "cache_expires_at": "2026-07-10T01:28:19.382Z",
-      "cache_status": "fresh",
+      "cache_status": "stale",
       "content_hash": "7a207207cf95508b730854481e5c9c2b43dbe563f02f9ea853b098b872a6011d",
       "bytes": 187913,
       "text_chars": 5442,

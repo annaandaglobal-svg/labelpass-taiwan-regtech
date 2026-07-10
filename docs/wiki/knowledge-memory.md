@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-05T14:00:14.262Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,494
-- Stored aliases: 8,184
-- Searchable aliases including identifiers: 9,341
+- Terms: 2,495
+- Stored aliases: 8,214
+- Searchable aliases including identifiers: 9,372
 - Term-rule links: 1,111
 - Regulatory update candidates: 65
-- Alias review items: 1,036
+- Alias review items: 1,043
 
 ## How To Use This Memory
 
@@ -84,7 +84,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`, `tw-tfda-food-additive-registration-announcements`, `tw-tfda-food-ingredient-integration-query-platform`, `tw-tfda-import-regulation-508-food-additive-commodity-list-2026`
   - Note: Taiwan decision note: for food-additive or nutritional-additive use, treat as not permitted unless the supplier provides a TFDA permit or official classification evidence. TFDA food additive standards use a positive-list approach: additi...
 - **Steviol Glycosides** (`steviol-glycosides-food-additive`)
-  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; 글루코실스테비아; 효소처리스테비아; 효소처리스테비아배당체; 효소처리스테비올배당체; Stevia sweetener
+  - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; 甜菊; 글루코실스테비아; 효소처리스테비아; 효소처리스테비아배당체; 효소처리스테비올배당체
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
   - Note: Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.
 - **Food Additive Functional Classes** (`food-additive-functional-classes`)
@@ -99,14 +99,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; CAS 7492-55-9; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
-- **Casein and Caseinates** (`caseinates-food-additives`)
-  - Aliases: CAS 9000-71-9; Calcium caseinate; Casein; Sodium caseinate; 乾酪素; 乾酪素鈉; 乾酪素鈣; 酪蛋白; 酪蛋白鈉; 酪蛋白鈣
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
-  - Note: Food additive common-name set that also overlaps with milk allergen review.
 - **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
   - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
   - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
+- **Casein and Caseinates** (`caseinates-food-additives`)
+  - Aliases: CAS 9000-71-9; Calcium caseinate; Casein; Sodium caseinate; 乾酪素; 乾酪素鈉; 乾酪素鈣; 酪蛋白; 酪蛋白鈉; 酪蛋白鈣
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
+  - Note: Food additive common-name set that also overlaps with milk allergen review.
 - **Dehydroacetic Acid** (`dehydroacetic-acid-food-additive`)
   - Aliases: CAS 520-45-6; CAS 16807-48-0; CAS 4418-26-2; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts; Sodium dehydroacetate; 탈수초산
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
@@ -427,10 +427,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: INCI Madecassoside; INCI Asiaticoside; INCI Asiatic Acid; INCI Madecassic Acid; Asiaticoside; Madecassoside; Asiatic Acid; Madecassic Acid; 마데카소사이드; 아시아티코사이드
   - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `global-cas-registry`, `tw-moj-cosmetic-claims-criteria`
   - Note: Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants.
-- **Common cosmetic actives (allowed)** (`cos-common-actives`)
-  - Aliases: PDRN; aloe; ceramide; galactomyces; houttuynia; peptide; propolis; resveratrol; snail; tea tree
-  - Sources: `global-pcpc-inci`, `global-cas-registry`
-  - Note: 일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.
 
 ### Preservative
 

@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2494,
-    "stored_aliases": 8184,
-    "searchable_aliases": 9341,
-    "identifier_aliases": 1157,
+    "terms": 2495,
+    "stored_aliases": 8214,
+    "searchable_aliases": 9372,
+    "identifier_aliases": 1158,
     "term_rule_links": 1111,
     "regulatory_update_candidates": 65,
-    "alias_review_items": 1036,
+    "alias_review_items": 1043,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -3396,18 +3396,18 @@
         "甜菊醣苷",
         "스테비올배당체",
         "Steviol glycoside",
+        "甜菊",
         "글루코실스테비아",
         "효소처리스테비아",
         "효소처리스테비아배당체",
-        "효소처리스테비올배당체",
-        "Stevia sweetener"
+        "효소처리스테비올배당체"
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Taiwan food additive common-name table maps 甜菊醣苷 to 甜菊糖. When an import document says Stevia or 스테비아, treat it as a sweetener/additive identity check rather than a finished approval decision.",
-      "score": 2201
+      "score": 2203
     },
     {
       "id": "shtc-export-permit",
@@ -4465,6 +4465,31 @@
       "score": 228
     },
     {
+      "id": "calcium-lime-food-additives",
+      "canonical_name": "Calcium Hydroxide and Calcium Oxide",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 1305-62-0",
+        "CAS 1305-78-8",
+        "Calcium hydroxide",
+        "Calcium oxide",
+        "氧化鈣",
+        "氫氧化鈣",
+        "熟石灰",
+        "生石灰",
+        "산화칼슘",
+        "수산화칼슘"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table",
+        "tw-tfda-cosmetic-restricted-ingredients"
+      ],
+      "notes": "Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.",
+      "score": 226
+    },
+    {
       "id": "caseinates-food-additives",
       "canonical_name": "Casein and Caseinates",
       "category": "food_additive",
@@ -4514,31 +4539,6 @@
       ],
       "notes": "Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator.",
       "score": 226
-    },
-    {
-      "id": "calcium-lime-food-additives",
-      "canonical_name": "Calcium Hydroxide and Calcium Oxide",
-      "category": "food_additive",
-      "category_label": "Food additive",
-      "aliases": [
-        "CAS 1305-62-0",
-        "CAS 1305-78-8",
-        "Calcium hydroxide",
-        "Calcium oxide",
-        "氧化鈣",
-        "氫氧化鈣",
-        "熟石灰",
-        "生石灰",
-        "산화칼슘",
-        "수산화칼슘"
-      ],
-      "source_keys": [
-        "tw-tfda-food-additive-common-names",
-        "tw-tfda-food-additive-common-names-table",
-        "tw-tfda-cosmetic-restricted-ingredients"
-      ],
-      "notes": "Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.",
-      "score": 224
     },
     {
       "id": "dehydroacetic-acid-food-additive",
@@ -4612,7 +4612,7 @@
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Representative food additive alias set from Taiwan common-name material.",
-      "score": 207
+      "score": 213
     },
     {
       "id": "incoterms",
@@ -5042,6 +5042,28 @@
         "tw-customs-tariff-database-download"
       ],
       "notes": "Customs and logistics document concept for carton, quantity, weight, and package details.",
+      "score": 189
+    },
+    {
+      "id": "sorbitol-food-additive",
+      "canonical_name": "Sorbitol",
+      "category": "food_additive",
+      "category_label": "Food additive",
+      "aliases": [
+        "CAS 50-70-4",
+        "D-Sorbitol",
+        "D-山梨醇",
+        "Sorbitol",
+        "山梨糖醇",
+        "소르비톨",
+        "솔비톨",
+        "山梨醇"
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-common-names",
+        "tw-tfda-food-additive-common-names-table"
+      ],
+      "notes": "Taiwan food additive common-name table maps D-山梨醇 to 山梨糖醇.",
       "score": 189
     },
     {
@@ -5486,47 +5508,23 @@
       ],
       "notes": "Taiwan food-additive inspection registration concept, especially single food additives under TFDA registration and permit-document management.",
       "score": 171
-    },
-    {
-      "id": "cos-common-actives",
-      "canonical_name": "Common cosmetic actives (allowed)",
-      "category": "cosmetic_ingredient",
-      "category_label": "Cosmetic ingredient",
-      "aliases": [
-        "PDRN",
-        "aloe",
-        "ceramide",
-        "galactomyces",
-        "houttuynia",
-        "peptide",
-        "propolis",
-        "resveratrol",
-        "snail",
-        "tea tree"
-      ],
-      "source_keys": [
-        "global-pcpc-inci",
-        "global-cas-registry"
-      ],
-      "notes": "일반 화장품 원료 — 대부분 허용, 함량·안전성 확인.",
-      "score": 169
     }
   ],
   "alias_review": {
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2494,
-      "aliases_scanned": 8184,
-      "alias_rows_scanned": 8184,
-      "collision_groups": 220,
-      "high_confidence_collisions": 171,
+      "terms_scanned": 2495,
+      "aliases_scanned": 8214,
+      "alias_rows_scanned": 8214,
+      "collision_groups": 227,
+      "high_confidence_collisions": 178,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 816,
       "strict_blockers": 0,
-      "review_items": 1036
+      "review_items": 1043
     },
     "items": [
       {

@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2427,
+  "curated_term_count": 2428,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -1805,6 +1805,16 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가성소다",
+          "normalized": "가성소다",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -3988,6 +3998,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "글루타민산나트륨",
+          "normalized": "글루타민산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-글루탐산나트륨",
+          "normalized": "l-글루탐산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "엘글루타민산나트륨",
+          "normalized": "엘글루타민산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -5505,6 +5545,16 @@
           "confidence": 0.85,
           "note": "Broad alias; verify context.",
           "source": "curated"
+        },
+        {
+          "value": "소석회",
+          "normalized": "소석회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -5803,6 +5853,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "甜菊",
+          "normalized": "甜菊",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -5880,6 +5940,16 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.95,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山梨醇",
+          "normalized": "山梨醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -40899,6 +40969,26 @@
           "confidence": 0.7,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "이노신산나트륨",
+          "normalized": "이노신산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "이노신산이나트륨",
+          "normalized": "이노신산이나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -40953,6 +41043,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "구아닐산나트륨",
+          "normalized": "구아닐산나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "구아닐산이나트륨",
+          "normalized": "구아닐산이나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -41067,12 +41177,52 @@
           "confidence": 0.7,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "말산",
+          "normalized": "말산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "사과산",
+          "normalized": "사과산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-말산",
+          "normalized": "dl-말산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "DL-蘋果酸",
+          "normalized": "dl-蘋果酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 식품첨가물((十一) 調味劑, 品名 DL-蘋果酸(羥基丁二酸)). 各類食品 適量(QS) — 製造·加工 필요 시. ⚠️ 嬰兒食品 不得使用(영유아식품 사용 금지) + 鮮乳·保久乳 제외. DL형만 등재(D-/L- 단독 미등재)."
     },
     {
       "id": "fadd-tartaric-acid",
@@ -41121,6 +41271,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "주석산",
+          "normalized": "주석산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "타르타르산",
+          "normalized": "타르타르산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -41177,6 +41347,56 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.7,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "아세트산",
+          "normalized": "아세트산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "빙초산",
+          "normalized": "빙초산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "glacial acetic acid",
+          "normalized": "glacial acetic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "冰醋酸",
+          "normalized": "冰醋酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "acetic acid glacial",
+          "normalized": "acetic acid glacial",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -41764,7 +41984,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 포지티브 리스트 — 사용범위·한도 확인."
+      "notes": "허용 식품첨가물((十一) 調味劑, 品名 磷酸). ⚠️ 유리 인산은 可樂(콜라)·茶類飲料(차 음료)에만 ≤0.6 g/kg — 다른 산들과 달리 용도·수치 한도 있음. 製造·加工 필요 시, 鮮乳·保久乳 제외. (인산염 磷酸鈉/鈣/鉀 등은 별개 항목: 3g/kg as Phosphate 등)."
     },
     {
       "id": "fadd-trisodium-phosphate",
@@ -87776,6 +87996,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "황산마그네슘",
+          "normalized": "황산마그네슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "마그네슘설페이트",
+          "normalized": "마그네슘설페이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -122229,6 +122469,84 @@
         "tw-tfda-food-additive-standards"
       ],
       "notes": "허용 식품첨가물((十五) 載體/Carrier, 品名 丙二醇). 各類食品 適量(QS) — 단 鮮乳·保久乳(생우유·UHT우유) 제외(포지티브 리스트). CAS 57-55-6 / E1520. ⚠️ 1,3-프로판다이올(Propanediol, 화장품 CAS 504-63-2)과 다른 물질 — 대만 식품첨가물 목록엔 1,2-丙二醇만 등재. 화장품 보습·용제로도 흔히 사용."
+    },
+    {
+      "id": "add-lactic-acid",
+      "canonical_name": "Lactic Acid",
+      "category": "food_additive",
+      "identifiers": {
+        "cas": [
+          "50-21-5"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "락트산",
+          "normalized": "락트산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "젖산",
+          "normalized": "젖산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "lactic acid",
+          "normalized": "lactic acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "乳酸",
+          "normalized": "乳酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "E270",
+          "normalized": "e270",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.75,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "L-락트산",
+          "normalized": "l-락트산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-additive-standards"
+      ],
+      "notes": "허용 식품첨가물((十一) 調味劑/조미제, 品名 乳酸). 各類食品 適量(QS) — 製造·加工 필요 시 한정, ⚠️ 鮮乳·保久乳(생우유·UHT우유) 제외. E270. (화장품에선 AHA로 별도 규제 — 젖산 함량·pH 기준 적용)."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -157331,6 +157649,16 @@
           "source": "cas"
         },
         {
+          "value": "가성소다",
+          "normalized": "가성소다",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "1310-58-3",
           "normalized": "1310-58-3",
           "type": "cas",
@@ -157504,6 +157832,16 @@
           "jurisdiction": "KR",
           "confidence": 0.85,
           "note": "Broad alias; verify context.",
+          "source": "cas"
+        },
+        {
+          "value": "소석회",
+          "normalized": "소석회",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
           "source": "cas"
         },
         {

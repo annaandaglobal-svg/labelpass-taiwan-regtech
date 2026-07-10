@@ -273,6 +273,20 @@
         "add-propylene-glycol"
       ],
       "facts": "Propylene glycol base 丙二醇 (English name per TFDA: 'Propylene Glycol', = 1,2-propanediol, CAS 57-55-6, E1520) = permitted food additive, category (十五) 載體/Carrier, QS in all foods EXCEPT fresh/UHT milk (鮮乳/保久乳). Distinct from 1,3-propanediol (CAS 504-63-2), which is a cosmetic ingredient absent from the food-additive CSV — the KB previously conflated the two under term cdict-propanediol; the erroneous 丙二醇/Propylene Glycol aliases were removed from cdict-propanediol and this dedicated term created."
+    },
+    {
+      "batch": "organic-acids-basics-2026-07-10i",
+      "method": "sonnet — grepped live TFDA food-additive 附表一 (export/61) for base free acids (乳酸/蘋果酸/酒石酸/反丁烯二酸/醋酸/磷酸), distinguished from their salts; plus deterministic Korean common-name alias enrichment of existing basic food-additive terms",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/61/csv"
+      ],
+      "terms": [
+        "add-lactic-acid",
+        "fadd-malic-acid",
+        "fadd-phosphoric-acid"
+      ],
+      "facts": "Lactic acid 乳酸 (E270) = additive cat.(十一) 調味劑, QS all foods (mfg/processing necessity), excl. fresh/UHT milk — NEW dedicated term (previously only landed in cosmetic AHA grab-bag). Malic acid listed only as DL-蘋果酸(羥基丁二酸), 調味劑, QS, PROHIBITED in infant food (嬰兒食品不得使用) + excl. fresh/UHT milk. Tartaric (酒石酸), fumaric (反丁烯二酸), acetic (醋酸 + glacial 冰醋酸) all 調味劑, QS all foods. Phosphoric acid 磷酸 = ONLY free acid with scope+numeric limit: cola + tea beverages ONLY, ≤0.6 g/kg (its phosphate salts are separate entries capped ~3 g/kg as phosphate). All excl. fresh/UHT milk, mfg-necessity restriction."
     }
   ]
 }
