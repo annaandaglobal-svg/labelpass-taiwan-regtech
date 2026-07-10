@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,552
-- Stored aliases: 8,698
-- Searchable aliases including identifiers: 9,861
+- Terms: 2,597
+- Stored aliases: 8,945
+- Searchable aliases including identifiers: 10,108
 - Term-rule links: 1,113
 - Regulatory update candidates: 50
-- Alias review items: 1,060
+- Alias review items: 1,069
 
 ## How To Use This Memory
 
@@ -227,24 +227,24 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: health food application permit; 健康食品查驗登記; health care effect assessment report; safety assessment report; 保健功效含量; 保健功效成分; 保健功效評估報告; 安全評估報告; package label product information sheet; 包裝標籤及產品說明書
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-application-permit-regulations`
   - Note: Use for Taiwan health-food products that require application files, health-care-effect substantiation and safety assessment before claim or label approval.
+- **GABA (γ-aminobutyric acid) food ingredient** (`gaba-food`)
+  - Aliases: GABA; gamma-aminobutyric acid; γ-aminobutyric acid; γ-胺基丁酸; 가바; 가바분말; 감마아미노부티르산
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: ⚠️ GABA(γ-胺基丁酸)는 원료로 허용(2025 公告): Lactobacillus hilgardii/brevis 발효·순도 ≥20%·매일 ≤100mg + 필수 경고표시('음주·강압/진정/간질약 병용 회피; 임산부·수유부·영유아는 의사 상담 후'). 開放형 營養添加劑 아님.
 - **Protein/cereal bar (蛋白棒)** (`protein-bar`)
   - Aliases: protein bar; 蛋白棒; 단백질바; 시리얼바; 에너지바; 프로틴바
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
   - Note: 일반식품이면 기능 표방 불가, 기능 표방 시 健康食品 허가 필요.
-- **GABA (γ-aminobutyric acid) food ingredient** (`gaba-food`)
-  - Aliases: GABA; γ-aminobutyric acid; 가바; 가바분말; 감마아미노부티르산
-  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
-  - Note: 발효 GABA 분말 식품원료 허용(2025) — GABA ≥20%, 1일 100mg 상한, 음주·혈압강하제·진정제 병용 주의 표시.
 - **Health functional food (健康食品)** (`health-functional-food`)
   - Aliases: 健康食品; 小綠人; 건강기능식품; 기능성식품; 보건기능식품
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
   - Note: 健康食品은 허가제 — 허가·小綠人 로고 없이 기능 표방 불가.
+- **Chitosan** (`hfun-chitosan`)
+  - Aliases: Chitosan; 幾丁聚糖; 甲殼素; 聚葡萄糖胺; 키토산
+  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
+  - Note: ⚠️ 키토산(幾丁聚糖) 조건부 허용(2019 衛授食字1081300232號): 정량 일일한도 아님. (1) A. niger 균사체 유래 시 Ochratoxin A <1ppb 규격; (2) 필수 경고표시 '만성질환 약 복용자는 의사 상담 후 사용'·'임산부·수유부·영유아 비권장'. 蝦蟹殼 유래는 甲殼類 알레르겐 잔류 위험.
 - **Beta-glucan** (`hfun-beta-glucan`)
   - Aliases: Beta-glucan; β-葡聚醣; 베타글루칸
-  - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
-  - Note: 식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.
-- **Chitosan** (`hfun-chitosan`)
-  - Aliases: Chitosan; 甲殼素; 키토산
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`
   - Note: 식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.
 - **Fish oil** (`hfun-fish-oil`)

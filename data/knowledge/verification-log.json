@@ -391,6 +391,45 @@
         "raw-deer-antler-nokyong"
       ],
       "facts": "TFDA raw-material list is NON-exhaustive (header: absence != prohibited); only 未確認安全性 rows are explicit bars. Species/part traps for Korean health foods: KOREAN angelica 韓國當歸/A.gigas BARRED (Chinese 當歸/A.sinensis only seed/stem/leaf); Korean/Japanese cnidium 日本川芎/Cnidium officinale BARRED (Chinese 川芎 rhizome permitted, 不得單一原料); 산수유 山茱萸 BARRED; 더덕 羊乳/C.lanceolata BARRED (黨參/C.pilosula permitted, 不得單一原料); Korean 복분자 R.coreanus ABSENT + TCM 掌葉覆盆子/R.chingii BARRED; genuine 백수오 C.wilfordii ABSENT (only adulterant C.auriculatum/牛皮消 listed); 쑥 艾/A.argyi BARRED; 엉겅퀴 大薊·小薊 BARRED; 차가버섯 白樺茸 BARRED; 개똥쑥 A.annua ABSENT (青蒿 CSV row = Tarragon A.dracunculus, name-collision trap); 히비스커스 calyx OK but fruit BARRED; 노니 fruit OK but leaf restricted (dried teabag, 1g/day, warning); 동충하초 form-split (complex=不得單一, 蛹蟲草 C.militaris separate dose caps); 상황버섯 mycelium 3g/day; 민들레 蒲公英 100mg/day (10mg powder); 우엉 root unresolved (牛蒡子 barred); 양파 leaf BARRED (extract 1000mg quercetin). Restricted '不得單一原料使用' (not sole ingredient): 川芎·白芍·熟地·黃耆·黨參. Permitted: 갈근·둥굴레·대추·도라지·생강·마늘·매실·연잎·뽕잎·감잎·돼지감자·녹용·영지·인진쑥·카모마일·보이차/우롱차(Camellia)."
+    },
+    {
+      "batch": "wide-spice-seaweed-ferment-marine-supp-2026-07-10o",
+      "method": "5 parallel sonnet agents — grepped live TFDA raw-material (export/4, permitted + 未確認安全性) + additive (export/61, 營養添加劑/調味劑/防腐劑) CSVs by species + part (部位) + restriction (備註) for spices, seaweeds, fermented foods, marine/animal items, and amino/mineral nutrients",
+      "verifiedAt": "2026-07-10",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv"
+      ],
+      "terms": [
+        "raw-black-pepper",
+        "raw-clove",
+        "raw-star-anise",
+        "raw-sage",
+        "raw-dill",
+        "raw-wasabi",
+        "raw-sichuan-pepper",
+        "raw-laver-nori",
+        "raw-wakame",
+        "raw-hijiki",
+        "raw-gelidium",
+        "raw-sargassum",
+        "raw-dulse",
+        "raw-natto-food",
+        "raw-koji-meju",
+        "raw-vinegar",
+        "raw-tempeh",
+        "raw-mussel-extract",
+        "raw-squid-ink",
+        "raw-chitin",
+        "raw-protamine",
+        "add-l-carnitine",
+        "raw-beta-alanine",
+        "add-zinc-nutrient",
+        "add-magnesium-nutrient",
+        "add-iron-nutrient",
+        "add-selenium-nutrient"
+      ],
+      "facts": "SPICES part-split/species traps: black pepper fruit OK but STEM barred; star anise fruit OK but LEAF barred + Japanese star anise 莽草/I.anisatum toxic (absent, never use); sage whole-plant OK (tea/extract) but SEED barred + many Salvia barred; dill flower barred; wasabi flower barred; clove 不得單一原料使用; nutmeg no myristicin limit; TFDA 牛至 = marjoram NOT true oregano (奧勒岡草); thyme only tea/extract category; Zanthoxylum avicennae barred. SEAWEED: laver/wakame/hijiki/gelidium/dulse/chlorella permitted (hijiki inorganic-arsenic handled by separate heavy-metal standard, not this list); Sargassum species-split (fusiforme/horneri OK, fulvellum barred); maesaengi/codium/fucoidan absent (gray). FERMENTED (2-layer: finished food ordinary + strain on permitted-microbe list): natto/miso/gochujang/koji(Aspergillus oryzae)/vinegar(Acetobacter)/tempeh(Rhizopus oligosporus) OK; nattokinase enzyme BARRED (vs natto food OK); kombucha no named entry; acid-HVP 3-MCPD governed by separate contaminant standard. MARINE: mussel/cuttlefish-ink(4 Sepia spp incl ink)/chitin(shrimp/crab shell) permitted; scallop absent-traditional; protamine ABSENT from raw-material AND 防腐劑 lists = not approved; chitosan conditional (warning labels + A.niger OTA<1ppb, NOT a numeric cap). SUPP: L-glutamine permitted (營養添加劑); L-carnitine cap/tab ≤2g/day; L-theanine only as 調味劑 ≤1g/kg; GABA raw-material fermented ≥20% ≤100mg/day + warning; beta-alanine ABSENT (not permitted); minerals Zn(≤30/22.5/7.5mg) Mg(≤600/105mg) Fe(≤45/22.5/15mg) Se(≤200μg) with many salt forms."
     }
   ]
 }

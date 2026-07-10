@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2552,
-    "stored_aliases": 8698,
-    "searchable_aliases": 9861,
+    "terms": 2597,
+    "stored_aliases": 8945,
+    "searchable_aliases": 10108,
     "identifier_aliases": 1163,
     "term_rule_links": 1113,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1060,
+    "alias_review_items": 1069,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5245,6 +5245,27 @@
       "score": 186
     },
     {
+      "id": "gaba-food",
+      "canonical_name": "GABA (γ-aminobutyric acid) food ingredient",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "GABA",
+        "gamma-aminobutyric acid",
+        "γ-aminobutyric acid",
+        "γ-胺基丁酸",
+        "가바",
+        "가바분말",
+        "감마아미노부티르산"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "⚠️ GABA(γ-胺基丁酸)는 원료로 허용(2025 公告): Lactobacillus hilgardii/brevis 발효·순도 ≥20%·매일 ≤100mg + 필수 경고표시('음주·강압/진정/간질약 병용 회피; 임산부·수유부·영유아는 의사 상담 후'). 開放형 營養添加劑 아님.",
+      "score": 185
+    },
+    {
       "id": "cadd-benzyl-alcohol",
       "canonical_name": "Benzyl Alcohol",
       "category": "preservative",
@@ -5301,25 +5322,6 @@
       "score": 183
     },
     {
-      "id": "gaba-food",
-      "canonical_name": "GABA (γ-aminobutyric acid) food ingredient",
-      "category": "health_food",
-      "category_label": "Health food",
-      "aliases": [
-        "GABA",
-        "γ-aminobutyric acid",
-        "가바",
-        "가바분말",
-        "감마아미노부티르산"
-      ],
-      "source_keys": [
-        "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-enforcement-rules"
-      ],
-      "notes": "발효 GABA 분말 식품원료 허용(2025) — GABA ≥20%, 1일 100mg 상한, 음주·혈압강하제·진정제 병용 주의 표시.",
-      "score": 181
-    },
-    {
       "id": "health-functional-food",
       "canonical_name": "Health functional food (健康食品)",
       "category": "health_food",
@@ -5339,6 +5341,25 @@
       "score": 181
     },
     {
+      "id": "hfun-chitosan",
+      "canonical_name": "Chitosan",
+      "category": "health_food",
+      "category_label": "Health food",
+      "aliases": [
+        "Chitosan",
+        "幾丁聚糖",
+        "甲殼素",
+        "聚葡萄糖胺",
+        "키토산"
+      ],
+      "source_keys": [
+        "tw-moj-health-food-governing-act",
+        "tw-tfda-health-food-enforcement-rules"
+      ],
+      "notes": "⚠️ 키토산(幾丁聚糖) 조건부 허용(2019 衛授食字1081300232號): 정량 일일한도 아님. (1) A. niger 균사체 유래 시 Ochratoxin A <1ppb 규격; (2) 필수 경고표시 '만성질환 약 복용자는 의사 상담 후 사용'·'임산부·수유부·영유아 비권장'. 蝦蟹殼 유래는 甲殼類 알레르겐 잔류 위험.",
+      "score": 181
+    },
+    {
       "id": "hfun-beta-glucan",
       "canonical_name": "Beta-glucan",
       "category": "health_food",
@@ -5347,23 +5368,6 @@
         "Beta-glucan",
         "β-葡聚醣",
         "베타글루칸"
-      ],
-      "source_keys": [
-        "tw-moj-health-food-governing-act",
-        "tw-tfda-health-food-enforcement-rules"
-      ],
-      "notes": "식품 사용 가능하나 기능(효능) 표방은 健康食品 허가 필요.",
-      "score": 177
-    },
-    {
-      "id": "hfun-chitosan",
-      "canonical_name": "Chitosan",
-      "category": "health_food",
-      "category_label": "Health food",
-      "aliases": [
-        "Chitosan",
-        "甲殼素",
-        "키토산"
       ],
       "source_keys": [
         "tw-moj-health-food-governing-act",
@@ -5516,17 +5520,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2552,
-      "aliases_scanned": 8698,
-      "alias_rows_scanned": 8698,
-      "collision_groups": 246,
-      "high_confidence_collisions": 194,
+      "terms_scanned": 2597,
+      "aliases_scanned": 8945,
+      "alias_rows_scanned": 8945,
+      "collision_groups": 255,
+      "high_confidence_collisions": 203,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 814,
       "strict_blockers": 0,
-      "review_items": 1060
+      "review_items": 1069
     },
     "items": [
       {
@@ -6019,6 +6023,32 @@
         ]
       },
       {
+        "id": "alias-375c922c1e8cfd",
+        "alias": "烏賊",
+        "issue": "alias-collision-high-confidence",
+        "priority": "high",
+        "term_count": 2,
+        "max_confidence": 1,
+        "strict_blocker": false,
+        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
+        "terms": [
+          {
+            "term_id": "cephalopods-advisory-allergen",
+            "canonical_name": "Cephalopods",
+            "confidence": 1,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          },
+          {
+            "term_id": "raw-squid-ink",
+            "canonical_name": "Squid/cuttlefish ink (오징어먹물)",
+            "confidence": 0.9,
+            "jurisdiction": "TW",
+            "language": "zh-Hant"
+          }
+        ]
+      },
+      {
         "id": "alias-f5432e30a8db52",
         "alias": "營養標示",
         "issue": "alias-collision-high-confidence",
@@ -6353,39 +6383,6 @@
             "confidence": 1,
             "jurisdiction": "KR",
             "language": "ko"
-          }
-        ]
-      },
-      {
-        "id": "alias-41fb69b9578b6d",
-        "alias": "醫療效能",
-        "issue": "alias-collision-high-confidence",
-        "priority": "high",
-        "term_count": 3,
-        "max_confidence": 0.95,
-        "strict_blocker": false,
-        "recommended_action": "Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking.",
-        "terms": [
-          {
-            "term_id": "food-labeling-claims",
-            "canonical_name": "Food Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "cosmetic-labeling-claims",
-            "canonical_name": "Cosmetic Labeling and Claims",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
-          },
-          {
-            "term_id": "cosmetic-claims-criteria",
-            "canonical_name": "Cosmetic Claims Criteria",
-            "confidence": 0.95,
-            "jurisdiction": "TW",
-            "language": "zh-Hant"
           }
         ]
       }

@@ -1814,10 +1814,11 @@
           "category": "health_food",
           "aliases": [
             "GABA",
+            "gamma-aminobutyric acid",
             "γ-aminobutyric acid",
+            "γ-胺基丁酸",
             "가바",
-            "가바분말",
-            "감마아미노부티르산"
+            "가바분말"
           ],
           "source_keys": [
             "tw-moj-health-food-governing-act",
@@ -1860,7 +1861,9 @@
           "category": "health_food",
           "aliases": [
             "Chitosan",
+            "幾丁聚糖",
             "甲殼素",
+            "聚葡萄糖胺",
             "키토산"
           ],
           "source_keys": [
