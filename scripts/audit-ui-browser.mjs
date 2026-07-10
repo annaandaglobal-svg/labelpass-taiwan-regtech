@@ -178,12 +178,19 @@ async function evaluate(client, expression) {
   return result.result.value;
 }
 
+// Per-route render budget. CI runners (Linux headless Chrome under load) can be
+// meaningfully slower to reach readyState "complete" than a local machine, which
+// intermittently tripped the old 15s ceiling even though the assertions themselves
+// are deterministic. 30s (overridable) keeps the audit strict while cutting timing
+// flakes that were blocking otherwise-green deploys.
+const SNAPSHOT_TIMEOUT_MS = Number(process.env.UI_AUDIT_SNAPSHOT_TIMEOUT_MS ?? 30000);
+
 async function waitForSnapshot(client, route, viewport) {
   const started = Date.now();
   let lastError;
   const expectedPath = new URL(route.path, `${baseUrl}/`).pathname;
 
-  while (Date.now() - started < 15000) {
+  while (Date.now() - started < SNAPSHOT_TIMEOUT_MS) {
     try {
       const snapshot = await evaluate(client, snapshotExpression());
       if (snapshot.path === expectedPath && snapshot.readyState === "complete" && snapshot.shellCount === 1) {
