@@ -42,6 +42,10 @@ jobs:
 
       - name: Audit knowledge operations readiness
         run: pnpm audit:knowledge-ops
+        env:
+          # Crawl-freshness debt hard-fails only on the weekly deep run / manual dispatch;
+          # push & PR builds warn so code deploys are not blocked by time-driven cache aging.
+          KNOWLEDGE_FRESHNESS_STRICT: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
 
       - name: Verify regulatory rules
         run: pnpm test:rules
