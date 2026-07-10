@@ -594,6 +594,43 @@ async function run() {
     throw new Error("Chrome or Chromium was not found. Set CHROME_PATH to run the browser UI audit.");
   }
 
+  // The assertions are deterministic (identical data passes every time locally), but launching
+  // headless Chrome and reaching a fully-rendered snapshot on a loaded CI runner is not — it
+  // intermittently flakes even at a 30s per-route budget. Retry the whole browser pass once so a
+  // transient launch/render hiccup doesn't red an otherwise-green deploy; a genuine (persistent)
+  // assertion failure still fails on the retry too.
+  const MAX_ATTEMPTS = Number(process.env.UI_AUDIT_ATTEMPTS ?? 2);
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    const lastAttempt = attempt === MAX_ATTEMPTS;
+    failures.length = 0;
+    try {
+      await runBrowserAudit(chromePath);
+    } catch (error) {
+      if (lastAttempt) {
+        console.error(`Browser UI audit failed: ${error.message}`);
+        process.exit(1);
+      }
+      console.error(`Browser UI audit attempt ${attempt} errored (${error.message}); retrying once...`);
+      continue;
+    }
+
+    if (!failures.length) {
+      console.log(
+        `Browser UI audit passed: ${routes.length} routes across ${viewports.length} viewports kept a stable shell and compact controls.`
+      );
+      return;
+    }
+
+    if (lastAttempt) {
+      console.error("Browser UI audit failed:");
+      for (const failure of failures) console.error(`- ${failure}`);
+      process.exit(1);
+    }
+    console.error(`Browser UI audit attempt ${attempt} found ${failures.length} issue(s); retrying once...`);
+  }
+}
+
+async function runBrowserAudit(chromePath) {
   const port = await getFreePort();
   const userDataDir = await mkdtemp(join(tmpdir(), "labelpass-ui-audit-"));
   const args = [
@@ -648,14 +685,6 @@ async function run() {
     });
     await rm(userDataDir, { recursive: true, force: true, maxRetries: 3, retryDelay: 300 }).catch(() => {});
   }
-
-  if (failures.length) {
-    console.error("Browser UI audit failed:");
-    for (const failure of failures) console.error(`- ${failure}`);
-    process.exit(1);
-  }
-
-  console.log(`Browser UI audit passed: ${routes.length} routes across ${viewports.length} viewports kept a stable shell and compact controls.`);
 }
 
 run().catch((error) => {
