@@ -4737,7 +4737,7 @@
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
-      "notes": "허용 감미료((十一之一) 甜味劑, 品名 甜菊醣苷/Steviol Glycosides): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ '효소처리 스테비아' 별도 등재 없음 — 이 甜菊醣苷 규정 적용.",
+      "notes": "Steviol Glycosides — permitted Taiwan sweetener food additive (甜味劑, 品名 甜菊醣苷), derived from Stevia leaf. 허용 감미료((十一之一) 甜味劑): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ 효소처리 스테비아 별도 등재 없음 — 이 甜菊醣苷 규정 적용.",
       "verifiedAt": "2026-07-11",
       "verifiedSources": [
         "https://data.fda.gov.tw/data/opendata/export/61/csv",

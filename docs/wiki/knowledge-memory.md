@@ -86,7 +86,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - **Steviol Glycosides** (`steviol-glycosides-food-additive`)
   - Aliases: Steviol glycosides; 甜菊糖; 甜菊醣苷; 스테비올배당체; Steviol glycoside; enzyme-treated stevia; 甜菊; 酵素處理甜菊; 글루코실스테비아; 효소처리스테비아
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`
-  - Note: 허용 감미료((十一之一) 甜味劑, 品名 甜菊醣苷/Steviol Glycosides): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ '효소처리 스테비아' 별도 등재 없음 — 이 甜菊醣苷 규정 적용.
+  - Note: Steviol Glycosides — permitted Taiwan sweetener food additive (甜味劑, 品名 甜菊醣苷), derived from Stevia leaf. 허용 감미료((十一之一) 甜味劑): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ 효소처리 스테비아 별도 등재 없음 — 이 甜菊醣苷 규정 적용.
 - **Food Additive Functional Classes** (`food-additive-functional-classes`)
   - Aliases: food additive functional class; food additive function; preservative; preservatives; sweetener; sweeteners; 甜味劑; 防腐劑; 감미료; 보존료
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-additive-standards`, `tw-tfda-food-additive-permit-query`

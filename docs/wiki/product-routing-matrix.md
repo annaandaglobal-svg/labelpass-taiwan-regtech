@@ -78,7 +78,7 @@ Generated from `data/knowledge/knowledge-memory.json`. Use this to route a produ
 - Required documents: specification; COA; common-name evidence; permit or registration data; formula/use-level statement; supplier declaration
 - Evidence template IDs: `tw_food_additive_ingredient_evidence_bundle`
 - Source IDs: `tw-tfda-food-ingredient-query-platform-direct`, `tw-tfda-food-business-info-query-links`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`, `tw-tfda-food-law-regulations-index`, `tw-tfda-food-nutrition-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-consumer-notice`
-- Term IDs: `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`, `potassium-glycerophosphate-food-additive`, `food-additive-functional-classes`, `benzoates-food-additives`, `sorbates-food-additives`, `calcium-lime-food-additives`, `caseinates-food-additives`
+- Term IDs: `food-labeling-claims`, `food-allergen-labeling`, `food-label-required-items`, `nutrition-labeling`, `potassium-glycerophosphate-food-additive`, `steviol-glycosides-food-additive`, `food-additive-functional-classes`, `benzoates-food-additives`, `sorbates-food-additives`, `calcium-lime-food-additives`
 
 ### Entry Questions
 
