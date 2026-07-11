@@ -544,6 +544,37 @@
         "raw-acorn"
       ],
       "facts": "HEALTH-FUNC: red yeast rice 紅麴 permitted (monacolin K/citrinin limits in SEPARATE hygiene standard, not the ingredient CSV); Garcinia 藤黃果 permitted but HCA daily limit 1500mg + teabag/extract-only (2024 gazette); bovine colostrum + immunoglobulin permitted; octacosanol & DFA III absent (gray-zone); evening primrose/borage source plants permitted. COSMETIC (nail/oral/anti-dandruff): coal tar PROHIBITED (no exception, drug-only); selenium & compounds PROHIBITED except Se-disulfide in hair (OTC-drug boundary); oxyquinoline PROHIBITED except 0.03% H2O2-stabilizer in dye/perm; toluenesulfonamide resin restricted 25% nail-only; fluoride 0.15% as F toothpaste/mouthwash + child warning; zinc pyrithione rinse-off hair 1%/other rinse-off 0.5%/leave-on hair 0.1%; resorcinol 0.5% hair (1.25% dye); salicylic acid 0.5% preservative / 0.2-2% special-use, not under-3 except rinse-off hair; nitrocellulose/TEA/bentonite permitted (no cap). KOREAN FOOD: disodium 5'-inosinate & 5'-guanylate regulated INDIVIDUALLY (no combined ribonucleotide entry), 調味劑 QS; L-glutamic acid (L-麩酸) 調味劑; sesame oil traditional-food (unlisted-OK, but isolated sesamin capped 15mg); perilla oil permitted via 紫蘇 leaf+seed; kimchi LAB Leuconostoc mesenteroides/citreum(kimchi)/L.plantarum permitted but WEISSELLA absent; konjac/glucomannan permitted (choking-hazard label separate); ⚠️ Korean ACORN species (Q.acutissima etc.)/acorn starch fully ABSENT (not even on unconfirmed list) — needs novel-food application. E-numbers (E100-E960) mapped to existing additive terms."
+    },
+    {
+      "batch": "botanical2-cosmetic4-sports-beverage-2026-07-12s",
+      "method": "3 parallel sonnet agents — TFDA raw-material (export/4) + additive (export/61) CSVs + cosmetic restricted/preservative tables (2024-07-01)",
+      "verifiedAt": "2026-07-12",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526739400910589"
+      ],
+      "terms": [
+        "raw-stachys",
+        "raw-orostachys",
+        "raw-cudrania",
+        "raw-bittermelon-seed",
+        "raw-gynostemma",
+        "raw-loquat-leaf",
+        "raw-armillaria",
+        "raw-aronia",
+        "raw-blackcurrant",
+        "raw-okra",
+        "raw-pomegranate",
+        "raw-guava-leaf",
+        "raw-citrulline",
+        "raw-aloe-food",
+        "raw-yerba-mate",
+        "caseinates-food-additives",
+        "cos-rest-cetrimonium-chloride",
+        "tfda-restrict-behentrimonium-chloride",
+        "benzalkonium-chloride-family"
+      ],
+      "facts": "BOTANICAL part/species traps: 초석잠(Stachys 根莖) permitted; 와송(瓦松) BARRED; 꾸지뽕(Maclura tricuspidata) ABSENT; 여주씨 permitted(fruit/seed/leaf) but VINE(藤) barred; 돌외(絞股藍) permitted RESTRICTED (teabag/extract + '勿長期大量食用' warning); 비파잎 permitted LEAF-ONLY (root/stem/flower/SEED barred, amygdalin); 뽕나무버섯(Armillaria) MYCELIUM-only; 아로니아/블랙커런트/오크라(fruit)/석류(pulp+seed)/구아바잎 permitted; okra FLOWER barred; pomegranate FLOWER/LEAF/PEEL + SEED-OIL barred; elderberry fruit/flower permitted but SEED not enumerated; PHGG absent from raw list (guar bean permitted). COSMETIC: polyquaternium/distearyldimonium/decyl-glucoside/SCI/glyceryl-esters/cocamide-MIPA/undecylenoyl-glycine all PERMITTED (unlisted); cetrimonium/behentrimonium/benzalkonium DUAL-limit (0.1% preservative vs tiered conditioning 0.5-5% by product) — same molecule, limit depends on declared function. SPORTS/BEVERAGE: ⚠️ CITRULLINE (& citrulline malate) BARRED 未確認安全性 (hard blocker for NO supplements); ⚠️ ALOE food strict — gel-only (peeled leaf) + aloin ≤10ppm + '孕婦忌食' warning (waived if <1ppm); yerba mate/matcha/casein permitted; guarana 2.4g/day; rice/pea protein isolate not itemized (parent permitted); beetroot/coconut-water absent-conventional; hydrogen water outside food-additive regime; KCl/potassium-bicarbonate listed additives GMP."
     }
   ]
 }

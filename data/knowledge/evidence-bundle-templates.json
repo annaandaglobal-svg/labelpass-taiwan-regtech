@@ -542,8 +542,8 @@
         "steviol-glycosides-food-additive",
         "food-additive-functional-classes",
         "benzoates-food-additives",
-        "sorbates-food-additives",
-        "calcium-lime-food-additives"
+        "caseinates-food-additives",
+        "sorbates-food-additives"
       ],
       "match_sources": [
         "tw-tfda-food-ingredient-query-platform-direct",

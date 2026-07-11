@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2591,
+  "curated_term_count": 2615,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -2536,6 +2536,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "BKC",
+          "normalized": "bkc",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "氯化苯二甲烴銨",
+          "normalized": "氯化苯二甲烴銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -2544,7 +2564,7 @@
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "Family term for chloride, bromide, and saccharinate variants listed by TFDA."
+      "notes": "⚠️ 방부제 0.1%(눈 접촉 회피 경고); 비방부 씻는 모발(정전기방지) 3%(C14 이하 동족체는 0.1%)."
     },
     {
       "id": "chlorhexidine-family",
@@ -3492,6 +3512,16 @@
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酪蛋白",
+          "normalized": "酪蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -5942,6 +5972,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카제인프로틴",
+          "normalized": "카제인프로틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "casein protein",
+          "normalized": "casein protein",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -21685,6 +21735,56 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.82,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "말차",
+          "normalized": "말차",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "matcha",
+          "normalized": "matcha",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抹茶",
+          "normalized": "抹茶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "綠茶粉",
+          "normalized": "綠茶粉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "green tea powder",
+          "normalized": "green tea powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
           "note": null,
           "source": "curated"
         }
@@ -38459,13 +38559,53 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "세트라이모늄",
+          "normalized": "세트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cetrimonium",
+          "normalized": "cetrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cetrimonium bromide",
+          "normalized": "cetrimonium bromide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CTAB",
+          "normalized": "ctab",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인."
+      "notes": "⚠️ 이중 한도: 방부 0.1%; 컨디셔닝(제한표 #31) 씻는 모발 2.5%·리브온 모발 1%·리브온 얼굴 0.5% — 용도에 따라 상이."
     },
     {
       "id": "cos-rest-aluminum-chlorohydrate",
@@ -74872,13 +75012,53 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "베헨트라이모늄",
+          "normalized": "베헨트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "behentrimonium",
+          "normalized": "behentrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "behentrimonium methosulfate",
+          "normalized": "behentrimonium methosulfate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "山萮基三甲基氯化銨",
+          "normalized": "山萮基三甲基氯化銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-preservatives"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)5%(單一使用或混合使用cetrimonium chloride, steartrimonium chloride 及 behentrimonium chloride)，惟cetrimonium chloride及steartrimonium chloride成分之限量不得超過編號31之規定。 (b)3%(單一使用或混合使用cetrimonium chloride, steartrimonium chloride 及 behentrimonium chloride)，惟cetrimonium chloride及steartrimonium chloride成分之限量不得超過編號31之規定。 (c)3%(單一使用或混合使用cetrimonium chloride, steartrimonium chloride 及 behentrimonium chloride)，惟cetrimonium chloride及steartrimonium chloride成分之限量不得超過編號31之規定。"
+      "notes": "⚠️ 이중 한도: 방부 0.1%; 컨디셔닝(제한표 #32) 씻는 모발 5%·리브온 모발 3%·리브온 얼굴 3%."
     },
     {
       "id": "tfda-restrict-lithium-hydroxide",
@@ -118343,12 +118523,42 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "시트룰린말산",
+          "normalized": "시트룰린말산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "citrulline malate",
+          "normalized": "citrulline malate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "瓜胺酸蘋果酸",
+          "normalized": "瓜胺酸蘋果酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "⚠️ 未確認安全性 목록(정제형) — 식품 사용 불가. 사용하려면 非傳統性 식품원료 신청 필요."
+      "notes": "⚠️ 瓜胺酸(Citrulline, 純化物) 未確認安全性 = 대만 식품 불가. 시트룰린말산(citrulline malate)도 동일 지위 상속 — NO부스터 스포츠보충제 하드 블로커. cf. 아르기닌은 별개."
     },
     {
       "id": "raw-fenugreek",
@@ -124433,12 +124643,42 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "엘더베리씨",
+          "normalized": "엘더베리씨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "接骨木籽",
+          "normalized": "接骨木籽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "elderberry seed",
+          "normalized": "elderberry seed",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "✅ Sambucus nigra·S. canadensis·S. sieboldiana의 果實·花(과실·꽃)만 허용 식용. ⚠️ 종·부위 특정 — S. williamsii(잎)·冇骨消/蒴藋(S. formosana)는 未確認安全性(불가). 생과실 시안배당체 안전성 때문에 종/부위 제한."
+      "notes": "✅ Sambucus nigra/canadensis/sieboldiana 果實·花만 허용. ⚠️ 種子(씨)는 部位 미열거 = 미포함(과실/꽃과 별개). S. williamsii(잎)·S. formosana(冇骨消)는 barred. 종·부위 특정."
     },
     {
       "id": "add-cholecalciferol",
@@ -132225,6 +132465,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "초록입홍합",
+          "normalized": "초록입홍합",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "청口",
+          "normalized": "청口",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "뉴질랜드홍합",
+          "normalized": "뉴질랜드홍합",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -136568,6 +136838,1580 @@
         "tw-tfda-systematic-inspection-imported-food"
       ],
       "notes": "관용 가공식품(밥을 눌러 구운 것). ⚠️ 고온 조리 곡물 — 아크릴아마이드 지표값(별도) 관리 대상 가능."
+    },
+    {
+      "id": "raw-stachys",
+      "canonical_name": "Stachys / chorogi (초석잠)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "초석잠",
+          "normalized": "초석잠",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "stachys",
+          "normalized": "stachys",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "草石蠶",
+          "normalized": "草石蠶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甘露子",
+          "normalized": "甘露子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "stachys sieboldii",
+          "normalized": "stachys sieboldii",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 식품원료(草石蠶;甘露子, Stachys sieboldii) 根莖."
+    },
+    {
+      "id": "raw-orostachys",
+      "canonical_name": "Orostachys (와송)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "와송",
+          "normalized": "와송",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "orostachys",
+          "normalized": "orostachys",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "瓦松",
+          "normalized": "瓦松",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "바위솔",
+          "normalized": "바위솔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 瓦松(Orostachys japonica) 未確認安全性 = 대만 식품 불가(한국 건강식품이나 대만 금지)."
+    },
+    {
+      "id": "raw-cudrania",
+      "canonical_name": "Cudrania / kkujippong (꾸지뽕)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "꾸지뽕",
+          "normalized": "꾸지뽕",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cudrania",
+          "normalized": "cudrania",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "柘樹",
+          "normalized": "柘樹",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "柘",
+          "normalized": "柘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "maclura tricuspidata",
+          "normalized": "maclura tricuspidata",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "꾸지뽕나무",
+          "normalized": "꾸지뽕나무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 柘樹(Maclura/Cudrania tricuspidata) 원료·未確認 목록 어디에도 없음(완전 미기재) — 신소재 심사 필요(미기재=금지 아니나 적격성 미확인)."
+    },
+    {
+      "id": "raw-bittermelon-seed",
+      "canonical_name": "Bitter melon seed (여주씨)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "여주씨",
+          "normalized": "여주씨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "bitter melon seed",
+          "normalized": "bitter melon seed",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "苦瓜籽",
+          "normalized": "苦瓜籽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "苦瓜子",
+          "normalized": "苦瓜子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "여주종자",
+          "normalized": "여주종자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 苦瓜(Momordica charantia) 果實·種子·葉 등재(씨 포함). ⚠️ 단 藤(줄기/덩굴)은 별도 非傳統性 원료로 barred — 부위 구분."
+    },
+    {
+      "id": "raw-gynostemma",
+      "canonical_name": "Gynostemma / jiaogulan (돌외)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "돌외",
+          "normalized": "돌외",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "gynostemma",
+          "normalized": "gynostemma",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "絞股藍",
+          "normalized": "絞股藍",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "七葉膽",
+          "normalized": "七葉膽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "jiaogulan",
+          "normalized": "jiaogulan",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "돌외잎",
+          "normalized": "돌외잎",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 허용이나 제한(絞股藍, 2024 衛授食字1131301534 공고): 티백 沖泡 또는 추출 형태만 + '本品請勿長期或大量食用'(장기·다량 섭취 금지) 경고표시 의무."
+    },
+    {
+      "id": "raw-loquat-leaf",
+      "canonical_name": "Loquat leaf (비파잎)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "비파잎",
+          "normalized": "비파잎",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "loquat leaf",
+          "normalized": "loquat leaf",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "枇杷葉",
+          "normalized": "枇杷葉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "eriobotrya japonica",
+          "normalized": "eriobotrya japonica",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비파",
+          "normalized": "비파",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 枇杷葉(Eriobotrya japonica) 葉만. ⚠️ 枇杷의 根·莖·花·種子는 未確認安全性 barred(씨 amygdalin) — 잎 외 부위로 확장 금지."
+    },
+    {
+      "id": "raw-armillaria",
+      "canonical_name": "Honey mushroom (뽕나무버섯)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "뽕나무버섯",
+          "normalized": "뽕나무버섯",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "honey mushroom",
+          "normalized": "honey mushroom",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蜜環菌",
+          "normalized": "蜜環菌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "armillaria mellea",
+          "normalized": "armillaria mellea",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "榛蘑",
+          "normalized": "榛蘑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 蜜環菌(Armillaria mellea) 菌絲體(균사체)만(子實體 아님). 부위 범위 유의."
+    },
+    {
+      "id": "raw-aronia",
+      "canonical_name": "Aronia / chokeberry (아로니아)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "아로니아",
+          "normalized": "아로니아",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aronia",
+          "normalized": "aronia",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "野櫻莓",
+          "normalized": "野櫻莓",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "不老莓",
+          "normalized": "不老莓",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "chokeberry",
+          "normalized": "chokeberry",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aronia melanocarpa",
+          "normalized": "aronia melanocarpa",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 식품원료(野櫻莓;不老莓, Aronia melanocarpa) 果實. cf. 紅山楸梅(A. arbutifolia)는 별종이나 별도 허용."
+    },
+    {
+      "id": "raw-blackcurrant",
+      "canonical_name": "Blackcurrant (블랙커런트)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "블랙커런트",
+          "normalized": "블랙커런트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "blackcurrant",
+          "normalized": "blackcurrant",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "黑醋栗",
+          "normalized": "黑醋栗",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "黑加侖",
+          "normalized": "黑加侖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ribes nigrum",
+          "normalized": "ribes nigrum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "카시스",
+          "normalized": "카시스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 黑醋栗(Ribes nigrum) 果實 및 葉 모두 등재."
+    },
+    {
+      "id": "raw-okra",
+      "canonical_name": "Okra (오크라)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "오크라",
+          "normalized": "오크라",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "okra",
+          "normalized": "okra",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "秋葵",
+          "normalized": "秋葵",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "abelmoschus esculentus",
+          "normalized": "abelmoschus esculentus",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "오크라추출",
+          "normalized": "오크라추출",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 秋葵(Abelmoschus esculentus) 果實. ⚠️ 花(꽃)은 未確認安全性 barred — 부위 구분."
+    },
+    {
+      "id": "raw-pomegranate",
+      "canonical_name": "Pomegranate (석류)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "석류",
+          "normalized": "석류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "pomegranate",
+          "normalized": "pomegranate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "石榴",
+          "normalized": "石榴",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "punica granatum",
+          "normalized": "punica granatum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "석류추출",
+          "normalized": "석류추출",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 石榴(Punica granatum) 果肉·種子(과육·씨). ⚠️ 花·葉·果皮(꽃·잎·껍질)는 barred, 石榴籽油(석류씨오일 추출)은 非傳統性 원료로 별도 barred — 부위·가공 구분."
+    },
+    {
+      "id": "raw-guava-leaf",
+      "canonical_name": "Guava leaf (구아바잎)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "구아바잎",
+          "normalized": "구아바잎",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "guava leaf",
+          "normalized": "guava leaf",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "番石榴",
+          "normalized": "番石榴",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "芭樂葉",
+          "normalized": "芭樂葉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "psidium guajava",
+          "normalized": "psidium guajava",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "구아바",
+          "normalized": "구아바",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 — 番石榴(Psidium guajava) 葉·果實."
+    },
+    {
+      "id": "raw-phgg",
+      "canonical_name": "Partially hydrolyzed guar gum / PHGG (구아검분해물)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "구아검분해물",
+          "normalized": "구아검분해물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "PHGG",
+          "normalized": "phgg",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "部分水解瓜爾膠",
+          "normalized": "部分水解瓜爾膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "partially hydrolyzed guar gum",
+          "normalized": "partially hydrolyzed guar gum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "부분가수분해구아검",
+          "normalized": "부분가수분해구아검",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "급원 關華豆(guar bean 種子)는 허용 원료이나 PHGG(가수분해물) 자체는 이 원료 목록 미기재 — 增稠劑/첨가물 표준 별도 확인 필요(가수분해 형태 미확정)."
+    },
+    {
+      "id": "cos-polyquaternium",
+      "canonical_name": "Polyquaternium (폴리쿼터늄)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리쿼터늄",
+          "normalized": "폴리쿼터늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "polyquaternium",
+          "normalized": "polyquaternium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "聚季銨鹽",
+          "normalized": "聚季銨鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "고분자 컨디셔닝/증점제 — 대만 금지·제한 목록 미등재(허용)."
+    },
+    {
+      "id": "cos-distearyldimonium",
+      "canonical_name": "Distearyldimonium chloride (다이스테아릴다이모늄)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "다이스테아릴다이모늄",
+          "normalized": "다이스테아릴다이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "distearyldimonium chloride",
+          "normalized": "distearyldimonium chloride",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "二硬脂基二甲基氯化銨",
+          "normalized": "二硬脂基二甲基氯化銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "이가 알킬 4급암모늄(컨디셔너) — 제한 목록 미등재(허용, 단일알킬 quat과 구조 상이)."
+    },
+    {
+      "id": "cos-glyceryl-oleate",
+      "canonical_name": "Glyceryl/sorbitan/polyglyceryl esters (글리세릴올리에이트 등)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "글리세릴올리에이트",
+          "normalized": "글리세릴올리에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "glyceryl oleate",
+          "normalized": "glyceryl oleate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "폴리글리세릴-3",
+          "normalized": "폴리글리세릴-3",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "polyglyceryl-3",
+          "normalized": "polyglyceryl-3",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "聚甘油酯",
+          "normalized": "聚甘油酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "비이온 유화제(글리세릴/소르비탄/폴리글리세릴 에스터) — 미등재(허용)."
+    },
+    {
+      "id": "cos-cosurf-misc",
+      "canonical_name": "Cocamide MIPA / stearamidopropyl / sulfosuccinate / acryloyl copolymer (기타 계면활성제)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "코카마이드미파",
+          "normalized": "코카마이드미파",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cocamide MIPA",
+          "normalized": "cocamide mipa",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "스테아라마이드프로필",
+          "normalized": "스테아라마이드프로필",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "stearamidopropyl dimethylamine",
+          "normalized": "stearamidopropyl dimethylamine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "다이소듐라우레스설포석시네이트",
+          "normalized": "다이소듐라우레스설포석시네이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "disodium laureth sulfosuccinate",
+          "normalized": "disodium laureth sulfosuccinate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "암모늄아크릴로일다이메틸타우레이트",
+          "normalized": "암모늄아크릴로일다이메틸타우레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ammonium acryloyldimethyltaurate",
+          "normalized": "ammonium acryloyldimethyltaurate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "일반 계면활성제/증점제 — 대만 금지·제한 목록 미등재(허용)."
+    },
+    {
+      "id": "cos-undecylenoyl-glycine",
+      "canonical_name": "Undecylenoyl glycine (운데실레노일글라이신)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "운데실레노일글라이신",
+          "normalized": "운데실레노일글라이신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "undecylenoyl glycine",
+          "normalized": "undecylenoyl glycine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "十一烯醯甘胺酸",
+          "normalized": "十一烯醯甘胺酸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "미등재(허용). ⚠️ 항균 마케팅에도 대만 방부제 목록 미등재(별개로 undecylenic acid+염만 방부 0.2% 등재)."
+    },
+    {
+      "id": "raw-aloe-food",
+      "canonical_name": "Aloe vera — food/juice (알로에음료)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "알로에음료",
+          "normalized": "알로에음료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aloe vera juice",
+          "normalized": "aloe vera juice",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蘆薈汁",
+          "normalized": "蘆薈汁",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蘆薈",
+          "normalized": "蘆薈",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "aloe food",
+          "normalized": "aloe food",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "알로에겔",
+          "normalized": "알로에겔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 식용 알로에 엄격 제한(2022 공고): (1) 잎 껍질 완전 제거(겔만, latex/전엽 불가); (2) **알로인(蘆薈素) ≤10 ppm**; (3) '孕婦忌食'(임산부 금기) 경고 의무 — 단 알로인 <1ppm 시험성적서 시 면제. ⚠️ 蘆薈苦素(aloesin)은 별도 未確認安全性 barred."
+    },
+    {
+      "id": "raw-yerba-mate",
+      "canonical_name": "Yerba mate (마테차)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "마테차",
+          "normalized": "마테차",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "yerba mate",
+          "normalized": "yerba mate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "馬黛茶",
+          "normalized": "馬黛茶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "瑪黛茶",
+          "normalized": "瑪黛茶",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ilex paraguariensis",
+          "normalized": "ilex paraguariensis",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "허용 식품원료(馬黛茶, Ilex paraguariensis) 葉(直接食用). 카페인 함유 — 총 카페인 관리."
+    },
+    {
+      "id": "raw-plant-protein-isolate",
+      "canonical_name": "Rice/pea protein isolate (현미·완두 단백)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "현미단백",
+          "normalized": "현미단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "rice protein",
+          "normalized": "rice protein",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "米蛋白",
+          "normalized": "米蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "급원(쌀·豌豆 種子)은 허용 관용식품이나 분리단백(isolate) 형태는 원료목록 개별 미열거 — 관용식품 급원의 가공물로 실무 적격이나 급원·제법 근거 확보 권장."
+    },
+    {
+      "id": "raw-beetroot",
+      "canonical_name": "Beetroot (비트뿌리)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "비트뿌리",
+          "normalized": "비트뿌리",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "beetroot",
+          "normalized": "beetroot",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甜菜根",
+          "normalized": "甜菜根",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "beet juice",
+          "normalized": "beet juice",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "beta vulgaris",
+          "normalized": "beta vulgaris",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "비트",
+          "normalized": "비트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "원료 목록에서 甜菜根(Beta vulgaris) 직접 매칭 없음 — 관용 식용채소이나 positive-list 미열거(회색: 미기재≠금지, 질산염 함량 유의)."
+    },
+    {
+      "id": "raw-coconut-water",
+      "canonical_name": "Coconut water (코코넛워터)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "코코넛워터",
+          "normalized": "코코넛워터",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "coconut water",
+          "normalized": "coconut water",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "椰子水",
+          "normalized": "椰子水",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "椰漿水",
+          "normalized": "椰漿水",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "코코넛(Cocos nucifera)은 관용식품(원료목록엔 椰子油만 개별 등재). 코코넛워터는 통상 식품으로 취급(미기재≠금지)."
+    },
+    {
+      "id": "raw-hydrogen-water",
+      "canonical_name": "Hydrogen water (수소수)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "수소수",
+          "normalized": "수소수",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hydrogen water",
+          "normalized": "hydrogen water",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "氫水",
+          "normalized": "氫水",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수소함유수",
+          "normalized": "수소함유수",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "H2 가스 용존수 — 원료·첨가물 규제 밖(가공수). ⚠️ '항산화·디톡스' 등 건강/기능성 표방은 일반 식품표시·과대광고 규정 대상(별개)."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -170987,6 +172831,26 @@
           "source": "cas"
         },
         {
+          "value": "BKC",
+          "normalized": "bkc",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "氯化苯二甲烴銨",
+          "normalized": "氯化苯二甲烴銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "8001-54-5",
           "normalized": "8001-54-5",
           "type": "cas",
@@ -171290,6 +173154,46 @@
           "source": "cas"
         },
         {
+          "value": "세트라이모늄",
+          "normalized": "세트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "cetrimonium",
+          "normalized": "cetrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "cetrimonium bromide",
+          "normalized": "cetrimonium bromide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "CTAB",
+          "normalized": "ctab",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "112-02-7",
           "normalized": "112-02-7",
           "type": "cas",
@@ -171350,16 +173254,6 @@
           "source": "cas"
         },
         {
-          "value": "Cetrimonium bromide",
-          "normalized": "cetrimonium bromide",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "cas"
-        },
-        {
           "value": "Cetrimonium chloride(1)",
           "normalized": "cetrimonium chloride 1",
           "type": "common_name",
@@ -171404,6 +173298,46 @@
           "normalized": "steartrimonium chloride 1",
           "type": "common_name",
           "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "베헨트라이모늄",
+          "normalized": "베헨트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "behentrimonium",
+          "normalized": "behentrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "behentrimonium methosulfate",
+          "normalized": "behentrimonium methosulfate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "山萮基三甲基氯化銨",
+          "normalized": "山萮基三甲基氯化銨",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
@@ -171569,6 +173503,46 @@
           "source": "cas"
         },
         {
+          "value": "베헨트라이모늄",
+          "normalized": "베헨트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "behentrimonium",
+          "normalized": "behentrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "behentrimonium methosulfate",
+          "normalized": "behentrimonium methosulfate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "山萮基三甲基氯化銨",
+          "normalized": "山萮基三甲基氯化銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "17301-53-0",
           "normalized": "17301-53-0",
           "type": "cas",
@@ -171644,16 +173618,6 @@
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "confidence": 0.9,
-          "note": null,
-          "source": "alias"
-        },
-        {
-          "value": "山萮基三甲基氯化銨",
-          "normalized": "山萮基三甲基氯化銨",
-          "type": "local_name",
-          "language": "zh-Hant",
-          "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
           "source": "alias"
@@ -184413,6 +186377,46 @@
           "source": "cas"
         },
         {
+          "value": "세트라이모늄",
+          "normalized": "세트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "cetrimonium",
+          "normalized": "cetrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "cetrimonium bromide",
+          "normalized": "cetrimonium bromide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "CTAB",
+          "normalized": "ctab",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "112-02-7",
           "normalized": "112-02-7",
           "type": "cas",
@@ -184473,16 +186477,6 @@
           "source": "cas"
         },
         {
-          "value": "Cetrimonium bromide",
-          "normalized": "cetrimonium bromide",
-          "type": "common_name",
-          "language": "en",
-          "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "cas"
-        },
-        {
           "value": "Cetrimonium chloride(1)",
           "normalized": "cetrimonium chloride 1",
           "type": "common_name",
@@ -184527,6 +186521,46 @@
           "normalized": "steartrimonium chloride 1",
           "type": "common_name",
           "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "베헨트라이모늄",
+          "normalized": "베헨트라이모늄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "behentrimonium",
+          "normalized": "behentrimonium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "behentrimonium methosulfate",
+          "normalized": "behentrimonium methosulfate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "山萮基三甲基氯化銨",
+          "normalized": "山萮基三甲基氯化銨",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
@@ -184685,6 +186719,26 @@
           "normalized": "benzalkonium chloride bromide and saccharinate 1",
           "type": "common_name",
           "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "BKC",
+          "normalized": "bkc",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "氯化苯二甲烴銨",
+          "normalized": "氯化苯二甲烴銨",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,

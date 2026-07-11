@@ -858,8 +858,8 @@
         "steviol-glycosides-food-additive",
         "food-additive-functional-classes",
         "benzoates-food-additives",
-        "sorbates-food-additives",
-        "calcium-lime-food-additives"
+        "caseinates-food-additives",
+        "sorbates-food-additives"
       ],
       "sources": [
         {
@@ -1108,6 +1108,24 @@
           ]
         },
         {
+          "id": "caseinates-food-additives",
+          "canonical_name": "Casein and Caseinates",
+          "category": "food_additive",
+          "aliases": [
+            "CAS 9000-71-9",
+            "Calcium caseinate",
+            "Casein",
+            "Sodium caseinate",
+            "乾酪素",
+            "乾酪素鈉"
+          ],
+          "source_keys": [
+            "tw-tfda-food-additive-common-names",
+            "tw-tfda-food-additive-common-names-table",
+            "tw-tfda-food-allergen-labeling"
+          ]
+        },
+        {
           "id": "sorbates-food-additives",
           "canonical_name": "Sorbic Acid and Sorbates",
           "category": "food_additive",
@@ -1123,24 +1141,6 @@
             "tw-tfda-food-additive-common-names",
             "tw-tfda-food-additive-common-names-table",
             "tw-tfda-cosmetic-preservatives"
-          ]
-        },
-        {
-          "id": "calcium-lime-food-additives",
-          "canonical_name": "Calcium Hydroxide and Calcium Oxide",
-          "category": "food_additive",
-          "aliases": [
-            "CAS 1305-62-0",
-            "CAS 1305-78-8",
-            "Calcium hydroxide",
-            "Calcium oxide",
-            "氧化鈣",
-            "氫氧化鈣"
-          ],
-          "source_keys": [
-            "tw-tfda-food-additive-common-names",
-            "tw-tfda-food-additive-common-names-table",
-            "tw-tfda-cosmetic-restricted-ingredients"
           ]
         }
       ]

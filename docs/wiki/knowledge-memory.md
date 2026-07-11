@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,658
-- Stored aliases: 9,354
-- Searchable aliases including identifiers: 10,517
+- Terms: 2,682
+- Stored aliases: 9,500
+- Searchable aliases including identifiers: 10,663
 - Term-rule links: 1,114
 - Regulatory update candidates: 50
-- Alias review items: 1,088
+- Alias review items: 1,092
 
 ## How To Use This Memory
 
@@ -99,14 +99,14 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 110-44-1; CAS 24634-61-5; CAS 7757-81-5; CAS 7492-55-9; Potassium sorbate; Sodium sorbate; Sorbic acid; 山梨酸; 山梨酸鈉; 山梨酸鉀
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
   - Note: Food preservative alias family; concentration/use limits need separate additive standards lookup.
-- **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
-  - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
-  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
-  - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
 - **Casein and Caseinates** (`caseinates-food-additives`)
   - Aliases: CAS 9000-71-9; Calcium caseinate; Casein; Sodium caseinate; 乾酪素; 乾酪素鈉; 乾酪素鈣; 酪蛋白; 酪蛋白鈉; 酪蛋白鈣
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-food-allergen-labeling`
   - Note: Food additive common-name set that also overlaps with milk allergen review.
+- **Calcium Hydroxide and Calcium Oxide** (`calcium-lime-food-additives`)
+  - Aliases: CAS 1305-62-0; CAS 1305-78-8; Calcium hydroxide; Calcium oxide; 氧化鈣; 氫氧化鈣; 熟石灰; 生石灰; 산화칼슘; 수산화칼슘
+  - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-restricted-ingredients`
+  - Note: Taiwan food additive common-name table maps calcium hydroxide/oxide to 熟石灰 and 生石灰.
 - **Dehydroacetic Acid** (`dehydroacetic-acid-food-additive`)
   - Aliases: CAS 520-45-6; CAS 16807-48-0; CAS 4418-26-2; Dehydroacetic acid; 去水醋酸; 脫氫乙酸; 데하이드로초산; 3-Acetyl-6-methylpyran-2,4 (3H)-dione and its salts; Sodium dehydroacetate; 탈수초산
   - Sources: `tw-tfda-food-additive-common-names`, `tw-tfda-food-additive-common-names-table`, `tw-tfda-cosmetic-preservatives`
@@ -409,31 +409,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-product-notification`, `tw-moj-food-safety-sanitation-act`, `tw-customs-origin-importers`
   - Note: Umbrella term for importer, local responsible firm, agent, consignee, or category-specific responsible business operator.
 
-### Cosmetic ingredient
-
-- **Centella Asiatica** (`centella-asiatica-cosmetic-ingredient`)
-  - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
-  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
-  - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
-- **Niacinamide** (`niacinamide-cosmetic-ingredient`)
-  - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
-  - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
-- **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
-  - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
-  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
-  - Note: Moisturizing cosmetic ingredient cluster. It helps route hydration claims to evidence review and keeps sodium-salt forms searchable.
-- **Centella Triterpenes** (`centella-triterpenes`)
-  - Aliases: INCI Madecassoside; INCI Asiaticoside; INCI Asiatic Acid; INCI Madecassic Acid; Asiaticoside; Madecassoside; Asiatic Acid; Madecassic Acid; 마데카소사이드; 아시아티코사이드
-  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `global-cas-registry`, `tw-moj-cosmetic-claims-criteria`
-  - Note: Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants.
-
 ### Preservative
 
 - **Benzalkonium Chloride Family** (`benzalkonium-chloride-family`)
   - Aliases: CAS 8001-54-5; CAS 63449-41-2; CAS 68391-01-5; CAS 68424-85-1; CAS 91080-29-4; CAS 85409-22-9; CAS 68989-01-5; CAS 61789-71-7; INCI Benzalkonium Chloride; INCI Benzalkonium Bromide
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
-  - Note: Family term for chloride, bromide, and saccharinate variants listed by TFDA.
+  - Note: ⚠️ 방부제 0.1%(눈 접촉 회피 경고); 비방부 씻는 모발(정전기방지) 3%(C14 이하 동족체는 0.1%).
 - **Methylparaben** (`methylparaben`)
   - Aliases: CAS 99-76-3; CAS 120-47-8; CAS 99-96-7; CAS 36457-19-9; CAS 16782-08-4; CAS 5026-62-0; CAS 35285-68-8; CAS 114-63-6; CAS 26112-07-2; CAS 69959-44-0
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-preservatives`
@@ -470,6 +451,25 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 64-18-6; CAS 141-53-7; Formic acid; Formic acid and its sodium salt; Sodium formate
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)
+
+### Cosmetic ingredient
+
+- **Centella Asiatica** (`centella-asiatica-cosmetic-ingredient`)
+  - Aliases: CAS 84696-21-9; INCI Centella Asiatica Extract; INCI Centella Asiatica Leaf Extract; INCI Centella Asiatica Root Extract; Centella Asiatica; Centella Asiatica Extract; 積雪草; 병풀; 센텔라아시아티카; Cica
+  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `tw-tfda-cosmetic-label-leaflet-packaging-marking`, `tw-moj-cosmetic-claims-criteria`
+  - Note: High-frequency Taiwan cosmetics search term for cica products. Use it to link INCI review, PIF evidence, and soothing/barrier claim substantiation without treating marketing names as regulatory approval.
+- **Niacinamide** (`niacinamide-cosmetic-ingredient`)
+  - Aliases: CAS 98-92-0; INCI Niacinamide; Niacinamide; Nicotinamide; 菸鹼醯胺; 나이아신아마이드; 烟酰胺; 煙醯胺; 니아신아마이드; 니코틴아마이드
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Common brightening/barrier cosmetic ingredient. Search hits should trigger Taiwan cosmetic claim substantiation rather than automatic whitening approval.
+- **Hyaluronic Acid and Sodium Hyaluronate** (`hyaluronic-acid-sodium-hyaluronate`)
+  - Aliases: CAS 9004-61-9; CAS 9067-32-7; INCI Hyaluronic Acid; INCI Sodium Hyaluronate; INCI Hydrolyzed Hyaluronic Acid; Hyaluronic Acid; Sodium Hyaluronate; Hydrolyzed Hyaluronic Acid; 玻尿酸; 透明質酸
+  - Sources: `global-pcpc-inci`, `global-cas-registry`, `eu-cosing-cosmetic-ingredients`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Moisturizing cosmetic ingredient cluster. It helps route hydration claims to evidence review and keeps sodium-salt forms searchable.
+- **Centella Triterpenes** (`centella-triterpenes`)
+  - Aliases: INCI Madecassoside; INCI Asiaticoside; INCI Asiatic Acid; INCI Madecassic Acid; Asiaticoside; Madecassoside; Asiatic Acid; Madecassic Acid; 마데카소사이드; 아시아티코사이드
+  - Sources: `global-pcpc-inci`, `eu-cosing-cosmetic-ingredients`, `global-cas-registry`, `tw-moj-cosmetic-claims-criteria`
+  - Note: Centella active-constituent alias cluster. It improves search recall for cica barrier products while forcing confirmation for supplier Chinese/Korean ingredient variants.
 
 ## Alias Ambiguity Queue
 
