@@ -459,12 +459,49 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "메틸수은",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "methylmercury",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "甲基汞",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "汞",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "global-cas-registry"
       ],
-      "notes": "Heavy-metal family matching should surface confirmation prompts for salts and compounds."
+      "notes": "대만 총수은 한도(mg/kg): 쌀 0.05·조류 0.5·상어/황새치/참치/기름치 2.0·대구/가다랑어 1.0·기타어 0.5·패류/두족류 0.5. 총수은이 메틸수은 한도 이하면 메틸수은 재검 불필요.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
     },
     {
       "id": "hydroquinone",
@@ -7763,12 +7800,34 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.85
+        },
+        {
+          "value": "잔류기준체계",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "一律基準",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "0.01ppm default",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-moj-food-pesticide-residue-limits"
       ],
-      "notes": "Taiwan food-safety standard for pesticide maximum residue limits, crop classifications, omitted MRL lists, and prohibited pesticides."
+      "notes": "⚠️ 대만 잔류체계: 농약=positive list+미등재 一律基準 0.01ppm(사실상 불검출); 동물용약=미등재 不得檢出(zero, 수치 없음). 금지약 별도. 수입MRL vs 국내사용금지 분리(라토파민 논란).",
+      "verification": "inferred"
     },
     {
       "id": "food-veterinary-drug-residue-limits",
@@ -12106,12 +12165,19 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.85
+        },
+        {
+          "value": "폴리염화비닐",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-contact-packaging-labeling-regulations"
       ],
-      "notes": "Taiwan requires PVC or PVDC food-contact surfaces to carry a warning against direct contact with high-fat and high-temperature foods."
+      "notes": "PVC 식품용기/랩: Pb/Cd ≤100ppm·다이부틸주석 ≤50ppm·트라이크레실인산 ≤1000ppm·**염화비닐단량체(VCM) ≤1ppm**·과망간산칼륨 소비 ≤10ppm·증발잔류물 ≤30ppm(물/초산/에탄올)·≤150ppm(n-heptane 유지)."
     },
     {
       "id": "cosmetic-post-market-surveillance",
@@ -18933,12 +18999,26 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.88
+        },
+        {
+          "value": "鎘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "Cd",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "화장품 중금속 한도: 汞1·鉛10·砷3·鎘5 ppm. 첨가 금지·불순물 미량만."
+      "notes": "대만 카드뮴 한도(mg/kg): 쌀 0.4(한국 0.2보다 느슨)·밀 0.2·엽채 0.2·근채/감자 0.1·견과 0.2·대두/땅콩 0.2·참치/고등어 0.1·기타어 0.05·간 0.5·신장 1.0·영유아조제(액상) 0.005/(분말) 0.010. ⚠️ 초콜릿 0.3~0.9(코코아고형분 등급별)·코코아분말 2.0 — **2026-01-01 신규 시행**(이전엔 규제 전무, 한국 수출자 인지 낮음)."
     },
     {
       "id": "microplastic",
@@ -22082,13 +22162,20 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "三單氯丙二醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "간장·HVP=3-MCPD 한도, 고온 조리 전분식품=아크릴아마이드 지표값."
+      "notes": "대만 3-MCPD 한도: 간장·간장기반 조미료(진간장·굴소스 블렌드 포함) 0.3 mg/kg. ⚠️ 범위가 좁음 — 발효조미료 전체 아님. 한국 양조/혼합간장 블렌드도 '간장기반'으로 포착. 아크릴아마이드는 법정 한도 없음(2016 지표값 지침: 감자칩 1000·감자튀김 600·커피 450 ppb; 초과 시 회수 사례 有 — 사실상 집행 기준)."
     },
     {
       "id": "medical-device-import",
@@ -22798,13 +22885,27 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "히스타민한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "組織胺限值",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "어류 히스타민 법정 한도 — 200 mg/kg(히스티딘 높은 어류)/400 mg/kg(염장·발효·魚醬). 附表三."
+      "notes": "대만 히스타민 한도(mg/kg, 히스티딘 다량 어종: 고등어/청어/멸치/만새기 등): 신선어 200·**해당 어류 염장/발효품(피시소스/젓갈 등) 400**. ⚠️ 젓갈/피시소스류는 400 tier — 신선어 200과 혼동 금지."
     },
     {
       "id": "benzoyl-peroxide-flour",
@@ -23252,13 +23353,34 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "아플라톡신한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "aflatoxin B1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "aflatoxin M1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "곰팡이독소·중금속·잔류물 대만 한도·수입검사."
+      "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
     },
     {
       "id": "melamine",
@@ -23290,13 +23412,27 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "멜라민한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "三聚氰胺限值",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "멜라민 오염물 — 대만 한도·수입검사(유제품 이력)."
+      "notes": "대만 멜라민 관리지표값(2022 지침): 영유아조제분유 1 mg/kg·**영유아조제 액상 0.15 mg/kg**·일반식품 2.5 mg/kg. ⚠️ 액상분유 0.15는 국제통용 '분유 1ppm' 벤치마크보다 훨씬 낮아 한국 RTD/액상분유가 국제기준 통과해도 대만서 실패 가능."
     },
     {
       "id": "honey-naming",
@@ -24854,6 +24990,20 @@
           "language": "en",
           "jurisdiction": "GLOBAL",
           "confidence": 0.9
+        },
+        {
+          "value": "蝸牛黏液",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "snail mucin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -25612,13 +25762,29 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "식품접촉재PFAS",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "環境部 269종 PFAS 관注化學物質 지정 — 섬유·조리기구·코팅·포장·원료. 임계치 이상 등록·표시. 시행일 미확정(~2027, 음용수 기준 2027-07)."
+      "notes": "⚠️ 대만 식품접촉재 PFAS 용출 한도 아직 없음(2025-12 초안=식품 함량, 포장 용출 아님). 환경부 독성화학물질(508종) 별도. 한국도 FCM 규칙 개발중 — 양측 공백.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
     },
     {
       "id": "bsmi-2026-scope",
@@ -37704,6 +37870,27 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "카퍼펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "藍銅胜肽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "copper peptide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9
         }
       ],
@@ -87783,12 +87970,28 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "클로르피리포스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 공고 금지 농약 — 잔류 검출 시 수입 반려. 사용·판매 금지."
+      "notes": "⚠️ 단계적 전면금지: 제조/수입 2022-04·가공 2024-01·판매/사용 2026-01. ~32작물 MRL 불검출로 삭제 진행. 구 MRL표 합법 화물이 개정표 기준 위반될 수 있음.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
     },
     {
       "id": "inorganic-arsenic",
@@ -87911,12 +88114,40 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "무기비소한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "糙米",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "白米",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "brown rice arsenic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "무기비소 한도(쌀 0.2/0.35·영유아원료미 0.1·해조 1.0·어류 0.5). 검사는 대만 국경(수입국). COA 법적의무 아님."
+      "notes": "⚠️ 대만 무기비소 한도(mg/kg): 糙米(현미) 0.35·白米(백미) 0.2·**영유아식 원료용 쌀 0.1**(가장 엄격)·기타곡물(총비소) 1·조류 1.0·어패류 0.5(총비소). 한국 일반 쌀기준 통과품도 대만서 '영유아식 원료'로 포지셔닝 시 0.1에서 반려 가능 — 대표적 함정."
     },
     {
       "id": "infant-food-tariff",
@@ -107300,6 +107531,1862 @@
         "tw-tfda-food-additive-standards"
       ],
       "notes": "⚠️ 대만은 효소를 이름별 포지티브 리스트로 관리하지 않음. 식품첨가물 附表一 (十七) 단일 카테고리 '酵素製劑(Enzyme Product)'(各類食品 適量·제조가공 필요시·규격 없음·鮮乳/保久乳 제외) 또는 加工助劑衛生標準(가공보조제)로 규율. 실제 합법 여부는 해당 상용 효소제품의 TFDA 査驗登記 許可證 취득 여부로 결정(이름 목록 아님). ⚠️ 현재 등록 제품 0건(금지 아님 — 査驗登記 신청 필요)."
+    },
+    {
+      "id": "cont-lead",
+      "canonical_name": "Lead (납)",
+      "category": "heavy_metal_limit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "납",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "lead",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "鉛",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "Pb",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 오염물질 한도(mg/kg): 곡물·쌀 0.2·엽채 0.3·근채 0.1·과채 0.05·어류 0.3·패류 1.5·축산근육 0.1·우유 0.02·영유아조제(액상) 0.010/(분말) 0.020·영유아식/시리얼 0.050·소금 2·꿀 0.1. 세부 채소 소분류(배추류·인경채 0.1)가 통짜 '채소' 가정과 다름.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-tin",
+      "canonical_name": "Tin — canned (주석)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "주석",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "tin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "錫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "Sn",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 통조림 주석 한도(mg/kg): 유지 250·음료 150·영유아 조제/시리얼/이유식(비건조) 50·기타 통조림 250. ⚠️ 영유아 통조림/파우치는 50으로 엄격.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-copper-limit",
+      "canonical_name": "Copper — food limit (구리)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "구리한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "copper limit",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "銅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "食品銅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 식품 구리 한도(mg/kg): 계란(무각) 5·음료 5.0·소금 2 — 3개 범주만 규제."
+    },
+    {
+      "id": "cont-ochratoxin",
+      "canonical_name": "Ochratoxin A (오크라톡신A)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "오크라톡신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ochratoxin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "ochratoxin A",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "赭麴毒素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "OTA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 OTA 한도(μg/kg): 곡물원료 5·즉석곡물 3·건포도 10·후추/육두구/생강/강황 15·고추 20·볶은커피 5·인스턴트커피 10·포도주스 2·**영유아식 0.50**(훨씬 엄격). 커피 등급(볶은 5 vs 인스턴트 10) 혼동 주의.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-patulin",
+      "canonical_name": "Patulin (파튤린)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "파튤린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "patulin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "棒麴毒素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 파튤린 한도(μg/kg): 사과 고형물(퓨레/조림) 25·사과주스/농축환원 50·사과발효음료 50·**영유아 사과주스/퓨레·이유식 10.0**. 유아식 기준(10)이 일반 주스(50)보다 훨씬 엄격.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-don",
+      "canonical_name": "Deoxynivalenol / DON (데옥시니발레놀)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "데옥시니발레놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "deoxynivalenol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "DON",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "嘔吐毒素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "구토독소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 DON 한도(μg/kg): 듀럼밀/귀리/옥수수원료 1750·기타곡물원료 1250·밀/옥수수/보리 가루 1000·건면 750·즉석곡물 750·빵/비스킷/시리얼/스낵 500·**영유아식 200**. ⚠️ 쌀·쌀제품은 DON 기준 면제(주석13).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-zearalenone",
+      "canonical_name": "Zearalenone (제랄레논)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "제랄레논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "zearalenone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "玉米赤黴烯酮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "ZEN",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 ZEN 한도(μg/kg): 옥수수원료 350·기타곡물원료 100·즉석곡물 75·즉석옥수수/스낵 100·빵/비스킷/비옥수수스낵 50·정제옥수수유 400·**영유아식 20**(건량기준).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-fumonisin",
+      "canonical_name": "Fumonisin (푸모니신)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "푸모니신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "fumonisin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "伏馬毒素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 푸모니신(B1+B2) 한도(μg/kg): 옥수수원료 4000·옥수수분/밀 2000·옥수수시리얼/스낵 800·기타 즉석옥수수식품 1000·**옥수수영유아식 200**(원료의 20배 엄격).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-benzopyrene",
+      "canonical_name": "Benzo[a]pyrene (벤조피렌)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "벤조피렌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "benzopyrene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "苯并芘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "BaP",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "benzo(a)pyrene",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 BaP 한도(μg/kg): 식용유 2.0·코코아(코코아버터기준) 5.0·건조허브 10.0·건조향신료 10.0·**훈제/구이육 2.0·즉석BBQ육 5.0**·훈제/구이어 2.0(일부 소형어/이매패 5.0~6.0)·생/냉동 이매패 5.0·영유아식 1.0. 훈제어 어종별 예외 주의.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-dioxin",
+      "canonical_name": "Dioxin & PCBs (다이옥신)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "다이옥신",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "dioxin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "戴奧辛",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "PCB",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "多氯聯苯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "다이옥신유사PCB",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "별도 규정(食品含戴奧辛及多氯聯苯處理規範, 2021 시행, EU 1881/2006 준거). ⚠️ **3개 지표 모두 검사 필수**: 다이옥신 단독 / 다이옥신+dl-PCB / ICES-6(비다이옥신유사 PCB 6종). 예: 소고기 2.5/4.0 pg-TEQ/g지방·40ng/g(ICES-6); 돼지 1.0/1.25/40; 어류 3.5/6.5 pg/g습중량; **3세 미만 0.1/0.2/1.0**. EU식 다이옥신+PCB만 검사한 한국 성적서는 ICES-6 누락으로 불완전.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-perchlorate",
+      "canonical_name": "Perchlorate (과염소산)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "과염소산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "perchlorate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "過氯酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "과염소산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 전용 식품 기준 없음(EU만 2024/25 도입). 한국도 미규제 — 현재 함정 낮으나 차·엽채 중심 신흥 이슈(모니터링 권장).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cont-nitrate",
+      "canonical_name": "Nitrate — vegetables (질산염)",
+      "category": "food_safety_contaminant",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "질산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "nitrate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "硝酸鹽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "질산염잔류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 채소 질산염 의무 한도 없음('台灣...硝酸鹽殘留沒標準'). 한국도 미규제(EU만 시금치/상추 규제). EU 기준 설계는 대만·한국엔 과잉.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "fcm-bpa",
+      "canonical_name": "Bisphenol A / BPA (비스페놀A)",
+      "category": "food_contact_migration",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "비스페놀A",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "bisphenol A",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "BPA",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "雙酚A",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 식품용기 BPA 용출 ≤0.6 ppm(물 95℃/30분 또는 4%초산 60℃/30분) — 폴리카보네이트 대상(한국 통용 ~2.5ppm보다 엄격). ⚠️ **유아용 젖병은 BPA 함유 소재 전면 금지**(용출한도 아닌 사용금지). 캔 에폭시 내면코팅엔 별도 BPA 한도 없음(공백).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "fcm-polycarbonate",
+      "canonical_name": "Polycarbonate (폴리카보네이트)",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "폴리카보네이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "polycarbonate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚碳酸酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "PC 식기/병(비유아): Pb/Cd ≤100ppm·BPA 용출 ≤0.6ppm·과망간산칼륨 소비 ≤10ppm·증발잔류물 ≤30ppm. 유아 젖병 BPA 함유 소재 금지."
+    },
+    {
+      "id": "fcm-melamine-ware",
+      "canonical_name": "Melamine resin tableware (멜라민수지)",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "멜라민수지",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "melamine resin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "美耐皿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "멜라민식기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "멜라민웨어",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "멜라민-포름알데히드 식기: Pb/Cd ≤100ppm·**포름알데히드 陰性(불검출)**·페놀 陰性·**멜라민 단량체 ≤2.5ppm**(4%초산 95℃/30분)·증발잔류물 ≤30ppm.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "fcm-silicone",
+      "canonical_name": "Silicone rubber (실리콘고무)",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "실리콘고무",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "silicone rubber",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "矽膠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "矽利康",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "silicone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 대만 위생표준에 실리콘고무 전용 수치 카테고리 없음(PE/PP/PVC/PC/멜라민/고무는 있음). 일반규정(변색·이취·이물 없음)+고무 유추 시험만. 한국(MFDS)엔 실리콘고무 전용 기준 존재 — 대만측 공백(비-TFDA 체크리스트).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "fcm-epoxy",
+      "canonical_name": "Epoxy can coating (에폭시 코팅)",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "에폭시코팅",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "epoxy coating",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "環氧樹脂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "캔내면코팅",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "罐頭內塗層",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 에폭시수지 전용 수치표 없음. 2023 金屬合金/도장캔 규정으로 간접 규율(pH5 이하 식품용 합성수지 도장캔에 중금속 용출시험 확대). 캔 에폭시 라이닝 BPA 용출 한도 미공개(공백 vs 한국/EU)."
+    },
+    {
+      "id": "fcm-paper",
+      "canonical_name": "Paper containers (종이용기)",
+      "category": "food_contact_materials",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "종이용기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "paper container",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "紙容器",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "종이컵",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "판지용기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 종이용기: 형광증백제 불검출·비소(As2O3) ≤0.1ppm·포름알데히드 陰性·증발잔류물 ≤30ppm·중금속(Pb기준) ≤1ppm(4%초산)."
+    },
+    {
+      "id": "fcm-printing-ink",
+      "canonical_name": "Food packaging printing ink (인쇄잉크)",
+      "category": "food_contact_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프린팅잉크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "printing ink",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "印刷油墨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "인쇄잉크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "food packaging ink",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 대만 잉크 전용 용출 수치표 없음(공고 부재) — 일반조항(변색·이취·오염 금지)+기재의 중금속/프탈레이트/포름알데히드 시험으로만 간접. 업계 지침(저이행 잉크·입구 인쇄 회피)은 권고이지 법정 아님. 한국은 식품포장용 잉크 가이드 보유 — 대만측 공백."
+    },
+    {
+      "id": "fcm-phthalate",
+      "canonical_name": "Phthalates — food contact (프탈레이트)",
+      "category": "plasticizer_food",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "프탈레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "phthalate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "鄰苯二甲酸酯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "DEHP",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "DBP",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "BBP",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "가소제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 식품용기 프탈레이트 용출(n-heptane 25℃/1hr, 유지모사): DEHP ≤1.5·DBP ≤0.3·BBP ≤30·DIDP/DINP 각 ≤9 ppm; **8종 프탈레이트 합산 ≤0.1wt%**(소재 자체). ⚠️ **3세 미만 식기/용기는 DEHP/DNOP/DBP/BBP 4종 전면 금지**(불검출).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "fcm-nitrosamine",
+      "canonical_name": "Nitrosamine — rubber teats (니트로사민)",
+      "category": "infant_article_material",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "니트로사민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "nitrosamine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "亞硝胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "N-니트로사민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 대만 위생표준에 고무젖꼭지 니트로사민 전용 한도 없음(EU 93/11/EEC는 규제). 대만은 젖꼭지 고무를 Pb/Cd/페놀/포름알데히드/증발잔류물/아연으로만 규제. 한국도 EU식 니트로사민 시험 도입 추세 — 대만측 공백(비-TFDA 체크리스트)."
+    },
+    {
+      "id": "res-ractopamine",
+      "canonical_name": "Ractopamine (라토파민)",
+      "category": "vet_drug_residue",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "라토파민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ractopamine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "萊克多巴胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "萊劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "락토파민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 흔한 오해 정정: 대만·한국 **둘 다** 국내사육 금지+수입MRL 설정(둘 다 Codex). 대만 수입MRL: 돼지 근육/지방 0.01·간/신장 0.04·기타내장 0.01ppm; **소는 근육만 0.01**(기타 부위 미설정=사실상 불검출). 진짜 함정=**부위별 수치차**: 한국 신장 0.09(대만 0.04의 2배+)·소 전부위 커버 → 한국 합법 소신장(0.08)/소 비근육 부위가 대만서 불법 가능. '허용 vs 금지' 이분법 아님.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "res-clenbuterol",
+      "canonical_name": "Clenbuterol (클렌부테롤)",
+      "category": "banned_drug_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "클렌부테롤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "clenbuterol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "瘦肉精",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "克崙特羅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 금지 동물용약(2006), 잔류 **不得驗出(zero)**. 한국도 zero — 갈등 없음. 함정=용어: '瘦肉精'이 clenbuterol(zero)과 ractopamine(MRL 有)을 모두 지칭 → 모든 '살코기제'를 zero로 오인.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "res-glyphosate",
+      "canonical_name": "Glyphosate (글리포세이트)",
+      "category": "pesticide_border_risk",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "글리포세이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "glyphosate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "嘉磷塞",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "글리포사이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "금지 아님, positive list MRL — 대만이 대체로 더 엄격(대두 10ppm vs 美 30; 곡물은 '불검출' 장기 유지, 2019 완화안 보류). ⚠️ 곡물/귀리 수출자는 Codex 동등 가정 말고 작물별 附表一 확인.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "res-imidacloprid",
+      "canonical_name": "Imidacloprid (이미다클로프리드)",
+      "category": "environmental_agent_pesticide",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "이미다클로프리드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "imidacloprid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "益達胺",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "네오니코티노이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "금지 아님 — 작물별 MRL(계란 0.02·홉 3.0·기타 0.03~1.0ppm 범위). ⚠️ EU식 네오니코 옥외사용 규제는 대만·한국 모두 미적용 — EU 기준 가정 말 것. 작물별 TW-KR MRL 불일치가 실질 위험."
+    },
+    {
+      "id": "res-sulfonamide",
+      "canonical_name": "Sulfonamides (설파제)",
+      "category": "vet_drug_residue",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "설파제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "sulfonamide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "磺胺劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "sulfadimethoxine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "설폰아마이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "동물용약 positive list — 설파제는 **class 합산** 기준(예: sulfadimethoxine+sulfamonomethoxine 합 ≤0.1ppm, 조직별). 개별성분 기준으로 통과해도 대만 합산 상한 초과 가능.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "res-tetracycline",
+      "canonical_name": "Tetracyclines (테트라사이클린)",
+      "category": "vet_drug_residue",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "테트라사이클린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "tetracycline",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "四環黴素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "옥시테트라사이클린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "동물용약 MRL(조직별, ppm): 축산근육/지방 0.2·간 0.6·신장 1.2·계란 0.4·우유 0.1·어류근육 0.2·갑각류 0.1. Codex 준거이나 부위 커버(거북/양서류/갑각류 별도 tier)가 세밀.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "res-nitrofuran",
+      "canonical_name": "Nitrofurans (니트로푸란)",
+      "category": "banned_drug_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "nitrofuran",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "AOZ",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "AMOZ",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "니트로퓨란",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 금지 동물용약 — 잔류 **不得檢出**(대사체 ~1ppb까지 검출). 한국도 zero. 함정=모(母)화합물 아닌 **대사체**를 검사 → 사료 등 저농도 오염도 불검출 실패(수산/가금 수출자 사전 대사체 검사 필요).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "res-malachite-green",
+      "canonical_name": "Malachite green (말라카이트그린)",
+      "category": "banned_drug_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "말라카이트그린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "malachite green",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "孔雀綠",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "공작석녹",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "⚠️ 금지 동물용약(GL000939) — 식용동물용 제조/수입/판매/전시 전면금지, **관상어만 예외**. 식용어 잔류 zero. 함정=관상어 예외 오용 — 식용양식(石斑魚 등)에 사용 시 목적 불문 위법(TFDA 적발사례).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cos-exosome",
+      "canonical_name": "Exosomes (엑소좀)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "엑소좀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "exosome",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "外泌體",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "엑소좀화장품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ **인체유래 엑소좀은 화장품 금지목록 #11('인체 유래 세포·조직·산물')** — 단 2024-03-21부터 제조사별·제품별 개별 TFDA 심사(공여자적격·제조/QC·안정성·안전성·ADME 제출) 통과 시에만 허용. 식물/동물유래 엑소좀은 #11 미해당(일반성분, 통상 안전성실증). ⚠️ 의료/주사/재생 효능 표방 불가.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cos-stemcell-media",
+      "canonical_name": "Stem cell conditioned media (줄기세포배양액)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "줄기세포배양액",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "stem cell conditioned media",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "幹細胞培養液",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "줄기세포추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "幹細胞萃取",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ **인체유래 줄기세포배양액/분비물은 금지목록 #11**(엑소좀 개별예외가 여기엔 미적용) — 원칙 금지. 식물 줄기세포 추출물(한국/일본 흔한 성분)은 #11 미해당, 자유 사용. 인체 vs 식물 구분이 함정.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cos-growth-factor",
+      "canonical_name": "Growth factors / EGF (성장인자)",
+      "category": "cosmetic_claim_medical",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "성장인자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "growth factor",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "生長因子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "EGF",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "FGF",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "표피성장인자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "表皮生長因子",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "성분 자체는 금지·제한 목록 미등재(허용, 재조합 EGF/FGF 원료 판매됨). ⚠️ 화장품법 정의상 '타 법상 약품'은 제외 — '세포재생·조직수복' 등 치료/상처치유 효능 표방 시 약품 재분류 또는 과대·의료효능 광고(§10) 위반. 허용이나 광고리스크 높음.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cos-botulinum-topical",
+      "canonical_name": "Topical 'botox' peptides (바르는 보톡스)",
+      "category": "cosmetic_claim_medical",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "보툴리눔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "botulinum",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "肉毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "바르는보톡스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "塗抹式肉毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 실제 보툴리눔 독소=고위험 생물의약품(약사법 §39, 허가 3건)으로 **화장품 첨가 불가**. 아세틸헥사펩타이드-8(아르지렐린)은 별개 허용 펩타이드. TFDA가 '塗抹式肉毒' 마케팅 5개 과대표현 지적 — 펩타이드를 보툴리눔독소/시술과 동일시하는 광고는 §10 위반(벌금 60만~500만).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-11",
+      "verifiedSources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ]
+    },
+    {
+      "id": "cos-microbiome",
+      "canonical_name": "Microbiome / probiotic cosmetics (마이크로바이옴)",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "마이크로바이옴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "microbiome",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "微生物體",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "프로바이오틱스화장품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "postbiotic cosmetic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "전용 금지·제한 없음(허용) — 일반 화장품 미생물 한도표(완제품: 대장균/녹농균/황색포도상구균/칸디다 불검출, 영유아/눈/점막용 더 엄격) 적용. 실무상 대부분 lysate/발효여과물(비생균) 사용(안정성·오염 회피, 법적 강제 아님)."
     }
   ]
 }

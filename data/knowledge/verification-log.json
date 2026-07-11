@@ -475,6 +475,50 @@
         "tfda-fadd-enzyme-product"
       ],
       "facts": "COSMETIC (list#/limit): toluene-2,5-diamine restr#66 2%/3.6% oxidative-hairdye-only; p-aminophenol restr#69 0.9% hairdye-only; H2O2 restr#167 12%(hair)/6%(tooth+warning); ammonium persulfate restr#163 61.3% professional-only; homosalate UV#4 10%; 4-MBC/enzacamene UV#23 4%; drometrizole trisiloxane UV#12 15%; MIT preserv#29 0.0015% RINSE-OFF ONLY (leave-on banned); chlorphenesin preserv#34 0.3%; diazolidinyl urea preserv#53 0.5% formaldehyde<1000ppm; triclosan preserv#45 0.3%/0.2%mouthwash; oxybenzone/BP-3 UV#2 6% (0.5% protectant) + mandatory '含二苯酮-3' warning. FADD: SSL emulsifier QS; sorbitol solution & maltitol syrup QS but INFANT-FOOD-PROHIBITED; ε-polylysine ABSENT (not approved); nisin 防腐劑 CHEESE ONLY ≤0.25g/kg; propionic acid 防腐劑 BREAD/PASTRY ONLY ≤2.5g/kg; diatomaceous earth & bentonite(皂土) residue ≤5g/kg; PVP tablet-food-only ≤5%; steviol glycosides tiered (0.05-0.1%); enzyme-treated stevia / enzyme-decomposed lecithin ABSENT (base forms only). VITAMINS 營養添加劑 tiers (cap/tablet, general, infant): B1 50/1.95/0.9mg; B6 80/2.1/0.75mg; B12 1000/3.6/1.35μg; folic 800/600/225μg; niacin 100/25.5/12mg NE; D2 800IU/15μg; Vit C(Na ascorbate) 1000/150/60mg; pantothenate/biotin/K1/choline-bitartrate NO numeric cap; β-carotene ≤10000IU as Vit A. ENZYMES: Taiwan has NO per-enzyme positive list — single generic 附表一(十七) '酵素製劑/Enzyme Product' category (QS, mfg-necessity, no spec, excl fresh/UHT milk) + 加工助劑衛生標準 for processing-aid enzymes; legality is per-product 査驗登記 license. Amylase/protease/transglutaminase heavily licensed; invertase/phytase/naringinase have ZERO current registered products (not banned). Nattokinase (raw-material track) is explicitly on 未確認安全性 (barred)."
+    },
+    {
+      "batch": "regulatory-contaminant-contact-residue-cosmetic-2026-07-11q",
+      "method": "4 parallel sonnet agents — TFDA 食品中污染物質及毒素衛生標準 (附表一/二/三 PDFs), 食品器具容器包裝衛生標準, 農藥/動物用藥殘留標準, cosmetic prohibited/restricted lists + gazettes",
+      "verifiedAt": "2026-07-11",
+      "sources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040083",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040026",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?id=30445"
+      ],
+      "terms": [
+        "cont-lead",
+        "mercury",
+        "cont-tin",
+        "cont-ochratoxin",
+        "cont-patulin",
+        "cont-don",
+        "cont-zearalenone",
+        "cont-fumonisin",
+        "cont-benzopyrene",
+        "cont-dioxin",
+        "cont-perchlorate",
+        "cont-nitrate",
+        "fcm-bpa",
+        "fcm-melamine-ware",
+        "fcm-silicone",
+        "fcm-phthalate",
+        "pfas-chemical",
+        "res-ractopamine",
+        "res-clenbuterol",
+        "res-glyphosate",
+        "tfda-banpest-chlorpyrifos",
+        "res-nitrofuran",
+        "res-malachite-green",
+        "res-tetracycline",
+        "res-sulfonamide",
+        "cos-exosome",
+        "cos-stemcell-media",
+        "cos-growth-factor",
+        "cos-botulinum-topical"
+      ],
+      "facts": "CONTAMINANTS: inorganic-As rice tiers 0.35 brown/0.2 white/0.1 infant-food-raw; cadmium rice 0.4 + NEW chocolate 0.3-0.9/cocoa 2.0 effective 2026-01-01; mycotoxins (aflatoxin/OTA/patulin/DON/ZEN/fumonisin) all get infant-food sub-limits 10-40x stricter (B1 infant 0.10, M1 infant 0.025, patulin infant 10, DON infant 200); rice EXEMPT from DON; melamine liquid-infant-formula 0.15mg/kg (stricter than intl 1ppm); histamine fresh 200 / fermented 400; benzopyrene smoked meat 2.0/BBQ 5.0; dioxin needs ALL THREE metrics incl ICES-6 PCBs; acrylamide/nitrate/perchlorate NO binding limit. CONTACT: BPA migration 0.6ppm (stricter than KR ~2.5) + infant bottle BPA ban; melamine-ware melamine monomer 2.5ppm + formaldehyde non-detect; phthalates DEHP 1.5/DBP 0.3/BBP 30ppm + 8-phthalate 0.1wt% + under-3 4-phthalate ban; TW GAPS (no codified limit): silicone rubber, epoxy-can BPA, printing ink, PFAS FCM, teat nitrosamine. RESIDUES regime: pesticide positive-list + 0.01ppm default; vet-drug unlisted = 不得檢出 zero. Ractopamine — BOTH TW & KR ban domestic use + set import MRLs (TW pork 0.01/offal 0.04, beef muscle-only 0.01; KR kidney 0.09 = 2x TW) — real trap is organ/cut mismatch NOT ban-vs-allow. Clenbuterol/nitrofuran/malachite-green banned zero-tolerance (malachite ornamental-fish exception only). Glyphosate TW stricter than US. Chlorpyrifos phase-out sale-ban 2026. COSMETIC: human-derived exosomes & stem-cell CM on prohibited list #11 (exosomes have 2024 case-by-case exception; stem-cell CM does not); plant-derived unaffected. Growth factors/topical-botox-peptides/PDRN permitted as ingredients but medical/regenerative claims violate Cosmetic Act Art.10. Microbiome/copper-peptide/snail permitted."
     }
   ]
 }
