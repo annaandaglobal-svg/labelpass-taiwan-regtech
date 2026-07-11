@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2643,
-    "stored_aliases": 9238,
-    "searchable_aliases": 10401,
+    "terms": 2658,
+    "stored_aliases": 9354,
+    "searchable_aliases": 10517,
     "identifier_aliases": 1163,
     "term_rule_links": 1114,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1084,
+    "alias_review_items": 1088,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -3396,18 +3396,18 @@
         "甜菊醣苷",
         "스테비올배당체",
         "Steviol glycoside",
+        "E960",
         "enzyme-treated stevia",
         "甜菊",
         "酵素處理甜菊",
-        "글루코실스테비아",
-        "효소처리스테비아"
+        "글루코실스테비아"
       ],
       "source_keys": [
         "tw-tfda-food-additive-common-names",
         "tw-tfda-food-additive-common-names-table"
       ],
       "notes": "Steviol Glycosides — permitted Taiwan sweetener food additive (甜味劑, 品名 甜菊醣苷), derived from Stevia leaf. 허용 감미료((十一之一) 甜味劑): 瓜子·蜜餞·梅粉 適量; 곡류시리얼·과자·껌·사탕·간식 ≤0.05%; 음료·간장·조미醬·절임채소 ≤0.1%; 特殊營養食品은 사전 승인. ⚠️ 효소처리 스테비아 별도 등재 없음 — 이 甜菊醣苷 규정 적용.",
-      "score": 2207
+      "score": 2209
     },
     {
       "id": "shtc-export-permit",
@@ -5523,17 +5523,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2643,
-      "aliases_scanned": 9238,
-      "alias_rows_scanned": 9238,
-      "collision_groups": 273,
-      "high_confidence_collisions": 216,
+      "terms_scanned": 2658,
+      "aliases_scanned": 9354,
+      "alias_rows_scanned": 9354,
+      "collision_groups": 277,
+      "high_confidence_collisions": 219,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
       "regulated_terms_without_local_alias": 811,
       "strict_blockers": 0,
-      "review_items": 1084
+      "review_items": 1088
     },
     "items": [
       {

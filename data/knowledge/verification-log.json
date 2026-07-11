@@ -519,6 +519,31 @@
         "cos-botulinum-topical"
       ],
       "facts": "CONTAMINANTS: inorganic-As rice tiers 0.35 brown/0.2 white/0.1 infant-food-raw; cadmium rice 0.4 + NEW chocolate 0.3-0.9/cocoa 2.0 effective 2026-01-01; mycotoxins (aflatoxin/OTA/patulin/DON/ZEN/fumonisin) all get infant-food sub-limits 10-40x stricter (B1 infant 0.10, M1 infant 0.025, patulin infant 10, DON infant 200); rice EXEMPT from DON; melamine liquid-infant-formula 0.15mg/kg (stricter than intl 1ppm); histamine fresh 200 / fermented 400; benzopyrene smoked meat 2.0/BBQ 5.0; dioxin needs ALL THREE metrics incl ICES-6 PCBs; acrylamide/nitrate/perchlorate NO binding limit. CONTACT: BPA migration 0.6ppm (stricter than KR ~2.5) + infant bottle BPA ban; melamine-ware melamine monomer 2.5ppm + formaldehyde non-detect; phthalates DEHP 1.5/DBP 0.3/BBP 30ppm + 8-phthalate 0.1wt% + under-3 4-phthalate ban; TW GAPS (no codified limit): silicone rubber, epoxy-can BPA, printing ink, PFAS FCM, teat nitrosamine. RESIDUES regime: pesticide positive-list + 0.01ppm default; vet-drug unlisted = 不得檢出 zero. Ractopamine — BOTH TW & KR ban domestic use + set import MRLs (TW pork 0.01/offal 0.04, beef muscle-only 0.01; KR kidney 0.09 = 2x TW) — real trap is organ/cut mismatch NOT ban-vs-allow. Clenbuterol/nitrofuran/malachite-green banned zero-tolerance (malachite ornamental-fish exception only). Glyphosate TW stricter than US. Chlorpyrifos phase-out sale-ban 2026. COSMETIC: human-derived exosomes & stem-cell CM on prohibited list #11 (exosomes have 2024 case-by-case exception; stem-cell CM does not); plant-derived unaffected. Growth factors/topical-botox-peptides/PDRN permitted as ingredients but medical/regenerative claims violate Cosmetic Act Art.10. Microbiome/copper-peptide/snail permitted."
+    },
+    {
+      "batch": "healthfunc-cosmetic-kfood-enumber-2026-07-11r",
+      "method": "3 parallel sonnet agents — TFDA raw-material (export/4) + additive (export/61) CSVs + cosmetic gazette/MOHW restriction/prohibited tables",
+      "verifiedAt": "2026-07-11",
+      "sources": [
+        "https://data.fda.gov.tw/data/opendata/export/4/csv",
+        "https://data.fda.gov.tw/data/opendata/export/61/csv",
+        "gazette 化粧品成分使用限制表 / 禁止使用成分表"
+      ],
+      "terms": [
+        "milk-thistle-garcinia",
+        "raw-colostrum",
+        "cos-coal-tar",
+        "cos-oxyquinoline",
+        "cos-toluenesulfonamide",
+        "cos-rest-zinc-pyrithione",
+        "resorcinol",
+        "salicylic-acid",
+        "fadd-l-glutamic-acid",
+        "raw-perilla-oil",
+        "raw-kimchi-lab",
+        "raw-acorn"
+      ],
+      "facts": "HEALTH-FUNC: red yeast rice 紅麴 permitted (monacolin K/citrinin limits in SEPARATE hygiene standard, not the ingredient CSV); Garcinia 藤黃果 permitted but HCA daily limit 1500mg + teabag/extract-only (2024 gazette); bovine colostrum + immunoglobulin permitted; octacosanol & DFA III absent (gray-zone); evening primrose/borage source plants permitted. COSMETIC (nail/oral/anti-dandruff): coal tar PROHIBITED (no exception, drug-only); selenium & compounds PROHIBITED except Se-disulfide in hair (OTC-drug boundary); oxyquinoline PROHIBITED except 0.03% H2O2-stabilizer in dye/perm; toluenesulfonamide resin restricted 25% nail-only; fluoride 0.15% as F toothpaste/mouthwash + child warning; zinc pyrithione rinse-off hair 1%/other rinse-off 0.5%/leave-on hair 0.1%; resorcinol 0.5% hair (1.25% dye); salicylic acid 0.5% preservative / 0.2-2% special-use, not under-3 except rinse-off hair; nitrocellulose/TEA/bentonite permitted (no cap). KOREAN FOOD: disodium 5'-inosinate & 5'-guanylate regulated INDIVIDUALLY (no combined ribonucleotide entry), 調味劑 QS; L-glutamic acid (L-麩酸) 調味劑; sesame oil traditional-food (unlisted-OK, but isolated sesamin capped 15mg); perilla oil permitted via 紫蘇 leaf+seed; kimchi LAB Leuconostoc mesenteroides/citreum(kimchi)/L.plantarum permitted but WEISSELLA absent; konjac/glucomannan permitted (choking-hazard label separate); ⚠️ Korean ACORN species (Q.acutissima etc.)/acorn starch fully ABSENT (not even on unconfirmed list) — needs novel-food application. E-numbers (E100-E960) mapped to existing additive terms."
     }
   ]
 }
