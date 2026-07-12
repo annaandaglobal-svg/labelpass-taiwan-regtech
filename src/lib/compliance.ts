@@ -328,7 +328,12 @@ const verdictSurfacedCategories = new Set([
   "health_food_labeling",
   "special_dietary_food",
   "botanical_ingredient",
-  "food_cosmetic_ingredient"
+  "food_cosmetic_ingredient",
+  "contaminant_limit",
+  "import_export_control",
+  "seafood_heavy_metal",
+  "microbiology_standard",
+  "pesticide_non_detect"
 ]);
 
 // Precompute the same verdict logic used by /api/knowledge/evidence so the review path and
@@ -2555,6 +2560,20 @@ function addFoodContaminantFindings(input: ReviewInput, findings: Finding[]) {
       severity: "medium",
       why: "곡물·견과·향신료·건조식품·차류는 아플라톡신 등 곰팡이독소와 잔류농약이 수입검사에서 자주 지적됩니다.",
       fix: ["아플라톡신 등 곰팡이독소·잔류농약 시험성적서(COA) 확보", "원산지·보관 조건 정보를 함께 정리"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL
+    });
+  }
+  const readyToEat = /ready[\s-]?to[\s-]?eat|즉석|간편식|도시락|샐러드|salad|훈제|smoked|생식|회\b|sashimi/i.test(text);
+  if (animalOrigin || readyToEat) {
+    findings.push({
+      id: "food-contaminant-microbiology-advisory",
+      status: "needs_info",
+      area: "서류",
+      title: "미생물 규격(대장균군·살모넬라 등) 시험성적서 확인 권장",
+      severity: "low",
+      why: "축·수산물, 유제품, 즉석섭취식품 등은 대장균군·대장균·살모넬라·리스테리아 등 미생물 규격 관리 대상입니다. 수입검사에서 미생물 부적합으로 반송되는 사례가 많습니다.",
+      fix: ["해당 제품 유형의 대만 미생물 규격 기준과 시험성적서 확인", "냉장·냉동 유통 조건과 유통기한 설정 근거 정리"],
       source: SOURCE_FOOD_IMPORT_INSPECTION,
       sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL
     });
