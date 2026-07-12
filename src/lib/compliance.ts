@@ -141,6 +141,10 @@ const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE = "TFDA HS 0307 shellfish health 
 const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE_URL = "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095";
 const SOURCE_FOOD_SYSTEMATIC_INSPECTION = "Regulations for Systematic Inspection of Imported Food";
 const SOURCE_FOOD_SYSTEMATIC_INSPECTION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607";
+const SOURCE_TW_ALCOHOL_TOBACCO = "菸酒管理法 (Ministry of Finance) / 菸害防制法 (Tobacco Hazards Prevention Act)";
+const SOURCE_TW_ALCOHOL_TOBACCO_URL = "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011";
+const SOURCE_TW_MEDICAL_DEVICE = "醫療器材管理法 (Medical Devices Act) — TFDA";
+const SOURCE_TW_MEDICAL_DEVICE_URL = "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030106";
 const SOURCE_ANIMAL_QUARANTINE = "APHIA (動植物防疫檢疫署) animal product import quarantine";
 const SOURCE_ANIMAL_QUARANTINE_URL = "https://www.aphia.gov.tw/";
 const SOURCE_ANIMAL_QUARANTINE_BSE = "APHIA ruminant / BSE-TSE origin restriction for animal-derived materials";
@@ -1098,6 +1102,59 @@ function hasAnimalQuarantineClearance(input: ReviewInput) {
   return /動物檢疫證明|動物衛生證明|動植物防疫檢疫|輸入同意文件|animal\s*(?:health|quarantine)\s*certificate|veterinary\s*health\s*certificate|BSE[-\s]?free|TSE[-\s]?free|non[-\s]?BSE|狂牛病|海綿狀腦病|동물검역증명|동물위생증명|수출국\s*검역증명|BSE\s*(?:미발생|청정|프리)/i.test(
     reviewText(input)
   );
+}
+
+// Category-regime routing: alcohol, tobacco/e-cigarette and beauty-devices are common Korean
+// export categories governed OUTSIDE the TFDA food/cosmetic regime (菸酒管理法 / 菸害防制法 /
+// 醫療器材管理法). The food/cosmetic finding functions never surface their distinct licence/ban
+// requirements, so flag them here. Fires across routes (called centrally before trade findings).
+function addCategoryRegimeFindings(input: ReviewInput, findings: Finding[]) {
+  const text = reviewText(input);
+
+  const eCig = /전자\s?담배|e-?cig(?:arette)?|\bvape\b|\bvaping\b|電子煙|액상\s?니코틴/i.test(text);
+  if (eCig) {
+    findings.push({
+      id: "category-ecigarette-banned",
+      status: "fail",
+      area: "통관",
+      title: "전자담배 — 대만 수입·판매 전면 금지",
+      severity: "high",
+      why: "대만은 2023년 개정 菸害防制法으로 전자담배(電子煙)의 제조·수입·판매·전시·광고·사용을 전면 금지했습니다. 여행자 개인 반입도 금지되며 위반 시 고액 벌금 대상입니다.",
+      fix: ["대만향 전자담배 수출·판매 계획을 중단하고 대체 시장 검토", "가열담배(加熱菸)는 건강위해평가 승인 품목만 예외 — 해당 여부를 별도 확인"],
+      source: SOURCE_TW_ALCOHOL_TOBACCO,
+      sourceUrl: SOURCE_TW_ALCOHOL_TOBACCO_URL
+    });
+  }
+
+  const alcohol = /\bsoju\b|\bbeer\b|\bwine\b|\bliquor\b|\bwhisky\b|\bwhiskey\b|\bsake\b|makgeolli|알코올\s?음료|주류|소주|맥주|막걸리|와인|리큐르|위스키|사케|청주|증류주|양조주/i.test(text);
+  if (alcohol && !eCig) {
+    findings.push({
+      id: "category-alcohol-license",
+      status: "needs_info",
+      area: "통관",
+      title: "주류 — 菸酒 수입업 허가·주세 확인 필요(TFDA 식품과 별개)",
+      severity: "medium",
+      why: "대만 주류는 食品法이 아닌 菸酒管理法(재무부 財政部) 관할입니다. 수입자는 菸酒進口業 허가가 필요하고 주세와 선적별 검사가 부과되며, 라벨에 '未滿18歲禁止飲酒' 경고와 중문 표시가 요구됩니다.",
+      fix: ["대만 수입자의 菸酒進口業(주류 수입업) 허가 보유 여부 확인", "주세·선적별 검사 일정과 '未滿18歲禁止飲酒' 경고·중문 라벨 준비", "포도주 등은 메탄올·아황산 위생기준 시험성적서 확인"],
+      source: SOURCE_TW_ALCOHOL_TOBACCO,
+      sourceUrl: SOURCE_TW_ALCOHOL_TOBACCO_URL
+    });
+  }
+
+  const medicalDevice = /RF\s?기기|전파\s?리프팅|고주파\s?기기|\bIPL\b|제모기|LED\s?마스크|마이크로니들|microneedle|美容儀器|醫療器材|의료기기|초음파\s?기기|ems\s?기기|미용\s?기기/i.test(text);
+  if (medicalDevice) {
+    findings.push({
+      id: "category-medical-device-registration",
+      status: "needs_info",
+      area: "통관",
+      title: "미용기기 — 의료기기(醫療器材) 해당 여부·許可證 확인 필요",
+      severity: "medium",
+      why: "RF·고주파·IPL·EMS·LED마스크·전문용 마이크로니들 등 치료·물리적 효능을 소구하는 미용기기는 대만에서 醫療器材로 분류되어 醫療器材許可證(등록)·QMS·대만 현지 허가권자가 필요합니다. 일반 상품이면 BSMI 전기·전자 검사 대상입니다.",
+      fix: ["제품이 醫療器材 분류 대상인지 TFDA 분류 기준으로 확인(불명확 시 분류심의 신청)", "의료기기면 許可證·QMS·현지 허가권자 확보, 일반 상품이면 BSMI 검사·HS/CCC 확인"],
+      source: SOURCE_TW_MEDICAL_DEVICE,
+      sourceUrl: SOURCE_TW_MEDICAL_DEVICE_URL
+    });
+  }
 }
 
 // APHIA (動植物防疫檢疫署) animal-product import quarantine — a customs/quarantine concern that is
@@ -2980,6 +3037,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   }
 
   addAnimalQuarantineFindings(input, findings);
+  addCategoryRegimeFindings(input, findings);
   addTradeFindings(input, findings);
 
   if (findings.length === 0) {

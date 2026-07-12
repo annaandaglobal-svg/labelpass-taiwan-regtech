@@ -794,6 +794,44 @@ if (!konjacFinding || !konjacFinding.title.includes("질식위험")) {
   throw new Error("Kids konjac snack review: konjac finding lost its authored title");
 }
 
+// E-cigarette must hard-fail (banned in Taiwan since 2023).
+const ecigResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "K-Vape 전자담배 포드",
+    productType: "e-cigarette / vape device",
+    ingredientsText: "",
+    labelText: "전자담배 액상 니코틴 포드.",
+    origin: "Korea",
+    manufacturer: "Annaanda / Taiwan Importer Co."
+  })
+});
+const ecigResult = await ecigResponse.json();
+assertCleanReviewSurface("E-cigarette review", ecigResult);
+if (!ecigResult.findings?.some((finding) => finding.id === "category-ecigarette-banned" && finding.status === "fail")) {
+  throw new Error("E-cigarette review: expected hard-fail category-ecigarette-banned finding");
+}
+
+// Beauty device (IPL/RF) → medical-device registration advisory.
+const deviceResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "IPL 제모기 RF 리프팅 기기",
+    productType: "beauty device / IPL hair removal",
+    ingredientsText: "",
+    labelText: "가정용 IPL 제모기.",
+    origin: "Korea",
+    manufacturer: "Annaanda / Taiwan Importer Co."
+  })
+});
+const deviceResult = await deviceResponse.json();
+assertCleanReviewSurface("Beauty device review", deviceResult);
+if (!deviceResult.findings?.some((finding) => finding.id === "category-medical-device-registration")) {
+  throw new Error("Beauty device review: expected medical-device registration advisory");
+}
+
 const cosmeticCollagenResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -2246,5 +2284,5 @@ for (const testCase of verdictConsistencyCases) {
 }
 
 console.log(
-  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 30} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 32} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );
