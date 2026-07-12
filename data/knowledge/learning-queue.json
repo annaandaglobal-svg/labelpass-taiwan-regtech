@@ -1,103 +1,33 @@
 {
-  "updatedAt": "2026-07-09T12:19:31.052Z",
+  "updatedAt": "2026-07-12T02:29:45.410Z",
   "topics": [
     {
-      "query": "옥틸도데칸올",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:24.872Z",
-      "lastSeen": "2026-07-09T12:19:24.872Z",
-      "status": "ingested"
+      "query": "Frozen oyster meat",
+      "count": 2,
+      "firstSeen": "2026-07-12T02:29:13.017Z",
+      "lastSeen": "2026-07-12T02:29:19.062Z",
+      "status": "pending"
     },
     {
-      "query": "이소스테아릴이소스테아레이트",
+      "query": "camera sensor",
       "count": 1,
-      "firstSeen": "2026-07-09T12:19:25.074Z",
-      "lastSeen": "2026-07-09T12:19:25.074Z",
-      "status": "ingested"
+      "firstSeen": "2026-07-12T02:29:24.002Z",
+      "lastSeen": "2026-07-12T02:29:24.002Z",
+      "status": "pending"
     },
     {
-      "query": "하이드록시프로필테트라하이드로피란트라이올",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:26.160Z",
-      "lastSeen": "2026-07-09T12:19:26.160Z",
-      "status": "ingested"
+      "query": "Panthenol 1%",
+      "count": 2,
+      "firstSeen": "2026-07-12T02:29:29.979Z",
+      "lastSeen": "2026-07-12T02:29:35.921Z",
+      "status": "pending"
     },
     {
-      "query": "트라이베헤닌",
+      "query": "Niacinamide 2%",
       "count": 1,
-      "firstSeen": "2026-07-09T12:19:26.386Z",
-      "lastSeen": "2026-07-09T12:19:26.386Z",
-      "status": "ingested"
-    },
-    {
-      "query": "PGPR",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:26.611Z",
-      "lastSeen": "2026-07-09T12:19:26.611Z",
-      "status": "ingested"
-    },
-    {
-      "query": "프로필렌글리콜알지네이트",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:26.814Z",
-      "lastSeen": "2026-07-09T12:19:26.814Z",
-      "status": "ingested"
-    },
-    {
-      "query": "가티검",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:27.886Z",
-      "lastSeen": "2026-07-09T12:19:27.886Z",
-      "status": "ingested"
-    },
-    {
-      "query": "타마린드검",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:28.102Z",
-      "lastSeen": "2026-07-09T12:19:28.102Z",
-      "status": "ingested"
-    },
-    {
-      "query": "풀루란",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:28.313Z",
-      "lastSeen": "2026-07-09T12:19:28.313Z",
-      "status": "ingested"
-    },
-    {
-      "query": "HMB",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:28.939Z",
-      "lastSeen": "2026-07-09T12:19:28.939Z",
-      "status": "ingested"
-    },
-    {
-      "query": "이소류신",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:29.382Z",
-      "lastSeen": "2026-07-09T12:19:29.382Z",
-      "status": "ingested"
-    },
-    {
-      "query": "시티딘",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:30.638Z",
-      "lastSeen": "2026-07-09T12:19:30.638Z",
-      "status": "ingested"
-    },
-    {
-      "query": "우리딘",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:30.848Z",
-      "lastSeen": "2026-07-09T12:19:30.848Z",
-      "status": "ingested"
-    },
-    {
-      "query": "오로트산",
-      "count": 1,
-      "firstSeen": "2026-07-09T12:19:31.052Z",
-      "lastSeen": "2026-07-09T12:19:31.052Z",
-      "status": "ingested"
+      "firstSeen": "2026-07-12T02:29:45.410Z",
+      "lastSeen": "2026-07-12T02:29:45.410Z",
+      "status": "pending"
     }
   ]
 }

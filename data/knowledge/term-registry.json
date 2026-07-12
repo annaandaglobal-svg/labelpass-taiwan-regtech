@@ -2359,13 +2359,28 @@
           "language": "ja",
           "jurisdiction": "JP",
           "confidence": 0.85
+        },
+        {
+          "value": "二羥甲基二甲基乙內醯脲",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Formaldehyde-releasing preservative; keep linked but distinct from formaldehyde."
+      "notes": "Formaldehyde-releasing preservative; keep linked but distinct from formaldehyde. [TFDA검증] 화장품 방부제 최대 0.6%; 포름알데히드 유리 방부제 — 방부목적 사용 시 유리 포름알데히드 총량 ≤1,000ppm.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "diazolidinyl-urea",
@@ -18600,13 +18615,56 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.88
+        },
+        {
+          "value": "電波拉皮",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "脈衝光",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "微針",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "微電流",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "가정용미용기기",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "미용기기·전자제품은 BSMI 商品檢驗·NCC 무선인증·醫療器材 재분류 대상일 수 있음(모두 TFDA 밖). 화장품 기준으로는 누락됨."
+      "notes": "미용기기·전자제품은 BSMI 商品檢驗·NCC 무선인증·醫療器材 재분류 대상일 수 있음(모두 TFDA 밖). 화장품 기준으로는 누락됨. [분류] 치료·물리적 효능 소구 미용기기(RF/電波·EMS·IPL/脈衝光 제모기·LED마스크·전문용 마이크로니들)는 醫療器材 → 許可證+QMS+대만 현지 허가권자 필요(2·3등급). 한국 뷰티디바이스 수출 강력 장벽. 분류 불명확 시 TFDA 분류심의(약 NT$3,500). ⚠️ 등급 세부는 TFDA 醫療器材分類分級 DB 확인 권장.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "quarantine-aphia",
@@ -19714,13 +19772,35 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.88
+        },
+        {
+          "value": "回收清除處理費",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "재활용부담금",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "지정 용기·포장·전지·가전 수입자는 責任業者 등록·회수비·재활용마크 의무(環境部)."
+      "notes": "지정 용기·포장·전지·가전 수입자는 責任業者 등록·회수비·재활용마크 의무(環境部). [環境部] 지정 용기·상품(PET병·용기·건전지 등) 수입업자는 責任業者로 등록 후 回收清除處理費 신고·납부(recycle1.moenv.gov.tw), 등록 3개월 내 資源回收標誌(4-in-1) + 플라스틱 재질부호 표시. 건전지는 수은·카드뮴 한도. 관련: 過度包裝 제한([[trade-excessive-packaging]]).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "commodity-label",
@@ -19909,13 +19989,20 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.88
+        },
+        {
+          "value": "makgeolli import",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "주류 수입은 財政部 菸酒 수입허가·주세 필요."
+      "notes": "주류 수입은 財政部 菸酒 수입허가·주세 필요. [재무부] 菸酒進口業 허가(법인) + 선적별 TFDA 查驗(검사비 NT$200/건~). 무허가 수입=밀수(징역·벌금)."
     },
     {
       "id": "energy-label",
@@ -20055,13 +20142,35 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.88
+        },
+        {
+          "value": "蚊蟲忌避劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "DEET",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "방충·소독·살균 제품은 환경용약(環境部)/의약품(TFDA)/일반상품 3분류 확인."
+      "notes": "방충·소독·살균 제품은 환경용약(環境部)/의약품(TFDA)/일반상품 3분류 확인. [분류] DEET 忌避劑(방충제)·살균 소구 손소독제·표면 消毒劑는 環境用藥(환경부 MOENV) 등록 대상(TFDA 식품·화장품 아님). 손소독제는 소구에 따라 이원화(살균=環境用藥, 보습=화장품).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "cites",
@@ -22266,12 +22375,27 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "食用紅色40號",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 합성색소 허용 8종(대만 번호). 아마란스(적색2호/莧菜紅)만 금지 — 에리트로신(적색3호=紅色七號)·뉴콕신(적색102호=紅色六號)은 허용. 특정 식품 사용 금지."
+      "notes": "대만 합성색소 허용 8종(대만 번호). 아마란스(적색2호/莧菜紅)만 금지 — 에리트로신(적색3호=紅色七號)·뉴콕신(적색102호=紅色六號)은 허용. 특정 식품 사용 금지. ⚠️ 한국↔대만 색소번호 불일치: 대만 허용 합성색소 8종(藍1·藍2·綠3·黃4·黃5·紅6[Ponceau4R]·紅7[Erythrosine]·紅40[Allura Red]). 한국 적색2호(Amaranth)는 대만 금지(8종에 없음). 한국 적색3호(Erythrosine)는 대만 食用紅色七號으로 허용 — 번호(3호↔7호)가 달라 혼동 주의.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "chocolate-naming",
@@ -22657,13 +22781,49 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.8
+        },
+        {
+          "value": "생리대",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "衛生棉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "sanitary pad",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "생리용품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "의료기기 査驗登記·許可證 필요(등급별). 외부 생리대·일반 마스크는 일반상품."
+      "notes": "의료기기 査驗登記·許可證 필요(등급별). 외부 생리대·일반 마스크는 일반상품. [분류] ⚠️ 대만은 생리대·탐폰을 醫療器材(통상 2등급)로 규제(한국·일부 시장과 달리 위생용품 아님) — 醫療器材許可證 등록 + 대만 현지 허가권자 필요.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "tobacco-vape",
@@ -22757,7 +22917,15 @@
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "電子煙 전면 금지(수입불가), 加熱菸는 HPA 심사. 菸害防制法."
+      "notes": "電子煙 전면 금지(수입불가), 加熱菸는 HPA 심사. 菸害防制法. [菸害防制法] 전자담배(電子煙) 全面 금지(2023.3.22, 제조·수입·판매·광고·사용, 벌금 최대 NT$5,000만, 여행자 개인반입도 금지). 가열담배(加熱菸): 2024.1부터 건강위해평가 승인 없이 금지 → 2025.7 2개사 14개 제품 조건부 승인, 여행자 개인반입은 여전히 금지.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "pet-food",
@@ -25466,13 +25634,49 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "설리소벤존",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "sulisobenzone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "benzophenone-5",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "二苯甲酮-4",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 5% (以acid計)"
+      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 5% (以acid計) [TFDA검증] Benzophenone-4/Sulisobenzone(설리소벤존, CAS 4065-45-6)은 자외선차단제 positive list 등재 — 최대 5%(free acid 기준).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "omega3-lutein",
@@ -34817,12 +35021,27 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "辛甘油",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인)."
+      "notes": "일반 화장품 원료 — 금지·제한 목록 외, 대부분 허용(함량·용도 확인). [TFDA검증] 대만 화장품 방부제 positive list(57종) 미등재 — 방부제로 규제·상한 대상 아님(방부 보조제·데오드란트 성분, 별도 농도 상한 없음).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "cdict-methylpropanediol",
@@ -39915,7 +40134,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인."
+      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인. ⚠️ 한국↔대만 번호 불일치: Erythrosine은 한국 적색3호 ↔ 대만 食用紅色七號(허용). 번호가 달라 혼동 주의."
     },
     {
       "id": "fcol-allura-red-ac",
@@ -40465,12 +40684,33 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "파프리카색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "辣椒色素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "capsanthin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인."
+      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인. [TFDA] 고추(Capsicum) 유래 천연 착색료로 허용(향신료 파프리카와 구분)."
     },
     {
       "id": "fcol-annatto-extract",
@@ -40583,12 +40823,19 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "치자색소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인."
+      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인. [TFDA] 치자(Gardenia) 유래 천연 착색료 허용."
     },
     {
       "id": "fcol-copper-chlorophyll",
@@ -40713,7 +40960,7 @@
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인."
+      "notes": "대만 허용 식용색소 — 식품별 한도·특정식품 사용금지 확인. [TFDA] 치자 유래(효소처리) 청색 천연 착색료 허용."
     },
     {
       "id": "hfun-methylsulfonylmethane",
@@ -64103,12 +64350,48 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "PHMB",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "聚胺丙基雙胍",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "polyhexamethylene biguanide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "폴리헥사메틸렌비구아나이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.3 %"
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.3 % [TFDA검증] 화장품 방부제 최대 0.3%(제품유형 무관). ⚠️ 대만 0.3%는 EU 2022 인하치 0.1%보다 관대 — EU 한도를 기본 상속하면 대만 심사에 과도하게 엄격, 대만 기준(0.3%) 적용.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "tfda-preserv-silver-chloride",
@@ -64456,12 +64739,34 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "에칠헥실디메틸파바",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "파디메이트O",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 8%"
+      "notes": "대만 TFDA 공식 목록(cosmetic-sunscreens). 한도 8% [TFDA검증] 자외선차단제 positive list 등재 — 최대 8%.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "tfda-uv-homosalate",
@@ -77590,12 +77895,19 @@
           "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "철엽록소",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((九) 著色劑). 本品可於各類食品中視實際需要適量使用。"
+      "notes": "대만 식품첨가물 공식 포지티브 리스트((九) 著色劑). 本品可於各類食品中視實際需要適量使用。 [TFDA] 식품첨가물 第九類(著色劑) 지정 착색료 — 銅葉綠素(동엽록소)와 별개."
     },
     {
       "id": "tfda-fadd-cochineal-red-a-aluminum-lake-new-coccine-al",
@@ -91222,12 +91534,26 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "微針",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "microneedle roller",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "컬러렌즈·미용기기·치아미백 등은 화장품 아닌 의료기기."
+      "notes": "컬러렌즈·미용기기·치아미백 등은 화장품 아닌 의료기기. [분류] 순수 각질 소구 가정용 마이크로니들 롤러는 화장품 경계, 창상·콜라겐 등 치료 소구 전문 시스템은 醫療器材. 치아미백은 H₂O₂ ≤6% 가정용=화장품, 6% 초과·의료 소구=藥品/치과. 2024.7 화장품 통합관리로 특정용도 화장품 카테고리 폐지."
     },
     {
       "id": "trap-bsmi-ncc",
@@ -91450,7 +91776,15 @@
       "source_keys": [
         "tw-trade-import-regulation-code-instruction"
       ],
-      "notes": "주류는 재정부 菸酒管理法 관할+수입허가+주세+메탄올/SO2."
+      "notes": "주류는 재정부 菸酒管理法 관할+수입허가+주세+메탄올/SO2. [菸酒管理法] 酒稅: 증류주(소주) NT$2.5/L·度, 맥주 NT$26/L, 양조주(막걸리) NT$7/L·度; +영업세 5%. 포도주 위생: 메탄올 ≤3,000mg/L, 아황산(SO₂) ≤0.4g/L. 표시: '未滿18歲禁止飲酒' 경고(≥2.65mm) 필수.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
     },
     {
       "id": "trap-commodity-tax",
@@ -112900,6 +113234,278 @@
         "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0040001&flno=28",
         "https://web.customs.gov.tw",
         "https://www.fda.gov.tw/tc/site.aspx?sid=40"
+      ]
+    },
+    {
+      "id": "cos-uv-nonlisted",
+      "canonical_name": "Non-listed UV filters — Taiwan (대만 미등재 자외선차단 성분)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "멘틸안트라닐레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "menthyl anthranilate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "meradimate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "티녹세이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "tinoxate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "다이갈로일트라이올리에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "digalloyl trioleate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 다음은 대만 화장품 자외선차단제 positive list(27종)에 미등재 → 대만에서 UV 차단 소구 성분으로 사용 불가: Meradimate/멘틸안트라닐레이트(36861-47-9), Tinoxate(154591-06-9), Trolamine salicylate(2174-16-5; 방부제 살리실산염 목록엔 0.5%로 별도 존재하나 UV 용도 아님), Digalloyl trioleate(13489-19-3). 단 目錄 각주1: EU/US/일본에 별도 sunscreen 사용규정이 있고 그에 따라 쓰면 예외 허용(자동 금지 아님). 참고: 胡莫柳酯(Homosalate)는 별개 성분으로 등재(최대 10%).",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
+    },
+    {
+      "id": "prod-quasi-drug-mapping",
+      "canonical_name": "Korea quasi-drug (의약외품) → Taiwan regime mapping",
+      "category": "product_category_procedure",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "의약외품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "醫藥外品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "quasi-drug",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "의약외품대응",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 대만에는 한국 의약외품(quasi-drug) 단일 카테고리가 없음 — 품목별 규제주체 분산: (1) 美白·防曬·染髮·燙髮·止汗·面皰 등 유효성분 화장품 → 含藥/特定用途 화장품(TFDA). (2) 消毒劑·손소독제(乾洗手)·蚊蟲忌避劑(DEET) → 環境用藥(환경부 MOENV). (3) 隱形眼鏡藥水 → 醫療器材. (4) 漱口水 → 효능 소구 시 藥品. (5) 치료 소구 연고 → 藥品. 한국 의약외품 표시 그대로 쓰면 오분류 위험.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
+    },
+    {
+      "id": "prod-tattoo-ink",
+      "canonical_name": "Tattoo ink / semi-permanent pigment (문신염료·반영구화장 색료)",
+      "category": "product_category_procedure",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "문신염료",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "刺青墨水",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "tattoo ink",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "반영구화장",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "半永久化粧",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "紋繡色料",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "紋繡",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "대만 문신·반영구(紋繡) 색료는 화장품(2024.7 통합관리)으로 취급 — 등록/제품정보파일(PIF), 금지·제한성분(중금속·아조염료 등) 준수 + 중금속 불순물 한도(汞1/鉛10/砷3/鎘5ppm). ⚠️ 시술 바늘·기기는 별도 醫療器材 분류 가능.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ]
+    },
+    {
+      "id": "trade-excessive-packaging",
+      "canonical_name": "Excessive packaging limits (限制產品過度包裝)",
+      "category": "product_category_procedure",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "과대포장",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "過度包裝",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "限制包裝",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "excessive packaging",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "선물세트포장",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "禮盒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "包裝減量",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction",
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "대만 環境部 限制產品過度包裝 — 화장품 세트·가공식품 禮盒(선물세트)·주류 세트·과자 세트는 포장 層數(겹)·空隙率(공극률)·재질 종류·인쇄면적 제한('One More, Three Less': 내용물↑, 포장겹·공극·재질↓). 온라인 試算 도구로 적합성 확인. 위반 시 제재 — 한국 선물세트 그대로 수출 시 과대포장 위반 주의.",
+      "verification": "verified",
+      "verifiedAt": "2026-07-12",
+      "verifiedSources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
       ]
     }
   ]

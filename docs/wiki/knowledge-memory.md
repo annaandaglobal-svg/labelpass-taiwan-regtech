@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,690
-- Stored aliases: 9,595
-- Searchable aliases including identifiers: 10,758
+- Terms: 2,694
+- Stored aliases: 9,654
+- Searchable aliases including identifiers: 10,817
 - Term-rule links: 1,114
 - Regulatory update candidates: 50
-- Alias review items: 1,105
+- Alias review items: 1,104
 
 ## How To Use This Memory
 
@@ -427,6 +427,10 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: CAS 112-38-9; CAS 6159-41-7; CAS 1322-14-1; CAS 3398-33-2; CAS 56532-40-2; CAS 84471-25-0; Calcium undecylenate; MEA-undecylenate; Potassium undecylenate; Sodium undecylenate
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.2 % (以acid計)
+- **Polyaminopropyl biguanide** (`tfda-preserv-polyaminopropyl-biguanide`)
+  - Aliases: CAS 32289-58-0; CAS 133029-32-0; CAS 28757-47-3; CAS 27083-27-8; PHMB; Polyaminopropyl biguanide; polyhexamethylene biguanide; 聚胺丙基雙胍; 폴리헥사메틸렌비구아나이드
+  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
+  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.3 % [TFDA검증] 화장품 방부제 최대 0.3%(제품유형 무관). ⚠️ 대만 0.3%는 EU 2022 인하치 0.1%보다 관대 — EU 한도를 기본 상속하면 대만 심사에 과도하게 엄격, 대만 기준(0.3%) 적용.
 - **Climbazole** (`climbazole`)
   - Aliases: CAS 38083-17-9; INCI Climbazole; Climbazole; 클림바졸; 1-(4-Chlorophenoxy)- 1-(imidazol-1-yl)-3,3- dimethylbutan-2-one 註; 甘宝素; 甘寶素
   - Sources: `global-pcpc-inci`, `global-cas-registry`, `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
@@ -447,10 +451,6 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Aliases: Benzyl Alcohol; 苯甲醇; 벤질알코올
   - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
   - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 1 %
-- **Formic acid** (`tfda-preserv-formic-acid`)
-  - Aliases: CAS 64-18-6; CAS 141-53-7; Formic acid; Formic acid and its sodium salt; Sodium formate
-  - Sources: `tw-tfda-cosmetic-restricted-ingredients`, `tw-tfda-cosmetic-preservatives`
-  - Note: 대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)
 
 ### Cosmetic ingredient
 

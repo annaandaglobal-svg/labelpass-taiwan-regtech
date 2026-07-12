@@ -599,6 +599,36 @@
         "food-labeling-claims"
       ],
       "facts": "LABELING: date marking = 有效日期 (Korean 製造日期-only NON-compliant); Chinese label mandatory; 11 allergens; vegetarian 5-category MANDATORY (全素/蛋素/奶素/奶蛋素/植物五辛素, since 2009). HEALTH FOOD: only 14 approved 保健功效 (護肝/抗疲勞/血脂/血糖/免疫/骨質/牙齒/延緩衰老/鐵吸收/胃腸/血壓/不易形成體脂肪/過敏調整/膝關節[2025]); 美白/減肥/護眼/抗氧化 NOT approvable; medical-efficacy (排出鎘/豐胸/壯陽) banned §28 (fine NT$600k-5M). TARIFF: Korea NO FTA → Column I MFN; CCC 11-digit; de-minimis ≤NT$2,000/shipment BUT 6-exemptions-per-half-year cap (7th+ taxable); TRQ 16 ag products; bonded 2yr; anti-dumping on some Korean steel. COSMETIC drug-boundary (prohibited, drug-only): hydroquinone/tretinoin/minoxidil/ketoconazole/benzoyl-peroxide; restricted: 1,4-dioxane ≤100ppm impurity, catechol, methanol; mercury prohibited (≤1ppm residue) + heavy-metal impurity limits 汞1/鉛10/砷3/鎘5ppm (matches prior sonnet verification); barium prohibited except insoluble barium sulfate colorant. NUTRITION-CLAIM thresholds INFERRED (consulting-firm source, re-verify): 無糖≤0.5/低脂≤3/低鈉≤120mg/高鈣≥360mg/零反式≤0.3g etc."
+    },
+    {
+      "batch": "preservative-uv-foodcolor-prodcategory-2026-07-12w6",
+      "method": "7 parallel agents (1 sonnet fetched TFDA 化粧品防腐劑/防曬劑 GetFile PDFs for exact % limits; 6 haiku web-searched fda.gov.tw/moenv.gov.tw/mof.gov.tw/law.moj.gov.tw). Domains heavily pre-covered → mostly enrichment of existing owners with primary-source %s + regime detail; 5 genuinely-new terms. Product-category device classes marked '확인 권장'.",
+      "verifiedAt": "2026-07-12",
+      "sources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637111318748191339",
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f638526750677608209",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0330011",
+        "https://recycle1.moenv.gov.tw/"
+      ],
+      "terms": [
+        "cos-uv-nonlisted",
+        "prod-quasi-drug-mapping",
+        "prod-tattoo-ink",
+        "trade-excessive-packaging",
+        "tfda-preserv-polyaminopropyl-biguanide",
+        "dmdm-hydantoin",
+        "cdict-ethylhexylglycerin",
+        "cos-benzophenone",
+        "tfda-uv-ethylhexyl-dimethyl-paba",
+        "food-synthetic-color",
+        "dev-bsmi-ncc",
+        "medical-device-import",
+        "env-agent",
+        "trap-alcohol",
+        "tobacco-vape",
+        "env-recycling"
+      ],
+      "facts": "PRESERVATIVES (TFDA 化粧品防腐劑 57-list, 民109.7.1, sonnet): PHMB max 0.3% (MORE PERMISSIVE than EU 0.1%); DMDM hydantoin max 0.6% + free formaldehyde ≤1000ppm; Ethylhexylglycerin NOT on list (booster, no cap). UV (TFDA 化粧品防曬劑 27-list, 民113.7.1, sonnet): Benzophenone-4/Sulisobenzone 5% free acid; Padimate O/Ethylhexyl dimethyl PABA 8%; NOT LISTED = Meradimate/menthyl anthranilate, Tinoxate, Trolamine salicylate (UV use), Digalloyl trioleate (footnote1 EU/US/JP exception). FOOD COLOR: paprika/gardenia yellow&blue/sodium iron chlorophyllin permitted natural; TW 8 synthetic = Blue1/Blue2/Green3/Yellow4/Yellow5/Red6(Ponceau4R)/Red7(Erythrosine)/Red40(Allura); ⚠️ KR/TW MISMATCH: Korea 적색2호(Amaranth) BANNED in TW; Korea 적색3호(Erythrosine)=TW 食用紅色七號 permitted. PRODUCT-CATEGORY: RF/EMS/IPL/LED-mask/pro-microneedle = 醫療器材 (許可證+QMS+agent); sanitary pads/tampons = medical device Class II; tattoo/semi-permanent pigment = cosmetic (needles=device); teeth-whitening H2O2≤6%=cosmetic; Korea 의약외품 NO Taiwan equivalent → scatters cosmetic/含藥/藥品/環境用藥(MOENV: disinfectant, DEET repellent, sanitizer)/醫療器材. ALCOHOL under 菸酒管理法(MOF): 菸酒進口業 permit; tax distilled NT$2.5/L·deg, beer NT$26/L, brewed NT$7/L·deg; label 未滿18歲禁止飲酒; wine methanol ≤3000mg/L SO2 ≤0.4g/L. TOBACCO: e-cigs FULLY BANNED (2023 菸害防制法); heated tobacco conditional (2025.7 14 products approved, personal import still banned). PACKAGING (MOENV): importers=責任業者 register+pay 回收清除處理費 + 資源回收標誌 4-in-1 mark; excessive-packaging limits on cosmetic/food/alcohol gift boxes."
     }
   ]
 }

@@ -3152,6 +3152,11 @@
           "term_key": "bsmi-2026-scope",
           "canonical_name": "BSMI 2026 inspection scope additions",
           "category": "device_import_regulation"
+        },
+        {
+          "term_key": "trade-excessive-packaging",
+          "canonical_name": "Excessive packaging limits (限制產品過度包裝)",
+          "category": "product_category_procedure"
         }
       ],
       "affected_products": [

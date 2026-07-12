@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2690,
-    "stored_aliases": 9595,
-    "searchable_aliases": 10758,
+    "terms": 2694,
+    "stored_aliases": 9654,
+    "searchable_aliases": 10817,
     "identifier_aliases": 1163,
     "term_rule_links": 1114,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1105,
+    "alias_review_items": 1104,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5049,6 +5049,29 @@
       "score": 190
     },
     {
+      "id": "tfda-preserv-polyaminopropyl-biguanide",
+      "canonical_name": "Polyaminopropyl biguanide",
+      "category": "preservative",
+      "category_label": "Preservative",
+      "aliases": [
+        "CAS 32289-58-0",
+        "CAS 133029-32-0",
+        "CAS 28757-47-3",
+        "CAS 27083-27-8",
+        "PHMB",
+        "Polyaminopropyl biguanide",
+        "polyhexamethylene biguanide",
+        "聚胺丙基雙胍",
+        "폴리헥사메틸렌비구아나이드"
+      ],
+      "source_keys": [
+        "tw-tfda-cosmetic-restricted-ingredients",
+        "tw-tfda-cosmetic-preservatives"
+      ],
+      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.3 % [TFDA검증] 화장품 방부제 최대 0.3%(제품유형 무관). ⚠️ 대만 0.3%는 EU 2022 인하치 0.1%보다 관대 — EU 한도를 기본 상속하면 대만 심사에 과도하게 엄격, 대만 기준(0.3%) 적용.",
+      "score": 190
+    },
+    {
       "id": "commercial-invoice",
       "canonical_name": "Commercial Invoice",
       "category": "customs_document",
@@ -5288,25 +5311,6 @@
       "score": 184
     },
     {
-      "id": "tfda-preserv-formic-acid",
-      "canonical_name": "Formic acid",
-      "category": "preservative",
-      "category_label": "Preservative",
-      "aliases": [
-        "CAS 64-18-6",
-        "CAS 141-53-7",
-        "Formic acid",
-        "Formic acid and its sodium salt",
-        "Sodium formate"
-      ],
-      "source_keys": [
-        "tw-tfda-cosmetic-restricted-ingredients",
-        "tw-tfda-cosmetic-preservatives"
-      ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-preservatives). 한도 0.5 % (以acid計)",
-      "score": 184
-    },
-    {
       "id": "protein-bar",
       "canonical_name": "Protein/cereal bar (蛋白棒)",
       "category": "health_food",
@@ -5525,17 +5529,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2690,
-      "aliases_scanned": 9595,
-      "alias_rows_scanned": 9595,
-      "collision_groups": 294,
-      "high_confidence_collisions": 234,
+      "terms_scanned": 2694,
+      "aliases_scanned": 9654,
+      "alias_rows_scanned": 9654,
+      "collision_groups": 295,
+      "high_confidence_collisions": 235,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 811,
+      "regulated_terms_without_local_alias": 809,
       "strict_blockers": 0,
-      "review_items": 1105
+      "review_items": 1104
     },
     "items": [
       {
