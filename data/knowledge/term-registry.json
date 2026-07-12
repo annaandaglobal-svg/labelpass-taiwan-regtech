@@ -29601,12 +29601,89 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "치오글라이콜릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "치오글라이콜산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "싸이오글라이콜릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "암모늄치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "칼슘치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "소듐치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "ammonium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "calcium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "sodium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "巰基乙酸銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "巰基乙酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인."
+      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인. 펌제(燙髮)·제모제 활성으로 사용되는 치오글리콜산 및 그 염(암모늄/칼슘/소듐)은 대만 화장품 성분 사용제한 대상 — 제품 유형별 함량·경고문 확인."
     },
     {
       "id": "cos-rest-l-cysteine",

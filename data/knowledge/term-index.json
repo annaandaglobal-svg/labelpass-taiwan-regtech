@@ -38948,12 +38948,122 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "치오글라이콜릭애씨드",
+          "normalized": "치오글라이콜릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "치오글라이콜산",
+          "normalized": "치오글라이콜산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "싸이오글라이콜릭애씨드",
+          "normalized": "싸이오글라이콜릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "암모늄치오글라이콜레이트",
+          "normalized": "암모늄치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "칼슘치오글라이콜레이트",
+          "normalized": "칼슘치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "소듐치오글라이콜레이트",
+          "normalized": "소듐치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ammonium thioglycolate",
+          "normalized": "ammonium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "calcium thioglycolate",
+          "normalized": "calcium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sodium thioglycolate",
+          "normalized": "sodium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "巰基乙酸銨",
+          "normalized": "巰基乙酸銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "巰基乙酸鈣",
+          "normalized": "巰基乙酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인."
+      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인. 펌제(燙髮)·제모제 활성으로 사용되는 치오글리콜산 및 그 염(암모늄/칼슘/소듐)은 대만 화장품 성분 사용제한 대상 — 제품 유형별 함량·경고문 확인."
     },
     {
       "id": "cos-rest-l-cysteine",
@@ -176706,6 +176816,116 @@
           "normalized": "thioglycolic acid and its salts",
           "type": "common_name",
           "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "치오글라이콜릭애씨드",
+          "normalized": "치오글라이콜릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "치오글라이콜산",
+          "normalized": "치오글라이콜산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "싸이오글라이콜릭애씨드",
+          "normalized": "싸이오글라이콜릭애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "암모늄치오글라이콜레이트",
+          "normalized": "암모늄치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "칼슘치오글라이콜레이트",
+          "normalized": "칼슘치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "소듐치오글라이콜레이트",
+          "normalized": "소듐치오글라이콜레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "ammonium thioglycolate",
+          "normalized": "ammonium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "calcium thioglycolate",
+          "normalized": "calcium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "sodium thioglycolate",
+          "normalized": "sodium thioglycolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "巰基乙酸銨",
+          "normalized": "巰基乙酸銨",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "巰基乙酸鈣",
+          "normalized": "巰基乙酸鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
