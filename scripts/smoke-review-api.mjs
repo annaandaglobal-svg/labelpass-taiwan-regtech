@@ -748,6 +748,48 @@ if (!foodMedicalClaimResult.actionPlan?.documentChecklist?.some((doc) => doc.id 
   throw new Error("Food medical claim review: expected needed claim substantiation checklist item");
 }
 
+// Gelatin (animal-derived) must now also surface the APHIA animal-quarantine advisory,
+// distinct from the allergen finding, plus a BSE review since the species is unspecified.
+if (!foodMedicalClaimResult.findings?.some((finding) => finding.id === "animal-derived-quarantine-advisory")) {
+  throw new Error("Food medical claim review: expected animal-derived quarantine advisory for gelatin");
+}
+if (!foodMedicalClaimResult.findings?.some((finding) => finding.id === "animal-derived-bse-species-unknown")) {
+  throw new Error("Food medical claim review: expected species-unknown BSE review for unspecified gelatin");
+}
+
+const cosmeticCollagenResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "Firming Collagen Cream",
+    productType: "cosmetic / leave-on cream",
+    ingredientsText: "Water, Glycerin, Bovine Collagen, Placenta Extract, Beeswax, Phenoxyethanol",
+    labelText: "品名：緊緻乳霜. 全成分：水、甘油、膠原蛋白、胎盤萃取、蜂蠟、苯氧乙醇. 原產地：韓國.",
+    origin: "Korea",
+    manufacturer: "Annaanda Cosmetics / Taiwan Importer Co."
+  })
+});
+
+if (!cosmeticCollagenResponse.ok) {
+  throw new Error(`Cosmetic collagen review: Review API returned ${cosmeticCollagenResponse.status}`);
+}
+
+const cosmeticCollagenResult = await cosmeticCollagenResponse.json();
+assertCleanReviewSurface("Cosmetic collagen review", cosmeticCollagenResult);
+
+// APHIA advisory must fire on a cosmetic route too (not only food), proving cross-route coverage.
+if (!cosmeticCollagenResult.findings?.some((finding) => finding.id === "animal-derived-quarantine-advisory")) {
+  throw new Error("Cosmetic collagen review: expected APHIA animal-quarantine advisory for animal-derived cosmetic");
+}
+
+// Bovine collagen is an explicit ruminant/BSE trigger (distinct id from the species-unknown case).
+if (!cosmeticCollagenResult.findings?.some((finding) => finding.id === "animal-derived-bse-ruminant-review")) {
+  throw new Error("Cosmetic collagen review: expected ruminant BSE review for bovine collagen");
+}
+if (cosmeticCollagenResult.findings?.some((finding) => finding.id === "animal-derived-bse-species-unknown")) {
+  throw new Error("Cosmetic collagen review: bovine collagen should be ruminant, not species-unknown");
+}
+
 const foodSweetnessClaimResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -2162,5 +2204,5 @@ for (const testCase of verdictConsistencyCases) {
 }
 
 console.log(
-  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 28} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 29} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

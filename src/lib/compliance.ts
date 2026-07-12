@@ -141,6 +141,10 @@ const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE = "TFDA HS 0307 shellfish health 
 const SOURCE_FOOD_SHELLFISH_HEALTH_CERTIFICATE_URL = "https://www.fda.gov.tw/ENG/lawContent.aspx?cid=16&id=3095";
 const SOURCE_FOOD_SYSTEMATIC_INSPECTION = "Regulations for Systematic Inspection of Imported Food";
 const SOURCE_FOOD_SYSTEMATIC_INSPECTION_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=1607";
+const SOURCE_ANIMAL_QUARANTINE = "APHIA (動植物防疫檢疫署) animal product import quarantine";
+const SOURCE_ANIMAL_QUARANTINE_URL = "https://www.aphia.gov.tw/";
+const SOURCE_ANIMAL_QUARANTINE_BSE = "APHIA ruminant / BSE-TSE origin restriction for animal-derived materials";
+const SOURCE_ANIMAL_QUARANTINE_BSE_URL = "https://www.aphia.gov.tw/ts/AphiaImportExport";
 const SOURCE_FOOD_TRACEABILITY = "Regulations Governing Traceability of Foods and Relevant Products";
 const SOURCE_FOOD_TRACEABILITY_URL = "https://www.fda.gov.tw/eng/lawContent.aspx?cid=16&id=2804";
 const SOURCE_FOOD_RECALL_DESTRUCTION = "Regulations of Recall and Destruction for Food and Related Products";
@@ -1057,6 +1061,96 @@ function isPotentialSystematicInspectionFood(input: ReviewInput) {
     hsCodeStartsWith(input, ["02", "03", "04"]) ||
     /meat|beef|pork|poultry|livestock|seafood|fishery|aquatic|shellfish|mollusk|dairy product|egg product|육류|소고기|돼지고기|가금|축산|수산|해산물|패류|유제품|난제품|肉|牛肉|豬肉|禽|畜產|水產|海鮮|貝類|乳品|蛋品/i.test(scopeText)
   );
+}
+
+// Animal-DERIVED ingredient signals (processed forms used across food + cosmetic routes):
+// collagen, gelatin, placenta, bee/dairy/egg products, snail, lanolin, chondroitin, etc.
+// Whole seafood/meat foods are already handled by the HS 0307 / systematic-inspection paths;
+// this catches the processed animal-origin materials that otherwise surface only as allergens.
+function hasAnimalDerivedIngredient(input: ReviewInput) {
+  return /collagen|콜라겐|膠原蛋白|膠原|gelatin(?:e)?|젤라틴|明膠|\bplacenta\b|placental|태반|胎盤|elastin|엘라스틴|彈力蛋白|keratin|케라틴|角蛋白|chondroitin|콘드로이틴|軟骨素|glucosamine|글루코사민|葡萄糖胺|chitosan|키토산|殼聚醣|甲殼素|lanolin|라놀린|羊毛脂|beeswax|밀랍|蜂蠟|cera\s*alba|(?:^|[^a-z])honey(?:[^a-z]|$)|꿀|蜂蜜|propolis|프로폴리스|蜂膠|royal\s*jelly|로열젤리|蜂王乳|snail(?:\s*(?:mucin|secretion|extract))?|달팽이|蝸牛|sericin|세리신|絲蛋白|silk\s*protein|casein|카제인|酪蛋白|lactoferrin|락토페린|colostrum|초유|初乳|carmine|cochineal|코치닐|胭脂蟲|deer\s*velvet|鹿茸|龜鹿|fish\s*oil|어유|魚油|marine\s*collagen|해양\s*콜라겐/i.test(
+    reviewText(input)
+  );
+}
+
+// Ruminant (bovine/ovine/cervine) origin explicitly stated — BSE/TSE origin-restriction trigger.
+function hasRuminantOriginSignal(input: ReviewInput) {
+  return /bovine|beef|cattle|calf|우태반|우지|소가죽|牛|ovine|sheep|lamb|mutton|양태반|羊|tallow|deer\s*velvet|鹿茸|龜鹿/i.test(
+    reviewText(input)
+  );
+}
+
+// Generic collagen/gelatin/placenta with no species stated — could be ruminant, so BSE origin
+// should be confirmed. Suppressed when a non-ruminant source (marine/fish/plant) is declared.
+function hasUnspecifiedRuminantRiskMaterial(input: ReviewInput) {
+  const text = reviewText(input);
+  const risky = /collagen|콜라겐|膠原|gelatin(?:e)?|젤라틴|明膠|\bplacenta\b|placental|태반|胎盤|tallow|chondroitin|콘드로이틴|軟骨素/i.test(text);
+  if (!risky) return false;
+  const nonRuminant = /marine|fish|어유|魚|해양|piscine|plant|식물|vegetable|vegan|대두|콩|soy|synthetic|합성|발효|ferment/i.test(text);
+  return !nonRuminant;
+}
+
+function hasAnimalQuarantineClearance(input: ReviewInput) {
+  return /動物檢疫證明|動物衛生證明|動植物防疫檢疫|輸入同意文件|animal\s*(?:health|quarantine)\s*certificate|veterinary\s*health\s*certificate|BSE[-\s]?free|TSE[-\s]?free|non[-\s]?BSE|狂牛病|海綿狀腦病|동물검역증명|동물위생증명|수출국\s*검역증명|BSE\s*(?:미발생|청정|프리)/i.test(
+    reviewText(input)
+  );
+}
+
+// APHIA (動植物防疫檢疫署) animal-product import quarantine — a customs/quarantine concern that is
+// distinct from the allergen finding and from TFDA food-safety inspection. Fires across routes.
+function addAnimalQuarantineFindings(input: ReviewInput, findings: Finding[]) {
+  if (!hasAnimalDerivedIngredient(input)) return;
+
+  const cleared = hasAnimalQuarantineClearance(input);
+  findings.push({
+    id: cleared ? "animal-derived-quarantine-cleared" : "animal-derived-quarantine-advisory",
+    status: cleared ? "pass" : "needs_info",
+    area: "통관",
+    title: cleared
+      ? "동물유래 성분 검역·수출국 증명 신호가 확인되었습니다"
+      : "동물유래 성분 — 動植物防疫檢疫署(APHIA) 검역·수입동의 확인 필요",
+    severity: cleared ? "low" : "medium",
+    why: cleared
+      ? "콜라겐·젤라틴·태반·꿀·달팽이 등 동물유래 성분에 대한 수출국 검역 또는 위생 증명 신호가 확인되어, 알레르겐 표시와 별개인 검역 축이 잡혀 있습니다."
+      : "콜라겐·젤라틴·태반·유제품·꿀·프로폴리스·달팽이 점액 등 동물유래 성분은 알레르겐 표시와 별개로, 대만 動植物防疫檢疫署(APHIA)의 동물검역·수입동의 문서 또는 수출국 공식 검역·위생 증명이 요구될 수 있습니다. 화장품·건강식품에 소량 배합된 경우에도 원료 단위로 확인이 필요합니다.",
+    fix: cleared
+      ? ["증명서 발급기관, 대상 원료, 원산지, lot 번호가 수입신고 자료와 일치하는지 확인"]
+      : [
+          "동물유래 원료의 종(species)·부위·원산지를 원료사에 확인",
+          "대만 수입자·관세사와 APHIA 동물검역 대상·수입동의 문서 필요 여부 확인",
+          "필요 시 수출국 공식기관 발급 검역·위생 증명서 확보"
+        ],
+    source: SOURCE_ANIMAL_QUARANTINE,
+    sourceUrl: SOURCE_ANIMAL_QUARANTINE_URL
+  });
+
+  if (hasRuminantOriginSignal(input) || hasUnspecifiedRuminantRiskMaterial(input)) {
+    const explicit = hasRuminantOriginSignal(input);
+    findings.push({
+      id: explicit ? "animal-derived-bse-ruminant-review" : "animal-derived-bse-species-unknown",
+      status: "needs_info",
+      area: "통관",
+      title: explicit
+        ? "반추동물(소·양) 유래 성분 — BSE/TSE 원산지 제한 확인 필요"
+        : "동물유래 성분의 종·원산지 미상 — BSE/TSE 확인 필요",
+      severity: explicit ? "high" : "medium",
+      why: explicit
+        ? "소·양 등 반추동물 유래 콜라겐·젤라틴·태반·우지 등은 광우병(BSE/TSE) 관리 대상으로, 특정 지역산 반추동물 유래 원료는 대만 수입이 제한되거나 원산지·동물건강 증명이 요구될 수 있습니다."
+        : "콜라겐·젤라틴·태반 등은 반추동물(소·양) 유래일 수 있어 종과 원산지가 명시되지 않으면 BSE/TSE 관리 대상 여부를 확정할 수 없습니다.",
+      fix: explicit
+        ? [
+            "원료의 반추동물 종·원산국·부위를 명확히 하고 BSE/TSE 청정 여부 확인",
+            "대만 APHIA의 해당 원산지 반추동물 유래 원료 수입제한·조건을 관세사와 확인",
+            "수출국 공식 동물건강·원산지 증명서 확보"
+          ]
+        : [
+            "원료가 반추동물(소·양) 유래인지, 어류·식물·발효 유래인지 원료사에 확인",
+            "반추동물 유래이면 원산지와 BSE/TSE 청정 증명을 확보"
+          ],
+      source: SOURCE_ANIMAL_QUARANTINE_BSE,
+      sourceUrl: SOURCE_ANIMAL_QUARANTINE_BSE_URL
+    });
+  }
 }
 
 function addTradeFindings(input: ReviewInput, findings: Finding[]) {
@@ -2727,6 +2821,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
     addFoodImportFindings(input, findings);
   }
 
+  addAnimalQuarantineFindings(input, findings);
   addTradeFindings(input, findings);
 
   if (findings.length === 0) {

@@ -104,6 +104,57 @@ export function presentFinding(finding: Finding): PresentedFinding {
   const id = finding.id.toLowerCase();
   const subject = extractFindingSubject(finding);
 
+  if (id === "animal-derived-quarantine-advisory") {
+    return {
+      area: "통관",
+      title: "동물유래 성분 — 動植物防疫檢疫署(APHIA) 검역·수입동의 확인",
+      why: "콜라겐·젤라틴·태반·유제품·꿀·프로폴리스·달팽이 점액 등 동물유래 성분은 알레르겐 표시와 별개로, 대만 動植物防疫檢疫署(APHIA)의 동물검역·수입동의 문서 또는 수출국 공식 검역·위생 증명이 요구될 수 있습니다.",
+      fixes: [
+        "동물유래 원료의 종·부위·원산지를 원료사에 확인",
+        "대만 수입자·관세사와 APHIA 동물검역 대상·수입동의 문서 필요 여부 확인",
+        "필요 시 수출국 공식기관 발급 검역·위생 증명서 확보"
+      ],
+      severity: "medium"
+    };
+  }
+
+  if (id === "animal-derived-quarantine-cleared") {
+    return {
+      area: "통관",
+      title: "동물유래 성분 검역·수출국 증명 신호 확인",
+      why: "콜라겐·젤라틴·태반·꿀 등 동물유래 성분에 대한 수출국 검역 또는 위생 증명 신호가 확인되어, 알레르겐 표시와 별개인 검역 축이 잡혀 있습니다.",
+      fixes: ["증명서 발급기관, 대상 원료, 원산지, lot 번호가 수입신고 자료와 일치하는지 확인"],
+      severity: "low"
+    };
+  }
+
+  if (id === "animal-derived-bse-ruminant-review") {
+    return {
+      area: "통관",
+      title: "반추동물(소·양) 유래 성분 — BSE/TSE 원산지 제한 확인",
+      why: "소·양 등 반추동물 유래 콜라겐·젤라틴·태반·우지 등은 광우병(BSE/TSE) 관리 대상으로, 특정 지역산 반추동물 유래 원료는 대만 수입이 제한되거나 원산지·동물건강 증명이 요구될 수 있습니다.",
+      fixes: [
+        "원료의 반추동물 종·원산국·부위를 명확히 하고 BSE/TSE 청정 여부 확인",
+        "대만 APHIA의 해당 원산지 반추동물 유래 원료 수입제한·조건을 관세사와 확인",
+        "수출국 공식 동물건강·원산지 증명서 확보"
+      ],
+      severity: "high"
+    };
+  }
+
+  if (id === "animal-derived-bse-species-unknown") {
+    return {
+      area: "통관",
+      title: "동물유래 성분의 종·원산지 미상 — BSE/TSE 확인 필요",
+      why: "콜라겐·젤라틴·태반 등은 반추동물(소·양) 유래일 수 있어 종과 원산지가 명시되지 않으면 BSE/TSE 관리 대상 여부를 확정할 수 없습니다.",
+      fixes: [
+        "원료가 반추동물(소·양) 유래인지, 어류·식물·발효 유래인지 원료사에 확인",
+        "반추동물 유래이면 원산지와 BSE/TSE 청정 증명을 확보"
+      ],
+      severity: "medium"
+    };
+  }
+
   if (id.startsWith("prohibited-")) {
     return {
       area: "성분",
