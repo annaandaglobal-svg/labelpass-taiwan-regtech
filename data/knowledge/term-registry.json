@@ -26506,12 +26506,264 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "아밀신남알",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "amyl cinnamal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "amylcinnamaldehyde",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "신나밀알코올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "신남알",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "cinnamal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "cinnamaldehyde",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "하이드록시시트로넬알",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "이소유제놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "아니스알코올",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "anise alcohol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "anisyl alcohol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "헥실신남알",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "hexyl cinnamal",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "메틸2옥티노에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "methyl 2-octynoate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "알파아이소메틸아이오논",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "alpha-isomethyl ionone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "파르네솔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "farnesol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "참나무이끼추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "oakmoss",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "evernia prunastri",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "나무이끼추출물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "treemoss",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "evernia furfuracea",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "부틸페닐메틸프로피오날",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "butylphenyl methylpropional",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "lilial",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "벤질신나메이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "benzyl cinnamate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "리랄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "hydroxyisohexyl 3-cyclohexene carboxaldehyde",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "fragrance allergens",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "26 fragrance allergens",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9
+        },
+        {
+          "value": "指定香料過敏原",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 화장품 향료 알레르겐 성분 공시 규정 「化粧品應標示之特定香精或香料成分」— 24종(EU 26종 기반, EU가 금지한 HICC/Lyral·BMHCA/Lilial 제외). 리모넨·리날룰·제라니올·유제놀·쿠마린·시트로넬롤·벤질벤조에이트(#17, CAS 120-51-4) 등. 공시 기준: 씻어내는 제품 >0.01%(100ppm)·씻지 않는 제품 >0.001%(10ppm)이면 '香精/香料/Fragrance/Parfum' 뒤에 숨기지 말고 실제 성분명 표시. ⚠️ 현재 초안(預告, 2025-01-21 예고, 60일 의견수렴 후 2025-07-31 종합회신) — 정식 공고(正式公告) 미확정, 확정 시 1년 후 시행. 위반 시 화장품위생안전관리법 §23 벌금 NT$1만~100만.",
+      "notes": "대만 화장품 향료 알레르겐 성분 공시 규정 「化粧品應標示之特定香精或香料成分」— 24종(EU 26종 기반, EU가 금지한 HICC/Lyral·BMHCA/Lilial 제외). 리모넨·리날룰·제라니올·유제놀·쿠마린·시트로넬롤·벤질벤조에이트(#17, CAS 120-51-4) 등. 공시 기준: 씻어내는 제품 >0.01%(100ppm)·씻지 않는 제품 >0.001%(10ppm)이면 '香精/香料/Fragrance/Parfum' 뒤에 숨기지 말고 실제 성분명 표시. ⚠️ 현재 초안(預告, 2025-01-21 예고, 60일 의견수렴 후 2025-07-31 종합회신) — 정식 공고(正式公告) 미확정, 확정 시 1년 후 시행. 위반 시 화장품위생안전관리법 §23 벌금 NT$1만~100만. 대만(EU 정합) 지정 향료 알레르겐은 씻어내지 않는 제품 0.001%·씻어내는 제품 0.01% 초과 시 전성분에 개별 표시 의무. 'Fragrance/Parfum/香料'로만 표기하면 표시 누락.",
       "verification": "verified",
       "verifiedAt": "2026-07-10",
       "verifiedSources": [
