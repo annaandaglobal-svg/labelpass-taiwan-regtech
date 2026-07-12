@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2630,
+  "curated_term_count": 2642,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -23959,6 +23959,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "적색202호",
+          "normalized": "적색202호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CI 15850:1",
+          "normalized": "ci 15850 1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Lithol Rubine BCA",
+          "normalized": "lithol rubine bca",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -23966,7 +23996,7 @@
         "global-cas-registry",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "허용 유기 색소(레이크 포함). 사용 부위·순도 조건 확인."
+      "notes": "허용 유기 색소(레이크 포함). 사용 부위·순도 조건 확인. 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음. 적색202호=CI15850:1(적색201호 Ca염, 같은 항목)."
     },
     {
       "id": "bot-licorice",
@@ -27460,13 +27490,53 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "프리바이오틱스",
+          "normalized": "프리바이오틱스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "prebiotics",
+          "normalized": "prebiotics",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유청단백가수분해물",
+          "normalized": "유청단백가수분해물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "부분가수분해유청단백",
+          "normalized": "부분가수분해유청단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-special-disease-food-permit-query",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21). ⚠️ 특수영양식품(영아 조제식·較大嬰兒·FSMP·체중관리)은 일반식품과 달리 수입 전 査驗登記(§21) 의무 — 자가신고 불가, 사전등록(수개월, 원료명세·영양분석·해외판매실적·중문라벨). 만 1세 초과 성장기 조제식은 일반식품."
+      "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21). ⚠️ 특수영양식품(영아 조제식·較大嬰兒·FSMP·체중관리)은 일반식품과 달리 수입 전 査驗登記(§21) 의무 — 자가신고 불가, 사전등록(수개월, 원료명세·영양분석·해외판매실적·중문라벨). 만 1세 초과 성장기 조제식은 일반식품. 프리바이오틱스(GOS·FOS)·부분가수분해 유청단백은 대만 승인 조제분유에 사용. 조제분유 자체는 査驗登記 필수."
     },
     {
       "id": "infant-formula-marketing",
@@ -29913,12 +29983,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "황색4호알루미늄레이크",
+          "normalized": "황색4호알루미늄레이크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "적색201호레이크",
+          "normalized": "적색201호레이크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 합성색소 허용 8종(대만 번호). 아마란스(적색2호/莧菜紅)만 금지 — 에리트로신(적색3호=紅色七號)·뉴콕신(적색102호=紅色六號)은 허용. 특정 식품 사용 금지. ⚠️ 한국↔대만 색소번호 불일치: 대만 허용 합성색소 8종(藍1·藍2·綠3·黃4·黃5·紅6[Ponceau4R]·紅7[Erythrosine]·紅40[Allura Red]). 한국 적색2호(Amaranth)는 대만 금지(8종에 없음). 한국 적색3호(Erythrosine)는 대만 食用紅色七號으로 허용 — 번호(3호↔7호)가 달라 혼동 주의."
+      "notes": "대만 합성색소 허용 8종(대만 번호). 아마란스(적색2호/莧菜紅)만 금지 — 에리트로신(적색3호=紅色七號)·뉴콕신(적색102호=紅色六號)은 허용. 특정 식품 사용 금지. ⚠️ 한국↔대만 색소번호 불일치: 대만 허용 합성색소 8종(藍1·藍2·綠3·黃4·黃5·紅6[Ponceau4R]·紅7[Erythrosine]·紅40[Allura Red]). 한국 적색2호(Amaranth)는 대만 금지(8종에 없음). 한국 적색3호(Erythrosine)는 대만 食用紅色七號으로 허용 — 번호(3호↔7호)가 달라 혼동 주의. 화장품 색소표: 등재 색소의 레이크·염(비금지 물질과 형성)은 기본 색소와 같은 항목·분류(附註1)."
     },
     {
       "id": "chocolate-naming",
@@ -39063,7 +39153,7 @@
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인. 펌제(燙髮)·제모제 활성으로 사용되는 치오글리콜산 및 그 염(암모늄/칼슘/소듐)은 대만 화장품 성분 사용제한 대상 — 제품 유형별 함량·경고문 확인."
+      "notes": "대만 화장품 제한 성분(成分使用限制表) — 함량·조건·경고문 확인. 펌제(燙髮)·제모제 활성으로 사용되는 치오글리콜산 및 그 염(암모늄/칼슘/소듐)은 대만 화장품 성분 사용제한 대상 — 제품 유형별 함량·경고문 확인. [TFDA검증] 치오글리콜산 산화형 8%·비산화형 11%(치오글리콜산 기준), 에스터류 별도, L-시스테인 7.5%/5.5%. 燙髮 경고문 대상."
     },
     {
       "id": "cos-rest-l-cysteine",
@@ -77543,12 +77633,22 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "2-아미노-6-클로로-4-니트로페놀",
+          "normalized": "2-아미노-6-클로로-4-니트로페놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)2% (b)2%"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)2% (b)2% [TFDA검증] 산화·비산화형 모두 최대 2%."
     },
     {
       "id": "tfda-restrict-4-amino-m-cresol",
@@ -77571,12 +77671,22 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "4-아미노-m-크레솔",
+          "normalized": "4-아미노-m-크레솔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 1.5%"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 1.5% [TFDA검증] 산화형 염모제 전용 최대 1.5%."
     },
     {
       "id": "tfda-restrict-3-amino-2-4-dichlorophenol",
@@ -78023,12 +78133,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "HC청색2",
+          "normalized": "hc청색2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HC청색2호",
+          "normalized": "hc청색2호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 2.8% · 不得與亞硝基化劑一起使用; 亞硝胺限量:50 microgram/kg (ppb); 應置於無亞硝基酸鹽之容器"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 2.8% · 不得與亞硝基化劑一起使用; 亞硝胺限量:50 microgram/kg (ppb); 應置於無亞硝基酸鹽之容器 [TFDA검증] 비산화형 전용 최대 2.8%. ⚠️ 니트로사민 경고 동일."
     },
     {
       "id": "tfda-restrict-hc-blue-no-11",
@@ -78403,12 +78533,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "HC황색2",
+          "normalized": "hc황색2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HC황색2호",
+          "normalized": "hc황색2호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)0.75% (b)1% · 不得與亞硝基化劑一起使用; 亞硝胺限量:50 microgram/kg (ppb); 應置於無亞硝基酸鹽之容器"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)0.75% (b)1% · 不得與亞硝基化劑一起使用; 亞硝胺限量:50 microgram/kg (ppb); 應置於無亞硝基酸鹽之容器 [TFDA검증] 산화형 0.75%·비산화형 1%. ⚠️ 니트로소화제 병용 금지, 니트로사민 ≤50µg/kg, 니트라이트 없는 용기."
     },
     {
       "id": "tfda-restrict-hc-yellow-no-4",
@@ -79147,12 +79297,22 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "염기성적색51",
+          "normalized": "염기성적색51",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)0.5% (b)1%"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)0.5% (b)1% [TFDA검증] 염모 색소 산화형 0.5%·비산화형 1%."
     },
     {
       "id": "tfda-restrict-basic-red-76",
@@ -79299,12 +79459,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "HC적색3",
+          "normalized": "hc적색3",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HC적색3호",
+          "normalized": "hc적색3호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)0.45% (b)3% · 不得與亞硝基化劑一起使用; 亞硝胺限量:50 microgram/kg (ppb); 應置於無亞硝基酸鹽之容器"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 (a)0.45% (b)3% · 不得與亞硝基化劑一起使用; 亞硝胺限量:50 microgram/kg (ppb); 應置於無亞硝基酸鹽之容器 [TFDA검증] 산화형 0.45%·비산화형 3%. ⚠️ 니트로사민 경고 동일."
     },
     {
       "id": "tfda-restrict-hydroxyethyl-p-phenylenediamine-sulfate",
@@ -79337,12 +79517,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "하이드록시에틸-p-페닐렌디아민",
+          "normalized": "하이드록시에틸-p-페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "하이드록시에틸파라페닐렌디아민",
+          "normalized": "하이드록시에틸파라페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 2% (以sulfate計)"
+      "notes": "대만 TFDA 공식 목록(cosmetic-restricted-ingredients). 한도 2% (以sulfate計) [TFDA검증] 산화형 염모제 전용 최대 2%(황산염). 염모제 경고문(패치테스트 등) 대상."
     },
     {
       "id": "tfda-restrict-6-methoxy-2-methylamino-3-aminopyridine-hcl",
@@ -83930,13 +84130,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "적색228호",
+          "normalized": "적색228호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Permaton Red",
+          "normalized": "permaton red",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 1. 限量：3% 2.不得使用於染髮用途化粧品。"
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 1. 限量：3% 2.不得使用於染髮用途化粧品。 대만 色素표 등재 — ⚠️ **함량 3% 이하**, 염모(染髮) 목적 화장품 사용 금지."
     },
     {
       "id": "tfda-color-ci-12120",
@@ -84929,13 +85149,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "적색227호",
+          "normalized": "적색227호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食用紅色227號",
+          "normalized": "食用紅色227號",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음. ⚠️ 적색227호=**CI 17200**(CI 45410 아님, 혼동 주의)."
     },
     {
       "id": "tfda-color-ci-18050",
@@ -86372,13 +86612,53 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "적색104의1호",
+          "normalized": "적색104의1호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "적색104호",
+          "normalized": "적색104호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "적색218호",
+          "normalized": "적색218호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CI 45410:1",
+          "normalized": "ci 45410 1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음. 적색104의1호=CI45410, 적색218호=CI45410:1(같은 색소 변형)."
     },
     {
       "id": "tfda-color-ci-45430",
@@ -87593,13 +87873,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "구아닌",
+          "normalized": "구아닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "펄에센스",
+          "normalized": "펄에센스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음. (천연 펄)."
     },
     {
       "id": "tfda-color-ci-75300",
@@ -87926,13 +88226,23 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "비스머스옥시클로라이드",
+          "normalized": "비스머스옥시클로라이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음. (펄 안료)."
     },
     {
       "id": "tfda-color-ci-77220",
@@ -88148,13 +88458,43 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "크로뮴옥사이드그린",
+          "normalized": "크로뮴옥사이드그린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "크로뮴옥사이드그린스",
+          "normalized": "크로뮴옥사이드그린스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산화크로뮴",
+          "normalized": "산화크로뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음."
     },
     {
       "id": "tfda-color-ci-77289",
@@ -88185,13 +88525,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "크로뮴하이드록사이드그린",
+          "normalized": "크로뮴하이드록사이드그린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수산화크로뮴",
+          "normalized": "수산화크로뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음."
     },
     {
       "id": "tfda-color-ci-77346",
@@ -88370,13 +88730,43 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "페릭암모늄페로시아나이드",
+          "normalized": "페릭암모늄페로시아나이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "페릭페로시아나이드",
+          "normalized": "페릭페로시아나이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "프러시안블루",
+          "normalized": "프러시안블루",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "대만 TFDA 공식 목록(cosmetic-colorants)."
+      "notes": "대만 TFDA 공식 목록(cosmetic-colorants). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음. (색소표엔 Ferric Ferrocyanide로 등재)."
     },
     {
       "id": "tfda-color-ci-77713",
@@ -103156,12 +103546,22 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "유단백철",
+          "normalized": "유단백철",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "대만 식품첨가물 공식 포지티브 리스트((八) 營養添加劑). 1.本品可使用於標示有每日食用限量之食品，在每日食用量中，其乳鐵蛋白總量不得高於300 mg。 2.本品可於特殊營養食品中視實際需要適量使用。"
+      "notes": "대만 식품첨가물 공식 포지티브 리스트((八) 營養添加劑). 1.本品可使用於標示有每日食用限量之食品，在每日食用量中，其乳鐵蛋白總量不得高於300 mg。 2.本品可於特殊營養食品中視實際需要適量使用。 [TFDA검증] 대만 식품 사용 허용 — **1일 ≤100mg 한도**, 우유 알레르겐 표시 필요. UPLC-MS/MS 검사법 지정. 조제분유 등 사용."
     },
     {
       "id": "tfda-fadd-chromium-chloride",
@@ -128539,7 +128939,7 @@
         "tw-moj-cosmetic-hygiene-safety-act",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "허용 화장품 색소(色素 목록 CI 77007). 使用範圍 등급 1 = 모든 화장품 사용 가능(눈가 포함), 추가 제한 없음."
+      "notes": "허용 화장품 색소(色素 목록 CI 77007). 使用範圍 등급 1 = 모든 화장품 사용 가능(눈가 포함), 추가 제한 없음. 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음."
     },
     {
       "id": "col-manganese-violet",
@@ -128616,7 +129016,7 @@
         "tw-moj-cosmetic-hygiene-safety-act",
         "tw-tfda-cosmetic-colorants"
       ],
-      "notes": "허용 화장품 색소(色素 목록 CI 77742). 使用範圍 등급 1 = 모든 화장품 사용 가능(눈가 포함)."
+      "notes": "허용 화장품 색소(色素 목록 CI 77742). 使用範圍 등급 1 = 모든 화장품 사용 가능(눈가 포함). 대만 化粧品色素成分使用限制表 등재 — 1類(전 부위 허용: 눈가·입술·점막 가능). 함량 제한 없음."
     },
     {
       "id": "raw-guarana",
@@ -141513,6 +141913,714 @@
         "tw-tfda-food-law-regulations-index"
       ],
       "notes": "[TFDA검증] 己烷(hexane) 등 추출용매는 加工助劑衛生標準(2016.2 시행)으로 이관 — 식용유지 추출 잔류 己烷 ≤0.1ppm(유지 완제품), 기타 식품 ≤20ppm. 과거 '완제품 무잔류'에서 정량 한도로 변경."
+    },
+    {
+      "id": "cos-color-tin-oxide",
+      "canonical_name": "Tin Oxide / 틴옥사이드 (色素표 미등재)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "틴옥사이드",
+          "normalized": "틴옥사이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Tin Oxide",
+          "normalized": "tin oxide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산화주석",
+          "normalized": "산화주석",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ **틴옥사이드는 대만 化粧品色素成分使用限制表(152항목)에 미등재** — 색소로 자동 허용 아님. 附註2(EU/US/일본 색소 승인 기준 준용 + 등록 시 근거 제출) 경로가 아니면 사용 불가. 등록 전 TFDA 확인 권장."
+    },
+    {
+      "id": "cos-hairdye-basic-brown-17",
+      "canonical_name": "Basic Brown 17 / 염기성갈색17 (현재 미허용)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [
+          "68391-32-2"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "염기성갈색17",
+          "normalized": "염기성갈색17",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Basic Brown 17",
+          "normalized": "basic brown 17",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ **현재 시행표(민113.7.1) 미허용** — 2027-10-01 개정안에만 등재(2%). 오늘 판매 제품 사용 시 위반. 시행일 확인."
+    },
+    {
+      "id": "cos-hairdye-basic-blue-99",
+      "canonical_name": "Basic Blue 99 / 염기성청색99 (positive list 미등재)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [
+          "68123-13-7"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "염기성청색99",
+          "normalized": "염기성청색99",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Basic Blue 99",
+          "normalized": "basic blue 99",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ **대만 염모 positive-list 미등재**(현행·2027안 모두 없음) — 목록에 없으면 개별 승인 없이 사용 불가. EU SCCS는 1% 비산화형 유전독성 우려로 부적합."
+    },
+    {
+      "id": "cos-henna",
+      "canonical_name": "Henna / 헤나 (Lawsone)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "헤나",
+          "normalized": "헤나",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Henna",
+          "normalized": "henna",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Lawsonia inermis",
+          "normalized": "lawsonia inermis",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Lawsone",
+          "normalized": "lawsone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "指甲花",
+          "normalized": "指甲花",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 대만 化粧品成分使用限制表 미등재 — 천연색소는 '染髮劑' 표방 시 特定用途化粧品(등록) 대상이나 실무상 헤나는 '染髮劑' 라벨 불가 → '護色/染色髮粉'으로 판매. 함량·허가 경로 미확정(확인 권장)."
+    },
+    {
+      "id": "cos-cysteamine",
+      "canonical_name": "Cysteamine / 시스테아민 (펌·스트레이트너)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [
+          "156-57-0"
+        ],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "시스테아민",
+          "normalized": "시스테아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Cysteamine",
+          "normalized": "cysteamine",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "시스테아민염산염",
+          "normalized": "시스테아민염산염",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "대만 펌 성분표 미등재(회색지대) — L-시스테인·치오글리콜산염만 등재. 시스테아민 펌은 免登記藥水로 취급되어 공식 허가·금지 어느 쪽도 아님. 등록 전 분류 확인 권장."
+    },
+    {
+      "id": "cos-hydrolyzed-keratin",
+      "canonical_name": "Hydrolyzed Keratin / 가수분해케라틴",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "가수분해케라틴",
+          "normalized": "가수분해케라틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Hydrolyzed Keratin",
+          "normalized": "hydrolyzed keratin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "케라틴",
+          "normalized": "케라틴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "대만 화장품 제한·금지 목록 모두 미등재 — 일반 컨디셔닝 성분, 제한 없음."
+    },
+    {
+      "id": "cos-signal-peptide",
+      "canonical_name": "Signal peptides / 시그널펩타이드",
+      "category": "cosmetic_general_active",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "시그널펩타이드",
+          "normalized": "시그널펩타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "signal peptide",
+          "normalized": "signal peptide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "매트릭실",
+          "normalized": "매트릭실",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "화장품 시그널 펩타이드 — 대만 일반 화장품 성분, 특별 제한 없음. '주름개선' 표방 시 特定用途(抗皺) 등록·근거 필요."
+    },
+    {
+      "id": "cos-gluconolactone-pha",
+      "canonical_name": "Gluconolactone / PHA (글루코노락톤·폴리하이드록시애씨드)",
+      "category": "exfoliating_acid_aha",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "글루코노락톤",
+          "normalized": "글루코노락톤",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "폴리하이드록시애씨드",
+          "normalized": "폴리하이드록시애씨드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "gluconolactone",
+          "normalized": "gluconolactone",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "polyhydroxy acid",
+          "normalized": "polyhydroxy acid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "PHA",
+          "normalized": "pha",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "PHA 각질 성분(AHA 대비 저자극). AHA류 일반 규정(pH·자외선 주의 문구) 준용 권장. 락토바이오닉애씨드와 함께 PHA 계열(확인 권장)."
+    },
+    {
+      "id": "food-hemp-protein",
+      "canonical_name": "Hemp seed protein / 헴프단백 (대만 금지)",
+      "category": "food_raw_material_eligibility",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "헴프단백",
+          "normalized": "헴프단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "헴프시드단백",
+          "normalized": "헴프시드단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "대마씨단백",
+          "normalized": "대마씨단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hemp protein",
+          "normalized": "hemp protein",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hemp seed protein",
+          "normalized": "hemp seed protein",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "大麻籽蛋白",
+          "normalized": "大麻籽蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "麻仁蛋白",
+          "normalized": "麻仁蛋白",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "⚠️ **대만 수입·판매 금지** — 대마씨 유래 식품(오일·단백·씨앗)은 食安法 제15조 '국내 식용경험 없고 무해 미입증'으로 미승인(TFDA 2017.6.22 반려 공고). 헴프 단백 함유 제품 반입 불가."
+    },
+    {
+      "id": "food-whey-protein-forms",
+      "canonical_name": "Whey protein isolate/concentrate/hydrolysate / 유청단백(WPI·WPC·WPH)",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "분리유청단백",
+          "normalized": "분리유청단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "농축유청단백",
+          "normalized": "농축유청단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가수분해유청단백",
+          "normalized": "가수분해유청단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "whey protein isolate",
+          "normalized": "whey protein isolate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "whey protein concentrate",
+          "normalized": "whey protein concentrate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "whey protein hydrolysate",
+          "normalized": "whey protein hydrolysate",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "WPI",
+          "normalized": "wpi",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "WPC",
+          "normalized": "wpc",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "WPH",
+          "normalized": "wph",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "우유 유래 유청단백(분리·농축·가수분해) — 대만 일반식품 원료 허용(전통 유가공). ⚠️ 우유 알레르겐 표시 대상. 미셀라카제인 등 고도 정제는 非傳統原料 여부 확인 권장."
+    },
+    {
+      "id": "food-egg-albumin",
+      "canonical_name": "Egg albumin powder / 에그알부민(난백분말)",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "에그알부민",
+          "normalized": "에그알부민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "난백분말",
+          "normalized": "난백분말",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "난백파우더",
+          "normalized": "난백파우더",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "egg albumin",
+          "normalized": "egg albumin",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "egg white powder",
+          "normalized": "egg white powder",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "계란 유래 난백단백 — 대만 허용(蛋品原料類). ⚠️ 계란 알레르겐 표시 대상."
+    },
+    {
+      "id": "infant-nucleotides",
+      "canonical_name": "Nucleotides / 뉴클레오타이드 (조제분유 첨가)",
+      "category": "infant_food_labeling",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "뉴클레오타이드",
+          "normalized": "뉴클레오타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "핵산",
+          "normalized": "핵산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "nucleotide",
+          "normalized": "nucleotide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "5-뉴클레오타이드",
+          "normalized": "5-뉴클레오타이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "조제분유에 흔히 첨가되는 뉴클레오타이드 — 대만 승인 조제분유에 널리 사용(허용 추정). 조제분유는 사전 査驗登記 대상이므로 제품 단위 등록에서 확인."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
@@ -179600,6 +180708,16 @@
           "source": "cas"
         },
         {
+          "value": "2-아미노-6-클로로-4-니트로페놀",
+          "normalized": "2-아미노-6-클로로-4-니트로페놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "6358-09-4",
           "normalized": "6358-09-4",
           "type": "cas",
@@ -179623,6 +180741,16 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "4-아미노-m-크레솔",
+          "normalized": "4-아미노-m-크레솔",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "cas"
@@ -180116,6 +181244,26 @@
           "source": "cas"
         },
         {
+          "value": "HC청색2",
+          "normalized": "hc청색2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "HC청색2호",
+          "normalized": "hc청색2호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "33229-34-4",
           "normalized": "33229-34-4",
           "type": "cas",
@@ -180501,6 +181649,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "HC황색2",
+          "normalized": "hc황색2",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "HC황색2호",
+          "normalized": "hc황색2호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "cas"
@@ -181326,6 +182494,16 @@
           "source": "cas"
         },
         {
+          "value": "염기성적색51",
+          "normalized": "염기성적색51",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "77061-58-6",
           "normalized": "77061-58-6",
           "type": "cas",
@@ -181478,6 +182656,26 @@
           "source": "cas"
         },
         {
+          "value": "HC적색3",
+          "normalized": "hc적색3",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "HC적색3호",
+          "normalized": "hc적색3호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "2871-01-4",
           "normalized": "2871-01-4",
           "type": "cas",
@@ -181511,6 +182709,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "하이드록시에틸-p-페닐렌디아민",
+          "normalized": "하이드록시에틸-p-페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "하이드록시에틸파라페닐렌디아민",
+          "normalized": "하이드록시에틸파라페닐렌디아민",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "cas"
@@ -184650,6 +185868,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "적색228호",
+          "normalized": "적색228호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "Permaton Red",
+          "normalized": "permaton red",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -185224,6 +186462,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "적색202호",
+          "normalized": "적색202호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "CI 15850:1",
+          "normalized": "ci 15850 1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "Lithol Rubine BCA",
+          "normalized": "lithol rubine bca",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -185500,6 +186768,26 @@
           "normalized": "ci 17200",
           "type": "common_name",
           "language": "en",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "적색227호",
+          "normalized": "적색227호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "食用紅色227號",
+          "normalized": "食用紅色227號",
+          "type": "local_name",
+          "language": "zh-Hant",
           "jurisdiction": "TW",
           "confidence": 0.9,
           "note": null,
@@ -186644,6 +187932,46 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "적색104의1호",
+          "normalized": "적색104의1호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "적색104호",
+          "normalized": "적색104호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "적색218호",
+          "normalized": "적색218호",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "CI 45410:1",
+          "normalized": "ci 45410 1",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -187616,6 +188944,26 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "구아닌",
+          "normalized": "구아닌",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "펄에센스",
+          "normalized": "펄에센스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -188075,6 +189423,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "비스머스옥시클로라이드",
+          "normalized": "비스머스옥시클로라이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -188243,6 +189601,36 @@
           "confidence": 0.9,
           "note": null,
           "source": "alias"
+        },
+        {
+          "value": "크로뮴옥사이드그린",
+          "normalized": "크로뮴옥사이드그린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "크로뮴옥사이드그린스",
+          "normalized": "크로뮴옥사이드그린스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "산화크로뮴",
+          "normalized": "산화크로뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
         }
       ]
     },
@@ -188268,6 +189656,26 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "크로뮴하이드록사이드그린",
+          "normalized": "크로뮴하이드록사이드그린",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "수산화크로뮴",
+          "normalized": "수산화크로뮴",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "alias"
@@ -188762,6 +190170,36 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "페릭암모늄페로시아나이드",
+          "normalized": "페릭암모늄페로시아나이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "페릭페로시아나이드",
+          "normalized": "페릭페로시아나이드",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "alias"
+        },
+        {
+          "value": "프러시안블루",
+          "normalized": "프러시안블루",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "alias"

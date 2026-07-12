@@ -12,13 +12,13 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2697,
-    "stored_aliases": 9786,
-    "searchable_aliases": 10949,
-    "identifier_aliases": 1163,
+    "terms": 2709,
+    "stored_aliases": 9877,
+    "searchable_aliases": 11043,
+    "identifier_aliases": 1166,
     "term_rule_links": 1114,
     "regulatory_update_candidates": 50,
-    "alias_review_items": 1098,
+    "alias_review_items": 1083,
     "coverage_groups": 4,
     "selected_source_cards": 94,
     "selected_term_cards": 90
@@ -5529,17 +5529,17 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2697,
-      "aliases_scanned": 9786,
-      "alias_rows_scanned": 9786,
+      "terms_scanned": 2709,
+      "aliases_scanned": 9877,
+      "alias_rows_scanned": 9877,
       "collision_groups": 294,
       "high_confidence_collisions": 235,
       "short_ambiguous_aliases_without_notes": 0,
       "mojibake_aliases": 0,
       "short_abbreviations_without_notes": 0,
-      "regulated_terms_without_local_alias": 804,
+      "regulated_terms_without_local_alias": 789,
       "strict_blockers": 0,
-      "review_items": 1098
+      "review_items": 1083
     },
     "items": [
       {

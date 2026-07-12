@@ -3162,6 +3162,16 @@
           "term_key": "residual-solvent-processing-aid",
           "canonical_name": "Residual solvent / processing aid (잔류용매·가공보조제)",
           "category": "contaminant_limit"
+        },
+        {
+          "term_key": "food-hemp-protein",
+          "canonical_name": "Hemp seed protein / 헴프단백 (대만 금지)",
+          "category": "food_raw_material_eligibility"
+        },
+        {
+          "term_key": "food-whey-protein-forms",
+          "canonical_name": "Whey protein isolate/concentrate/hydrolysate / 유청단백(WPI·WPC·WPH)",
+          "category": "food_ingredient"
         }
       ],
       "affected_products": [

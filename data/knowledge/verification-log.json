@@ -663,6 +663,28 @@
         "residual-solvent-processing-aid"
       ],
       "facts": "COSMETIC CLAIMS (L0030099): banned medical-efficacy 治療/消炎/抗菌/生髮/瘦身/豐胸/幹細胞/細胞再生 (NT$600k-5M) & false 最高級/FDA認證/藥用/醫療級 (NT$40k-200k); allowed 保濕/緊緻/修護/防曬, 美白 only w/ listed actives. FOOD-CONTACT (L0040019, sonnet): KMnO4 ≤10ppm, evap residue ≤30ppm (PVC150/PS240), heavy-metal ≤1ppm; phthalate migration DEHP≤1.5/DBP≤0.3/BBP≤30/DIDP≤9/DINP≤9/DEHA≤18ppm; ceramic Pb≤5/Cd≤0.5ppm; melamine formaldehyde-negative + migration ≤2.5ppm; PVC wrap VCM≤1ppm; BPA banned baby bottles; paper fluorescent-whitener not-detected; DEHP/DBP/BBP/DNOP banned <3yo items. SPECIAL NUTRITION: infant/follow-up/FSMP/weight-control need pre-market 查驗登記 (§21, FSMP 350 approved); breast-milk-substitute ad ban (§22). GM: label if >3% non-intentional; crops soy/corn/canola/cotton/sugarbeet/potato/alfalfa/microorg; refined oils now labeled; font ≥2mm. IRRADIATION: label+radura; potato/onion 0.15kGy, spices 30kGy. NOVEL FOOD: prohibitive §15; cultured meat/insects/nano not approved. CONTAMINANTS (L0040138): rice Pb0.2/Cd0.4/inorgAs0.2/Hg0.05; fish methylmercury≤2; canned Sn≤250; 3-MCPD soy-sauce 0.3ppm; benzopyrene oil2.0/infant1.0. VET DRUG (L0040026): positive-list zero-tolerance; ractopamine pork muscle0.01/liver0.04. FUKUSHIMA: 5-prefecture ban fully lifted 2024-09-25 (dual-cert+batch). RADIOACTIVITY (L0040079): Cs infant/dairy50/beverage10/general100 Bq/kg. RESIDUAL SOLVENT: hexane ≤0.1ppm oil/≤20ppm other."
+    },
+    {
+      "batch": "expand-colorants-hairdye-protein-infant-2026-07-12",
+      "method": "4 parallel agents (2 sonnet parsed primary TFDA PDFs: 化粧品色素成分使用限制表 152-entry + 化粧品成分使用限制表 hair-dye table; 2 haiku web-searched protein/supplement + skincare/infant). Mostly enrichment — the CI colorant terms + hair-dye restriction terms already existed but lacked Korean 색번호/성분명 aliases; added those + verified %/Cat notes; created genuinely-new (hemp protein banned, henna, cysteamine, tin oxide, basic brown/blue, gluconolactone, whey forms, egg albumin, nucleotides).",
+      "verifiedAt": "2026-07-12",
+      "sources": [
+        "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637368952656715470",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=26433"
+      ],
+      "terms": [
+        "tfda-color-ci-12085",
+        "tfda-color-ci-17200",
+        "cos-color-tin-oxide",
+        "tfda-restrict-hc-yellow-no-2",
+        "cos-hairdye-basic-blue-99",
+        "cos-henna",
+        "food-hemp-protein",
+        "food-whey-protein-forms",
+        "food-egg-albumin",
+        "infant-nucleotides"
+      ],
+      "facts": "COLORANTS(色素표 民110.7.1): 적색104/202/218/227(CI17200!)/228호 + chromium oxides + prussian blue + bismuth oxychloride + guanine + manganese violet + ultramarine all Cat1(all-area); 적색228호(CI12085) 3% + no hair-dye; TIN OXIDE not in 152-entry table. HAIR DYE(成分限制표 民113.7.1): hydroxyethyl-PPD 2%, 4-amino-m-cresol 1.5%, 2-amino-6-chloro-4-nitrophenol 2%, Basic Red51 0.5/1%, HC Yellow2 0.75/1%, HC Red3 0.45/3%, HC Blue2 2.8%(+nitrosamine warn); Basic Brown17 not yet(2027 draft), Basic Blue99 not on list, henna can't label 染髮劑, cysteamine gray-zone, hydrolyzed keratin unrestricted. PROTEIN: WPI/WPC/WPH/egg-albumin/taurine permitted; HEMP PROTEIN PROHIBITED(Art.15). INFANT: lactoferrin ≤100mg/day+milk allergen; nucleotides/GOS/FOS/hydrolyzed-whey OK in registered formula."
     }
   ]
 }
