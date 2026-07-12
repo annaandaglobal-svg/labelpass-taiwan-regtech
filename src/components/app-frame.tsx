@@ -15,7 +15,7 @@ function PortalShell({ label, children }: { label: string; children: ReactNode }
     <div className="portal-shell">
       <header className="portal-bar" data-shell-sidebar="portal">
         <div className="portal-id">
-          <span className="portal-seal" aria-hidden="true">合格</span>
+          <span className="portal-seal" aria-hidden="true">합격</span>
           <div>
             <strong>LabelPass</strong>
             <small>{label}</small>

@@ -28,7 +28,7 @@ export function CustomsReferenceCard() {
         <div>
           <h1>대만 통관 참고 — HS/CCC · 수입규정 · 세율 · 검역</h1>
           <p className="sub">
-            자주 수출하는 품목별로 국제 HS·대표 CCC 코드, 輸入規定(수입규정), 수입검사·검역, 세율, 필수 서류를 정리했습니다.
+            자주 수출하는 품목별로 국제 HS·대표 CCC 코드, 수입규정, 수입검사·검역, 세율, 필수 서류를 정리했습니다.
           </p>
         </div>
       </div>
@@ -36,8 +36,8 @@ export function CustomsReferenceCard() {
       <div className="customs-ref-note">
         <ShieldAlert size={15} />
         <p>
-          <b>참고용입니다.</b> 실제 11자리 CCC 코드·輸入規定 코드·관세율은 제품마다 다르며, 관세청{" "}
-          <b>稅則稅率查詢</b> 시스템 또는 관세사 확인이 필요합니다. {CUSTOMS_BUSINESS_TAX}
+          <b>참고용입니다.</b> 실제 11자리 CCC 코드·수입규정 코드·관세율은 제품마다 다르며, 관세청{" "}
+          <b>관세율 조회</b> 시스템 또는 관세사 확인이 필요합니다. {CUSTOMS_BUSINESS_TAX}
         </p>
       </div>
 
@@ -78,7 +78,7 @@ export function CustomsReferenceCard() {
             <div className="customs-ref-grid">
               <div>
                 <span className="customs-ref-k">
-                  <PackageSearch size={12} /> 수입규정 (輸入規定)
+                  <PackageSearch size={12} /> 수입규정
                 </span>
                 <ul>
                   {entry.importRules.map((rule) => (
@@ -96,7 +96,7 @@ export function CustomsReferenceCard() {
               <div>
                 <span className="customs-ref-k">세율</span>
                 <p>{entry.dutyNote}</p>
-                <p className="customs-ref-quar">營業稅 {entry.businessTax}</p>
+                <p className="customs-ref-quar">영업세 {entry.businessTax}</p>
               </div>
               <div>
                 <span className="customs-ref-k">필수 서류</span>

@@ -97,7 +97,7 @@ const focusModes: Array<{
     label: "화장품",
     title: "대만 화장품 라벨·PIF",
     helper: "INCI, CAS, 금지·제한 성분, 효능 표현, 제품등록, PIF 증빙을 연결합니다.",
-    placeholder: "예: PIF, Triclosan, INCI, sunscreen, 急性子"
+    placeholder: "예: PIF, Triclosan, INCI, sunscreen, 나이아신아마이드"
   },
   {
     id: "food",

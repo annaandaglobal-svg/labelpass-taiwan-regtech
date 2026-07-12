@@ -61,7 +61,7 @@ export default function Home() {
       </div>
 
       <div className="herocheck">
-        <div className="seal-h" aria-hidden="true">合格</div>
+        <div className="seal-h" aria-hidden="true">합격</div>
         <div className="herocheck-copy">
           <h2>보내기 전에, 판정받으세요</h2>
           <p>대만에 팔기 전, 라벨·전성분을 올리면 법령·고시와 대조해 무엇이 문제인지 1차로 알려드립니다.</p>
@@ -172,14 +172,14 @@ export default function Home() {
           <div className="reg-item">
             <span className="dt">화장품</span>
             <div>
-              <b>제품등록·PIF·GMP 의무</b> <span className="law">化粧品衛生安全管理法</span>
+              <b>제품등록·PIF·GMP 의무</b> <span className="law">화장품 위생안전관리법</span>
               <p>성분 제한·중문 라벨·효능 표현·PIF 준비 상태를 한 흐름으로 검토합니다.</p>
             </div>
           </div>
           <div className="reg-item">
             <span className="dt">식품</span>
             <div>
-              <b>영양표시·첨가물·알레르기 표시</b> <span className="law">食品安全衛生管理法</span>
+              <b>영양표시·첨가물·알레르기 표시</b> <span className="law">식품 안전위생관리법</span>
               <p>포지티브 리스트 대조와 필수 기재항목을 판정에 함께 반영합니다.</p>
             </div>
           </div>

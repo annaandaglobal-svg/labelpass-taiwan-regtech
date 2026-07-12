@@ -56,7 +56,7 @@ export default function ReportViewPage() {
     <div className="report-page">
       <header className="report-bar">
         <div className="report-id">
-          <span className="portal-seal" aria-hidden="true">合格</span>
+          <span className="portal-seal" aria-hidden="true">합격</span>
           <div>
             <strong>LabelPass</strong>
             <small>대만 1차 규제 검토 리포트</small>

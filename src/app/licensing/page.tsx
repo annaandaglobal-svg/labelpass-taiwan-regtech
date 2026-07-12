@@ -189,7 +189,7 @@ export default function LicensingPage() {
             <textarea
               value={refineText}
               onChange={(event) => setRefineText(event.target.value)}
-              placeholder="전성분(함량 포함)과 라벨·효능 문구를 붙여넣으세요. 예: Water, Glycerin, Triclosan 0.5% ... / 美白 토너, 유효기한 2028"
+              placeholder="전성분(함량 포함)과 라벨·효능 문구를 붙여넣으세요. 예: Water, Glycerin, Triclosan 0.5% ... / 미백 토너, 유효기한 2028"
               rows={4}
             />
             <div className="licensing-refine-actions">

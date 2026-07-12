@@ -47,7 +47,7 @@ export function AppSidebar({ active }: AppSidebarProps) {
   return (
     <aside className="lp-sidebar" aria-label="LabelPass 핵심 내비게이션" data-shell-sidebar="persistent">
       <div className="lp-brand">
-        <span aria-hidden="true">合格</span>
+        <span aria-hidden="true">합격</span>
         <div>
           <strong>LabelPass</strong>
           <small>대만 수출 · 검토부터 통관까지</small>

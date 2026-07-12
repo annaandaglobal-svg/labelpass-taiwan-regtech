@@ -224,15 +224,15 @@ const productPresets: ProductPreset[] = [
   {
     id: "infant-food",
     label: "영유아 식품 (조제식·이유식)",
-    helper: "조제분유·후속조제식·이유식·영아용 식품. 査驗登記 허가(조제식)·영유아 강화 오염물 한도·영유아 금지 첨가물(附表一)·모유대용품 광고 규제를 함께 봅니다.",
-    productType: "영유아 식품 / 이유식 / infant formula / baby food / 嬰兒配方 / Taiwan import",
+    helper: "조제분유·후속조제식·이유식·영아용 식품. 사전심사등록 허가(조제식)·영유아 강화 오염물 한도·영유아 금지 첨가물·모유대용품 광고 규제를 함께 봅니다.",
+    productType: "영유아 식품 / 이유식 / infant formula / baby food / Taiwan import",
     routeId: "tw_food_label",
-    examples: ["査驗登記", "영유아 첨가물", "강화 오염물 한도"]
+    examples: ["사전심사등록", "영유아 첨가물", "강화 오염물 한도"]
   },
   {
     id: "children-food",
     label: "어린이 식품",
-    helper: "유아 간식·어린이 음료·과자 등. 어린이 대상 광고·판촉 제한(고지방·고당·고나트륨)과 학교 판매 기준(校園)을 함께 봅니다.",
+    helper: "유아 간식·어린이 음료·과자 등. 어린이 대상 광고·판촉 제한(고지방·고당·고나트륨)과 학교 판매 기준을 함께 봅니다.",
     productType: "어린이 식품 / children food / kids snack / Taiwan import",
     routeId: "tw_food_label",
     examples: ["어린이 광고 제한", "학교 판매 기준", "영양"]
@@ -256,10 +256,10 @@ const productPresets: ProductPreset[] = [
   {
     id: "alcohol",
     label: "주류·알코올 음료",
-    helper: "술·리큐르 등 알코올 음료. 財政部 菸酒 수입업 허가·주세(菸酒稅)가 사전에 필요하며, TFDA 식품 규정과 별개입니다.",
-    productType: "주류 / alcoholic beverage / 酒 / liquor / Taiwan import",
+    helper: "술·리큐르 등 알코올 음료. 재정부 담배·주류 수입업 허가·주세가 사전에 필요하며, TFDA 식품 규정과 별개입니다.",
+    productType: "주류 / alcoholic beverage / liquor / Taiwan import",
     routeId: "tw_food_label",
-    examples: ["菸酒 수입허가", "주세", "라벨"]
+    examples: ["주류 수입허가", "주세", "라벨"]
   },
   {
     id: "packaging",
@@ -272,7 +272,7 @@ const productPresets: ProductPreset[] = [
   {
     id: "device",
     label: "미용기기·전자제품",
-    helper: "LED 마스크, 진동 클렌저 등 기기류. 먼저 대만 醫療器材(의료기기) 대상인지 一般商品(일반 상품)인지 구분하고, 일반 상품이면 BSMI 전기·전자 검사와 HS/CCC를 봅니다. 성분이 없어도 됩니다.",
+    helper: "LED 마스크, 진동 클렌저 등 기기류. 먼저 대만 의료기기 대상인지 일반 상품인지 구분하고, 일반 상품이면 BSMI 전기·전자 검사와 HS/CCC를 봅니다. 성분이 없어도 됩니다.",
     productType: "미용기기·전자제품 / beauty device / electronic goods / Taiwan import",
     routeId: "tw_trade",
     examples: ["의료기기 여부", "BSMI 검사", "HS/CCC"]
@@ -280,18 +280,18 @@ const productPresets: ProductPreset[] = [
   {
     id: "toy",
     label: "완구·유아용품",
-    helper: "장난감·어린이용품. BSMI 商品檢驗(CNS)·프탈레이트 6종 ≤0.1%·중문 표시(商品標示法)를 봅니다. 성분이 없어도 됩니다.",
+    helper: "장난감·어린이용품. BSMI 상품검사(CNS)·프탈레이트 6종 ≤0.1%·중문 표시(상품표시법)를 봅니다. 성분이 없어도 됩니다.",
     productType: "완구 / toy / children product / Taiwan import",
     routeId: "tw_trade",
-    examples: ["BSMI 商品檢驗", "프탈레이트", "중문 표시"]
+    examples: ["BSMI 상품검사", "프탈레이트", "중문 표시"]
   },
   {
     id: "textile",
     label: "섬유·의류",
-    helper: "의류·패션·직물. 商品標示法 중문 표시(성분 ≥5%·취급·치수·원산지)와 유아용 섬유 甲醛(포름알데히드) 한도(유아 20ppm 등)를 봅니다. 성분이 없어도 됩니다.",
+    helper: "의류·패션·직물. 상품표시법 중문 표시(성분 ≥5%·취급·치수·원산지)와 유아용 섬유 포름알데히드 한도(유아 20ppm 등)를 봅니다. 성분이 없어도 됩니다.",
     productType: "섬유·의류 / textile / apparel / Taiwan import",
     routeId: "tw_trade",
-    examples: ["商品標示法", "섬유 성분표시", "甲醛 한도"]
+    examples: ["상품표시법", "섬유 성분표시", "포름알데히드 한도"]
   },
   {
     id: "other",
@@ -1463,7 +1463,7 @@ export default function Home() {
 
             {isReviewing && !result && (
               <div className="lp-analyzing" aria-live="polite">
-                <div className="lp-ana-seal" aria-hidden="true">審査中</div>
+                <div className="lp-ana-seal" aria-hidden="true">심사중</div>
                 <b>대만 규제 기준으로 검토 중…</b>
                 <p>선택 품목 룰셋 적용 · 모든 판정에 근거 조문</p>
                 <ul className="lp-ana-steps">
