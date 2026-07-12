@@ -575,6 +575,30 @@
         "benzalkonium-chloride-family"
       ],
       "facts": "BOTANICAL part/species traps: 초석잠(Stachys 根莖) permitted; 와송(瓦松) BARRED; 꾸지뽕(Maclura tricuspidata) ABSENT; 여주씨 permitted(fruit/seed/leaf) but VINE(藤) barred; 돌외(絞股藍) permitted RESTRICTED (teabag/extract + '勿長期大量食用' warning); 비파잎 permitted LEAF-ONLY (root/stem/flower/SEED barred, amygdalin); 뽕나무버섯(Armillaria) MYCELIUM-only; 아로니아/블랙커런트/오크라(fruit)/석류(pulp+seed)/구아바잎 permitted; okra FLOWER barred; pomegranate FLOWER/LEAF/PEEL + SEED-OIL barred; elderberry fruit/flower permitted but SEED not enumerated; PHGG absent from raw list (guar bean permitted). COSMETIC: polyquaternium/distearyldimonium/decyl-glucoside/SCI/glyceryl-esters/cocamide-MIPA/undecylenoyl-glycine all PERMITTED (unlisted); cetrimonium/behentrimonium/benzalkonium DUAL-limit (0.1% preservative vs tiered conditioning 0.5-5% by product) — same molecule, limit depends on declared function. SPORTS/BEVERAGE: ⚠️ CITRULLINE (& citrulline malate) BARRED 未確認安全性 (hard blocker for NO supplements); ⚠️ ALOE food strict — gel-only (peeled leaf) + aloin ≤10ppm + '孕婦忌食' warning (waived if <1ppm); yerba mate/matcha/casein permitted; guarana 2.4g/day; rice/pea protein isolate not itemized (parent permitted); beetroot/coconut-water absent-conventional; hydrogen water outside food-additive regime; KCl/potassium-bicarbonate listed additives GMP."
+    },
+    {
+      "batch": "concepts-claims-tariff-cosmetic-2026-07-12t",
+      "method": "10 parallel haiku agents (web-search of fda.gov.tw / customs.gov.tw / law.moj.gov.tw). Well-established facts hardcoded; consulting-firm-sourced numeric thresholds kept as inferred/'확인 권장' (2 agents failed to fetch; redundant coverage filled health-food list).",
+      "verifiedAt": "2026-07-12",
+      "sources": [
+        "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0040001&flno=28",
+        "https://web.customs.gov.tw",
+        "https://www.fda.gov.tw/tc/site.aspx?sid=40"
+      ],
+      "terms": [
+        "food-label-required-items",
+        "vegetarian-label",
+        "trap-tariff-class",
+        "trade-de-minimis",
+        "trade-tariff-quota-detail",
+        "cos-ketoconazole",
+        "cos-benzoyl-peroxide",
+        "cos-barium",
+        "mercury",
+        "health-food",
+        "food-labeling-claims"
+      ],
+      "facts": "LABELING: date marking = 有效日期 (Korean 製造日期-only NON-compliant); Chinese label mandatory; 11 allergens; vegetarian 5-category MANDATORY (全素/蛋素/奶素/奶蛋素/植物五辛素, since 2009). HEALTH FOOD: only 14 approved 保健功效 (護肝/抗疲勞/血脂/血糖/免疫/骨質/牙齒/延緩衰老/鐵吸收/胃腸/血壓/不易形成體脂肪/過敏調整/膝關節[2025]); 美白/減肥/護眼/抗氧化 NOT approvable; medical-efficacy (排出鎘/豐胸/壯陽) banned §28 (fine NT$600k-5M). TARIFF: Korea NO FTA → Column I MFN; CCC 11-digit; de-minimis ≤NT$2,000/shipment BUT 6-exemptions-per-half-year cap (7th+ taxable); TRQ 16 ag products; bonded 2yr; anti-dumping on some Korean steel. COSMETIC drug-boundary (prohibited, drug-only): hydroquinone/tretinoin/minoxidil/ketoconazole/benzoyl-peroxide; restricted: 1,4-dioxane ≤100ppm impurity, catechol, methanol; mercury prohibited (≤1ppm residue) + heavy-metal impurity limits 汞1/鉛10/砷3/鎘5ppm (matches prior sonnet verification); barium prohibited except insoluble barium sulfate colorant. NUTRITION-CLAIM thresholds INFERRED (consulting-firm source, re-verify): 無糖≤0.5/低脂≤3/低鈉≤120mg/高鈣≥360mg/零反式≤0.3g etc."
     }
   ]
 }

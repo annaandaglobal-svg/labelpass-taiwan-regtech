@@ -8,12 +8,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,682
-- Stored aliases: 9,500
-- Searchable aliases including identifiers: 10,663
+- Terms: 2,690
+- Stored aliases: 9,595
+- Searchable aliases including identifiers: 10,758
 - Term-rule links: 1,114
 - Regulatory update candidates: 50
-- Alias review items: 1,092
+- Alias review items: 1,105
 
 ## How To Use This Memory
 
@@ -220,9 +220,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`, `tw-tfda-health-food-permit-query`
   - Note: Manufacture or import of Taiwan health food requires inspection and registration before a permit number can be used on labels or advertising.
 - **Health Food** (`health-food`)
-  - Aliases: Health Food; 健康食品; health care effects; 保健功效; 건강식품; 기능성 식품; 保健食品; functional food
+  - Aliases: Health Food; 健康食品; health care effects; 保健功效; 건강식품; 抗氧化; 膝關節保健; 護眼; 다이어트기능성; 미백기능성
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-enforcement-rules`, `tw-moj-food-safety-sanitation-act`
-  - Note: Taiwan health food is a regulated category: only registered products may use health-food wording, approved effects, the standard logo, and related advertising claims.
+  - Note: 健康食品 保健功效는 등록·許可證(小綠人 로고) 제품만 표방 가능. **승인 14종**: 護肝(화학성)·抗疲勞·調節血脂·調節血糖·免疫調節·骨質保健·牙齒保健·延緩衰老·鐵吸收·胃腸功能改善·調節血壓·不易形成體脂肪·輔助調整過敏體質·膝關節保健(2025.2 추가). ⚠️ 美白·減肥·護眼·抗氧化·促進新陳代謝는 승인 목록에 없어 健康食品도 표방 불가. 일반식품이 표방 시 위법.
 - **Health Food Application Permit** (`health-food-application-permit`)
   - Aliases: health food application permit; 健康食品查驗登記; health care effect assessment report; safety assessment report; 保健功效含量; 保健功效成分; 保健功效評估報告; 安全評估報告; package label product information sheet; 包裝標籤及產品說明書
   - Sources: `tw-moj-health-food-governing-act`, `tw-tfda-health-food-application-permit-regulations`
@@ -261,7 +261,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - **Food Labeling and Claims** (`food-labeling-claims`)
   - Aliases: food claims; food labeling claims; 食品標示廣告; 식품 표시광고; false exaggerated misleading food claim; food claim substantiation; medical efficacy food claim; sweetness claim; 甜味宣稱; 虛偽誇張易生誤解
   - Sources: `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-false-exaggerated-medical-efficacy-claims`, `tw-tfda-sweetness-claim-prepackaged-food`, `tw-tfda-nutrition-claim-prepackaged-food`, `global-codex-prepackaged-food-labeling`
-  - Note: Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims.
+  - Note: 食品安全衛生管理法 §28: 모든 식품 醫療效能(질병 치료·예방) 표시·광고 금지 — 벌금 60만~500만; 誇大不實(과대·허위) 40만~400만. ⚠️ 排出鎘/重金屬排毒·豐胸·壯陽·減肥·抗氧化는 의료효능/과대 표현으로 금지(한국 건강식품 마케팅 문구 그대로 쓰면 위법).
 - **Nutrition Labeling** (`nutrition-labeling`)
   - Aliases: nutrition label; 營養標示; 영양성분표; nutrition facts; 营养标签; 영양표시; nutrition claim; 栄養成分表示
   - Sources: `tw-tfda-food-nutrition-labeling`, `tw-tfda-nutrition-claim-prepackaged-food`, `tw-tfda-sweetness-claim-prepackaged-food`, `global-codex-nutrition-labeling`, `us-ecfr-food-labeling-21-cfr-101`
@@ -269,7 +269,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - **Food Label Required Items** (`food-label-required-items`)
   - Aliases: food labeling regulations handbook; 食品標示; 食品標示手冊; 食品標示法規手冊; food label required items; prepackaged food labeling; 保存期限; 保存條件; 內容物名稱; 原產地
   - Sources: `tw-tfda-food-labeling-handbook-2026`, `tw-moj-food-safety-sanitation-act`, `tw-tfda-food-law-regulations-index`
-  - Note: Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search.
+  - Note: 대만 포장식품 필수 표시(§22, 중문): 品名·內容物名稱(중량 내림차순)·淨重容量·食品添加物名稱(개별)·廠商名稱電話住所·原產地(國)·有效日期·營養標示·기改표시. ⚠️ **有效日期(유효기한)만 인정 — 한국식 製造日期(제조일자)만 표기하면 반려**(年月日, 유통 3개월 초과는 年月까지 가능). 중문 표시 필수(한글만=반려), 폰트 ≥2mm.
 - **Food Allergen Labeling** (`food-allergen-labeling`)
   - Aliases: allergen labeling; 過敏原標示; 알레르기 표시; allergen warning; 致過敏性內容物; 致過敏性內容物名稱; アレルゲン表示; 不適合對其過敏體質者食用; 本產品含有; 过敏原标识
   - Sources: `tw-tfda-food-allergen-labeling`, `tw-tfda-food-allergen-labeling-en`, `tw-tfda-food-allergen-labeling-consumer-notice`, `global-codex-prepackaged-food-labeling`
@@ -481,12 +481,12 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 | approved health care effects | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | camphor | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | casein | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
+| ccc code | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | country of origin | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | dmdm hydantoin | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | hydroquinone | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | inci | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 | milk | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
-| nutrition label | alias-collision-high-confidence | high | 2 | Keep the alias searchable, but add source-backed context notes so search can ask for product category, jurisdiction, or intended use before ranking. |
 
 
 ## Refresh Queue

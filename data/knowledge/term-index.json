@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2615,
+  "curated_term_count": 2623,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -645,13 +645,43 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "汞化合物",
+          "normalized": "汞化合物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "mercury compounds",
+          "normalized": "mercury compounds",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "수은화합물",
+          "normalized": "수은화합물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "global-cas-registry",
         "tw-tfda-cosmetic-prohibited-ingredients"
       ],
-      "notes": "대만 총수은 한도(mg/kg): 쌀 0.05·조류 0.5·상어/황새치/참치/기름치 2.0·대구/가다랑어 1.0·기타어 0.5·패류/두족류 0.5. 총수은이 메틸수은 한도 이하면 메틸수은 재검 불필요."
+      "notes": "⚠️ 화장품 汞(수은) 및 화합물 금지 — 제조상 불가피 잔류 ≤1ppm만 허용(의도 첨가 불가). 화장품 중금속 불순물 한도: 汞1/鉛10/砷3/鎘5 ppm."
     },
     {
       "id": "hydroquinone",
@@ -726,13 +756,23 @@
           "confidence": 0.95,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "氫醌",
+          "normalized": "氫醌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "global-pcpc-inci",
         "global-cas-registry"
       ],
-      "notes": "Skin-lightening context often changes risk and claim review."
+      "notes": "⚠️ 화장품 금지(약품 전용) — 미백 하이드로퀴논은 화장품 불가, 약품 등록 필요."
     },
     {
       "id": "formaldehyde",
@@ -2328,7 +2368,7 @@
         "global-cas-registry",
         "tw-tfda-cosmetic-prohibited-ingredients"
       ],
-      "notes": "Separate from cosmetic retinol and retinyl esters; regulatory risk differs."
+      "notes": "⚠️ 화장품 금지(처방 약품). 화장품 레티노이드(레티놀/레티날 등)와 별개."
     },
     {
       "id": "boric-acid",
@@ -12481,6 +12521,66 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "排出鎘",
+          "normalized": "排出鎘",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "重金屬排毒",
+          "normalized": "重金屬排毒",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "豐胸",
+          "normalized": "豐胸",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "壯陽",
+          "normalized": "壯陽",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "의료효능",
+          "normalized": "의료효능",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cadmium detox",
+          "normalized": "cadmium detox",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -12492,7 +12592,7 @@
         "tw-tfda-food-law-regulations-index",
         "tw-tfda-illegal-advertising-query"
       ],
-      "notes": "Taiwan food labeling and advertising claims concept for false, exaggerated, misleading, medical-efficacy, nutrition, and sweetness claims."
+      "notes": "食品安全衛生管理法 §28: 모든 식품 醫療效能(질병 치료·예방) 표시·광고 금지 — 벌금 60만~500만; 誇大不實(과대·허위) 40만~400만. ⚠️ 排出鎘/重金屬排毒·豐胸·壯陽·減肥·抗氧化는 의료효능/과대 표현으로 금지(한국 건강식품 마케팅 문구 그대로 쓰면 위법)."
     },
     {
       "id": "food-allergen-labeling",
@@ -16756,6 +16856,66 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "미백기능성",
+          "normalized": "미백기능성",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "다이어트기능성",
+          "normalized": "다이어트기능성",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "護眼",
+          "normalized": "護眼",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "항산화기능",
+          "normalized": "항산화기능",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "抗氧化",
+          "normalized": "抗氧化",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "膝關節保健",
+          "normalized": "膝關節保健",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -16763,7 +16923,7 @@
         "tw-tfda-health-food-enforcement-rules",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "Taiwan health food is a regulated category: only registered products may use health-food wording, approved effects, the standard logo, and related advertising claims."
+      "notes": "健康食品 保健功效는 등록·許可證(小綠人 로고) 제품만 표방 가능. **승인 14종**: 護肝(화학성)·抗疲勞·調節血脂·調節血糖·免疫調節·骨質保健·牙齒保健·延緩衰老·鐵吸收·胃腸功能改善·調節血壓·不易形成體脂肪·輔助調整過敏體質·膝關節保健(2025.2 추가). ⚠️ 美白·減肥·護眼·抗氧化·促進新陳代謝는 승인 목록에 없어 健康食品도 표방 불가. 일반식품이 표방 시 위법."
     },
     {
       "id": "health-food-permit",
@@ -18588,6 +18748,66 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "제조일자",
+          "normalized": "제조일자",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "製造日期",
+          "normalized": "製造日期",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "date marking",
+          "normalized": "date marking",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "유통기한",
+          "normalized": "유통기한",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "중문표시",
+          "normalized": "중문표시",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "中文標示",
+          "normalized": "中文標示",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -18595,7 +18815,7 @@
         "tw-moj-food-safety-sanitation-act",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "Core Taiwan food-labeling field vocabulary for first-pass label completeness checks and user search."
+      "notes": "대만 포장식품 필수 표시(§22, 중문): 品名·內容物名稱(중량 내림차순)·淨重容量·食品添加物名稱(개별)·廠商名稱電話住所·原產地(國)·有效日期·營養標示·기改표시. ⚠️ **有效日期(유효기한)만 인정 — 한국식 製造日期(제조일자)만 표기하면 반려**(年月日, 유통 3개월 초과는 年月까지 가능). 중문 표시 필수(한글만=반려), 폰트 ≥2mm."
     },
     {
       "id": "imported-food-inspection-forms",
@@ -25683,13 +25903,53 @@
           "confidence": 0.88,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "蛋素",
+          "normalized": "蛋素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "奶素",
+          "normalized": "奶素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "植物五辛素",
+          "normalized": "植物五辛素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "五辛素",
+          "normalized": "五辛素",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "채식 표방 시 素食 5분류 중 하나 명시 의무."
+      "notes": "채식 표시 5분류 의무(2009 시행): 全素/純素(오신채·동물성 무)·蛋素(+계란)·奶素(+유제품)·奶蛋素(+계란·유제품)·植物五辛素(식물+오신채). 오분류 벌금 3만~300만·허위 4만~400만."
     },
     {
       "id": "env-recycling",
@@ -35583,13 +35843,23 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "다이옥산",
+          "normalized": "다이옥산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-prohibited-ingredients"
       ],
-      "notes": "대만 화장품 금지 성분(禁止使用成分表)."
+      "notes": "화장품 불순물 제한 — 불가피 잔류 ≤100 ppm(에톡실화 원료 부산물, 의도 첨가 아님). 확인 권장."
     },
     {
       "id": "cos-proh-ethylene-oxide",
@@ -36157,6 +36427,16 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "catechol",
+          "normalized": "catechol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -36544,7 +36824,7 @@
         "tw-tfda-cosmetic-restricted-ingredients",
         "tw-tfda-cosmetic-prohibited-ingredients"
       ],
-      "notes": "대만 화장품 금지 성분(禁止使用成分表)."
+      "notes": "⚠️ 화장품 금지 — 미녹시딜은 발모 약품(含藥/藥品), 화장품 아님."
     },
     {
       "id": "cos-proh-pilocarpine",
@@ -111547,12 +111827,82 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "MFN관세",
+          "normalized": "mfn관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "最惠國",
+          "normalized": "最惠國",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "column I",
+          "normalized": "column i",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "第一欄",
+          "normalized": "第一欄",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "CCC code",
+          "normalized": "ccc code",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "稅則號別",
+          "normalized": "稅則號別",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "관세율",
+          "normalized": "관세율",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction"
       ],
-      "notes": "한국=1란 MFN. 세번이 관세 좌우. 稅則預先審核 권장."
+      "notes": "대만 관세 3欄(第一欄=WTO/MFN·第二欄=FTA특혜·第三欄=일반). ⚠️ **한국은 대만과 FTA 없음 → 第一欄(MFN) 적용**(공산품 ~4%·농산물 ~15%). CCC 11자리(HS6+국내4+검1). 사전세율심사(稅則預先審核) 가능."
     },
     {
       "id": "trap-ior",
@@ -112987,12 +113337,222 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "무지방",
+          "normalized": "무지방",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "無脂",
+          "normalized": "無脂",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "fat free",
+          "normalized": "fat free",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "저나트륨",
+          "normalized": "저나트륨",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "低鈉",
+          "normalized": "低鈉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "low sodium",
+          "normalized": "low sodium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "고칼슘",
+          "normalized": "고칼슘",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "高鈣",
+          "normalized": "高鈣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "high calcium",
+          "normalized": "high calcium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "고단백",
+          "normalized": "고단백",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "high protein",
+          "normalized": "high protein",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식이섬유풍부",
+          "normalized": "식이섬유풍부",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "高纖",
+          "normalized": "高纖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "high fiber",
+          "normalized": "high fiber",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "무설탕",
+          "normalized": "무설탕",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "無糖",
+          "normalized": "無糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "sugar free",
+          "normalized": "sugar free",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "저당",
+          "normalized": "저당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "저지방",
+          "normalized": "저지방",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "營養宣稱",
+          "normalized": "營養宣稱",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "nutrition claim",
+          "normalized": "nutrition claim",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-additive-standards"
       ],
-      "notes": "低脂/無糖/低鈉 수치기준+아스파탐 PKU·폴리올 완사 경고."
+      "notes": "대만 營養宣稱(包裝食品營養宣稱應遵行事項) — 강조표시 임계값(고형/액체, 확인 권장): 無糖 ≤0.5g; 低糖 ≤5/2.5g; 低脂 ≤3/1.5g; 脫脂 ≤0.5g; 低鈉 ≤120mg; 低熱量 ≤40/20kcal; 零卡 ≤4kcal; 高纖 ≥6/3g; 高蛋白 ≥12/6g; 高鈣 ≥360/180mg; 零反式脂肪 ≤0.3g. '강화(強化)'는 기능표방 시 1일기준치 ≥15%. '高/富含' 강조 가능 영양소는 23종 한정. ⚠️ 수치는 공고 원문 재확인 권장."
     },
     {
       "id": "trap-cos-drug",
@@ -113027,16 +113587,6 @@
         {
           "value": "미녹시딜",
           "normalized": "미녹시딜",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
-          "value": "케토코나졸",
-          "normalized": "케토코나졸",
           "type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
@@ -138414,6 +138964,534 @@
       "notes": "H2 가스 용존수 — 원료·첨가물 규제 밖(가공수). ⚠️ '항산화·디톡스' 등 건강/기능성 표방은 일반 식품표시·과대광고 규정 대상(별개)."
     },
     {
+      "id": "trade-de-minimis",
+      "canonical_name": "De-minimis / express exemption (소액면세·특송)",
+      "category": "personal_vs_commercial",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "소액면세",
+          "normalized": "소액면세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "de minimis",
+          "normalized": "de minimis",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "면세문턱",
+          "normalized": "면세문턱",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "免稅門檻",
+          "normalized": "免稅門檻",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "특송화물",
+          "normalized": "특송화물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "快遞",
+          "normalized": "快遞",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "간이통관",
+          "normalized": "간이통관",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "簡易報關",
+          "normalized": "簡易報關",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "⚠️ 대만 수입 면세 문턱 **화물가액 ≤ NT$2,000/건**(관세·화물세·영업세 면제). 단 **반기(1-6월/7-12월) 내 6회 초과 시 7회째부터 전량 과세**(가액 불문). 담배·주류·關稅配額 농산물은 제외. 상업 반복 수입은 정식 통관."
+    },
+    {
+      "id": "trade-tariff-quota-detail",
+      "canonical_name": "Tariff-rate quota products (관세할당 품목)",
+      "category": "tariff_rate_quota",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "관세할당품목",
+          "normalized": "관세할당품목",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "TRQ품목",
+          "normalized": "trq품목",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "配額農產品",
+          "normalized": "配額農產品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "in-quota",
+          "normalized": "in-quota",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "over-quota",
+          "normalized": "over-quota",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "대만 關稅配額 16개 농산물: 米(쌀)·落花生(땅콩)·大蒜(마늘)·香蕉(바나나)·液態乳(액상유)·乾香菇(건표고)·紅豆(팥)·椰子·檳榔·鳳梨·芒果·梨·柚·龍眼乾·鹿茸 등. 할당내(低)·할당초과(高/징벌) 관세 차등 — 한국 수출자는 할당 확보/초과세율 확인."
+    },
+    {
+      "id": "trade-bonded-drawback",
+      "canonical_name": "Bonded zone / duty drawback (보세·관세환급)",
+      "category": "customs_classification",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "보세구역",
+          "normalized": "보세구역",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保稅區",
+          "normalized": "保稅區",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "保稅倉庫",
+          "normalized": "保稅倉庫",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "bonded warehouse",
+          "normalized": "bonded warehouse",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "관세환급",
+          "normalized": "관세환급",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "退稅",
+          "normalized": "退稅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "duty drawback",
+          "normalized": "duty drawback",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "保稅倉庫(보세창고) 최대 2년 무관세 보관. 退稅(관세환급): 수출제품 원료 관세 환급 또는 재수출(3년내) 시 환급. 전시·수리·면세점 재고 등 적격."
+    },
+    {
+      "id": "trade-antidumping",
+      "canonical_name": "Anti-dumping / countervailing duty (반덤핑·상계관세)",
+      "category": "import_export_control",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "반덤핑관세",
+          "normalized": "반덤핑관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "反傾銷稅",
+          "normalized": "反傾銷稅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "anti-dumping",
+          "normalized": "anti-dumping",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "상계관세",
+          "normalized": "상계관세",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "平衡稅",
+          "normalized": "平衡稅",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "countervailing",
+          "normalized": "countervailing",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-trade-import-regulation-code-instruction"
+      ],
+      "notes": "⚠️ 특정 원산지·품목에 반덤핑/상계관세 부과 가능 — 한국산 일부 철강(전자강판 등)에 잠정 반덤핑 조사·부과 사례(품목·세율은 재무부 공고 확인 필요). 해당 HS/CCC 확인 필수(비철강 일반품은 미적용)."
+    },
+    {
+      "id": "cos-ketoconazole",
+      "canonical_name": "Ketoconazole (케토코나졸)",
+      "category": "cosmetic_drug_boundary",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "케토코나졸",
+          "normalized": "케토코나졸",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "ketoconazole",
+          "normalized": "ketoconazole",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "酮康唑",
+          "normalized": "酮康唑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 항진균 비듬치료 성분 — 대만 화장품 아님(藥品). 케토코나졸 함유 샴푸는 약품 등록."
+    },
+    {
+      "id": "cos-benzoyl-peroxide",
+      "canonical_name": "Benzoyl peroxide (과산화벤조일)",
+      "category": "cosmetic_drug_boundary",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "과산화벤조일",
+          "normalized": "과산화벤조일",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "benzoyl peroxide",
+          "normalized": "benzoyl peroxide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "過氧化苯甲醯",
+          "normalized": "過氧化苯甲醯",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "BPO",
+          "normalized": "bpo",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 여드름 성분 — 대만 화장품 금지/제한(2024 개정, 藥品 경계). 화장품 사용 불가, 여드름 치료는 약품."
+    },
+    {
+      "id": "cos-methanol",
+      "canonical_name": "Methanol — cosmetic (메탄올)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "메탄올화장품",
+          "normalized": "메탄올화장품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "methanol cosmetic",
+          "normalized": "methanol cosmetic",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "甲醇",
+          "normalized": "甲醇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ 화장품 메탄올 금지(에탄올 함유 화장품의 불순물로 잔류 한도 관리). 변성 에탄올 변성제로도 사용 제한."
+    },
+    {
+      "id": "cos-barium",
+      "canonical_name": "Barium compounds — cosmetic (바륨화합물)",
+      "category": "cosmetic_ingredient_restriction",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "바륨화합물",
+          "normalized": "바륨화합물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "barium",
+          "normalized": "barium",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "鋇",
+          "normalized": "鋇",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "barium compounds",
+          "normalized": "barium compounds",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "화장품 바륨 및 화합물 금지 — 단 불용성 바륨염(硫酸鋇/barium sulfate 등 색소·레이크)은 예외 허용(2018)."
+    },
+    {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
       "canonical_name": "3'-Ethyl-5',6',7',8'-tetrahydro-5',5',8',8'-tetramethyl-2'- acetonaphthone or 7-acetyl-6-ethyl-1,1,4,4-tetramethyl-1,2,3,4-tetrahydronaphtalen (AETT; Versalide)",
       "category": "prohibited",
@@ -150341,6 +151419,36 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "汞化合物",
+          "normalized": "汞化合物",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "mercury compounds",
+          "normalized": "mercury compounds",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "수은화합물",
+          "normalized": "수은화합물",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "cas"
@@ -168097,6 +169205,16 @@
           "source": "cas"
         },
         {
+          "value": "다이옥산",
+          "normalized": "다이옥산",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
           "value": "123-91-1",
           "normalized": "123-91-1",
           "type": "cas",
@@ -169910,6 +171028,16 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "cas"
+        },
+        {
+          "value": "catechol",
+          "normalized": "catechol",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
           "confidence": 0.9,
           "note": null,
           "source": "cas"
