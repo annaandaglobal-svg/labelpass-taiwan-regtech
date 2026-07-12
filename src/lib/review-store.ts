@@ -10,6 +10,7 @@ type ReviewRow = {
     app_review_id?: string;
     input?: ReviewInput;
     result?: ReviewResult;
+    meta?: { client?: string; assignee?: string };
   } | null;
 };
 
@@ -98,7 +99,8 @@ function toSavedReview(row: ReviewRow): SavedReview | null {
   return {
     id: payload.app_review_id ?? row.id,
     input: payload.input,
-    result: payload.result
+    result: payload.result,
+    ...(payload.meta && (payload.meta.client || payload.meta.assignee) ? { meta: payload.meta } : {})
   };
 }
 
@@ -152,7 +154,20 @@ export async function saveStoredReview(review: SavedReview, ownerKey?: string): 
 
   const owner = ownerKey?.trim() || null;
   const existingReview = await findStoredReviewByAppId(sql, review.id);
-  if (existingReview) return { storage: "database", review: existingReview };
+  if (existingReview) {
+    // The review body is immutable, but its organisation tags (client/assignee) can change — merge
+    // them into the stored jsonb so a team code syncs tag edits across devices. jsonb `||` overrides
+    // only the `meta` key; nothing is deleted.
+    if (review.meta && (review.meta.client || review.meta.assignee)) {
+      await sql`
+        update public.reviews
+        set source_version_summary = source_version_summary || ${sql.json({ meta: review.meta })}::jsonb
+        where source_version_summary->>'app_review_id' = ${review.id}
+      `;
+      return { storage: "database", review: { ...existingReview, meta: review.meta } };
+    }
+    return { storage: "database", review: existingReview };
+  }
 
   await sql.begin(async (tx) => {
     const category = productCategory(review.input, review.result);
@@ -199,7 +214,8 @@ export async function saveStoredReview(review: SavedReview, ownerKey?: string): 
       owner_key: owner,
       input: review.input,
       result: review.result,
-      ruleVersion: review.result.ruleVersion
+      ruleVersion: review.result.ruleVersion,
+      ...(review.meta && (review.meta.client || review.meta.assignee) ? { meta: review.meta } : {})
     };
 
     const [storedReview] = await tx<{ id: string }[]>`

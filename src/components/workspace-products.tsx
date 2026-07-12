@@ -16,8 +16,8 @@ import {
   type ProductCard,
   type SavedReview
 } from "@/lib/saved-reviews";
-import { fetchArchivedReviews } from "@/lib/review-archive-client";
-import { distinctClients, loadSkuMeta, setSkuMetaField, type SkuMeta } from "@/lib/sku-meta";
+import { fetchArchivedReviews, archiveReview } from "@/lib/review-archive-client";
+import { distinctClients, loadSkuMeta, saveSkuMeta, setSkuMetaField, type SkuMeta } from "@/lib/sku-meta";
 import { buildShareableReport, encodeReport } from "@/lib/report-share";
 
 function categoryEmoji(category: string) {
@@ -65,7 +65,31 @@ export function WorkspaceProducts() {
     const merged = mergeSavedReviews(local, remote);
     persistSavedReviews(merged);
     setReviews(merged);
+    // Sync organisation tags carried on the archived reviews — fills any SKU not tagged locally
+    // (so a teammate's client/assignee tags appear when the same team code is used).
+    const localMeta = loadSkuMeta();
+    let metaChanged = false;
+    for (const review of remote) {
+      if (!review.meta || (!review.meta.client && !review.meta.assignee)) continue;
+      const key = skuKeyForReview(review);
+      if (!localMeta[key]) {
+        localMeta[key] = review.meta;
+        metaChanged = true;
+      }
+    }
+    if (metaChanged) {
+      saveSkuMeta(localMeta);
+      setSkuMeta(localMeta);
+    }
     return true;
+  }
+
+  // Push a SKU's current tags to the archive (upserts the meta on the stored review) so a team
+  // code syncs them across devices. No-op when the archive is disabled. Called on input blur.
+  function pushMetaToArchive(key: string) {
+    const review = reviewByKey.get(key);
+    if (!review) return;
+    void archiveReview({ ...review, meta: loadSkuMeta()[key] ?? {} }, getOwnerKey());
   }
 
   useEffect(() => {
@@ -262,6 +286,7 @@ export function WorkspaceProducts() {
               value={meta.client ?? ""}
               placeholder="예: A뷰티 / 자사"
               onChange={(event) => updateMeta(card.skuKey, "client", event.target.value)}
+              onBlur={() => pushMetaToArchive(card.skuKey)}
             />
           </label>
           <label className="wp-meta-field">
@@ -271,6 +296,7 @@ export function WorkspaceProducts() {
               value={meta.assignee ?? ""}
               placeholder="예: 김규제"
               onChange={(event) => updateMeta(card.skuKey, "assignee", event.target.value)}
+              onBlur={() => pushMetaToArchive(card.skuKey)}
             />
           </label>
           {showSupplier && (

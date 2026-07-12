@@ -66,7 +66,13 @@ const savedReviewSchema = z.object({
   id: z.string().min(1).max(160).optional(),
   owner_key: z.string().min(1).max(80).optional(),
   input: reviewInputSchema,
-  result: reviewResultSchema
+  result: reviewResultSchema,
+  meta: z
+    .object({
+      client: z.string().max(80).optional(),
+      assignee: z.string().max(80).optional()
+    })
+    .optional()
 });
 
 function requestedOwnerKey(request: Request) {
@@ -203,7 +209,8 @@ export async function POST(request: Request) {
   const review: SavedReview = {
     id: parsed.data.id ?? makeId(),
     input: parsed.data.input,
-    result: parsed.data.result
+    result: parsed.data.result,
+    ...(parsed.data.meta ? { meta: parsed.data.meta } : {})
   } as SavedReview;
 
   try {

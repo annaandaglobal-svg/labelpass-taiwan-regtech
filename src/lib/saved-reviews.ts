@@ -7,6 +7,9 @@ export type SavedReview = {
   id: string;
   input: ReviewInput;
   result: ReviewResult;
+  // Per-SKU organisation tags (client/brand, assignee). Synced via the archive when a team code is
+  // set; otherwise lives only in the local sku-meta store.
+  meta?: { client?: string; assignee?: string };
 };
 
 export const SAVED_REVIEWS_KEY = "labelpass-reviews";
