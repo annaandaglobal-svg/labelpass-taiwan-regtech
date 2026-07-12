@@ -330,6 +330,7 @@ const verdictSurfacedCategories = new Set([
   "botanical_ingredient",
   "food_cosmetic_ingredient",
   "food_ingredient",
+  "restricted_substance",
   "import_export_control",
   "seafood_heavy_metal",
   "microbiology_standard",
