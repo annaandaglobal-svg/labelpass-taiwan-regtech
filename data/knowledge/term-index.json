@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2627,
+  "curated_term_count": 2630,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -10468,12 +10468,32 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "positive-list",
+          "normalized": "positive-list",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "항생제잔류",
+          "normalized": "항생제잔류",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-moj-food-veterinary-drug-residue-limits"
       ],
-      "notes": "Taiwan food-safety standard for veterinary drug residue limits and not-detected requirements for unlisted drugs."
+      "notes": "Taiwan food-safety standard for veterinary drug residue limits and not-detected requirements for unlisted drugs. [TFDA검증 L0040026] positive-list — 표에 없는 약품은 불검출(zero-tolerance, 第3조). 萊克多巴胺(락토파민): 돼지 근육/지방 0.01·간/신장 0.04ppm, 소 근육/간/신장 0.01ppm(台美협정 기타내장 0.09ppm). 氯黴素·硝基呋喃 금지·불검출. 한국 축·수산 수출 시 MRL 미등재 성분 검출=불합격."
     },
     {
       "id": "food-contaminants-toxins-standards",
@@ -10594,12 +10614,32 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "錫罐頭",
+          "normalized": "錫罐頭",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "메틸수은식품",
+          "normalized": "메틸수은식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-moj-food-contaminants-toxins"
       ],
-      "notes": "Taiwan food-safety standard for contaminants and toxins, including metals, mycotoxins, marine biotoxins, and natural plant toxins."
+      "notes": "Taiwan food-safety standard for contaminants and toxins, including metals, mycotoxins, marine biotoxins, and natural plant toxins. [TFDA검증 L0040138] 중금속(mg/kg): 백미 鉛0.2·鎘0.4·무기As0.2·총汞0.05; 어류 메틸수은 최대2(참치·상어); 통조림 錫≤250; 嬰兒配方(액상) 鉛0.010·鎘0.005. 3-MCPD: 醬油 0.3ppm; 식용유지 <1000μg/kg(유아용 <500). 苯并芘: 식용유지 2.0·嬰幼兒식품 1.0μg/kg. 戴奧辛은 별도 기준(pg WHO-TEQ/g fat)."
     },
     {
       "id": "food-microorganism-sanitation-standard",
@@ -13608,6 +13648,46 @@
           "confidence": 0.8,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "여드름치료문구",
+          "normalized": "여드름치료문구",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "항균99",
+          "normalized": "항균99",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "FDA인증사칭",
+          "normalized": "fda인증사칭",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "醫學美容級",
+          "normalized": "醫學美容級",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -13620,7 +13700,7 @@
         "tw-tfda-cosmetics-law-regulations-index",
         "tw-tfda-illegal-advertising-query"
       ],
-      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
     },
     {
       "id": "cosmetic-claims-criteria",
@@ -15915,6 +15995,26 @@
           "confidence": 0.85,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "過錳酸鉀消耗量",
+          "normalized": "過錳酸鉀消耗量",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "蒸發殘渣",
+          "normalized": "蒸發殘渣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -15922,7 +16022,7 @@
         "tw-tfda-food-contact-packaging-labeling-regulations",
         "tw-tfda-food-contact-packaging-required-items"
       ],
-      "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented."
+      "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented. [TFDA검증 L0040019] 溶出 일반한도(60℃/30min): 過錳酸鉀消耗量 ≤10ppm; 重金屬(Pb환산) ≤1ppm(4%醋酸); 蒸發殘渣 ≤30ppm(PVC 150·PS 240·PE/PP 150 예외). 도자기/유리/법랑 鉛≤5·鎘≤0.5ppm(용량≤1.1L). 종이류 螢光增白劑 불검출. 第4조: 3세 미만 유아용품 DEHP/DBP/BBP/DNOP 사용금지."
     },
     {
       "id": "food-contact-plastic-label",
@@ -16241,12 +16341,22 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "VCM",
+          "normalized": "vcm",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-contact-packaging-labeling-regulations"
       ],
-      "notes": "PVC 식품용기/랩: Pb/Cd ≤100ppm·다이부틸주석 ≤50ppm·트라이크레실인산 ≤1000ppm·**염화비닐단량체(VCM) ≤1ppm**·과망간산칼륨 소비 ≤10ppm·증발잔류물 ≤30ppm(물/초산/에탄올)·≤150ppm(n-heptane 유지)."
+      "notes": "PVC 식품용기/랩: Pb/Cd ≤100ppm·다이부틸주석 ≤50ppm·트라이크레실인산 ≤1000ppm·**염화비닐단량체(VCM) ≤1ppm**·과망간산칼륨 소비 ≤10ppm·증발잔류물 ≤30ppm(물/초산/에탄올)·≤150ppm(n-heptane 유지). [TFDA검증] PVC 保鮮膜: 氯乙烯單體(VCM) ≤1ppm; 二丁錫化物 ≤50ppm; 甲酚磷酸酯 ≤1000ppm; 塑化劑 재질 총 ≤0.1%."
     },
     {
       "id": "cosmetic-post-market-surveillance",
@@ -17447,6 +17557,56 @@
           "confidence": 0.8,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "FSMP",
+          "normalized": "fsmp",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "特殊醫療用途配方食品",
+          "normalized": "特殊醫療用途配方食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "당뇨환자용",
+          "normalized": "당뇨환자용",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "腎臟病配方",
+          "normalized": "腎臟病配方",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "管灌",
+          "normalized": "管灌",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
@@ -17454,7 +17614,7 @@
         "tw-moj-food-safety-sanitation-act",
         "tw-tfda-special-disease-food-permit-query"
       ],
-      "notes": "Taiwan requires prominent principal-display-panel wording and doctor/dietitian warning statements for approved Formula for Certain Disease products from 2025-01-01."
+      "notes": "Taiwan requires prominent principal-display-panel wording and doctor/dietitian warning statements for approved Formula for Certain Disease products from 2025-01-01. ⚠️ 特殊醫療用途配方食品(FSMP): 당뇨·신장병·연하곤란·管灌 등 질환자용 — 査驗登記 필수(2024.3 승인 350품목: 국내260·수입90). 라벨 '醫師指導下食用'(의사 지도하 섭취) 경고 의무. 일반 건기식보다 강한 사전 진입장벽."
     },
     {
       "id": "infant-formula-permit-query",
@@ -25304,13 +25464,73 @@
           "confidence": 0.88,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "細胞培養肉",
+          "normalized": "細胞培養肉",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "배양육",
+          "normalized": "배양육",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "cultured meat",
+          "normalized": "cultured meat",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食用昆蟲",
+          "normalized": "食用昆蟲",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "식용곤충",
+          "normalized": "식용곤충",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "奈米食品",
+          "normalized": "奈米食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "1999.12.31 이전 식용 이력 없으면 사전 안전성평가 필요(2026.1 시행)."
+      "notes": "1999.12.31 이전 식용 이력 없으면 사전 안전성평가 필요(2026.1 시행). ⚠️ 신소재 접근 = 금지 우선(§15: 국내 식용경험 없고 무해 미입증 식품 금지; §21 사전 査驗登記). 대만 전통 식용이력 없는 한국 신규 원료는 非傳統食品原料 안전성심사(諮議) 통과 후 수입 가능(허가 1-5년). 細胞培養肉(배양육)·食用昆蟲(식용곤충)·奈米(나노) 승인사례 없음 → 사실상 판매 불가. 아보카도씨도 반려 전례."
     },
     {
       "id": "med-claim-ban",
@@ -25769,13 +25989,73 @@
           "confidence": 0.88,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "非故意摻雜3%",
+          "normalized": "非故意摻雜3%",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "3%비의도혼입",
+          "normalized": "3%비의도혼입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "基改黃豆",
+          "normalized": "基改黃豆",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "基改玉米",
+          "normalized": "基改玉米",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "油菜",
+          "normalized": "油菜",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "苜蓿",
+          "normalized": "苜蓿",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "대두·옥수수 등 GMO 3% 초과·의도적 사용 시 基因改造 표시 의무."
+      "notes": "대두·옥수수 등 GMO 3% 초과·의도적 사용 시 基因改造 표시 의무. [基因改造 표시] 비의도적 혼입 3% 초과 시 '基因改造' 표시 필수(폰트 ≥2mm). 규제 작물: 黃豆(수입대두 ~97% GM)·玉米·油菜·棉花·甜菜·馬鈴薯·苜蓿·미생물. 가공식품(豆腐·豆漿·醬油·玉米粉)+고정제유(豆油·玉米油·澱粉·糖漿)도 표시 의무(과거 면제→현재 의무). 산장식품·음식점(2015.7~) 적용. 누락 위법."
     },
     {
       "id": "caffeine-label",
@@ -27170,13 +27450,43 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "체중조절식품",
+          "normalized": "체중조절식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "體重管理食品",
+          "normalized": "體重管理食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "특수영양식품",
+          "normalized": "특수영양식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-special-disease-food-permit-query",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21)."
+      "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21). ⚠️ 특수영양식품(영아 조제식·較大嬰兒·FSMP·체중관리)은 일반식품과 달리 수입 전 査驗登記(§21) 의무 — 자가신고 불가, 사전등록(수개월, 원료명세·영양분석·해외판매실적·중문라벨). 만 1세 초과 성장기 조제식은 일반식품."
     },
     {
       "id": "infant-formula-marketing",
@@ -27247,13 +27557,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "idealizing image ban",
+          "normalized": "idealizing image ban",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "샘플금지",
+          "normalized": "샘플금지",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "0~6개월 조제분유 광고·샘플·사은품·할인 판촉 금지(食安法§28)."
+      "notes": "0~6개월 조제분유 광고·샘플·사은품·할인 판촉 금지(食安法§28). ⚠️ 母乳代用品(0-12개월) 대중 광고 전면금지(§22 + 廣告及促銷管理辦法) — 이상화 이미지·샘플·사은품·할인·묶음판매·판촉 금지(의학저널·의료전문가 자료만 예외), 모유 우월성 문구 의무."
     },
     {
       "id": "infant-food-labeling",
@@ -31619,13 +31949,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "중금속식품한량",
+          "normalized": "중금속식품한량",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品重金屬限量",
+          "normalized": "食品重金屬限量",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-food-labeling-handbook-2026",
         "tw-moj-food-safety-sanitation-act"
       ],
-      "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+      "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
     },
     {
       "id": "melamine",
@@ -112687,12 +113037,42 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "塑化劑溶出",
+          "normalized": "塑化劑溶出",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "프탈레이트용출",
+          "normalized": "프탈레이트용출",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "phthalate migration",
+          "normalized": "phthalate migration",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-moj-food-contact-sanitation-standards"
       ],
-      "notes": "대만 溶出 방법 재시험(시뮬런트·온도). KFDA 성적 불가."
+      "notes": "대만 溶出 방법 재시험(시뮬런트·온도). KFDA 성적 불가. [TFDA검증] 塑化劑 용출(정庚烷 25℃/1hr): DEHP≤1.5·DBP≤0.3·BBP≤30·DIDP≤9·DINP≤9·DEHA≤18ppm; 재질 함량 8종 각 ≤0.1%(PVC 재질시험 제외)."
     },
     {
       "id": "trap-infant-article",
@@ -114135,12 +114515,52 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "줄기세포",
+          "normalized": "줄기세포",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "세포재생",
+          "normalized": "세포재생",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "細胞再生",
+          "normalized": "細胞再生",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "재생크림",
+          "normalized": "재생크림",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-moj-cosmetic-hygiene-safety-act"
       ],
-      "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지."
+      "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지. ⚠️ 한국 화장품 마케팅 상용어 → 대만 금지: 여드름 치료(治療)·재생/세포재생(細胞再生)·줄기세포(幹細胞)·항균99.9%(抗菌)는 醫療效能으로 NT$60만~500만. '활성화(活化)'류 일반 소구는 허용."
     },
     {
       "id": "trap-cos-2027",
@@ -114887,12 +115307,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "非傳統性食品原料",
+          "normalized": "非傳統性食品原料",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品原料查驗登記",
+          "normalized": "食品原料查驗登記",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "⚠️ 진짜 백수오(Cynanchum wilfordii)는 대만 원료 목록 미기재(ABSENT). 대만 목록의 유일한 Cynanchum은 白首烏;牛皮消(C. auriculatum, 根 허용)인데 이는 2015 한국 백수오 파동의 위조종(이엽우피소)! 진짜 백수오 식품 적격성 미확인 — 종 확인 필수."
+      "notes": "⚠️ 진짜 백수오(Cynanchum wilfordii)는 대만 원료 목록 미기재(ABSENT). 대만 목록의 유일한 Cynanchum은 白首烏;牛皮消(C. auriculatum, 根 허용)인데 이는 2015 한국 백수오 파동의 위조종(이엽우피소)! 진짜 백수오 식품 적격성 미확인 — 종 확인 필수. ⚠️ 대만 식용이력 없는 원료는 非傳統性食品原料 안전성 심사 대상 — 한국 전통식품이라도 대만 시장에 새로우면 사전심사 필요(absence≠automatic-ban이나 판매 전 심사 필수)."
     },
     {
       "id": "trap-supp-drug",
@@ -115175,12 +115615,42 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "輻射照射處理",
+          "normalized": "輻射照射處理",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "radura",
+          "normalized": "radura",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "조사처리마크",
+          "normalized": "조사처리마크",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "조사식품 허용품목+라두라 마크+輻射照射處理 표시."
+      "notes": "조사식품 허용품목+라두라 마크+輻射照射處理 표시. [輻射照射] '輻射照射處理' 표시 + radura 마크 의무. 허용 품목·선량: 발아억제(감자·고구마·양파·마늘·생강 0.15kGy); 살균(건조 향신료·허브 최대 30kGy). 미허용 품목 조사 금지·선량 초과 위법."
     },
     {
       "id": "polyglutamic-acid",
@@ -135446,12 +135916,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "젖병금지",
+          "normalized": "젖병금지",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "嬰兒奶瓶禁用",
+          "normalized": "嬰兒奶瓶禁用",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "대만 식품용기 BPA 용출 ≤0.6 ppm(물 95℃/30분 또는 4%초산 60℃/30분) — 폴리카보네이트 대상(한국 통용 ~2.5ppm보다 엄격). ⚠️ **유아용 젖병은 BPA 함유 소재 전면 금지**(용출한도 아닌 사용금지). 캔 에폭시 내면코팅엔 별도 BPA 한도 없음(공백)."
+      "notes": "대만 식품용기 BPA 용출 ≤0.6 ppm(물 95℃/30분 또는 4%초산 60℃/30분) — 폴리카보네이트 대상(한국 통용 ~2.5ppm보다 엄격). ⚠️ **유아용 젖병은 BPA 함유 소재 전면 금지**(용출한도 아닌 사용금지). 캔 에폭시 내면코팅엔 별도 BPA 한도 없음(공백). [TFDA검증 第5조] BPA(雙酚A) 함유 플라스틱 嬰幼兒 奶瓶(젖병) 재질 자체 금지(용출한도 아님). 일반 PC 용기 BPA 용출 ≤0.6ppm."
     },
     {
       "id": "fcm-polycarbonate",
@@ -135558,12 +136048,32 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "三聚氰胺溶出",
+          "normalized": "三聚氰胺溶出",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "멜라민용출",
+          "normalized": "멜라민용출",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-tfda-systematic-inspection-imported-food"
       ],
-      "notes": "멜라민-포름알데히드 식기: Pb/Cd ≤100ppm·**포름알데히드 陰性(불검출)**·페놀 陰性·**멜라민 단량체 ≤2.5ppm**(4%초산 95℃/30분)·증발잔류물 ≤30ppm."
+      "notes": "멜라민-포름알데히드 식기: Pb/Cd ≤100ppm·**포름알데히드 陰性(불검출)**·페놀 陰性·**멜라민 단량체 ≤2.5ppm**(4%초산 95℃/30분)·증발잔류물 ≤30ppm. [TFDA검증] 美耐皿(멜라민-포름알데히드): 甲醛 溶出 陰性(불검출, 水 60℃/30min); 三聚氰胺 용출 ≤2.5ppm(4%醋酸 95℃/30min); 蒸發殘渣 ≤30ppm; 鉛/鎘 각 ≤100ppm. ⚠️ 고온·산성 음식 사용 시 용출 증가."
     },
     {
       "id": "fcm-silicone",
@@ -140145,6 +140655,304 @@
         "tw-tfda-food-law-regulations-index"
       ],
       "notes": "대만 環境部 限制產品過度包裝 — 화장품 세트·가공식품 禮盒(선물세트)·주류 세트·과자 세트는 포장 層數(겹)·空隙率(공극률)·재질 종류·인쇄면적 제한('One More, Three Less': 내용물↑, 포장겹·공극·재질↓). 온라인 試算 도구로 적합성 확인. 위반 시 제재 — 한국 선물세트 그대로 수출 시 과대포장 위반 주의."
+    },
+    {
+      "id": "fukushima-import",
+      "canonical_name": "Japan Fukushima-area food import (일본 후쿠시마 식품 수입)",
+      "category": "import_export_control",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "후쿠시마수입",
+          "normalized": "후쿠시마수입",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "福島食品",
+          "normalized": "福島食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "日本輻射食品",
+          "normalized": "日本輻射食品",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Fukushima food import",
+          "normalized": "fukushima food import",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "일본5현식품",
+          "normalized": "일본5현식품",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "雙證",
+          "normalized": "雙證",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "산지방사선증명",
+          "normalized": "산지방사선증명",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "대만 일본 5현(福島·群馬·櫪木·茨城·千葉) 식품: 2022.2 지역별 전면금지 → 품목별 관리 전환, **2024.9.25 잔여 규제 전면 해제** — 과거 금지품(야생육·버섯·유채유 포함)도 雙證(방사선검사증명+산지증명)+배치검사 조건으로 수입 가능. 일본이 자국 유통을 제한하는 품목만 여전히 반입 불가. 방사능 한도는 [[radioactivity-limit]]."
+    },
+    {
+      "id": "radioactivity-limit",
+      "canonical_name": "Radioactivity limits in food (식품 방사능 허용량)",
+      "category": "contaminant_limit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "식품방사능",
+          "normalized": "식품방사능",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "輻射污染容許量",
+          "normalized": "輻射污染容許量",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "食品中原子塵或放射能污染容許量標準",
+          "normalized": "食品中原子塵或放射能污染容許量標準",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "세슘한도",
+          "normalized": "세슘한도",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "銫134及137",
+          "normalized": "銫134及137",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "Cs-137",
+          "normalized": "cs-137",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "碘131",
+          "normalized": "碘131",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "요오드131",
+          "normalized": "요오드131",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "radioactivity food limit",
+          "normalized": "radioactivity food limit",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-systematic-inspection-imported-food"
+      ],
+      "notes": "[TFDA검증 L0040079] 銫(Cs-134+137) 한도(Bq/kg): 嬰兒식품·乳製品 50; 음료·포장수 10; 기타식품 100. 碘131: 유아식품 55·기타 100. 건조·농축식품은 복원 후 평가, 찻잎은 우린 음료 기준."
+    },
+    {
+      "id": "residual-solvent-processing-aid",
+      "canonical_name": "Residual solvent / processing aid (잔류용매·가공보조제)",
+      "category": "contaminant_limit",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "잔류용매",
+          "normalized": "잔류용매",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "殘留溶劑",
+          "normalized": "殘留溶劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "residual solvent",
+          "normalized": "residual solvent",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "가공보조제",
+          "normalized": "가공보조제",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "加工助劑",
+          "normalized": "加工助劑",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "processing aid",
+          "normalized": "processing aid",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "핵산추출용매",
+          "normalized": "핵산추출용매",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "己烷",
+          "normalized": "己烷",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "hexane residue",
+          "normalized": "hexane residue",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "[TFDA검증] 己烷(hexane) 등 추출용매는 加工助劑衛生標準(2016.2 시행)으로 이관 — 식용유지 추출 잔류 己烷 ≤0.1ppm(유지 완제품), 기타 식품 ≤20ppm. 과거 '완제품 무잔류'에서 정량 한도로 변경."
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",

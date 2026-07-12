@@ -3157,6 +3157,11 @@
           "term_key": "trade-excessive-packaging",
           "canonical_name": "Excessive packaging limits (限制產品過度包裝)",
           "category": "product_category_procedure"
+        },
+        {
+          "term_key": "residual-solvent-processing-aid",
+          "canonical_name": "Residual solvent / processing aid (잔류용매·가공보조제)",
+          "category": "contaminant_limit"
         }
       ],
       "affected_products": [

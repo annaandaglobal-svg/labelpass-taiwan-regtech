@@ -8,9 +8,9 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Crawl snapshot: `2026-07-10T05:40:08.743Z`
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
-- Terms: 2,694
-- Stored aliases: 9,654
-- Searchable aliases including identifiers: 10,817
+- Terms: 2,697
+- Stored aliases: 9,730
+- Searchable aliases including identifiers: 10,893
 - Term-rule links: 1,114
 - Regulatory update candidates: 50
 - Alias review items: 1,104
@@ -183,7 +183,7 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - **Cosmetic Labeling and Claims** (`cosmetic-labeling-claims`)
   - Aliases: cosmetic labeling; 化粧品標示; 화장품 표시; cosmetic advertising claims; cosmetic claim evidence; cosmetic claim substantiation; cosmetic label claims; medical efficacy claim; 化粧品廣告; 化粧品標示宣傳廣告
   - Sources: `tw-moj-cosmetic-hygiene-safety-act`, `tw-moj-cosmetic-claims-criteria`, `tw-moj-cosmetic-product-notification`, `tw-tfda-cosmetic-announcements`, `tw-tfda-cosmetics-business-area`
-  - Note: Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening.
+  - Note: Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·...
 - **Cosmetic Product Notification** (`cosmetic-product-notification`)
   - Aliases: cosmetic product notification; 台灣化粧品產品登錄; Taiwan cosmetic product notification; 化粧品產品登錄; 화장품 신고; Taiwan cosmetic notification; cosmetic notification; product notification; 化妆品备案; 化粧品產品登錄平台系統
   - Sources: `tw-moj-cosmetic-product-notification`, `tw-tfda-pif-hub-zh`, `tw-tfda-cosmetic-product-registration-zone`, `tw-tfda-cosmetics-business-area`, `cn-nmpa-cosmetics-registration-filing`

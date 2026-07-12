@@ -10,9 +10,9 @@
   "summary": {
     "generated_at": "2026-06-25T07:47:54.729Z",
     "registry_version": "2026-06-27",
-    "terms_scanned": 2694,
-    "aliases_scanned": 9654,
-    "alias_rows_scanned": 9654,
+    "terms_scanned": 2697,
+    "aliases_scanned": 9730,
+    "alias_rows_scanned": 9730,
     "collision_groups": 295,
     "high_confidence_collisions": 235,
     "short_ambiguous_aliases_without_notes": 0,
@@ -704,7 +704,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-label-required-items",
@@ -959,7 +959,7 @@
           "alias_type": "official_term",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented."
+          "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented. [TFDA검증 L0040019] 溶出 일반한도(60℃/30min): 過錳酸鉀消耗量 ≤10ppm; 重金屬(Pb환산) ≤1ppm(4%醋酸); 蒸發殘渣 ≤30ppm(PVC 150·PS 240·PE/PP 150 예외). 도자기/유리/법랑 鉛≤5·鎘≤0.5ppm(용량≤1.1L). 종이류 螢光增白劑 불검출. 第4조: 3세 미만 유아용품 DEHP/DBP/BBP/DNOP 사용금지."
         }
       ]
     },
@@ -1274,7 +1274,7 @@
           "alias_type": "prohibited_claim",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -1309,7 +1309,7 @@
           "alias_type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -1344,7 +1344,7 @@
           "alias_type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -1519,7 +1519,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan food-safety standard for veterinary drug residue limits and not-detected requirements for unlisted drugs."
+          "notes": "Taiwan food-safety standard for veterinary drug residue limits and not-detected requirements for unlisted drugs. [TFDA검증 L0040026] positive-list — 표에 없는 약품은 불검출(zero-tolerance, 第3조). 萊克多巴胺(락토파민): 돼지 근육/지방 0.01·간/신장 0.04ppm, 소 근육/간/신장 0.01ppm(台美협정 기타내장 0.09ppm). 氯黴素·硝基呋喃 금지·불검출. 한국 축·수산 수출 시 MRL 미등재 성분 검출=불합격."
         },
         {
           "term_id": "food-contaminant-safety",
@@ -1529,7 +1529,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
         }
       ]
     },
@@ -1554,7 +1554,7 @@
           "alias_type": "official_term",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -1974,7 +1974,7 @@
           "alias_type": "prohibited_claim",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -2079,7 +2079,7 @@
           "alias_type": "chemical_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented."
+          "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented. [TFDA검증 L0040019] 溶出 일반한도(60℃/30min): 過錳酸鉀消耗量 ≤10ppm; 重金屬(Pb환산) ≤1ppm(4%醋酸); 蒸發殘渣 ≤30ppm(PVC 150·PS 240·PE/PP 150 예외). 도자기/유리/법랑 鉛≤5·鎘≤0.5ppm(용량≤1.1L). 종이류 螢光增白劑 불검출. 第4조: 3세 미만 유아용품 DEHP/DBP/BBP/DNOP 사용금지."
         },
         {
           "term_id": "fcm-phthalate",
@@ -2394,7 +2394,7 @@
           "alias_type": "official_term",
           "language": "ko",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -2429,7 +2429,7 @@
           "alias_type": "prohibited_claim",
           "language": "ko",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -2464,7 +2464,7 @@
           "alias_type": "prohibited_claim",
           "language": "ko",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -3044,7 +3044,7 @@
           "alias_type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
-          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
         },
         {
           "term_id": "cont-benzopyrene",
@@ -3964,7 +3964,7 @@
           "alias_type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
-          "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21)."
+          "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21). ⚠️ 특수영양식품(영아 조제식·較大嬰兒·FSMP·체중관리)은 일반식품과 달리 수입 전 査驗登記(§21) 의무 — 자가신고 불가, 사전등록(수개월, 원료명세·영양분석·해외판매실적·중문라벨). 만 1세 초과 성장기 조제식은 일반식품."
         }
       ]
     },
@@ -5109,7 +5109,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지."
+          "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지. ⚠️ 한국 화장품 마케팅 상용어 → 대만 금지: 여드름 치료(治療)·재생/세포재생(細胞再生)·줄기세포(幹細胞)·항균99.9%(抗菌)는 醫療效能으로 NT$60만~500만. '활성화(活化)'류 일반 소구는 허용."
         },
         {
           "term_id": "cos-exosome",
@@ -5154,7 +5154,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21)."
+          "notes": "영아·후속·특수의료용도 조제식은 特殊營養食品 — 査驗登記 허가 필수(食安法§21). ⚠️ 특수영양식품(영아 조제식·較大嬰兒·FSMP·체중관리)은 일반식품과 달리 수입 전 査驗登記(§21) 의무 — 자가신고 불가, 사전등록(수개월, 원료명세·영양분석·해외판매실적·중문라벨). 만 1세 초과 성장기 조제식은 일반식품."
         }
       ]
     },
@@ -5214,7 +5214,7 @@
           "alias_type": "official_term",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -6019,7 +6019,7 @@
           "alias_type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
         },
         {
           "term_id": "cont-benzopyrene",
@@ -6169,7 +6169,7 @@
           "alias_type": "prohibited_claim",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         }
       ]
     },
@@ -6614,7 +6614,7 @@
           "alias_type": "hazard",
           "language": "ko",
           "jurisdiction": "TW",
-          "notes": "Taiwan food-safety standard for contaminants and toxins, including metals, mycotoxins, marine biotoxins, and natural plant toxins."
+          "notes": "Taiwan food-safety standard for contaminants and toxins, including metals, mycotoxins, marine biotoxins, and natural plant toxins. [TFDA검증 L0040138] 중금속(mg/kg): 백미 鉛0.2·鎘0.4·무기As0.2·총汞0.05; 어류 메틸수은 최대2(참치·상어); 통조림 錫≤250; 嬰兒配方(액상) 鉛0.010·鎘0.005. 3-MCPD: 醬油 0.3ppm; 식용유지 <1000μg/kg(유아용 <500). 苯并芘: 식용유지 2.0·嬰幼兒식품 1.0μg/kg. 戴奧辛은 별도 기준(pg WHO-TEQ/g fat)."
         },
         {
           "term_id": "food-contaminant-safety",
@@ -6624,7 +6624,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
         }
       ]
     },
@@ -7139,7 +7139,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
         },
         {
           "term_id": "cont-benzopyrene",
@@ -7454,7 +7454,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지."
+          "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지. ⚠️ 한국 화장품 마케팅 상용어 → 대만 금지: 여드름 치료(治療)·재생/세포재생(細胞再生)·줄기세포(幹細胞)·항균99.9%(抗菌)는 醫療效能으로 NT$60만~500만. '활성화(活化)'류 일반 소구는 허용."
         },
         {
           "term_id": "cos-exosome",
@@ -7489,7 +7489,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴)."
+          "notes": "대만 아플라톡신 한도(μg/kg): 총(B1+B2+G1+G2) 쌀/옥수수/밀 원료 10·가공곡물 4·식용유 10·땅콩/유지종실 15·견과 10~15·향신료 10~20. B1 단독: 곡물원료 5·가공곡물 2·**영유아식 0.10**. M1(우유) 0.5·**영유아조제 M1 0.025**. 유아식 기준이 일반식의 10~40배 엄격(모든 곰팡이독소 공통 패턴). [TFDA검증] 식품 중금속·오염물 한도는 L0040138(污染物質及毒素衛生標準) 附表 참조 — 아플라톡신·중금속·3-MCPD·벤조피렌 포함. 상세 수치는 [[food-contaminants-toxins-standards]]."
         },
         {
           "term_id": "cont-ochratoxin",
@@ -7664,7 +7664,7 @@
           "alias_type": "search_phrase",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented."
+          "notes": "Routes Taiwan food-contact material safety searches to the sanitation standards: recycled plastic containers/packages cannot be reused to repackage food for sale, products should be free of discoloration/off odor/contamination/mould/foreign matter, children-under-three utensils and containers cannot add DEHP/DNOP/DBP/BBP, plastic infant feeding bottles cannot contain BPA, and applicable standard tests should be documented. [TFDA검증 L0040019] 溶出 일반한도(60℃/30min): 過錳酸鉀消耗量 ≤10ppm; 重金屬(Pb환산) ≤1ppm(4%醋酸); 蒸發殘渣 ≤30ppm(PVC 150·PS 240·PE/PP 150 예외). 도자기/유리/법랑 鉛≤5·鎘≤0.5ppm(용량≤1.1L). 종이류 螢光增白劑 불검출. 第4조: 3세 미만 유아용품 DEHP/DBP/BBP/DNOP 사용금지."
         },
         {
           "term_id": "trap-infant-article",
@@ -8119,7 +8119,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "PVC 식품용기/랩: Pb/Cd ≤100ppm·다이부틸주석 ≤50ppm·트라이크레실인산 ≤1000ppm·**염화비닐단량체(VCM) ≤1ppm**·과망간산칼륨 소비 ≤10ppm·증발잔류물 ≤30ppm(물/초산/에탄올)·≤150ppm(n-heptane 유지)."
+          "notes": "PVC 식품용기/랩: Pb/Cd ≤100ppm·다이부틸주석 ≤50ppm·트라이크레실인산 ≤1000ppm·**염화비닐단량체(VCM) ≤1ppm**·과망간산칼륨 소비 ≤10ppm·증발잔류물 ≤30ppm(물/초산/에탄올)·≤150ppm(n-heptane 유지). [TFDA검증] PVC 保鮮膜: 氯乙烯單體(VCM) ≤1ppm; 二丁錫化物 ≤50ppm; 甲酚磷酸酯 ≤1000ppm; 塑化劑 재질 총 ≤0.1%."
         },
         {
           "term_id": "trap-pvc-pkg",
@@ -8699,7 +8699,7 @@
           "alias_type": "common_name",
           "language": "en",
           "jurisdiction": "GLOBAL",
-          "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지."
+          "notes": "의료효능·과대(줄기세포·EGF·생발·엑소좀) 금지+안전평가사·동물시험금지. ⚠️ 한국 화장품 마케팅 상용어 → 대만 금지: 여드름 치료(治療)·재생/세포재생(細胞再生)·줄기세포(幹細胞)·항균99.9%(抗菌)는 醫療效能으로 NT$60만~500만. '활성화(活化)'류 일반 소구는 허용."
         },
         {
           "term_id": "cos-growth-factor",
@@ -9759,7 +9759,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "1999.12.31 이전 식용 이력 없으면 사전 안전성평가 필요(2026.1 시행)."
+          "notes": "1999.12.31 이전 식용 이력 없으면 사전 안전성평가 필요(2026.1 시행). ⚠️ 신소재 접근 = 금지 우선(§15: 국내 식용경험 없고 무해 미입증 식품 금지; §21 사전 査驗登記). 대만 전통 식용이력 없는 한국 신규 원료는 非傳統食品原料 안전성심사(諮議) 통과 후 수입 가능(허가 1-5년). 細胞培養肉(배양육)·食用昆蟲(식용곤충)·奈米(나노) 승인사례 없음 → 사실상 판매 불가. 아보카도씨도 반려 전례."
         }
       ]
     },
@@ -10074,7 +10074,7 @@
           "alias_type": "local_name",
           "language": "ko",
           "jurisdiction": "KR",
-          "notes": "⚠️ 진짜 백수오(Cynanchum wilfordii)는 대만 원료 목록 미기재(ABSENT). 대만 목록의 유일한 Cynanchum은 白首烏;牛皮消(C. auriculatum, 根 허용)인데 이는 2015 한국 백수오 파동의 위조종(이엽우피소)! 진짜 백수오 식품 적격성 미확인 — 종 확인 필수."
+          "notes": "⚠️ 진짜 백수오(Cynanchum wilfordii)는 대만 원료 목록 미기재(ABSENT). 대만 목록의 유일한 Cynanchum은 白首烏;牛皮消(C. auriculatum, 根 허용)인데 이는 2015 한국 백수오 파동의 위조종(이엽우피소)! 진짜 백수오 식품 적격성 미확인 — 종 확인 필수. ⚠️ 대만 식용이력 없는 원료는 非傳統性食品原料 안전성 심사 대상 — 한국 전통식품이라도 대만 시장에 새로우면 사전심사 필요(absence≠automatic-ban이나 판매 전 심사 필수)."
         }
       ]
     },
@@ -10204,7 +10204,7 @@
           "alias_type": "official_term",
           "language": "zh-Hans",
           "jurisdiction": "CN",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",
@@ -10239,7 +10239,7 @@
           "alias_type": "prohibited_claim",
           "language": "zh-Hans",
           "jurisdiction": "CN",
-          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening."
+          "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·去角質; 美白·收斂은 지정 유효성분·농도 충족 시만. ❌ 醫療效能 금지: 治療·痘痘根治·消炎·抗菌/殺菌·換膚·除疤·生髮/防止落髮·瘦身·豐胸·異位性皮膚炎/濕疹·幹細胞修復·細胞再生/活化細胞. ❌ 虛偽誇大 금지: 最高級·最佳·第一·永久·無副作用·醫學美容級·FDA認證·藥用·醫療級. ⚠️ 벌칙: 醫療效能 NT$60만~500만, 虛偽誇大 NT$4만~20만(의료효능이 ~10배). 한국 문구 치료·재생·줄기세포·항균99.9% 그대로 쓰면 위법."
         },
         {
           "term_id": "cosmetic-claims-criteria",

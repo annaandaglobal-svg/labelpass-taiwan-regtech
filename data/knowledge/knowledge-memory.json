@@ -12,9 +12,9 @@
   "summary": {
     "sources": 166,
     "source_registry_sources": 166,
-    "terms": 2694,
-    "stored_aliases": 9654,
-    "searchable_aliases": 10817,
+    "terms": 2697,
+    "stored_aliases": 9730,
+    "searchable_aliases": 10893,
     "identifier_aliases": 1163,
     "term_rule_links": 1114,
     "regulatory_update_candidates": 50,
@@ -3600,7 +3600,7 @@
         "tw-tfda-cosmetics-law-regulations-index",
         "tw-tfda-illegal-advertising-query"
       ],
-      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening.",
+      "notes": "Taiwan cosmetic labeling and claims concept for required label items, product usage statements, deceptive or exaggerated wording, claim substantiation, and medical-efficacy claim screening. [認定準則 L0030099] ✅ 허용효능: 淸潔·保濕·柔嫩·緊緻·修護·防曬(SPF)·...",
       "score": 1320
     },
     {
@@ -5529,9 +5529,9 @@
     "summary": {
       "generated_at": "2026-06-25T07:47:54.729Z",
       "registry_version": "2026-06-27",
-      "terms_scanned": 2694,
-      "aliases_scanned": 9654,
-      "alias_rows_scanned": 9654,
+      "terms_scanned": 2697,
+      "aliases_scanned": 9730,
+      "alias_rows_scanned": 9730,
       "collision_groups": 295,
       "high_confidence_collisions": 235,
       "short_ambiguous_aliases_without_notes": 0,

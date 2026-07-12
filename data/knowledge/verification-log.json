@@ -629,6 +629,40 @@
         "env-recycling"
       ],
       "facts": "PRESERVATIVES (TFDA 化粧品防腐劑 57-list, 民109.7.1, sonnet): PHMB max 0.3% (MORE PERMISSIVE than EU 0.1%); DMDM hydantoin max 0.6% + free formaldehyde ≤1000ppm; Ethylhexylglycerin NOT on list (booster, no cap). UV (TFDA 化粧品防曬劑 27-list, 民113.7.1, sonnet): Benzophenone-4/Sulisobenzone 5% free acid; Padimate O/Ethylhexyl dimethyl PABA 8%; NOT LISTED = Meradimate/menthyl anthranilate, Tinoxate, Trolamine salicylate (UV use), Digalloyl trioleate (footnote1 EU/US/JP exception). FOOD COLOR: paprika/gardenia yellow&blue/sodium iron chlorophyllin permitted natural; TW 8 synthetic = Blue1/Blue2/Green3/Yellow4/Yellow5/Red6(Ponceau4R)/Red7(Erythrosine)/Red40(Allura); ⚠️ KR/TW MISMATCH: Korea 적색2호(Amaranth) BANNED in TW; Korea 적색3호(Erythrosine)=TW 食用紅色七號 permitted. PRODUCT-CATEGORY: RF/EMS/IPL/LED-mask/pro-microneedle = 醫療器材 (許可證+QMS+agent); sanitary pads/tampons = medical device Class II; tattoo/semi-permanent pigment = cosmetic (needles=device); teeth-whitening H2O2≤6%=cosmetic; Korea 의약외품 NO Taiwan equivalent → scatters cosmetic/含藥/藥品/環境用藥(MOENV: disinfectant, DEET repellent, sanitizer)/醫療器材. ALCOHOL under 菸酒管理法(MOF): 菸酒進口業 permit; tax distilled NT$2.5/L·deg, beer NT$26/L, brewed NT$7/L·deg; label 未滿18歲禁止飲酒; wine methanol ≤3000mg/L SO2 ≤0.4g/L. TOBACCO: e-cigs FULLY BANNED (2023 菸害防制法); heated tobacco conditional (2025.7 14 products approved, personal import still banned). PACKAGING (MOENV): importers=責任業者 register+pay 回收清除處理費 + 資源回收標誌 4-in-1 mark; excessive-packaging limits on cosmetic/food/alcohol gift boxes."
+    },
+    {
+      "batch": "claimwording-foodcontact-specialdiet-gm-residue-2026-07-12w7",
+      "method": "6 parallel agents (2 sonnet fetched primary-source PDFs: 食品器具容器包裝衛生標準 L0040019, 食品中污染物質及毒素衛生標準 L0040138, 動物用藥殘留 L0040026, radioactivity L0040079; 4 haiku web-searched cosmetic-claim criteria/special-nutrition/GM-irradiation/novel-food). Domains substantially pre-covered → enriched existing owners with verified numbers; 3 genuinely-new terms (fukushima/radioactivity/residual-solvent).",
+      "verifiedAt": "2026-07-12",
+      "sources": [
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040019",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040138",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=L0040026",
+        "https://law.moj.gov.tw/Hot/AddHotLaw.ashx?PCode=L0040079",
+        "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0030099"
+      ],
+      "terms": [
+        "cosmetic-labeling-claims",
+        "trap-cos-claim",
+        "food-contact-sanitation-standards",
+        "trap-migration",
+        "fcm-melamine-ware",
+        "fcm-bpa",
+        "pvc-pvdc-food-contact-warning",
+        "formula-for-certain-disease",
+        "infant-formula-permit",
+        "infant-formula-marketing",
+        "gmo-label",
+        "trap-irradiated",
+        "novel-food",
+        "trap-raw-material",
+        "food-contaminants-toxins-standards",
+        "food-veterinary-drug-residue-limits",
+        "fukushima-import",
+        "radioactivity-limit",
+        "residual-solvent-processing-aid"
+      ],
+      "facts": "COSMETIC CLAIMS (L0030099): banned medical-efficacy 治療/消炎/抗菌/生髮/瘦身/豐胸/幹細胞/細胞再生 (NT$600k-5M) & false 最高級/FDA認證/藥用/醫療級 (NT$40k-200k); allowed 保濕/緊緻/修護/防曬, 美白 only w/ listed actives. FOOD-CONTACT (L0040019, sonnet): KMnO4 ≤10ppm, evap residue ≤30ppm (PVC150/PS240), heavy-metal ≤1ppm; phthalate migration DEHP≤1.5/DBP≤0.3/BBP≤30/DIDP≤9/DINP≤9/DEHA≤18ppm; ceramic Pb≤5/Cd≤0.5ppm; melamine formaldehyde-negative + migration ≤2.5ppm; PVC wrap VCM≤1ppm; BPA banned baby bottles; paper fluorescent-whitener not-detected; DEHP/DBP/BBP/DNOP banned <3yo items. SPECIAL NUTRITION: infant/follow-up/FSMP/weight-control need pre-market 查驗登記 (§21, FSMP 350 approved); breast-milk-substitute ad ban (§22). GM: label if >3% non-intentional; crops soy/corn/canola/cotton/sugarbeet/potato/alfalfa/microorg; refined oils now labeled; font ≥2mm. IRRADIATION: label+radura; potato/onion 0.15kGy, spices 30kGy. NOVEL FOOD: prohibitive §15; cultured meat/insects/nano not approved. CONTAMINANTS (L0040138): rice Pb0.2/Cd0.4/inorgAs0.2/Hg0.05; fish methylmercury≤2; canned Sn≤250; 3-MCPD soy-sauce 0.3ppm; benzopyrene oil2.0/infant1.0. VET DRUG (L0040026): positive-list zero-tolerance; ractopamine pork muscle0.01/liver0.04. FUKUSHIMA: 5-prefecture ban fully lifted 2024-09-25 (dual-cert+batch). RADIOACTIVITY (L0040079): Cs infant/dairy50/beverage10/general100 Bq/kg. RESIDUAL SOLVENT: hexane ≤0.1ppm oil/≤20ppm other."
     }
   ]
 }
