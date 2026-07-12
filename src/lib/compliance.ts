@@ -346,11 +346,15 @@ const verdictEligibleTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTer
       Boolean(entry.verdict)
   );
 
-function computeIngredientVerdicts(input: ReviewInput, limit = 12): IngredientVerdict[] {
+// ingredientLimit caps how many ingredient-matched verdicts we surface; the label/claim scan then
+// runs with its OWN budget (labelLimit) so 유기농/美白/GMO/품목-type triggers are never starved by a
+// long INCI list. Raised from a shared cap of 12 — a 30-50 INCI cosmetic used to silently drop the
+// overflow (including claim triggers).
+function computeIngredientVerdicts(input: ReviewInput, ingredientLimit = 40, labelLimit = 20): IngredientVerdict[] {
   const verdicts: IngredientVerdict[] = [];
   const seen = new Set<string>();
 
-  for (const ingredient of parseIngredients(input.ingredientsText)) {
+  ingredientScan: for (const ingredient of parseIngredients(input.ingredientsText)) {
     for (const { term, verdict } of verdictEligibleTerms) {
       if (seen.has(term.id)) continue;
       const alias = matchedAlias(ingredient, term.aliases ?? []);
@@ -371,7 +375,7 @@ function computeIngredientVerdicts(input: ReviewInput, limit = 12): IngredientVe
         actions: verdict.actions,
         sourceKeys: term.source_keys ?? []
       });
-      if (verdicts.length >= limit) return verdicts;
+      if (verdicts.length >= ingredientLimit) break ingredientScan;
     }
   }
 
@@ -381,7 +385,7 @@ function computeIngredientVerdicts(input: ReviewInput, limit = 12): IngredientVe
   const labelText = `${input.labelText ?? ""} ${input.productName ?? ""} ${input.productType ?? ""}`;
   if (labelText.trim()) {
     for (const { term, verdict } of verdictEligibleTerms) {
-      if (verdicts.length >= limit) break;
+      if (verdicts.length >= ingredientLimit + labelLimit) break;
       if (seen.has(term.id)) continue;
       if (!matchedAliasInText(labelText, term.aliases ?? [])) continue;
 
