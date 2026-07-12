@@ -5656,16 +5656,6 @@
           "source": "curated"
         },
         {
-          "value": "DHA",
-          "normalized": "dha",
-          "type": "abbreviation",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.65,
-          "note": "Ambiguous abbreviation; verify context.",
-          "source": "curated"
-        },
-        {
           "value": "去水醋酸",
           "normalized": "去水醋酸",
           "type": "local_name",
@@ -27372,16 +27362,6 @@
           "source": "curated"
         },
         {
-          "value": "분유",
-          "normalized": "분유",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
           "value": "infant formula",
           "normalized": "infant formula",
           "type": "common_name",
@@ -32719,16 +32699,6 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9,
-          "note": null,
-          "source": "curated"
-        },
-        {
-          "value": "타우린",
-          "normalized": "타우린",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
           "confidence": 0.9,
           "note": null,
           "source": "curated"
@@ -191438,16 +191408,6 @@
           "jurisdiction": "GLOBAL",
           "confidence": 1,
           "note": null,
-          "source": "cas"
-        },
-        {
-          "value": "DHA",
-          "normalized": "dha",
-          "type": "abbreviation",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.65,
-          "note": "Ambiguous abbreviation; verify context.",
           "source": "cas"
         },
         {

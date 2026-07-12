@@ -1855,7 +1855,7 @@ const knowledgeCases = [
   { query: "輸入許可證", expectedTerm: "Import and Export Permit" },
   { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
   { query: "sodium-benzoate", expectedTerm: "Benzoic Acid and Benzoates" },
-  { query: "DHA", expectedTerm: "Dehydroacetic Acid" },
+  { query: "DHA", expectedTerm: "Omega-3 / lutein / functional oils" },
   { query: "Gly", expectedTerm: "Glycine" },
   { query: "methyl-isothiazolinone", expectedTerm: "Methylisothiazolinone" },
   { query: "CI-77891", expectedTerm: "Titanium Dioxide" },

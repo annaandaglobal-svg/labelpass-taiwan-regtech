@@ -4458,14 +4458,6 @@
           "confidence": 1
         },
         {
-          "value": "DHA",
-          "type": "abbreviation",
-          "language": "en",
-          "jurisdiction": "GLOBAL",
-          "confidence": 0.65,
-          "note": "Ambiguous abbreviation; verify context."
-        },
-        {
           "value": "去水醋酸",
           "type": "local_name",
           "language": "zh-Hant",
@@ -20794,13 +20786,6 @@
           "confidence": 0.9
         },
         {
-          "value": "분유",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
-          "confidence": 0.9
-        },
-        {
           "value": "infant formula",
           "type": "common_name",
           "language": "en",
@@ -24808,13 +24793,6 @@
           "type": "local_name",
           "language": "zh-Hant",
           "jurisdiction": "TW",
-          "confidence": 0.9
-        },
-        {
-          "value": "타우린",
-          "type": "local_name",
-          "language": "ko",
-          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
