@@ -218,9 +218,12 @@ export function presentFinding(finding: Finding): PresentedFinding {
   }
 
   if (id.startsWith("label-")) {
+    // Preserve the specific missing item from the raw title so 9 distinct requirements don't all
+    // read as one identical "중문 라벨 필수 항목 보강" row.
+    const item = finding.title.includes(":") ? finding.title.split(":").pop()?.trim() : "";
     return {
       area: "라벨",
-      title: "중문 라벨 필수 항목 보강",
+      title: item && hasReadableLetters(item) ? `중문 라벨 필수 항목 보강: ${compact(item, 40)}` : "중문 라벨 필수 항목 보강",
       why: "제품명, 용도, 전성분, 순량, 제조/수입자, 원산지, 제조번호, 유통기한 중 일부가 부족할 수 있습니다.",
       fixes: ["중문 라벨 OCR 또는 원문 추가", "수입자와 책임업체 정보를 확정", "제품명·순량·원산지·LOT·EXP를 같은 버전으로 정리"],
       severity: "medium"

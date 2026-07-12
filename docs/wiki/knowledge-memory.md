@@ -9,11 +9,11 @@ Generated from tracked knowledge artifacts. Use this as an Obsidian/LLM working 
 - Term index: `2026-06-25T07:47:54.729Z`
 - Knowledge sources: 166
 - Terms: 2,697
-- Stored aliases: 9,766
-- Searchable aliases including identifiers: 10,929
+- Stored aliases: 9,778
+- Searchable aliases including identifiers: 10,941
 - Term-rule links: 1,114
 - Regulatory update candidates: 50
-- Alias review items: 1,104
+- Alias review items: 1,099
 
 ## How To Use This Memory
 

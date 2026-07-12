@@ -65441,6 +65441,13 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "에틸헥실메톡시신나메이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -65479,6 +65486,27 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "에칠헥실살리실레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "에틸헥실살리실레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "옥티살레이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -65557,6 +65585,13 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "부틸메톡시디벤조일메탄",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],
@@ -65744,6 +65779,20 @@
           "language": "ko",
           "jurisdiction": "KR",
           "confidence": 0.9
+        },
+        {
+          "value": "비스에칠헥실옥시페놀메톡시페닐트리아진",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "베모트리지놀",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -65808,6 +65857,27 @@
           "language": "en",
           "jurisdiction": "TW",
           "confidence": 0.9
+        },
+        {
+          "value": "에칠헥실트리아존",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "에틸헥실트리아존",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "옥틸트리아존",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
         }
       ],
       "source_keys": [
@@ -65839,6 +65909,20 @@
           "type": "common_name",
           "language": "en",
           "jurisdiction": "TW",
+          "confidence": 0.9
+        },
+        {
+          "value": "디에칠아미노하이드록시벤조일헥실벤조에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9
+        },
+        {
+          "value": "디에틸아미노하이드록시벤조일헥실벤조에이트",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
           "confidence": 0.9
         }
       ],

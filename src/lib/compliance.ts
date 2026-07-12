@@ -358,13 +358,48 @@ const verdictEligibleTerms = ((termIndexData.terms ?? []) as IndexedKnowledgeTer
 // runs with its OWN budget (labelLimit) so 유기농/美白/GMO/품목-type triggers are never starved by a
 // long INCI list. Raised from a shared cap of 12 — a 30-50 INCI cosmetic used to silently drop the
 // overflow (including claim triggers).
+// Verdict categories that only make sense for one product family. A cosmetic sunscreen must not
+// surface a food nutrient-additive / dairy-naming verdict for niacinamide/zinc, and a food must not
+// surface a cosmetic UV-filter verdict. Shared categories (glycerol, PG, colourants) are in neither
+// set and always surface.
+const FOOD_ONLY_VERDICT_CATEGORIES = new Set([
+  // NB: food_additive is intentionally NOT here — many are dual-use (glycerol, propylene glycol) and
+  // must still surface for cosmetics.
+  "nutrient_upper_limit", "dairy_fat_naming", "food_synthetic_color", "honey_naming",
+  "chocolate_naming", "juice_naming", "health_food", "health_food_claim", "health_food_labeling",
+  "infant_formula_permit", "infant_formula_marketing", "infant_food_labeling", "infant_food_safety_limit",
+  "children_food_marketing", "school_food", "toddler_formula", "infant_additive_restriction",
+  "trans_fat_pho_ban", "food_edible_oil", "special_dietary_food", "nutrient_content_claim",
+  "additive_food_restriction", "additive_combined_limit", "fermented_food_ingredient", "food_gmo_labeling",
+  "vegetarian_labeling", "caffeine_labeling", "food_safety_contaminant", "seafood_heavy_metal",
+  "microbiology_standard", "pesticide_non_detect", "irradiated_food", "food_raw_material_eligibility",
+  "food_process_contaminant", "food_enzyme", "functional_fiber", "commodity_tax_beverage"
+]);
+const COSMETIC_ONLY_VERDICT_CATEGORIES = new Set([
+  "preservative", "sunscreen", "uv_filter", "colorant_uv_filter", "skin_lightening_agent",
+  "hair_dye_ingredient", "cosmetic_special_use_claim", "cosmetic_medicinal_restricted",
+  "cosmetic_marketing_claim", "cosmetic_ingredient_restriction", "cosmetic_device_boundary",
+  "cosmetic_general_active", "exfoliating_acid_aha", "cosmetic_drug_boundary", "cosmetic_microbiology",
+  "cosmetic_claim_medical", "cosmetic_ingredient_2027", "fragrance_allergen_labeling", "cosmetic_gmp",
+  "cosmetic_oral_care", "cosmetic_restricted_active", "cosmetic_postmarket", "cosmetic_compliance"
+]);
+
 function computeIngredientVerdicts(input: ReviewInput, ingredientLimit = 40, labelLimit = 20): IngredientVerdict[] {
   const verdicts: IngredientVerdict[] = [];
   const seen = new Set<string>();
+  // Only filter when the product family is unambiguous, so an ambiguous item still sees everything.
+  const foodLike = isFoodProduct(input) || isFoodContactMaterialProduct(input);
+  const cosmeticLike = isCosmeticProduct(input);
+  const skipCategory = (category: string) => {
+    if (cosmeticLike && !foodLike && FOOD_ONLY_VERDICT_CATEGORIES.has(category)) return true;
+    if (foodLike && !cosmeticLike && COSMETIC_ONLY_VERDICT_CATEGORIES.has(category)) return true;
+    return false;
+  };
 
   ingredientScan: for (const ingredient of parseIngredients(input.ingredientsText)) {
     for (const { term, verdict } of verdictEligibleTerms) {
       if (seen.has(term.id)) continue;
+      if (skipCategory(term.category ?? "")) continue;
       const alias = matchedAlias(ingredient, term.aliases ?? []);
       if (!alias) continue;
 
@@ -395,6 +430,7 @@ function computeIngredientVerdicts(input: ReviewInput, ingredientLimit = 40, lab
     for (const { term, verdict } of verdictEligibleTerms) {
       if (verdicts.length >= ingredientLimit + labelLimit) break;
       if (seen.has(term.id)) continue;
+      if (skipCategory(term.category ?? "")) continue;
       if (!matchedAliasInText(labelText, term.aliases ?? [])) continue;
 
       seen.add(term.id);
@@ -625,7 +661,7 @@ function fixOptions(rule: RegulatoryRule, limit?: number) {
 }
 
 function isFoodProduct(input: ReviewInput) {
-  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|capsule|tablet|probiotic|functional food|health food|formula for certain disease|special dietary|medical nutrition|medical food|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|shellfish|mollusk|mollusc|clam|oyster|mussel|scallop|abalone|식품|음료|과자|소스|분말|차|커피|건강기능|건강식품|기능성 식품|프로바이오틱스|캡슐|정제|특정 질환용 조제식품|특수의료용도식품|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|조개|굴|홍합|가리비|전복|食品|飲料|餅乾|糖果|茶|咖啡|米餅|高蛋白|低糖|無糖|健康食品|保健食品|保健功效|膠囊|錠劑|益生菌|特定疾病配方食品|特殊營養食品|魷魚|奇異果|貝類|貝|牡蠣|蛤|扇貝|鮑魚/i.test(
+  return /food|snack|beverage|drink|tea|coffee|sauce|powder|candy|chocolate|supplement|capsule|tablet|probiotic|functional food|health food|formula for certain disease|special dietary|medical nutrition|medical food|cracker|cookie|protein|low sugar|sugar free|squid|kiwi|shellfish|mollusk|mollusc|clam|oyster|mussel|scallop|abalone|식품|음료|과자|소스|분말|녹차|홍차|보리차|우롱차|보이차|둥굴레차|밀크티|티백|커피|건강기능|건강식품|기능성 식품|프로바이오틱스|캡슐|정제|특정 질환용 조제식품|특수의료용도식품|쿠키|쌀과자|단백질|고단백|저당|무당|오징어|키위|패류|조개|굴|홍합|가리비|전복|食品|飲料|餅乾|糖果|綠茶|紅茶|咖啡|米餅|高蛋白|低糖|無糖|健康食品|保健食品|保健功效|膠囊|錠劑|益生菌|特定疾病配方食品|特殊營養食品|魷魚|奇異果|貝類|貝|牡蠣|蛤|扇貝|鮑魚/i.test(
     `${input.productName} ${input.productType} ${input.labelText}`
   );
 }
@@ -2520,7 +2556,7 @@ function addInfantAdditiveFindings(input: ReviewInput, findings: Finding[]) {
 // (needs_info): they prompt a COA/test report, they do not assert a specific numeric limit.
 function addFoodContaminantFindings(input: ReviewInput, findings: Finding[]) {
   const text = reviewText(input);
-  const animalOrigin = /meat|beef|pork|chicken|poultry|livestock|fish|seafood|shellfish|dairy|milk|cheese|egg|honey|gelatin|collagen|육류|고기|소고기|돼지|닭|가금|축산|생선|어류|수산|해산물|패류|유제품|우유|치즈|계란|난류|꿀|젤라틴|콜라겐|肉|魚|乳|蛋|蜂蜜/i.test(text);
+  const animalOrigin = /meat|beef|pork|chicken|poultry|livestock|fish|seafood|shellfish|shrimp|prawn|crab|lobster|squid|octopus|clam|oyster|mussel|scallop|abalone|dairy|milk|cheese|egg|honey|gelatin|collagen|육류|고기|소고기|돼지|닭|가금|축산|생선|어류|수산|해산물|패류|새우|대하|게\b|랍스터|오징어|문어|조개|굴\b|홍합|가리비|전복|유제품|우유|치즈|계란|난류|꿀|젤라틴|콜라겐|肉|魚|蝦|蟹|貝|乳|蛋|蜂蜜/i.test(text);
   const oilFried = /\boil\b|edible oil|fried|roasted|soy ?sauce|coffee|cocoa|기름|식용유|유지|튀김|볶음|간장|커피|코코아|카카오|油|醬油/i.test(text);
   const grainNutSpice = /grain|cereal|rice|wheat|corn|nut|peanut|spice|herb|dried|tea\b|곡물|곡류|쌀|밀|옥수수|견과|땅콩|향신료|허브|건조|건과|차\b|녹차|홍차|穀|堅果|香辛/i.test(text);
 
@@ -3095,7 +3131,13 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
   };
 
   const status: ReviewStatus = summary.fail > 0 ? "fail" : summary.needsInfo > 0 ? "needs_info" : summary.warn > 0 ? "warn" : "pass";
-  const score = Math.max(0, 100 - summary.fail * 24 - summary.warn * 8 - summary.needsInfo * 10);
+  // Real failures dominate the score. Routine "provide info /보강" items (a product with no Chinese
+  // label yet legitimately triggers many) are capped so a clean formula isn't driven to 0 by a long
+  // list of identical-type needs_info/warn rows.
+  const score = Math.max(
+    0,
+    100 - summary.fail * 24 - Math.min(summary.warn, 6) * 7 - Math.min(summary.needsInfo, 6) * 7
+  );
   const ruleVersion = foodProduct || foodContactMaterialProduct ? "TW-FOOD-2026.06-draft" : "TW-COS-2026.06-draft";
 
   return {
