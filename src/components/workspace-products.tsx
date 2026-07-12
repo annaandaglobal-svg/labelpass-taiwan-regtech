@@ -2,17 +2,21 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Boxes, Cloud, Layers } from "lucide-react";
+import { ArrowRight, Boxes, Cloud, Layers, Link2, Check, Users } from "lucide-react";
 import {
   deriveProductCard,
   getOwnerKey,
   loadSavedReviews,
   mergeSavedReviews,
   persistSavedReviews,
+  skuKeyForReview,
   REVIEW_PIPELINE,
-  type ProductCard
+  type ProductCard,
+  type SavedReview
 } from "@/lib/saved-reviews";
 import { fetchArchivedReviews } from "@/lib/review-archive-client";
+import { distinctClients, loadSkuMeta, setSkuMetaField, type SkuMeta } from "@/lib/sku-meta";
+import { buildShareableReport, encodeReport } from "@/lib/report-share";
 
 function categoryEmoji(category: string) {
   if (category === "화장품") return "🧴";
@@ -30,6 +34,8 @@ function nextActionFor(card: ProductCard) {
   return "즉시 멈출 항목이 없습니다 — 전문가 검수·인허가 서류 준비로 넘어가세요.";
 }
 
+const NO_CLIENT = "__none__";
+
 const filters: Array<{ key: "all" | "fail" | "warn" | "pass"; label: string }> = [
   { key: "all", label: "전체" },
   { key: "fail", label: "수정 필요" },
@@ -38,13 +44,18 @@ const filters: Array<{ key: "all" | "fail" | "warn" | "pass"; label: string }> =
 ];
 
 export function WorkspaceProducts() {
-  const [cards, setCards] = useState<ProductCard[]>([]);
+  const [reviews, setReviews] = useState<SavedReview[]>([]);
   const [filter, setFilter] = useState<"all" | "fail" | "warn" | "pass">("all");
   const [synced, setSynced] = useState(false);
+  const [skuMeta, setSkuMeta] = useState<Record<string, SkuMeta>>({});
+  const [groupByClient, setGroupByClient] = useState(false);
+  const [clientFilter, setClientFilter] = useState<string>("all");
+  const [copiedKey, setCopiedKey] = useState<string>("");
 
   useEffect(() => {
     const local = loadSavedReviews();
-    setCards(local.map(deriveProductCard));
+    setReviews(local);
+    setSkuMeta(loadSkuMeta());
     // If the Supabase archive is enabled server-side, pull this browser's stored reviews and
     // merge them in (survives a localStorage clear). Disabled/offline → silently stays local.
     let active = true;
@@ -52,7 +63,7 @@ export function WorkspaceProducts() {
       if (!active || remote.length === 0) return;
       const merged = mergeSavedReviews(local, remote);
       persistSavedReviews(merged);
-      setCards(merged.map(deriveProductCard));
+      setReviews(merged);
       setSynced(true);
     });
     return () => {
@@ -60,23 +71,79 @@ export function WorkspaceProducts() {
     };
   }, []);
 
-  const counts = useMemo(() => {
-    const list = cards;
-    return {
-      total: list.length,
-      fail: list.filter((c) => c.status === "fail").length,
-      warn: list.filter((c) => c.status === "warn" || c.status === "needs_info").length,
-      pass: list.filter((c) => c.status === "pass").length
-    };
-  }, [cards]);
+  const reviewByKey = useMemo(() => {
+    const map = new Map<string, SavedReview>();
+    for (const review of reviews) map.set(skuKeyForReview(review), review);
+    return map;
+  }, [reviews]);
+
+  const cards = useMemo(() => reviews.map(deriveProductCard), [reviews]);
+
+  const clients = useMemo(() => distinctClients(skuMeta), [skuMeta]);
+
+  const counts = useMemo(
+    () => ({
+      total: cards.length,
+      fail: cards.filter((c) => c.status === "fail").length,
+      warn: cards.filter((c) => c.status === "warn" || c.status === "needs_info").length,
+      pass: cards.filter((c) => c.status === "pass").length
+    }),
+    [cards]
+  );
 
   const visible = useMemo(() => {
-    const list = cards;
-    if (filter === "all") return list;
-    if (filter === "fail") return list.filter((c) => c.status === "fail");
-    if (filter === "warn") return list.filter((c) => c.status === "warn" || c.status === "needs_info");
-    return list.filter((c) => c.status === "pass");
-  }, [cards, filter]);
+    let list = cards;
+    if (filter === "fail") list = list.filter((c) => c.status === "fail");
+    else if (filter === "warn") list = list.filter((c) => c.status === "warn" || c.status === "needs_info");
+    else if (filter === "pass") list = list.filter((c) => c.status === "pass");
+    if (clientFilter !== "all") {
+      list = list.filter((c) => {
+        const client = skuMeta[c.skuKey]?.client;
+        return clientFilter === NO_CLIENT ? !client : client === clientFilter;
+      });
+    }
+    return list;
+  }, [cards, filter, clientFilter, skuMeta]);
+
+  // When grouping is on, bucket the visible cards under their client/brand (unassigned last).
+  const groups = useMemo(() => {
+    if (!groupByClient) return null;
+    const buckets = new Map<string, ProductCard[]>();
+    for (const card of visible) {
+      const client = skuMeta[card.skuKey]?.client || NO_CLIENT;
+      const bucket = buckets.get(client) ?? [];
+      bucket.push(card);
+      buckets.set(client, bucket);
+    }
+    return Array.from(buckets.entries()).sort(([a], [b]) => {
+      if (a === NO_CLIENT) return 1;
+      if (b === NO_CLIENT) return -1;
+      return a.localeCompare(b, "ko");
+    });
+  }, [groupByClient, visible, skuMeta]);
+
+  function updateMeta(key: string, field: keyof SkuMeta, value: string) {
+    setSkuMeta((prev) => setSkuMetaField(prev, key, field, value));
+  }
+
+  function supplierRequestHref(card: ProductCard): string | null {
+    const review = reviewByKey.get(card.skuKey);
+    if (!review) return null;
+    const report = buildShareableReport(review.input, review.result);
+    return `${window.location.origin}/report/view?d=${encodeReport(report)}`;
+  }
+
+  async function copySupplierLink(card: ProductCard) {
+    const href = supplierRequestHref(card);
+    if (!href) return;
+    try {
+      await navigator.clipboard.writeText(href);
+    } catch {
+      window.prompt("공급사에 전달할 보완요청 링크를 복사하세요:", href);
+    }
+    setCopiedKey(card.skuKey);
+    window.setTimeout(() => setCopiedKey((current) => (current === card.skuKey ? "" : current)), 2000);
+  }
 
   if (cards.length === 0) {
     return (
@@ -100,6 +167,69 @@ export function WorkspaceProducts() {
     );
   }
 
+  const renderCard = (card: ProductCard) => {
+    const meta = skuMeta[card.skuKey] ?? {};
+    const showSupplier = card.status === "fail" || card.status === "warn" || card.status === "needs_info";
+    return (
+      <div key={card.id} className="pipe-row">
+        <div className="pipe-top">
+          <div className="ic" aria-hidden="true">
+            {categoryEmoji(card.category)}
+          </div>
+          <div className="pipe-id">
+            <div className="nm">{card.name}</div>
+            <div className="mt">
+              {card.category} · {card.score}/100 · {new Date(card.generatedAt).toLocaleDateString("ko-KR")}
+            </div>
+          </div>
+          <div className="act">
+            <span className={`chip ${card.chip}`}>{card.statusLabel}</span>
+            <Link className="linkbtn" href="/review">
+              다시 검토
+              <ArrowRight size={13} />
+            </Link>
+          </div>
+        </div>
+
+        <div className="wp-meta">
+          <label className="wp-meta-field">
+            <span>클라이언트·브랜드</span>
+            <input
+              type="text"
+              value={meta.client ?? ""}
+              placeholder="예: A뷰티 / 자사"
+              onChange={(event) => updateMeta(card.skuKey, "client", event.target.value)}
+            />
+          </label>
+          <label className="wp-meta-field">
+            <span>담당자</span>
+            <input
+              type="text"
+              value={meta.assignee ?? ""}
+              placeholder="예: 김규제"
+              onChange={(event) => updateMeta(card.skuKey, "assignee", event.target.value)}
+            />
+          </label>
+          {showSupplier && (
+            <button type="button" className="wp-supplier-btn" onClick={() => copySupplierLink(card)}>
+              {copiedKey === card.skuKey ? <Check size={13} /> : <Link2 size={13} />}
+              {copiedKey === card.skuKey ? "링크 복사됨" : "공급사 보완요청 링크"}
+            </button>
+          )}
+        </div>
+
+        <div className="pipe-steps">
+          {REVIEW_PIPELINE.map((label, index) => (
+            <div key={label} className={`pstep${index < card.step ? " done" : index === card.step ? " now" : ""}`}>
+              {label}
+            </div>
+          ))}
+        </div>
+        <p className="pipe-next">다음: {nextActionFor(card)}</p>
+      </div>
+    );
+  };
+
   return (
     <article className="workspace-panel workspace-panel-wide" data-real-products="true">
       <div className="workspace-panel-head">
@@ -115,10 +245,21 @@ export function WorkspaceProducts() {
           </span>
           <h2>검토한 {counts.total}개 제품의 상태</h2>
         </div>
-        <Link className="workspace-button" href="/review/bulk">
-          <Layers size={15} />
-          일괄 검토
-        </Link>
+        <div className="wp-head-actions">
+          <button
+            type="button"
+            className={groupByClient ? "workspace-button on" : "workspace-button"}
+            onClick={() => setGroupByClient((value) => !value)}
+            aria-pressed={groupByClient}
+          >
+            <Users size={15} />
+            클라이언트별 보기
+          </button>
+          <Link className="workspace-button" href="/review/bulk">
+            <Layers size={15} />
+            일괄 검토
+          </Link>
+        </div>
       </div>
 
       <div className="wp-filters" role="tablist" aria-label="상태 필터">
@@ -133,38 +274,37 @@ export function WorkspaceProducts() {
         })}
       </div>
 
-      <div className="workspace-product-list">
-        {visible.map((card) => (
-          <div key={card.id} className="pipe-row">
-            <div className="pipe-top">
-              <div className="ic" aria-hidden="true">
-                {categoryEmoji(card.category)}
+      {clients.length > 0 && (
+        <div className="wp-client-filters" aria-label="클라이언트 필터">
+          <button type="button" className={clientFilter === "all" ? "on" : ""} onClick={() => setClientFilter("all")}>
+            전체 클라이언트
+          </button>
+          {clients.map((client) => (
+            <button key={client} type="button" className={clientFilter === client ? "on" : ""} onClick={() => setClientFilter(client)}>
+              {client}
+            </button>
+          ))}
+          <button type="button" className={clientFilter === NO_CLIENT ? "on" : ""} onClick={() => setClientFilter(NO_CLIENT)}>
+            미지정
+          </button>
+        </div>
+      )}
+
+      {groups ? (
+        <div className="workspace-product-groups">
+          {groups.map(([client, groupCards]) => (
+            <section key={client} className="wp-group">
+              <div className="wp-group-head">
+                <b>{client === NO_CLIENT ? "미지정 클라이언트" : client}</b>
+                <em>{groupCards.length}개</em>
               </div>
-              <div className="pipe-id">
-                <div className="nm">{card.name}</div>
-                <div className="mt">
-                  {card.category} · {card.score}/100 · {new Date(card.generatedAt).toLocaleDateString("ko-KR")}
-                </div>
-              </div>
-              <div className="act">
-                <span className={`chip ${card.chip}`}>{card.statusLabel}</span>
-                <Link className="linkbtn" href="/review">
-                  다시 검토
-                  <ArrowRight size={13} />
-                </Link>
-              </div>
-            </div>
-            <div className="pipe-steps">
-              {REVIEW_PIPELINE.map((label, index) => (
-                <div key={label} className={`pstep${index < card.step ? " done" : index === card.step ? " now" : ""}`}>
-                  {label}
-                </div>
-              ))}
-            </div>
-            <p className="pipe-next">다음: {nextActionFor(card)}</p>
-          </div>
-        ))}
-      </div>
+              <div className="workspace-product-list">{groupCards.map(renderCard)}</div>
+            </section>
+          ))}
+        </div>
+      ) : (
+        <div className="workspace-product-list">{visible.map(renderCard)}</div>
+      )}
     </article>
   );
 }

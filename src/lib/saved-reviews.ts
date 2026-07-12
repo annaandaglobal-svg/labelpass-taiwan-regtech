@@ -92,8 +92,15 @@ export function deriveProductCategory(productType: string): string {
   return "기타";
 }
 
+// Stable key for a SKU across re-reviews — matches the mergeSavedReviews dedup key so per-SKU
+// metadata (client/assignee) stays attached even when the review id changes on a fresh review.
+export function skuKeyForReview(review: SavedReview): string {
+  return review.input.productName.trim().toLowerCase() || review.id;
+}
+
 export type ProductCard = {
   id: string;
+  skuKey: string;
   name: string;
   category: string;
   productType: string;
@@ -113,6 +120,7 @@ export function deriveProductCard(review: SavedReview): ProductCard {
   const summary = review.result.summary ?? { fail: 0, warn: 0, pass: 0, needsInfo: 0 };
   return {
     id: review.id,
+    skuKey: skuKeyForReview(review),
     name: review.input.productName || "이름 없는 제품",
     category: deriveProductCategory(review.input.productType),
     productType: review.input.productType,
