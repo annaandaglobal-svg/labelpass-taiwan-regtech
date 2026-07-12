@@ -329,6 +329,7 @@ const verdictSurfacedCategories = new Set([
   "special_dietary_food",
   "botanical_ingredient",
   "food_cosmetic_ingredient",
+  "food_ingredient",
   "import_export_control",
   "seafood_heavy_metal",
   "microbiology_standard",
@@ -373,7 +374,8 @@ const FOOD_ONLY_VERDICT_CATEGORIES = new Set([
   "additive_food_restriction", "additive_combined_limit", "fermented_food_ingredient", "food_gmo_labeling",
   "vegetarian_labeling", "caffeine_labeling", "food_safety_contaminant", "seafood_heavy_metal",
   "microbiology_standard", "pesticide_non_detect", "irradiated_food", "food_raw_material_eligibility",
-  "food_process_contaminant", "food_enzyme", "functional_fiber", "commodity_tax_beverage"
+  "food_process_contaminant", "food_enzyme", "functional_fiber", "commodity_tax_beverage",
+  "food_ingredient"
 ]);
 const COSMETIC_ONLY_VERDICT_CATEGORIES = new Set([
   "preservative", "sunscreen", "uv_filter", "colorant_uv_filter", "skin_lightening_agent",
