@@ -6,6 +6,8 @@ import { ArrowRight, Boxes, Cloud, Layers, Link2, Check, Users } from "lucide-re
 import {
   deriveProductCard,
   getOwnerKey,
+  getTeamKey,
+  setTeamKey,
   loadSavedReviews,
   mergeSavedReviews,
   persistSavedReviews,
@@ -51,25 +53,52 @@ export function WorkspaceProducts() {
   const [groupByClient, setGroupByClient] = useState(false);
   const [clientFilter, setClientFilter] = useState<string>("all");
   const [copiedKey, setCopiedKey] = useState<string>("");
+  const [teamCode, setTeamCode] = useState<string>("");
+  const [teamInput, setTeamInput] = useState<string>("");
+  const [teamBusy, setTeamBusy] = useState(false);
+
+  // Pull the (opt-in) Supabase archive for the current owner/team scope and merge into local.
+  // Disabled/offline → returns silently, leaving localStorage as the source of truth.
+  async function pullArchive(local: SavedReview[]): Promise<boolean> {
+    const remote = await fetchArchivedReviews(getOwnerKey());
+    if (remote.length === 0) return false;
+    const merged = mergeSavedReviews(local, remote);
+    persistSavedReviews(merged);
+    setReviews(merged);
+    return true;
+  }
 
   useEffect(() => {
     const local = loadSavedReviews();
     setReviews(local);
     setSkuMeta(loadSkuMeta());
-    // If the Supabase archive is enabled server-side, pull this browser's stored reviews and
-    // merge them in (survives a localStorage clear). Disabled/offline → silently stays local.
+    setTeamCode(getTeamKey());
+    setTeamInput(getTeamKey());
     let active = true;
-    fetchArchivedReviews(getOwnerKey()).then((remote) => {
-      if (!active || remote.length === 0) return;
-      const merged = mergeSavedReviews(local, remote);
-      persistSavedReviews(merged);
-      setReviews(merged);
-      setSynced(true);
+    pullArchive(local).then((did) => {
+      if (active && did) setSynced(true);
     });
     return () => {
       active = false;
     };
   }, []);
+
+  async function applyTeamCode() {
+    setTeamBusy(true);
+    const clean = setTeamKey(teamInput);
+    setTeamCode(clean);
+    setTeamInput(clean);
+    const did = await pullArchive(loadSavedReviews());
+    setSynced(did);
+    setTeamBusy(false);
+  }
+
+  function leaveTeam() {
+    setTeamKey("");
+    setTeamCode("");
+    setTeamInput("");
+    setSynced(false);
+  }
 
   const reviewByKey = useMemo(() => {
     const map = new Map<string, SavedReview>();
@@ -145,13 +174,47 @@ export function WorkspaceProducts() {
     window.setTimeout(() => setCopiedKey((current) => (current === card.skuKey ? "" : current)), 2000);
   }
 
+  const teamBar = (
+    <div className="wp-team">
+      <div className="wp-team-copy">
+        <b>팀 워크스페이스</b>
+        <span>
+          {teamCode
+            ? `팀 코드 "${teamCode}"로 연결됨 — 같은 코드를 입력한 기기끼리 제품이 공유됩니다.`
+            : "팀 코드를 입력하면 같은 코드를 쓰는 기기끼리 제품이 공유됩니다. 로그인 없는 공용 키이며, 클라우드 저장이 켜져 있어야 실제 동기화됩니다."}
+        </span>
+      </div>
+      <div className="wp-team-controls">
+        <input
+          type="text"
+          value={teamInput}
+          placeholder="예: annaanda-team"
+          onChange={(event) => setTeamInput(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") void applyTeamCode();
+          }}
+          aria-label="팀 코드"
+        />
+        <button type="button" className="lp-button" disabled={teamBusy || !teamInput.trim()} onClick={() => void applyTeamCode()}>
+          {teamBusy ? "연결 중…" : "적용"}
+        </button>
+        {teamCode && (
+          <button type="button" className="workspace-button" onClick={leaveTeam}>
+            해제
+          </button>
+        )}
+      </div>
+    </div>
+  );
+
   if (cards.length === 0) {
     return (
       <article className="workspace-panel workspace-panel-wide">
+        {teamBar}
         <div className="wp-empty">
           <Boxes size={22} />
           <b>아직 검토한 제품이 없습니다.</b>
-          <span>성분·라벨을 검토하면 실제 제품이 상태별로 여기에 쌓입니다. 여러 제품은 일괄 검토가 빠릅니다.</span>
+          <span>성분·라벨을 검토하면 실제 제품이 상태별로 여기에 쌓입니다. 여러 제품은 일괄 검토가 빠릅니다. 팀 코드를 입력하면 동료가 검토한 제품을 불러올 수 있습니다.</span>
           <div className="wp-empty-actions">
             <Link className="lp-button" href="/review">
               성분·라벨 검토
@@ -261,6 +324,8 @@ export function WorkspaceProducts() {
           </Link>
         </div>
       </div>
+
+      {teamBar}
 
       <div className="wp-filters" role="tablist" aria-label="상태 필터">
         {filters.map((item) => {

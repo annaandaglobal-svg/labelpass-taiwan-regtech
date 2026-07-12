@@ -14,11 +14,46 @@ export const SAVED_REVIEWS_KEY = "labelpass-reviews";
 export const MAX_SAVED_REVIEWS = 60;
 
 const OWNER_KEY_STORAGE = "labelpass-owner-key";
+const TEAM_KEY_STORAGE = "labelpass-team-key";
 
-// A stable per-browser id used to scope reviews in the (opt-in) Supabase archive so one
-// visitor never sees another's products. Generated once and kept in localStorage.
+// A shared "team code" is the auth-free path to cross-device / team sync: it overrides the random
+// per-browser owner key, so every device that enters the same code reads/writes the same scope in
+// the (opt-in) Supabase archive. It is a shared workspace key, NOT a password — anyone with the
+// code sees the team's archived products, which matches the archive's existing trust model.
+export function sanitizeTeamCode(code: string): string {
+  return code
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 48);
+}
+
+export function getTeamKey(): string {
+  if (typeof window === "undefined") return "";
+  return window.localStorage.getItem(TEAM_KEY_STORAGE) ?? "";
+}
+
+export function setTeamKey(code: string): string {
+  if (typeof window === "undefined") return "";
+  const clean = sanitizeTeamCode(code);
+  if (clean) window.localStorage.setItem(TEAM_KEY_STORAGE, clean);
+  else window.localStorage.removeItem(TEAM_KEY_STORAGE);
+  return clean;
+}
+
+export function clearTeamKey(): void {
+  if (typeof window === "undefined") return;
+  window.localStorage.removeItem(TEAM_KEY_STORAGE);
+}
+
+// A stable id used to scope reviews in the (opt-in) Supabase archive so one visitor never sees
+// another's products. Prefers a shared team code when set (cross-device / team sync); otherwise a
+// random per-browser id generated once and kept in localStorage.
 export function getOwnerKey(): string {
   if (typeof window === "undefined") return "";
+  const team = getTeamKey();
+  if (team) return `team-${team}`;
   let key = window.localStorage.getItem(OWNER_KEY_STORAGE);
   if (!key) {
     key = globalThis.crypto?.randomUUID?.() ?? `owner-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
