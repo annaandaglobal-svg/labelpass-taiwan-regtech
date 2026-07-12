@@ -155,6 +155,16 @@ export function presentFinding(finding: Finding): PresentedFinding {
     };
   }
 
+  // Advisory findings that already carry fully-authored Korean copy — pass their own text through
+  // instead of the generic fallback (which would discard the tailored title/why/fix).
+  if (
+    id.startsWith("food-contaminant-") ||
+    id.startsWith("food-children-") ||
+    id === "food-colorant-kr-tw-mismatch"
+  ) {
+    return { area: finding.area, title: finding.title, why: finding.why, fixes: finding.fix };
+  }
+
   if (id.startsWith("prohibited-")) {
     return {
       area: "성분",

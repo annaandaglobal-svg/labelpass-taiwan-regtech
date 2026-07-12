@@ -757,6 +757,43 @@ if (!foodMedicalClaimResult.findings?.some((finding) => finding.id === "animal-d
   throw new Error("Food medical claim review: expected species-unknown BSE review for unspecified gelatin");
 }
 
+// Gelatin is animal-origin → proactive vet-drug residue COA advisory should fire.
+if (!foodMedicalClaimResult.findings?.some((finding) => finding.id === "food-contaminant-vet-drug-advisory")) {
+  throw new Error("Food medical claim review: expected vet-drug residue advisory for animal-origin gelatin");
+}
+
+// Children's konjac jelly drink with caffeine + a Taiwan-banned colour code (Amaranth / 적색2호).
+const kidsSnackResponse = await fetch(`${baseUrl}/api/review`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    productName: "어린이 곤약 젤리 드링크",
+    productType: "children jelly drink / kids snack",
+    ingredientsText: "Water, Konjac (glucomannan), Sugar, Caffeine, Food Red No.2 (Amaranth)",
+    labelText: "품명: 어린이 곤약 젤리. 미니컵 젤리.",
+    origin: "Korea",
+    manufacturer: "Annaanda Foods / Taiwan Importer Co."
+  })
+});
+
+if (!kidsSnackResponse.ok) {
+  throw new Error(`Kids konjac snack review: Review API returned ${kidsSnackResponse.status}`);
+}
+
+const kidsSnackResult = await kidsSnackResponse.json();
+assertCleanReviewSurface("Kids konjac snack review", kidsSnackResult);
+
+for (const expectedId of ["food-children-konjac-jelly", "food-children-caffeine-label", "food-colorant-kr-tw-mismatch"]) {
+  if (!kidsSnackResult.findings?.some((finding) => finding.id === expectedId)) {
+    throw new Error(`Kids konjac snack review: expected finding ${expectedId}`);
+  }
+}
+// The passthrough presentation must preserve the authored Korean title (not the generic fallback).
+const konjacFinding = kidsSnackResult.findings?.find((finding) => finding.id === "food-children-konjac-jelly");
+if (!konjacFinding || !konjacFinding.title.includes("질식위험")) {
+  throw new Error("Kids konjac snack review: konjac finding lost its authored title");
+}
+
 const cosmeticCollagenResponse = await fetch(`${baseUrl}/api/review`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -2204,5 +2241,5 @@ for (const testCase of verdictConsistencyCases) {
 }
 
 console.log(
-  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 29} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
+  `API smoke test passed: ${intakeCaseCount} intake file cases, ${cases.length + 30} review cases, ${knowledgeCases.length} knowledge cases, ${ambiguityCases.length} ambiguity cases, ${sourceCases.length} source cases, ${evidenceCases.length} evidence cases, ${verdictConsistencyCases.length} verdict-consistency cases, 1 combined-verdict case, 2 archive cases (read ${expectedArchiveReadStorage}, write ${expectedArchiveWriteStorage}).`
 );

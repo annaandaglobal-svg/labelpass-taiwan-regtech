@@ -2419,6 +2419,126 @@ function addInfantAdditiveFindings(input: ReviewInput, findings: Finding[]) {
   });
 }
 
+// Proactive contaminant/residue testing advisories. Heavy metals, vet-drug residues, mycotoxins
+// and process contaminants are lab facts an exporter never types into an ingredient list, so the
+// verdict engine never surfaces them. These fire by product category instead — advisory only
+// (needs_info): they prompt a COA/test report, they do not assert a specific numeric limit.
+function addFoodContaminantFindings(input: ReviewInput, findings: Finding[]) {
+  const text = reviewText(input);
+  const animalOrigin = /meat|beef|pork|chicken|poultry|livestock|fish|seafood|shellfish|dairy|milk|cheese|egg|honey|gelatin|collagen|육류|고기|소고기|돼지|닭|가금|축산|생선|어류|수산|해산물|패류|유제품|우유|치즈|계란|난류|꿀|젤라틴|콜라겐|肉|魚|乳|蛋|蜂蜜/i.test(text);
+  const oilFried = /\boil\b|edible oil|fried|roasted|soy ?sauce|coffee|cocoa|기름|식용유|유지|튀김|볶음|간장|커피|코코아|카카오|油|醬油/i.test(text);
+  const grainNutSpice = /grain|cereal|rice|wheat|corn|nut|peanut|spice|herb|dried|tea\b|곡물|곡류|쌀|밀|옥수수|견과|땅콩|향신료|허브|건조|건과|차\b|녹차|홍차|穀|堅果|香辛/i.test(text);
+
+  if (animalOrigin) {
+    findings.push({
+      id: "food-contaminant-vet-drug-advisory",
+      status: "needs_info",
+      area: "서류",
+      title: "동물성 식품 — 동물용의약품·항생제 잔류 시험성적서 확인 권장",
+      severity: "medium",
+      why: "대만은 동물용의약품 잔류를 positive-list로 관리하며 목록에 없는 약품은 불검출이 원칙입니다. 락토파민·클로람페니콜·니트로푸란 등은 수입검사에서 자주 문제가 되므로, 성분 텍스트에 없더라도 원료 단위로 확인이 필요합니다.",
+      fix: ["동물성 원료의 잔류(동물용의약품·항생제) 시험성적서(COA) 확보", "수출국 공식 위생·검역 증명 필요 여부를 대만 수입자와 확인"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL
+    });
+  }
+  if (oilFried) {
+    findings.push({
+      id: "food-contaminant-process-advisory",
+      status: "needs_info",
+      area: "서류",
+      title: "유지·가열 가공식품 — 3-MCPD·벤조피렌 등 가공오염물질 확인 권장",
+      severity: "medium",
+      why: "식용유지·간장·볶음·배전(로스팅) 제품은 3-MCPD, 벤조피렌 등 가공 중 생성 오염물질 한도 관리 대상입니다. 유아용 제품은 더 엄격한 기준이 적용됩니다.",
+      fix: ["3-MCPD·벤조피렌 등 가공오염물질 시험성적서 확인", "유아·어린이 대상이면 더 낮은 기준 적용 여부 확인"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL
+    });
+  }
+  if (grainNutSpice) {
+    findings.push({
+      id: "food-contaminant-mycotoxin-advisory",
+      status: "needs_info",
+      area: "서류",
+      title: "곡물·견과·향신료 — 곰팡이독소(아플라톡신 등) 시험 확인 권장",
+      severity: "medium",
+      why: "곡물·견과·향신료·건조식품·차류는 아플라톡신 등 곰팡이독소와 잔류농약이 수입검사에서 자주 지적됩니다.",
+      fix: ["아플라톡신 등 곰팡이독소·잔류농약 시험성적서(COA) 확보", "원산지·보관 조건 정보를 함께 정리"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL
+    });
+  }
+  if (animalOrigin || grainNutSpice) {
+    findings.push({
+      id: "food-contaminant-heavy-metal-advisory",
+      status: "needs_info",
+      area: "서류",
+      title: "중금속(납·카드뮴·비소·수은) 시험성적서 확인 권장",
+      severity: "low",
+      why: "쌀·수산물 등은 납·카드뮴·무기비소·메틸수은 등 중금속 한도 관리 대상입니다. 유아용 식품은 더 낮은 기준이 적용됩니다.",
+      fix: ["해당 원료의 중금속 시험성적서 확인", "유아·어린이 대상이면 강화된 기준 적용 여부 확인"],
+      source: SOURCE_FOOD_IMPORT_INSPECTION,
+      sourceUrl: SOURCE_FOOD_IMPORT_INSPECTION_URL
+    });
+  }
+}
+
+// Children's food / snack specific advisories (konjac jelly choking hazard, caffeine labeling).
+function addChildrenFoodFindings(input: ReviewInput, findings: Finding[]) {
+  const text = reviewText(input);
+  const konjac = /konjac|glucomannan|곤약|글루코만난|蒟蒻/i.test(text);
+  const jellyForm = /jelly|pudding|젤리|푸딩|미니컵|컵\s?젤리|果凍|椰果/i.test(text);
+  if (konjac && jellyForm) {
+    findings.push({
+      id: "food-children-konjac-jelly",
+      status: "needs_info",
+      area: "식품표시",
+      title: "곤약·미니컵 젤리 — 질식위험 경고·형상/크기 규정 확인 필요",
+      severity: "high",
+      why: "곤약(蒟蒻)·미니컵 젤리는 질식 사고 이력으로 대만에서 형상·크기 및 경고 표시 규정 대상입니다. 특히 어린이·고령자 질식 위험 경고와 제품 형상·크기 요건을 확인해야 합니다.",
+      fix: ["곤약 젤리 형상·크기 규정 및 '어린이·고령자 질식 주의' 경고 표시 요건을 대만 수입자와 확인", "미니컵 형태면 대만 판매 가능 여부·경고문구를 반드시 재확인"],
+      source: SOURCE_FOOD_ACT,
+      sourceUrl: SOURCE_FOOD_ACT_URL
+    });
+  }
+
+  const caffeine = /caffeine|카페인|咖啡因|guarana|과라나|coffee|커피|녹차추출|홍차추출|energy drink|에너지\s?드링크/i.test(text);
+  const drinkOrSnack = /beverage|drink|음료|드링크|chocolate|초콜릿|사탕|candy|snack|과자|간식/i.test(text);
+  if (caffeine && drinkOrSnack) {
+    findings.push({
+      id: "food-children-caffeine-label",
+      status: "needs_info",
+      area: "식품표시",
+      title: "카페인 함유 — '含咖啡因' 표시·함량 확인 필요",
+      severity: "medium",
+      why: "카페인이 든 음료·간식은 대만에서 카페인 함유 표시가 요구될 수 있으며, 어린이 대상 제품은 고카페인 섭취 주의가 중요합니다.",
+      fix: ["카페인 함량 및 '含咖啡因(카페인 함유)' 표시 요건 확인", "어린이 대상 제품이면 고카페인 주의·섭취 권고 문구 검토"],
+      source: SOURCE_FOOD_ACT,
+      sourceUrl: SOURCE_FOOD_ACT_URL
+    });
+  }
+}
+
+// Korean↔Taiwan food-colour number mismatch: a Korean colour code that maps to a colour Taiwan
+// bans (e.g. 적색2호 = Amaranth) must be caught even if the exporter only writes the Korean code.
+function addFoodColorantMismatchFindings(input: ReviewInput, findings: Finding[]) {
+  const text = reviewText(input);
+  const koreanColorCode = /(적색|황색|청색|녹색)\s?\d+\s?호|food\s?(red|yellow|blue|green)\s?no?\.?\s?\d+/i.test(text);
+  const namedColor = /amaranth|아마란스|tartrazine|타트라진|sunset\s?yellow|allura|알루라|erythrosine|에리스로신|食用色素|합성착색료|식용색소/i.test(text);
+  if (!koreanColorCode && !namedColor) return;
+  findings.push({
+    id: "food-colorant-kr-tw-mismatch",
+    status: "needs_info",
+    area: "성분",
+    title: "식용색소 — 한국↔대만 번호 불일치 대조 필요",
+    severity: "medium",
+    why: "대만은 합성 식용색소를 8종만 허용하며 한국과 번호 체계가 다릅니다. 특히 한국 적색2호(Amaranth)는 대만에서 사용 금지이고, 한국 적색3호(Erythrosine)는 대만 식용적색7호로 허용됩니다. 한국 색소 번호를 그대로 쓰면 오인 위험이 있습니다.",
+    fix: ["제품의 식용색소를 대만 허용 8종(적6·적7·적40·황4·황5·녹3·청1·청2) 기준으로 대조", "한국 적색2호(Amaranth) 등 대만 금지 색소 포함 여부 확인"],
+    source: SOURCE_FOOD_ADDITIVE,
+    sourceUrl: SOURCE_FOOD_ADDITIVE_URL
+  });
+}
+
 function addFoodFindings(input: ReviewInput, findings: Finding[]) {
   if (!hasTaiwanChineseLabelText(input.labelText, foodChineseLabelMarkers)) {
     findings.push({
@@ -2456,6 +2576,9 @@ function addFoodFindings(input: ReviewInput, findings: Finding[]) {
 
   addFoodGmoFindings(input, findings);
   addInfantAdditiveFindings(input, findings);
+  addFoodContaminantFindings(input, findings);
+  addChildrenFoodFindings(input, findings);
+  addFoodColorantMismatchFindings(input, findings);
 
   const combinedText = `${input.ingredientsText} ${input.labelText}`;
   const matchedAllergens = taiwanFoodAllergens.filter((allergen) => allergen.pattern.test(combinedText));

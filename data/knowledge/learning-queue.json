@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-07-12T02:50:01.016Z",
+  "updatedAt": "2026-07-12T05:26:43.371Z",
   "topics": [
     {
       "query": "Panthenol 1%",
       "count": 2,
-      "firstSeen": "2026-07-12T02:49:39.855Z",
-      "lastSeen": "2026-07-12T02:49:45.964Z",
+      "firstSeen": "2026-07-12T05:26:40.197Z",
+      "lastSeen": "2026-07-12T05:26:41.144Z",
       "status": "pending"
     },
     {
       "query": "Niacinamide 2%",
       "count": 1,
-      "firstSeen": "2026-07-12T02:50:01.016Z",
-      "lastSeen": "2026-07-12T02:50:01.016Z",
+      "firstSeen": "2026-07-12T05:26:43.371Z",
+      "lastSeen": "2026-07-12T05:26:43.371Z",
       "status": "pending"
     }
   ]
