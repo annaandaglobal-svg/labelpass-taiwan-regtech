@@ -1547,6 +1547,36 @@ function addFoodAdditiveProductFindings(input: ReviewInput, findings: Finding[])
   }
 }
 
+// Fragrance-allergen disclosure: Taiwan (aligned with EU) requires the named fragrance allergens
+// (limonene, linalool, citronellol, geraniol, coumarin, eugenol, benzyl salicylate, hexyl
+// cinnamal, oakmoss, etc.) to be listed individually on the label above 0.001% (leave-on) /
+// 0.01% (rinse-off). "Fragrance/Parfum/香料" alone hides them, so prompt a disclosure check.
+function addCosmeticFragranceAllergenFindings(input: ReviewInput, findings: Finding[]) {
+  if (!isCosmeticProduct(input)) return;
+  const text = reviewText(input);
+  const hasFragrance = /\bfragrance\b|\bparfum\b|\baroma\b|essential oil|향료|착향제|香料|香精|精油|퍼퓸/i.test(text);
+  if (!hasFragrance) return;
+  const namedAllergens = /limonene|linalool|citronellol|geraniol|coumarin|eugenol|isoeugenol|citral|farnesol|benzyl (?:alcohol|salicylate|benzoate|cinnamate)|hexyl cinnamal|cinnamal|cinnamyl alcohol|amyl cinnamal|hydroxycitronellal|anise alcohol|butylphenyl methylpropional|methyl 2-octynoate|evernia|oakmoss|리모넨|리날룰|시트로넬올|게라니올|쿠마린|유제놀/i.test(text);
+  const leaveOn = isLeaveOn(input);
+  findings.push({
+    id: "cosmetic-fragrance-allergen-disclosure",
+    status: "needs_info",
+    area: "성분",
+    title: namedAllergens
+      ? "향료 알레르겐 개별 표시 기준 확인 필요"
+      : "향료(Fragrance/Parfum) — 지정 알레르겐 개별 표시 확인 필요",
+    severity: "medium",
+    why: `대만은 EU와 같이 지정 향료 알레르겐(리모넨·리날룰·시트로넬올·게라니올·쿠마린·유제놀·벤질살리실레이트·헥실신남알·참나무이끼 등)이 ${leaveOn ? "씻어내지 않는 제품에서 0.001%" : "씻어내는 제품에서 0.01%"} 를 초과하면 라벨에 개별 성분명으로 표시하도록 요구합니다. 'Fragrance/Parfum/香料'로만 적으면 표시 누락이 됩니다.`,
+    fix: [
+      "향료(Fragrance/Parfum)의 알레르겐 구성 정보를 향료사에 요청(IFRA/알레르겐 명세)",
+      `${leaveOn ? "0.001%(leave-on)" : "0.01%(rinse-off)"} 초과 알레르겐을 전성분에 개별 표시`,
+      "제품 유형(씻어냄/씻어내지 않음)에 따라 임계값이 다르므로 함께 확인"
+    ],
+    source: SOURCE_ACT,
+    sourceUrl: SOURCE_ACT_URL
+  });
+}
+
 function addCosmeticMarketAccessFindings(input: ReviewInput, findings: Finding[]) {
   if (!isCosmeticProduct(input)) return;
 
@@ -2921,6 +2951,7 @@ export function evaluateReview(input: ReviewInput): ReviewResult {
 
   addCosmeticMarketAccessFindings(input, findings);
   addCosmeticPostMarketFindings(input, findings);
+  addCosmeticFragranceAllergenFindings(input, findings);
 
   if (isCosmeticProduct(input) && Date.now() >= PIF_EFFECTIVE_AT && !hasCosmeticPifEvidence(input)) {
     findings.push({

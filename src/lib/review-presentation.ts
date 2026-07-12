@@ -160,7 +160,8 @@ export function presentFinding(finding: Finding): PresentedFinding {
   if (
     id.startsWith("food-contaminant-") ||
     id.startsWith("food-children-") ||
-    id === "food-colorant-kr-tw-mismatch"
+    id === "food-colorant-kr-tw-mismatch" ||
+    id === "cosmetic-fragrance-allergen-disclosure"
   ) {
     return { area: finding.area, title: finding.title, why: finding.why, fixes: finding.fix };
   }

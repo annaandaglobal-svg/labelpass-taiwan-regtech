@@ -800,8 +800,8 @@ const cosmeticCollagenResponse = await fetch(`${baseUrl}/api/review`, {
   body: JSON.stringify({
     productName: "Firming Collagen Cream",
     productType: "cosmetic / leave-on cream",
-    ingredientsText: "Water, Glycerin, Bovine Collagen, Placenta Extract, Beeswax, Phenoxyethanol",
-    labelText: "品名：緊緻乳霜. 全成分：水、甘油、膠原蛋白、胎盤萃取、蜂蠟、苯氧乙醇. 原產地：韓國.",
+    ingredientsText: "Water, Glycerin, Bovine Collagen, Placenta Extract, Beeswax, Fragrance, Limonene, Phenoxyethanol",
+    labelText: "品名：緊緻乳霜. 全成分：水、甘油、膠原蛋白、胎盤萃取、蜂蠟、香料、苯氧乙醇. 原產地：韓國.",
     origin: "Korea",
     manufacturer: "Annaanda Cosmetics / Taiwan Importer Co."
   })
@@ -825,6 +825,11 @@ if (!cosmeticCollagenResult.findings?.some((finding) => finding.id === "animal-d
 }
 if (cosmeticCollagenResult.findings?.some((finding) => finding.id === "animal-derived-bse-species-unknown")) {
   throw new Error("Cosmetic collagen review: bovine collagen should be ruminant, not species-unknown");
+}
+
+// Fragrance + Limonene must trigger the fragrance-allergen disclosure advisory.
+if (!cosmeticCollagenResult.findings?.some((finding) => finding.id === "cosmetic-fragrance-allergen-disclosure")) {
+  throw new Error("Cosmetic collagen review: expected fragrance-allergen disclosure advisory");
 }
 
 const foodSweetnessClaimResponse = await fetch(`${baseUrl}/api/review`, {
