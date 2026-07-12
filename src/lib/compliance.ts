@@ -470,7 +470,12 @@ const labelRequirements = [
 
 const medicalClaimPatterns = [
   /治療|療效|醫療|藥用|항염|치료|아토피|여드름\s*치료|eczema|acne cure|anti-inflammatory/i,
-  /cell regeneration|세포\s*재생|상처\s*치유|wound healing/i
+  /cell regeneration|세포\s*재생|상처\s*치유|wound healing/i,
+  // Hair-loss / hair-growth: a Korean 기능성 shampoo claim (탈모완화/방지) but a PROHIBITED medical
+  // efficacy claim (防止落髮/生髮) for cosmetics in Taiwan.
+  /防止落髮|生髮|育髮|養髮|탈모\s*(?:방지|완화|개선|예방|억제)|발모|육모|모발\s*(?:성장|촉진)|hair\s*(?:loss|regrow|growth)/i,
+  // Scar removal / breast enhancement / slimming — cosmetic-specific banned medical claims.
+  /豐胸|除疤|去疤|흉터\s*(?:제거|개선)|가슴\s*(?:확대|커)|슬리밍|셀룰라이트\s*(?:제거|감소)|breast\s*enhanc|scar\s*removal|cellulite\s*remov/i
 ];
 
 export function parseIngredients(text: string): ParsedIngredient[] {
