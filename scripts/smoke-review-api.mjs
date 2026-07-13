@@ -1856,6 +1856,9 @@ const knowledgeCases = [
   { query: "BA", expectedTerm: "Benzoic Acid and Benzoates" },
   { query: "sodium-benzoate", expectedTerm: "Benzoic Acid and Benzoates" },
   { query: "DHA", expectedTerm: "Omega-3 / lutein / functional oils" },
+  // Golden-set guards for the 2026-07-13 regulatory-monitor additions.
+  { query: "2'-FL", expectedTerm: "2'-Fucosyllactose / HMO (2'-FL, 모유올리고당)" },
+  { query: "인체유래세포", expectedTerm: "Human-derived cells/tissue in cosmetics / 인체유래 세포·조직 (화장품 금지)" },
   { query: "Gly", expectedTerm: "Glycine" },
   { query: "methyl-isothiazolinone", expectedTerm: "Methylisothiazolinone" },
   { query: "CI-77891", expectedTerm: "Titanium Dioxide" },

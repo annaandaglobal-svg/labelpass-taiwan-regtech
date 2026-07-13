@@ -10,9 +10,9 @@
   "summary": {
     "generated_at": "2026-06-25T07:47:54.729Z",
     "registry_version": "2026-06-27",
-    "terms_scanned": 2709,
-    "aliases_scanned": 9877,
-    "alias_rows_scanned": 9877,
+    "terms_scanned": 2711,
+    "aliases_scanned": 9900,
+    "alias_rows_scanned": 9900,
     "collision_groups": 294,
     "high_confidence_collisions": 235,
     "short_ambiguous_aliases_without_notes": 0,

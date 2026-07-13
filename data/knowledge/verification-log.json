@@ -685,6 +685,22 @@
         "infant-nucleotides"
       ],
       "facts": "COLORANTS(色素표 民110.7.1): 적색104/202/218/227(CI17200!)/228호 + chromium oxides + prussian blue + bismuth oxychloride + guanine + manganese violet + ultramarine all Cat1(all-area); 적색228호(CI12085) 3% + no hair-dye; TIN OXIDE not in 152-entry table. HAIR DYE(成分限制표 民113.7.1): hydroxyethyl-PPD 2%, 4-amino-m-cresol 1.5%, 2-amino-6-chloro-4-nitrophenol 2%, Basic Red51 0.5/1%, HC Yellow2 0.75/1%, HC Red3 0.45/3%, HC Blue2 2.8%(+nitrosamine warn); Basic Brown17 not yet(2027 draft), Basic Blue99 not on list, henna can't label 染髮劑, cysteamine gray-zone, hydrolyzed keratin unrestricted. PROTEIN: WPI/WPC/WPH/egg-albumin/taurine permitted; HEMP PROTEIN PROHIBITED(Art.15). INFANT: lactoferrin ≤100mg/day+milk allergen; nucleotides/GOS/FOS/hydrolyzed-whey OK in registered formula."
+    },
+    {
+      "batch": "reg-monitor-2026-07-13",
+      "method": "Weekly regulatory monitor web-verification (4 agents: cosmetics+food sonnet, cross-ministry+border haiku). Real changes vs KB: most already present (膝關節保健 14th health category, chocolate cadmium tiers, Na-selenite/Mg-citrate, 2027 成分표 amendment, PIF phase-3 2026-07). NEW/missing added: 2'-FL HMO infant approval, human-derived-cells cosmetic ban (eff 2025-01-01), PFAS cosmetic ban note.",
+      "verifiedAt": "2026-07-13",
+      "sources": [
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t623318",
+        "https://www.mohw.gov.tw/dl-65458",
+        "https://www.fda.gov.tw/tc/newsContent.aspx?cid=3&id=31285"
+      ],
+      "terms": [
+        "infant-2-fucosyllactose-hmo",
+        "cos-proh-human-derived-cells",
+        "pfas-chemical"
+      ],
+      "facts": "2'-FL/HMO permitted TW infant formula strain-specific <=1.2g/L. Cosmetic prohibited-list amendment 2024-03-21 (eff 2025-01-01): +PFAS 5 groups/13 compounds, +human-derived cells/tissue, +3 allergens, +1 drug. Border-inspection reality (Korean rejections): pesticide residue (carbendazim/novaluron/ethylene-oxide), infant-cereal cadmium (IVENET), preservative over-limit (ethyl paraben) — all already covered by proactive advisories. CONFIRMED UNCHANGED: allergen 11-list, honey/chocolate naming, preservative/colorant tables. UNVERIFIED (NOT acted on, agent flagged PDF-extraction ambiguity): kojic acid 1->2%, boric acid full-ban-vs-0.1% in 2027-10 amendment."
     }
   ]
 }

@@ -2,7 +2,7 @@
   "generated_at": "2026-06-25T07:47:54.729Z",
   "registry_version": "2026-06-27",
   "rules_generated_at": "2026-06-25T07:47:54.729Z",
-  "curated_term_count": 2642,
+  "curated_term_count": 2644,
   "generated_term_count": 67,
   "rule_count": 1081,
   "rule_alias_count": 1081,
@@ -35673,13 +35673,33 @@
           "confidence": 0.9,
           "note": null,
           "source": "curated"
+        },
+        {
+          "value": "PFHxS",
+          "normalized": "pfhxs",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "perfluoroalkyl",
+          "normalized": "perfluoroalkyl",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
         }
       ],
       "source_keys": [
         "tw-trade-import-regulation-code-instruction",
         "tw-tfda-food-law-regulations-index"
       ],
-      "notes": "⚠️ 대만 식품접촉재 PFAS 용출 한도 아직 없음(2025-12 초안=식품 함량, 포장 용출 아님). 환경부 독성화학물질(508종) 별도. 한국도 FCM 규칙 개발중 — 양측 공백."
+      "notes": "⚠️ 대만 식품접촉재 PFAS 용출 한도 아직 없음(2025-12 초안=식품 함량, 포장 용출 아님). 환경부 독성화학물질(508종) 별도. 한국도 FCM 규칙 개발중 — 양측 공백. ⚠️ 화장품: 化粧品禁止使用成分表 개정(2024-03-21, 2025-01-01 시행)으로 **PFAS 5개 물질군/13종이 화장품 금지 성분에 추가** — 과불화화합물 함유 화장품 대만 금지(식품접촉재 용출 한도와 별개)."
     },
     {
       "id": "bsmi-2026-scope",
@@ -142621,6 +142641,248 @@
         "tw-tfda-food-law-regulations-index"
       ],
       "notes": "조제분유에 흔히 첨가되는 뉴클레오타이드 — 대만 승인 조제분유에 널리 사용(허용 추정). 조제분유는 사전 査驗登記 대상이므로 제품 단위 등록에서 확인."
+    },
+    {
+      "id": "infant-2-fucosyllactose-hmo",
+      "canonical_name": "2'-Fucosyllactose / HMO (2'-FL, 모유올리고당)",
+      "category": "food_ingredient",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "2-FL",
+          "normalized": "2-fl",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "2'-FL",
+          "normalized": "2 -fl",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "푸코실락토스",
+          "normalized": "푸코실락토스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "2-푸코실락토스",
+          "normalized": "2-푸코실락토스",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "fucosyllactose",
+          "normalized": "fucosyllactose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "2'-fucosyllactose",
+          "normalized": "2 -fucosyllactose",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "HMO",
+          "normalized": "hmo",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "모유올리고당",
+          "normalized": "모유올리고당",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "human milk oligosaccharide",
+          "normalized": "human milk oligosaccharide",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "2'-岩藻糖基乳糖",
+          "normalized": "2 -岩藻糖基乳糖",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "母乳寡醣",
+          "normalized": "母乳寡醣",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-tfda-food-law-regulations-index"
+      ],
+      "notes": "[규제모니터 2026.6] 2'-FL(모유올리고당 HMO)은 대만 조제분유·만7세 미만 유아식품에 허용되나 ⚠️ **생산 균주별 개별 승인 + 함량 ≤1.2g/L(즉석섭취 기준)**. 승인 균주와 다른 생산방식은 별도 査驗登記 필요(2026-06-24 신균주 K-12 DH1MDOMAP1001d 승인 등). 조제분유 자체도 사전 등록 대상."
+    },
+    {
+      "id": "cos-proh-human-derived-cells",
+      "canonical_name": "Human-derived cells/tissue in cosmetics / 인체유래 세포·조직 (화장품 금지)",
+      "category": "prohibited",
+      "identifiers": {
+        "cas": [],
+        "inci": [],
+        "color_index": []
+      },
+      "aliases": [
+        {
+          "value": "인체유래세포",
+          "normalized": "인체유래세포",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인체유래조직",
+          "normalized": "인체유래조직",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인체세포조직",
+          "normalized": "인체세포조직",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "human-derived cells",
+          "normalized": "human-derived cells",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "human tissue",
+          "normalized": "human tissue",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인태반",
+          "normalized": "인태반",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "인체태반",
+          "normalized": "인체태반",
+          "type": "local_name",
+          "language": "ko",
+          "jurisdiction": "KR",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "human placenta",
+          "normalized": "human placenta",
+          "type": "common_name",
+          "language": "en",
+          "jurisdiction": "GLOBAL",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "人體來源細胞",
+          "normalized": "人體來源細胞",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        },
+        {
+          "value": "人類細胞組織",
+          "normalized": "人類細胞組織",
+          "type": "local_name",
+          "language": "zh-Hant",
+          "jurisdiction": "TW",
+          "confidence": 0.9,
+          "note": null,
+          "source": "curated"
+        }
+      ],
+      "source_keys": [
+        "tw-moj-cosmetic-hygiene-safety-act"
+      ],
+      "notes": "⚠️ **대만 화장품 금지** — 化粧品禁止使用成分表 개정(衛授食字1131601051, 2024-03-21)으로 인체(사람) 유래 세포·조직 및 그 제품이 금지 성분에 추가(해당 항목 공고 즉시 시행). 인태반·인체 줄기세포 유래 원료 화장품은 대만 반입 불가. (동물유래 태반은 별도 APHIA 검역.)"
     },
     {
       "id": "tfda-3-ethyl-5-6-7-8-tetrahydro-5-5-8-8-tetramethyl-2-acetonaphthone-or-7-acetyl-6-et",
